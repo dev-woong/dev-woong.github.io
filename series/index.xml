@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Series on Dev-Place</title>
-        <link>https://coldwoong.github.io/series/</link>
+        <link>https://dev-woong.github.io/series/</link>
         <description>Recent content in Series on Dev-Place</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko</language>
-        <copyright>Copyright © 2008–2019, coldwoong.github.io; all rights reserved.</copyright>
-        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://coldwoong.github.io/series/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>Copyright © 2022–2024, dev-woong.github.io; all rights reserved.</copyright>
+        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.github.io/series/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Themes Guide</title>
-        <link>https://coldwoong.github.io/series/themes-guide/</link>
+        <link>https://dev-woong.github.io/series/themes-guide/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/series/themes-guide/</guid>
+        <guid>https://dev-woong.github.io/series/themes-guide/</guid>
         <description></description>
         </item>
         

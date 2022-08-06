@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on Dev-Place</title>
-        <link>https://coldwoong.github.io/tags/</link>
+        <link>https://dev-woong.github.io/tags/</link>
         <description>Recent content in Tags on Dev-Place</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko</language>
-        <copyright>Copyright © 2008–2019, coldwoong.github.io; all rights reserved.</copyright>
-        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://coldwoong.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>Copyright © 2022–2024, dev-woong.github.io; all rights reserved.</copyright>
+        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>css</title>
-        <link>https://coldwoong.github.io/tags/css/</link>
+        <link>https://dev-woong.github.io/tags/css/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/css/</guid>
+        <guid>https://dev-woong.github.io/tags/css/</guid>
         <description></description>
         </item>
         <item>
         <title>html</title>
-        <link>https://coldwoong.github.io/tags/html/</link>
+        <link>https://dev-woong.github.io/tags/html/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/html/</guid>
+        <guid>https://dev-woong.github.io/tags/html/</guid>
         <description></description>
         </item>
         <item>
         <title>markdown</title>
-        <link>https://coldwoong.github.io/tags/markdown/</link>
+        <link>https://dev-woong.github.io/tags/markdown/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/markdown/</guid>
+        <guid>https://dev-woong.github.io/tags/markdown/</guid>
         <description></description>
         </item>
         <item>
         <title>themes</title>
-        <link>https://coldwoong.github.io/tags/themes/</link>
+        <link>https://dev-woong.github.io/tags/themes/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/themes/</guid>
+        <guid>https://dev-woong.github.io/tags/themes/</guid>
         <description></description>
         </item>
         <item>
         <title>privacy</title>
-        <link>https://coldwoong.github.io/tags/privacy/</link>
+        <link>https://dev-woong.github.io/tags/privacy/</link>
         <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/privacy/</guid>
+        <guid>https://dev-woong.github.io/tags/privacy/</guid>
         <description></description>
         </item>
         <item>
         <title>shortcodes</title>
-        <link>https://coldwoong.github.io/tags/shortcodes/</link>
+        <link>https://dev-woong.github.io/tags/shortcodes/</link>
         <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/shortcodes/</guid>
+        <guid>https://dev-woong.github.io/tags/shortcodes/</guid>
         <description></description>
         </item>
         <item>
         <title>ماركداون</title>
-        <link>https://coldwoong.github.io/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</link>
+        <link>https://dev-woong.github.io/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</guid>
+        <guid>https://dev-woong.github.io/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</guid>
         <description></description>
         </item>
         <item>
         <title>نص</title>
-        <link>https://coldwoong.github.io/tags/%D9%86%D8%B5/</link>
+        <link>https://dev-woong.github.io/tags/%D9%86%D8%B5/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/%D9%86%D8%B5/</guid>
+        <guid>https://dev-woong.github.io/tags/%D9%86%D8%B5/</guid>
         <description></description>
         </item>
         <item>
         <title>وسم مع فراغات</title>
-        <link>https://coldwoong.github.io/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</link>
+        <link>https://dev-woong.github.io/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</guid>
+        <guid>https://dev-woong.github.io/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</guid>
         <description></description>
         </item>
         <item>
         <title>emoji</title>
-        <link>https://coldwoong.github.io/tags/emoji/</link>
+        <link>https://dev-woong.github.io/tags/emoji/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://coldwoong.github.io/tags/emoji/</guid>
+        <guid>https://dev-woong.github.io/tags/emoji/</guid>
         <description></description>
         </item>
         

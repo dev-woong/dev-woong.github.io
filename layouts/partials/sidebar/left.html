@@ -38,23 +38,20 @@
     </header>
 
     {{- with .Site.Menus.social -}}
-        <ol class="social-menu">
+    	<ol class="social-menu">
             {{ range . }}
                 <li>
                     <a 
-                        href='{{ .URL }}'
-                        {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
+                        class="{{ .Identifier }}" href="{{ .URL }}" 
                         {{ with .Name }}title="{{ . }}"{{ end }}
-                    >
-                        {{ $icon := default "link" .Params.Icon }}
-                        {{ with $icon }}
-                            {{ partial "helper/icon" . }}
-                        {{ end }}
+                        {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
+					>
+                        <i class="icon-{{ .Params.Icon }}"></i>
                     </a>
                 </li>
             {{ end }}
         </ol>
-    {{- end -}}
+	{{- end -}}
 
     <ol class="menu" id="main-menu">
         {{ $currentPage := . }}

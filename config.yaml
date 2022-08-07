@@ -198,13 +198,13 @@ menu:
           name: GitHub
           url: https://github.com/dev-woong
           params:
-              icon: brand-github
+              icon: github
 
         - identifier: twitter
           name: Twitter
           url: https://twitter.com
           params:
-              icon: brand-twitter
+              icon: mail
 
 related:
     includeNewer: true

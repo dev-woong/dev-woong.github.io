@@ -54,7 +54,7 @@ params:
 
     sidebar:
         emoji: 🍥
-        subtitle: refact: 어 왜 안되지
+        subtitle: refact\: 어 왜 안되지
         avatar:
             enabled: true
             local: true

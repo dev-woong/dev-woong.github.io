@@ -1,18 +1,19 @@
 baseurl: https://dev-woong.github.io/
-languageCode: en-us
+languageCode: ko-kr
 theme: hugo-theme-stack
 paginate: 5
 title: Dev-Woong
 
 languages:
     en:
-        languageName: Korean
+        languageName: English
         title: Dev-Woong
         weight: 1
-        #    zh-cn:
-      #        languageName: 中文
-        #        title: 演示站点
-        #        weight: 2
+    ko:
+        languageName: 한국어
+        title: Dev-Woong
+        subtitle: 클린 코드를 만들기 위해 🚀
+        weight: 2
         #    ar:
       #        languageName: عربي
         #        languagedirection: rtl
@@ -27,11 +28,11 @@ googleAnalytics:
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
-DefaultContentLanguage: en
+DefaultContentLanguage: ko
 
 # Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
 # This will make .Summary and .WordCount behave correctly for CJK languages.
-hasCJKLanguage: false
+hasCJKLanguage: true
 
 permalinks:
     post: /p/:slug/
@@ -45,7 +46,7 @@ params:
     favicon:
 
     footer:
-        since: 2020
+        since: 2022
         customText:
 
     dateFormat:
@@ -54,7 +55,7 @@ params:
 
     sidebar:
       #        emoji: 🚀
-        subtitle: "🚀 I like refactor 🚀"
+        subtitle: "To make a clean code 🚀"
         avatar:
             enabled: true
             local: true
@@ -73,7 +74,7 @@ params:
         provider: disqus
 
         disqusjs:
-            shortname:
+            shortname: dev-woong
             apiUrl:
             apiKey:
             admin:
@@ -193,18 +194,18 @@ params:
 menu:
     main: []
 
-    social:
-        - identifier: github
-          name: GitHub
-          url: https://github.com/dev-woong/
-          params:
-              icon: github
-
-        - identifier: mail
-          name: Email
-          url: mailto:intajon@gmail.com
-          params:
-              icon: mail
+    #    social:
+    #        - identifier: github
+    #          name: GitHub
+    #          url: https://github.com/dev-woong/
+    #          params:
+    #              icon: github
+    #
+    #        - identifier: mail
+    #          name: Email
+    #          url: mailto:intajon@gmail.com
+    #          params:
+    #              icon: mail
 related:
     includeNewer: true
     threshold: 60

@@ -12,13 +12,14 @@ languages:
     ko:
         languageName: 한국어
         title: Dev-Woong
-        subtitle: 클린 코드를 만들기 위해 🚀
+        params:
+            sidebar:
+                subtitle: 클린 코드를 만들기 위해 🚀
+                avatar:
+                    enabled: true
+                    local: true
+                    src: img/avatar.png
         weight: 2
-        #    ar:
-      #        languageName: عربي
-        #        languagedirection: rtl
-        #        title: موقع تجريبي
-        #        weight: 3
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack

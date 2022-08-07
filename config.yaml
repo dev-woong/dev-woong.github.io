@@ -54,7 +54,7 @@ params:
 
     sidebar:
       #        emoji: 🚀
-      subtitle: " 🚀 : I like refact : 🚀 "
+        subtitle: "🚀 I like refact 🚀"
         avatar:
             enabled: true
             local: true

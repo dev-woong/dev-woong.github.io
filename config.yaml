@@ -1,23 +1,23 @@
-baseurl: https://example.com
+baseurl: https://dev-woong.github.io/
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
-title: Example Site
+title: Dev-Woong
 
 languages:
     en:
-        languageName: English
-        title: Example Site
+        languageName: Korean
+        title: Dev-Woong
         weight: 1
-    zh-cn:
-        languageName: 中文
-        title: 演示站点
-        weight: 2
-    ar:
-        languageName: عربي
-        languagedirection: rtl
-        title: موقع تجريبي
-        weight: 3
+        #    zh-cn:
+      #        languageName: 中文
+        #        title: 演示站点
+        #        weight: 2
+        #    ar:
+      #        languageName: عربي
+        #        languagedirection: rtl
+        #        title: موقع تجريبي
+        #        weight: 3
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
@@ -54,7 +54,7 @@ params:
 
     sidebar:
         emoji: 🍥
-        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        subtitle: refact: 어 왜 안되지
         avatar:
             enabled: true
             local: true
@@ -196,7 +196,7 @@ menu:
     social:
         - identifier: github
           name: GitHub
-          url: https://github.com/CaiJimmy/hugo-theme-stack
+          url: https://github.com/dev-woong
           params:
               icon: brand-github
 

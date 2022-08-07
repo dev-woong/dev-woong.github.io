@@ -195,7 +195,7 @@ menu:
 
     social:
     - identifier: github
-        name: GitHub
+        name: Github
         url: "https://github.com/dev-woong/"
         params:
             icon: github

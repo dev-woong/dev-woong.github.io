@@ -14,7 +14,7 @@ languages:
         title: Dev-Woong
         params:
             sidebar:
-                subtitle: 클린 코드를 만들기 위해 🚀
+                subtitle: 깨끗한 코드를 위해 🚀
                 avatar:
                     enabled: true
                     local: true
@@ -56,7 +56,7 @@ params:
 
     sidebar:
       #        emoji: 🚀
-        subtitle: "To make a clean code 🚀"
+        subtitle: "For a clean-code 🚀"
         avatar:
             enabled: true
             local: true

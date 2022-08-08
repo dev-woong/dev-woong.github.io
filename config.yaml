@@ -14,7 +14,7 @@ languages:
         title: Dev-Woong
         params:
             sidebar:
-                subtitle: 클린 코드를 향한 나의 삽질 구덩이
+                subtitle: 클린 코드를 향한 무한 삽질 도전기!
                 avatar:
                     enabled: true
                     local: true
@@ -56,7 +56,7 @@ params:
 
     sidebar:
       #        emoji: 🚀
-        subtitle: My shoveling pit for the Clean-Code
+        subtitle: Infinite shoveling challenge to Clean-Code!
         avatar:
             enabled: true
             local: true

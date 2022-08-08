@@ -53,12 +53,12 @@ menu:
 
 ## License
 
-- `2021` Information Processing Article
-- `2021` Information Security Industry Engineer
+- `2021` Engineer Information Processing
+- `2021` Industry Engineer Information Security
 - `2016` Network Management Grade 2
-- `2016` Type 1 normal driver's license
-- `2014` Electronic Computing Technology Company
-- `2012` Word Processor Grade 1
+- `2016` Driving License 1st class ; Regular
+- `2014` Craftsman Computer
+- `2012` Word Processor User, Level-I
 
 
 ## Experience

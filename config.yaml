@@ -77,7 +77,7 @@ params:
         disqusjs:
             shortname: dev-woong
             apiUrl:
-            apiKey:
+            apiKey: SZv7yfCv0PsPYUTaQiN1fd7vBxq3K3j9aU8Prn5bJIF4VoamYAIwSoUtLNOjibhA
             admin:
             adminLabel:
 

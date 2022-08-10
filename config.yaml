@@ -2,16 +2,14 @@ baseurl: https://dev-woong.io/
 languageCode: ko-kr
 theme: hugo-theme-stack
 paginate: 5
-title: Dev-Woong
+title: Dev-Woong 🚀
 
 languages:
     en:
         languageName: English
-        title: Dev-Woong
         weight: 1
     ko:
         languageName: 한국어
-        title: Dev-Woong
         params:
             sidebar:
                 subtitle: 클린 코드를 향한 무한 삽질 도전기!

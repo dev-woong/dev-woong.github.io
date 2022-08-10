@@ -1,21 +1,19 @@
 +++
-author = "Hugo Authors"
-title = "Markdown Syntax Guide"
-date = "2019-03-11"
-description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+author = "Dev-Woong"
+title = "Github Personal Access Token 발급하기"
+date = "2022-08-09"
+description = "API 등에서 Github를 관리/제어할 수 있는 Personal Access Token 발급 방법을 알아봅니다."
 tags = [
-    "markdown",
-    "css",
-    "html",
-    "themes",
+    "github",
+    "Personal Access Token",
 ]
 categories = [
-    "themes",
-    "syntax",
+    "GitHub",
 ]
-series = ["Themes Guide"]
+series = ["Github Personal Access Token"]
 aliases = ["migrate-from-jekyl"]
-image = "pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg"
+image = "code.jpg"
+draft = true
 +++
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.

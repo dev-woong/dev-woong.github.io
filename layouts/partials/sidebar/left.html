@@ -53,8 +53,9 @@
         </ol>
 	{{- end -}}
 
-    <ol class="menu" id="main-menu">
+		<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdev-woong.io%2Fhit-counter&count_bg=%2343BEE5&title_bg=%23555555&icon=git.svg&icon_color=%23E7E7E7&title=방문자수&edge_flat=true"/></a>
         {{ $currentPage := . }}
+    <ol class="menu" id="main-menu">
         {{ range .Site.Menus.main }}
         {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
 
@@ -84,7 +85,7 @@
                     </select>
                 </li>
             {{ end }}
-            
+
             {{ if (default false .Site.Params.colorScheme.toggle) }}
                 <li id="dark-mode-toggle">
                     {{ partial "helper/icon" "toggle-left" }}

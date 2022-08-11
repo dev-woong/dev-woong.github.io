@@ -12,7 +12,7 @@ categories = [
 ]
 series = ["GitHub Personal Access Token"]
 aliases = ["migrate-from-jekyl"]
-image = "code.jpg"
+image = "passport.jpg"
 draft = false
 +++
 ## Access Token 이란?

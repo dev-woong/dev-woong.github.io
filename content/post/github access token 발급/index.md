@@ -28,7 +28,7 @@ draft = false
 ### GitHub 로그인
 [GitHub Login](https://github.com/login) 페이지에서 로그인합니다.
 
-### Settings > Developer Settings
+### 설정 페이지 이동
 ![사용자 아이콘 > Settings](1.png)
 ![Developer Settings](2.png)
 

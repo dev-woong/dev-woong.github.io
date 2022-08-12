@@ -1,4 +1,6 @@
 ---
+title: 비동기(Async) - Async, Await
+image: 
 categories: .NET
 date: 2022-01-02
 tags:
@@ -7,7 +9,6 @@ tags:
 - 비동기
 - Async
 - Await
-title: 비동기(Async) - Async, Await
 draft: true
 ---
 

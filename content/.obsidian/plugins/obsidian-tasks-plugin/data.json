@@ -1,0 +1,8 @@
+{
+  "globalFilter": "#task",
+  "removeGlobalFilter": false,
+  "setDoneDate": true,
+  "autoSuggestInEditor": true,
+  "autoSuggestMinMatch": 0,
+  "autoSuggestMaxItems": 6
+}

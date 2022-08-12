@@ -28,6 +28,9 @@
                 href="https://dev-woong.io/categories/"
                 />
   </url><url>
+    <loc>https://dev-woong.io/categories/</loc>
+    <lastmod>2022-08-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dev-woong.io/tags/github/</loc>
     <lastmod>2022-08-09T00:00:00+00:00</lastmod>
   </url><url>
@@ -95,6 +98,12 @@
                 href="https://dev-woong.io/archives/"
                 />
   </url><url>
+    <loc>https://dev-woong.io/template/task/</loc>
+  </url><url>
+    <loc>https://dev-woong.io/categories/.net/</loc>
+  </url><url>
+    <loc>https://dev-woong.io/categories/github/</loc>
+  </url><url>
     <loc>https://dev-woong.io/links/</loc>
     <xhtml:link
                 rel="alternate"
@@ -118,5 +127,7 @@
                 hreflang="ko"
                 href="https://dev-woong.io/search/"
                 />
+  </url><url>
+    <loc>https://dev-woong.io/template/</loc>
   </url>
 </urlset>

@@ -8,8 +8,6 @@ tags:
 - github apps
 - repository
 - packages
-draft: true
-layout: blank
 ---
 
 ## Github Apps 란?

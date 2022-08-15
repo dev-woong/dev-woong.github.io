@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Github Apps 란? GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다.'><title>Github Apps 세부 설정 및 생성</title>
+
+<link rel='canonical' href='https://dev-woong.io/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/'>
+
+<link rel="stylesheet" href="/scss/style.min.1334013a2d414b760b80880f61214cd5453e956ac786729f54142587fe2dc445.css"><meta property='og:title' content='Github Apps 세부 설정 및 생성'>
+<meta property='og:description' content='Github Apps 란? GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다.'>
+<meta property='og:url' content='https://dev-woong.io/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/'>
+<meta property='og:site_name' content='Dev-Woong 🚀'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='github' /><meta property='article:tag' content='github apps' /><meta property='article:tag' content='repository' /><meta property='article:tag' content='packages' /><meta property='article:published_time' content='2022-08-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-08-14T00:00:00&#43;00:00'/><meta property='og:image' content='https://dev-woong.io/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/github.jpg' />
+<meta name="twitter:title" content="Github Apps 세부 설정 및 생성">
+<meta name="twitter:description" content="Github Apps 란? GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://dev-woong.io/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/github.jpg' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GGWLEV6LMH"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-GGWLEV6LMH', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu5073b3c62836fd550957d8912ed9284b_590743_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Dev-Woong 🚀</a></h1>
+            <h2 class="site-description">클린 코드를 향한 무한 삽질 도전기!</h2>
+        </div>
+    </header>
+    <ol class="menu" id="main-menu">
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://dev-woong.io/en/" >English</option>
+                        
+                            <option value="https://dev-woong.io/" selected>한국어</option>
+                        
+                    </select>
+                </li>
+            
+
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>다크 모드</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/">
+                <img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/github_huae23cbee81be171be328d6e4b7bf84c2_2153626_800x0_resize_q75_box.jpg"
+                        srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/github_huae23cbee81be171be328d6e4b7bf84c2_2153626_800x0_resize_q75_box.jpg 800w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/github_huae23cbee81be171be328d6e4b7bf84c2_2153626_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="533" 
+                        loading="lazy"
+                        alt="Featured image of post Github Apps 세부 설정 및 생성" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/github/" >
+                GitHub
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/">Github Apps 세부 설정 및 생성</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 14, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="github-apps-란">Github Apps 란?</h2>
+<blockquote>
+<p>GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다.</p>
+<p>GitHub App은 API를 통해 직접 작업을 수행하므로 별도의 봇 또는 서비스 계정이 필요하지 않습니다.</p>
+</blockquote>
+<p><em><strong><a class="link" href="https://docs.github.com/en/developers/apps/differences-between-github-apps-and-oauth-apps"  target="_blank" rel="noopener"
+    >GitHub App과 OAuth App의 차이점</a></strong></em></p>
+<h2 id="github-apps-생성하기">Github Apps 생성하기</h2>
+<h3 id="github-로그인">GitHub 로그인</h3>
+<p><a class="link" href="https://github.com/login"  target="_blank" rel="noopener"
+    >GitHub Login</a> 페이지에서 로그인합니다.</p>
+<h3 id="설정-페이지-이동">설정 페이지 이동</h3>
+<p><img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/1.png"
+	width="1090"
+	height="1120"
+	srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/1_hu5a4159aff82053c4bb215b6b9949ade4_214223_480x0_resize_box_3.png 480w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/1_hu5a4159aff82053c4bb215b6b9949ade4_214223_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="사용자 아이콘 &gt; Settings"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="97"
+		data-flex-basis="233px"
+	
+>
+<img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/2.png"
+	width="630"
+	height="553"
+	srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/2_hu58c8c4d4bdafe922b1ac4e7117e56652_43676_480x0_resize_box_3.png 480w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/2_hu58c8c4d4bdafe922b1ac4e7117e56652_43676_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Developer Settings"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="273px"
+	
+></p>
+<p>GitHub 홈 화면에서 우측 상단 사용자 아이콘을 클릭 후 하단의 <code>Setting</code>를 클릭하면 설정 페이지로 이동됩니다.</p>
+<p>이동 후, 좌측 메뉴 최하단의 <code>Developer settings</code> 를 클릭합니다.</p>
+<p><img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/3.png"
+	width="2298"
+	height="676"
+	srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/3_hu4f0922c10e47c40c53d6e6ee7610607d_139661_480x0_resize_box_3.png 480w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/3_hu4f0922c10e47c40c53d6e6ee7610607d_139661_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="GitHub Apps &gt; New GitHub App"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="339"
+		data-flex-basis="815px"
+	
+></p>
+<p>Developer Setting 화면에서 좌측의 <code>GitHub Apps</code>를 클릭하고 <code>New GitHub App</code>을 클릭합니다.
+Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행하면 GitHub Apps 설정 화면으로 이동합니다.</p>
+<p><img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/4.png"
+	width="1854"
+	height="1010"
+	srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/4_hu81380516549832144ba1c3275a4b4a08_130444_480x0_resize_box_3.png 480w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/4_hu81380516549832144ba1c3275a4b4a08_130444_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Confirm Access"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="183"
+		data-flex-basis="440px"
+	
+></p>
+<h3 id="세부-설정">세부 설정</h3>
+<blockquote>
+<p>* 표시가 붙어있는 항목은 필수 입력 항목입니다.</p>
+</blockquote>
+<h4 id="register-new-github-app">Register new GitHub App</h4>
+<p><img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/5.png"
+	width="1518"
+	height="1046"
+	srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/5_hudf556bb0f1fa7e9c4e76f2fc27f234ba_92409_480x0_resize_box_3.png 480w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/5_hudf556bb0f1fa7e9c4e76f2fc27f234ba_92409_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="348px"
+	
+></p>
+<ul>
+<li>GitHub App Name : 생성할 GitHub App 이름 (기존 GitHub 계정과 동일한 이름 불가)</li>
+<li>This is displayed to users of your GitHub App : GitHub App에 대한 설명(마크다운 형식 지원)</li>
+<li>Homepage URL : 앱 웹사이트의 전체 URL
+<ul>
+<li>특별히 해당 앱을 사용하는 사이트가 없는 경우 https://127.0.0.1 (루프백)등으로 입력</li>
+</ul>
+</li>
+</ul>
+<h4 id="identifying-and-authorizing-users">Identifying and authorizing users</h4>
+<p><img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/6.png"
+	width="1514"
+	height="754"
+	srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/6_huc772025c2800c7d805cff3ade3ab1d44_159759_480x0_resize_box_3.png 480w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/6_huc772025c2800c7d805cff3ade3ab1d44_159759_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="481px"
+	
+></p>
+<ul>
+<li>Callback URL : 사용자가 해당 앱을 승인한 후 리디렉션 될 URL
+<ul>
+<li>이 URL은 앱이 사용자-서버 요청을 식별/승인해야 하는 경우 사용</li>
+<li><code>Add Callback URL</code> 을 통해 최대 10개의 추가 Callback URL을 사용 가능</li>
+</ul>
+</li>
+<li>Expire user authorization : 액세스 토큰에 대한 만료 설정
+<ul>
+<li>해당 옵션 선택 시 액세스 토큰이 만료될 때 업데이트된 토큰을 요청할 수 있는 refresh_token 제공</li>
+<li><a class="link" href="https://docs.github.com/en/apps/building-github-apps/refreshing-user-to-server-access-tokens"  target="_blank" rel="noopener"
+    >GitHub Docs - 사용자-서버 액세스 토큰 새로 고침</a></li>
+</ul>
+</li>
+<li>Request user ahtorization (OAuth) during installation : GitHub App에 사용자 권한 부여(OAuth)
+<ul>
+<li>해당 옵션 활성화 시 Callback URL이 필수 입력 항목으로 전환되고, 아래 <a class="link" href="#post-installation" >Post Installation</a>의 Setup URL은 비활성화됨</li>
+<li>GitHub App 생성 후 <code>Callback URL</code> 로 리디렉션 되면 <code>Callback Code</code> 를 Get 파라미터로 전달받게 되고 이것으로 액세스 토큰을 발급 후 API에 액세스</li>
+<li><a class="link" href="https://docs.github.com/en/apps/installing-github-apps/#authorizing-users-during-installation"  target="_blank" rel="noopener"
+    >GitHub Docs - Authorizing users during installation</a></li>
+</ul>
+</li>
+<li>Enable Device Flow : CLI 도구 또는 Git 자격 증명 관리자와 같은 헤드리스 앱 권한 부여
+<ul>
+<li><a class="link" href="https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow"  target="_blank" rel="noopener"
+    >GitHub Docs - Device Flow</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="post-installation">Post installation</h4>
+<p><img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/9.png"
+	width="1510"
+	height="406"
+	srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/9_hu196dd6f05db8fc4d58d3cc31245a08ff_63692_480x0_resize_box_3.png 480w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/9_hu196dd6f05db8fc4d58d3cc31245a08ff_63692_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="371"
+		data-flex-basis="892px"
+	
+></p>
+<ul>
+<li>Setup URL : 추가 설정이 필요한 경우 GitHub App 구성 후 원하는 URL으로 리디렉션
+<ul>
+<li>상단 <a class="link" href="#identifying-and-authorizing-users" >Identifying and authorizing users</a> 에서 <code>Request user ahtorization (OAuth) during installation</code> 체크 시 비활성화</li>
+</ul>
+</li>
+<li>Redirect on update : GitHub App이 업데이트된 후 사용자를 <code>Setup URL</code> 로 리디렉션 (예: 리포지터리 추가/제거)</li>
+</ul>
+<h4 id="webhook">Webhook</h4>
+<p><img src="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/10.png"
+	width="1506"
+	height="622"
+	srcset="/p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/10_huef08d2e218873fd5962d71b814494f4c_84085_480x0_resize_box_3.png 480w, /p/github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/10_huef08d2e218873fd5962d71b814494f4c_84085_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="242"
+		data-flex-basis="581px"
+	
+></p>
+<ul>
+<li>Active : 웹훅 활성화 설정</li>
+<li>Webhook URL : App에서 이벤트가 발생하는 경우 데이터를 받을 URL</li>
+<li>Webhook Secret : 원하는 사용자만 hook 을 받을 수 있도록 설정하는 선택적 보안 토큰</li>
+</ul>
+<h4 id="repository-permissions">Repository permissions</h4>
+<blockquote>
+<p>Permission(권한)은 총 3가지 상태로 지정할 수 있다.</p>
+<ul>
+<li>No Access : 허용하지 않음</li>
+<li>Read-only : 읽기만 허용</li>
+<li>Read and Write : 읽기/쓰기 허용</li>
+</ul>
+</blockquote>
+<ul>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Actions</strong></a> : GitHub의 CI/CD 플랫폼인 GitHub Actions 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-administration"  target="_blank" rel="noopener"
+    ><strong>Administration</strong> </a> : 리포지토리 생성, 삭제, 설정, 팀 및 Collaborators 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-checks"  target="_blank" rel="noopener"
+    ><strong>Checks</strong></a> : 코드 검사 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Code scanning alerts</strong></a> : 리포지토리의 보안 탭에 있는 코드 취약점 스캔 경고 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Codespaces</strong></a> : GitHub 내장 IDE인 Codespace 생성, 편집, 삭제 등 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Codespaces lifecycle admin</strong></a> : 특정 사용자에 대한 Codespace 시작/중지 등 lifecycle 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Codespaces metadata</strong></a> : container 및 machine 등에 대한 Codespace 메타데이터 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Codespaces secrets</strong></a> : Codespace에서 액세스할 수 있는 리포지토리에 대한 비밀 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-statuses"  target="_blank" rel="noopener"
+    ><strong>Commit statuses</strong></a> : 커밋 상태 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-contents"  target="_blank" rel="noopener"
+    ><strong>Contents</strong></a> : 리포지토리, 커밋, 브랜치, 다운로드, 릴리즈 및 병합 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v4/object/repositoryvulnerabilityalert/"  target="_blank" rel="noopener"
+    ><strong>Dependabot alerts</strong></a> : GitHub 종속성 관리 기능인 Dependabot의 경고 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Dependabot secrets</strong></a> : Dependabot의 리포지토리 비밀 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-deployments"  target="_blank" rel="noopener"
+    ><strong>Deployments</strong></a> : 배포 및 배포 상태 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Discussions</strong></a> : 토론 및 의견, 레이블 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Environments</strong></a> : 리포지토리 환경 변수 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-issues"  target="_blank" rel="noopener"
+    ><strong>Issues</strong></a> : 이슈 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Merge queues</strong></a> 리포지토리의 병합 대기열 관리 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#metadata-permissions"  target="_blank" rel="noopener"
+    ><strong>Metadata</strong></a> : 리포지터리 검색, Collaborators 나열, 리포지토리 메타데이터 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-packages"  target="_blank" rel="noopener"
+    ><strong>Packages</strong></a> : GitHub 패키지 플랫폼 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-pages"  target="_blank" rel="noopener"
+    ><strong>Pages</strong></a> : 정적 웹 호스팅 서비스 Github Pages 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-repository-projects"  target="_blank" rel="noopener"
+    ><strong>Projects</strong></a> : Github Projects 기능의 열 및 카드 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-pull-requests"  target="_blank" rel="noopener"
+    ><strong>Pull requests</strong></a> : Pull Request 기능 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Secret scanning alerts</strong></a> : 비밀 스캔 알림 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Secrets</strong></a> : 리포지토리 비밀 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-single-file"  target="_blank" rel="noopener"
+    ><strong>Single file</strong></a> : 하나의 파일만 관리하는 권한(..??)</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-repository-hooks"  target="_blank" rel="noopener"
+    ><strong>Webhooks</strong></a> : 웹훅 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Workflows</strong></a> : GitHub Actions Workflow 파일 업데이트 관련 권한</li>
+</ul>
+<h4 id="organization-permissions">Organization permissions</h4>
+<ul>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-organization-administration"  target="_blank" rel="noopener"
+    ><strong>Administration</strong></a> : 조직에 대한 액세스 관리 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-organization-user-blocking"  target="_blank" rel="noopener"
+    ><strong>Blocking users</strong></a> : 사용자 차단 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-organization-events"  target="_blank" rel="noopener"
+    ><strong>Events</strong></a> : 조직의 트리거된(?) 이벤트 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-members"  target="_blank" rel="noopener"
+    ><strong>Members</strong></a> : 조직 구성원 및 팀 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Organization codespaces</strong></a> : 조직의 Codespaces 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Organization codespaces secrets</strong></a> : 조직의 Codespaces 비밀 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Organization dependabot secrets</strong></a> : 조직의 Dependabot 비밀 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Plan</strong></a> : 조직의 Plan(라이센스) 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-organization-projects"  target="_blank" rel="noopener"
+    ><strong>Projects</strong></a> : 조직 프로젝트 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Secrets</strong></a> : 조직의 Actions 비밀 관리 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Self-hosted runners</strong></a> : 조직에서 사용할 수 있는 Actions 자체 호스팅 실행자 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-team-discussions"  target="_blank" rel="noopener"
+    ><strong>Team discussions</strong></a> : 팀 토론 및 관련 의견 관리 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-organization-hooks"  target="_blank" rel="noopener"
+    ><strong>Webhooks</strong></a> : 조직의 웹훅 관련 권한</li>
+</ul>
+<h4 id="user-permissions">User permissions</h4>
+<ul>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-blocking"  target="_blank" rel="noopener"
+    ><strong>Block another user</strong></a> : 사용자 차단 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Codespaces user secrets</strong></a> : Codespace 비밀 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-emails"  target="_blank" rel="noopener"
+    ><strong>Email addresses</strong></a> : 사용자의 이메일 주소 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-followers"  target="_blank" rel="noopener"
+    ><strong>Followers</strong></a> : 사용자의 팔로워 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-gpg-keys"  target="_blank" rel="noopener"
+    ><strong>GPG keys</strong></a> : 사용자의 GPG 키 관리 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Gists</strong></a> : 사용자의 GitHub Gists(코드, 메모, 로그 등 공유 기능) 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-keys"  target="_blank" rel="noopener"
+    ><strong>Git SSH keys</strong></a> : Git을 통해 접근할 때에 사용되는 SSH 키 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-interaction-limits"  target="_blank" rel="noopener"
+    ><strong>Interaction limits</strong></a> : 리포지토리 상호 작용 제한 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/"  target="_blank" rel="noopener"
+    ><strong>Plan</strong></a> : 사용자의 Plan(라이센스) 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-profile"  target="_blank" rel="noopener"
+    ><strong>Profile</strong></a> : 사용자의 프로필 설정 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-starring"  target="_blank" rel="noopener"
+    ><strong>Starring</strong></a> : 사용자가 Starring한 리포지토리 관련 권한</li>
+<li><a class="link" href="https://docs.github.com/v3/apps/permissions/#permission-on-watching"  target="_blank" rel="noopener"
+    ><strong>Watching</strong></a> : 사용자가 Watching하는 저장소 관련 권한</li>
+</ul>
+<h4 id="subscribe-to-events">Subscribe to events</h4>
+<p>선택한 권한에 대해 구독할 이벤트를 선택합니다.</p>
+<ul>
+<li>Meta : 이 앱이 삭제되고 연결된 후크가 제거되는 경우</li>
+<li>Security Advisory : 보안 권고가 게시, 업데이트 또는 철회되는 경우</li>
+</ul>
+<h3 id="생성-완료">생성 완료</h3>
+<p>최초 생성 이후에는 상단에 노란 바탕으로 경고 메시지가 발생하게 되는데 생성한 GitHub App에 Private Key가 1개도 없기 때문에 발생하는 문제입니다.</p>
+<p>하단의 Private keys 에서 <code>Generate a private key</code> 를 클릭해 Private Key를 하나 생성해주면 앱 사용 준비가 완료됩니다.</p>
+<p>참고 자료 : <a class="link" href="https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps"  target="_blank" rel="noopener"
+    >https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/github/">github</a>
+        
+            <a href="/tags/github-apps/">github apps</a>
+        
+            <a href="/tags/repository/">repository</a>
+        
+            <a href="/tags/packages/">packages</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/github-personal-access-token-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/">
+        
+        
+            <div class="article-image">
+                <img src="/p/github-personal-access-token-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/github.a6856a867de76ef4d278d95a8d13bccb_hu05bbc713fbac683e943f7daf5a88f075_1208353_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post GitHub Personal Access Token 생성하기"
+                        
+                        data-hash="md5-poVqhn3nbvTSeNlajRO8yw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">GitHub Personal Access Token 생성하기</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dev-woong" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Dev-Woong 🚀
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#github-apps-란">Github Apps 란?</a></li>
+    <li><a href="#github-apps-생성하기">Github Apps 생성하기</a>
+      <ol>
+        <li><a href="#github-로그인">GitHub 로그인</a></li>
+        <li><a href="#설정-페이지-이동">설정 페이지 이동</a></li>
+        <li><a href="#세부-설정">세부 설정</a>
+          <ol>
+            <li><a href="#register-new-github-app">Register new GitHub App</a></li>
+            <li><a href="#identifying-and-authorizing-users">Identifying and authorizing users</a></li>
+            <li><a href="#post-installation">Post installation</a></li>
+            <li><a href="#webhook">Webhook</a></li>
+            <li><a href="#repository-permissions">Repository permissions</a></li>
+            <li><a href="#organization-permissions">Organization permissions</a></li>
+            <li><a href="#user-permissions">User permissions</a></li>
+            <li><a href="#subscribe-to-events">Subscribe to events</a></li>
+          </ol>
+        </li>
+        <li><a href="#생성-완료">생성 완료</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+		<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+		<script type="text/javascript">
+		if(!wcs_add) var wcs_add = {};
+		wcs_add["wa"] = "1272353b647cd30";
+		if(window.wcs) {
+		  wcs_do();
+		}
+		</script>
+    </body>
+</html>

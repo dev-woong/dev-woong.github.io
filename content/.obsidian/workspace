@@ -120,9 +120,17 @@
                 "file": "post/Github App/index.md"
               }
             }
+          },
+          {
+            "id": "2e784deb951c4019",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -130,15 +138,15 @@
   },
   "active": "933d7189c3d680ee",
   "lastOpenFiles": [
-    "post/github access token 발급/index.md",
+    "Pasted image 20220814190713.png.md",
     "post/Github App/index.md",
+    "post/Github App/Pasted image 20220814190713.png",
+    "post/Github App/98fbfaa553fd03891400cbcb27238a61b501ae8c.png",
+    "post/Github App/thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg",
+    "2022-08-16.md",
     "Template/hugo title.md",
-    "post/Github App/github.jpg",
-    "post/github access token 발급/github.jpg",
-    "post/github access token 발급/5.png",
-    "post/github access token 발급/4.png",
-    "post/github access token 발급/3.png",
-    "post/github access token 발급/2.png",
-    "post/github access token 발급/1.png"
+    "Template/Task.md",
+    "post/github access token 발급/index.md",
+    "post/Github App/github.jpg"
   ]
 }

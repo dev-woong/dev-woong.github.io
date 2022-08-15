@@ -147,3 +147,6 @@ Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행
 하단의 Private keys 에서 `Generate a private key` 를 클릭해 Private Key를 하나 생성해주면 앱 사용 준비가 완료됩니다.
 
 참고 자료 : https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps
+
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdev-woong.io%2F2022.08.16-01&count_bg=%233D91C8&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=true)](https://hits.seeyoufarm.com)

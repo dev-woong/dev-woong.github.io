@@ -7,11 +7,9 @@
         "id": "933d7189c3d680ee",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "image",
           "state": {
-            "file": "post/Github App/index.md",
-            "mode": "source",
-            "source": false
+            "file": "post/Github App/github.jpg"
           }
         }
       }
@@ -77,7 +75,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Github App/index.md",
+                "file": "post/Github App/github.jpg",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +92,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Github App/index.md",
+                "file": "post/Github App/github.jpg",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Github App/index.md"
+                "file": "post/Github App/github.jpg"
               }
             }
           },
@@ -138,15 +136,15 @@
   },
   "active": "933d7189c3d680ee",
   "lastOpenFiles": [
-    "Pasted image 20220814190713.png.md",
     "post/Github App/index.md",
+    "post/github access token 발급/index.md",
+    "Pasted image 20220814190713.png.md",
     "post/Github App/Pasted image 20220814190713.png",
     "post/Github App/98fbfaa553fd03891400cbcb27238a61b501ae8c.png",
     "post/Github App/thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg",
     "2022-08-16.md",
     "Template/hugo title.md",
     "Template/Task.md",
-    "post/github access token 발급/index.md",
     "post/Github App/github.jpg"
   ]
 }

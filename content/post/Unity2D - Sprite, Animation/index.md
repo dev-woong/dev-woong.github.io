@@ -4,7 +4,7 @@ description: Unity2D Sprite와 Animation을 공부했습니다.
 image: title.jpg
 categories: 
 - Unity 
-publishdate: 2022-07-17
+publishdate: 2022-08-17
 tags:
 - TIL
 - Unity

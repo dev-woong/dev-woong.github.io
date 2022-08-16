@@ -4,11 +4,13 @@ description: 기본 템플릿 양식입니다
 image: title.jpg
 categories: 
 - Template 
-date: 2022-08-16
+publishdate: 2022-08-17
 tags:
-- Temp1
-- Temp2
-- Temp3
+- TIL
+- Unity
+- 2D
+- Sprite
+- Animation
 draft: true
 ---
 

@@ -1,14 +1,14 @@
 ---
-title: 비동기(Async) - Async, Await
-image: 
-categories: .NET
-date: 2022-01-02
+title: 기본 템플릿
+description: 기본 템플릿 양식입니다
+image: title.jpg
+categories: 
+- Template 
+date: 2022-08-16
 tags:
-- .NET
-- C#
-- 비동기
-- Async
-- Await
+- Temp1
+- Temp2
+- Temp3
 draft: true
 ---
 

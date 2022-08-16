@@ -1,5 +1,6 @@
 ---
 title: Github Apps 세부 설정 및 생성
+description: GitHub와 통합되는 응용 프로그램을 만들기 위한 'GitHub Apps'를 생성합니다.
 image: github.jpg
 categories: GitHub
 date: 2022-08-14

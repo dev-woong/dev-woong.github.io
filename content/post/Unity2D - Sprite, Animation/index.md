@@ -42,12 +42,12 @@ draft: false
 - 한 화면에 함께 사용되는 것 또는 하나의 오브젝트에서 함께 사용되는 것 처럼 관련이 있는 이미지들을 하나의 Sprite Atlas로 묶어주는 것이 좋음
 
 ## Texture Asset
-![Texture Asset](1.png)
+![Texture Asset](../Github%20Apps%20세부%20설정%20및%20생성/1.png)
 
 ### 이미지 분할과 POT(Power of Two) 규격
 #### 하나의 이미지 에셋에 여러 장의 그림을 그리고 분할하여 사용하는 이유
-![이미지 크기에 따른 메모리 POT 공간 비교](2.png)
-![유사한 성격의 이미지를 모아서 제작된 POT 규격 이미지](3.png)
+![이미지 크기에 따른 메모리 POT 공간 비교](../Github%20Apps%20세부%20설정%20및%20생성/2.png)
+![유사한 성격의 이미지를 모아서 제작된 POT 규격 이미지](../Github%20Apps%20세부%20설정%20및%20생성/3.png)
 
 - 게임에서 사용되는 텍스처를 제작할 때에는 POT 규격으로 제작해야 함
 	- POT(Power of Two) : 텍스처의 가로/세로 사이즈가 2의 제곱
@@ -70,4 +70,4 @@ draft: false
 - 게임 오브젝트의 애니메이션 재생, 교체 등을 제어하는 역할 수행
 
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdev-woong.io%2F2022.08.16-02&count_bg=%233D91C8&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=true)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdev-woong.io%2F2022.08.17-0001&count_bg=%233D91C8&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=true)](https://hits.seeyoufarm.com)

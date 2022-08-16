@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "post/Unity2D - Sprite, Animation/index.md",
+            "file": "post/Unity2D - Tilemap 기초/index.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Unity2D - Sprite, Animation/index.md",
+                "file": "post/Unity2D - Tilemap 기초/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Unity2D - Sprite, Animation/index.md",
+                "file": "post/Unity2D - Tilemap 기초/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Unity2D - Sprite, Animation/index.md"
+                "file": "post/Unity2D - Tilemap 기초/index.md"
               }
             }
           }
@@ -130,15 +130,15 @@
   },
   "active": "6e5733f49ab7d2aa",
   "lastOpenFiles": [
+    "post/Unity2D - Tilemap 기초/1.png",
+    "post/Unity2D - Tilemap 기초/index.md",
+    "post/Unity2D - Sprite, Animation/index.md",
     "post/Unity2D - Sprite, Animation/title.jpg",
     "Template/hugo hits.md",
     "Template/hugo title.md",
     "post/Github Apps 세부 설정 및 생성/index.md",
-    "post/Unity2D - Sprite, Animation/index.md",
     "post/Unity2D - Sprite, Animation/sebastian-svenson-d2w-_1LJioQ-unsplash.jpg",
     "post/Unity2D - Sprite, Animation/3.png",
-    "post/Unity2D - Sprite, Animation/2.png",
-    "post/Unity2D - Sprite, Animation/1.png",
-    "post/Github Apps 세부 설정 및 생성/github.jpg"
+    "post/Unity2D - Sprite, Animation/2.png"
   ]
 }

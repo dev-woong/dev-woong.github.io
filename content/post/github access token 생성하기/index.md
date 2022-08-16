@@ -1,7 +1,7 @@
 +++
 author = "Dev-Woong"
 title = "GitHub Personal Access Token 생성하기"
-date = "2022-08-09"
+publishdate = "2022-08-09"
 description = "API 등에서 GitHub를 관리/제어할 수 있는 Personal Access Token 발급 방법을 알아봅니다."
 tags = [
     "github",

@@ -9,8 +9,7 @@ tags:
 - TIL
 - Unity
 - 2D
-- Sprite
-- Animation
+- Tilemap
 draft: false
 ---
 

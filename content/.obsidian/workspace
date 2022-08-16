@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "post/Github Apps 세부 설정 및 생성/index.md",
+            "file": "post/OAuth Apps와 GitHub Apps의 차이/index.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Github Apps 세부 설정 및 생성/index.md",
+                "file": "post/OAuth Apps와 GitHub Apps의 차이/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Github Apps 세부 설정 및 생성/index.md",
+                "file": "post/OAuth Apps와 GitHub Apps의 차이/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Github Apps 세부 설정 및 생성/index.md"
+                "file": "post/OAuth Apps와 GitHub Apps의 차이/index.md"
               }
             }
           }
@@ -130,12 +130,12 @@
   },
   "active": "933d7189c3d680ee",
   "lastOpenFiles": [
-    "post/Github Apps 세부 설정 및 생성/github.jpg",
     "post/GitHub API - Rest API와 GraphQL의 차이점/index.md",
+    "post/Github Apps 세부 설정 및 생성/index.md",
+    "post/Github Apps 세부 설정 및 생성/github.jpg",
     "post/비동기(Async) - Async, Await/index.md",
     "post/Github Apps 세부 설정 및 생성/1.png",
     "무제노트.md",
-    "post/Github Apps 세부 설정 및 생성/index.md",
     "post/Github Apps 세부 설정 및 생성/11.png",
     "Pasted image 20220814190713.png.md",
     "_index.en.md",

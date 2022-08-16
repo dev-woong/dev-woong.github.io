@@ -11,7 +11,7 @@ tags:
 - 2D
 - Sprite
 - Animation
-draft: false
+draft: true
 ---
 
 [고박사의 유니티 노트 [Unity 2D Basic] 06-01. 2D Tilemap Editor](https://www.youtube.com/watch?v=9Y0bUhwxRyk&list=PLC2Tit6NyVie46nbdEM00wFoojjRlXIcf&index=10)

@@ -142,9 +142,10 @@ Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행
 - Security Advisory : 보안 권고가 게시, 업데이트 또는 철회되는 경우
 
 ### 생성 완료
-최초 생성 이후에는 상단에 노란 바탕으로 경고 메시지가 발생하게 되는데 생성한 GitHub App에 Private Key가 1개도 없기 때문에 발생하는 문제입니다.
+최초 생성 이후에는 상단에 노란 바탕으로 경고 메시지가 발생하게 되는데 생성한 GitHub App에 Private Key가 없기 때문에 발생하는 문제입니다.
 
-하단의 Private keys 에서 `Generate a private key` 를 클릭해 Private Key를 하나 생성해주면 앱 사용 준비가 완료됩니다.
+![](11.png)
+하단의 Private keys 에서 `Generate a private key` 를 클릭해 Private Key를 하나 생성해주면 앱 사용 준비가 완료됩니다. (필자의 경우 하나의 Private key가 생성되어있는 상태)
 
 ### 마무리
 생성한 GitHub App을 이용하면 GitKraken, Gitter 등의 써드파티 앱 처럼 GitHub와 통합되는 앱을 생성할 수 있는 것으로 보입니다.

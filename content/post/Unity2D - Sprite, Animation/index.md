@@ -11,7 +11,7 @@ tags:
 - 2D
 - Sprite
 - Animation
-draft: 
+draft: false
 ---
 
 [고박사의 유니티 노트 [Unity 2D Basic] 05-01. 2D Sprite / Animation](https://www.youtube.com/watch?v=jg4nCHgDCFg&list=PLC2Tit6NyVie46nbdEM00wFoojjRlXIcf&index=8)

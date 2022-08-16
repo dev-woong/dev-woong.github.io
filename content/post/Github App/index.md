@@ -146,6 +146,11 @@ Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행
 
 하단의 Private keys 에서 `Generate a private key` 를 클릭해 Private Key를 하나 생성해주면 앱 사용 준비가 완료됩니다.
 
+### 마무리
+생성한 GitHub App을 이용하면 GitKraken, Gitter 등의 써드파티 앱 처럼 GitHub와 통합되는 앱을 생성할 수 있는 것으로 보입니다.
+
+해당 문서는 공식 문서의 비공식 번역본 정도로 참고해주시면 감사하겠으며 추가적으로 해당 앱을 활용하며 이해도가 높아지게 된다면 세부적인 내용들에 대해서 다시 다루어보겠습니다.
+
 참고 자료 : https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps
 
 

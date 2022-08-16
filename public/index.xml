@@ -321,6 +321,9 @@ Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행
 &lt;h3 id=&#34;생성-완료&#34;&gt;생성 완료&lt;/h3&gt;
 &lt;p&gt;최초 생성 이후에는 상단에 노란 바탕으로 경고 메시지가 발생하게 되는데 생성한 GitHub App에 Private Key가 1개도 없기 때문에 발생하는 문제입니다.&lt;/p&gt;
 &lt;p&gt;하단의 Private keys 에서 &lt;code&gt;Generate a private key&lt;/code&gt; 를 클릭해 Private Key를 하나 생성해주면 앱 사용 준비가 완료됩니다.&lt;/p&gt;
+&lt;h3 id=&#34;마무리&#34;&gt;마무리&lt;/h3&gt;
+&lt;p&gt;생성한 GitHub App을 이용하면 GitKraken, Gitter 등의 써드파티 앱 처럼 GitHub와 통합되는 앱을 생성할 수 있는 것으로 보입니다.&lt;/p&gt;
+&lt;p&gt;해당 문서는 공식 문서의 비공식 번역본 정도로 참고해주시면 감사하겠으며 추가적으로 해당 앱을 활용하며 이해도가 높아지게 된다면 세부적인 내용들에 대해서 다시 다루어보겠습니다.&lt;/p&gt;
 &lt;p&gt;참고 자료 : &lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hits.seeyoufarm.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

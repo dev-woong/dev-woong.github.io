@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dev-woong.io/</loc>
-    <lastmod>2022-08-14T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,8 +15,20 @@
                 href="https://dev-woong.io/"
                 />
   </url><url>
+    <loc>https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/tags/2d/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/tags/animation/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dev-woong.io/categories/</loc>
-    <lastmod>2022-08-14T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +41,35 @@
                 />
   </url><url>
     <loc>https://dev-woong.io/categories/</loc>
-    <lastmod>2022-08-14T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/post/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/tags/sprite/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/tags/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dev-woong.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dev-woong.io/tags/"
+                />
+  </url><url>
+    <loc>https://dev-woong.io/tags/til/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/tags/unity/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/categories/unity/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dev-woong.io/tags/github/</loc>
     <lastmod>2022-08-14T00:00:00+00:00</lastmod>
@@ -46,24 +86,8 @@
     <loc>https://dev-woong.io/tags/packages/</loc>
     <lastmod>2022-08-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dev-woong.io/post/</loc>
-    <lastmod>2022-08-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dev-woong.io/tags/repository/</loc>
     <lastmod>2022-08-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dev-woong.io/tags/</loc>
-    <lastmod>2022-08-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dev-woong.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dev-woong.io/tags/"
-                />
   </url><url>
     <loc>https://dev-woong.io/p/github-personal-access-token-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2022-08-09T00:00:00+00:00</lastmod>

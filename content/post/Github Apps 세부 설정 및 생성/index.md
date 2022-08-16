@@ -11,11 +11,9 @@ tags:
 ---
 
 ## Github Apps 란?
->GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다.
+>Github에서 동작하는 GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다.
 >
 > GitHub App은 API를 통해 직접 작업을 수행하므로 별도의 봇 또는 서비스 계정이 필요하지 않습니다.
->
->⚡️ GitHub에서만 동작합니다.
 
 ***[GitHub App과 OAuth App의 차이점](https://docs.github.com/en/developers/apps/differences-between-github-apps-and-oauth-apps)***
 

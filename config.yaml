@@ -191,19 +191,18 @@ params:
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu.html
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 menu:
-    main: 
-        social:
-            - identifier: github
-              name: GitHub
-              url: https://github.com/dev-woong
-              params:
-                  icon: github
-    
-            - identifier: mail
-              name: Email
-              url: mailto:intajon@gmail.com
-              params:
-                  icon: mail
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/dev-woong
+          params:
+              icon: github
+
+        - identifier: mail
+          name: Email
+          url: mailto:intajon@gmail.com
+          params:
+              icon: mail
 related:
     includeNewer: true
     threshold: 60

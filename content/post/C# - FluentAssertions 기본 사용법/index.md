@@ -1,8 +1,8 @@
 ---
-title: 비동기(Async) - Async, Await
-image: thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
+title: FluentAssertions 기본 사용법
+image: thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
 categories: .NET/C#
-date: 2022-01-02
+date: 2022-08-17
 tags:
 - .NET
 - C#

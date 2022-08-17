@@ -1,6 +1,6 @@
 ---
 title: FluentAssertions 기본 사용법
-image: thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
+image: 
 categories: .NET/C#
 date: 2022-08-17
 tags:

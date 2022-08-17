@@ -6,7 +6,73 @@
         <description>Recent content in TIL on Dev-Woong 🚀</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Tue, 16 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.io/tags/til/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.io/tags/til/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[TIL] Tilemap 기초</title>
+        <link>https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/</link>
+        <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/</guid>
+        <description>&lt;img src="https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/title.jpg" alt="Featured image of post [TIL] Tilemap 기초" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=9Y0bUhwxRyk&amp;amp;list=PLC2Tit6NyVie46nbdEM00wFoojjRlXIcf&amp;amp;index=10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;고박사의 유니티 노트 [Unity 2D Basic] 06-01. 2D Tilemap Editor&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tilemap-editor&#34;&gt;Tilemap Editor&lt;/h2&gt;
+&lt;h3 id=&#34;tilemap-palette&#34;&gt;Tilemap Palette&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Tilemap 오브젝트에 배치할 때는 Tile Asset들을 등록해두는 저장소&lt;/li&gt;
+&lt;li&gt;팔레트에 있는 Tile Asset을 여러 속성에 따라 배치하거나 삭제할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;grid-오브젝트&#34;&gt;Grid 오브젝트&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;자식으로 배치되는 Tilemap 오브젝트들을 관리하는 역할&lt;/li&gt;
+&lt;li&gt;Cell Layout, Cell Swizzle 정보를 이용해 배치되는 맵의 방식을 Rectangle, Hexagon, Isometric, Isometric Z As Y 등으로 설정할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tilemap-오브젝트&#34;&gt;Tilemap 오브젝트&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Tile Asset을 배치하는 공간으로 실제 게임에 보여지는 타일 형태의 월드&lt;/li&gt;
+&lt;li&gt;Grid 오브젝트의 자식으로 여러 개의 Tilemap 오브젝트 등록 가능 (Layer 구분)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/1.png&#34;
+	width=&#34;792&#34;
+	height=&#34;1338&#34;
+	srcset=&#34;https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/1_hu5ed4746f131d37c310c4c6154cd19161_281080_480x0_resize_box_3.png 480w, https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/1_hu5ed4746f131d37c310c4c6154cd19161_281080_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;상단 메뉴 &amp;gt; Windows &amp;gt; 2D &amp;gt; Tile Palette&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;59&#34;
+		data-flex-basis=&#34;142px&#34;
+	
+&gt;
+&lt;img src=&#34;https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/2.png&#34;
+	width=&#34;642&#34;
+	height=&#34;1202&#34;
+	srcset=&#34;https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/2_hu972edd9e50240e32d3da5702f5dab5eb_60834_480x0_resize_box_3.png 480w, https://dev-woong.io/p/til-tilemap-%EA%B8%B0%EC%B4%88/2_hu972edd9e50240e32d3da5702f5dab5eb_60834_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Tile Palette 메뉴&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;53&#34;
+		data-flex-basis=&#34;128px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;강의와 현재의 편차가 있는 듯 한데, 해당 차이점 등에 대해 이해 후 다시 포스팅 하겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hits.seeyoufarm.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdev-woong.io%2F2022.08.17-02&amp;amp;count_bg=%233D91C8&amp;amp;title_bg=%23555555&amp;amp;icon=&amp;amp;icon_color=%23E7E7E7&amp;amp;title=%EC%A1%B0%ED%9A%8C%EC%88%98&amp;amp;edge_flat=true&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Hits&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[TIL] Sprite, Animation 기초</title>
         <link>https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/</link>
         <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
@@ -45,7 +111,7 @@
 &lt;li&gt;한 화면에 함께 사용되는 것 또는 하나의 오브젝트에서 함께 사용되는 것 처럼 관련이 있는 이미지들을 하나의 Sprite Atlas로 묶어주는 것이 좋음&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;texture-asset&#34;&gt;Texture Asset&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/Github%20Apps%20%ec%84%b8%eb%b6%80%20%ec%84%a4%ec%a0%95%20%eb%b0%8f%20%ec%83%9d%ec%84%b1/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/GitHub%20-%20Github%20Apps%20%ec%84%b8%eb%b6%80%20%ec%84%a4%ec%a0%95%20%eb%b0%8f%20%ec%83%9d%ec%84%b1/1.png&#34;
 	
 	
 	
@@ -57,7 +123,7 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;이미지-분할과-potpower-of-two-규격&#34;&gt;이미지 분할과 POT(Power of Two) 규격&lt;/h3&gt;
 &lt;h4 id=&#34;하나의-이미지-에셋에-여러-장의-그림을-그리고-분할하여-사용하는-이유&#34;&gt;하나의 이미지 에셋에 여러 장의 그림을 그리고 분할하여 사용하는 이유&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/Github%20Apps%20%ec%84%b8%eb%b6%80%20%ec%84%a4%ec%a0%95%20%eb%b0%8f%20%ec%83%9d%ec%84%b1/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/GitHub%20-%20Github%20Apps%20%ec%84%b8%eb%b6%80%20%ec%84%a4%ec%a0%95%20%eb%b0%8f%20%ec%83%9d%ec%84%b1/2.png&#34;
 	
 	
 	
@@ -67,7 +133,7 @@
 	
 	
 &gt;
-&lt;img src=&#34;https://dev-woong.io/Github%20Apps%20%ec%84%b8%eb%b6%80%20%ec%84%a4%ec%a0%95%20%eb%b0%8f%20%ec%83%9d%ec%84%b1/3.png&#34;
+&lt;img src=&#34;https://dev-woong.io/GitHub%20-%20Github%20Apps%20%ec%84%b8%eb%b6%80%20%ec%84%a4%ec%a0%95%20%eb%b0%8f%20%ec%83%9d%ec%84%b1/3.png&#34;
 	
 	
 	

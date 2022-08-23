@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>dendron on Dev-Woong 🚀</title>
+        <link>https://dev-woong.io/tags/dendron/</link>
+        <description>Recent content in dendron on Dev-Woong 🚀</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language><atom:link href="https://dev-woong.io/tags/dendron/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Foam이란?</title>
+        <link>https://dev-woong.io/foam%EC%9D%B4%EB%9E%80/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/foam%EC%9D%B4%EB%9E%80/</guid>
+        <description>&lt;p&gt;Monday, August 22, 2022&lt;/p&gt;
+&lt;h1 id=&#34;foam이란&#34;&gt;Foam이란?&lt;/h1&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://foambubble.github.io/foam/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://foambubble.github.io/foam/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;그래프 링킹 방식의 독특한 노트작성 도구 Roam 에서 영감을 얻은 오픈소스
+VS Code / MarkDown / GitHub을 이용
+노트를 작성하고, 그래프 방식으로 연결하고, 웹에 퍼블리싱도 가능&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/foambubble/foam-template/generate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub Repository 템플릿&lt;/a&gt;을 복사해서 저장소로 사용
+(해당 링크 클릭 시 템플릿을 통해 GitHub Repository를 생성할 수 있음)&lt;/li&gt;
+&lt;li&gt;해당 Repo를 VS Code 에서 열면 필수 추천 확장들 설치 가능&lt;/li&gt;
+&lt;li&gt;노트를 마크다운으로 작성&lt;/li&gt;
+&lt;li&gt;Form의 숏컷 및 자동 완성 기능으로 다른 노트와 연결&lt;/li&gt;
+&lt;li&gt;Graph Visualisation 으로 전체 워크스페이스 보기 가능, Backlinking 으로 현 노트에 연결된 다른 노트 보기 가능&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;img src=&#34;https://forum.obsidian.md/uploads/default/optimized/2X/b/b233a340b27e6d75555e28c1e5849db007987935_2_231x500.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;추천-확장-프로그램&#34;&gt;추천 확장 프로그램&lt;/h1&gt;
+&lt;p&gt;[[VSCode 추천 확장 프로그램]]
+&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h1 id=&#34;markdown-all-in-one-extension-shortcut&#34;&gt;Markdown All in One Extension Shortcut&lt;/h1&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mac&#34;&gt;Mac&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;bold :  + B&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

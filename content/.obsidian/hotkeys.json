@@ -16,5 +16,14 @@
       ],
       "key": "."
     }
+  ],
+  "app:delete-file": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "Backspace"
+    }
   ]
 }

@@ -6,7 +6,15 @@
         <description>Recent content in Categories on Dev-Woong 🚀</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 21 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>BAEKJOON</title>
+        <link>https://dev-woong.io/categories/baekjoon/</link>
+        <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/categories/baekjoon/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Unity</title>
         <link>https://dev-woong.io/categories/unity/</link>
         <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
@@ -21,12 +29,6 @@
         
         <guid>https://dev-woong.io/categories/github/</guid>
         <description></description>
-        </item>
-        
-    </channel>
-</rss>
-github/</guid>
-        <description>&lt;img src="https://dev-woong.io/categories/github/github.png" alt="Featured image of post GitHub" /&gt;</description>
         </item>
         
     </channel>

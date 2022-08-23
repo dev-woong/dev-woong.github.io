@@ -4,15 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "933d7189c3d680ee",
+        "id": "1fb58183ca927405",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "post/C# - FluentAssertions 기본 사용법/index.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -40,7 +36,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#task",
+                "query": "tag:#dendron",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -54,6 +50,14 @@
             "type": "leaf",
             "state": {
               "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "d30c725583e55f74",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
               "state": {}
             }
           }
@@ -77,14 +81,13 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/C# - FluentAssertions 기본 사용법/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -94,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/C# - FluentAssertions 기본 사용법/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,29 +118,34 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "post/C# - FluentAssertions 기본 사용법/index.md"
-              }
+              "state": {}
+            }
+          },
+          {
+            "id": "0dd97304b39ec422",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
-  "active": "933d7189c3d680ee",
+  "active": "1fb58183ca927405",
   "lastOpenFiles": [
-    "post/Unity2D - Tilemap/index.md",
-    "post/C# - FluentAssertions 기본 사용법/index.md",
-    "post/비동기(Async) - Async, Await_/index.md",
-    "post/GitHub - OAuth Apps와 GitHub Apps의 차이/index.md",
-    "post/비동기(Async) - Async, Await/index.md",
-    "post/GitHub - OAuth Apps와 GitHub Apps의 차이/1.png",
-    "Pasted image 20220816152830.png",
-    "post/GitHub - GitHub API - Rest API와 GraphQL의 차이점/index.md",
-    "post/GitHub - Github Apps 세부 설정 및 생성/index.md",
-    "post/GitHub - Github Apps 세부 설정 및 생성/github.jpg"
+    "Foam이란.md",
+    "VSCode 추천 확장 프로그램.md",
+    "무제노트.md",
+    "post/GitHub/Rest API와 GraphQL의 차이점/index.md",
+    "post/GitHub/github access token 생성하기/index.md",
+    "test123.md",
+    "VSCode-추천-확장-프로그램.md",
+    "_index.md",
+    "_index.en.md",
+    "test.md"
   ]
 }

@@ -5,5 +5,12 @@
   "obsidian-mind-map",
   "obsidian-outliner",
   "obsidian-tasks-plugin",
-  "templater-obsidian"
+  "templater-obsidian",
+  "obsidian-imgur-plugin",
+  "obsidian-local-images",
+  "cm-editor-syntax-highlight-obsidian",
+  "recent-files-obsidian",
+  "obsidian-dictionary-plugin",
+  "obsidian-icon-folder",
+  "obsidian-enhancing-mindmap"
 ]

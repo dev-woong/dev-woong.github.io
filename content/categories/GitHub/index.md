@@ -1,6 +1,6 @@
 ---
 title: "GitHub"
-description: "협업에 필수적인 VCS인 'GitHub'에 대한 자료를 정리했습니다."
+description: "개발 협업의 꽃인 VCS 'GitHub'에 대한 자료를 정리했습니다."
 slug: "github"
 image: "github.png"
 style:

@@ -98,6 +98,9 @@
     <loc>https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/</loc>
     <lastmod>2022-08-16T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://dev-woong.io/p/obsidian-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dev-woong.io/tags/tilemap/</loc>
     <lastmod>2022-08-16T00:00:00+00:00</lastmod>
   </url><url>
@@ -171,14 +174,7 @@
   </url><url>
     <loc>https://dev-woong.io/template/task/</loc>
   </url><url>
-    <loc>https://dev-woong.io/vscode-%EC%B6%94%EC%B2%9C-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/</loc>
-    <priority>0</priority>
-  </url><url>
     <loc>https://dev-woong.io/categories/.net/</loc>
-  </url><url>
-    <loc>https://dev-woong.io/tags/dendron/</loc>
-  </url><url>
-    <loc>https://dev-woong.io/foam%EC%9D%B4%EB%9E%80/</loc>
   </url><url>
     <loc>https://dev-woong.io/categories/github/</loc>
   </url><url>
@@ -207,7 +203,5 @@
                 />
   </url><url>
     <loc>https://dev-woong.io/template/</loc>
-  </url><url>
-    <loc>https://dev-woong.io/tags/test/</loc>
   </url>
 </urlset>

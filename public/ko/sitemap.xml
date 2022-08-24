@@ -154,6 +154,21 @@
                 href="https://dev-woong.io/page/"
                 />
   </url><url>
+    <loc>https://dev-woong.io/tags/async/</loc>
+    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/tags/await/</loc>
+    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/tags/c#/</loc>
+    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/tags/%EB%B9%84%EB%8F%99%EA%B8%B0/</loc>
+    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dev-woong.io/p/%EB%B9%84%EB%8F%99%EA%B8%B0async-async-await/</loc>
+    <lastmod>2022-01-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dev-woong.io/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -175,6 +190,8 @@
     <priority>0</priority>
   </url><url>
     <loc>https://dev-woong.io/categories/.net/</loc>
+  </url><url>
+    <loc>https://dev-woong.io/categories/.net/csharp/</loc>
   </url><url>
     <loc>https://dev-woong.io/tags/dendron/</loc>
   </url><url>

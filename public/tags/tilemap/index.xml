@@ -45,48 +45,36 @@
 &lt;li&gt;한 화면에 함께 사용되는 것 또는 하나의 오브젝트에서 함께 사용되는 것 처럼 관련이 있는 이미지들을 하나의 Sprite Atlas로 묶어주는 것이 좋음&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;texture-asset&#34;&gt;Texture Asset&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/1.png&#34;
-	width=&#34;1380&#34;
-	height=&#34;878&#34;
-	srcset=&#34;https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/1_hu0bcfd98c743bdc63705d1dfa95d4ed93_726105_480x0_resize_box_3.png 480w, https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/1_hu0bcfd98c743bdc63705d1dfa95d4ed93_726105_1024x0_resize_box_3.png 1024w&#34;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/1.png&#34;
+	
+	
+	
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Texture Asset&#34;
 	
 	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;157&#34;
-		data-flex-basis=&#34;377px&#34;
-	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;이미지-분할과-potpower-of-two-규격&#34;&gt;이미지 분할과 POT(Power of Two) 규격&lt;/h3&gt;
 &lt;h4 id=&#34;하나의-이미지-에셋에-여러-장의-그림을-그리고-분할하여-사용하는-이유&#34;&gt;하나의 이미지 에셋에 여러 장의 그림을 그리고 분할하여 사용하는 이유&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/2.png&#34;
-	width=&#34;1598&#34;
-	height=&#34;928&#34;
-	srcset=&#34;https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/2_hu9875a66662223e1dec79283dc0a05df7_1025988_480x0_resize_box_3.png 480w, https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/2_hu9875a66662223e1dec79283dc0a05df7_1025988_1024x0_resize_box_3.png 1024w&#34;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/2.png&#34;
+	
+	
+	
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;이미지 크기에 따른 메모리 POT 공간 비교&#34;
 	
 	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;172&#34;
-		data-flex-basis=&#34;413px&#34;
-	
 &gt;
-&lt;img src=&#34;https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/3.png&#34;
-	width=&#34;1514&#34;
-	height=&#34;908&#34;
-	srcset=&#34;https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/3_hu5c5f856ad586a05f8734559de964bd29_1184961_480x0_resize_box_3.png 480w, https://dev-woong.io/p/til-sprite-animation-%EA%B8%B0%EC%B4%88/3_hu5c5f856ad586a05f8734559de964bd29_1184961_1024x0_resize_box_3.png 1024w&#34;
+&lt;img src=&#34;https://dev-woong.io/3.png&#34;
+	
+	
+	
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;유사한 성격의 이미지를 모아서 제작된 POT 규격 이미지&#34;
 	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;166&#34;
-		data-flex-basis=&#34;400px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;ul&gt;

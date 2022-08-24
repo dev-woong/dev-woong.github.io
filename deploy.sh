@@ -4,7 +4,7 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Build the project.
 # hugo -t <여러분의 테마>
-hugo -t hugo-theme-stack
+#hugo -t hugo-theme-stack
 
 # blog 저장소 Commit & Push
 git add .

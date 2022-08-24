@@ -7,9 +7,11 @@
         "id": "1fb58183ca927405",
         "type": "leaf",
         "state": {
-          "type": "image",
+          "type": "markdown",
           "state": {
-            "file": "post/Unity/Unity2D - Sprite, Animation/title.jpg"
+            "file": "post/Unity/Unity2D - Tilemap/index.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite, Animation/title.jpg",
+                "file": "post/Unity/Unity2D - Tilemap/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite, Animation/title.jpg",
+                "file": "post/Unity/Unity2D - Tilemap/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite, Animation/title.jpg"
+                "file": "post/Unity/Unity2D - Tilemap/index.md"
               }
             }
           },
@@ -143,15 +145,15 @@
   },
   "active": "1fb58183ca927405",
   "lastOpenFiles": [
+    "post/Unity/Unity2D - Sprite, Animation/title.jpg",
+    "post/Obsidian/Obsidian 설치 및 설정/index.md",
+    "post/Unity/Unity2D - Tilemap/index.md",
     "post/Unity/Unity2D - Sprite, Animation/index.md",
     "post/Unity/Unity2D - Sprite, Animation/3.png",
     "post/Unity/Unity2D - Sprite, Animation/2.png",
     "post/Unity/Unity2D - Sprite, Animation/1.png",
-    "post/Obsidian/Obsidian 설치 및 설정/index.md",
     "Foam이란.md",
     "VSCode 추천 확장 프로그램.md",
-    "무제노트.md",
-    "post/GitHub/Rest API와 GraphQL의 차이점/index.md",
-    "post/GitHub/github access token 생성하기/index.md"
+    "무제노트.md"
   ]
 }

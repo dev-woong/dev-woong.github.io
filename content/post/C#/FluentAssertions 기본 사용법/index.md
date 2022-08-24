@@ -5,7 +5,7 @@ categories: .NET/CSharp
 date: 2022-08-17
 tags:
 - .NET
-- C#
+- CSharp
 - 비동기
 - Async
 - Await

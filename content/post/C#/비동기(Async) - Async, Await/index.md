@@ -1,15 +1,15 @@
 ---
 title: 비동기(Async) - Async, Await
 image: thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
-categories: .NET/C#
+categories: .NET/CSharp
 date: 2022-01-02
 tags:
 - .NET
-- C#
+- CSharp
 - 비동기
 - Async
 - Await
-draft: false
+draft: true
 ---
 
 # Summary

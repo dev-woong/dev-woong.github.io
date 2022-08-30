@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "무제노트.md",
+            "file": "notes/무제노트.md",
             "mode": "source",
             "source": false
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "무제노트.md",
+                "file": "notes/무제노트.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "무제노트.md",
+                "file": "notes/무제노트.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "무제노트.md"
+                "file": "notes/무제노트.md"
               }
             }
           },
@@ -145,6 +145,8 @@
   },
   "active": "1fb58183ca927405",
   "lastOpenFiles": [
+    "Pasted image 20220825020958.png",
+    "notes/무제노트.md",
     "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
     "post/Unity/Unity2D - Tilemap Basic/index.md",
     "post/Unity/Unity2D - Sprite and Animation Basic/title.jpg",
@@ -152,8 +154,6 @@
     "post/Unity/Unity2D - Sprite and Animation Basic/3.png",
     "post/Unity/Unity2D - Sprite and Animation Basic/2.png",
     "post/Unity/Unity2D - Sprite and Animation Basic/1.png",
-    "Foam이란.md",
-    "VSCode 추천 확장 프로그램.md",
-    "무제노트.md"
+    "Foam이란.md"
   ]
 }

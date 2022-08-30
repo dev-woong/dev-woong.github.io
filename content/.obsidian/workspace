@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
+            "file": "무제노트.md",
             "mode": "source",
             "source": false
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
+                "file": "무제노트.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
+                "file": "무제노트.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md"
+                "file": "무제노트.md"
               }
             }
           },
@@ -143,12 +143,12 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "3945461a8f29ea1c",
+  "active": "1fb58183ca927405",
   "lastOpenFiles": [
+    "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
     "post/Unity/Unity2D - Tilemap Basic/index.md",
     "post/Unity/Unity2D - Sprite and Animation Basic/title.jpg",
     "post/Obsidian/Obsidian 설치 및 설정/index.md",
-    "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
     "post/Unity/Unity2D - Sprite and Animation Basic/3.png",
     "post/Unity/Unity2D - Sprite and Animation Basic/2.png",
     "post/Unity/Unity2D - Sprite and Animation Basic/1.png",

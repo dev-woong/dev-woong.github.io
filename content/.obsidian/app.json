@@ -1,8 +1,0 @@
-{
-  "promptDelete": false,
-  "vimMode": true,
-  "alwaysUpdateLinks": true,
-  "newFileLocation": "root",
-  "newLinkFormat": "relative",
-  "useMarkdownLinks": true
-}

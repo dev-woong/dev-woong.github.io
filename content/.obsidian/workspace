@@ -7,12 +7,8 @@
         "id": "1fb58183ca927405",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "notes/무제노트.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/무제노트.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/무제노트.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "notes/무제노트.md"
-              }
+              "state": {}
             }
           },
           {
@@ -143,17 +135,16 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "1fb58183ca927405",
+  "active": "3945461a8f29ea1c",
   "lastOpenFiles": [
-    "Pasted image 20220825020958.png",
+    "post/Obsidian/Obsidian 설치 및 설정/Obsidian 설치 및 설정.md",
+    "post/Unity/Social Login - Facebook/index.md",
+    "post/Unity/Social Login - Facebook/1.png",
     "notes/무제노트.md",
+    "post/Unity/Social Login - Facebook/2.png",
+    "post/Unity/Social Login - Facebook/3.png",
     "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
-    "post/Unity/Unity2D - Tilemap Basic/index.md",
-    "post/Unity/Unity2D - Sprite and Animation Basic/title.jpg",
-    "post/Obsidian/Obsidian 설치 및 설정/index.md",
-    "post/Unity/Unity2D - Sprite and Animation Basic/3.png",
-    "post/Unity/Unity2D - Sprite and Animation Basic/2.png",
-    "post/Unity/Unity2D - Sprite and Animation Basic/1.png",
-    "Foam이란.md"
+    "post/Unity/Unity2D - Tilemap Basic/Unity2D - Tilemap Basic.md",
+    "post/Unity/Unity2D - Sprite and Animation Basic/title.jpg"
   ]
 }

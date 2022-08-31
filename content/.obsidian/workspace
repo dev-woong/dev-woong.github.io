@@ -128,14 +128,23 @@
               "type": "advanced-tables-toolbar",
               "state": {}
             }
+          },
+          {
+            "id": "2293539e437c7b84",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
-  "active": "3945461a8f29ea1c",
+  "active": "4ca2ee3c46e19fcd",
   "lastOpenFiles": [
     "post/Obsidian/Obsidian 설치 및 설정/Obsidian 설치 및 설정.md",
     "post/Unity/Social Login - Facebook/index.md",
@@ -144,7 +153,7 @@
     "post/Unity/Social Login - Facebook/2.png",
     "post/Unity/Social Login - Facebook/3.png",
     "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
-    "post/Unity/Unity2D - Tilemap Basic/Unity2D - Tilemap Basic.md",
+    "post/Unity/Unity2D - Tilemap Basic/2D Tilemap Basic.md",
     "post/Unity/Unity2D - Sprite and Animation Basic/title.jpg"
   ]
 }

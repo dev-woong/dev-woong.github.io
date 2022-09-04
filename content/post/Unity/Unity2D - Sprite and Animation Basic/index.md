@@ -1,7 +1,7 @@
 ---
 title: "[TIL] Sprite, Animation 기초"
 description: Unity2D Sprite와 Animation을 공부했습니다.
-image: ".title.jpg"
+image: title.jpg
 categories: 
 - Unity 
 publishdate: 2022-08-16

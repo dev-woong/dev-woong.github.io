@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
+                "file": "post/Unity/Tilemap 기초/Tilemap 기초.md",
                 "mode": "source",
                 "source": true
               }
@@ -91,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
+                "file": "post/Unity/Tilemap 기초/Tilemap 기초.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
+                "file": "post/Unity/Tilemap 기초/Tilemap 기초.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md"
+                "file": "post/Unity/Tilemap 기초/Tilemap 기초.md"
               }
             }
           },
@@ -160,15 +160,15 @@
   },
   "active": "a8e8a4e3369fbf57",
   "lastOpenFiles": [
+    "post/Unity/Tilemap 기초/title.jpg",
     "post/Unity/Tilemap 기초/Tilemap 기초.md",
-    "post/Unity/Tilemap 기초/5.png",
     "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
+    "post/Unity/Tilemap 기초/5.png",
     "facebook login.md",
     "post/Unity/Social Login - Facebook/index.md",
     "post/Obsidian/Obsidian 설치 및 설정/index.md",
     "post/Unity/Social Login - Facebook/1.png",
     "notes/무제노트.md",
-    "post/Unity/Social Login - Facebook/2.png",
-    "post/Unity/Social Login - Facebook/3.png"
+    "post/Unity/Social Login - Facebook/2.png"
   ]
 }

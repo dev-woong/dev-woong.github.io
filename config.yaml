@@ -35,7 +35,7 @@ hasCJKLanguage: true
 
 permalinks:
     post: /p/:filename/
-    page: /:slug/
+    page: /:filename/
 
 params:
     mainSections:

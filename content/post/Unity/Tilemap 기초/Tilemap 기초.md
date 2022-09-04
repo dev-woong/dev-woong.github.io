@@ -1,7 +1,7 @@
 ---
 title: "[TIL] Tilemap 기초"
 description: Unity2D Tilemap을 공부했습니다.
-image: title.jpg
+image: ".title.jpg"
 categories: 
 - Unity 
 publishdate: 2022-08-17

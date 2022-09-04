@@ -11,15 +11,26 @@
             "id": "a8e8a4e3369fbf57",
             "type": "leaf",
             "state": {
+              "type": "image",
+              "state": {
+                "file": "resource/title.jpg"
+              }
+            }
+          },
+          {
+            "id": "cf798bbe136cb883",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "post/Unity/Tilemap 기초/Tilemap 기초.md",
+                "file": "post/Unity/Social Login - Facebook/index.md",
                 "mode": "source",
                 "source": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -91,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Unity/Tilemap 기초/Tilemap 기초.md",
+                "file": "post/Unity/Social Login - Facebook/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Unity/Tilemap 기초/Tilemap 기초.md",
+                "file": "post/Unity/Social Login - Facebook/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Unity/Tilemap 기초/Tilemap 기초.md"
+                "file": "post/Unity/Social Login - Facebook/index.md"
               }
             }
           },
@@ -158,17 +169,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "a8e8a4e3369fbf57",
+  "active": "cf798bbe136cb883",
   "lastOpenFiles": [
+    "resource/title 1.jpg",
+    "post/Unity/Sprite, Animation 기초.md",
+    "resource/3 1.png",
+    "resource/title.jpg",
+    "post/Unity/Tilemap 기초.md",
+    "resource/Pasted image 20220905010034.png",
+    "resource/5.png",
     "post/Unity/Tilemap 기초/title.jpg",
-    "post/Unity/Tilemap 기초/Tilemap 기초.md",
-    "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
-    "post/Unity/Tilemap 기초/5.png",
     "facebook login.md",
-    "post/Unity/Social Login - Facebook/index.md",
-    "post/Obsidian/Obsidian 설치 및 설정/index.md",
-    "post/Unity/Social Login - Facebook/1.png",
-    "notes/무제노트.md",
-    "post/Unity/Social Login - Facebook/2.png"
+    "post/Unity/Social Login - Facebook/index.md"
   ]
 }

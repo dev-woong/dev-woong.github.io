@@ -4,10 +4,12 @@
   "showFrontmatter": true,
   "livePreview": false,
   "alwaysUpdateLinks": true,
-  "newFileLocation": "current",
+  "newFileLocation": "folder",
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "./",
+  "attachmentFolderPath": "files",
   "communityThemeSortOrder": "download",
-  "strictLineBreaks": true
+  "strictLineBreaks": true,
+  "promptDelete": false,
+  "newFileFolderPath": "resource"
 }

@@ -1,7 +1,7 @@
 ---
 title: Unity Facebook 로그인 구현
 description: Unity 플랫폼에서 SNS 중 Facebook을 이용한 로그인을 구현합니다.
-image: title.jpg
+image: resource/title.jpg
 categories: 
 - Unity 
 

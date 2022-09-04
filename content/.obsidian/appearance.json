@@ -1,6 +1,11 @@
 {
   "translucency": true,
-  "cssTheme": "Clair de Lune",
+  "cssTheme": "Encore",
   "accentColor": "",
-  "showViewHeader": true
+  "showViewHeader": true,
+  "interfaceFontFamily": "",
+  "textFontFamily": "",
+  "monospaceFontFamily": "",
+  "baseFontSize": 16,
+  "nativeMenus": true
 }

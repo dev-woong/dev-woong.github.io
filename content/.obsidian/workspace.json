@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/C#/비동기(Async) - Async, Await.md",
+                "file": "resource/202209050123.md",
                 "mode": "source",
                 "source": true
               }
@@ -91,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/C#/비동기(Async) - Async, Await.md",
+                "file": "resource/202209050123.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/C#/비동기(Async) - Async, Await.md",
+                "file": "resource/202209050123.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/C#/비동기(Async) - Async, Await.md"
+                "file": "resource/202209050123.md"
               }
             }
           },
@@ -158,8 +158,9 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "3945461a8f29ea1c",
+  "active": "0162fec1688f00bc",
   "lastOpenFiles": [
+    "post/C#/비동기(Async) - Async, Await.md",
     "post/GitHub/GitHub API - Rest API와 GraphQL의 차이점.md",
     "post/Unity/Facbook 로그인 구현.md",
     "post/Unity/Sprite, Animation 기초.md",
@@ -168,7 +169,6 @@
     "post/GitHub/Github Apps 세부 설정 및 생성.md",
     "resource/title.jpg",
     "post/BAEKJOON/10828 - 스택.md",
-    "post/BAEKJOON/1032 - 명령 프롬프트.md",
-    "post/BAEKJOON/1550 - 16진수 변환.md"
+    "post/BAEKJOON/1032 - 명령 프롬프트.md"
   ]
 }

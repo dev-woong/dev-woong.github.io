@@ -16,5 +16,5 @@ draft: true
 #### IP 주소 관리
 #### 개인키를 통한 인증
 #### 개별 사용자가 아닌 서비스로 설치
-![](1.png)
+![](post/GitHub/OAuth%20Apps와%20GitHub%20Apps의%20차이/1.png)
 

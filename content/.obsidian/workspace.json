@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/Unity/Unity2D - Tilemap Basic/Tilemap 기초.md",
+                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
                 "mode": "source",
                 "source": true
               }
@@ -91,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Unity/Unity2D - Tilemap Basic/Tilemap 기초.md",
+                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Unity/Unity2D - Tilemap Basic/Tilemap 기초.md",
+                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Unity/Unity2D - Tilemap Basic/Tilemap 기초.md"
+                "file": "post/Unity/Unity2D - Sprite and Animation Basic/index.md"
               }
             }
           },
@@ -158,10 +158,10 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "a8e8a4e3369fbf57",
+  "active": "3945461a8f29ea1c",
   "lastOpenFiles": [
-    "post/Unity/Unity2D - Tilemap Basic/5.png",
-    "post/Unity/Unity2D - Tilemap Basic/Tilemap 기초.md",
+    "post/Unity/Tilemap 기초/Tilemap 기초.md",
+    "post/Unity/Tilemap 기초/5.png",
     "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
     "facebook login.md",
     "post/Unity/Social Login - Facebook/index.md",

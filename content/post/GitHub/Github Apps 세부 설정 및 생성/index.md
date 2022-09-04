@@ -23,25 +23,25 @@ tags:
 [GitHub Login](https://github.com/login) 페이지에서 로그인합니다.
 
 ### 설정 페이지 이동
-![사용자 아이콘 > Settings](1.png)
-![Developer Settings](2.png)
+![사용자 아이콘 > Settings](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/1.png)
+![Developer Settings](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/2.png)
 
 GitHub 홈 화면에서 우측 상단 사용자 아이콘을 클릭 후 하단의 `Setting`를 클릭하면 설정 페이지로 이동됩니다.
 
 이동 후, 좌측 메뉴 최하단의 `Developer settings` 를 클릭합니다.
 
-![GitHub Apps > New GitHub App](3.png)
+![GitHub Apps > New GitHub App](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/3.png)
 
 Developer Setting 화면에서 좌측의 `GitHub Apps`를 클릭하고 `New GitHub App`을 클릭합니다.
 Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행하면 GitHub Apps 설정 화면으로 이동합니다.
 
-![Confirm Access](4.png)
+![Confirm Access](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/4.png)
 
 ### 세부 설정
 > \* 표시가 붙어있는 항목은 필수 입력 항목입니다.
 
 #### Register new GitHub App
-![](5.png)
+![](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/5.png)
 - GitHub App Name : 생성할 GitHub App 이름 (기존 GitHub 계정과 동일한 이름 불가)
 - This is displayed to users of your GitHub App : GitHub App에 대한 설명(마크다운 형식 지원)
 - Homepage URL : 앱 웹사이트의 전체 URL

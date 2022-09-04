@@ -34,8 +34,8 @@ DefaultContentLanguage: ko
 hasCJKLanguage: true
 
 permalinks:
-    post: /p/:filename/
-    page: /:filename/
+    post: /p/:filename
+    page: /:filename
 
 params:
     mainSections:

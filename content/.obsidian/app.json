@@ -7,9 +7,10 @@
   "newFileLocation": "folder",
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "files",
+  "attachmentFolderPath": "resource",
   "communityThemeSortOrder": "download",
   "strictLineBreaks": true,
-  "promptDelete": false,
-  "newFileFolderPath": "resource"
+  "promptDelete": true,
+  "newFileFolderPath": "resource",
+  "newLinkFormat": "absolute"
 }

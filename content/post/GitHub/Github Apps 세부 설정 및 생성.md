@@ -1,7 +1,7 @@
 ---
 title: Github Apps 세부 설정 및 생성
 description: GitHub와 통합되는 응용 프로그램을 만들기 위한 'GitHub Apps'를 생성합니다.
-image: github.jpg
+image: resource/github.jpg
 categories: GitHub
 publishdate: 2022-08-14
 tags:
@@ -23,32 +23,32 @@ tags:
 [GitHub Login](https://github.com/login) 페이지에서 로그인합니다.
 
 ### 설정 페이지 이동
-![사용자 아이콘 > Settings](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/1.png)
-![Developer Settings](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/2.png)
+![사용자 아이콘 > Settings](resource/1%202.png)
+![Developer Settings](resource/2%202.png)
 
 GitHub 홈 화면에서 우측 상단 사용자 아이콘을 클릭 후 하단의 `Setting`를 클릭하면 설정 페이지로 이동됩니다.
 
 이동 후, 좌측 메뉴 최하단의 `Developer settings` 를 클릭합니다.
 
-![GitHub Apps > New GitHub App](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/3.png)
+![GitHub Apps > New GitHub App](resource/3%202.png)
 
 Developer Setting 화면에서 좌측의 `GitHub Apps`를 클릭하고 `New GitHub App`을 클릭합니다.
 Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행하면 GitHub Apps 설정 화면으로 이동합니다.
 
-![Confirm Access](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/4.png)
+![Confirm Access](resource/4%201.png)
 
 ### 세부 설정
 > \* 표시가 붙어있는 항목은 필수 입력 항목입니다.
 
 #### Register new GitHub App
-![](post/GitHub/Github%20Apps%20세부%20설정%20및%20생성/5.png)
+![](resource/5%201.png)
 - GitHub App Name : 생성할 GitHub App 이름 (기존 GitHub 계정과 동일한 이름 불가)
 - This is displayed to users of your GitHub App : GitHub App에 대한 설명(마크다운 형식 지원)
 - Homepage URL : 앱 웹사이트의 전체 URL
 	- 특별히 해당 앱을 사용하는 사이트가 없는 경우 https://127.0.0.1 (루프백)등으로 입력
 
 #### Identifying and authorizing users
-![](6.png)
+![](resource/6.png)
 - Callback URL : 사용자가 해당 앱을 승인한 후 리디렉션 될 URL
 	- 이 URL은 앱이 사용자-서버 요청을 식별/승인해야 하는 경우 사용
 	- `Add Callback URL` 을 통해 최대 10개의 추가 Callback URL을 사용 가능
@@ -63,13 +63,13 @@ Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행
 	- [GitHub Docs - Device Flow](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)
 
 #### Post installation
-![](9.png)
+![](resource/9.png)
 - Setup URL : 추가 설정이 필요한 경우 GitHub App 구성 후 원하는 URL으로 리디렉션
 	- 상단 [Identifying and authorizing users](#identifying-and-authorizing-users) 에서 `Request user ahtorization (OAuth) during installation` 체크 시 비활성화
 - Redirect on update : GitHub App이 업데이트된 후 사용자를 `Setup URL` 로 리디렉션 (예: 리포지터리 추가/제거)
 
 #### Webhook
-![](10.png)
+![](resource/10.png)
 - Active : 웹훅 활성화 설정
 - Webhook URL : App에서 이벤트가 발생하는 경우 데이터를 받을 URL
 - Webhook Secret : 원하는 사용자만 hook 을 받을 수 있도록 설정하는 선택적 보안 토큰
@@ -145,7 +145,7 @@ Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행
 ### 생성 완료
 최초 생성 이후에는 상단에 노란 바탕으로 경고 메시지가 발생하게 되는데 생성한 GitHub App에 Private Key가 없기 때문에 발생하는 문제입니다.
 
-![](11.png)
+![](resource/11.png)
 하단의 Private keys 에서 `Generate a private key` 를 클릭해 Private Key를 하나 생성해주면 앱 사용 준비가 완료됩니다. (필자의 경우 하나의 Private key가 생성되어있는 상태)
 
 ### 마무리

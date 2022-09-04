@@ -4,33 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "58e8542afc12c0ae",
+        "id": "4d6eece2e7864089",
         "type": "tabs",
         "children": [
           {
-            "id": "a8e8a4e3369fbf57",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "resource/title.jpg"
-              }
-            }
-          },
-          {
-            "id": "cf798bbe136cb883",
+            "id": "0162fec1688f00bc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/Unity/Social Login - Facebook/index.md",
+                "file": "post/C#/비동기(Async) - Async, Await.md",
                 "mode": "source",
                 "source": true
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -102,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Unity/Social Login - Facebook/index.md",
+                "file": "post/C#/비동기(Async) - Async, Await.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Unity/Social Login - Facebook/index.md",
+                "file": "post/C#/비동기(Async) - Async, Await.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Unity/Social Login - Facebook/index.md"
+                "file": "post/C#/비동기(Async) - Async, Await.md"
               }
             }
           },
@@ -169,17 +158,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "cf798bbe136cb883",
+  "active": "3945461a8f29ea1c",
   "lastOpenFiles": [
-    "resource/title 1.jpg",
+    "post/GitHub/GitHub API - Rest API와 GraphQL의 차이점.md",
+    "post/Unity/Facbook 로그인 구현.md",
     "post/Unity/Sprite, Animation 기초.md",
-    "resource/3 1.png",
-    "resource/title.jpg",
     "post/Unity/Tilemap 기초.md",
-    "resource/Pasted image 20220905010034.png",
-    "resource/5.png",
-    "post/Unity/Tilemap 기초/title.jpg",
-    "facebook login.md",
-    "post/Unity/Social Login - Facebook/index.md"
+    "post/GitHub/GitHub Personal Access Token 생성하기.md",
+    "post/GitHub/Github Apps 세부 설정 및 생성.md",
+    "resource/title.jpg",
+    "post/BAEKJOON/10828 - 스택.md",
+    "post/BAEKJOON/1032 - 명령 프롬프트.md",
+    "post/BAEKJOON/1550 - 16진수 변환.md"
   ]
 }

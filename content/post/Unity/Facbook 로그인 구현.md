@@ -1,7 +1,7 @@
 ---
 title: Unity Facebook 로그인 구현
-description: Unity 플랫폼에서 SNS 중 Facebook을 이용한 로그인을 구현합니다.
-image: resource/title.jpg
+description: Unity 플랫폼에서 Facebook을 이용한 Social 로그인을 구현합니다.
+image: resource/Pasted%20image%2020220905011824.png
 categories: 
 - Unity 
 
@@ -18,7 +18,7 @@ draft: true
 ## 유니티 패키지 설치
 ### Google Developers - Unity 외부 종속 항목 관리자
 [Google Develpers](https://developers.google.com/unity/packages#tools)
-![](<file:///Users/coldwoong/Desktop/blog/content/post/Unity/Social Login - Facebook/Google Developers.png>)
+![](resource/google%20dev.png)
 - Google Developers 페이지에서 위와 같은 항목을 찾아 프로젝트에 Import
 
 ### Firebase Unity SDK - FirebaseAuth

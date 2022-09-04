@@ -1,6 +1,6 @@
 ---
 title: GitHub API - Rest API와 GraphQL의 차이점
-image: thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
+image: resource/thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
 categories: GitHub
 date: 2022-08-16
 tags:

@@ -1,0 +1,13 @@
+{
+  "vimMode": true,
+  "showLineNumber": true,
+  "showFrontmatter": true,
+  "livePreview": false,
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "current",
+  "useMarkdownLinks": true,
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "./",
+  "communityThemeSortOrder": "download",
+  "strictLineBreaks": true
+}

@@ -4,12 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "b115c5de52f9a8c5",
-        "type": "leaf",
-        "state": {
-          "type": "empty",
-          "state": {}
-        }
+        "id": "58e8542afc12c0ae",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a8e8a4e3369fbf57",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -144,8 +150,9 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "b115c5de52f9a8c5",
+  "active": "a8e8a4e3369fbf57",
   "lastOpenFiles": [
+    "facebook login.md",
     "post/Unity/Social Login - Facebook/index.md",
     "post/Obsidian/Obsidian 설치 및 설정/index.md",
     "post/Unity/Unity2D - Tilemap Basic/index.md",

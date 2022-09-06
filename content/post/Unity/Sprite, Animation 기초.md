@@ -41,7 +41,7 @@ draft: false
 - 한 화면에 함께 사용되는 것 또는 하나의 오브젝트에서 함께 사용되는 것 처럼 관련이 있는 이미지들을 하나의 Sprite Atlas로 묶어주는 것이 좋음
 
 ## Texture Asset
-![Texture Asset](1%201.png)
+![Texture Asset](res1%201.png)
 
 ### 이미지 분할과 POT(Power of Two) 규격
 #### 하나의 이미지 에셋에 여러 장의 그림을 그리고 분할하여 사용하는 이유

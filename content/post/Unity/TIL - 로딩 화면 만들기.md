@@ -7,7 +7,6 @@ categories:
 publishdate: 2022-09-07
 tags:
 - TIL
-- Unity
 - Mobile
 - Loading
 draft: true

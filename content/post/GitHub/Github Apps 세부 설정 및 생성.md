@@ -5,7 +5,6 @@ image: resource/github.jpg
 categories: GitHub
 publishdate: 2022-08-14
 tags:
-- github
 - github apps
 - repository
 - packages

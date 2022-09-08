@@ -4,7 +4,6 @@ image: resource/thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
 categories: GitHub
 date: 2022-08-16
 tags:
-- github
 - Rest API
 - GraphQL
 draft: true

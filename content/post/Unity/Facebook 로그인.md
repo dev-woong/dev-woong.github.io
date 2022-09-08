@@ -7,7 +7,6 @@ categories:
 
 publishdate: 2022-08-31
 tags:
-- Unity
 - SNS
 - Facebook
 draft: true

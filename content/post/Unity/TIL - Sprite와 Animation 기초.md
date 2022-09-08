@@ -7,7 +7,6 @@ categories:
 publishdate: 2022-08-16
 tags:
 - TIL
-- Unity
 - 2D
 - Tilemap
 draft: false

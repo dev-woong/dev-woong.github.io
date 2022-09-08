@@ -7,7 +7,6 @@ categories:
 publishdate: 2022-08-17
 tags:
 - TIL
-- Unity
 - 2D
 - Sprite
 - Animation

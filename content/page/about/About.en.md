@@ -15,7 +15,7 @@ menu:
             icon: user
 ---
 
-![Developer Dev-Woong](dev-woong.jpeg)
+![Developer Dev-Woong](page/about/dev-woong.jpeg)
 
 ## Intro
 

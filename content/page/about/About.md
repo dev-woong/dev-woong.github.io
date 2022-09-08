@@ -15,7 +15,7 @@ menu:
             icon: user
 ---
 
-![개발자 Dev-Woong](dev-woong.jpeg)
+![개발자 Dev-Woong](page/about/dev-woong.jpeg)
 
 ## 소개
 

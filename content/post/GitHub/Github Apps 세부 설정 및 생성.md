@@ -1,7 +1,7 @@
 ---
 title: Github Apps 세부 설정 및 생성
 description: GitHub와 통합되는 응용 프로그램을 만들기 위한 'GitHub Apps'를 생성합니다.
-image: resource/github.jpg
+image: resource/Pasted%20image%2020220919131918.png
 categories: GitHub
 publishdate: 2022-08-14
 tags:
@@ -9,7 +9,6 @@ tags:
 - repository
 - packages
 ---
-
 ## Github Apps 란?
 >Github에서 동작하는 GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다.
 >

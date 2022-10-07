@@ -1,4 +1,4 @@
 ---
 publishdate: 9999-01-01
 ---
-[MacOS MAUI 설치하기](MacOS%20MAUI%20설치하기.md)
+[MacOS MAUI 개발 환경 구성하기](post/MAUI/MacOS%20MAUI%20개발%20환경%20구성하기.md)

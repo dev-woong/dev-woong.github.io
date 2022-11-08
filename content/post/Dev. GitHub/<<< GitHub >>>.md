@@ -7,4 +7,4 @@ publishdate: 9999-01-01
 
 
 
-[Actions](post/GitHub/Actions/Actions.md)
+[<<< Actions >>>](<<<%20Actions%20>>>.md)

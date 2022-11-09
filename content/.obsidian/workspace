@@ -1,0 +1,159 @@
+{
+  "main": {
+    "id": "a1f16ce5f8a02de0",
+    "type": "split",
+    "children": [
+      {
+        "id": "b115c5de52f9a8c5",
+        "type": "leaf",
+        "state": {
+          "type": "graph",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c02b33d06efc6002",
+    "type": "split",
+    "children": [
+      {
+        "id": "05d776fd591d78ba",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3945461a8f29ea1c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a17aa27a239100b9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#dendron",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7b5f94c9df601420",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "d30c725583e55f74",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 337.5036315917969
+  },
+  "right": {
+    "id": "9a90f98617572d22",
+    "type": "split",
+    "children": [
+      {
+        "id": "b38251131c271ec4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4ca2ee3c46e19fcd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "770c994299e2eef9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a8411420f624372e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "8ca6ee1eda7733dd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "0dd97304b39ec422",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "2293539e437c7b84",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "b115c5de52f9a8c5",
+  "lastOpenFiles": [
+    "post/Unity/Social Login - Facebook/index.md",
+    "post/Obsidian/Obsidian 설치 및 설정/index.md",
+    "post/Unity/Unity2D - Tilemap Basic/index.md",
+    "post/Unity/Social Login - Facebook/1.png",
+    "notes/무제노트.md",
+    "post/Unity/Social Login - Facebook/2.png",
+    "post/Unity/Social Login - Facebook/3.png",
+    "post/Unity/Unity2D - Sprite and Animation Basic/index.md",
+    "post/Unity/Unity2D - Sprite and Animation Basic/title.jpg"
+  ]
+}

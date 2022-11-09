@@ -1,0 +1,51 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"post/Dev. Unity\"",
+      "color": {
+        "a": 1,
+        "rgb": 5431511
+      }
+    },
+    {
+      "query": "path:\"post/Dev. C Sharp\"",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
+      }
+    },
+    {
+      "query": "path:\"post/Dev. GitHub\"",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "",
+      "color": {
+        "a": 1,
+        "rgb": 5431378
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": -1.7,
+  "nodeSizeMultiplier": 1.87141447368421,
+  "lineSizeMultiplier": 1.58289473684211,
+  "collapse-forces": false,
+  "centerStrength": 0.36953125,
+  "repelStrength": 10.6348684210526,
+  "linkStrength": 0.897902960526316,
+  "linkDistance": 174,
+  "scale": 0.6388754049777425,
+  "close": false
+}

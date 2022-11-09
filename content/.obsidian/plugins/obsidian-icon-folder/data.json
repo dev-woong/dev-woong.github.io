@@ -1,0 +1,33 @@
+{
+  "settings": {
+    "migrated": true,
+    "iconPacksPath": ".obsidian/plugins/obsidian-icon-folder/icons",
+    "fontSize": 16,
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "FasHorseHead",
+      "FasBrain",
+      "RiInformationFill",
+      "FasServer",
+      "SiWindows"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  "post/Dev. BAEKJOON": "FasCode",
+  "post/Dev. C Sharp": "SiDotnet",
+  "post/Dev. GitHub": "SiGithub",
+  "post/Dev. MAUI": "SiMaterialdesignicons",
+  "post/Dev. Tekla Structures API": "FarBuilding",
+  "post/Dev. Unity": "SiUnity",
+  "post/OS. MacOS": "SiApple",
+  "post/OS. Windows": "SiWindows",
+  "post/Sys. Server": "FasServer",
+  "IT Second Brain.md": "FasHorseHead"
+}

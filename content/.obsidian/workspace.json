@@ -11,9 +11,11 @@
             "id": "4c276fa5fd260273",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "resource/Pasted image 20221109021211.png"
+                "file": "post/Sys. Server/(O) Docker Hub에 Container 변경사항 저장(commit).md",
+                "mode": "source",
+                "source": false
               }
             }
           },
@@ -55,14 +57,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/Dev. MAUI/(O) Android Simulator 'Unknown Error' 오류.md",
+                "file": "post/Sys. Server/Note. 서버 구성도.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b8aaf5d67ed2c860",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "post/OS. Windows/Windows.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -91,7 +104,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#dendron",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -136,7 +149,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Dev. MAUI/(O) Android Simulator 'Unknown Error' 오류.md",
+                "file": "post/Sys. Server/(O) Docker Hub에 Container 변경사항 저장(commit).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,7 +166,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Dev. MAUI/(O) Android Simulator 'Unknown Error' 오류.md",
+                "file": "post/Sys. Server/(O) Docker Hub에 Container 변경사항 저장(commit).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -176,7 +189,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Dev. MAUI/(O) Android Simulator 'Unknown Error' 오류.md"
+                "file": "post/Sys. Server/(O) Docker Hub에 Container 변경사항 저장(commit).md"
               }
             }
           },
@@ -203,17 +216,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "5bd65ed778664698",
+  "active": "4c276fa5fd260273",
   "lastOpenFiles": [
-    "post/Dev. Tekla Structures API/(X) API 사용 형태.md",
-    "IT Second Brain.md",
+    "post/Sys. Server/(O) Docker Hub Repository 생성.md",
+    "post/Sys. Server/(O) Docker Hub에 Container 변경사항 저장(commit).md",
     "post/Dev. MAUI/MAUI.md",
-    "post/Dev. Tekla Structures API/Tekla Structures.md",
-    "post/Dev. Unity/Unity.md",
-    "post/Dev. Unity/(X) Facebook 로그인.md",
+    "post/OS. Windows/Windows.md",
+    "resource/Pasted image 20221109021211.png",
     "post/OS. MacOS/MacOS.md",
-    "post/OS. MacOS/(X) Note. Provisioning Identifier 오류 관련.md",
     "post/OS. MacOS/(X) XCode 14 Beta 오류.md",
-    "post/Dev. Unity/(X) Unity Package Registry 만들기(Verdaccio).md"
+    "post/Dev. MAUI/(X) Note. Provisioning Identifier 오류 관련.md",
+    "post/Dev. C Sharp/(X) .NET Installer 생성 및 배포 과정 정리.md",
+    "IT Second Brain.md"
   ]
 }

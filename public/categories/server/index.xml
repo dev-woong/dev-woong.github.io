@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Server on Dev-Woong 🚀</title>
+        <link>https://dev-woong.io/categories/server/</link>
+        <description>Recent content in Server on Dev-Woong 🚀</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Wed, 09 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.io/categories/server/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Docker Hub Repository 생성</title>
+        <link>https://dev-woong.io/p/o-docker-hub-repository-%EC%83%9D%EC%84%B1/</link>
+        <pubDate>Wed, 09 Nov 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/p/o-docker-hub-repository-%EC%83%9D%EC%84%B1/</guid>
+        <description>&lt;img src="https://dev-woong.io/resource/Pasted%20image%2020221109173529.png" alt="Featured image of post Docker Hub Repository 생성" /&gt;&lt;p&gt;기본적으로 Docker Hub의 계정이 있다는 가정 하에 작성하였습니다. 가입되지 않은 경우 아래 링크를 통해 Docker Hub에 회원가입 후 진행합니다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hub.docker.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Docker Hub Container Image Library | App Containerization&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;생성-방법&#34;&gt;생성 방법&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Docker Hub 상단의 &lt;code&gt;Repositories&lt;/code&gt; 클릭 후 우측 상단의 &lt;code&gt;Create Repository&lt;/code&gt; 클릭
+&lt;img src=&#34;https://dev-woong.io/resource/Pasted%20image%2020221109163439.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;Repository 이름 작성 및 Visibility 지정 후 Create
+&lt;img src=&#34;https://dev-woong.io/resource/Pasted%20image%2020221109163546.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;Docker Hub Repository 생성 완료
+&lt;img src=&#34;https://dev-woong.io/resource/Pasted%20image%2020221109163555.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Docker Hub에 Container 변경사항 저장(commit)</title>
+        <link>https://dev-woong.io/p/o-docker-hub%EC%97%90-container-%EB%B3%80%EA%B2%BD%EC%82%AC%ED%95%AD-%EC%A0%80%EC%9E%A5commit/</link>
+        <pubDate>Wed, 09 Nov 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/p/o-docker-hub%EC%97%90-container-%EB%B3%80%EA%B2%BD%EC%82%AC%ED%95%AD-%EC%A0%80%EC%9E%A5commit/</guid>
+        <description>&lt;img src="https://dev-woong.io/resource/Pasted%20image%2020221109173529.png" alt="Featured image of post Docker Hub에 Container 변경사항 저장(commit)" /&gt;&lt;h2 id=&#34;컨테이너-정보-확인&#34;&gt;컨테이너 정보 확인&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker ps -a&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;예시:
+&lt;img src=&#34;https://dev-woong.io/resource/Pasted%20image%2020221109163134.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;docker-hub-이미지-정보-확인&#34;&gt;Docker Hub 이미지 정보 확인&lt;/h2&gt;
+&lt;p&gt;Docker Hub에서 Repository를 아직 생성하지 않은 경우 다음 글을 참고하여 생성 후 진행
+&lt;a class=&#34;link&#34; href=&#34;%28O%29%20Docker%20Hub%20Repository%20%ec%83%9d%ec%84%b1.md&#34; &gt;Docker Hub Repository 생성&lt;/a&gt;
+&lt;img src=&#34;https://dev-woong.io/resource/Pasted%20image%2020221109162842.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;commit&#34;&gt;Commit&lt;/h2&gt;
+&lt;p&gt;Docker Hub에 생성한 Repository 이름에 맞춰 Commit 이미지 생성
+해당 명령 실행 시 컨테이너의 상태가 저장된 이미지가 생성됨&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker commit &amp;lt;container id&amp;gt; &amp;lt;id&amp;gt;/&amp;lt;repository&amp;gt;:&amp;lt;tag name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;예시 : &lt;code&gt;docker commit 5b9aeb9f628e agio96/yunwoo-tc:221109&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;login&#34;&gt;Login&lt;/h2&gt;
+&lt;p&gt;Docker Hub를 이용할 권한을 얻기 위해 cli에서 로그인&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker login&lt;/code&gt;
+&lt;img src=&#34;https://dev-woong.io/resource/Pasted%20image%2020221109165501.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;push&#34;&gt;Push&lt;/h2&gt;
+&lt;p&gt;Commit을 통해 생성된 이미지를 Docker Hub에 Push&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker push &amp;lt;id&amp;gt;/&amp;lt;repository&amp;gt;:&amp;lt;tag name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;예시 : &lt;code&gt;docker push agio96/yunwoo-tc:221109&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;완료&#34;&gt;완료&lt;/h2&gt;
+&lt;p&gt;컨테이너의 변경사항이 저장된 이미지가 Docker Hub Repository에 tag로 추가됨
+&lt;img src=&#34;https://dev-woong.io/resource/Pasted%20image%2020221109165835.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

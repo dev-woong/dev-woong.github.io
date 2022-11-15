@@ -7,7 +7,7 @@ tags:
 - 비동기
 - Async
 - Await
-draft: true
+draft: false
 ---
 [FluentAssertions - Tips](https://fluentassertions.com/tips/#general-tips)
 
@@ -22,7 +22,15 @@ FluentAssertions는 Test Case 작성 시 값에 대한 검증을 쉽게 할 수 
 ```
 
 ### NotBeEmpty()
-```C#
+```
+int main()
+{
+	
+}
+```
+
+
+```
 actual.Should().NotBeEmpty();
 ```
 ### Tilemap Palette

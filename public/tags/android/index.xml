@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Android on Dev-Woong 🚀</title>
+        <link>https://dev-woong.io/tags/android/</link>
+        <description>Recent content in Android on Dev-Woong 🚀</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Tue, 08 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.io/tags/android/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Android Simulator &#39;Unknown Error&#39; 오류</title>
+        <link>https://dev-woong.io/p/o-android-simulator-unknown-error-%EC%98%A4%EB%A5%98/</link>
+        <pubDate>Tue, 08 Nov 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/p/o-android-simulator-unknown-error-%EC%98%A4%EB%A5%98/</guid>
+        <description>&lt;img src="https://dev-woong.io/resource/Pasted%20image%2020221109020627.png" alt="Featured image of post Android Simulator &#39;Unknown Error&#39; 오류" /&gt;&lt;h2 id=&#34;증상&#34;&gt;증상&lt;/h2&gt;
+&lt;p&gt;Android Simulator 생성 중 API를 선택하면 하단의 Unknown Error 가 발생하며 시뮬레이터가 생성되지 않는 문제 (기존에 생성되었던 시뮬레이터도 동작하지 않음)&lt;/p&gt;
+&lt;p&gt;여러 버전을 설치하던 중 설정 등이 꼬인 것으로 추정&lt;/p&gt;
+&lt;h2 id=&#34;확인된-해결-방법&#34;&gt;확인된 해결 방법&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;각 운영체제의 사용자 디렉터리 아래의 .android 디렉터리에서 *.ini 확장자 파일 삭제 후 다시 시도&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

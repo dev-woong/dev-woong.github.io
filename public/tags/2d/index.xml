@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>2D on Dev-Woong 🚀</title>
+        <link>https://dev-woong.io/tags/2d/</link>
+        <description>Recent content in 2D on Dev-Woong 🚀</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.io/tags/2d/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[TIL] Tilemap 기초</title>
+        <link>https://dev-woong.io/p/o-til-tilemap-%EA%B8%B0%EC%B4%88/</link>
+        <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/p/o-til-tilemap-%EA%B8%B0%EC%B4%88/</guid>
+        <description>&lt;img src="https://dev-woong.io/resource/Pasted%20image%2020220905010034.png" alt="Featured image of post [TIL] Tilemap 기초" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=9Y0bUhwxRyk&amp;amp;list=PLC2Tit6NyVie46nbdEM00wFoojjRlXIcf&amp;amp;index=10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;고박사의 유니티 노트 [Unity 2D Basic] 06-01. 2D Tilemap Editor&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tilemap-editor&#34;&gt;Tilemap Editor&lt;/h2&gt;
+&lt;h3 id=&#34;tilemap-palette&#34;&gt;Tilemap Palette&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Tilemap 오브젝트에 배치할 때는 Tile Asset들을 등록해두는 저장소&lt;/li&gt;
+&lt;li&gt;팔레트에 있는 Tile Asset을 여러 속성에 따라 배치하거나 삭제할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;grid-오브젝트&#34;&gt;Grid 오브젝트&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;자식으로 배치되는 Tilemap 오브젝트들을 관리하는 역할&lt;/li&gt;
+&lt;li&gt;Cell Layout, Cell Swizzle 정보를 이용해 배치되는 맵의 방식을 Rectangle, Hexagon, Isometric, Isometric Z As Y 등으로 설정할 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tilemap-오브젝트&#34;&gt;Tilemap 오브젝트&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Tile Asset을 배치하는 공간으로 실제 게임에 보여지는 타일 형태의 월드&lt;/li&gt;
+&lt;li&gt;Grid 오브젝트의 자식으로 여러 개의 Tilemap 오브젝트 등록 가능 (Layer 구분)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;상단 메뉴 &amp;gt; Windows &amp;gt; 2D &amp;gt; Tile Palette&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://dev-woong.io/resource/2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Tile Palette 메뉴&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;강의와 현재의 편차가 있는 듯 한데, 해당 차이점 등에 대해 이해 후 다시 포스팅 하겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hits.seeyoufarm.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdev-woong.io%2F2022.08.17-02&amp;amp;count_bg=%233D91C8&amp;amp;title_bg=%23555555&amp;amp;icon=&amp;amp;icon_color=%23E7E7E7&amp;amp;title=%EC%A1%B0%ED%9A%8C%EC%88%98&amp;amp;edge_flat=true&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Hits&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[TIL] Sprite, Animation 기초</title>
+        <link>https://dev-woong.io/p/o-til-sprite%EC%99%80-animation-%EA%B8%B0%EC%B4%88/</link>
+        <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/p/o-til-sprite%EC%99%80-animation-%EA%B8%B0%EC%B4%88/</guid>
+        <description>&lt;img src="https://dev-woong.io/resource/title.jpg" alt="Featured image of post [TIL] Sprite, Animation 기초" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=jg4nCHgDCFg&amp;amp;list=PLC2Tit6NyVie46nbdEM00wFoojjRlXIcf&amp;amp;index=8&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;고박사의 유니티 노트 [Unity 2D Basic] 05-01. 2D Sprite / Animation&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;draw-call--batches&#34;&gt;Draw Call &amp;amp; Batches&lt;/h2&gt;
+&lt;h3 id=&#34;draw-call&#34;&gt;Draw Call&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU가 GPU에게 Draw 요청하는 것&lt;/li&gt;
+&lt;li&gt;이 값이 낮을수록 앱이 가벼우며 기기에 따라 특정 개수 이상 시 프레임 드랍 발생&lt;/li&gt;
+&lt;li&gt;모바일의 경우 100개를 넘기지 않는 것을 권장 (요즘 기종은 120Hz를 지원)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;batches&#34;&gt;Batches&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Draw Call 을 포함하는 상위 개념&lt;/li&gt;
+&lt;li&gt;Unity 5.0부터 Draw Call 대신 Batches를 기준으로 &lt;code&gt;Stats&lt;/code&gt;에 렌더링 정보를 표시함&lt;/li&gt;
+&lt;li&gt;Batches는 &lt;code&gt;Mesh&lt;/code&gt;, &lt;code&gt;Material&lt;/code&gt;, &lt;code&gt;Shader&lt;/code&gt;, &lt;code&gt;Draw Call&lt;/code&gt; 등의 정보를 종합적으로 계산함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;sprite-atlas&#34;&gt;Sprite Atlas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;여러 이미지 파일을 한 장의 텍스처에 모아 두고 사용하는 것&lt;/li&gt;
+&lt;li&gt;Unity는 Sprite &lt;code&gt;Packer&lt;/code&gt;(Legacy)와 &lt;code&gt;Sprite Atlas&lt;/code&gt;를 제공합니다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sprite-atlas를-사용해야-하는-이유&#34;&gt;Sprite Atlas를 사용해야 하는 이유&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;2D 게임에서 배경이나 캐릭터, 적 등을 표현하는데 사용되는 이미지 에셋은 매번 렌더링 할 때마다 각 이미지 에셋 별로 1의 Batches 증가&lt;/li&gt;
+&lt;li&gt;예를 들어 게임에 사용되는 캐릭터, 적, 아이템 &lt;strong&gt;모두 다른 이미지를 사용하는 Object가 100&lt;/strong&gt;개 있고, 동시에 게임에 등장한다면 Batches 값은 &lt;strong&gt;100&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;반대로 &lt;strong&gt;동일한 이미지를 사용하는 오브젝트가 100개&lt;/strong&gt; 일 때는 Batches 값은 &lt;strong&gt;1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Sprite Atlas를 이용해 서로 다른 이미지를 하나의 텍스처에 모아 두고 사용하면 서로 다른 이미지의 오브젝트를 100개 만든다고 해도 Batches 값은 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sprite-atlas-사용-시-주의-사항&#34;&gt;Sprite Atlas 사용 시 주의 사항&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;모든 이미지 에셋을 하나의 Sprite Atlas로 묶게 되면 내부의 이미지 하나만 사용해도 해당 Sprite Atlas의 모든 이미지 정보를 불러옴&lt;/li&gt;
+&lt;li&gt;한 화면에 함께 사용되는 것 또는 하나의 오브젝트에서 함께 사용되는 것 처럼 관련이 있는 이미지들을 하나의 Sprite Atlas로 묶어주는 것이 좋음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;texture-asset&#34;&gt;Texture Asset&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/1%201.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Texture Asset&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;이미지-분할과-potpower-of-two-규격&#34;&gt;이미지 분할과 POT(Power of Two) 규격&lt;/h3&gt;
+&lt;h4 id=&#34;하나의-이미지-에셋에-여러-장의-그림을-그리고-분할하여-사용하는-이유&#34;&gt;하나의 이미지 에셋에 여러 장의 그림을 그리고 분할하여 사용하는 이유&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/2%201.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;이미지 크기에 따른 메모리 POT 공간 비교&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://dev-woong.io/resource/3%201.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;유사한 성격의 이미지를 모아서 제작된 POT 규격 이미지&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;게임에서 사용되는 텍스처를 제작할 때에는 POT 규격으로 제작해야 함
+&lt;ul&gt;
+&lt;li&gt;POT(Power of Two) : 텍스처의 가로/세로 사이즈가 2의 제곱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;POT 규격이 아닌 텍스처는 POT 규격으로 변환하기 위해 내부적인 처리를 거치게 되고 이로 인한 메모리 비용 증가&lt;/li&gt;
+&lt;li&gt;보통 게임에 사용되는 이미지는 POT 규격으로 제작될 수 없기 때문에 하나의 POT 규격 텍스처에 여러 장의 이미지(유사한 성격을 가진 이미지)를 넣어서 제작한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;animation&#34;&gt;Animation&lt;/h2&gt;
+&lt;h3 id=&#34;animation-asset&#34;&gt;Animation Asset&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;하나의 애니메이션 동작을 저장하는 파일(걷기, 뛰기, 공격 등)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2d-sprite-animation&#34;&gt;2D Sprite Animation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Animator Component&lt;/li&gt;
+&lt;li&gt;Animator Controller Asset&lt;/li&gt;
+&lt;li&gt;Animation Asset&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;animator-controller-asset&#34;&gt;Animator Controller Asset&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;하나의 오브젝트가 가질 수 있는 애니메이션을 묶어서 관리하는 파일&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;animator-component&#34;&gt;Animator Component&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;게임 오브젝트의 애니메이션 재생, 교체 등을 제어하는 역할 수행&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hits.seeyoufarm.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdev-woong.io%2F2022.08.17-001&amp;amp;count_bg=%233D91C8&amp;amp;title_bg=%23555555&amp;amp;icon=&amp;amp;icon_color=%23E7E7E7&amp;amp;title=%EC%A1%B0%ED%9A%8C%EC%88%98&amp;amp;edge_flat=true&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Hits&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

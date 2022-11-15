@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>packages on Dev-Woong 🚀</title>
+        <link>https://dev-woong.io/tags/packages/</link>
+        <description>Recent content in packages on Dev-Woong 🚀</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Sun, 14 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dev-woong.io/tags/packages/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Github Apps 세부 설정 및 생성</title>
+        <link>https://dev-woong.io/p/o-github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/</link>
+        <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://dev-woong.io/p/o-github-apps-%EC%84%B8%EB%B6%80-%EC%84%A4%EC%A0%95-%EB%B0%8F-%EC%83%9D%EC%84%B1/</guid>
+        <description>&lt;img src="https://dev-woong.io/resource/Pasted%20image%2020220919131918.png" alt="Featured image of post Github Apps 세부 설정 및 생성" /&gt;&lt;h2 id=&#34;github-apps-란&#34;&gt;Github Apps 란?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Github에서 동작하는 GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다.&lt;/p&gt;
+&lt;p&gt;GitHub App은 API를 통해 직접 작업을 수행하므로 별도의 봇 또는 서비스 계정이 필요하지 않습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/developers/apps/differences-between-github-apps-and-oauth-apps&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub App과 OAuth App의 차이점&lt;/a&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;github-apps-생성하기&#34;&gt;Github Apps 생성하기&lt;/h2&gt;
+&lt;h3 id=&#34;github-로그인&#34;&gt;GitHub 로그인&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/login&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub Login&lt;/a&gt; 페이지에서 로그인합니다.&lt;/p&gt;
+&lt;h3 id=&#34;설정-페이지-이동&#34;&gt;설정 페이지 이동&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/1%202.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;사용자 아이콘 &amp;gt; Settings&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://dev-woong.io/resource/2%202.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Developer Settings&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;GitHub 홈 화면에서 우측 상단 사용자 아이콘을 클릭 후 하단의 &lt;code&gt;Setting&lt;/code&gt;를 클릭하면 설정 페이지로 이동됩니다.&lt;/p&gt;
+&lt;p&gt;이동 후, 좌측 메뉴 최하단의 &lt;code&gt;Developer settings&lt;/code&gt; 를 클릭합니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/3%202.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;GitHub Apps &amp;gt; New GitHub App&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Developer Setting 화면에서 좌측의 &lt;code&gt;GitHub Apps&lt;/code&gt;를 클릭하고 &lt;code&gt;New GitHub App&lt;/code&gt;을 클릭합니다.
+Password 또는 2-Factor 인증, 또는 휴대폰 앱을 통한 인증을 진행하면 GitHub Apps 설정 화면으로 이동합니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/4%201.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Confirm Access&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;세부-설정&#34;&gt;세부 설정&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;* 표시가 붙어있는 항목은 필수 입력 항목입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;register-new-github-app&#34;&gt;Register new GitHub App&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/5%201.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub App Name : 생성할 GitHub App 이름 (기존 GitHub 계정과 동일한 이름 불가)&lt;/li&gt;
+&lt;li&gt;This is displayed to users of your GitHub App : GitHub App에 대한 설명(마크다운 형식 지원)&lt;/li&gt;
+&lt;li&gt;Homepage URL : 앱 웹사이트의 전체 URL
+&lt;ul&gt;
+&lt;li&gt;특별히 해당 앱을 사용하는 사이트가 없는 경우 https://127.0.0.1 (루프백)등으로 입력&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;identifying-and-authorizing-users&#34;&gt;Identifying and authorizing users&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/6.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Callback URL : 사용자가 해당 앱을 승인한 후 리디렉션 될 URL
+&lt;ul&gt;
+&lt;li&gt;이 URL은 앱이 사용자-서버 요청을 식별/승인해야 하는 경우 사용&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Add Callback URL&lt;/code&gt; 을 통해 최대 10개의 추가 Callback URL을 사용 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Expire user authorization : 액세스 토큰에 대한 만료 설정
+&lt;ul&gt;
+&lt;li&gt;해당 옵션 선택 시 액세스 토큰이 만료될 때 업데이트된 토큰을 요청할 수 있는 refresh_token 제공&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/apps/building-github-apps/refreshing-user-to-server-access-tokens&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub Docs - 사용자-서버 액세스 토큰 새로 고침&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Request user ahtorization (OAuth) during installation : GitHub App에 사용자 권한 부여(OAuth)
+&lt;ul&gt;
+&lt;li&gt;해당 옵션 활성화 시 Callback URL이 필수 입력 항목으로 전환되고, 아래 &lt;a class=&#34;link&#34; href=&#34;#post-installation&#34; &gt;Post Installation&lt;/a&gt;의 Setup URL은 비활성화됨&lt;/li&gt;
+&lt;li&gt;GitHub App 생성 후 &lt;code&gt;Callback URL&lt;/code&gt; 로 리디렉션 되면 &lt;code&gt;Callback Code&lt;/code&gt; 를 Get 파라미터로 전달받게 되고 이것으로 액세스 토큰을 발급 후 API에 액세스&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/apps/installing-github-apps/#authorizing-users-during-installation&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub Docs - Authorizing users during installation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Enable Device Flow : CLI 도구 또는 Git 자격 증명 관리자와 같은 헤드리스 앱 권한 부여
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub Docs - Device Flow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;post-installation&#34;&gt;Post installation&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/9.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Setup URL : 추가 설정이 필요한 경우 GitHub App 구성 후 원하는 URL으로 리디렉션
+&lt;ul&gt;
+&lt;li&gt;상단 &lt;a class=&#34;link&#34; href=&#34;#identifying-and-authorizing-users&#34; &gt;Identifying and authorizing users&lt;/a&gt; 에서 &lt;code&gt;Request user ahtorization (OAuth) during installation&lt;/code&gt; 체크 시 비활성화&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Redirect on update : GitHub App이 업데이트된 후 사용자를 &lt;code&gt;Setup URL&lt;/code&gt; 로 리디렉션 (예: 리포지터리 추가/제거)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;webhook&#34;&gt;Webhook&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/10.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Active : 웹훅 활성화 설정&lt;/li&gt;
+&lt;li&gt;Webhook URL : App에서 이벤트가 발생하는 경우 데이터를 받을 URL&lt;/li&gt;
+&lt;li&gt;Webhook Secret : 원하는 사용자만 hook 을 받을 수 있도록 설정하는 선택적 보안 토큰&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;repository-permissions&#34;&gt;Repository permissions&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Permission(권한)은 총 3가지 상태로 지정할 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No Access : 허용하지 않음&lt;/li&gt;
+&lt;li&gt;Read-only : 읽기만 허용&lt;/li&gt;
+&lt;li&gt;Read and Write : 읽기/쓰기 허용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Actions&lt;/strong&gt;&lt;/a&gt; : GitHub의 CI/CD 플랫폼인 GitHub Actions 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-administration&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Administration&lt;/strong&gt; &lt;/a&gt; : 리포지토리 생성, 삭제, 설정, 팀 및 Collaborators 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-checks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Checks&lt;/strong&gt;&lt;/a&gt; : 코드 검사 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Code scanning alerts&lt;/strong&gt;&lt;/a&gt; : 리포지토리의 보안 탭에 있는 코드 취약점 스캔 경고 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Codespaces&lt;/strong&gt;&lt;/a&gt; : GitHub 내장 IDE인 Codespace 생성, 편집, 삭제 등 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Codespaces lifecycle admin&lt;/strong&gt;&lt;/a&gt; : 특정 사용자에 대한 Codespace 시작/중지 등 lifecycle 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Codespaces metadata&lt;/strong&gt;&lt;/a&gt; : container 및 machine 등에 대한 Codespace 메타데이터 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Codespaces secrets&lt;/strong&gt;&lt;/a&gt; : Codespace에서 액세스할 수 있는 리포지토리에 대한 비밀 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-statuses&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Commit statuses&lt;/strong&gt;&lt;/a&gt; : 커밋 상태 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-contents&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Contents&lt;/strong&gt;&lt;/a&gt; : 리포지토리, 커밋, 브랜치, 다운로드, 릴리즈 및 병합 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v4/object/repositoryvulnerabilityalert/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Dependabot alerts&lt;/strong&gt;&lt;/a&gt; : GitHub 종속성 관리 기능인 Dependabot의 경고 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Dependabot secrets&lt;/strong&gt;&lt;/a&gt; : Dependabot의 리포지토리 비밀 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-deployments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Deployments&lt;/strong&gt;&lt;/a&gt; : 배포 및 배포 상태 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Discussions&lt;/strong&gt;&lt;/a&gt; : 토론 및 의견, 레이블 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Environments&lt;/strong&gt;&lt;/a&gt; : 리포지토리 환경 변수 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-issues&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Issues&lt;/strong&gt;&lt;/a&gt; : 이슈 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Merge queues&lt;/strong&gt;&lt;/a&gt; 리포지토리의 병합 대기열 관리 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#metadata-permissions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Metadata&lt;/strong&gt;&lt;/a&gt; : 리포지터리 검색, Collaborators 나열, 리포지토리 메타데이터 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-packages&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Packages&lt;/strong&gt;&lt;/a&gt; : GitHub 패키지 플랫폼 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-pages&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Pages&lt;/strong&gt;&lt;/a&gt; : 정적 웹 호스팅 서비스 Github Pages 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-repository-projects&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Projects&lt;/strong&gt;&lt;/a&gt; : Github Projects 기능의 열 및 카드 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-pull-requests&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Pull requests&lt;/strong&gt;&lt;/a&gt; : Pull Request 기능 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Secret scanning alerts&lt;/strong&gt;&lt;/a&gt; : 비밀 스캔 알림 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Secrets&lt;/strong&gt;&lt;/a&gt; : 리포지토리 비밀 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-single-file&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Single file&lt;/strong&gt;&lt;/a&gt; : 하나의 파일만 관리하는 권한(..??)&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-repository-hooks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Webhooks&lt;/strong&gt;&lt;/a&gt; : 웹훅 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Workflows&lt;/strong&gt;&lt;/a&gt; : GitHub Actions Workflow 파일 업데이트 관련 권한&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;organization-permissions&#34;&gt;Organization permissions&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-organization-administration&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Administration&lt;/strong&gt;&lt;/a&gt; : 조직에 대한 액세스 관리 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-organization-user-blocking&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Blocking users&lt;/strong&gt;&lt;/a&gt; : 사용자 차단 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-organization-events&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Events&lt;/strong&gt;&lt;/a&gt; : 조직의 트리거된(?) 이벤트 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-members&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Members&lt;/strong&gt;&lt;/a&gt; : 조직 구성원 및 팀 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Organization codespaces&lt;/strong&gt;&lt;/a&gt; : 조직의 Codespaces 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Organization codespaces secrets&lt;/strong&gt;&lt;/a&gt; : 조직의 Codespaces 비밀 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Organization dependabot secrets&lt;/strong&gt;&lt;/a&gt; : 조직의 Dependabot 비밀 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Plan&lt;/strong&gt;&lt;/a&gt; : 조직의 Plan(라이센스) 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-organization-projects&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Projects&lt;/strong&gt;&lt;/a&gt; : 조직 프로젝트 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Secrets&lt;/strong&gt;&lt;/a&gt; : 조직의 Actions 비밀 관리 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Self-hosted runners&lt;/strong&gt;&lt;/a&gt; : 조직에서 사용할 수 있는 Actions 자체 호스팅 실행자 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-team-discussions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Team discussions&lt;/strong&gt;&lt;/a&gt; : 팀 토론 및 관련 의견 관리 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-organization-hooks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Webhooks&lt;/strong&gt;&lt;/a&gt; : 조직의 웹훅 관련 권한&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;user-permissions&#34;&gt;User permissions&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-blocking&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Block another user&lt;/strong&gt;&lt;/a&gt; : 사용자 차단 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Codespaces user secrets&lt;/strong&gt;&lt;/a&gt; : Codespace 비밀 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-emails&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Email addresses&lt;/strong&gt;&lt;/a&gt; : 사용자의 이메일 주소 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-followers&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Followers&lt;/strong&gt;&lt;/a&gt; : 사용자의 팔로워 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-gpg-keys&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;GPG keys&lt;/strong&gt;&lt;/a&gt; : 사용자의 GPG 키 관리 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Gists&lt;/strong&gt;&lt;/a&gt; : 사용자의 GitHub Gists(코드, 메모, 로그 등 공유 기능) 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-keys&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Git SSH keys&lt;/strong&gt;&lt;/a&gt; : Git을 통해 접근할 때에 사용되는 SSH 키 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-interaction-limits&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Interaction limits&lt;/strong&gt;&lt;/a&gt; : 리포지토리 상호 작용 제한 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Plan&lt;/strong&gt;&lt;/a&gt; : 사용자의 Plan(라이센스) 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-profile&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Profile&lt;/strong&gt;&lt;/a&gt; : 사용자의 프로필 설정 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-starring&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Starring&lt;/strong&gt;&lt;/a&gt; : 사용자가 Starring한 리포지토리 관련 권한&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/v3/apps/permissions/#permission-on-watching&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;Watching&lt;/strong&gt;&lt;/a&gt; : 사용자가 Watching하는 저장소 관련 권한&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;subscribe-to-events&#34;&gt;Subscribe to events&lt;/h4&gt;
+&lt;p&gt;선택한 권한에 대해 구독할 이벤트를 선택합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Meta : 이 앱이 삭제되고 연결된 후크가 제거되는 경우&lt;/li&gt;
+&lt;li&gt;Security Advisory : 보안 권고가 게시, 업데이트 또는 철회되는 경우&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;생성-완료&#34;&gt;생성 완료&lt;/h3&gt;
+&lt;p&gt;최초 생성 이후에는 상단에 노란 바탕으로 경고 메시지가 발생하게 되는데 생성한 GitHub App에 Private Key가 없기 때문에 발생하는 문제입니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-woong.io/resource/11.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+하단의 Private keys 에서 &lt;code&gt;Generate a private key&lt;/code&gt; 를 클릭해 Private Key를 하나 생성해주면 앱 사용 준비가 완료됩니다. (필자의 경우 하나의 Private key가 생성되어있는 상태)&lt;/p&gt;
+&lt;h3 id=&#34;마무리&#34;&gt;마무리&lt;/h3&gt;
+&lt;p&gt;생성한 GitHub App을 이용하면 GitKraken, Gitter 등의 써드파티 앱 처럼 GitHub와 통합되는 앱을 생성할 수 있는 것으로 보입니다.&lt;/p&gt;
+&lt;p&gt;해당 문서는 공식 문서의 비공식 번역본 정도로 참고해주시면 감사하겠으며 추가적으로 해당 앱을 활용하며 이해도가 높아지게 된다면 세부적인 내용들에 대해서 다시 다루어보겠습니다.&lt;/p&gt;
+&lt;p&gt;참고 자료 : &lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hits.seeyoufarm.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdev-woong.io%2F2022.08.16-01&amp;amp;count_bg=%233D91C8&amp;amp;title_bg=%23555555&amp;amp;icon=&amp;amp;icon_color=%23E7E7E7&amp;amp;title=%EC%A1%B0%ED%9A%8C%EC%88%98&amp;amp;edge_flat=true&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Hits&#34;
+	
+	
+&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

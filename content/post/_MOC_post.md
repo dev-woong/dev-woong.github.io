@@ -8,6 +8,7 @@ date: 9999-01-01
  [[post/Dev. MAUI/_MOC_Dev. MAUI|_MOC_Dev. MAUI]]
  [[post/Dev. Tekla Structures API/_MOC_Dev. Tekla Structures API|_MOC_Dev. Tekla Structures API]]
  [[post/Dev. Unity/_MOC_Dev. Unity|_MOC_Dev. Unity]]
+ [[post/DevOps. Jetbrains TeamCity/_MOC_DevOps. Jetbrains TeamCity|_MOC_DevOps. Jetbrains TeamCity]]
  [[post/OS. MacOS/_MOC_OS. MacOS|_MOC_OS. MacOS]]
  [[post/OS. Windows/_MOC_OS. Windows|_MOC_OS. Windows]]
  [[post/Sys. Server/_MOC_Sys. Server|_MOC_Sys. Server]]

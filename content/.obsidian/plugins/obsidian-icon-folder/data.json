@@ -5,11 +5,11 @@
     "fontSize": 16,
     "iconColor": null,
     "recentlyUsedIcons": [
+      "⭕",
       "FasHorseHead",
       "FasBrain",
       "RiInformationFill",
-      "FasServer",
-      "SiWindows"
+      "FasServer"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -28,5 +28,6 @@
   "post/Dev. Unity": "SiUnity",
   "post/OS. MacOS": "SiApple",
   "post/OS. Windows": "SiWindows",
-  "post/Sys. Server": "FasServer"
+  "post/Sys. Server": "FasServer",
+  "post": "⭕"
 }

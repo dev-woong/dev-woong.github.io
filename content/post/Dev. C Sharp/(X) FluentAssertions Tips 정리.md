@@ -23,16 +23,9 @@ FluentAssertions는 Test Case 작성 시 값에 대한 검증을 쉽게 할 수 
 
 ### NotBeEmpty()
 ```
-int main()
-{
-	
-}
-```
-
-
-```
 actual.Should().NotBeEmpty();
 ```
+
 ### Tilemap Palette
 - Tilemap 오브젝트에 배치할 때는 Tile Asset들을 등록해두는 저장소
 - 팔레트에 있는 Tile Asset을 여러 속성에 따라 배치하거나 삭제할 수 있음

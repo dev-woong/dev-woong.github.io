@@ -5,11 +5,11 @@
     "fontSize": 16,
     "iconColor": null,
     "recentlyUsedIcons": [
-      "⭕",
-      "FasHorseHead",
-      "FasBrain",
-      "RiInformationFill",
-      "FasServer"
+      "IbSquareAndPencil",
+      "SiObsidian",
+      "RiCoreosFill",
+      "FasRecycle",
+      "⭕"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -20,14 +20,17 @@
       "left": 0
     }
   },
-  "post/Dev. BAEKJOON": "FasCode",
-  "post/Dev. C Sharp": "SiDotnet",
-  "post/Dev. GitHub": "SiGithub",
-  "post/Dev. MAUI": "SiMaterialdesignicons",
-  "post/Dev. Tekla Structures API": "FarBuilding",
-  "post/Dev. Unity": "SiUnity",
-  "post/OS. MacOS": "SiApple",
-  "post/OS. Windows": "SiWindows",
-  "post/Sys. Server": "FasServer",
-  "post": "⭕"
+  "post/Server": "FasServer",
+  "post/DevOps": "FasRecycle",
+  "post/OS/Windows": "SiWindows",
+  "post/OS/MacOS": "SiApple",
+  "post/OS": "RiCoreosFill",
+  "post/Develop": "FasCode",
+  "post/Develop/C Sharp": "SiDotnet",
+  "post/Develop/GitHub": "SiGithub",
+  "post/Develop/MAUI": "SiMaterialdesignicons",
+  "post/Develop/Tekla Structures API": "FarBuilding",
+  "post/Develop/Unity": "SiUnity",
+  "post/Obsidian": "SiObsidian",
+  "post": "IbSquareAndPencil"
 }

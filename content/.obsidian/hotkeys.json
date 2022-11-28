@@ -1,1 +1,22 @@
-{}
+{
+  "templater-obsidian:templates/private_doc.md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl",
+        "Mod"
+      ],
+      "key": "1"
+    }
+  ],
+  "templater-obsidian:templates/public_doc.md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl",
+        "Mod"
+      ],
+      "key": "2"
+    }
+  ]
+}

@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "2022-11-28",
+      "path": "daily_note/2022-11-28.md"
+    },
+    {
+      "basename": "Viewer",
+      "path": "daily_note/Viewer.md"
+    },
+    {
+      "basename": "public_doc",
+      "path": "templates/public_doc.md"
+    },
+    {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
+    },
+    {
+      "basename": "(O) TIL - Sprite와 Animation 기초",
+      "path": "post/Develop/Unity/(O) TIL - Sprite와 Animation 기초.md"
+    },
+    {
+      "basename": "(O) TIL - Tilemap 기초",
+      "path": "post/Develop/Unity/(O) TIL - Tilemap 기초.md"
+    },
+    {
+      "basename": "XUnit Test Coverage 분석 적용 방법",
+      "path": "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
+    },
+    {
+      "basename": "Dataview, DataviewJS 사용법",
+      "path": "post/Obsidian/Dataview, DataviewJS 사용법.md"
+    },
+    {
+      "basename": "_index.en",
+      "path": "_index.en.md"
+    },
+    {
       "basename": "index",
       "path": "post/Obsidian/Obsidian 설치 및 설정/index.md"
     },
@@ -25,14 +61,11 @@
       "path": "_index.md"
     },
     {
-      "basename": "_index.en",
-      "path": "_index.en.md"
-    },
-    {
       "basename": "index",
       "path": "post/BAEKJOON/1032 - 명령 프롬프트/index.md"
     }
   ],
   "omittedPaths": [],
-  "maxLength": null
+  "maxLength": null,
+  "openType": "tab"
 }

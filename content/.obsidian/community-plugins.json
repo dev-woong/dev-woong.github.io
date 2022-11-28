@@ -18,5 +18,8 @@
   "zoottelkeeper-obsidian-plugin",
   "calendar",
   "oz-clear-unused-images",
-  "obsidian-apple-reminders-plugin"
+  "obsidian-frontmatter-tag-suggest",
+  "obsidian-linter",
+  "obsidian-timelines",
+  "obsidian-daily-notes-viewer"
 ]

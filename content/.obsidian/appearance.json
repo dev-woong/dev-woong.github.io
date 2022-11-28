@@ -1,6 +1,9 @@
 {
   "accentColor": "",
-  "cssTheme": "Red Graphite",
+  "cssTheme": "Willemstad",
   "interfaceFontFamily": "Inter",
-  "textFontFamily": "Inter"
+  "textFontFamily": "Inter",
+  "baseFontSize": 16,
+  "monospaceFontFamily": "",
+  "translucency": true
 }

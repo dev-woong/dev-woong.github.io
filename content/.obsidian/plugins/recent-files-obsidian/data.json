@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "Viewer",
+      "path": "daily_note/Viewer.md"
+    },
+    {
       "basename": "2022-11-28",
       "path": "daily_note/2022-11-28.md"
     },
     {
-      "basename": "Viewer",
-      "path": "daily_note/Viewer.md"
+      "basename": "XUnit Test Coverage 분석 적용 방법",
+      "path": "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
     },
     {
       "basename": "public_doc",
@@ -23,10 +27,6 @@
     {
       "basename": "(O) TIL - Tilemap 기초",
       "path": "post/Develop/Unity/(O) TIL - Tilemap 기초.md"
-    },
-    {
-      "basename": "XUnit Test Coverage 분석 적용 방법",
-      "path": "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
     },
     {
       "basename": "Dataview, DataviewJS 사용법",

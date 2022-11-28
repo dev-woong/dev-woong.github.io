@@ -56,8 +56,8 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "daily_note/2022-11-28.md",
-                    "mode": "source",
+                    "file": "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
+                    "mode": "preview",
                     "source": true
                   }
                 },
@@ -75,7 +75,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "daily_note/2022-11-28.md",
+                    "file": "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
                     "mode": "source",
                     "source": true
                   }
@@ -157,7 +157,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "daily_note/2022-11-28.md",
+                "file": "daily_note/Viewer.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -228,7 +228,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily_note/2022-11-28.md"
+                "file": "daily_note/Viewer.md"
               }
             }
           }
@@ -244,7 +244,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "daily_note/2022-11-28.md",
+                "file": "daily_note/Viewer.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -261,7 +261,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "daily_note/2022-11-28.md",
+                "file": "daily_note/Viewer.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -291,16 +291,16 @@
     "direction": "horizontal",
     "width": 526.5
   },
-  "active": "7896007f822fc0f8",
+  "active": "5bd65ed778664698",
   "lastOpenFiles": [
-    "daily_note/Viewer.md",
     "daily_note/2022-11-28.md",
+    "daily_note/Viewer.md",
+    "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
     "templates/public_doc.md",
     "_content.md",
     "templates/daily_note.md",
     "post/Develop/Unity/(O) TIL - Sprite와 Animation 기초.md",
     "post/Develop/Unity/(O) TIL - Tilemap 기초.md",
-    "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
     "post/Obsidian/Dataview, DataviewJS 사용법.md",
     "daily_note/2022-11-29.md"
   ]

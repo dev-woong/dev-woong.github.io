@@ -1,9 +1,9 @@
 {
   "accentColor": "",
-  "cssTheme": "Willemstad",
-  "interfaceFontFamily": "Inter",
-  "textFontFamily": "Inter",
+  "cssTheme": "Blue Topaz",
+  "interfaceFontFamily": "Apple SD Gothic Neo,Inter",
+  "textFontFamily": "Apple SD Gothic Neo",
   "baseFontSize": 16,
-  "monospaceFontFamily": "",
-  "translucency": true
+  "monospaceFontFamily": "Apple SD Gothic Neo,Inter",
+  "translucency": false
 }

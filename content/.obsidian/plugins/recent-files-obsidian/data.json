@@ -5,6 +5,10 @@
       "path": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
     },
     {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
+    },
+    {
       "basename": "2022-11-29",
       "path": "daily_note/2022-11-29.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "private_doc",
       "path": "templates/private_doc.md"
-    },
-    {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
     },
     {
       "basename": "public_doc",

@@ -8,45 +8,6 @@
         "type": "split",
         "children": [
           {
-            "id": "5b06cc276c876768",
-            "type": "split",
-            "children": [
-              {
-                "id": "66092b8611e3e958",
-                "type": "tabs",
-                "children": [
-                  {
-                    "id": "5bd65ed778664698",
-                    "type": "leaf",
-                    "state": {
-                      "type": "markdown",
-                      "state": {
-                        "file": "daily_note/Viewer.md",
-                        "mode": "preview",
-                        "source": true
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "id": "8da31f684a61efd7",
-                "type": "tabs",
-                "children": [
-                  {
-                    "id": "fb3fb3863764475c",
-                    "type": "leaf",
-                    "state": {
-                      "type": "graph",
-                      "state": {}
-                    }
-                  }
-                ]
-              }
-            ],
-            "direction": "horizontal"
-          },
-          {
             "id": "9bcab52cf5c5c88f",
             "type": "tabs",
             "children": [
@@ -56,14 +17,28 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
-                    "mode": "preview",
+                    "file": "post/MAUI/MAUI Trouble Shooting.md",
+                    "mode": "source",
                     "source": true
                   }
                 },
                 "group": "7de1dbd4d91575a7"
+              },
+              {
+                "id": "b041230725b0284d",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "post/MAUI/MAUI Trouble Shooting.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                },
+                "group": "e04008c2121b4fdb"
               }
-            ]
+            ],
+            "currentTab": 1
           },
           {
             "id": "4953be46875d48cd",
@@ -75,14 +50,40 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
+                    "file": "post/MAUI/MAUI Trouble Shooting.md",
                     "mode": "source",
                     "source": true
                   }
                 },
                 "group": "7de1dbd4d91575a7"
+              },
+              {
+                "id": "75c8f1eceafc0f75",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "1676bfd495748dad",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "post/MAUI/MAUI Trouble Shooting.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                },
+                "group": "e04008c2121b4fdb"
               }
-            ]
+            ],
+            "currentTab": 1
           }
         ],
         "direction": "vertical"
@@ -114,7 +115,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "book",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -157,20 +158,20 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "daily_note/Viewer.md",
+                "file": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md",
                 "options": {
-                  "collapse-filter": true,
+                  "collapse-filter": false,
                   "search": "",
                   "localJumps": 1,
                   "localBacklinks": true,
                   "localForelinks": true,
-                  "localInterlinks": false,
-                  "showTags": false,
-                  "showAttachments": false,
+                  "localInterlinks": true,
+                  "showTags": true,
+                  "showAttachments": true,
                   "hideUnresolved": false,
                   "collapse-color-groups": true,
                   "colorGroups": [],
-                  "collapse-display": true,
+                  "collapse-display": false,
                   "showArrow": false,
                   "textFadeMultiplier": 0,
                   "nodeSizeMultiplier": 1,
@@ -180,7 +181,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 1.4114892347853738,
+                  "scale": 1.862115423205562,
                   "close": true
                 }
               }
@@ -197,17 +198,10 @@
     "type": "split",
     "children": [
       {
-        "id": "b38251131c271ec4",
+        "id": "7c421542fdeb1efe",
         "type": "tabs",
+        "dimension": 19.076415612974163,
         "children": [
-          {
-            "id": "2293539e437c7b84",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {}
-            }
-          },
           {
             "id": "99ec016b4179cc7c",
             "type": "leaf",
@@ -219,8 +213,37 @@
         ]
       },
       {
-        "id": "da61c20f02c35d1e",
+        "id": "ae99a87963427a1a",
         "type": "tabs",
+        "dimension": 44.584936778449695,
+        "children": [
+          {
+            "id": "4d62c74610c20cd2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily_note/2022-11-29.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "2293539e437c7b84",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "b38251131c271ec4",
+        "type": "tabs",
+        "dimension": 36.33864760857614,
         "children": [
           {
             "id": "be827a448ae370db",
@@ -228,25 +251,30 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily_note/Viewer.md"
+                "file": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "7fd1eb5515286c8e",
-        "type": "tabs",
-        "children": [
+          },
+          {
+            "id": "a8411420f624372e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false
+              }
+            }
+          },
           {
             "id": "4ca2ee3c46e19fcd",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "daily_note/Viewer.md",
-                "collapseAll": false,
-                "extraContext": true,
+                "file": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md",
+                "collapseAll": true,
+                "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -261,27 +289,9 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "daily_note/Viewer.md",
+                "file": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "35e501289ff5960b",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "a8411420f624372e",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": false
               }
             }
           }
@@ -289,19 +299,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 526.5
+    "width": 529
   },
-  "active": "5bd65ed778664698",
+  "active": "2293539e437c7b84",
   "lastOpenFiles": [
-    "daily_note/2022-11-28.md",
-    "daily_note/Viewer.md",
-    "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
-    "templates/public_doc.md",
-    "_content.md",
+    "post/MAUI/MAUI Trouble Shooting.md",
+    "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md",
+    "templates/private_doc.md",
     "templates/daily_note.md",
-    "post/Develop/Unity/(O) TIL - Sprite와 Animation 기초.md",
-    "post/Develop/Unity/(O) TIL - Tilemap 기초.md",
-    "post/Obsidian/Dataview, DataviewJS 사용법.md",
+    "templates/public_doc.md",
+    "daily_note/2022-11-30.md",
+    "daily_note/2022-11-28.md",
+    "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
+    "post/MAUI/(X) MacOS .NET 7.0 MAUI 개발 환경 구성하기.md",
     "daily_note/2022-11-29.md"
   ]
 }

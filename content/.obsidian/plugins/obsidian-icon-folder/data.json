@@ -5,11 +5,11 @@
     "fontSize": 16,
     "iconColor": null,
     "recentlyUsedIcons": [
+      "SiDocker",
+      "SiTeamcity",
       "IbSquareAndPencil",
       "SiObsidian",
-      "RiCoreosFill",
-      "FasRecycle",
-      "⭕"
+      "RiCoreosFill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -21,16 +21,15 @@
     }
   },
   "post/Server": "FasServer",
-  "post/DevOps": "FasRecycle",
-  "post/OS/Windows": "SiWindows",
-  "post/OS/MacOS": "SiApple",
-  "post/OS": "RiCoreosFill",
-  "post/Develop": "FasCode",
-  "post/Develop/C Sharp": "SiDotnet",
-  "post/Develop/GitHub": "SiGithub",
-  "post/Develop/MAUI": "SiMaterialdesignicons",
-  "post/Develop/Tekla Structures API": "FarBuilding",
-  "post/Develop/Unity": "SiUnity",
   "post/Obsidian": "SiObsidian",
-  "post": "IbSquareAndPencil"
+  "post": "IbSquareAndPencil",
+  "post/C Sharp": "SiDotnet",
+  "post/GitHub": "SiGithub",
+  "post/MAUI": "SiMaterialdesignicons",
+  "post/Tekla Structures API": "FarBuilding",
+  "post/Unity": "SiUnity",
+  "post/TeamCity": "SiTeamcity",
+  "post/Docker": "SiDocker",
+  "post/OS.MacOS": "SiApple",
+  "post/OS.Windows": "SiWindows"
 }

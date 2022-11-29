@@ -1,5 +1,5 @@
 ---
-title: 제목
+title: Dataview, DataviewJS 사용법
 description: 설명
 image: resource/1.png
 categories: 카테고리 

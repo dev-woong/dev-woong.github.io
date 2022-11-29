@@ -1,9 +1,10 @@
 {
   "accentColor": "",
-  "cssTheme": "Blue Topaz",
-  "interfaceFontFamily": "Apple SD Gothic Neo,Inter",
-  "textFontFamily": "Apple SD Gothic Neo",
+  "cssTheme": "Red Solitude",
+  "interfaceFontFamily": "Inter",
+  "textFontFamily": "Inter",
   "baseFontSize": 16,
-  "monospaceFontFamily": "Apple SD Gothic Neo,Inter",
-  "translucency": false
+  "monospaceFontFamily": "",
+  "translucency": false,
+  "baseFontSizeAction": true
 }

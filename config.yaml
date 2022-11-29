@@ -232,3 +232,5 @@ markup:
         lineNos: true
         lineNumbersInTable: true
         tabWidth: 4
+
+ignorefiles : [ "templates", "daily_notes" ]

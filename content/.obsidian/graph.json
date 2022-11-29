@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "",
+  "search": "-path:daily_note",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
@@ -33,12 +33,12 @@
   "showArrow": true,
   "textFadeMultiplier": 0.4,
   "nodeSizeMultiplier": 1.32772974418397,
-  "lineSizeMultiplier": 5,
+  "lineSizeMultiplier": 1.05526315789474,
   "collapse-forces": false,
-  "centerStrength": 0.905784829307425,
-  "repelStrength": 18.3002050093591,
-  "linkStrength": 0.969827970407345,
-  "linkDistance": 90,
-  "scale": 1.5485327254321568,
+  "centerStrength": 0.750601657901774,
+  "repelStrength": 14.2359144614784,
+  "linkStrength": 0.927667350031197,
+  "linkDistance": 95,
+  "scale": 1.0897025402541707,
   "close": true
 }

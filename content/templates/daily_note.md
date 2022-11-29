@@ -1,13 +1,24 @@
 ---
-tags: [private]
-date: 9999-01-01
+date: {{date:YYYY-MM-DD}}
+draft: true
+tags: [ daily_note ]
 ---
-# Tasks
+### 오늘 할 일
+%%
+- [ ] Task 1
+- [ ] Task 2
+%%
+
+### 끝나지 않은 일
 ```tasks
 not done
+scheduled before today
+group by scheduled
+short mode
 ```
 
-# Complete
+### 완료
 ```tasks
-done
+done on {{date:YYYY-MM-DD}}
+short mode
 ```

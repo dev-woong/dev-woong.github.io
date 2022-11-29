@@ -1,0 +1,324 @@
+{
+  "main": {
+    "id": "a1f16ce5f8a02de0",
+    "type": "split",
+    "children": [
+      {
+        "id": "d1853735e3433f59",
+        "type": "split",
+        "children": [
+          {
+            "id": "5b06cc276c876768",
+            "type": "split",
+            "children": [
+              {
+                "id": "66092b8611e3e958",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "4d62c74610c20cd2",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "daily_note/2022-11-28.md",
+                        "mode": "source",
+                        "source": true
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "8da31f684a61efd7",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "fb3fb3863764475c",
+                    "type": "leaf",
+                    "state": {
+                      "type": "graph",
+                      "state": {}
+                    }
+                  }
+                ]
+              }
+            ],
+            "direction": "horizontal"
+          },
+          {
+            "id": "9bcab52cf5c5c88f",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "7896007f822fc0f8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "daily_note/2022-11-28.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                },
+                "group": "7de1dbd4d91575a7"
+              }
+            ]
+          },
+          {
+            "id": "4953be46875d48cd",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9ee1b85a1d6cee18",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "daily_note/2022-11-28.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                },
+                "group": "7de1dbd4d91575a7"
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c02b33d06efc6002",
+    "type": "split",
+    "children": [
+      {
+        "id": "05d776fd591d78ba",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3945461a8f29ea1c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a17aa27a239100b9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#Algorithm",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7b5f94c9df601420",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "6e41883bda7f6f20",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d30c725583e55f74",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "ff720150b803d13f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a7b91bf903cc9ea2",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "daily_note/2022-11-28.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1.4114892347853738,
+                  "close": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 399.5024719238281
+  },
+  "right": {
+    "id": "9a90f98617572d22",
+    "type": "split",
+    "children": [
+      {
+        "id": "b38251131c271ec4",
+        "type": "tabs",
+        "dimension": 13.477737665463296,
+        "children": [
+          {
+            "id": "be827a448ae370db",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "daily_note/2022-11-28.md"
+              }
+            }
+          },
+          {
+            "id": "a8411420f624372e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "b03a1fbcc7f82c84",
+        "type": "tabs",
+        "dimension": 17.509025270758123,
+        "children": [
+          {
+            "id": "4ca2ee3c46e19fcd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "daily_note/2022-11-28.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "770c994299e2eef9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "daily_note/2022-11-28.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "daaeb3af1922e355",
+        "type": "tabs",
+        "dimension": 20.45728038507822,
+        "children": [
+          {
+            "id": "99ec016b4179cc7c",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "e1be2691e425b5ef",
+        "type": "tabs",
+        "dimension": 48.55595667870036,
+        "children": [
+          {
+            "id": "ba1d2e32b9f5d979",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Viewer.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "2293539e437c7b84",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 529
+  },
+  "active": "4d62c74610c20cd2",
+  "lastOpenFiles": [
+    "daily_note/2022-11-28.md",
+    "post/BAEKJOON/_Develop.md",
+    "post/DevOps/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
+    "무제파일.md",
+    "Viewer.md",
+    "post/BAEKJOON/BAEKJOON - 1032 명령 프롬프트.md",
+    "post/Unity/(O) TIL - Sprite와 Animation 기초.md",
+    "post/Unity/(O) TIL - Tilemap 기초.md",
+    "post/Unity/(X) Facebook 로그인.md",
+    "templates/daily_note.md"
+  ]
+}

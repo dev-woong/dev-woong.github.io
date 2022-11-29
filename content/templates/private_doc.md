@@ -1,4 +1,4 @@
 ---
 tags: [private]
-date: 9999-01-01
+date: <% tp.date.now() %>
 ---

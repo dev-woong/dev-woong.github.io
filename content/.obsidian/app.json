@@ -5,5 +5,9 @@
   "newLinkFormat": "relative",
   "attachmentFolderPath": "resource",
   "livePreview": false,
-  "showFrontmatter": false
+  "showFrontmatter": false,
+  "promptDelete": false,
+  "showUnsupportedFiles": false,
+  "showLineNumber": false,
+  "rightToLeft": false
 }

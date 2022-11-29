@@ -1,0 +1,8 @@
+{
+  "useFrontmatterHighlight": true,
+  "usePathHighlight": false,
+  "frontmatterAttribute": "classification",
+  "valueToHighlight": "public",
+  "pathToHighlight": "",
+  "uiElementToHighlight": "view-header"
+}

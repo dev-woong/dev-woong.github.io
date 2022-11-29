@@ -5,7 +5,7 @@ image: resource/A37966E0-9B81-4B5E-8DBC-9A96F32518DF.jpeg
 categories: MAUI
 date: 2022-11-29
 tags: [ .NET .NET7.0 MAUI TroubleShooting Bug Error Fix ]
-draft: true
+draft: false
 ---
 
 ## 이미지 관련

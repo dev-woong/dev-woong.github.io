@@ -21,7 +21,7 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                        "file": "daily_note/2022-12-01.md",
                         "mode": "source",
                         "source": true
                       }
@@ -57,7 +57,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "daily_note/2022-11-30.md",
+                    "file": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
                     "mode": "preview",
                     "source": true
                   }
@@ -76,7 +76,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "daily_note/2022-11-30.md",
+                    "file": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
                     "mode": "source",
                     "source": true
                   }
@@ -159,7 +159,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                "file": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -224,7 +224,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                "file": "daily_note/2022-12-01.md",
                 "mode": "preview",
                 "source": true
               }
@@ -253,7 +253,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
+                "file": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
               }
             }
           },
@@ -274,7 +274,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                "file": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -291,7 +291,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                "file": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -306,15 +306,15 @@
   },
   "active": "2293539e437c7b84",
   "lastOpenFiles": [
+    "daily_note/2022-12-01.md",
     "daily_note/2022-11-30.md",
-    "daily_note/2022-11-29.md",
-    "Viewer.md",
+    "daily_note/2022-11-28.md",
     "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
     "post/TeamCity/_TeamCity.md",
+    "daily_note/2022-11-29.md",
+    "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+    "Viewer.md",
     "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
-    "resource/스크린샷 2022-11-30 오후 3.17.37.png",
-    "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md",
-    "post/TeamCity/Build Step (.NET).md",
-    "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
+    "resource/스크린샷 2022-11-30 오후 3.17.37.png"
   ]
 }

@@ -4,7 +4,7 @@ title: 버그인가 미숙인가, MAUI 트러블 슈팅
 image: resource/A37966E0-9B81-4B5E-8DBC-9A96F32518DF.jpeg
 categories: MAUI
 date: 2022-11-29
-tags: [ .NET .NET7.0 MAUI TroubleShooting Bug Error Fix ]
+tags: [ .NET, .NET7.0, MAUI, TroubleShooting, Bug, Error, Fix ]
 draft: false
 ---
 

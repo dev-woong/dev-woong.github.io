@@ -1,28 +1,48 @@
 {
   "recentFiles": [
     {
-      "basename": "버그인가 미숙인가, MAUI 트러블 슈팅",
-      "path": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
+      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
+      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
+    },
+    {
+      "basename": "Viewer",
+      "path": "Viewer.md"
     },
     {
       "basename": "2022-11-30",
       "path": "daily_note/2022-11-30.md"
     },
     {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
+      "basename": "스크린샷 2022-11-30 오후 3.17.37",
+      "path": "resource/스크린샷 2022-11-30 오후 3.17.37.png"
     },
     {
       "basename": "2022-11-29",
       "path": "daily_note/2022-11-29.md"
     },
     {
+      "basename": "AppShell TabBar Icon 크기가 맞지 않는 문제",
+      "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
+    },
+    {
       "basename": "XUnit Test Coverage 분석 적용 방법",
       "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
     },
     {
-      "basename": "AppShell TabBar Icon 크기가 맞지 않는 문제",
-      "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
+      "basename": "Build Step (.NET)",
+      "path": "post/TeamCity/Build Step (.NET).md"
+    },
+    {
+      "basename": "버그인가 미숙인가, MAUI 트러블 슈팅",
+      "path": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
+    },
+    {
+      "basename": "Agent에서 설정이 필요한 요소 정리",
+      "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
+    },
+    {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
     },
     {
       "basename": "private_doc",
@@ -41,24 +61,12 @@
       "path": "post/MAUI/(X) MacOS .NET 7.0 MAUI 개발 환경 구성하기.md"
     },
     {
-      "basename": "Agent에서 설정이 필요한 요소 정리",
-      "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
-    },
-    {
       "basename": "_C Sharp",
       "path": "post/C Sharp/_C Sharp.md"
     },
     {
-      "basename": "Build Step (.NET)",
-      "path": "post/TeamCity/Build Step (.NET).md"
-    },
-    {
       "basename": "_content",
       "path": "_content.md"
-    },
-    {
-      "basename": "Viewer",
-      "path": "Viewer.md"
     },
     {
       "basename": "(O) Docker Hub Repository 생성",

@@ -21,7 +21,7 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "Viewer.md",
+                        "file": "daily_note/2022-11-30.md",
                         "mode": "preview",
                         "source": true
                       }
@@ -56,7 +56,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                    "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                     "mode": "preview",
                     "source": true
                   }
@@ -75,7 +75,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                    "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                     "mode": "source",
                     "source": true
                   }
@@ -157,7 +157,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -180,7 +180,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 1.862115423205562,
+                  "scale": 1.4403967511883242,
                   "close": true
                 }
               }
@@ -207,7 +207,8 @@
             "state": {
               "type": "calendar",
               "state": {}
-            }
+            },
+            "group": "87cb5958fb06f758"
           }
         ]
       },
@@ -217,16 +218,17 @@
         "dimension": 43.62214199759326,
         "children": [
           {
-            "id": "4d62c74610c20cd2",
+            "id": "3cec088f34d24d86",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily_note/2022-11-29.md",
+                "file": "Viewer.md",
                 "mode": "preview",
                 "source": true
               }
-            }
+            },
+            "group": "87cb5958fb06f758"
           },
           {
             "id": "2293539e437c7b84",
@@ -250,7 +252,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
+                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
               }
             }
           },
@@ -271,7 +273,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -288,29 +290,30 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 529
   },
-  "active": "9ee1b85a1d6cee18",
+  "active": "3945461a8f29ea1c",
   "lastOpenFiles": [
+    "Viewer.md",
+    "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
     "daily_note/2022-11-30.md",
-    "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
-    "templates/daily_note.md",
+    "resource/스크린샷 2022-11-30 오후 3.17.37.png",
     "daily_note/2022-11-29.md",
-    "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
     "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md",
-    "templates/private_doc.md",
-    "templates/public_doc.md",
-    "daily_note/2022-11-28.md",
-    "post/MAUI/(X) MacOS .NET 7.0 MAUI 개발 환경 구성하기.md"
+    "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
+    "post/TeamCity/Build Step (.NET).md",
+    "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
+    "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
   ]
 }

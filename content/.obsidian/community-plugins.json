@@ -22,5 +22,6 @@
   "obsidian-linter",
   "obsidian-timelines",
   "obsidian-daily-notes-viewer",
-  "obsidian-highlightpublicnotes-plugin"
+  "obsidian-highlightpublicnotes-plugin",
+  "obsidian-to-notion"
 ]

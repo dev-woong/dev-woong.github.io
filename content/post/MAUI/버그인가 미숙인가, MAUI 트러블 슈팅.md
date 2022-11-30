@@ -9,4 +9,4 @@ draft: false
 ---
 
 ## 이미지 관련
-- [AppShell TabBar Icon 크기가 맞지 않는 문제](AppShell%20TabBar%20Icon%20크기가%20맞지%20않는%20문제.md)
+- [AppShell TabBar Icon 크기가 맞지 않는 문제](https://dev-woong.io/p/appshell-tabbar-icon-크기가-맞지-않는-문제/)

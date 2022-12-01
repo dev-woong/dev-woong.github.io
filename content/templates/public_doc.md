@@ -1,9 +1,9 @@
 ---
-title: 제목
+title: <% tp.file.title %>
 #description: 설명
-image: resource/1.png
-categories: 카테고리 
+categories: <% tp.file.folder(false) %>
 date: <% tp.date.now() %>
 tags: [ tag1 ]
 draft: true
 ---
+

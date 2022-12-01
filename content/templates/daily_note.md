@@ -1,8 +1,10 @@
 ---
+title: {{date:YYYY-MM-DD}}
 date: {{date:YYYY-MM-DD}}
 draft: true
 tags: [ daily_note ]
 ---
+
 ### 오늘 할 일
 %%
 - [ ] Task 1

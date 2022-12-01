@@ -5,11 +5,11 @@
     "fontSize": 16,
     "iconColor": null,
     "recentlyUsedIcons": [
-      "SiDocker",
-      "SiTeamcity",
-      "IbSquareAndPencil",
-      "SiObsidian",
-      "RiCoreosFill"
+      "FasNewspaper",
+      "RiCalendarEventFill",
+      "FasCalendarDay",
+      "RiCalendarLine",
+      "RiCheckboxCircleFill"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -22,7 +22,7 @@
   },
   "post/Server": "FasServer",
   "post/Obsidian": "SiObsidian",
-  "post": "IbSquareAndPencil",
+  "post": "FasNewspaper",
   "post/C Sharp": "SiDotnet",
   "post/GitHub": "SiGithub",
   "post/MAUI": "SiMaterialdesignicons",
@@ -31,5 +31,7 @@
   "post/TeamCity": "SiTeamcity",
   "post/Docker": "SiDocker",
   "post/OS.MacOS": "SiApple",
-  "post/OS.Windows": "SiWindows"
+  "post/OS.Windows": "SiWindows",
+  "일간 노트": "RiCalendarEventFill",
+  "문서 관리": "RiCheckboxCircleFill"
 }

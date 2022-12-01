@@ -1,9 +1,9 @@
 ---
 title: 비동기(Async) - Async, Await
 image: resource/thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
-categories: .NET/CSharp
+categories: MAUI
 date: 2022-01-02
-tags: [ MacOS .NET7.0 MAUI Setting ]
+tags: [ MacOS, .NET7.0, CSharp, Setting ]
 draft: true
 ---
 

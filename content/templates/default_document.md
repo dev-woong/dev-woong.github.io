@@ -1,5 +1,5 @@
 ---
-title: <% tp.file.title %>
+title: <% tp.file.cursor(0) %>
 #description: 설명
 categories: <% tp.file.folder(false) %>
 date: <% tp.date.now() %>

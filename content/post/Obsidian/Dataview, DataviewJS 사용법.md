@@ -1,8 +1,6 @@
 ---
 title: Dataview, DataviewJS 사용법
-description: 설명
-image: resource/1.png
-categories: 카테고리 
+categories: Obsidian
 publishdate: 2022-11-14
 tags: [ tag1 ]
 draft: true

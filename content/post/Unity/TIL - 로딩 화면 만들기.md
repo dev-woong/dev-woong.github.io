@@ -2,8 +2,7 @@
 title: "[TIL] 로딩 화면 만들기"
 description: 모바일 앱에서 대기시간을 지루하지 않게 해줄 로딩 화면을 만들어봅니다.
 image: resource/Pasted%20image%2020220905010034.png
-categories: 
-- Unity 
+categories: Unity 
 date: 2022-09-07
 tags:
 - TIL

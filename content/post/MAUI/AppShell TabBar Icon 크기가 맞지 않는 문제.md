@@ -2,7 +2,7 @@
 title: AppShell TabBar Icon 크기가 맞지 않는 문제
 #description: 설명
 image: resource/Pasted%20image%2020221130013325.png
-categories: 카테고리 
+categories: MAUI
 date: 2022-11-29
 tags: [ MAUI, AppShell, TabBar, Icon, Image, Size, Error, Bug, Fix ]
 draft: false

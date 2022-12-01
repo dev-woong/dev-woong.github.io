@@ -5,6 +5,7 @@ categories: Server
 date: 2022-11-09
 tags:
 - Docker
+draft: false
 ---
 ## 컨테이너 정보 확인
 > docker ps -a
@@ -15,7 +16,7 @@ tags:
 
 ## Docker Hub 이미지 정보 확인
 Docker Hub에서 Repository를 아직 생성하지 않은 경우 다음 글을 참고하여 생성 후 진행
-[Docker Hub Repository 생성]((O)%20Docker%20Hub%20Repository%20생성.md)
+[Docker Hub Repository 생성](Docker%20Hub%20Repository%20생성.md)
 ![](../../resource/Pasted%20image%2020221109162842.png)
 ## Commit
 Docker Hub에 생성한 Repository 이름에 맞춰 Commit 이미지 생성

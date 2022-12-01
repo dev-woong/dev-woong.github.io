@@ -18,5 +18,15 @@
       ],
       "key": "2"
     }
+  ],
+  "templater-obsidian:templates/default_document.md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl",
+        "Mod"
+      ],
+      "key": "1"
+    }
   ]
 }

@@ -8,6 +8,7 @@ tags:
 - github apps
 - repository
 - packages
+draft: false
 ---
 ## Github Apps 란?
 >Github에서 동작하는 GitHub API와 통합되는 프로젝트에서 GitHub 데이터에 접근하기 위한 세분화된 권한을 제공하기 때문에 GitHub에서 공식적으로 권장하는 Application 등록 방법입니다.

@@ -6,6 +6,8 @@ date: 9999-01-01
  [[_index|_index]]
  [[categories/_categories|_categories]]
  [[daily_note/_daily_note|_daily_note]]
+ [[Draft List|Draft List]]
+ [[Manage/_Manage|_Manage]]
  [[Memo|Memo]]
  [[page/_page|_page]]
  [[post/_post|_post]]

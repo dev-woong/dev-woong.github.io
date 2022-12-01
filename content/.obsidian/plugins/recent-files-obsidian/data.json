@@ -1,12 +1,48 @@
 {
   "recentFiles": [
     {
+      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
+      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
+    },
+    {
+      "basename": "Viewer",
+      "path": "Viewer.md"
+    },
+    {
+      "basename": "Memo",
+      "path": "Memo.md"
+    },
+    {
+      "basename": "_index.en",
+      "path": "_index.en.md"
+    },
+    {
+      "basename": "_index",
+      "path": "_index.md"
+    },
+    {
+      "basename": "_content",
+      "path": "_content.md"
+    },
+    {
+      "basename": "Draft List",
+      "path": "Draft List.md"
+    },
+    {
       "basename": "Custom NPM 레지스트리 연결하여 배포하기",
       "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
     },
     {
-      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
-      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
+      "basename": "2022-12-01",
+      "path": "daily_note/2022-12-01.md"
+    },
+    {
+      "basename": "2022-11-30",
+      "path": "daily_note/2022-11-30.md"
+    },
+    {
+      "basename": "XUnit Test Coverage 분석 적용 방법",
+      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
     },
     {
       "basename": "public_doc",
@@ -29,24 +65,8 @@
       "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
     },
     {
-      "basename": "XUnit Test Coverage 분석 적용 방법",
-      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
-    },
-    {
-      "basename": "2022-12-01",
-      "path": "daily_note/2022-12-01.md"
-    },
-    {
-      "basename": "2022-11-30",
-      "path": "daily_note/2022-11-30.md"
-    },
-    {
       "basename": "daily_note",
       "path": "templates/daily_note.md"
-    },
-    {
-      "basename": "Memo",
-      "path": "Memo.md"
     },
     {
       "basename": "_TeamCity",
@@ -69,10 +89,6 @@
       "path": "templates/zoottel_template.md"
     },
     {
-      "basename": "Viewer",
-      "path": "Viewer.md"
-    },
-    {
       "basename": "스크린샷 2022-11-30 오후 3.17.37",
       "path": "resource/스크린샷 2022-11-30 오후 3.17.37.png"
     },
@@ -83,10 +99,6 @@
     {
       "basename": "_C Sharp",
       "path": "post/C Sharp/_C Sharp.md"
-    },
-    {
-      "basename": "_content",
-      "path": "_content.md"
     },
     {
       "basename": "(O) Docker Hub Repository 생성",
@@ -129,10 +141,6 @@
       "path": "post/Unity/(X) TIL - 로딩 화면 만들기.md"
     },
     {
-      "basename": "_index.en",
-      "path": "_index.en.md"
-    },
-    {
       "basename": "index",
       "path": "post/Obsidian/Obsidian 설치 및 설정/index.md"
     },
@@ -151,10 +159,6 @@
     {
       "basename": "무제노트",
       "path": "notes/무제노트.md"
-    },
-    {
-      "basename": "_index",
-      "path": "_index.md"
     },
     {
       "basename": "index",

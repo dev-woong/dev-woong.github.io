@@ -57,7 +57,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                    "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
                     "mode": "preview",
                     "source": true
                   }
@@ -76,12 +76,24 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                    "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
                     "mode": "source",
                     "source": true
                   }
                 },
                 "group": "7de1dbd4d91575a7"
+              },
+              {
+                "id": "daa20728370d5ef3",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Draft List.md",
+                    "mode": "source",
+                    "source": true
+                  }
+                }
               },
               {
                 "id": "7949d9720efc7ec2",
@@ -170,7 +182,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -264,7 +276,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
+                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
               }
             }
           },
@@ -285,7 +297,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -302,7 +314,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -315,15 +327,15 @@
     "direction": "horizontal",
     "width": 529
   },
-  "active": "9ee1b85a1d6cee18",
+  "active": "2293539e437c7b84",
   "lastOpenFiles": [
+    "Viewer.md",
+    "Memo.md",
+    "_index.en.md",
+    "_index.md",
+    "_content.md",
+    "Draft List.md",
     "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
-    "templates/public_doc.md",
-    "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
-    "post/MAUI/(X) MacOS .NET 7.0 MAUI 개발 환경 구성하기.md",
-    "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md",
-    "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md",
-    "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md",
     "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
     "daily_note/2022-12-01.md",
     "daily_note/2022-11-30.md"

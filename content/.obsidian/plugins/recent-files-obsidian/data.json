@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "AppShell TabBar Icon 크기가 맞지 않는 문제",
+      "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
+    },
+    {
+      "basename": "XUnit Test Coverage 분석 적용 방법",
+      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
+    },
+    {
       "basename": "%2ENET Installer 생성 및 배포 과정 정리",
       "path": "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md"
+    },
+    {
+      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
+      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
     },
     {
       "basename": "Draft List",
@@ -93,10 +105,6 @@
       "path": "templates/zoottel_template.md"
     },
     {
-      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
-      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
-    },
-    {
       "basename": "Viewer",
       "path": "Viewer.md"
     },
@@ -121,20 +129,12 @@
       "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
     },
     {
-      "basename": "XUnit Test Coverage 분석 적용 방법",
-      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
-    },
-    {
       "basename": "버그인가 미숙인가, MAUI 트러블 슈팅",
       "path": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
     },
     {
       "basename": "Agent에서 설정이 필요한 요소 정리",
       "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
-    },
-    {
-      "basename": "AppShell TabBar Icon 크기가 맞지 않는 문제",
-      "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
     },
     {
       "basename": "_TeamCity",

@@ -1,5 +1,5 @@
 ---
-title:  TeamCity C#(.NET Core) XUnit Test Coverage 분석 적용 방법
+title: TeamCity CSharp(.NET Core) XUnit Test Coverage 분석 적용 방법
 image: resource/title.jpg
 categories: TeamCity
 date: 2022-11-30

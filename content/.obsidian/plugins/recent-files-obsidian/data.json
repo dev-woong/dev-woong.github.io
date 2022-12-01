@@ -1,6 +1,98 @@
 {
   "recentFiles": [
     {
+      "basename": "%2ENET Installer 생성 및 배포 과정 정리",
+      "path": "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md"
+    },
+    {
+      "basename": "Draft List",
+      "path": "Draft List.md"
+    },
+    {
+      "basename": "FluentAssertions Tips 정리",
+      "path": "post/C Sharp/FluentAssertions Tips 정리.md"
+    },
+    {
+      "basename": "비동기(Async) - Async, Await",
+      "path": "post/C Sharp/비동기(Async) - Async, Await.md"
+    },
+    {
+      "basename": "GitHub API - Rest API와 GraphQL의 차이점",
+      "path": "post/GitHub/GitHub API - Rest API와 GraphQL의 차이점.md"
+    },
+    {
+      "basename": "GitHub Actions - .NET 자동화 테스트 구성하기",
+      "path": "post/GitHub/Actions/GitHub Actions - .NET 자동화 테스트 구성하기.md"
+    },
+    {
+      "basename": "MacOS .NET 7.0 MAUI 개발 환경 구성하기",
+      "path": "post/MAUI/MacOS .NET 7.0 MAUI 개발 환경 구성하기.md"
+    },
+    {
+      "basename": "Note. Provisioning Identifier 오류 관련",
+      "path": "post/MAUI/Note. Provisioning Identifier 오류 관련.md"
+    },
+    {
+      "basename": "XCode 14 Beta 오류",
+      "path": "post/OS.MacOS/XCode 14 Beta 오류.md"
+    },
+    {
+      "basename": "API 사용 형태",
+      "path": "post/Tekla Structures API/API 사용 형태.md"
+    },
+    {
+      "basename": "Facebook 로그인",
+      "path": "post/Unity/Facebook 로그인.md"
+    },
+    {
+      "basename": "TIL - 로딩 화면 만들기",
+      "path": "post/Unity/TIL - 로딩 화면 만들기.md"
+    },
+    {
+      "basename": "Unity Package Registry 만들기(Verdaccio)",
+      "path": "post/Unity/Unity Package Registry 만들기(Verdaccio).md"
+    },
+    {
+      "basename": "TIL - Tilemap 기초",
+      "path": "post/Unity/TIL - Tilemap 기초.md"
+    },
+    {
+      "basename": "TIL - Sprite와 Animation 기초",
+      "path": "post/Unity/TIL - Sprite와 Animation 기초.md"
+    },
+    {
+      "basename": "Android Simulator 'Unknown Error' 오류",
+      "path": "post/MAUI/Android Simulator 'Unknown Error' 오류.md"
+    },
+    {
+      "basename": "GitHub Personal Access Token 생성하기",
+      "path": "post/GitHub/GitHub Personal Access Token 생성하기.md"
+    },
+    {
+      "basename": "2022-12-01",
+      "path": "daily_note/2022-12-01.md"
+    },
+    {
+      "basename": "2022-11-30",
+      "path": "daily_note/2022-11-30.md"
+    },
+    {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
+    },
+    {
+      "basename": "private_doc",
+      "path": "templates/private_doc.md"
+    },
+    {
+      "basename": "public_doc",
+      "path": "templates/public_doc.md"
+    },
+    {
+      "basename": "zoottel_template",
+      "path": "templates/zoottel_template.md"
+    },
+    {
       "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
       "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
     },
@@ -25,36 +117,16 @@
       "path": "_content.md"
     },
     {
-      "basename": "Draft List",
-      "path": "Draft List.md"
-    },
-    {
       "basename": "Custom NPM 레지스트리 연결하여 배포하기",
       "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
-    },
-    {
-      "basename": "2022-12-01",
-      "path": "daily_note/2022-12-01.md"
-    },
-    {
-      "basename": "2022-11-30",
-      "path": "daily_note/2022-11-30.md"
     },
     {
       "basename": "XUnit Test Coverage 분석 적용 방법",
       "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
     },
     {
-      "basename": "public_doc",
-      "path": "templates/public_doc.md"
-    },
-    {
       "basename": "버그인가 미숙인가, MAUI 트러블 슈팅",
       "path": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
-    },
-    {
-      "basename": "(X) MacOS .NET 7.0 MAUI 개발 환경 구성하기",
-      "path": "post/MAUI/(X) MacOS .NET 7.0 MAUI 개발 환경 구성하기.md"
     },
     {
       "basename": "Agent에서 설정이 필요한 요소 정리",
@@ -63,10 +135,6 @@
     {
       "basename": "AppShell TabBar Icon 크기가 맞지 않는 문제",
       "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
-    },
-    {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
     },
     {
       "basename": "_TeamCity",
@@ -79,14 +147,6 @@
     {
       "basename": "2022-11-29",
       "path": "daily_note/2022-11-29.md"
-    },
-    {
-      "basename": "private_doc",
-      "path": "templates/private_doc.md"
-    },
-    {
-      "basename": "zoottel_template",
-      "path": "templates/zoottel_template.md"
     },
     {
       "basename": "스크린샷 2022-11-30 오후 3.17.37",
@@ -113,32 +173,8 @@
       "path": "resource/Pasted image 20221108230756.png"
     },
     {
-      "basename": "(O) Android Simulator 'Unknown Error' 오류",
-      "path": "post/MAUI/(O) Android Simulator 'Unknown Error' 오류.md"
-    },
-    {
-      "basename": "(O) TIL - Sprite와 Animation 기초",
-      "path": "post/Unity/(O) TIL - Sprite와 Animation 기초.md"
-    },
-    {
-      "basename": "(O) TIL - Tilemap 기초",
-      "path": "post/Unity/(O) TIL - Tilemap 기초.md"
-    },
-    {
-      "basename": "(X) Facebook 로그인",
-      "path": "post/Unity/(X) Facebook 로그인.md"
-    },
-    {
       "basename": "Dataview, DataviewJS 사용법",
       "path": "post/Obsidian/Dataview, DataviewJS 사용법.md"
-    },
-    {
-      "basename": "(X) Unity Package Registry 만들기(Verdaccio)",
-      "path": "post/Unity/(X) Unity Package Registry 만들기(Verdaccio).md"
-    },
-    {
-      "basename": "(X) TIL - 로딩 화면 만들기",
-      "path": "post/Unity/(X) TIL - 로딩 화면 만들기.md"
     },
     {
       "basename": "index",

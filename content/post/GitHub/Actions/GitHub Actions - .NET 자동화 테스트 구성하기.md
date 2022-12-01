@@ -33,7 +33,7 @@ draft: true
 > ### 사전 작업
 > Actions를 수행하려는 Repository의 설정 > Secrets > Actions 에 `Personal Access Token`을 등록해두어야 합니다.
 > 
-> [(O) GitHub Personal Access Token 생성하기](../(O)%20GitHub%20Personal%20Access%20Token%20생성하기.md)
+> [GitHub Personal Access Token 생성하기](../GitHub%20Personal%20Access%20Token%20생성하기.md)
 > 
 > (필자는 PAT 라는 이름으로 등록했습니다.)
 > 

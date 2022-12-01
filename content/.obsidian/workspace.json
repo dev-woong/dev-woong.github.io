@@ -89,7 +89,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Draft List.md",
+                    "file": "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md",
                     "mode": "source",
                     "source": true
                   }
@@ -107,7 +107,8 @@
                   }
                 }
               }
-            ]
+            ],
+            "currentTab": 1
           }
         ],
         "direction": "vertical"
@@ -182,7 +183,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+                "file": "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -276,7 +277,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
+                "file": "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md"
               }
             }
           },
@@ -297,7 +298,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+                "file": "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -314,7 +315,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+                "file": "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -327,17 +328,17 @@
     "direction": "horizontal",
     "width": 529
   },
-  "active": "2293539e437c7b84",
+  "active": "daa20728370d5ef3",
   "lastOpenFiles": [
-    "Viewer.md",
-    "Memo.md",
-    "_index.en.md",
-    "_index.md",
-    "_content.md",
     "Draft List.md",
-    "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
-    "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
-    "daily_note/2022-12-01.md",
-    "daily_note/2022-11-30.md"
+    "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md",
+    "post/C Sharp/FluentAssertions Tips 정리.md",
+    "post/C Sharp/비동기(Async) - Async, Await.md",
+    "post/GitHub/GitHub API - Rest API와 GraphQL의 차이점.md",
+    "post/GitHub/Actions/GitHub Actions - .NET 자동화 테스트 구성하기.md",
+    "post/MAUI/MacOS .NET 7.0 MAUI 개발 환경 구성하기.md",
+    "post/MAUI/Note. Provisioning Identifier 오류 관련.md",
+    "post/OS.MacOS/XCode 14 Beta 오류.md",
+    "post/Tekla Structures API/API 사용 형태.md"
   ]
 }

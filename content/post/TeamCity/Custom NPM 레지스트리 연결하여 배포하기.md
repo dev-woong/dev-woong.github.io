@@ -3,10 +3,7 @@ title: TeamCity Custom NPM 레지스트리 연결하여 배포하기
 image: resource/Pasted%20image%2020221130155426.png
 categories: TeamCity
 date: 2022-11-30T00:00:00.000Z
-tags:
-  - TeamCity
-  - NPM
-  - Custom Registry Registry
+tags: [ NPM, Custom Registry, Registry ]
 draft: false
 ---
 Verdaccio를 이용하여 생성된 NPM 서버에 빌드, 테스트를 거쳐 Unity Package를 배포하기 위해 TeamCity에서 NPM 인증을 수행, NPM 레지스트리에 등록된 계정만 Publish가 가능하다고 가정한다.

@@ -57,7 +57,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+                    "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                     "mode": "preview",
                     "source": true
                   }
@@ -76,7 +76,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+                    "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                     "mode": "source",
                     "source": true
                   }
@@ -170,7 +170,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -264,7 +264,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
+                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
               }
             }
           },
@@ -285,7 +285,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -302,7 +302,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -317,8 +317,8 @@
   },
   "active": "9ee1b85a1d6cee18",
   "lastOpenFiles": [
-    "templates/public_doc.md",
     "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md",
+    "templates/public_doc.md",
     "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md",
     "post/MAUI/(X) MacOS .NET 7.0 MAUI 개발 환경 구성하기.md",
     "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md",

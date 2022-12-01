@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
+      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
+    },
+    {
       "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
       "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
     },
@@ -27,10 +31,6 @@
     {
       "basename": "XUnit Test Coverage 분석 적용 방법",
       "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
-    },
-    {
-      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
-      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
     },
     {
       "basename": "2022-12-01",

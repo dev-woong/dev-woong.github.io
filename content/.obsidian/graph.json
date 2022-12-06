@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "-path:daily_note",
+  "search": "-path:\"일간 노트\"",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
@@ -39,6 +39,6 @@
   "repelStrength": 14.2359144614784,
   "linkStrength": 0.927667350031197,
   "linkDistance": 95,
-  "scale": 0.9079603774517214,
+  "scale": 1.6680297235661419,
   "close": true
 }

@@ -1,10 +1,10 @@
 {
-  "accentColor": "",
+  "accentColor": "#8b6cef",
   "cssTheme": "Red Solitude",
   "interfaceFontFamily": "Inter",
   "textFontFamily": "Inter",
   "baseFontSize": 16,
-  "monospaceFontFamily": "",
+  "monospaceFontFamily": "Inter",
   "translucency": false,
   "baseFontSizeAction": true
 }

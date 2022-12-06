@@ -21,7 +21,8 @@
   "obsidian-frontmatter-tag-suggest",
   "obsidian-linter",
   "obsidian-timelines",
-  "obsidian-daily-notes-viewer",
   "obsidian-highlightpublicnotes-plugin",
-  "obsidian-to-notion"
+  "obsidian-to-notion",
+  "OA-file-hider",
+  "obsidian-hider"
 ]

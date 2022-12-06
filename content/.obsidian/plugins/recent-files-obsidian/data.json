@@ -1,20 +1,104 @@
 {
   "recentFiles": [
     {
+      "basename": "NU1102 오류 해결 방법",
+      "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
+    },
+    {
+      "basename": "2022-12-05",
+      "path": "일간 노트/2022-12-05.md"
+    },
+    {
+      "basename": "Build Chain으로 Parameter 전달하기",
+      "path": "post/TeamCity/Build Chain으로 Parameter 전달하기.md"
+    },
+    {
       "basename": "문서 발행 여부",
       "path": "문서 관리/문서 발행 여부.md"
     },
     {
-      "basename": "Github Apps 세부 설정 및 생성",
-      "path": "post/GitHub/Github Apps 세부 설정 및 생성.md"
+      "basename": "%2ENET Installer 생성 및 배포 과정 정리",
+      "path": "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md"
+    },
+    {
+      "basename": "Nuget 캐시 삭제",
+      "path": "post/Microsoft .Net/Nuget 캐시 삭제.md"
+    },
+    {
+      "basename": "비동기(Async) - Async, Await",
+      "path": "post/Microsoft .Net/비동기(Async) - Async, Await.md"
+    },
+    {
+      "basename": "FluentAssertions Tips 정리",
+      "path": "post/Microsoft .Net/FluentAssertions Tips 정리.md"
+    },
+    {
+      "basename": "버그인가 미숙인가, MAUI 트러블 슈팅",
+      "path": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
+    },
+    {
+      "basename": "AppShell TabBar Icon 크기가 맞지 않는 문제",
+      "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
+    },
+    {
+      "basename": "2022-12-02",
+      "path": "일간 노트/2022-12-02.md"
+    },
+    {
+      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
+      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
+    },
+    {
+      "basename": "XUnit Test Coverage 분석 적용 방법",
+      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
+    },
+    {
+      "basename": "default_document",
+      "path": "templates/default_document.md"
+    },
+    {
+      "basename": "zoottel_template",
+      "path": "templates/zoottel_template.md"
+    },
+    {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
+    },
+    {
+      "basename": "_post",
+      "path": "post/_post.md"
+    },
+    {
+      "basename": "_index",
+      "path": "_index.md"
+    },
+    {
+      "basename": "_index.en",
+      "path": "_index.en.md"
+    },
+    {
+      "basename": "2022-12-01",
+      "path": "일간 노트/2022-12-01.md"
     },
     {
       "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
       "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
     },
     {
-      "basename": "%2ENET Installer 생성 및 배포 과정 정리",
-      "path": "post/C Sharp/%2ENET Installer 생성 및 배포 과정 정리.md"
+      "basename": "_Docker",
+      "path": "post/Docker/_Docker.md"
+    },
+    {
+      "basename": "Docker Hub Repository 생성",
+      "path": "post/Docker/Docker Hub Repository 생성.md"
+    },
+    {
+      "basename": "Docker Hub에 Container 변경사항 저장(commit)",
+      "path": "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md"
+    },
+    {
+      "basename": "Github Apps 세부 설정 및 생성",
+      "path": "post/GitHub/Github Apps 세부 설정 및 생성.md"
     },
     {
       "basename": "Unity Package Registry 만들기(Verdaccio)",
@@ -45,30 +129,6 @@
       "path": "post/Server/Note. 서버_구성도.md"
     },
     {
-      "basename": "Docker Hub에 Container 변경사항 저장(commit)",
-      "path": "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md"
-    },
-    {
-      "basename": "Docker Hub Repository 생성",
-      "path": "post/Docker/Docker Hub Repository 생성.md"
-    },
-    {
-      "basename": "_Docker",
-      "path": "post/Docker/_Docker.md"
-    },
-    {
-      "basename": "2022-12-01",
-      "path": "일간 노트/2022-12-01.md"
-    },
-    {
-      "basename": "default_document",
-      "path": "templates/default_document.md"
-    },
-    {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
-    },
-    {
       "basename": "9",
       "path": "resource/9.png"
     },
@@ -77,32 +137,12 @@
       "path": "post/MAUI/MacOS .NET 7.0 MAUI 개발 환경 구성하기.md"
     },
     {
-      "basename": "AppShell TabBar Icon 크기가 맞지 않는 문제",
-      "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
-    },
-    {
       "basename": "Android Simulator 'Unknown Error' 오류",
       "path": "post/MAUI/Android Simulator 'Unknown Error' 오류.md"
     },
     {
-      "basename": "버그인가 미숙인가, MAUI 트러블 슈팅",
-      "path": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
-    },
-    {
       "basename": "Note. Provisioning Identifier 오류 관련",
-      "path": "post/OS.MacOS/Note. Provisioning Identifier 오류 관련.md"
-    },
-    {
-      "basename": "XUnit Test Coverage 분석 적용 방법",
-      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
-    },
-    {
-      "basename": "FluentAssertions Tips 정리",
-      "path": "post/C Sharp/FluentAssertions Tips 정리.md"
-    },
-    {
-      "basename": "비동기(Async) - Async, Await",
-      "path": "post/C Sharp/비동기(Async) - Async, Await.md"
+      "path": "post/MacOS/Note. Provisioning Identifier 오류 관련.md"
     },
     {
       "basename": "GitHub API - Rest API와 GraphQL의 차이점",
@@ -114,7 +154,7 @@
     },
     {
       "basename": "XCode 14 Beta 오류",
-      "path": "post/OS.MacOS/XCode 14 Beta 오류.md"
+      "path": "post/MacOS/XCode 14 Beta 오류.md"
     },
     {
       "basename": "API 사용 형태",
@@ -129,32 +169,8 @@
       "path": "일간 노트/2022-11-30.md"
     },
     {
-      "basename": "zoottel_template",
-      "path": "templates/zoottel_template.md"
-    },
-    {
-      "basename": "Viewer",
-      "path": "Viewer.md"
-    },
-    {
-      "basename": "Memo",
-      "path": "Memo.md"
-    },
-    {
-      "basename": "_index.en",
-      "path": "_index.en.md"
-    },
-    {
-      "basename": "_index",
-      "path": "_index.md"
-    },
-    {
       "basename": "_content",
       "path": "_content.md"
-    },
-    {
-      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
-      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
     },
     {
       "basename": "Agent에서 설정이 필요한 요소 정리",
@@ -179,26 +195,6 @@
     {
       "basename": "Build Step (.NET)",
       "path": "post/TeamCity/Build Step (.NET).md"
-    },
-    {
-      "basename": "_C Sharp",
-      "path": "post/C Sharp/_C Sharp.md"
-    },
-    {
-      "basename": "_post",
-      "path": "post/_post.md"
-    },
-    {
-      "basename": "Pasted image 20221108230756",
-      "path": "resource/Pasted image 20221108230756.png"
-    },
-    {
-      "basename": "index",
-      "path": "post/Obsidian/Obsidian 설치 및 설정/index.md"
-    },
-    {
-      "basename": "index",
-      "path": "post/Unity/Unity2D - Tilemap Basic/index.md"
     }
   ],
   "omittedPaths": [],

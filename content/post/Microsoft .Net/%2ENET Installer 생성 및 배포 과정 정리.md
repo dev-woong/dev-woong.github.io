@@ -1,6 +1,6 @@
 ---
 title: .NET Installer 생성 및 배포 과정 정리
-categories: .NET/CSharp
+categories: .Net 
 date: 2022-10-01
 tags:
 - Installer

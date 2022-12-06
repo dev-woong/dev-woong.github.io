@@ -1,7 +1,7 @@
 ---
 title: FluentAssertions Tips 정리
 image: 
-categories: .NET/CSharp
+categories: .Net
 date: 2022-08-17
 tags:
 - 비동기

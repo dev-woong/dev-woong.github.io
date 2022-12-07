@@ -21,7 +21,7 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "일간 노트/2022-12-05.md",
+                        "file": "일간 노트/2022-12-06.md",
                         "mode": "source",
                         "source": true
                       }
@@ -29,13 +29,13 @@
                     "group": "e81b6d613302c81d"
                   },
                   {
-                    "id": "6c04641c42cb01a8",
+                    "id": "e2b960aab56dcea4",
                     "type": "leaf",
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "문서 관리/문서 발행 여부.md",
-                        "mode": "preview",
+                        "file": "일간 노트/9999-01-01.md",
+                        "mode": "source",
                         "source": true
                       }
                     }
@@ -69,7 +69,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                    "file": "post/Microsoft .Net/NU1102 오류 해결 방법.md",
                     "mode": "preview",
                     "source": true
                   }
@@ -88,24 +88,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                    "file": "post/Microsoft .Net/NU1102 오류 해결 방법.md",
                     "mode": "source",
                     "source": true
                   }
                 },
                 "group": "7de1dbd4d91575a7"
-              },
-              {
-                "id": "4909cf58450970d2",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "post/TeamCity/Build Chain으로 Parameter 전달하기.md",
-                    "mode": "source",
-                    "source": true
-                  }
-                }
               }
             ]
           }
@@ -140,7 +128,7 @@
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": false,
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -182,7 +170,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                "file": "post/Microsoft .Net/NU1102 오류 해결 방법.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -247,7 +235,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "일간 노트/2022-12-05.md",
+                "file": "일간 노트/2022-12-06.md",
                 "mode": "preview",
                 "source": true
               }
@@ -288,7 +276,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
+                "file": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
               }
             }
           },
@@ -309,7 +297,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                "file": "post/Microsoft .Net/NU1102 오류 해결 방법.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -326,7 +314,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+                "file": "post/Microsoft .Net/NU1102 오류 해결 방법.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -339,17 +327,35 @@
     "direction": "horizontal",
     "width": 529
   },
+  "left-ribbon": {
+    "hiddenItems": {
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "oz-clear-unused-images:Clear Unused Images": false,
+      "obsidian-to-notion:Share to notion": false,
+      "switcher:빠른 파일 변경 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "markdown-importer:Markdown 임포터 열기": false,
+      "zk-prefixer:새로운 유니크 노트 만들기": false,
+      "audio-recorder:녹음 시작/중지": false,
+      "workspaces:작업 공간 레이아웃 관리": false
+    }
+  },
   "active": "2293539e437c7b84",
   "lastOpenFiles": [
-    "post/Microsoft .Net/NU1102 오류 해결 방법.md",
-    "일간 노트/2022-12-05.md",
-    "post/Microsoft .Net/_Microsoft .Net.md",
-    "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md",
-    "문서 관리/문서 발행 여부.md",
-    "post/TeamCity/NU.md",
     "일간 노트/2022-12-06.md",
+    "templates/daily_note.md",
+    "일간 노트/9999-01-01.md",
+    "post/Microsoft .Net/NU1102 오류 해결 방법.md",
     "post/TeamCity/Build Chain으로 Parameter 전달하기.md",
-    "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md",
-    "post/Microsoft .Net/Nuget 캐시 삭제.md"
+    "문서 관리/문서 발행 여부.md",
+    "일간 노트/2022-12-07.md",
+    "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
+    "resource/Pasted image 20221109163555.png",
+    "resource/Pasted image 20221109165501.png"
   ]
 }

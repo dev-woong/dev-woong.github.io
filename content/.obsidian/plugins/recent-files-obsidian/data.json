@@ -1,12 +1,48 @@
 {
   "recentFiles": [
     {
+      "basename": "NU1102 오류 해결 방법",
+      "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
+    },
+    {
+      "basename": "2022-12-06",
+      "path": "일간 노트/2022-12-06.md"
+    },
+    {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
+    },
+    {
+      "basename": "9999-01-01",
+      "path": "일간 노트/9999-01-01.md"
+    },
+    {
+      "basename": "Build Chain으로 Parameter 전달하기",
+      "path": "post/TeamCity/Build Chain으로 Parameter 전달하기.md"
+    },
+    {
+      "basename": "문서 발행 여부",
+      "path": "문서 관리/문서 발행 여부.md"
+    },
+    {
+      "basename": "2022-12-07",
+      "path": "일간 노트/2022-12-07.md"
+    },
+    {
       "basename": "Custom NPM 레지스트리 연결하여 배포하기",
       "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
     },
     {
-      "basename": "NU1102 오류 해결 방법",
-      "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
+      "basename": "Pasted image 20221109163555",
+      "path": "resource/Pasted image 20221109163555.png"
+    },
+    {
+      "basename": "Pasted image 20221109165501",
+      "path": "resource/Pasted image 20221109165501.png"
+    },
+    {
+      "basename": "2022-11-29",
+      "path": "일간 노트/2022-11-29.md"
     },
     {
       "basename": "2022-12-05",
@@ -19,14 +55,6 @@
     {
       "basename": "GitHub Rest API로 Packages 읽기, 삭제하기",
       "path": "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md"
-    },
-    {
-      "basename": "문서 발행 여부",
-      "path": "문서 관리/문서 발행 여부.md"
-    },
-    {
-      "basename": "Build Chain으로 Parameter 전달하기",
-      "path": "post/TeamCity/Build Chain으로 Parameter 전달하기.md"
     },
     {
       "basename": "%2ENET Installer 생성 및 배포 과정 정리",
@@ -67,10 +95,6 @@
     {
       "basename": "zoottel_template",
       "path": "templates/zoottel_template.md"
-    },
-    {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
     },
     {
       "basename": "_post",
@@ -175,30 +199,6 @@
     {
       "basename": "2022-11-30",
       "path": "일간 노트/2022-11-30.md"
-    },
-    {
-      "basename": "_content",
-      "path": "_content.md"
-    },
-    {
-      "basename": "Agent에서 설정이 필요한 요소 정리",
-      "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
-    },
-    {
-      "basename": "_TeamCity",
-      "path": "post/TeamCity/_TeamCity.md"
-    },
-    {
-      "basename": "2022-11-28",
-      "path": "일간 노트/2022-11-28.md"
-    },
-    {
-      "basename": "2022-11-29",
-      "path": "일간 노트/2022-11-29.md"
-    },
-    {
-      "basename": "스크린샷 2022-11-30 오후 3.17.37",
-      "path": "resource/스크린샷 2022-11-30 오후 3.17.37.png"
     }
   ],
   "omittedPaths": [],

@@ -5,11 +5,11 @@
     "fontSize": 16,
     "iconColor": null,
     "recentlyUsedIcons": [
-      "FasNewspaper",
-      "RiCalendarEventFill",
-      "FasCalendarDay",
-      "RiCalendarLine",
-      "RiCheckboxCircleFill"
+      "FarCirclePause",
+      "RiPauseCircleLine",
+      "FasPause",
+      "FasCirclePause",
+      "FasNewspaper"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -29,9 +29,13 @@
   "post/Unity": "SiUnity",
   "post/TeamCity": "SiTeamcity",
   "post/Docker": "SiDocker",
-  "일간 노트": "RiCalendarEventFill",
+  "일간 노트": {
+    "iconName": "RiCalendarEventFill",
+    "inheritanceIcon": "FarCirclePlay"
+  },
   "문서 관리": "RiCheckboxCircleFill",
   "post/MacOS": "SiApple",
   "post/Windows": "SiWindows",
-  "post/Microsoft .Net": "SiDotnet"
+  "post/Microsoft .Net": "SiDotnet",
+  "일간 노트/9999-01-01.md": "FarCirclePause"
 }

@@ -1,10 +1,10 @@
 {
   "accentColor": "#8b6cef",
-  "cssTheme": "Red Solitude",
-  "interfaceFontFamily": "Inter",
-  "textFontFamily": "Inter",
+  "cssTheme": "GitHub theme",
+  "interfaceFontFamily": "Pretendard",
+  "textFontFamily": "Pretendard",
   "baseFontSize": 16,
-  "monospaceFontFamily": "Inter",
+  "monospaceFontFamily": "Pretendard",
   "translucency": false,
   "baseFontSizeAction": true
 }

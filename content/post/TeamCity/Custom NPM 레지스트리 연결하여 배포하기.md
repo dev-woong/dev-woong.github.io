@@ -1,6 +1,6 @@
 ---
 title: TeamCity Custom NPM 레지스트리 연결하여 배포하기
-image: resource/Pasted%20image%2020221130155426.png
+#image: resource/Pasted%20image%2020221130155426.png
 categories: TeamCity
 date: 2022-11-30
 tags: [ NPM, Custom Registry, Registry ]

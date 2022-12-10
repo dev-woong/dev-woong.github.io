@@ -1,8 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "NU1102 오류 해결 방법",
-      "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
+      "basename": "Parameter 관리 유형",
+      "path": "post/TeamCity/Parameter 관리 유형.md"
+    },
+    {
+      "basename": "GitHub Rest API로 Packages 읽기, 삭제하기",
+      "path": "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md"
+    },
+    {
+      "basename": "2022-12-10",
+      "path": "일간 노트/2022-12-10.md"
+    },
+    {
+      "basename": "9999-01-01",
+      "path": "일간 노트/9999-01-01.md"
+    },
+    {
+      "basename": "default_document",
+      "path": "templates/default_document.md"
+    },
+    {
+      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
+      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
+    },
+    {
+      "basename": "2022-12-05",
+      "path": "일간 노트/2022-12-05.md"
+    },
+    {
+      "basename": "2022-12-07",
+      "path": "일간 노트/2022-12-07.md"
     },
     {
       "basename": "2022-12-06",
@@ -13,8 +41,8 @@
       "path": "templates/daily_note.md"
     },
     {
-      "basename": "9999-01-01",
-      "path": "일간 노트/9999-01-01.md"
+      "basename": "NU1102 오류 해결 방법",
+      "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
     },
     {
       "basename": "Build Chain으로 Parameter 전달하기",
@@ -23,14 +51,6 @@
     {
       "basename": "문서 발행 여부",
       "path": "문서 관리/문서 발행 여부.md"
-    },
-    {
-      "basename": "2022-12-07",
-      "path": "일간 노트/2022-12-07.md"
-    },
-    {
-      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
-      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
     },
     {
       "basename": "Pasted image 20221109163555",
@@ -45,16 +65,8 @@
       "path": "일간 노트/2022-11-29.md"
     },
     {
-      "basename": "2022-12-05",
-      "path": "일간 노트/2022-12-05.md"
-    },
-    {
       "basename": "_Microsoft .Net",
       "path": "post/Microsoft .Net/_Microsoft .Net.md"
-    },
-    {
-      "basename": "GitHub Rest API로 Packages 읽기, 삭제하기",
-      "path": "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md"
     },
     {
       "basename": "%2ENET Installer 생성 및 배포 과정 정리",
@@ -87,10 +99,6 @@
     {
       "basename": "XUnit Test Coverage 분석 적용 방법",
       "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
-    },
-    {
-      "basename": "default_document",
-      "path": "templates/default_document.md"
     },
     {
       "basename": "zoottel_template",
@@ -171,34 +179,6 @@
     {
       "basename": "Android Simulator 'Unknown Error' 오류",
       "path": "post/MAUI/Android Simulator 'Unknown Error' 오류.md"
-    },
-    {
-      "basename": "Note. Provisioning Identifier 오류 관련",
-      "path": "post/MacOS/Note. Provisioning Identifier 오류 관련.md"
-    },
-    {
-      "basename": "GitHub API - Rest API와 GraphQL의 차이점",
-      "path": "post/GitHub/GitHub API - Rest API와 GraphQL의 차이점.md"
-    },
-    {
-      "basename": "GitHub Actions - .NET 자동화 테스트 구성하기",
-      "path": "post/GitHub/Actions/GitHub Actions - .NET 자동화 테스트 구성하기.md"
-    },
-    {
-      "basename": "XCode 14 Beta 오류",
-      "path": "post/MacOS/XCode 14 Beta 오류.md"
-    },
-    {
-      "basename": "API 사용 형태",
-      "path": "post/Tekla Structures API/API 사용 형태.md"
-    },
-    {
-      "basename": "GitHub Personal Access Token 생성하기",
-      "path": "post/GitHub/GitHub Personal Access Token 생성하기.md"
-    },
-    {
-      "basename": "2022-11-30",
-      "path": "일간 노트/2022-11-30.md"
     }
   ],
   "omittedPaths": [],

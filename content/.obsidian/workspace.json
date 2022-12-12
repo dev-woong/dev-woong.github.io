@@ -17,7 +17,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "일간 노트/2022-12-10.md",
+                    "file": "일간 노트/2022-12-12.md",
                     "mode": "source",
                     "source": true
                   }
@@ -132,7 +132,6 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/TeamCity/Parameter 관리 유형.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -206,8 +205,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "일간 노트/2022-12-10.md",
-                "mode": "source",
+                "file": "일간 노트/2022-12-12.md",
+                "mode": "preview",
                 "source": true
               }
             },
@@ -233,8 +232,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "b38251131c271ec4",
@@ -246,9 +244,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "post/TeamCity/Parameter 관리 유형.md"
-              }
+              "state": {}
             }
           },
           {
@@ -268,7 +264,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/TeamCity/Parameter 관리 유형.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -285,7 +280,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/TeamCity/Parameter 관리 유형.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -298,17 +292,35 @@
     "direction": "horizontal",
     "width": 529
   },
-  "active": "9ee1b85a1d6cee18",
+  "left-ribbon": {
+    "hiddenItems": {
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "oz-clear-unused-images:Clear Unused Images": false,
+      "obsidian-to-notion:Share to notion": false,
+      "switcher:빠른 파일 변경 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "markdown-importer:Markdown 임포터 열기": false,
+      "zk-prefixer:새로운 유니크 노트 만들기": false,
+      "audio-recorder:녹음 시작/중지": false,
+      "workspaces:작업 공간 레이아웃 관리": false
+    }
+  },
+  "active": "fb3fb3863764475c",
   "lastOpenFiles": [
+    "post/Server/Note. 서버_구성도.md",
     "post/TeamCity/Parameter 관리 유형.md",
-    "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md",
+    "일간 노트/2022-12-12.md",
     "일간 노트/2022-12-10.md",
+    "문서 관리/문서 발행 여부.md",
+    "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md",
     "일간 노트/9999-01-01.md",
     "templates/public_doc_munchan-ung-ui-MacBookAir.local_Nov-30-091825-2022_Conflict.md",
     "templates/daily_note_munchan-ung-ui-MacBookAir.local_Nov-30-091825-2022_Conflict.md",
-    "templates/default_document.md",
-    "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md",
-    "일간 노트/2022-12-05.md",
-    "일간 노트/2022-12-09.md"
+    "templates/default_document.md"
   ]
 }

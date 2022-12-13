@@ -2,13 +2,17 @@
 title: Links
 links:
   - title: GitHub
-    description: 흥미로운 것 들을 공부하여 담아보고 있습니다
+    description: 
     website: https://github.com/dev-woong
     image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-  - title: TypeScript
-    description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
-    website: https://www.typescriptlang.org
-    image: page/links/ts-logo-128.jpg
+  - title: LinkedIn
+    description: 
+    website: https://www.linkedin.com/in/찬웅-문-0b215b208
+    image: https://media-exp1.licdn.com/dms/image/C560BAQHaVYd13rRz3A/company-logo_200_200/0/1638831589865?e=1678924800&v=beta&t=V5wj3YDiDVvfNWwvyk8JTrQTXaQoHihut_42ieAX7y8
+  - title: E-Mail
+    description: 원하는 이메일을 보내주세요!
+    website: mailto:intajon@gmail.com
+    image: 
 menu:
     main: 
         weight: -50
@@ -17,21 +21,3 @@ menu:
 
 comments: false
 ---
-
-To use this feature, add `links` section to frontmatter.
-
-This page's frontmatter:
-
-```yaml
-links:
-  - title: GitHub
-    description: GitHub is the world's largest software development platform.
-    website: https://github.com
-    image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-  - title: TypeScript
-    description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
-    website: https://www.typescriptlang.org
-    image: ts-logo-128.jpg
-```
-
-`image` field accepts both local and external images.

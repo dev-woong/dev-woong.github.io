@@ -1,28 +1,72 @@
 {
   "recentFiles": [
     {
-      "basename": "Note. 서버_구성도",
-      "path": "post/Server/Note. 서버_구성도.md"
+      "basename": "Links",
+      "path": "page/links/Links.md"
     },
     {
-      "basename": "Parameter 관리 유형",
-      "path": "post/TeamCity/Parameter 관리 유형.md"
+      "basename": "Links.en",
+      "path": "page/links/Links.en.md"
     },
     {
-      "basename": "2022-12-12",
-      "path": "일간 노트/2022-12-12.md"
-    },
-    {
-      "basename": "2022-12-10",
-      "path": "일간 노트/2022-12-10.md"
+      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
+      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
     },
     {
       "basename": "문서 발행 여부",
       "path": "문서 관리/문서 발행 여부.md"
     },
     {
+      "basename": "2022-12-13",
+      "path": "일간 노트/2022-12-13.md"
+    },
+    {
+      "basename": "2022-12-12",
+      "path": "일간 노트/2022-12-12.md"
+    },
+    {
+      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
+      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
+    },
+    {
+      "basename": "Agent에서 설정이 필요한 요소 정리",
+      "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
+    },
+    {
+      "basename": "XUnit Test Coverage 분석 적용 방법",
+      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
+    },
+    {
+      "basename": "Parameter 관리 유형",
+      "path": "post/TeamCity/Parameter 관리 유형.md"
+    },
+    {
+      "basename": "Build Chain으로 Parameter 전달하기",
+      "path": "post/TeamCity/Build Chain으로 Parameter 전달하기.md"
+    },
+    {
+      "basename": "GitHub API - Rest API와 GraphQL의 차이점",
+      "path": "post/GitHub/GitHub API - Rest API와 GraphQL의 차이점.md"
+    },
+    {
       "basename": "GitHub Rest API로 Packages 읽기, 삭제하기",
       "path": "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md"
+    },
+    {
+      "basename": "Github Apps 세부 설정 및 생성",
+      "path": "post/GitHub/Github Apps 세부 설정 및 생성.md"
+    },
+    {
+      "basename": "GitHub Personal Access Token 생성하기",
+      "path": "post/GitHub/GitHub Personal Access Token 생성하기.md"
+    },
+    {
+      "basename": "Note. 서버_구성도",
+      "path": "post/Server/Note. 서버_구성도.md"
+    },
+    {
+      "basename": "2022-12-10",
+      "path": "일간 노트/2022-12-10.md"
     },
     {
       "basename": "9999-01-01",
@@ -31,10 +75,6 @@
     {
       "basename": "default_document",
       "path": "templates/default_document.md"
-    },
-    {
-      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
-      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
     },
     {
       "basename": "2022-12-05",
@@ -55,10 +95,6 @@
     {
       "basename": "NU1102 오류 해결 방법",
       "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
-    },
-    {
-      "basename": "Build Chain으로 Parameter 전달하기",
-      "path": "post/TeamCity/Build Chain으로 Parameter 전달하기.md"
     },
     {
       "basename": "Pasted image 20221109163555",
@@ -105,10 +141,6 @@
       "path": "일간 노트/2022-12-02.md"
     },
     {
-      "basename": "XUnit Test Coverage 분석 적용 방법",
-      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
-    },
-    {
       "basename": "zoottel_template",
       "path": "templates/zoottel_template.md"
     },
@@ -129,10 +161,6 @@
       "path": "일간 노트/2022-12-01.md"
     },
     {
-      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
-      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
-    },
-    {
       "basename": "_Docker",
       "path": "post/Docker/_Docker.md"
     },
@@ -143,10 +171,6 @@
     {
       "basename": "Docker Hub에 Container 변경사항 저장(commit)",
       "path": "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md"
-    },
-    {
-      "basename": "Github Apps 세부 설정 및 생성",
-      "path": "post/GitHub/Github Apps 세부 설정 및 생성.md"
     },
     {
       "basename": "Unity Package Registry 만들기(Verdaccio)",
@@ -175,14 +199,6 @@
     {
       "basename": "9",
       "path": "resource/9.png"
-    },
-    {
-      "basename": "MacOS .NET 7.0 MAUI 개발 환경 구성하기",
-      "path": "post/MAUI/MacOS .NET 7.0 MAUI 개발 환경 구성하기.md"
-    },
-    {
-      "basename": "Android Simulator 'Unknown Error' 오류",
-      "path": "post/MAUI/Android Simulator 'Unknown Error' 오류.md"
     }
   ],
   "omittedPaths": [],

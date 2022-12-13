@@ -1,8 +1,10 @@
 {
   "hidden": true,
   "hiddenList": [
+    "resource",
     "categories",
     "page",
-    "resource"
+    "_index.en.md",
+    "_content.md"
   ]
 }

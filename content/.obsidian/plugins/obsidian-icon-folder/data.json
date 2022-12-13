@@ -5,11 +5,11 @@
     "fontSize": 16,
     "iconColor": null,
     "recentlyUsedIcons": [
+      "FasImage",
+      "FasStamp",
       "FarCirclePause",
       "RiPauseCircleLine",
-      "FasPause",
-      "FasCirclePause",
-      "FasNewspaper"
+      "FasPause"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -37,5 +37,7 @@
   "post/MacOS": "SiApple",
   "post/Windows": "SiWindows",
   "post/Microsoft .Net": "SiDotnet",
-  "일간 노트/9999-01-01.md": "FarCirclePause"
+  "일간 노트/9999-01-01.md": "FarCirclePause",
+  "templates": "FasStamp",
+  "resource": "FasImage"
 }

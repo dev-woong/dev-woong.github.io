@@ -7,6 +7,7 @@ date: 9999-01-01
  [[post/MacOS/_MacOS|_MacOS]]
  [[post/MAUI/_MAUI|_MAUI]]
  [[post/Microsoft .Net/_Microsoft .Net|_Microsoft .Net]]
+ [[post/Nuke/_Nuke|_Nuke]]
  [[post/Obsidian/_Obsidian|_Obsidian]]
  [[post/Server/_Server|_Server]]
  [[post/TeamCity/_TeamCity|_TeamCity]]

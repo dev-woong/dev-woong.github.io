@@ -1,6 +1,78 @@
 {
   "recentFiles": [
     {
+      "basename": "Nuke Build - Tool, Plug-In 설치",
+      "path": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md"
+    },
+    {
+      "basename": "Xml.Linq - Descendants",
+      "path": "post/Microsoft .Net/Xml.Linq - Descendants.md"
+    },
+    {
+      "basename": "Spectre.Console",
+      "path": "post/Microsoft .Net/Spectre.Console.md"
+    },
+    {
+      "basename": "2022-12-28",
+      "path": "일간 노트/2022-12-28.md"
+    },
+    {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
+    },
+    {
+      "basename": "2022-12-22",
+      "path": "일간 노트/2022-12-22.md"
+    },
+    {
+      "basename": "2022-12-21",
+      "path": "일간 노트/2022-12-21.md"
+    },
+    {
+      "basename": "Build Step (.NET)",
+      "path": "post/TeamCity/Build Step (.NET).md"
+    },
+    {
+      "basename": "2022-12-19",
+      "path": "일간 노트/2022-12-19.md"
+    },
+    {
+      "basename": "2022-12-16",
+      "path": "일간 노트/2022-12-16.md"
+    },
+    {
+      "basename": "2022-12-15",
+      "path": "일간 노트/2022-12-15.md"
+    },
+    {
+      "basename": "Agent에서 설정이 필요한 요소 정리",
+      "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
+    },
+    {
+      "basename": "Parameter 관리 유형",
+      "path": "post/TeamCity/Parameter 관리 유형.md"
+    },
+    {
+      "basename": "2022-12-14",
+      "path": "일간 노트/2022-12-14.md"
+    },
+    {
+      "basename": "9999-01-01",
+      "path": "일간 노트/9999-01-01.md"
+    },
+    {
+      "basename": "2022-12-13",
+      "path": "일간 노트/2022-12-13.md"
+    },
+    {
+      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
+      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
+    },
+    {
+      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
+      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
+    },
+    {
       "basename": "Links",
       "path": "page/links/Links.md"
     },
@@ -9,36 +81,16 @@
       "path": "page/links/Links.en.md"
     },
     {
-      "basename": "Custom NPM 레지스트리 연결하여 배포하기",
-      "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
-    },
-    {
       "basename": "문서 발행 여부",
       "path": "문서 관리/문서 발행 여부.md"
-    },
-    {
-      "basename": "2022-12-13",
-      "path": "일간 노트/2022-12-13.md"
     },
     {
       "basename": "2022-12-12",
       "path": "일간 노트/2022-12-12.md"
     },
     {
-      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
-      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
-    },
-    {
-      "basename": "Agent에서 설정이 필요한 요소 정리",
-      "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
-    },
-    {
       "basename": "XUnit Test Coverage 분석 적용 방법",
       "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
-    },
-    {
-      "basename": "Parameter 관리 유형",
-      "path": "post/TeamCity/Parameter 관리 유형.md"
     },
     {
       "basename": "Build Chain으로 Parameter 전달하기",
@@ -69,10 +121,6 @@
       "path": "일간 노트/2022-12-10.md"
     },
     {
-      "basename": "9999-01-01",
-      "path": "일간 노트/9999-01-01.md"
-    },
-    {
       "basename": "default_document",
       "path": "templates/default_document.md"
     },
@@ -87,10 +135,6 @@
     {
       "basename": "2022-12-06",
       "path": "일간 노트/2022-12-06.md"
-    },
-    {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
     },
     {
       "basename": "NU1102 오류 해결 방법",
@@ -151,54 +195,6 @@
     {
       "basename": "_index",
       "path": "_index.md"
-    },
-    {
-      "basename": "_index.en",
-      "path": "_index.en.md"
-    },
-    {
-      "basename": "2022-12-01",
-      "path": "일간 노트/2022-12-01.md"
-    },
-    {
-      "basename": "_Docker",
-      "path": "post/Docker/_Docker.md"
-    },
-    {
-      "basename": "Docker Hub Repository 생성",
-      "path": "post/Docker/Docker Hub Repository 생성.md"
-    },
-    {
-      "basename": "Docker Hub에 Container 변경사항 저장(commit)",
-      "path": "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md"
-    },
-    {
-      "basename": "Unity Package Registry 만들기(Verdaccio)",
-      "path": "post/Unity/Unity Package Registry 만들기(Verdaccio).md"
-    },
-    {
-      "basename": "TIL - 로딩 화면 만들기",
-      "path": "post/Unity/TIL - 로딩 화면 만들기.md"
-    },
-    {
-      "basename": "TIL - Tilemap 기초",
-      "path": "post/Unity/TIL - Tilemap 기초.md"
-    },
-    {
-      "basename": "TIL - Sprite와 Animation 기초",
-      "path": "post/Unity/TIL - Sprite와 Animation 기초.md"
-    },
-    {
-      "basename": "Facebook 로그인",
-      "path": "post/Unity/Facebook 로그인.md"
-    },
-    {
-      "basename": "Dataview, DataviewJS 사용법",
-      "path": "post/Obsidian/Dataview, DataviewJS 사용법.md"
-    },
-    {
-      "basename": "9",
-      "path": "resource/9.png"
     }
   ],
   "omittedPaths": [],

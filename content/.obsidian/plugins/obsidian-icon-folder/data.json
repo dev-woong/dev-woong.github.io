@@ -5,11 +5,11 @@
     "fontSize": 16,
     "iconColor": null,
     "recentlyUsedIcons": [
+      "SiNuke",
       "FasImage",
       "FasStamp",
       "FarCirclePause",
-      "RiPauseCircleLine",
-      "FasPause"
+      "RiPauseCircleLine"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -39,5 +39,6 @@
   "post/Microsoft .Net": "SiDotnet",
   "일간 노트/9999-01-01.md": "FarCirclePause",
   "templates": "FasStamp",
-  "resource": "FasImage"
+  "resource": "FasImage",
+  "post/Nuke": "SiNuke"
 }

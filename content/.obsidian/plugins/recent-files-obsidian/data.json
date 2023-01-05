@@ -1,28 +1,44 @@
 {
   "recentFiles": [
     {
-      "basename": "Nuke Build - Tool, Plug-In 설치",
-      "path": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md"
-    },
-    {
       "basename": "Xml.Linq - Descendants",
       "path": "post/Microsoft .Net/Xml.Linq - Descendants.md"
     },
     {
-      "basename": "Spectre.Console",
-      "path": "post/Microsoft .Net/Spectre.Console.md"
-    },
-    {
-      "basename": "2022-12-28",
-      "path": "일간 노트/2022-12-28.md"
+      "basename": "2023-01-05",
+      "path": "일간 노트/2023-01-05.md"
     },
     {
       "basename": "daily_note",
       "path": "templates/daily_note.md"
     },
     {
+      "basename": "2023-01-04",
+      "path": "일간 노트/2023-01-04.md"
+    },
+    {
+      "basename": "Nuke Build - Tool, Plug-In 설치",
+      "path": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md"
+    },
+    {
+      "basename": "2022-12-29",
+      "path": "일간 노트/2022-12-29.md"
+    },
+    {
       "basename": "2022-12-22",
       "path": "일간 노트/2022-12-22.md"
+    },
+    {
+      "basename": "2022-12-28",
+      "path": "일간 노트/2022-12-28.md"
+    },
+    {
+      "basename": "2022-12-13",
+      "path": "일간 노트/2022-12-13.md"
+    },
+    {
+      "basename": "Spectre.Console",
+      "path": "post/Microsoft .Net/Spectre.Console.md"
     },
     {
       "basename": "2022-12-21",
@@ -59,10 +75,6 @@
     {
       "basename": "9999-01-01",
       "path": "일간 노트/9999-01-01.md"
-    },
-    {
-      "basename": "2022-12-13",
-      "path": "일간 노트/2022-12-13.md"
     },
     {
       "basename": "Custom NPM 레지스트리 연결하여 배포하기",
@@ -187,14 +199,6 @@
     {
       "basename": "zoottel_template",
       "path": "templates/zoottel_template.md"
-    },
-    {
-      "basename": "_post",
-      "path": "post/_post.md"
-    },
-    {
-      "basename": "_index",
-      "path": "_index.md"
     }
   ],
   "omittedPaths": [],

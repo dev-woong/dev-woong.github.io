@@ -21,7 +21,7 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "일간 노트/2022-12-28.md",
+                        "file": "일간 노트/2023-01-05.md",
                         "mode": "source",
                         "source": true
                       }
@@ -69,8 +69,8 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
-                    "mode": "preview",
+                    "file": "post/Microsoft .Net/Xml.Linq - Descendants.md",
+                    "mode": "source",
                     "source": true
                   }
                 },
@@ -88,8 +88,8 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
-                    "mode": "source",
+                    "file": "post/Microsoft .Net/Xml.Linq - Descendants.md",
+                    "mode": "preview",
                     "source": true
                   }
                 },
@@ -182,7 +182,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
+                "file": "post/Microsoft .Net/Xml.Linq - Descendants.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -247,7 +247,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "일간 노트/2022-12-28.md",
+                "file": "일간 노트/2023-01-05.md",
                 "mode": "preview",
                 "source": true
               }
@@ -276,7 +276,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md"
+                "file": "post/Microsoft .Net/Xml.Linq - Descendants.md"
               }
             }
           },
@@ -297,7 +297,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
+                "file": "post/Microsoft .Net/Xml.Linq - Descendants.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -314,7 +314,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
+                "file": "post/Microsoft .Net/Xml.Linq - Descendants.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -344,17 +344,17 @@
       "workspaces:작업 공간 레이아웃 관리": false
     }
   },
-  "active": "9ee1b85a1d6cee18",
+  "active": "2293539e437c7b84",
   "lastOpenFiles": [
     "post/Microsoft .Net/Xml.Linq - Descendants.md",
-    "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
-    "일간 노트/2022-12-05_munchan-ung-ui-MacBookAir.local_Dec-20-223022-2022_Conflict.md",
-    "post/Microsoft .Net/Spectre.Console.md",
-    "일간 노트/2022-12-28.md",
+    "일간 노트/2023-01-05.md",
     "templates/daily_note.md",
+    "일간 노트/2023-01-04.md",
+    "일간 노트/2022-12-29.md",
+    "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
     "일간 노트/2022-12-22.md",
-    "일간 노트/2022-12-21.md",
-    "post/TeamCity/Build Step (.NET).md",
-    "일간 노트/2022-12-19.md"
+    "일간 노트/2022-12-28.md",
+    "일간 노트/2022-12-13.md",
+    "일간 노트/2022-12-05_munchan-ung-ui-MacBookAir.local_Dec-20-223022-2022_Conflict.md"
   ]
 }

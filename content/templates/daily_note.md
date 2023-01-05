@@ -9,6 +9,7 @@ tags: [ daily_note ]
 ## Note
 	1. 
 	2. 
+ 
 %%
 
 %%
@@ -16,6 +17,7 @@ tags: [ daily_note ]
 - [ ] Task 1
 - [ ] Task 2
 %%
+
 ---
 ## Not Finished
 ```tasks

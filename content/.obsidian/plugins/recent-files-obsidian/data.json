@@ -1,9 +1,16 @@
 {
   "recentFiles": [
     {
-<<<<<<< Updated upstream
-      "basename": "Xml.Linq - Descendants",
-      "path": "post/Microsoft .Net/Xml.Linq - Descendants.md"
+      "basename": "index",
+      "path": "categories/Microsoft .Net/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "categories/GitHub/index.md"
+    },
+    {
+      "basename": "Github Apps 세부 설정 및 생성",
+      "path": "post/GitHub/Github Apps 세부 설정 및 생성.md"
     },
     {
       "basename": "2023-01-05",
@@ -14,21 +21,18 @@
       "path": "templates/daily_note.md"
     },
     {
+      "basename": "Xml.Linq - Descendants",
+      "path": "post/Microsoft .Net/Xml.Linq - Descendants.md"
+    },
+    {
       "basename": "2023-01-04",
       "path": "일간 노트/2023-01-04.md"
     },
     {
-      "basename": "Nuke Build - Tool, Plug-In 설치",
-      "path": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md"
-=======
       "basename": "Docker Hub에 Container 변경사항 저장(commit)",
       "path": "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md"
     },
     {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
-    },
-    {
       "basename": "Build Step (.NET)",
       "path": "post/TeamCity/Build Step (.NET).md"
     },
@@ -39,129 +43,6 @@
     {
       "basename": "Parameter 관리 유형",
       "path": "post/TeamCity/Parameter 관리 유형.md"
-    },
-    {
-      "basename": "9999-01-01",
-      "path": "일간 노트/9999-01-01.md"
->>>>>>> Stashed changes
-    },
-    {
-      "basename": "2022-12-29",
-      "path": "일간 노트/2022-12-29.md"
-    },
-    {
-<<<<<<< Updated upstream
-      "basename": "2022-12-22",
-      "path": "일간 노트/2022-12-22.md"
-    },
-    {
-      "basename": "2022-12-28",
-      "path": "일간 노트/2022-12-28.md"
-    },
-    {
-      "basename": "2022-12-13",
-      "path": "일간 노트/2022-12-13.md"
-    },
-    {
-      "basename": "Spectre.Console",
-      "path": "post/Microsoft .Net/Spectre.Console.md"
-    },
-    {
-      "basename": "2022-12-21",
-      "path": "일간 노트/2022-12-21.md"
-=======
-      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
-      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
-    },
-    {
-      "basename": "Links",
-      "path": "page/links/Links.md"
-    },
-    {
-      "basename": "Links.en",
-      "path": "page/links/Links.en.md"
-    },
-    {
-      "basename": "문서 발행 여부",
-      "path": "문서 관리/문서 발행 여부.md"
-    },
-    {
-      "basename": "XUnit Test Coverage 분석 적용 방법",
-      "path": "post/TeamCity/XUnit Test Coverage 분석 적용 방법.md"
->>>>>>> Stashed changes
-    },
-    {
-      "basename": "Build Step (.NET)",
-      "path": "post/TeamCity/Build Step (.NET).md"
-    },
-    {
-<<<<<<< Updated upstream
-      "basename": "2022-12-19",
-      "path": "일간 노트/2022-12-19.md"
-    },
-    {
-      "basename": "2022-12-16",
-      "path": "일간 노트/2022-12-16.md"
-    },
-    {
-      "basename": "2022-12-15",
-      "path": "일간 노트/2022-12-15.md"
-=======
-      "basename": "GitHub API - Rest API와 GraphQL의 차이점",
-      "path": "post/GitHub/GitHub API - Rest API와 GraphQL의 차이점.md"
-    },
-    {
-      "basename": "GitHub Rest API로 Packages 읽기, 삭제하기",
-      "path": "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md"
-    },
-    {
-      "basename": "Github Apps 세부 설정 및 생성",
-      "path": "post/GitHub/Github Apps 세부 설정 및 생성.md"
-    },
-    {
-      "basename": "GitHub Personal Access Token 생성하기",
-      "path": "post/GitHub/GitHub Personal Access Token 생성하기.md"
-    },
-    {
-      "basename": "Note. 서버_구성도",
-      "path": "post/Server/Note. 서버_구성도.md"
-    },
-    {
-      "basename": "2022-12-10",
-      "path": "일간 노트/2022-12-10.md"
-    },
-    {
-      "basename": "default_document",
-      "path": "templates/default_document.md"
-    },
-    {
-      "basename": "2022-12-05",
-      "path": "일간 노트/2022-12-05.md"
-    },
-    {
-      "basename": "2022-12-07",
-      "path": "일간 노트/2022-12-07.md"
-    },
-    {
-      "basename": "2022-12-06",
-      "path": "일간 노트/2022-12-06.md"
-    },
-    {
-      "basename": "NU1102 오류 해결 방법",
-      "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
->>>>>>> Stashed changes
-    },
-    {
-      "basename": "Agent에서 설정이 필요한 요소 정리",
-      "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
-    },
-    {
-      "basename": "Parameter 관리 유형",
-      "path": "post/TeamCity/Parameter 관리 유형.md"
-    },
-    {
-      "basename": "2022-12-14",
-      "path": "일간 노트/2022-12-14.md"
     },
     {
       "basename": "9999-01-01",
@@ -184,13 +65,8 @@
       "path": "page/links/Links.en.md"
     },
     {
-<<<<<<< Updated upstream
       "basename": "문서 발행 여부",
       "path": "문서 관리/문서 발행 여부.md"
-    },
-    {
-      "basename": "2022-12-12",
-      "path": "일간 노트/2022-12-12.md"
     },
     {
       "basename": "XUnit Test Coverage 분석 적용 방법",
@@ -207,10 +83,6 @@
     {
       "basename": "GitHub Rest API로 Packages 읽기, 삭제하기",
       "path": "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md"
-    },
-    {
-      "basename": "Github Apps 세부 설정 및 생성",
-      "path": "post/GitHub/Github Apps 세부 설정 및 생성.md"
     },
     {
       "basename": "GitHub Personal Access Token 생성하기",
@@ -243,14 +115,6 @@
     {
       "basename": "NU1102 오류 해결 방법",
       "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
-    },
-    {
-      "basename": "Pasted image 20221109163555",
-      "path": "resource/Pasted image 20221109163555.png"
-    },
-    {
-      "basename": "Pasted image 20221109165501",
-      "path": "resource/Pasted image 20221109165501.png"
     },
     {
       "basename": "2022-11-29",
@@ -287,14 +151,6 @@
     {
       "basename": "2022-12-02",
       "path": "일간 노트/2022-12-02.md"
-    },
-    {
-      "basename": "zoottel_template",
-      "path": "templates/zoottel_template.md"
-=======
-      "basename": "2022-12-02",
-      "path": "일간 노트/2022-12-02.md"
->>>>>>> Stashed changes
     }
   ],
   "omittedPaths": [],

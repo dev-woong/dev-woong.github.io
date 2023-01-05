@@ -171,6 +171,7 @@ Science
 Stack
 System
 Storage
+Step을
 Console을
 CI
 Command
@@ -285,6 +286,7 @@ Control
 빌드한
 빌드의
 빌드를
+빌드되도록
 alpha를
 alpha
 alpha로
@@ -550,6 +552,7 @@ Organization
 확인함
 확인된
 확장자
+확인하는
 PR
 Premises
 Package
@@ -799,6 +802,7 @@ Grade
 읽고
 읽어올
 읽어들인
+읽어
 Verdaccio
 Verdaccio를
 Value
@@ -909,6 +913,7 @@ Bachelor
 동일
 동작하는
 동작합니다
+동작시킬
 경우가
 경우
 경고
@@ -1087,6 +1092,7 @@ background
 정보보호
 정책
 정리했습니다
+정의하여
 성공
 성격을
 배포하도록
@@ -1103,6 +1109,7 @@ background
 분석
 분할과
 분할하여
+분기를
 무시할
 무조건
 별도로
@@ -1344,6 +1351,7 @@ Level
 공식
 공식적으로
 공유
+공통
 자식으로
 자료를
 자격
@@ -1494,6 +1502,8 @@ json
 예제에서는
 예정이고
 예시
+예제는
+예제입니다
 들어
 아이템
 아닌
@@ -1524,6 +1534,7 @@ json
 내용
 내장
 내용들에
+내부에
 함께
 처럼
 처리를
@@ -1701,6 +1712,7 @@ Korea
 참고
 참고하여
 참여
+참조하고
 필요한
 필수
 필자의
@@ -1778,6 +1790,7 @@ who
 Jetbrains의
 JAVA
 JavaScript
+Json
 백엔드를
 합니다
 zshrc

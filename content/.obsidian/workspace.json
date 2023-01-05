@@ -21,12 +21,12 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "일간 노트/2023-01-05.md",
+                        "file": "categories/Microsoft .Net/index.md",
                         "mode": "source",
                         "source": true
                       }
                     },
-                    "group": "efc7fd77f1b0cc18"
+                    "group": "2b87f815d0e745f8"
                   },
                   {
                     "id": "ba1d2e32b9f5d979",
@@ -99,12 +99,8 @@
                 "id": "c80bfd840e8383dd",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
-                    "mode": "source",
-                    "source": true
-                  }
+                  "type": "empty",
+                  "state": {}
                 }
               }
             ]
@@ -182,7 +178,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/Microsoft .Net/Xml.Linq - Descendants.md",
+                "file": "categories/Microsoft .Net/index.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -247,12 +243,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "일간 노트/2023-01-05.md",
+                "file": "categories/Microsoft .Net/index.md",
                 "mode": "preview",
                 "source": true
               }
             },
-            "group": "efc7fd77f1b0cc18"
+            "group": "2b87f815d0e745f8"
           },
           {
             "id": "2293539e437c7b84",
@@ -276,7 +272,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Microsoft .Net/Xml.Linq - Descendants.md"
+                "file": "categories/Microsoft .Net/index.md"
               }
             }
           },
@@ -297,7 +293,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Microsoft .Net/Xml.Linq - Descendants.md",
+                "file": "categories/Microsoft .Net/index.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -314,7 +310,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Microsoft .Net/Xml.Linq - Descendants.md",
+                "file": "categories/Microsoft .Net/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -346,15 +342,15 @@
   },
   "active": "2293539e437c7b84",
   "lastOpenFiles": [
-    "post/Microsoft .Net/Xml.Linq - Descendants.md",
+    "categories/GitHub/index.md",
+    "post/GitHub/Github Apps 세부 설정 및 생성.md",
+    "categories/Microsoft .Net/index.md",
     "일간 노트/2023-01-05.md",
     "templates/daily_note.md",
+    "post/Microsoft .Net/Xml.Linq - Descendants.md",
     "일간 노트/2023-01-04.md",
+    "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md",
     "일간 노트/2022-12-29.md",
-    "post/Nuke/Nuke Build - Tool, Plug-In 설치.md",
-    "일간 노트/2022-12-22.md",
-    "일간 노트/2022-12-28.md",
-    "일간 노트/2022-12-13.md",
-    "일간 노트/2022-12-05_munchan-ung-ui-MacBookAir.local_Dec-20-223022-2022_Conflict.md"
+    "post/Nuke/Nuke Build - Tool, Plug-In 설치.md"
   ]
 }

@@ -1,6 +1,82 @@
 {
   "recentFiles": [
     {
+      "basename": "Spectre.Console",
+      "path": "post/Microsoft .Net/Spectre.Console.md"
+    },
+    {
+      "basename": "2023-01-19",
+      "path": "일간 노트/2023-01-19.md"
+    },
+    {
+      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
+      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
+    },
+    {
+      "basename": "2023-01-18",
+      "path": "일간 노트/2023-01-18.md"
+    },
+    {
+      "basename": "2023-01-17",
+      "path": "일간 노트/2023-01-17.md"
+    },
+    {
+      "basename": "2023-01-16",
+      "path": "일간 노트/2023-01-16.md"
+    },
+    {
+      "basename": "2023-01-13",
+      "path": "일간 노트/2023-01-13.md"
+    },
+    {
+      "basename": "2023-01-12",
+      "path": "일간 노트/2023-01-12.md"
+    },
+    {
+      "basename": "2023-01-11",
+      "path": "일간 노트/2023-01-11.md"
+    },
+    {
+      "basename": "2023-01-10",
+      "path": "일간 노트/2023-01-10.md"
+    },
+    {
+      "basename": "2023-01-09",
+      "path": "일간 노트/2023-01-09.md"
+    },
+    {
+      "basename": "2022-12-14",
+      "path": "일간 노트/2022-12-14.md"
+    },
+    {
+      "basename": "FluentAssertions Tips 정리",
+      "path": "post/Microsoft .Net/FluentAssertions Tips 정리.md"
+    },
+    {
+      "basename": "비동기(Async) - Async, Await",
+      "path": "post/Microsoft .Net/비동기(Async) - Async, Await.md"
+    },
+    {
+      "basename": "Xml.Linq - Descendants",
+      "path": "post/Microsoft .Net/Xml.Linq - Descendants.md"
+    },
+    {
+      "basename": "Parameter 관리 유형",
+      "path": "post/TeamCity/Parameter 관리 유형.md"
+    },
+    {
+      "basename": "2023-01-06",
+      "path": "일간 노트/2023-01-06.md"
+    },
+    {
+      "basename": "2022-11-28",
+      "path": "일간 노트/2022-11-28.md"
+    },
+    {
+      "basename": "2023-01-05",
+      "path": "일간 노트/2023-01-05.md"
+    },
+    {
       "basename": "index",
       "path": "categories/Microsoft .Net/index.md"
     },
@@ -13,16 +89,8 @@
       "path": "post/GitHub/Github Apps 세부 설정 및 생성.md"
     },
     {
-      "basename": "2023-01-05",
-      "path": "일간 노트/2023-01-05.md"
-    },
-    {
       "basename": "daily_note",
       "path": "templates/daily_note.md"
-    },
-    {
-      "basename": "Xml.Linq - Descendants",
-      "path": "post/Microsoft .Net/Xml.Linq - Descendants.md"
     },
     {
       "basename": "2023-01-04",
@@ -41,20 +109,12 @@
       "path": "post/TeamCity/Agent에서 설정이 필요한 요소 정리.md"
     },
     {
-      "basename": "Parameter 관리 유형",
-      "path": "post/TeamCity/Parameter 관리 유형.md"
-    },
-    {
       "basename": "9999-01-01",
       "path": "일간 노트/9999-01-01.md"
     },
     {
       "basename": "Custom NPM 레지스트리 연결하여 배포하기",
       "path": "post/TeamCity/Custom NPM 레지스트리 연결하여 배포하기.md"
-    },
-    {
-      "basename": "테스트 실패를 오류로 표시하지 않도록 설정하기",
-      "path": "post/TeamCity/테스트 실패를 오류로 표시하지 않도록 설정하기.md"
     },
     {
       "basename": "Links",
@@ -133,24 +193,12 @@
       "path": "post/Microsoft .Net/Nuget 캐시 삭제.md"
     },
     {
-      "basename": "비동기(Async) - Async, Await",
-      "path": "post/Microsoft .Net/비동기(Async) - Async, Await.md"
-    },
-    {
-      "basename": "FluentAssertions Tips 정리",
-      "path": "post/Microsoft .Net/FluentAssertions Tips 정리.md"
-    },
-    {
       "basename": "버그인가 미숙인가, MAUI 트러블 슈팅",
       "path": "post/MAUI/버그인가 미숙인가, MAUI 트러블 슈팅.md"
     },
     {
       "basename": "AppShell TabBar Icon 크기가 맞지 않는 문제",
       "path": "post/MAUI/AppShell TabBar Icon 크기가 맞지 않는 문제.md"
-    },
-    {
-      "basename": "2022-12-02",
-      "path": "일간 노트/2022-12-02.md"
     }
   ],
   "omittedPaths": [],

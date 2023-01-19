@@ -19,6 +19,7 @@ this
 through
 text
 translation
+tool
 date
 draft
 description
@@ -38,6 +39,7 @@ development
 developer
 daily
 design
+dependency
 Note
 Not
 Notification
@@ -56,6 +58,7 @@ No
 NC
 ND
 Network
+Npm
 Today
 Task
 TeamCity
@@ -89,6 +92,8 @@ Technology
 Tech
 Transfer
 Transition
+Target을
+Tools
 Finished
 Facebook을
 Facebook
@@ -172,6 +177,7 @@ Stack
 System
 Storage
 Step을
+Steps를
 Console을
 CI
 Command
@@ -267,6 +273,7 @@ Control
 이미지가
 이메일을
 이전
+이거
 작성
 작업이
 작성된
@@ -348,6 +355,7 @@ as
 보입니다
 보내주세요
 보호
+보이므로
 Installer
 Isometric
 Import
@@ -387,6 +395,7 @@ Intranet
 최하단의
 최대
 최초
+최신
 진행
 진행하면
 진행합니다
@@ -409,6 +418,7 @@ Hub를
 Hub의
 High
 Home
+Help에서
 설정
 설명
 설정할
@@ -553,6 +563,7 @@ Organization
 확인된
 확장자
 확인하는
+확인됨
 PR
 Premises
 Package
@@ -636,6 +647,7 @@ Regular
 Refactoring
 Responsive
 Replace
+Result에서
 또는
 패키지
 패키지는
@@ -650,6 +662,8 @@ Replace
 변형하고자
 변경사항
 변경사항이
+변경되도록
+변경되지
 여부
 여부에
 여러
@@ -658,6 +672,7 @@ Replace
 체크하여
 체크
 체계
+체크박스
 categories
 cursor
 classification
@@ -683,6 +698,8 @@ class
 creation
 compatibility
 color
+config
+config을
 일간
 일단
 일괄
@@ -723,6 +740,7 @@ color
 실패한
 실행자
 실행
+실행은
 알림
 알아봅니다
 전송
@@ -734,6 +752,7 @@ color
 전환되었습니다
 전자계산기기능사
 전환
+전체가
 난독화
 스터디
 스크립트
@@ -779,6 +798,8 @@ Grade
 방법입니다
 방법을
 방식으로
+방식
+방식처럼
 찾아보기
 찾아
 찾다
@@ -803,6 +824,7 @@ Grade
 읽어올
 읽어들인
 읽어
+읽을
 Verdaccio
 Verdaccio를
 Value
@@ -812,6 +834,10 @@ Vuforia
 Vocational
 VCS인
 VCS
+Version
+Versions
+Version이
+VIM
 관리
 관계에서
 관리하는
@@ -861,6 +887,7 @@ Url을
 Update
 UGUI를
 UGUI
+Unlisted
 기능
 기존
 기초
@@ -874,6 +901,7 @@ UGUI
 기간
 기능들에
 기술
+기준
 적용해보기
 적용하기
 적용
@@ -900,6 +928,7 @@ Beta
 Bug
 BY
 Bachelor
+Bool로
 원활히
 원래
 원하는
@@ -940,6 +969,7 @@ Bachelor
 파일에서
 파라미터로
 파일만
+파라미터를
 화면에서
 화면
 화면을
@@ -1012,7 +1042,10 @@ policies
 명령
 명령들을
 명확하게
+명령어
+명령은
 겹치지
+겹치는
 값이
 값은
 값에
@@ -1021,6 +1054,7 @@ policies
 증상이
 증상
 증명
+증가되는
 커맨드로
 커밋
 것으로
@@ -1166,6 +1200,7 @@ frontmatter
 field
 from
 fff
+fix
 now
 nyAzMQ
 notionID
@@ -1199,6 +1234,8 @@ Management
 Maintenance
 Manage
 Modeling
+MultiSelector
+Mac에서만
 if
 index
 image
@@ -1256,6 +1293,7 @@ logo
 local
 license
 lastmod
+linq
 End
 Editor
 Edit
@@ -1272,11 +1310,14 @@ Engineer
 Experience
 Engine
 YYYY
+YW
+YwBuild
 로그인을
 로딩
 로그인
 로그인합니다
 로그
+로컬
 resource
 ruby의
 ruby
@@ -1331,6 +1372,7 @@ Links
 LinkedIn
 License
 Level
+Lazy
 때는
 때마다
 때에는
@@ -1380,6 +1422,7 @@ Level
 개발자
 개월
 개선
+개씩
 가능
 가벼우며
 가로
@@ -1397,6 +1440,7 @@ Level
 가입되지
 가변
 가독성
+가능한지
 강의와
 강제로
 현재의
@@ -1487,6 +1531,7 @@ json
 제한
 제거되는
 제어할
+제거하고
 캐릭터
 캐시
 에셋은
@@ -1504,6 +1549,7 @@ json
 예시
 예제는
 예제입니다
+예외처리
 들어
 아이템
 아닌
@@ -1513,6 +1559,7 @@ json
 아래의
 아이콘을
 아래
+아스키
 반대로
 반환하는
 반환
@@ -1535,6 +1582,7 @@ json
 내장
 내용들에
 내부에
+내부
 함께
 처럼
 처리를
@@ -1563,6 +1611,7 @@ json
 메타데이터
 메모
 메시지가
+메서드를
 비용
 비활성화
 비활성화하는
@@ -1570,10 +1619,12 @@ json
 비활성화됨
 비밀
 비공식
+비었을
 유사한
 유니티
 유형
 유지보수
+유효성
 넣어서
 넣어야
 애니메이션
@@ -1645,6 +1696,7 @@ us
 결과가
 결과에
 결과
+결과에서
 영향을
 마무리
 마크다운
@@ -1655,6 +1707,7 @@ us
 언어
 운영체제
 운영체제의
+운영체제를
 활성화되어있는데
 활성화
 활용하며
@@ -1690,6 +1743,7 @@ us
 클릭하고
 클릭해
 클린
+클래스
 선택
 선택적
 선택하면
@@ -1699,6 +1753,7 @@ us
 나타내는
 나열
 나의
+나머지
 키워드로
 Kind
 Key가
@@ -1707,6 +1762,7 @@ Kyungmin
 Korea
 순서
 복원
+복구
 참조시켜
 참고해주시면
 참고
@@ -1742,11 +1798,13 @@ system
 style
 vscode
 variable
+version
 감싸면
 감사하겠으며
 입력
 입니다
 입학
+입력받을
 된다
 된다면
 컬렉션을
@@ -1756,6 +1814,7 @@ hook
 html
 hugo
 home
+help에서
 글로벌
 글을
 폴더
@@ -1837,6 +1896,7 @@ zshrc
 의견
 카드
 바탕으로
+바인딩
 keys
 key가
 준비가
@@ -1871,3 +1931,9 @@ QUERY
 협업에
 협업의
 꽃인
+숨길
+간략히
+틀린
+말고
+xml
+판단해

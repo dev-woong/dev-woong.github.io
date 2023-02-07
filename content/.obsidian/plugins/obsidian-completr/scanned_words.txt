@@ -20,6 +20,7 @@ through
 text
 translation
 tool
+tasks
 date
 draft
 description
@@ -40,6 +41,9 @@ developer
 daily
 design
 dependency
+dependencies
+data의
+done
 Note
 Not
 Notification
@@ -59,6 +63,7 @@ NC
 ND
 Network
 Npm
+Nuke의
 Today
 Task
 TeamCity
@@ -178,6 +183,10 @@ System
 Storage
 Step을
 Steps를
+Submodule
+Spector를
+Static을
+Service
 Console을
 CI
 Command
@@ -294,6 +303,7 @@ Control
 빌드의
 빌드를
 빌드되도록
+빌드하려는
 alpha를
 alpha
 alpha로
@@ -315,6 +325,8 @@ about
 aims
 approximately
 as
+auto
+after
 붙히고
 붙여
 붙어있는
@@ -322,7 +334,11 @@ as
 존재하지
 존재하는
 존재하는것을
+존재하면
+존재함
+존재하는지
 태그
+태그를
 삭제
 삭제하는
 삭제되지
@@ -340,6 +356,7 @@ as
 않고
 않음
 않습니다
+않으면
 완료
 완료됐음에도
 완료된
@@ -396,6 +413,7 @@ Intranet
 최대
 최초
 최신
+최근
 진행
 진행하면
 진행합니다
@@ -496,6 +514,7 @@ About
 AR
 Army
 Accounts
+Architecture
 인증서
 인한
 인증을
@@ -564,6 +583,7 @@ Organization
 확장자
 확인하는
 확인됨
+확인해볼
 PR
 Premises
 Package
@@ -704,6 +724,7 @@ config을
 일단
 일괄
 일치하는
+일괄적으로
 노트
 노란
 사용법
@@ -761,6 +782,8 @@ config을
 스캔
 스택
 스토리지
+스테이지에
+스테이징
 Grafana
 GitHub
 Gateway
@@ -807,6 +830,7 @@ Grade
 찾을
 찾았지만
 찾지
+찾아볼
 문서
 문제다
 문제가
@@ -848,6 +872,7 @@ VIM
 관리자와
 관리되고
 관제
+관계를
 도구
 도와주는
 도입
@@ -888,6 +913,8 @@ Update
 UGUI를
 UGUI
 Unlisted
+UnityPackage
+UPM
 기능
 기존
 기초
@@ -929,6 +956,7 @@ Bug
 BY
 Bachelor
 Bool로
+Branch에
 원활히
 원래
 원하는
@@ -943,6 +971,7 @@ Bool로
 동작하는
 동작합니다
 동작시킬
+동작하게
 경우가
 경우
 경고
@@ -956,6 +985,7 @@ Bool로
 있었다
 있습니다
 있다는
+있을지
 같음
 같은
 같습니다
@@ -991,6 +1021,7 @@ Bool로
 수행할
 수행하려는
 수립
+수정하면
 push하고
 pre
 post
@@ -1033,6 +1064,7 @@ policies
 업그레이드
 업로드
 업데이트된
+업데이트해줄
 형태로
 형태의
 형태
@@ -1080,6 +1112,7 @@ policies
 구독할
 구성하기
 구조는
+구성을
 종속성도
 종합적으로
 종속
@@ -1093,6 +1126,7 @@ bashrc
 both
 broadcasting
 background
+before
 해당
 해줄
 해도
@@ -1176,6 +1210,7 @@ main
 mailto
 months
 million
+mode
 미발행
 미숙인가
 발행
@@ -1214,6 +1249,7 @@ nuget의
 not
 nbsp
 net
+nuspec
 MOC
 MM
 Mobile
@@ -1236,6 +1272,7 @@ Manage
 Modeling
 MultiSelector
 Mac에서만
+Micro
 if
 index
 image
@@ -1358,6 +1395,7 @@ readability
 지정할
 지정한
 지향하는
+지식
 Loading
 Layout
 Layer
@@ -1441,12 +1479,14 @@ Lazy
 가변
 가독성
 가능한지
+가능하도록
 강의와
 강제로
 현재의
 현재
 편차가
 편집
+편의기능만을
 한데
 한다
 한국IT직업전문학교
@@ -1496,6 +1536,7 @@ json
 상태이므로
 상태가
 상단의
+상태일
 부터
 부분을
 부제목
@@ -1575,6 +1616,7 @@ json
 되는데
 되었는지
 되는
+되도록
 내부의
 내부적인
 내에서도
@@ -1583,6 +1625,7 @@ json
 내용들에
 내부에
 내부
+내에
 함께
 처럼
 처리를
@@ -1612,6 +1655,7 @@ json
 메모
 메시지가
 메서드를
+메시지
 비용
 비활성화
 비활성화하는
@@ -1625,8 +1669,10 @@ json
 유형
 유지보수
 유효성
+유지하고
 넣어서
 넣어야
+넣고
 애니메이션
 애니메이션을
 걷기
@@ -1658,6 +1704,7 @@ gu
 버전
 버그인가
 버전과
+버전으로
 뭐다
 했으나
 출력되며
@@ -1691,6 +1738,7 @@ user
 update
 use
 us
+upm
 중에
 중지
 결과가
@@ -1704,6 +1752,7 @@ us
 환경을
 환경에서의
 환경에서는
+환경에서
 언어
 운영체제
 운영체제의
@@ -1744,6 +1793,7 @@ us
 클릭해
 클린
 클래스
+클린한
 선택
 선택적
 선택하면
@@ -1775,6 +1825,7 @@ Korea
 필자는
 필요하지
 필수적인
+필요
 yunwoopc
 yunwoo
 yw
@@ -1796,9 +1847,12 @@ storage
 soldier
 system
 style
+scheduled
+short
 vscode
 variable
 version
+version도
 감싸면
 감사하겠으며
 입력
@@ -1880,6 +1934,7 @@ zshrc
 액세스
 액세스할
 옵션
+옵션으로
 헤드리스
 받을
 허용하지
@@ -1888,6 +1943,7 @@ zshrc
 탭에
 취약점
 취득
+취소
 브랜치
 브랜치로
 브랜치에
@@ -1937,3 +1993,9 @@ QUERY
 말고
 xml
 판단해
+템플릿
+으로
+벗어나
+벗어날
+당시
+탐구

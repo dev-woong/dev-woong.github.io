@@ -44,6 +44,7 @@ dependency
 dependencies
 data의
 done
+do
 Note
 Not
 Notification
@@ -92,13 +93,13 @@ TabBar의
 This
 Token은
 TypeScript
-To
 Technology
 Tech
 Transfer
 Transition
 Target을
 Tools
+TemplateTable
 Finished
 Facebook을
 Facebook
@@ -240,6 +241,9 @@ Communication
 Computer
 Craftsman
 Control
+Class를
+Column
+CRUD
 이용한
 이슈
 이름에
@@ -283,6 +287,7 @@ Control
 이메일을
 이전
 이거
+이름이
 작성
 작업이
 작성된
@@ -391,6 +396,8 @@ Information
 Industry
 Inspection
 Intranet
+Image로
+Important
 생성
 생성되는
 생각중
@@ -515,6 +522,7 @@ AR
 Army
 Accounts
 Architecture
+AutoFac을
 인증서
 인한
 인증을
@@ -563,6 +571,9 @@ Department
 Driving
 Develop
 Drawing
+DB
+Database
+Dummy를
 Open
 On
 Object가
@@ -572,6 +583,8 @@ Option
 Overload
 OAuth
 Organization
+OpenTracing
+Octokit
 테스트
 테스트가
 테스트를
@@ -668,6 +681,8 @@ Refactoring
 Responsive
 Replace
 Result에서
+Redis
+Redis에
 또는
 패키지
 패키지는
@@ -675,6 +690,7 @@ Result에서
 패키지들
 패키지와
 패키지의
+패턴
 변경
 변환하기
 변수를
@@ -784,6 +800,7 @@ config을
 스토리지
 스테이지에
 스테이징
+스트럽이
 Grafana
 GitHub
 Gateway
@@ -929,6 +946,7 @@ UPM
 기능들에
 기술
 기준
+기둥
 적용해보기
 적용하기
 적용
@@ -1022,6 +1040,7 @@ Branch에
 수행하려는
 수립
 수정하면
+수정해보기
 push하고
 pre
 post
@@ -1273,6 +1292,7 @@ Modeling
 MultiSelector
 Mac에서만
 Micro
+Memory
 if
 index
 image
@@ -1376,6 +1396,7 @@ readability
 모두
 모든
 모델링
+모니터링
 앱에서
 앱이
 앱을
@@ -1422,6 +1443,7 @@ Lazy
 저장하도록
 저장
 저장된
+저장할
 팔레트에
 팔로워
 속성에
@@ -1518,6 +1540,7 @@ json
 프로그램을
 프로젝트
 프로필
+프로젝트를
 드랍
 넘기지
 권장
@@ -1592,6 +1615,7 @@ json
 예제입니다
 예외처리
 들어
+들어가도
 아이템
 아닌
 아키텍처
@@ -1601,6 +1625,7 @@ json
 아이콘을
 아래
 아스키
+아무거나
 반대로
 반환하는
 반환
@@ -1664,6 +1689,7 @@ json
 비밀
 비공식
 비었을
+비교
 유사한
 유니티
 유형
@@ -1673,6 +1699,7 @@ json
 넣어서
 넣어야
 넣고
+넣어
 애니메이션
 애니메이션을
 걷기
@@ -1722,6 +1749,7 @@ gu
 디렉터리의
 디렉터리
 디렉터리에서
+디자인
 코드의
 코드를
 코드입니다
@@ -1810,6 +1838,7 @@ Key가
 Key를
 Kyungmin
 Korea
+Kafka
 순서
 복원
 복구
@@ -1889,6 +1918,7 @@ help에서
 홈페이지
 더욱
 과정
+과정에서
 많이
 안내하고
 with
@@ -1904,6 +1934,8 @@ Jetbrains의
 JAVA
 JavaScript
 Json
+Jaeger
+Jipkin
 백엔드를
 합니다
 zshrc
@@ -1999,3 +2031,6 @@ xml
 벗어날
 당시
 탐구
+몇몇
+괜찮은
+객체지향

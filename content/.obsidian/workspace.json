@@ -8,45 +8,6 @@
         "type": "split",
         "children": [
           {
-            "id": "5b7b458ecce9fd53",
-            "type": "split",
-            "children": [
-              {
-                "id": "b7bc480b6750ea95",
-                "type": "tabs",
-                "children": [
-                  {
-                    "id": "ba1d2e32b9f5d979",
-                    "type": "leaf",
-                    "state": {
-                      "type": "empty",
-                      "state": {}
-                    }
-                  }
-                ]
-              },
-              {
-                "id": "8da31f684a61efd7",
-                "type": "tabs",
-                "children": [
-                  {
-                    "id": "fb3fb3863764475c",
-                    "type": "leaf",
-                    "state": {
-                      "type": "markdown",
-                      "state": {
-                        "file": "_content.md",
-                        "mode": "source",
-                        "source": true
-                      }
-                    }
-                  }
-                ]
-              }
-            ],
-            "direction": "horizontal"
-          },
-          {
             "id": "9bcab52cf5c5c88f",
             "type": "tabs",
             "children": [
@@ -56,22 +17,33 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md",
-                    "mode": "preview",
+                    "file": "일간 노트/2023-02-09.md",
+                    "mode": "source",
                     "source": true
                   }
                 },
                 "group": "7de1dbd4d91575a7"
               },
               {
-                "id": "af689bb513412fa4",
+                "id": "588de57f07c45501",
                 "type": "leaf",
                 "state": {
-                  "type": "release-notes",
+                  "type": "markdown",
                   "state": {
-                    "currentVersion": "1.1.12"
+                    "file": "일간 노트/Important.md",
+                    "mode": "source",
+                    "source": true
                   }
                 }
+              },
+              {
+                "id": "b041230725b0284d",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {}
+                },
+                "group": "e04008c2121b4fdb"
               }
             ]
           },
@@ -85,12 +57,21 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md",
-                    "mode": "source",
+                    "file": "일간 노트/2023-02-09.md",
+                    "mode": "preview",
                     "source": true
                   }
                 },
                 "group": "7de1dbd4d91575a7"
+              },
+              {
+                "id": "1676bfd495748dad",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {}
+                },
+                "group": "e04008c2121b4fdb"
               }
             ]
           }
@@ -141,7 +122,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "6e41883bda7f6f20",
@@ -167,6 +149,7 @@
             "state": {
               "type": "localgraph",
               "state": {
+                "file": "일간 노트/2023-02-09.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -199,7 +182,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 399.5024719238281
+    "width": 399.5024719238281,
+    "collapsed": true
   },
   "right": {
     "id": "9a90f98617572d22",
@@ -208,7 +192,7 @@
       {
         "id": "7c421542fdeb1efe",
         "type": "tabs",
-        "dimension": 25.630026809651476,
+        "dimension": 20.03610108303249,
         "children": [
           {
             "id": "99ec016b4179cc7c",
@@ -223,8 +207,20 @@
       {
         "id": "ae99a87963427a1a",
         "type": "tabs",
-        "dimension": 47.88203753351206,
+        "dimension": 43.62214199759326,
         "children": [
+          {
+            "id": "4d62c74610c20cd2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "일간 노트/2023-02-07.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
           {
             "id": "2293539e437c7b84",
             "type": "leaf",
@@ -233,19 +229,22 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "b38251131c271ec4",
         "type": "tabs",
-        "dimension": 26.48793565683646,
+        "dimension": 36.34175691937425,
         "children": [
           {
             "id": "be827a448ae370db",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "일간 노트/2023-02-09.md"
+              }
             }
           },
           {
@@ -265,6 +264,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "일간 노트/2023-02-09.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -281,12 +281,14 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "일간 노트/2023-02-09.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -312,15 +314,15 @@
   },
   "active": "2293539e437c7b84",
   "lastOpenFiles": [
-    "일간 노트/9999-01-01_munchan-ung-ui-MacBookAir.local_Jan-19-095125-2023_Conflict.md",
-    "일간 노트/9999-01-01.md",
+    "일간 노트/2023-02-08.md",
     "일간 노트/2023-02-07.md",
+    "일간 노트/Important.md",
     "templates/daily_note.md",
+    "일간 노트/2023-02-09.md",
+    "일간 노트/2023-01-18.md",
+    "일간 노트/9999-01-01.md",
+    "일간 노트/9999-01-01_munchan-ung-ui-MacBookAir.local_Jan-19-095125-2023_Conflict.md",
     "일간 노트/2023-02-06.md",
-    "일간 노트/2023-01-10.md",
-    "일간 노트/2023-02-05.md",
-    "일간 노트/2023-02-01.md",
-    "문서 관리/문서 발행 여부.md",
-    "일간 노트/2023-02-03.md"
+    "일간 노트/2023-01-10.md"
   ]
 }

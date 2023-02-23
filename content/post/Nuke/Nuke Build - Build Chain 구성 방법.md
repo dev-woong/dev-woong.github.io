@@ -2,8 +2,8 @@
 title: Nuke Build - Build Chain 구성 방법
 #description: 설명
 categories: Nuke
-date: 2022-12-28
-tags: [ Nuke, DotNet, Global Tool. IDE, Plug-In ]
+date: 2023-02-23
+tags: [ Nuke, DotNet, Build-Chain, Setting ]
 draft: false
 ---
 

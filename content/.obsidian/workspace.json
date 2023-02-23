@@ -69,7 +69,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md",
+                    "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
                     "mode": "source",
                     "source": true
                   }
@@ -88,7 +88,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md",
+                    "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
                     "mode": "preview",
                     "source": true
                   }
@@ -170,7 +170,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md",
+                "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -264,7 +264,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md"
+                "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md"
               }
             }
           },
@@ -285,7 +285,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md",
+                "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -302,7 +302,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md",
+                "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -332,15 +332,15 @@
       "workspaces:작업 공간 레이아웃 관리": false
     }
   },
-  "active": "2293539e437c7b84",
+  "active": "9ee1b85a1d6cee18",
   "lastOpenFiles": [
-    "post/Microsoft .Net/NU1102 오류 해결 방법.md",
     "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md",
+    "post/Microsoft .Net/NU1102 오류 해결 방법.md",
     "post/TeamCity/Parameter 관리 유형.md",
     "일간 노트/2023-02-23.md",
     "일간 노트/2022-12-14.md",
     "일간 노트/2023-02-21.md",
-    "post/Nuke/Nuke Build -.md",
+    "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
     "post/Nuke/Nuke Build - Tool, Plug-In 설치 1.md",
     "일간 노트/2023-02-20.md",
     "무제 파일.canvas",

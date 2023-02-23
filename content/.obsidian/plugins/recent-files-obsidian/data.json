@@ -1,48 +1,48 @@
 {
   "recentFiles": [
     {
-      "basename": "2023-02-09",
-      "path": "일간 노트/2023-02-09.md"
+      "basename": "could not load file or assembly system.runtime 오류 해결 방법",
+      "path": "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md"
     },
     {
-      "basename": "2023-02-08",
-      "path": "일간 노트/2023-02-08.md"
+      "basename": "NU1102 오류 해결 방법",
+      "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
     },
     {
-      "basename": "2023-02-07",
-      "path": "일간 노트/2023-02-07.md"
+      "basename": "Parameter 관리 유형",
+      "path": "post/TeamCity/Parameter 관리 유형.md"
     },
     {
-      "basename": "Important",
-      "path": "일간 노트/Important.md"
+      "basename": "2023-02-23",
+      "path": "일간 노트/2023-02-23.md"
+    },
+    {
+      "basename": "2022-12-14",
+      "path": "일간 노트/2022-12-14.md"
+    },
+    {
+      "basename": "2023-02-21",
+      "path": "일간 노트/2023-02-21.md"
+    },
+    {
+      "basename": "무제 파일",
+      "path": "무제 파일.canvas"
     },
     {
       "basename": "daily_note",
       "path": "templates/daily_note.md"
     },
     {
-      "basename": "2023-01-18",
-      "path": "일간 노트/2023-01-18.md"
-    },
-    {
       "basename": "9999-01-01",
       "path": "일간 노트/9999-01-01.md"
     },
     {
-      "basename": "2023-02-06",
-      "path": "일간 노트/2023-02-06.md"
+      "basename": "2023-01-18",
+      "path": "일간 노트/2023-01-18.md"
     },
     {
       "basename": "2023-01-10",
       "path": "일간 노트/2023-01-10.md"
-    },
-    {
-      "basename": "2023-02-05",
-      "path": "일간 노트/2023-02-05.md"
-    },
-    {
-      "basename": "2023-02-01",
-      "path": "일간 노트/2023-02-01.md"
     },
     {
       "basename": "문서 발행 여부",
@@ -83,10 +83,6 @@
     {
       "basename": "비동기(Async) - Async, Await",
       "path": "post/Microsoft .Net/비동기(Async) - Async, Await.md"
-    },
-    {
-      "basename": "Parameter 관리 유형",
-      "path": "post/TeamCity/Parameter 관리 유형.md"
     },
     {
       "basename": "2022-11-28",

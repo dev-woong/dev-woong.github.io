@@ -40,6 +40,5 @@
   "일간 노트/9999-01-01.md": "FarCirclePause",
   "templates": "FasStamp",
   "resource": "FasImage",
-  "post/Nuke": "SiNuke",
-  "post/Architecture": "SiInstructure"
+  "post/Nuke": "SiNuke"
 }

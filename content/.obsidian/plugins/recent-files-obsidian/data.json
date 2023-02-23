@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "2023-02-23",
+      "path": "일간 노트/2023-02-23.md"
+    },
+    {
       "basename": "Nuke Build - Build Chain 구성 방법",
       "path": "post/Nuke/Nuke Build - Build Chain 구성 방법.md"
+    },
+    {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
     },
     {
       "basename": "could not load file or assembly system.runtime 오류 해결 방법",
@@ -17,10 +25,6 @@
       "path": "post/TeamCity/Parameter 관리 유형.md"
     },
     {
-      "basename": "2023-02-23",
-      "path": "일간 노트/2023-02-23.md"
-    },
-    {
       "basename": "2022-12-14",
       "path": "일간 노트/2022-12-14.md"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "무제 파일",
       "path": "무제 파일.canvas"
-    },
-    {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
     },
     {
       "basename": "9999-01-01",

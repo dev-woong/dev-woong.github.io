@@ -33,7 +33,6 @@ tags: [ daily_note ]
 ## Not Finished
 ```tasks
 not done
-group by priority
 group by tags
 sort by scheduled reverse
 scheduled before {{date:YYYY-MM-DD}}

@@ -14,6 +14,7 @@
               {
                 "id": "b7bc480b6750ea95",
                 "type": "tabs",
+                "dimension": 63.933547695605576,
                 "children": [
                   {
                     "id": "db47e52450d2827b",
@@ -21,7 +22,7 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "일간 노트/2023-02-23.md",
+                        "file": "일간 노트/2023-02-28.md",
                         "mode": "source",
                         "source": true
                       }
@@ -40,11 +41,13 @@
                       }
                     }
                   }
-                ]
+                ],
+                "currentTab": 1
               },
               {
                 "id": "8da31f684a61efd7",
                 "type": "tabs",
+                "dimension": 36.066452304394424,
                 "children": [
                   {
                     "id": "fb3fb3863764475c",
@@ -170,7 +173,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "일간 노트/2023-02-23.md",
+                "file": "문서 관리/문서 발행 여부.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -235,23 +238,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "일간 노트/2023-02-23.md",
+                "file": "일간 노트/2023-02-28.md",
                 "mode": "preview",
                 "source": true
               }
             },
             "group": "efc7fd77f1b0cc18"
-          },
-          {
-            "id": "2293539e437c7b84",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "b38251131c271ec4",
@@ -264,7 +258,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "일간 노트/2023-02-23.md"
+                "file": "문서 관리/문서 발행 여부.md"
               }
             }
           },
@@ -285,7 +279,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "일간 노트/2023-02-23.md",
+                "file": "문서 관리/문서 발행 여부.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -302,17 +296,26 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "일간 노트/2023-02-23.md",
+                "file": "문서 관리/문서 발행 여부.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
+          },
+          {
+            "id": "2293539e437c7b84",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 529
+    "width": 621.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -334,7 +337,11 @@
   },
   "active": "2293539e437c7b84",
   "lastOpenFiles": [
+    "일간 노트/2023-02-28.md",
+    "문서 관리/문서 발행 여부.md",
+    "일간 노트/2023-02-27.md",
     "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
+    "일간 노트/2023-02-24.md",
     "일간 노트/2023-02-23.md",
     "templates/daily_note.md",
     "post/Microsoft .Net/could not load file or assembly system.runtime 오류 해결 방법.md",
@@ -356,10 +363,6 @@
     "resource/2023-02-03.md",
     "resource/2023-02-01.md",
     "resource/2023-01-31.md",
-    "일간 노트/2023-02-09.md",
-    "일간 노트/Important.md",
-    "resource/2023-01-25.md",
-    "일간 노트/2023-02-06.md",
-    "일간 노트/2023-02-08.md"
+    "일간 노트/2023-02-09.md"
   ]
 }

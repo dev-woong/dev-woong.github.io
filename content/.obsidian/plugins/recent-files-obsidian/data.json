@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "2023-02-23",
-      "path": "일간 노트/2023-02-23.md"
+      "basename": "문서 발행 여부",
+      "path": "문서 관리/문서 발행 여부.md"
+    },
+    {
+      "basename": "2023-02-28",
+      "path": "일간 노트/2023-02-28.md"
+    },
+    {
+      "basename": "2023-02-27",
+      "path": "일간 노트/2023-02-27.md"
     },
     {
       "basename": "Nuke Build - Build Chain 구성 방법",
       "path": "post/Nuke/Nuke Build - Build Chain 구성 방법.md"
+    },
+    {
+      "basename": "2023-02-24",
+      "path": "일간 노트/2023-02-24.md"
+    },
+    {
+      "basename": "2023-02-23",
+      "path": "일간 노트/2023-02-23.md"
     },
     {
       "basename": "daily_note",
@@ -47,10 +63,6 @@
     {
       "basename": "2023-01-10",
       "path": "일간 노트/2023-01-10.md"
-    },
-    {
-      "basename": "문서 발행 여부",
-      "path": "문서 관리/문서 발행 여부.md"
     },
     {
       "basename": "Docker Hub에 Container 변경사항 저장(commit)",

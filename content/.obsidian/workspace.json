@@ -173,7 +173,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "일간 노트/2023-02-28.md",
+                "file": "문서 관리/문서 발행 여부.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -258,7 +258,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "일간 노트/2023-02-28.md"
+                "file": "문서 관리/문서 발행 여부.md"
               }
             }
           },
@@ -279,7 +279,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "일간 노트/2023-02-28.md",
+                "file": "문서 관리/문서 발행 여부.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -296,7 +296,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "일간 노트/2023-02-28.md",
+                "file": "문서 관리/문서 발행 여부.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -335,10 +335,10 @@
       "obsidian-to-notion:Share to notion": false
     }
   },
-  "active": "4d62c74610c20cd2",
+  "active": "ba1d2e32b9f5d979",
   "lastOpenFiles": [
-    "문서 관리/문서 발행 여부.md",
     "일간 노트/2023-02-28.md",
+    "문서 관리/문서 발행 여부.md",
     "일간 노트/2023-02-27.md",
     "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
     "일간 노트/2023-02-24.md",

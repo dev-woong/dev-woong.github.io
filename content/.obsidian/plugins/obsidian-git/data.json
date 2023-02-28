@@ -4,7 +4,7 @@
   "commitDateFormat": "YYYY-MM-DD HH:mm:ss",
   "autoSaveInterval": 1,
   "autoPushInterval": 1,
-  "autoPullInterval": 1,
+  "autoPullInterval": 30,
   "autoPullOnBoot": true,
   "disablePush": false,
   "pullBeforePush": true,
@@ -13,7 +13,7 @@
   "showStatusBar": true,
   "updateSubmodules": false,
   "syncMethod": "merge",
-  "customMessageOnAutoBackup": true,
+  "customMessageOnAutoBackup": false,
   "autoBackupAfterFileChange": true,
   "treeStructure": false,
   "refreshSourceControl": true,
@@ -21,7 +21,7 @@
   "differentIntervalCommitAndPush": true,
   "changedFilesInStatusBar": true,
   "showedMobileNotice": true,
-  "refreshSourceControlTimer": 7000,
+  "refreshSourceControlTimer": 500,
   "showBranchStatusBar": true,
   "setLastSaveToLastCommit": false
 }

@@ -173,7 +173,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "문서 관리/문서 발행 여부.md",
+                "file": "일간 노트/2023-02-28.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -258,7 +258,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "문서 관리/문서 발행 여부.md"
+                "file": "일간 노트/2023-02-28.md"
               }
             }
           },
@@ -279,7 +279,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "문서 관리/문서 발행 여부.md",
+                "file": "일간 노트/2023-02-28.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -296,7 +296,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "문서 관리/문서 발행 여부.md",
+                "file": "일간 노트/2023-02-28.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -323,22 +323,22 @@
       "switcher:퀵 스위처 열기": false,
       "markdown-importer:마크다운 형식 가져오기 열기": false,
       "zk-prefixer:새로운 유니크 노트 생성": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "templater-obsidian:Templater": false,
-      "oz-clear-unused-images:Clear Unused Images": false,
-      "obsidian-to-notion:Share to notion": false,
       "graph:그래프 뷰 열기": false,
       "daily-notes:오늘의 데일리 노트 열기": false,
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
       "audio-recorder:녹음 시작/중지": false,
-      "workspaces:작업 공간 레이아웃 관리": false
+      "workspaces:작업 공간 레이아웃 관리": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "oz-clear-unused-images:Clear Unused Images": false,
+      "obsidian-to-notion:Share to notion": false
     }
   },
-  "active": "2293539e437c7b84",
+  "active": "4d62c74610c20cd2",
   "lastOpenFiles": [
-    "일간 노트/2023-02-28.md",
     "문서 관리/문서 발행 여부.md",
+    "일간 노트/2023-02-28.md",
     "일간 노트/2023-02-27.md",
     "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
     "일간 노트/2023-02-24.md",

@@ -41,8 +41,7 @@
                       }
                     }
                   }
-                ],
-                "currentTab": 1
+                ]
               },
               {
                 "id": "8da31f684a61efd7",
@@ -173,7 +172,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "문서 관리/문서 발행 여부.md",
+                "file": "일간 노트/2023-02-28.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -258,7 +257,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "문서 관리/문서 발행 여부.md"
+                "file": "일간 노트/2023-02-28.md"
               }
             }
           },
@@ -279,7 +278,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "문서 관리/문서 발행 여부.md",
+                "file": "일간 노트/2023-02-28.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -296,7 +295,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "문서 관리/문서 발행 여부.md",
+                "file": "일간 노트/2023-02-28.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -335,8 +334,9 @@
       "obsidian-to-notion:Share to notion": false
     }
   },
-  "active": "ba1d2e32b9f5d979",
+  "active": "4d62c74610c20cd2",
   "lastOpenFiles": [
+    "일간 노트/2022-12-01.md",
     "일간 노트/2023-02-28.md",
     "문서 관리/문서 발행 여부.md",
     "일간 노트/2023-02-27.md",
@@ -362,7 +362,6 @@
     "resource/2023-01-27.md",
     "resource/2023-02-03.md",
     "resource/2023-02-01.md",
-    "resource/2023-01-31.md",
-    "일간 노트/2023-02-09.md"
+    "resource/2023-01-31.md"
   ]
 }

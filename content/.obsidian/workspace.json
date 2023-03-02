@@ -52,8 +52,12 @@
                     "id": "fb3fb3863764475c",
                     "type": "leaf",
                     "state": {
-                      "type": "graph",
-                      "state": {}
+                      "type": "markdown",
+                      "state": {
+                        "file": "일간 노트/2023-03-02.md",
+                        "mode": "source",
+                        "source": true
+                      }
                     }
                   }
                 ]
@@ -172,6 +176,7 @@
             "state": {
               "type": "localgraph",
               "state": {
+                "file": "일간 노트/2023-03-02.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -255,7 +260,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "일간 노트/2023-03-02.md"
+              }
             }
           },
           {
@@ -275,6 +282,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "일간 노트/2023-03-02.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -291,6 +299,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "일간 노트/2023-03-02.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -331,6 +340,7 @@
   },
   "active": "fb3fb3863764475c",
   "lastOpenFiles": [
+    "일간 노트/2023-03-02.md",
     "post/TeamCity/_TeamCity.md",
     "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
     "일간 노트/2023-02-28.md",
@@ -356,7 +366,6 @@
     "일간 노트/2023-02-13.md",
     "일간 노트/2023-02-14.md",
     "resource/2023-01-27.md",
-    "resource/2023-02-03.md",
-    "resource/2023-02-01.md"
+    "resource/2023-02-03.md"
   ]
 }

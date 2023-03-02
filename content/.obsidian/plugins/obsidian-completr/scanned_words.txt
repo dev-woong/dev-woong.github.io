@@ -574,6 +574,7 @@ ASP
 인증
 인증하는
 인트라넷
+인터페이스
 등록
 등의
 등록해두는
@@ -705,6 +706,7 @@ ProjectConfig에서
 Publish라는
 PackageReference
 Process
+ProcessManager
 Re
 Run
 Rider
@@ -795,6 +797,7 @@ color
 config
 config을
 could
+chain
 일간
 일단
 일괄
@@ -1151,6 +1154,7 @@ page
 parliamentary
 projects
 policies
+push가
 하위
 하겠습니다
 하는
@@ -1764,6 +1768,7 @@ json
 되었는지
 되는
 되도록
+되지
 내부의
 내부적인
 내에서도
@@ -1894,6 +1899,7 @@ us
 upm
 중에
 중지
+중단
 결과가
 결과에
 결과
@@ -2184,3 +2190,4 @@ xml
 컴파일
 먼저
 효율적으로
+남는

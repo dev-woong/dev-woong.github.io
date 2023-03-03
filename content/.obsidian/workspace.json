@@ -189,7 +189,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "일간 노트/2023-03-03.md",
+                "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -274,7 +274,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "일간 노트/2023-03-03.md"
+                "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md"
               }
             }
           },
@@ -295,7 +295,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "일간 노트/2023-03-03.md",
+                "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -312,7 +312,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "일간 노트/2023-03-03.md",
+                "file": "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -351,7 +351,7 @@
       "obsidian-to-notion:Share to notion": false
     }
   },
-  "active": "5703f9949bbc7f6d",
+  "active": "7896007f822fc0f8",
   "lastOpenFiles": [
     "일간 노트/2023-03-03.md",
     "일간 노트/2023-02-28.md",

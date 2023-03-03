@@ -433,6 +433,7 @@ Important
 IComponenetService
 IProjectServicae
 Introduction
+Issue
 생성
 생성되는
 생각중
@@ -980,6 +981,7 @@ VIM
 만료되지
 만큼의
 만한
+만들어볼
 리스트
 리디렉션
 리포지터리
@@ -1130,6 +1132,7 @@ Build를
 수립
 수정하면
 수정해보기
+수행하도록
 push하고
 pre
 post
@@ -1232,6 +1235,7 @@ push가
 구성하면
 구현할
 구성해
+구조
 종속성도
 종합적으로
 종속
@@ -1937,6 +1941,8 @@ upm
 시스템
 시스템은
 시점에서
+시행되도록
+시점에
 범위
 범주
 토큰
@@ -2078,6 +2084,7 @@ Json
 Jaeger
 Jipkin
 Jetbrains
+Jira
 백엔드를
 합니다
 zshrc

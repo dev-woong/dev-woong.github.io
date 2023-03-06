@@ -198,6 +198,7 @@ Service
 Status
 Space
 Slack을
+SonarQube
 Console을
 CI
 Command

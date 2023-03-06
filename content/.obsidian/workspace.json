@@ -242,7 +242,7 @@
               "type": "markdown",
               "state": {
                 "file": "일간 노트/2023-03-06.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               }
             },
@@ -338,7 +338,7 @@
       "obsidian-to-notion:Share to notion": false
     }
   },
-  "active": "db47e52450d2827b",
+  "active": "4d62c74610c20cd2",
   "lastOpenFiles": [
     "일간 노트/2023-03-03.md",
     "일간 노트/2023-03-06.md",

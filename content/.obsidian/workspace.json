@@ -22,7 +22,7 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "일간 노트/2023-03-06.md",
+                        "file": "일간 노트/2023-03-07.md",
                         "mode": "source",
                         "source": true
                       }
@@ -176,7 +176,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "일간 노트/2023-03-06.md",
+                "file": "일간 노트/2023-03-07.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -241,8 +241,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "일간 노트/2023-03-06.md",
-                "mode": "preview",
+                "file": "일간 노트/2023-03-07.md",
+                "mode": "source",
                 "source": true
               }
             },
@@ -261,7 +261,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "일간 노트/2023-03-06.md"
+                "file": "일간 노트/2023-03-07.md"
               }
             }
           },
@@ -282,7 +282,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "일간 노트/2023-03-06.md",
+                "file": "일간 노트/2023-03-07.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -299,7 +299,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "일간 노트/2023-03-06.md",
+                "file": "일간 노트/2023-03-07.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -340,8 +340,9 @@
   },
   "active": "4d62c74610c20cd2",
   "lastOpenFiles": [
-    "일간 노트/2023-03-03.md",
     "일간 노트/2023-03-06.md",
+    "일간 노트/2023-03-07.md",
+    "일간 노트/2023-03-03.md",
     "post/Nuke/Nuke Build - Build Chain 구성 방법.md",
     "일간 노트/2023-03-02.md",
     "일간 노트/2023-02-28.md",
@@ -365,7 +366,6 @@
     "일간 노트/2023-02-18.md",
     "일간 노트/2023-02-15.md",
     "일간 노트/2023-02-10.md",
-    "일간 노트/2023-02-13.md",
-    "일간 노트/2023-02-14.md"
+    "일간 노트/2023-02-13.md"
   ]
 }

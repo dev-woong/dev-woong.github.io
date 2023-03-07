@@ -331,6 +331,7 @@ Chrome이
 연결하여
 연결된
 연속적인
+연결
 빌드
 빌드가
 빌드한
@@ -957,6 +958,7 @@ Version
 Versions
 Version이
 VIM
+Version과
 관리
 관계에서
 관리하는
@@ -1478,6 +1480,7 @@ Entered
 Engineer
 Experience
 Engine
+Epic
 YYYY
 YW
 YwBuild

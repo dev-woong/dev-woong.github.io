@@ -332,6 +332,7 @@ Chrome이
 연결된
 연속적인
 연결
+연동하여
 빌드
 빌드가
 빌드한
@@ -436,6 +437,7 @@ IComponenetService
 IProjectServicae
 Introduction
 Issue
+ID가
 생성
 생성되는
 생각중
@@ -502,6 +504,7 @@ Hub가
 설계
 설치하고
 설명한
+설정해볼
 추가
 추정되어
 추가됨
@@ -1174,6 +1177,7 @@ push가
 하나
 하려는
 하에
+하지
 업데이트
 업데이트하여
 업그레이드
@@ -2051,6 +2055,7 @@ help에서
 폴더
 임시
 못하는
+못하도록
 목록을
 목록
 검증을
@@ -2089,6 +2094,7 @@ Jaeger
 Jipkin
 Jetbrains
 Jira
+Jira와
 백엔드를
 합니다
 zshrc

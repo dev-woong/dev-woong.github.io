@@ -105,6 +105,7 @@ Token을
 Task를
 Task는
 Task에
+Tool로
 Finished
 Facebook을
 Facebook
@@ -472,6 +473,7 @@ ID가
 서비스
 서울특별시
 서초구
+서버로
 HTTPS
 Hub
 Hexagon
@@ -631,6 +633,7 @@ Database를
 DB의
 Dependencies
 DependsOn을
+Dotnet
 Open
 On
 Object가
@@ -1065,6 +1068,7 @@ Bool로
 Branch에
 Build는
 Build를
+Baget
 원활히
 원래
 원하는
@@ -1303,6 +1307,7 @@ before
 배포하기
 배포
 배열
+배포를
 분리
 분리하고
 분석
@@ -1632,6 +1637,7 @@ Local
 가독성
 가능한지
 가능하도록
+가능한
 강의와
 강제로
 현재의
@@ -1811,6 +1817,7 @@ json
 위의
 위에서
 위한
+위치
 거치게
 거쳐
 메모리
@@ -2126,6 +2133,7 @@ zshrc
 액세스할
 옵션
 옵션으로
+옵션이
 헤드리스
 받을
 허용하지

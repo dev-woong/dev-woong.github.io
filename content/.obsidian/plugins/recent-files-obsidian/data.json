@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "2023-03-27",
+      "path": "일간 노트/2023-03-27.md"
+    },
+    {
       "basename": "2023-03-15",
       "path": "일간 노트/2023-03-15.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Note. 서버_구성도",
       "path": "post/Server/Note. 서버_구성도.md"
-    },
-    {
-      "basename": "2022-12-10",
-      "path": "일간 노트/2022-12-10.md"
     }
   ],
   "omittedPaths": [],

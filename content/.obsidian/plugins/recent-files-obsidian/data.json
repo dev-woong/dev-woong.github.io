@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "2023-04-07",
+      "path": "일간 노트/2023-04-07.md"
+    },
+    {
       "basename": "2023-03-27",
       "path": "일간 노트/2023-03-27.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "GitHub Personal Access Token 생성하기",
       "path": "post/GitHub/GitHub Personal Access Token 생성하기.md"
-    },
-    {
-      "basename": "Note. 서버_구성도",
-      "path": "post/Server/Note. 서버_구성도.md"
     }
   ],
   "omittedPaths": [],

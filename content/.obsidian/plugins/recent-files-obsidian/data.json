@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "2023-04-18",
+      "path": "일간 노트/2023-04-18.md"
+    },
+    {
+      "basename": "2023-03-02",
+      "path": "일간 노트/2023-03-02.md"
+    },
+    {
+      "basename": "문서 발행 여부",
+      "path": "문서 관리/문서 발행 여부.md"
+    },
+    {
       "basename": "2023-04-07",
       "path": "일간 노트/2023-04-07.md"
     },
@@ -41,10 +53,6 @@
       "path": "일간 노트/2023-03-03.md"
     },
     {
-      "basename": "2023-03-02",
-      "path": "일간 노트/2023-03-02.md"
-    },
-    {
       "basename": "2023-02-28",
       "path": "일간 노트/2023-02-28.md"
     },
@@ -55,10 +63,6 @@
     {
       "basename": "2022-12-01",
       "path": "일간 노트/2022-12-01.md"
-    },
-    {
-      "basename": "문서 발행 여부",
-      "path": "문서 관리/문서 발행 여부.md"
     },
     {
       "basename": "2023-02-27",
@@ -195,10 +199,6 @@
     {
       "basename": "GitHub Rest API로 Packages 읽기, 삭제하기",
       "path": "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md"
-    },
-    {
-      "basename": "GitHub Personal Access Token 생성하기",
-      "path": "post/GitHub/GitHub Personal Access Token 생성하기.md"
     }
   ],
   "omittedPaths": [],

@@ -2,7 +2,23 @@
   "recentFiles": [
     {
       "basename": "2023-05-26",
+      "path": "일간 노트/2023-05-26.md"
+    },
+    {
+      "basename": "2022-12-14",
+      "path": "일간 노트/2022-12-14.md"
+    },
+    {
+      "basename": "2023-05-26",
       "path": "content/일간 노트/2023-05-26.md"
+    },
+    {
+      "basename": "Parameter 관리 유형",
+      "path": "post/TeamCity/Parameter 관리 유형.md"
+    },
+    {
+      "basename": "_blog",
+      "path": "_blog.md"
     },
     {
       "basename": "2023-03-02",
@@ -57,10 +73,6 @@
       "path": "일간 노트/2023-02-28.md"
     },
     {
-      "basename": "_TeamCity",
-      "path": "post/TeamCity/_TeamCity.md"
-    },
-    {
       "basename": "2022-12-01",
       "path": "일간 노트/2022-12-01.md"
     },
@@ -89,20 +101,8 @@
       "path": "post/Microsoft .Net/NU1102 오류 해결 방법.md"
     },
     {
-      "basename": "Parameter 관리 유형",
-      "path": "post/TeamCity/Parameter 관리 유형.md"
-    },
-    {
-      "basename": "2022-12-14",
-      "path": "일간 노트/2022-12-14.md"
-    },
-    {
       "basename": "2023-02-21",
       "path": "일간 노트/2023-02-21.md"
-    },
-    {
-      "basename": "무제 파일",
-      "path": "무제 파일.canvas"
     },
     {
       "basename": "9999-01-01",
@@ -119,10 +119,6 @@
     {
       "basename": "Docker Hub에 Container 변경사항 저장(commit)",
       "path": "post/Docker/Docker Hub에 Container 변경사항 저장(commit).md"
-    },
-    {
-      "basename": "_content",
-      "path": "_content.md"
     },
     {
       "basename": "_index",
@@ -191,14 +187,6 @@
     {
       "basename": "Build Chain으로 Parameter 전달하기",
       "path": "post/TeamCity/Build Chain으로 Parameter 전달하기.md"
-    },
-    {
-      "basename": "GitHub API - Rest API와 GraphQL의 차이점",
-      "path": "post/GitHub/GitHub API - Rest API와 GraphQL의 차이점.md"
-    },
-    {
-      "basename": "GitHub Rest API로 Packages 읽기, 삭제하기",
-      "path": "post/GitHub/GitHub Rest API로 Packages 읽기, 삭제하기.md"
     }
   ],
   "omittedPaths": [],

@@ -13,43 +13,83 @@ var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __defNormalProp = (obj, key, value) =>
+  key in obj
+    ? __defProp(obj, key, {
+      enumerable: true,
+      configurable: true,
+      writable: true,
+      value,
+    })
+    : obj[key] = value;
 var __spreadValues = (a3, b2) => {
-  for (var prop in b2 || (b2 = {}))
-    if (__hasOwnProp.call(b2, prop))
+  for (var prop in b2 || (b2 = {})) {
+    if (__hasOwnProp.call(b2, prop)) {
       __defNormalProp(a3, prop, b2[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b2)) {
-      if (__propIsEnum.call(b2, prop))
-        __defNormalProp(a3, prop, b2[prop]);
     }
+  }
+  if (__getOwnPropSymbols) {
+    for (var prop of __getOwnPropSymbols(b2)) {
+      if (__propIsEnum.call(b2, prop)) {
+        __defNormalProp(a3, prop, b2[prop]);
+      }
+    }
+  }
   return a3;
 };
 var __spreadProps = (a3, b2) => __defProps(a3, __getOwnPropDescs(b2));
-var __commonJS = (cb, mod) => function __require() {
-  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
-};
+var __commonJS = (cb, mod) =>
+  function __require() {
+    return mod ||
+      (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod),
+      mod.exports;
+  };
 var __export = (target, all) => {
-  for (var name in all)
+  for (var name in all) {
     __defProp(target, name, { get: all[name], enumerable: true });
+  }
 };
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    for (let key of __getOwnPropNames(from)) {
+      if (!__hasOwnProp.call(to, key) && key !== except) {
+        __defProp(to, key, {
+          get: () => from[key],
+          enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable,
+        });
+      }
+    }
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __toESM = (
+  mod,
+  isNodeMode,
+  target,
+) => (target = mod != null ? __create(__getProtoOf(mod)) : {},
+  __copyProps(
+    isNodeMode || !mod || !mod.__esModule
+      ? __defProp(target, "default", { value: mod, enumerable: true })
+      : target,
+    mod,
+  ));
+var __toCommonJS = (mod) =>
+  __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var __decorateClass = (decorators, target, key, kind) => {
-  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-  for (var i4 = decorators.length - 1, decorator; i4 >= 0; i4--)
-    if (decorator = decorators[i4])
-      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-  if (kind && result)
+  var result = kind > 1
+    ? void 0
+    : kind
+    ? __getOwnPropDesc(target, key)
+    : target;
+  for (var i4 = decorators.length - 1, decorator; i4 >= 0; i4--) {
+    if (decorator = decorators[i4]) {
+      result = (kind ? decorator(target, key, result) : decorator(result)) ||
+        result;
+    }
+  }
+  if (kind && result) {
     __defProp(target, key, result);
+  }
   return result;
 };
 var __async = (__this, __arguments, generator) => {
@@ -68,7 +108,10 @@ var __async = (__this, __arguments, generator) => {
         reject(e7);
       }
     };
-    var step = (x2) => x2.done ? resolve(x2.value) : Promise.resolve(x2.value).then(fulfilled, rejected);
+    var step = (x2) =>
+      x2.done
+        ? resolve(x2.value)
+        : Promise.resolve(x2.value).then(fulfilled, rejected);
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
@@ -78,14 +121,15 @@ var require_buffers = __commonJS({
   "node_modules/buffers/index.js"(exports, module2) {
     module2.exports = Buffers;
     function Buffers(bufs) {
-      if (!(this instanceof Buffers))
+      if (!(this instanceof Buffers)) {
         return new Buffers(bufs);
+      }
       this.buffers = bufs || [];
-      this.length = this.buffers.reduce(function(size, buf) {
+      this.length = this.buffers.reduce(function (size, buf) {
         return size + buf.length;
       }, 0);
     }
-    Buffers.prototype.push = function() {
+    Buffers.prototype.push = function () {
       for (var i4 = 0; i4 < arguments.length; i4++) {
         if (!Buffer.isBuffer(arguments[i4])) {
           throw new TypeError("Tried to push a non-buffer");
@@ -98,7 +142,7 @@ var require_buffers = __commonJS({
       }
       return this.length;
     };
-    Buffers.prototype.unshift = function() {
+    Buffers.prototype.unshift = function () {
       for (var i4 = 0; i4 < arguments.length; i4++) {
         if (!Buffer.isBuffer(arguments[i4])) {
           throw new TypeError("Tried to unshift a non-buffer");
@@ -111,10 +155,10 @@ var require_buffers = __commonJS({
       }
       return this.length;
     };
-    Buffers.prototype.copy = function(dst, dStart, start, end) {
+    Buffers.prototype.copy = function (dst, dStart, start, end) {
       return this.slice(start, end).copy(dst, dStart, 0, end - start);
     };
-    Buffers.prototype.splice = function(i4, howMany) {
+    Buffers.prototype.splice = function (i4, howMany) {
       var buffers = this.buffers;
       var index = i4 >= 0 ? i4 : this.length - i4;
       var reps = [].slice.call(arguments, 2);
@@ -129,7 +173,11 @@ var require_buffers = __commonJS({
       var removed = new Buffers();
       var bytes = 0;
       var startBytes = 0;
-      for (var ii = 0; ii < buffers.length && startBytes + buffers[ii].length < index; ii++) {
+      for (
+        var ii = 0;
+        ii < buffers.length && startBytes + buffers[ii].length < index;
+        ii++
+      ) {
         startBytes += buffers[ii].length;
       }
       if (index - startBytes > 0) {
@@ -181,16 +229,23 @@ var require_buffers = __commonJS({
       this.length -= removed.length;
       return removed;
     };
-    Buffers.prototype.slice = function(i4, j) {
+    Buffers.prototype.slice = function (i4, j) {
       var buffers = this.buffers;
-      if (j === void 0)
+      if (j === void 0) {
         j = this.length;
-      if (i4 === void 0)
+      }
+      if (i4 === void 0) {
         i4 = 0;
-      if (j > this.length)
+      }
+      if (j > this.length) {
         j = this.length;
+      }
       var startBytes = 0;
-      for (var si = 0; si < buffers.length && startBytes + buffers[si].length <= i4; si++) {
+      for (
+        var si = 0;
+        si < buffers.length && startBytes + buffers[si].length <= i4;
+        si++
+      ) {
         startBytes += buffers[si].length;
       }
       var target = new Buffer(j - i4);
@@ -198,17 +253,20 @@ var require_buffers = __commonJS({
       for (var ii = si; ti < j - i4 && ii < buffers.length; ii++) {
         var len = buffers[ii].length;
         var start = ti === 0 ? i4 - startBytes : 0;
-        var end = ti + len >= j - i4 ? Math.min(start + (j - i4) - ti, len) : len;
+        var end = ti + len >= j - i4
+          ? Math.min(start + (j - i4) - ti, len)
+          : len;
         buffers[ii].copy(target, ti, start, end);
         ti += end - start;
       }
       return target;
     };
-    Buffers.prototype.pos = function(i4) {
-      if (i4 < 0 || i4 >= this.length)
+    Buffers.prototype.pos = function (i4) {
+      if (i4 < 0 || i4 >= this.length) {
         throw new Error("oob");
+      }
       var l5 = i4, bi = 0, bu = null;
-      for (; ; ) {
+      for (;;) {
         bu = this.buffers[bi];
         if (l5 < bu.length) {
           return { buf: bi, offset: l5 };
@@ -226,7 +284,7 @@ var require_buffers = __commonJS({
       var pos = this.pos(i4);
       return this.buffers[pos.buf].set(pos.offset, b2);
     };
-    Buffers.prototype.indexOf = function(needle, offset) {
+    Buffers.prototype.indexOf = function (needle, offset) {
       if (typeof needle === "string") {
         needle = new Buffer(needle);
       } else if (needle instanceof Buffer) {
@@ -246,7 +304,7 @@ var require_buffers = __commonJS({
         j = p2.offset;
         pos = offset;
       }
-      for (; ; ) {
+      for (;;) {
         while (j >= this.buffers[i4].length) {
           j = 0;
           i4++;
@@ -260,7 +318,7 @@ var require_buffers = __commonJS({
             mstart = {
               i: i4,
               j,
-              pos
+              pos,
             };
           }
           match++;
@@ -277,13 +335,13 @@ var require_buffers = __commonJS({
         pos++;
       }
     };
-    Buffers.prototype.toBuffer = function() {
+    Buffers.prototype.toBuffer = function () {
       return this.slice();
     };
-    Buffers.prototype.toString = function(encoding, start, end) {
+    Buffers.prototype.toString = function (encoding, start, end) {
       return this.slice(start, end).toString(encoding);
     };
-  }
+  },
 });
 
 // node_modules/node-osascript/lib/osa-parser.js
@@ -308,44 +366,58 @@ var require_osa_parser = __commonJS({
       }
     }
     peg$subclass(peg$SyntaxError, Error);
-    peg$SyntaxError.buildMessage = function(expected, found) {
+    peg$SyntaxError.buildMessage = function (expected, found) {
       var DESCRIBE_EXPECTATION_FNS = {
-        literal: function(expectation) {
+        literal: function (expectation) {
           return '"' + literalEscape(expectation.text) + '"';
         },
-        "class": function(expectation) {
+        "class": function (expectation) {
           var escapedParts = "", i4;
           for (i4 = 0; i4 < expectation.parts.length; i4++) {
-            escapedParts += expectation.parts[i4] instanceof Array ? classEscape(expectation.parts[i4][0]) + "-" + classEscape(expectation.parts[i4][1]) : classEscape(expectation.parts[i4]);
+            escapedParts += expectation.parts[i4] instanceof Array
+              ? classEscape(expectation.parts[i4][0]) + "-" +
+                classEscape(expectation.parts[i4][1])
+              : classEscape(expectation.parts[i4]);
           }
           return "[" + (expectation.inverted ? "^" : "") + escapedParts + "]";
         },
-        any: function(expectation) {
+        any: function (expectation) {
           return "any character";
         },
-        end: function(expectation) {
+        end: function (expectation) {
           return "end of input";
         },
-        other: function(expectation) {
+        other: function (expectation) {
           return expectation.description;
-        }
+        },
       };
       function hex(ch) {
         return ch.charCodeAt(0).toString(16).toUpperCase();
       }
       function literalEscape(s5) {
-        return s5.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\0/g, "\\0").replace(/\t/g, "\\t").replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/[\x00-\x0F]/g, function(ch) {
-          return "\\x0" + hex(ch);
-        }).replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) {
-          return "\\x" + hex(ch);
-        });
+        return s5.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(
+          /\0/g,
+          "\\0",
+        ).replace(/\t/g, "\\t").replace(/\n/g, "\\n").replace(/\r/g, "\\r")
+          .replace(/[\x00-\x0F]/g, function (ch) {
+            return "\\x0" + hex(ch);
+          }).replace(/[\x10-\x1F\x7F-\x9F]/g, function (ch) {
+            return "\\x" + hex(ch);
+          });
       }
       function classEscape(s5) {
-        return s5.replace(/\\/g, "\\\\").replace(/\]/g, "\\]").replace(/\^/g, "\\^").replace(/-/g, "\\-").replace(/\0/g, "\\0").replace(/\t/g, "\\t").replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/[\x00-\x0F]/g, function(ch) {
-          return "\\x0" + hex(ch);
-        }).replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) {
-          return "\\x" + hex(ch);
-        });
+        return s5.replace(/\\/g, "\\\\").replace(/\]/g, "\\]").replace(
+          /\^/g,
+          "\\^",
+        ).replace(/-/g, "\\-").replace(/\0/g, "\\0").replace(/\t/g, "\\t")
+          .replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(
+            /[\x00-\x0F]/g,
+            function (ch) {
+              return "\\x0" + hex(ch);
+            },
+          ).replace(/[\x10-\x1F\x7F-\x9F]/g, function (ch) {
+            return "\\x" + hex(ch);
+          });
       }
       function describeExpectation(expectation) {
         return DESCRIBE_EXPECTATION_FNS[expectation.type](expectation);
@@ -371,72 +443,180 @@ var require_osa_parser = __commonJS({
           case 2:
             return descriptions[0] + " or " + descriptions[1];
           default:
-            return descriptions.slice(0, -1).join(", ") + ", or " + descriptions[descriptions.length - 1];
+            return descriptions.slice(0, -1).join(", ") + ", or " +
+              descriptions[descriptions.length - 1];
         }
       }
       function describeFound(found2) {
         return found2 ? '"' + literalEscape(found2) + '"' : "end of input";
       }
-      return "Expected " + describeExpected(expected) + " but " + describeFound(found) + " found.";
+      return "Expected " + describeExpected(expected) + " but " +
+        describeFound(found) + " found.";
     };
     function peg$parse(input, options) {
       options = options !== void 0 ? options : {};
-      var peg$FAILED = {}, peg$startRuleFunctions = { osascript: peg$parseosascript }, peg$startRuleFunction = peg$parseosascript, peg$c0 = function(value) {
-        return value;
-      }, peg$c1 = "{", peg$c2 = peg$literalExpectation("{", false), peg$c3 = "}", peg$c4 = peg$literalExpectation("}", false), peg$c5 = ":", peg$c6 = peg$literalExpectation(":", false), peg$c7 = ",", peg$c8 = peg$literalExpectation(",", false), peg$c9 = peg$otherExpectation("whitespace"), peg$c10 = /^[ \t\n\r]/, peg$c11 = peg$classExpectation([" ", "	", "\n", "\r"], false, false), peg$c12 = "false", peg$c13 = peg$literalExpectation("false", false), peg$c14 = function() {
-        return false;
-      }, peg$c15 = "true", peg$c16 = peg$literalExpectation("true", false), peg$c17 = function() {
-        return true;
-      }, peg$c18 = peg$anyExpectation(), peg$c19 = function(chars) {
-        return chars.length > 0 ? chars.join("") : null;
-      }, peg$c20 = function(first, m2) {
-        return m2;
-      }, peg$c21 = function(first, rest) {
-        var result = {}, i4;
-        result[first.name] = first.value;
-        for (i4 = 0; i4 < rest.length; i4++) {
-          result[rest[i4].name] = rest[i4].value;
-        }
-        return result;
-      }, peg$c22 = function(members) {
-        return members !== null ? members : {};
-      }, peg$c23 = function(name, value) {
-        return { name, value };
-      }, peg$c24 = /^[ a-z0-9\-]/i, peg$c25 = peg$classExpectation([" ", ["a", "z"], ["0", "9"], "-"], false, true), peg$c26 = function(chars) {
-        return chars.join("").trim();
-      }, peg$c27 = function(first, v2) {
-        return v2;
-      }, peg$c28 = function(first, rest) {
-        return [first].concat(rest);
-      }, peg$c29 = function(values) {
-        return values !== null ? values : [];
-      }, peg$c30 = peg$otherExpectation("number"), peg$c31 = function() {
-        return parseFloat(text());
-      }, peg$c32 = ".", peg$c33 = peg$literalExpectation(".", false), peg$c34 = /^[1-9]/, peg$c35 = peg$classExpectation([["1", "9"]], false, false), peg$c36 = /^[eE]/, peg$c37 = peg$classExpectation(["e", "E"], false, false), peg$c38 = "-", peg$c39 = peg$literalExpectation("-", false), peg$c40 = "+", peg$c41 = peg$literalExpectation("+", false), peg$c42 = "0", peg$c43 = peg$literalExpectation("0", false), peg$c44 = peg$otherExpectation("string"), peg$c45 = function(chars) {
-        return chars.join("");
-      }, peg$c46 = "\n", peg$c47 = peg$literalExpectation("\n", false), peg$c48 = "	", peg$c49 = peg$literalExpectation("	", false), peg$c50 = '"', peg$c51 = peg$literalExpectation('"', false), peg$c52 = "\\", peg$c53 = peg$literalExpectation("\\", false), peg$c54 = "/", peg$c55 = peg$literalExpectation("/", false), peg$c56 = "b", peg$c57 = peg$literalExpectation("b", false), peg$c58 = function() {
-        return "\b";
-      }, peg$c59 = "f", peg$c60 = peg$literalExpectation("f", false), peg$c61 = function() {
-        return "\f";
-      }, peg$c62 = "n", peg$c63 = peg$literalExpectation("n", false), peg$c64 = function() {
-        return "\n";
-      }, peg$c65 = "r", peg$c66 = peg$literalExpectation("r", false), peg$c67 = function() {
-        return "\r";
-      }, peg$c68 = "t", peg$c69 = peg$literalExpectation("t", false), peg$c70 = function() {
-        return "	";
-      }, peg$c71 = "u", peg$c72 = peg$literalExpectation("u", false), peg$c73 = function(digits) {
-        return String.fromCharCode(parseInt(digits, 16));
-      }, peg$c74 = function(sequence) {
-        return sequence;
-      }, peg$c75 = /^[^\0-\x1F"\\]/, peg$c76 = peg$classExpectation([["\0", ""], '"', "\\"], true, false), peg$c77 = peg$otherExpectation("unquoted string"), peg$c78 = function(first_char, chars) {
-        return first_char + chars.join("");
-      }, peg$c79 = /^[a-z ]/, peg$c80 = peg$classExpectation([["a", "z"], " "], false, false), peg$c81 = /^[^,}]/, peg$c82 = peg$classExpectation([",", "}"], true, false), peg$c83 = peg$otherExpectation("date"), peg$c84 = "date", peg$c85 = peg$literalExpectation("date", false), peg$c86 = function(date) {
-        var dateObject = new Date(date);
-        return !isNaN(dateObject.getTime()) ? dateObject : date;
-      }, peg$c87 = /^[0-9]/, peg$c88 = peg$classExpectation([["0", "9"]], false, false), peg$c89 = /^[0-9a-f]/i, peg$c90 = peg$classExpectation([["0", "9"], ["a", "f"]], false, true), peg$currPos = 0, peg$savedPos = 0, peg$posDetailsCache = [{ line: 1, column: 1 }], peg$maxFailPos = 0, peg$maxFailExpected = [], peg$silentFails = 0, peg$result;
+      var peg$FAILED = {},
+        peg$startRuleFunctions = { osascript: peg$parseosascript },
+        peg$startRuleFunction = peg$parseosascript,
+        peg$c0 = function (value) {
+          return value;
+        },
+        peg$c1 = "{",
+        peg$c2 = peg$literalExpectation("{", false),
+        peg$c3 = "}",
+        peg$c4 = peg$literalExpectation("}", false),
+        peg$c5 = ":",
+        peg$c6 = peg$literalExpectation(":", false),
+        peg$c7 = ",",
+        peg$c8 = peg$literalExpectation(",", false),
+        peg$c9 = peg$otherExpectation("whitespace"),
+        peg$c10 = /^[ \t\n\r]/,
+        peg$c11 = peg$classExpectation([" ", "	", "\n", "\r"], false, false),
+        peg$c12 = "false",
+        peg$c13 = peg$literalExpectation("false", false),
+        peg$c14 = function () {
+          return false;
+        },
+        peg$c15 = "true",
+        peg$c16 = peg$literalExpectation("true", false),
+        peg$c17 = function () {
+          return true;
+        },
+        peg$c18 = peg$anyExpectation(),
+        peg$c19 = function (chars) {
+          return chars.length > 0 ? chars.join("") : null;
+        },
+        peg$c20 = function (first, m2) {
+          return m2;
+        },
+        peg$c21 = function (first, rest) {
+          var result = {}, i4;
+          result[first.name] = first.value;
+          for (i4 = 0; i4 < rest.length; i4++) {
+            result[rest[i4].name] = rest[i4].value;
+          }
+          return result;
+        },
+        peg$c22 = function (members) {
+          return members !== null ? members : {};
+        },
+        peg$c23 = function (name, value) {
+          return { name, value };
+        },
+        peg$c24 = /^[ a-z0-9\-]/i,
+        peg$c25 = peg$classExpectation(
+          [" ", ["a", "z"], ["0", "9"], "-"],
+          false,
+          true,
+        ),
+        peg$c26 = function (chars) {
+          return chars.join("").trim();
+        },
+        peg$c27 = function (first, v2) {
+          return v2;
+        },
+        peg$c28 = function (first, rest) {
+          return [first].concat(rest);
+        },
+        peg$c29 = function (values) {
+          return values !== null ? values : [];
+        },
+        peg$c30 = peg$otherExpectation("number"),
+        peg$c31 = function () {
+          return parseFloat(text());
+        },
+        peg$c32 = ".",
+        peg$c33 = peg$literalExpectation(".", false),
+        peg$c34 = /^[1-9]/,
+        peg$c35 = peg$classExpectation([["1", "9"]], false, false),
+        peg$c36 = /^[eE]/,
+        peg$c37 = peg$classExpectation(["e", "E"], false, false),
+        peg$c38 = "-",
+        peg$c39 = peg$literalExpectation("-", false),
+        peg$c40 = "+",
+        peg$c41 = peg$literalExpectation("+", false),
+        peg$c42 = "0",
+        peg$c43 = peg$literalExpectation("0", false),
+        peg$c44 = peg$otherExpectation("string"),
+        peg$c45 = function (chars) {
+          return chars.join("");
+        },
+        peg$c46 = "\n",
+        peg$c47 = peg$literalExpectation("\n", false),
+        peg$c48 = "	",
+        peg$c49 = peg$literalExpectation("	", false),
+        peg$c50 = '"',
+        peg$c51 = peg$literalExpectation('"', false),
+        peg$c52 = "\\",
+        peg$c53 = peg$literalExpectation("\\", false),
+        peg$c54 = "/",
+        peg$c55 = peg$literalExpectation("/", false),
+        peg$c56 = "b",
+        peg$c57 = peg$literalExpectation("b", false),
+        peg$c58 = function () {
+          return "\b";
+        },
+        peg$c59 = "f",
+        peg$c60 = peg$literalExpectation("f", false),
+        peg$c61 = function () {
+          return "\f";
+        },
+        peg$c62 = "n",
+        peg$c63 = peg$literalExpectation("n", false),
+        peg$c64 = function () {
+          return "\n";
+        },
+        peg$c65 = "r",
+        peg$c66 = peg$literalExpectation("r", false),
+        peg$c67 = function () {
+          return "\r";
+        },
+        peg$c68 = "t",
+        peg$c69 = peg$literalExpectation("t", false),
+        peg$c70 = function () {
+          return "	";
+        },
+        peg$c71 = "u",
+        peg$c72 = peg$literalExpectation("u", false),
+        peg$c73 = function (digits) {
+          return String.fromCharCode(parseInt(digits, 16));
+        },
+        peg$c74 = function (sequence) {
+          return sequence;
+        },
+        peg$c75 = /^[^\0-\x1F"\\]/,
+        peg$c76 = peg$classExpectation([["\0", ""], '"', "\\"], true, false),
+        peg$c77 = peg$otherExpectation("unquoted string"),
+        peg$c78 = function (first_char, chars) {
+          return first_char + chars.join("");
+        },
+        peg$c79 = /^[a-z ]/,
+        peg$c80 = peg$classExpectation([["a", "z"], " "], false, false),
+        peg$c81 = /^[^,}]/,
+        peg$c82 = peg$classExpectation([",", "}"], true, false),
+        peg$c83 = peg$otherExpectation("date"),
+        peg$c84 = "date",
+        peg$c85 = peg$literalExpectation("date", false),
+        peg$c86 = function (date) {
+          var dateObject = new Date(date);
+          return !isNaN(dateObject.getTime()) ? dateObject : date;
+        },
+        peg$c87 = /^[0-9]/,
+        peg$c88 = peg$classExpectation([["0", "9"]], false, false),
+        peg$c89 = /^[0-9a-f]/i,
+        peg$c90 = peg$classExpectation([["0", "9"], ["a", "f"]], false, true),
+        peg$currPos = 0,
+        peg$savedPos = 0,
+        peg$posDetailsCache = [{ line: 1, column: 1 }],
+        peg$maxFailPos = 0,
+        peg$maxFailExpected = [],
+        peg$silentFails = 0,
+        peg$result;
       if ("startRule" in options) {
         if (!(options.startRule in peg$startRuleFunctions)) {
-          throw new Error(`Can't start parsing from rule "` + options.startRule + '".');
+          throw new Error(
+            `Can't start parsing from rule "` + options.startRule + '".',
+          );
         }
         peg$startRuleFunction = peg$startRuleFunctions[options.startRule];
       }
@@ -447,11 +627,19 @@ var require_osa_parser = __commonJS({
         return peg$computeLocation(peg$savedPos, peg$currPos);
       }
       function expected(description, location2) {
-        location2 = location2 !== void 0 ? location2 : peg$computeLocation(peg$savedPos, peg$currPos);
-        throw peg$buildStructuredError([peg$otherExpectation(description)], input.substring(peg$savedPos, peg$currPos), location2);
+        location2 = location2 !== void 0
+          ? location2
+          : peg$computeLocation(peg$savedPos, peg$currPos);
+        throw peg$buildStructuredError(
+          [peg$otherExpectation(description)],
+          input.substring(peg$savedPos, peg$currPos),
+          location2,
+        );
       }
       function error(message, location2) {
-        location2 = location2 !== void 0 ? location2 : peg$computeLocation(peg$savedPos, peg$currPos);
+        location2 = location2 !== void 0
+          ? location2
+          : peg$computeLocation(peg$savedPos, peg$currPos);
         throw peg$buildSimpleError(message, location2);
       }
       function peg$literalExpectation(text2, ignoreCase) {
@@ -481,7 +669,7 @@ var require_osa_parser = __commonJS({
           details = peg$posDetailsCache[p2];
           details = {
             line: details.line,
-            column: details.column
+            column: details.column,
           };
           while (p2 < pos) {
             if (input.charCodeAt(p2) === 10) {
@@ -497,18 +685,19 @@ var require_osa_parser = __commonJS({
         }
       }
       function peg$computeLocation(startPos, endPos) {
-        var startPosDetails = peg$computePosDetails(startPos), endPosDetails = peg$computePosDetails(endPos);
+        var startPosDetails = peg$computePosDetails(startPos),
+          endPosDetails = peg$computePosDetails(endPos);
         return {
           start: {
             offset: startPos,
             line: startPosDetails.line,
-            column: startPosDetails.column
+            column: startPosDetails.column,
           },
           end: {
             offset: endPos,
             line: endPosDetails.line,
-            column: endPosDetails.column
-          }
+            column: endPosDetails.column,
+          },
         };
       }
       function peg$fail(expected2) {
@@ -525,7 +714,12 @@ var require_osa_parser = __commonJS({
         return new peg$SyntaxError(message, null, null, location2);
       }
       function peg$buildStructuredError(expected2, found, location2) {
-        return new peg$SyntaxError(peg$SyntaxError.buildMessage(expected2, found), expected2, found, location2);
+        return new peg$SyntaxError(
+          peg$SyntaxError.buildMessage(expected2, found),
+          expected2,
+          found,
+          location2,
+        );
       }
       function peg$parseosascript() {
         var s0, s1, s22, s32;
@@ -1705,14 +1899,20 @@ var require_osa_parser = __commonJS({
         if (peg$result !== peg$FAILED && peg$currPos < input.length) {
           peg$fail(peg$endExpectation());
         }
-        throw peg$buildStructuredError(peg$maxFailExpected, peg$maxFailPos < input.length ? input.charAt(peg$maxFailPos) : null, peg$maxFailPos < input.length ? peg$computeLocation(peg$maxFailPos, peg$maxFailPos + 1) : peg$computeLocation(peg$maxFailPos, peg$maxFailPos));
+        throw peg$buildStructuredError(
+          peg$maxFailExpected,
+          peg$maxFailPos < input.length ? input.charAt(peg$maxFailPos) : null,
+          peg$maxFailPos < input.length
+            ? peg$computeLocation(peg$maxFailPos, peg$maxFailPos + 1)
+            : peg$computeLocation(peg$maxFailPos, peg$maxFailPos),
+        );
       }
     }
     module2.exports = {
       SyntaxError: peg$SyntaxError,
-      parse: peg$parse
+      parse: peg$parse,
     };
-  }
+  },
 });
 
 // node_modules/node-osascript/lib/osa-vargen.js
@@ -1727,14 +1927,14 @@ var require_osa_vargen = __commonJS({
       if (typeOf === "object" && value !== null) {
         result = "{";
         if (Array.isArray(value)) {
-          value.forEach(function(arrayValue, i4) {
+          value.forEach(function (arrayValue, i4) {
             if (i4 !== 0) {
               result += ",";
             }
             result += serializeObject(arrayValue);
           });
         } else {
-          Object.keys(value).forEach(function(key, i4) {
+          Object.keys(value).forEach(function (key, i4) {
             if (i4 !== 0) {
               result += ",";
             }
@@ -1751,15 +1951,16 @@ var require_osa_vargen = __commonJS({
     }
     module2.exports = {
       serializeObject,
-      generate: function(object) {
+      generate: function (object) {
         var aScript = "";
-        Object.keys(object).forEach(function(key) {
-          aScript += "set " + key + " to " + serializeObject(object[key]) + "\n";
+        Object.keys(object).forEach(function (key) {
+          aScript += "set " + key + " to " + serializeObject(object[key]) +
+            "\n";
         });
         return aScript;
-      }
+      },
     };
-  }
+  },
 });
 
 // node_modules/node-osascript/lib/index.js
@@ -1771,14 +1972,14 @@ var require_lib = __commonJS({
     var Buffers = require_buffers();
     var parse3 = require_osa_parser().parse;
     var varGenerator = require_osa_vargen().generate;
-    var bufferStream = function(stream) {
+    var bufferStream = function (stream) {
       var buffer = new Buffers();
-      stream.on("data", function(chunk) {
+      stream.on("data", function (chunk) {
         buffer.push(chunk);
       });
       return buffer;
     };
-    var execute = function(path, script, vars, cb) {
+    var execute = function (path, script, vars, cb) {
       if (cb === void 0) {
         cb = vars;
       }
@@ -1791,7 +1992,7 @@ var require_lib = __commonJS({
       var cp = spawn("osascript", ["-ss", "-"], opts);
       var outBuffer = bufferStream(cp.stdout);
       var errBuffer = bufferStream(cp.stderr);
-      cp.on("close", function(code) {
+      cp.on("close", function (code) {
         var error;
         var result;
         if (code) {
@@ -1818,14 +2019,14 @@ var require_lib = __commonJS({
       return cp;
     };
     module2.exports = {
-      execute: function(script, vars, cb) {
+      execute: function (script, vars, cb) {
         return execute(void 0, script, vars, cb);
       },
-      executeFile: function(path, vars, cb) {
+      executeFile: function (path, vars, cb) {
         return execute(path, void 0, vars, cb);
-      }
+      },
     };
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/utils/pattern.js
@@ -1833,9 +2034,16 @@ var require_pattern = __commonJS({
   "node_modules/chrono-node/dist/utils/pattern.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.matchAnyPattern = exports.extractTerms = exports.repeatedTimeunitPattern = void 0;
+    exports.matchAnyPattern =
+      exports.extractTerms =
+      exports
+        .repeatedTimeunitPattern =
+        void 0;
     function repeatedTimeunitPattern(prefix, singleTimeunitPattern) {
-      const singleTimeunitPatternNoCapture = singleTimeunitPattern.replace(/\((?!\?)/g, "(?:");
+      const singleTimeunitPatternNoCapture = singleTimeunitPattern.replace(
+        /\((?!\?)/g,
+        "(?:",
+      );
       return `${prefix}${singleTimeunitPatternNoCapture}\\s{0,5}(?:,?\\s{0,5}${singleTimeunitPatternNoCapture}){0,10}`;
     }
     exports.repeatedTimeunitPattern = repeatedTimeunitPattern;
@@ -1852,229 +2060,481 @@ var require_pattern = __commonJS({
     }
     exports.extractTerms = extractTerms;
     function matchAnyPattern(dictionary) {
-      const joinedTerms = extractTerms(dictionary).sort((a3, b2) => b2.length - a3.length).join("|").replace(/\./g, "\\.");
+      const joinedTerms = extractTerms(dictionary).sort((a3, b2) =>
+        b2.length - a3.length
+      ).join("|").replace(/\./g, "\\.");
       return `(?:${joinedTerms})`;
     }
     exports.matchAnyPattern = matchAnyPattern;
-  }
+  },
 });
 
 // node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
   "node_modules/dayjs/dayjs.min.js"(exports, module2) {
-    !function(t3, e7) {
-      typeof exports == "object" && typeof module2 != "undefined" ? module2.exports = e7() : typeof define == "function" && define.amd ? define(e7) : (t3 = typeof globalThis != "undefined" ? globalThis : t3 || self).dayjs = e7();
-    }(exports, function() {
+    !function (t3, e7) {
+      typeof exports == "object" && typeof module2 != "undefined"
+        ? module2.exports = e7()
+        : typeof define == "function" && define.amd
+        ? define(e7)
+        : (t3 = typeof globalThis != "undefined" ? globalThis : t3 || self)
+          .dayjs = e7();
+    }(exports, function () {
       "use strict";
-      var t3 = 1e3, e7 = 6e4, n6 = 36e5, r4 = "millisecond", i4 = "second", s5 = "minute", u2 = "hour", a3 = "day", o6 = "week", f2 = "month", h3 = "quarter", c3 = "year", d3 = "date", $2 = "Invalid Date", l5 = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y2 = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M2 = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_") }, m2 = function(t4, e8, n7) {
-        var r5 = String(t4);
-        return !r5 || r5.length >= e8 ? t4 : "" + Array(e8 + 1 - r5.length).join(n7) + t4;
-      }, g2 = { s: m2, z: function(t4) {
-        var e8 = -t4.utcOffset(), n7 = Math.abs(e8), r5 = Math.floor(n7 / 60), i5 = n7 % 60;
-        return (e8 <= 0 ? "+" : "-") + m2(r5, 2, "0") + ":" + m2(i5, 2, "0");
-      }, m: function t4(e8, n7) {
-        if (e8.date() < n7.date())
-          return -t4(n7, e8);
-        var r5 = 12 * (n7.year() - e8.year()) + (n7.month() - e8.month()), i5 = e8.clone().add(r5, f2), s6 = n7 - i5 < 0, u3 = e8.clone().add(r5 + (s6 ? -1 : 1), f2);
-        return +(-(r5 + (n7 - i5) / (s6 ? i5 - u3 : u3 - i5)) || 0);
-      }, a: function(t4) {
-        return t4 < 0 ? Math.ceil(t4) || 0 : Math.floor(t4);
-      }, p: function(t4) {
-        return { M: f2, y: c3, w: o6, d: a3, D: d3, h: u2, m: s5, s: i4, ms: r4, Q: h3 }[t4] || String(t4 || "").toLowerCase().replace(/s$/, "");
-      }, u: function(t4) {
-        return t4 === void 0;
-      } }, v2 = "en", D = {};
-      D[v2] = M2;
-      var p2 = function(t4) {
-        return t4 instanceof _2;
-      }, S3 = function t4(e8, n7, r5) {
-        var i5;
-        if (!e8)
-          return v2;
-        if (typeof e8 == "string") {
-          var s6 = e8.toLowerCase();
-          D[s6] && (i5 = s6), n7 && (D[s6] = n7, i5 = s6);
-          var u3 = e8.split("-");
-          if (!i5 && u3.length > 1)
-            return t4(u3[0]);
-        } else {
-          var a4 = e8.name;
-          D[a4] = e8, i5 = a4;
-        }
-        return !r5 && i5 && (v2 = i5), i5 || !r5 && v2;
-      }, w2 = function(t4, e8) {
-        if (p2(t4))
-          return t4.clone();
-        var n7 = typeof e8 == "object" ? e8 : {};
-        return n7.date = t4, n7.args = arguments, new _2(n7);
-      }, O = g2;
-      O.l = S3, O.i = p2, O.w = function(t4, e8) {
-        return w2(t4, { locale: e8.$L, utc: e8.$u, x: e8.$x, $offset: e8.$offset });
-      };
-      var _2 = function() {
-        function M3(t4) {
-          this.$L = S3(t4.locale, null, true), this.parse(t4);
-        }
-        var m3 = M3.prototype;
-        return m3.parse = function(t4) {
-          this.$d = function(t5) {
-            var e8 = t5.date, n7 = t5.utc;
-            if (e8 === null)
-              return new Date(NaN);
-            if (O.u(e8))
-              return new Date();
-            if (e8 instanceof Date)
-              return new Date(e8);
-            if (typeof e8 == "string" && !/Z$/i.test(e8)) {
-              var r5 = e8.match(l5);
-              if (r5) {
-                var i5 = r5[2] - 1 || 0, s6 = (r5[7] || "0").substring(0, 3);
-                return n7 ? new Date(Date.UTC(r5[1], i5, r5[3] || 1, r5[4] || 0, r5[5] || 0, r5[6] || 0, s6)) : new Date(r5[1], i5, r5[3] || 1, r5[4] || 0, r5[5] || 0, r5[6] || 0, s6);
-              }
+      var t3 = 1e3,
+        e7 = 6e4,
+        n6 = 36e5,
+        r4 = "millisecond",
+        i4 = "second",
+        s5 = "minute",
+        u2 = "hour",
+        a3 = "day",
+        o6 = "week",
+        f2 = "month",
+        h3 = "quarter",
+        c3 = "year",
+        d3 = "date",
+        $2 = "Invalid Date",
+        l5 =
+          /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,
+        y2 =
+          /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,
+        M2 = {
+          name: "en",
+          weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday"
+            .split("_"),
+          months:
+            "January_February_March_April_May_June_July_August_September_October_November_December"
+              .split("_"),
+        },
+        m2 = function (t4, e8, n7) {
+          var r5 = String(t4);
+          return !r5 || r5.length >= e8
+            ? t4
+            : "" + Array(e8 + 1 - r5.length).join(n7) + t4;
+        },
+        g2 = {
+          s: m2,
+          z: function (t4) {
+            var e8 = -t4.utcOffset(),
+              n7 = Math.abs(e8),
+              r5 = Math.floor(n7 / 60),
+              i5 = n7 % 60;
+            return (e8 <= 0 ? "+" : "-") + m2(r5, 2, "0") + ":" +
+              m2(i5, 2, "0");
+          },
+          m: function t4(e8, n7) {
+            if (e8.date() < n7.date()) {
+              return -t4(n7, e8);
             }
-            return new Date(e8);
-          }(t4), this.$x = t4.x || {}, this.init();
-        }, m3.init = function() {
-          var t4 = this.$d;
-          this.$y = t4.getFullYear(), this.$M = t4.getMonth(), this.$D = t4.getDate(), this.$W = t4.getDay(), this.$H = t4.getHours(), this.$m = t4.getMinutes(), this.$s = t4.getSeconds(), this.$ms = t4.getMilliseconds();
-        }, m3.$utils = function() {
-          return O;
-        }, m3.isValid = function() {
-          return !(this.$d.toString() === $2);
-        }, m3.isSame = function(t4, e8) {
-          var n7 = w2(t4);
-          return this.startOf(e8) <= n7 && n7 <= this.endOf(e8);
-        }, m3.isAfter = function(t4, e8) {
-          return w2(t4) < this.startOf(e8);
-        }, m3.isBefore = function(t4, e8) {
-          return this.endOf(e8) < w2(t4);
-        }, m3.$g = function(t4, e8, n7) {
-          return O.u(t4) ? this[e8] : this.set(n7, t4);
-        }, m3.unix = function() {
-          return Math.floor(this.valueOf() / 1e3);
-        }, m3.valueOf = function() {
-          return this.$d.getTime();
-        }, m3.startOf = function(t4, e8) {
-          var n7 = this, r5 = !!O.u(e8) || e8, h4 = O.p(t4), $3 = function(t5, e9) {
-            var i5 = O.w(n7.$u ? Date.UTC(n7.$y, e9, t5) : new Date(n7.$y, e9, t5), n7);
-            return r5 ? i5 : i5.endOf(a3);
-          }, l6 = function(t5, e9) {
-            return O.w(n7.toDate()[t5].apply(n7.toDate("s"), (r5 ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e9)), n7);
-          }, y3 = this.$W, M4 = this.$M, m4 = this.$D, g3 = "set" + (this.$u ? "UTC" : "");
-          switch (h4) {
-            case c3:
-              return r5 ? $3(1, 0) : $3(31, 11);
-            case f2:
-              return r5 ? $3(1, M4) : $3(0, M4 + 1);
-            case o6:
-              var v3 = this.$locale().weekStart || 0, D2 = (y3 < v3 ? y3 + 7 : y3) - v3;
-              return $3(r5 ? m4 - D2 : m4 + (6 - D2), M4);
-            case a3:
-            case d3:
-              return l6(g3 + "Hours", 0);
-            case u2:
-              return l6(g3 + "Minutes", 1);
-            case s5:
-              return l6(g3 + "Seconds", 2);
-            case i4:
-              return l6(g3 + "Milliseconds", 3);
-            default:
-              return this.clone();
+            var r5 = 12 * (n7.year() - e8.year()) + (n7.month() - e8.month()),
+              i5 = e8.clone().add(r5, f2),
+              s6 = n7 - i5 < 0,
+              u3 = e8.clone().add(r5 + (s6 ? -1 : 1), f2);
+            return +(-(r5 + (n7 - i5) / (s6 ? i5 - u3 : u3 - i5)) || 0);
+          },
+          a: function (t4) {
+            return t4 < 0 ? Math.ceil(t4) || 0 : Math.floor(t4);
+          },
+          p: function (t4) {
+            return {
+              M: f2,
+              y: c3,
+              w: o6,
+              d: a3,
+              D: d3,
+              h: u2,
+              m: s5,
+              s: i4,
+              ms: r4,
+              Q: h3,
+            }[t4] || String(t4 || "").toLowerCase().replace(/s$/, "");
+          },
+          u: function (t4) {
+            return t4 === void 0;
+          },
+        },
+        v2 = "en",
+        D = {};
+      D[v2] = M2;
+      var p2 = function (t4) {
+          return t4 instanceof _2;
+        },
+        S3 = function t4(e8, n7, r5) {
+          var i5;
+          if (!e8) {
+            return v2;
           }
-        }, m3.endOf = function(t4) {
-          return this.startOf(t4, false);
-        }, m3.$set = function(t4, e8) {
-          var n7, o7 = O.p(t4), h4 = "set" + (this.$u ? "UTC" : ""), $3 = (n7 = {}, n7[a3] = h4 + "Date", n7[d3] = h4 + "Date", n7[f2] = h4 + "Month", n7[c3] = h4 + "FullYear", n7[u2] = h4 + "Hours", n7[s5] = h4 + "Minutes", n7[i4] = h4 + "Seconds", n7[r4] = h4 + "Milliseconds", n7)[o7], l6 = o7 === a3 ? this.$D + (e8 - this.$W) : e8;
-          if (o7 === f2 || o7 === c3) {
-            var y3 = this.clone().set(d3, 1);
-            y3.$d[$3](l6), y3.init(), this.$d = y3.set(d3, Math.min(this.$D, y3.daysInMonth())).$d;
-          } else
-            $3 && this.$d[$3](l6);
-          return this.init(), this;
-        }, m3.set = function(t4, e8) {
-          return this.clone().$set(t4, e8);
-        }, m3.get = function(t4) {
-          return this[O.p(t4)]();
-        }, m3.add = function(r5, h4) {
-          var d4, $3 = this;
-          r5 = Number(r5);
-          var l6 = O.p(h4), y3 = function(t4) {
-            var e8 = w2($3);
-            return O.w(e8.date(e8.date() + Math.round(t4 * r5)), $3);
-          };
-          if (l6 === f2)
-            return this.set(f2, this.$M + r5);
-          if (l6 === c3)
-            return this.set(c3, this.$y + r5);
-          if (l6 === a3)
-            return y3(1);
-          if (l6 === o6)
-            return y3(7);
-          var M4 = (d4 = {}, d4[s5] = e7, d4[u2] = n6, d4[i4] = t3, d4)[l6] || 1, m4 = this.$d.getTime() + r5 * M4;
-          return O.w(m4, this);
-        }, m3.subtract = function(t4, e8) {
-          return this.add(-1 * t4, e8);
-        }, m3.format = function(t4) {
-          var e8 = this, n7 = this.$locale();
-          if (!this.isValid())
-            return n7.invalidDate || $2;
-          var r5 = t4 || "YYYY-MM-DDTHH:mm:ssZ", i5 = O.z(this), s6 = this.$H, u3 = this.$m, a4 = this.$M, o7 = n7.weekdays, f3 = n7.months, h4 = function(t5, n8, i6, s7) {
-            return t5 && (t5[n8] || t5(e8, r5)) || i6[n8].slice(0, s7);
-          }, c4 = function(t5) {
-            return O.s(s6 % 12 || 12, t5, "0");
-          }, d4 = n7.meridiem || function(t5, e9, n8) {
-            var r6 = t5 < 12 ? "AM" : "PM";
-            return n8 ? r6.toLowerCase() : r6;
-          }, l6 = { YY: String(this.$y).slice(-2), YYYY: this.$y, M: a4 + 1, MM: O.s(a4 + 1, 2, "0"), MMM: h4(n7.monthsShort, a4, f3, 3), MMMM: h4(f3, a4), D: this.$D, DD: O.s(this.$D, 2, "0"), d: String(this.$W), dd: h4(n7.weekdaysMin, this.$W, o7, 2), ddd: h4(n7.weekdaysShort, this.$W, o7, 3), dddd: o7[this.$W], H: String(s6), HH: O.s(s6, 2, "0"), h: c4(1), hh: c4(2), a: d4(s6, u3, true), A: d4(s6, u3, false), m: String(u3), mm: O.s(u3, 2, "0"), s: String(this.$s), ss: O.s(this.$s, 2, "0"), SSS: O.s(this.$ms, 3, "0"), Z: i5 };
-          return r5.replace(y2, function(t5, e9) {
-            return e9 || l6[t5] || i5.replace(":", "");
+          if (typeof e8 == "string") {
+            var s6 = e8.toLowerCase();
+            D[s6] && (i5 = s6), n7 && (D[s6] = n7, i5 = s6);
+            var u3 = e8.split("-");
+            if (!i5 && u3.length > 1) {
+              return t4(u3[0]);
+            }
+          } else {
+            var a4 = e8.name;
+            D[a4] = e8, i5 = a4;
+          }
+          return !r5 && i5 && (v2 = i5), i5 || !r5 && v2;
+        },
+        w2 = function (t4, e8) {
+          if (p2(t4)) {
+            return t4.clone();
+          }
+          var n7 = typeof e8 == "object" ? e8 : {};
+          return n7.date = t4, n7.args = arguments, new _2(n7);
+        },
+        O = g2;
+      O.l = S3,
+        O.i = p2,
+        O.w = function (t4, e8) {
+          return w2(t4, {
+            locale: e8.$L,
+            utc: e8.$u,
+            x: e8.$x,
+            $offset: e8.$offset,
           });
-        }, m3.utcOffset = function() {
-          return 15 * -Math.round(this.$d.getTimezoneOffset() / 15);
-        }, m3.diff = function(r5, d4, $3) {
-          var l6, y3 = O.p(d4), M4 = w2(r5), m4 = (M4.utcOffset() - this.utcOffset()) * e7, g3 = this - M4, v3 = O.m(this, M4);
-          return v3 = (l6 = {}, l6[c3] = v3 / 12, l6[f2] = v3, l6[h3] = v3 / 3, l6[o6] = (g3 - m4) / 6048e5, l6[a3] = (g3 - m4) / 864e5, l6[u2] = g3 / n6, l6[s5] = g3 / e7, l6[i4] = g3 / t3, l6)[y3] || g3, $3 ? v3 : O.a(v3);
-        }, m3.daysInMonth = function() {
-          return this.endOf(f2).$D;
-        }, m3.$locale = function() {
-          return D[this.$L];
-        }, m3.locale = function(t4, e8) {
-          if (!t4)
-            return this.$L;
-          var n7 = this.clone(), r5 = S3(t4, e8, true);
-          return r5 && (n7.$L = r5), n7;
-        }, m3.clone = function() {
-          return O.w(this.$d, this);
-        }, m3.toDate = function() {
-          return new Date(this.valueOf());
-        }, m3.toJSON = function() {
-          return this.isValid() ? this.toISOString() : null;
-        }, m3.toISOString = function() {
-          return this.$d.toISOString();
-        }, m3.toString = function() {
-          return this.$d.toUTCString();
-        }, M3;
-      }(), T2 = _2.prototype;
-      return w2.prototype = T2, [["$ms", r4], ["$s", i4], ["$m", s5], ["$H", u2], ["$W", a3], ["$M", f2], ["$y", c3], ["$D", d3]].forEach(function(t4) {
-        T2[t4[1]] = function(e8) {
-          return this.$g(e8, t4[0], t4[1]);
         };
-      }), w2.extend = function(t4, e8) {
-        return t4.$i || (t4(e8, _2, w2), t4.$i = true), w2;
-      }, w2.locale = S3, w2.isDayjs = p2, w2.unix = function(t4) {
-        return w2(1e3 * t4);
-      }, w2.en = D[v2], w2.Ls = D, w2.p = {}, w2;
+      var _2 = function () {
+          function M3(t4) {
+            this.$L = S3(t4.locale, null, true), this.parse(t4);
+          }
+          var m3 = M3.prototype;
+          return m3.parse = function (t4) {
+            this.$d = function (t5) {
+              var e8 = t5.date, n7 = t5.utc;
+              if (e8 === null) {
+                return new Date(NaN);
+              }
+              if (O.u(e8)) {
+                return new Date();
+              }
+              if (e8 instanceof Date) {
+                return new Date(e8);
+              }
+              if (typeof e8 == "string" && !/Z$/i.test(e8)) {
+                var r5 = e8.match(l5);
+                if (r5) {
+                  var i5 = r5[2] - 1 || 0, s6 = (r5[7] || "0").substring(0, 3);
+                  return n7
+                    ? new Date(
+                      Date.UTC(
+                        r5[1],
+                        i5,
+                        r5[3] || 1,
+                        r5[4] || 0,
+                        r5[5] || 0,
+                        r5[6] || 0,
+                        s6,
+                      ),
+                    )
+                    : new Date(
+                      r5[1],
+                      i5,
+                      r5[3] || 1,
+                      r5[4] || 0,
+                      r5[5] || 0,
+                      r5[6] || 0,
+                      s6,
+                    );
+                }
+              }
+              return new Date(e8);
+            }(t4),
+              this.$x = t4.x || {},
+              this.init();
+          },
+            m3.init = function () {
+              var t4 = this.$d;
+              this.$y = t4.getFullYear(),
+                this.$M = t4.getMonth(),
+                this.$D = t4.getDate(),
+                this.$W = t4.getDay(),
+                this.$H = t4.getHours(),
+                this.$m = t4.getMinutes(),
+                this.$s = t4.getSeconds(),
+                this.$ms = t4.getMilliseconds();
+            },
+            m3.$utils = function () {
+              return O;
+            },
+            m3.isValid = function () {
+              return !(this.$d.toString() === $2);
+            },
+            m3.isSame = function (t4, e8) {
+              var n7 = w2(t4);
+              return this.startOf(e8) <= n7 && n7 <= this.endOf(e8);
+            },
+            m3.isAfter = function (t4, e8) {
+              return w2(t4) < this.startOf(e8);
+            },
+            m3.isBefore = function (t4, e8) {
+              return this.endOf(e8) < w2(t4);
+            },
+            m3.$g = function (t4, e8, n7) {
+              return O.u(t4) ? this[e8] : this.set(n7, t4);
+            },
+            m3.unix = function () {
+              return Math.floor(this.valueOf() / 1e3);
+            },
+            m3.valueOf = function () {
+              return this.$d.getTime();
+            },
+            m3.startOf = function (t4, e8) {
+              var n7 = this,
+                r5 = !!O.u(e8) || e8,
+                h4 = O.p(t4),
+                $3 = function (t5, e9) {
+                  var i5 = O.w(
+                    n7.$u ? Date.UTC(n7.$y, e9, t5) : new Date(n7.$y, e9, t5),
+                    n7,
+                  );
+                  return r5 ? i5 : i5.endOf(a3);
+                },
+                l6 = function (t5, e9) {
+                  return O.w(
+                    n7.toDate()[t5].apply(
+                      n7.toDate("s"),
+                      (r5 ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e9),
+                    ),
+                    n7,
+                  );
+                },
+                y3 = this.$W,
+                M4 = this.$M,
+                m4 = this.$D,
+                g3 = "set" + (this.$u ? "UTC" : "");
+              switch (h4) {
+                case c3:
+                  return r5 ? $3(1, 0) : $3(31, 11);
+                case f2:
+                  return r5 ? $3(1, M4) : $3(0, M4 + 1);
+                case o6:
+                  var v3 = this.$locale().weekStart || 0,
+                    D2 = (y3 < v3 ? y3 + 7 : y3) - v3;
+                  return $3(r5 ? m4 - D2 : m4 + (6 - D2), M4);
+                case a3:
+                case d3:
+                  return l6(g3 + "Hours", 0);
+                case u2:
+                  return l6(g3 + "Minutes", 1);
+                case s5:
+                  return l6(g3 + "Seconds", 2);
+                case i4:
+                  return l6(g3 + "Milliseconds", 3);
+                default:
+                  return this.clone();
+              }
+            },
+            m3.endOf = function (t4) {
+              return this.startOf(t4, false);
+            },
+            m3.$set = function (t4, e8) {
+              var n7,
+                o7 = O.p(t4),
+                h4 = "set" + (this.$u ? "UTC" : ""),
+                $3 =
+                  (n7 = {},
+                    n7[a3] = h4 + "Date",
+                    n7[d3] = h4 + "Date",
+                    n7[f2] = h4 + "Month",
+                    n7[c3] = h4 + "FullYear",
+                    n7[u2] = h4 + "Hours",
+                    n7[s5] = h4 + "Minutes",
+                    n7[i4] = h4 + "Seconds",
+                    n7[r4] = h4 + "Milliseconds",
+                    n7)[o7],
+                l6 = o7 === a3 ? this.$D + (e8 - this.$W) : e8;
+              if (o7 === f2 || o7 === c3) {
+                var y3 = this.clone().set(d3, 1);
+                y3.$d[$3](l6),
+                  y3.init(),
+                  this.$d = y3.set(d3, Math.min(this.$D, y3.daysInMonth())).$d;
+              } else {
+                $3 && this.$d[$3](l6);
+              }
+              return this.init(), this;
+            },
+            m3.set = function (t4, e8) {
+              return this.clone().$set(t4, e8);
+            },
+            m3.get = function (t4) {
+              return this[O.p(t4)]();
+            },
+            m3.add = function (r5, h4) {
+              var d4, $3 = this;
+              r5 = Number(r5);
+              var l6 = O.p(h4),
+                y3 = function (t4) {
+                  var e8 = w2($3);
+                  return O.w(e8.date(e8.date() + Math.round(t4 * r5)), $3);
+                };
+              if (l6 === f2) {
+                return this.set(f2, this.$M + r5);
+              }
+              if (l6 === c3) {
+                return this.set(c3, this.$y + r5);
+              }
+              if (l6 === a3) {
+                return y3(1);
+              }
+              if (l6 === o6) {
+                return y3(7);
+              }
+              var M4 =
+                  (d4 = {}, d4[s5] = e7, d4[u2] = n6, d4[i4] = t3, d4)[l6] || 1,
+                m4 = this.$d.getTime() + r5 * M4;
+              return O.w(m4, this);
+            },
+            m3.subtract = function (t4, e8) {
+              return this.add(-1 * t4, e8);
+            },
+            m3.format = function (t4) {
+              var e8 = this, n7 = this.$locale();
+              if (!this.isValid()) {
+                return n7.invalidDate || $2;
+              }
+              var r5 = t4 || "YYYY-MM-DDTHH:mm:ssZ",
+                i5 = O.z(this),
+                s6 = this.$H,
+                u3 = this.$m,
+                a4 = this.$M,
+                o7 = n7.weekdays,
+                f3 = n7.months,
+                h4 = function (t5, n8, i6, s7) {
+                  return t5 && (t5[n8] || t5(e8, r5)) || i6[n8].slice(0, s7);
+                },
+                c4 = function (t5) {
+                  return O.s(s6 % 12 || 12, t5, "0");
+                },
+                d4 = n7.meridiem || function (t5, e9, n8) {
+                  var r6 = t5 < 12 ? "AM" : "PM";
+                  return n8 ? r6.toLowerCase() : r6;
+                },
+                l6 = {
+                  YY: String(this.$y).slice(-2),
+                  YYYY: this.$y,
+                  M: a4 + 1,
+                  MM: O.s(a4 + 1, 2, "0"),
+                  MMM: h4(n7.monthsShort, a4, f3, 3),
+                  MMMM: h4(f3, a4),
+                  D: this.$D,
+                  DD: O.s(this.$D, 2, "0"),
+                  d: String(this.$W),
+                  dd: h4(n7.weekdaysMin, this.$W, o7, 2),
+                  ddd: h4(n7.weekdaysShort, this.$W, o7, 3),
+                  dddd: o7[this.$W],
+                  H: String(s6),
+                  HH: O.s(s6, 2, "0"),
+                  h: c4(1),
+                  hh: c4(2),
+                  a: d4(s6, u3, true),
+                  A: d4(s6, u3, false),
+                  m: String(u3),
+                  mm: O.s(u3, 2, "0"),
+                  s: String(this.$s),
+                  ss: O.s(this.$s, 2, "0"),
+                  SSS: O.s(this.$ms, 3, "0"),
+                  Z: i5,
+                };
+              return r5.replace(y2, function (t5, e9) {
+                return e9 || l6[t5] || i5.replace(":", "");
+              });
+            },
+            m3.utcOffset = function () {
+              return 15 * -Math.round(this.$d.getTimezoneOffset() / 15);
+            },
+            m3.diff = function (r5, d4, $3) {
+              var l6,
+                y3 = O.p(d4),
+                M4 = w2(r5),
+                m4 = (M4.utcOffset() - this.utcOffset()) * e7,
+                g3 = this - M4,
+                v3 = O.m(this, M4);
+              return v3 =
+                (l6 = {},
+                  l6[c3] = v3 / 12,
+                  l6[f2] = v3,
+                  l6[h3] = v3 / 3,
+                  l6[o6] = (g3 - m4) / 6048e5,
+                  l6[a3] = (g3 - m4) / 864e5,
+                  l6[u2] = g3 / n6,
+                  l6[s5] = g3 / e7,
+                  l6[i4] = g3 / t3,
+                  l6)[y3] || g3,
+                $3 ? v3 : O.a(v3);
+            },
+            m3.daysInMonth = function () {
+              return this.endOf(f2).$D;
+            },
+            m3.$locale = function () {
+              return D[this.$L];
+            },
+            m3.locale = function (t4, e8) {
+              if (!t4) {
+                return this.$L;
+              }
+              var n7 = this.clone(), r5 = S3(t4, e8, true);
+              return r5 && (n7.$L = r5), n7;
+            },
+            m3.clone = function () {
+              return O.w(this.$d, this);
+            },
+            m3.toDate = function () {
+              return new Date(this.valueOf());
+            },
+            m3.toJSON = function () {
+              return this.isValid() ? this.toISOString() : null;
+            },
+            m3.toISOString = function () {
+              return this.$d.toISOString();
+            },
+            m3.toString = function () {
+              return this.$d.toUTCString();
+            },
+            M3;
+        }(),
+        T2 = _2.prototype;
+      return w2.prototype = T2,
+        [
+          ["$ms", r4],
+          ["$s", i4],
+          ["$m", s5],
+          ["$H", u2],
+          ["$W", a3],
+          ["$M", f2],
+          ["$y", c3],
+          ["$D", d3],
+        ].forEach(function (t4) {
+          T2[t4[1]] = function (e8) {
+            return this.$g(e8, t4[0], t4[1]);
+          };
+        }),
+        w2.extend = function (t4, e8) {
+          return t4.$i || (t4(e8, _2, w2), t4.$i = true), w2;
+        },
+        w2.locale = S3,
+        w2.isDayjs = p2,
+        w2.unix = function (t4) {
+          return w2(1e3 * t4);
+        },
+        w2.en = D[v2],
+        w2.Ls = D,
+        w2.p = {},
+        w2;
     });
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/calculation/years.js
 var require_years = __commonJS({
   "node_modules/chrono-node/dist/calculation/years.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.findYearClosestToRef = exports.findMostLikelyADYear = void 0;
     var dayjs_1 = __importDefault2(require_dayjs_min());
@@ -2097,15 +2557,21 @@ var require_years = __commonJS({
       dateMoment = dateMoment.year(refMoment.year());
       const nextYear = dateMoment.add(1, "y");
       const lastYear = dateMoment.add(-1, "y");
-      if (Math.abs(nextYear.diff(refMoment)) < Math.abs(dateMoment.diff(refMoment))) {
+      if (
+        Math.abs(nextYear.diff(refMoment)) <
+          Math.abs(dateMoment.diff(refMoment))
+      ) {
         dateMoment = nextYear;
-      } else if (Math.abs(lastYear.diff(refMoment)) < Math.abs(dateMoment.diff(refMoment))) {
+      } else if (
+        Math.abs(lastYear.diff(refMoment)) <
+          Math.abs(dateMoment.diff(refMoment))
+      ) {
         dateMoment = lastYear;
       }
       return dateMoment.year();
     }
     exports.findYearClosestToRef = findYearClosestToRef;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/constants.js
@@ -2113,7 +2579,21 @@ var require_constants = __commonJS({
   "node_modules/chrono-node/dist/locales/en/constants.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseTimeUnits = exports.TIME_UNITS_PATTERN = exports.parseYear = exports.YEAR_PATTERN = exports.parseOrdinalNumberPattern = exports.ORDINAL_NUMBER_PATTERN = exports.parseNumberPattern = exports.NUMBER_PATTERN = exports.TIME_UNIT_DICTIONARY = exports.ORDINAL_WORD_DICTIONARY = exports.INTEGER_WORD_DICTIONARY = exports.MONTH_DICTIONARY = exports.FULL_MONTH_NAME_DICTIONARY = exports.WEEKDAY_DICTIONARY = void 0;
+    exports.parseTimeUnits =
+      exports.TIME_UNITS_PATTERN =
+      exports.parseYear =
+      exports.YEAR_PATTERN =
+      exports.parseOrdinalNumberPattern =
+      exports.ORDINAL_NUMBER_PATTERN =
+      exports.parseNumberPattern =
+      exports.NUMBER_PATTERN =
+      exports.TIME_UNIT_DICTIONARY =
+      exports.ORDINAL_WORD_DICTIONARY =
+      exports.INTEGER_WORD_DICTIONARY =
+      exports.MONTH_DICTIONARY =
+      exports.FULL_MONTH_NAME_DICTIONARY =
+      exports.WEEKDAY_DICTIONARY =
+        void 0;
     var pattern_1 = require_pattern();
     var years_1 = require_years();
     exports.WEEKDAY_DICTIONARY = {
@@ -2141,7 +2621,7 @@ var require_constants = __commonJS({
       "fri.": 5,
       saturday: 6,
       sat: 6,
-      "sat.": 6
+      "sat.": 6,
     };
     exports.FULL_MONTH_NAME_DICTIONARY = {
       january: 1,
@@ -2155,9 +2635,37 @@ var require_constants = __commonJS({
       september: 9,
       october: 10,
       november: 11,
-      december: 12
+      december: 12,
     };
-    exports.MONTH_DICTIONARY = Object.assign(Object.assign({}, exports.FULL_MONTH_NAME_DICTIONARY), { jan: 1, "jan.": 1, feb: 2, "feb.": 2, mar: 3, "mar.": 3, apr: 4, "apr.": 4, jun: 6, "jun.": 6, jul: 7, "jul.": 7, aug: 8, "aug.": 8, sep: 9, "sep.": 9, sept: 9, "sept.": 9, oct: 10, "oct.": 10, nov: 11, "nov.": 11, dec: 12, "dec.": 12 });
+    exports.MONTH_DICTIONARY = Object.assign(
+      Object.assign({}, exports.FULL_MONTH_NAME_DICTIONARY),
+      {
+        jan: 1,
+        "jan.": 1,
+        feb: 2,
+        "feb.": 2,
+        mar: 3,
+        "mar.": 3,
+        apr: 4,
+        "apr.": 4,
+        jun: 6,
+        "jun.": 6,
+        jul: 7,
+        "jul.": 7,
+        aug: 8,
+        "aug.": 8,
+        sep: 9,
+        "sep.": 9,
+        sept: 9,
+        "sept.": 9,
+        oct: 10,
+        "oct.": 10,
+        nov: 11,
+        "nov.": 11,
+        dec: 12,
+        "dec.": 12,
+      },
+    );
     exports.INTEGER_WORD_DICTIONARY = {
       one: 1,
       two: 2,
@@ -2170,7 +2678,7 @@ var require_constants = __commonJS({
       nine: 9,
       ten: 10,
       eleven: 11,
-      twelve: 12
+      twelve: 12,
     };
     exports.ORDINAL_WORD_DICTIONARY = {
       first: 1,
@@ -2213,7 +2721,7 @@ var require_constants = __commonJS({
       "twenty-ninth": 29,
       "thirtieth": 30,
       "thirty first": 31,
-      "thirty-first": 31
+      "thirty-first": 31,
     };
     exports.TIME_UNIT_DICTIONARY = {
       sec: "second",
@@ -2240,9 +2748,11 @@ var require_constants = __commonJS({
       y: "year",
       yr: "year",
       year: "year",
-      years: "year"
+      years: "year",
     };
-    exports.NUMBER_PATTERN = `(?:${pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)}|[0-9]+|[0-9]+\\.[0-9]+|half(?:\\s{0,2}an?)?|an?\\b(?:\\s{0,2}few)?|few|several|a?\\s{0,2}couple\\s{0,2}(?:of)?)`;
+    exports.NUMBER_PATTERN = `(?:${
+      pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)
+    }|[0-9]+|[0-9]+\\.[0-9]+|half(?:\\s{0,2}an?)?|an?\\b(?:\\s{0,2}few)?|few|several|a?\\s{0,2}couple\\s{0,2}(?:of)?)`;
     function parseNumberPattern(match) {
       const num = match.toLowerCase();
       if (exports.INTEGER_WORD_DICTIONARY[num] !== void 0) {
@@ -2261,7 +2771,9 @@ var require_constants = __commonJS({
       return parseFloat(num);
     }
     exports.parseNumberPattern = parseNumberPattern;
-    exports.ORDINAL_NUMBER_PATTERN = `(?:${pattern_1.matchAnyPattern(exports.ORDINAL_WORD_DICTIONARY)}|[0-9]{1,2}(?:st|nd|rd|th)?)`;
+    exports.ORDINAL_NUMBER_PATTERN = `(?:${
+      pattern_1.matchAnyPattern(exports.ORDINAL_WORD_DICTIONARY)
+    }|[0-9]{1,2}(?:st|nd|rd|th)?)`;
     function parseOrdinalNumberPattern(match) {
       let num = match.toLowerCase();
       if (exports.ORDINAL_WORD_DICTIONARY[num] !== void 0) {
@@ -2271,7 +2783,8 @@ var require_constants = __commonJS({
       return parseInt(num);
     }
     exports.parseOrdinalNumberPattern = parseOrdinalNumberPattern;
-    exports.YEAR_PATTERN = `(?:[1-9][0-9]{0,3}\\s{0,2}(?:BE|AD|BC|BCE|CE)|[1-2][0-9]{3}|[5-9][0-9])`;
+    exports.YEAR_PATTERN =
+      `(?:[1-9][0-9]{0,3}\\s{0,2}(?:BE|AD|BC|BCE|CE)|[1-2][0-9]{3}|[5-9][0-9])`;
     function parseYear(match) {
       if (/BE/i.test(match)) {
         match = match.replace(/BE/i, "");
@@ -2289,9 +2802,14 @@ var require_constants = __commonJS({
       return years_1.findMostLikelyADYear(rawYearNumber);
     }
     exports.parseYear = parseYear;
-    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,3}(${pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)})`;
+    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,3}(${
+      pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)
+    })`;
     var SINGLE_TIME_UNIT_REGEX = new RegExp(SINGLE_TIME_UNIT_PATTERN, "i");
-    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern(`(?:(?:about|around)\\s{0,3})?`, SINGLE_TIME_UNIT_PATTERN);
+    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern(
+      `(?:(?:about|around)\\s{0,3})?`,
+      SINGLE_TIME_UNIT_PATTERN,
+    );
     function parseTimeUnits(timeunitText) {
       const fragments = {};
       let remainingText = timeunitText;
@@ -2309,38 +2827,50 @@ var require_constants = __commonJS({
       const unit = exports.TIME_UNIT_DICTIONARY[match[2].toLowerCase()];
       fragments[unit] = num;
     }
-  }
+  },
 });
 
 // node_modules/dayjs/plugin/quarterOfYear.js
 var require_quarterOfYear = __commonJS({
   "node_modules/dayjs/plugin/quarterOfYear.js"(exports, module2) {
-    !function(t3, n6) {
-      typeof exports == "object" && typeof module2 != "undefined" ? module2.exports = n6() : typeof define == "function" && define.amd ? define(n6) : (t3 = typeof globalThis != "undefined" ? globalThis : t3 || self).dayjs_plugin_quarterOfYear = n6();
-    }(exports, function() {
+    !function (t3, n6) {
+      typeof exports == "object" && typeof module2 != "undefined"
+        ? module2.exports = n6()
+        : typeof define == "function" && define.amd
+        ? define(n6)
+        : (t3 = typeof globalThis != "undefined" ? globalThis : t3 || self)
+          .dayjs_plugin_quarterOfYear = n6();
+    }(exports, function () {
       "use strict";
       var t3 = "month", n6 = "quarter";
-      return function(e7, i4) {
+      return function (e7, i4) {
         var r4 = i4.prototype;
-        r4.quarter = function(t4) {
-          return this.$utils().u(t4) ? Math.ceil((this.month() + 1) / 3) : this.month(this.month() % 3 + 3 * (t4 - 1));
+        r4.quarter = function (t4) {
+          return this.$utils().u(t4)
+            ? Math.ceil((this.month() + 1) / 3)
+            : this.month(this.month() % 3 + 3 * (t4 - 1));
         };
         var s5 = r4.add;
-        r4.add = function(e8, i5) {
-          return e8 = Number(e8), this.$utils().p(i5) === n6 ? this.add(3 * e8, t3) : s5.bind(this)(e8, i5);
+        r4.add = function (e8, i5) {
+          return e8 = Number(e8),
+            this.$utils().p(i5) === n6
+              ? this.add(3 * e8, t3)
+              : s5.bind(this)(e8, i5);
         };
         var u2 = r4.startOf;
-        r4.startOf = function(e8, i5) {
+        r4.startOf = function (e8, i5) {
           var r5 = this.$utils(), s6 = !!r5.u(i5) || i5;
           if (r5.p(e8) === n6) {
             var o6 = this.quarter() - 1;
-            return s6 ? this.month(3 * o6).startOf(t3).startOf("day") : this.month(3 * o6 + 2).endOf(t3).endOf("day");
+            return s6
+              ? this.month(3 * o6).startOf(t3).startOf("day")
+              : this.month(3 * o6 + 2).endOf(t3).endOf("day");
           }
           return u2.bind(this)(e8, i5);
         };
       };
     });
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/utils/dayjs.js
@@ -2348,7 +2878,11 @@ var require_dayjs = __commonJS({
   "node_modules/chrono-node/dist/utils/dayjs.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.implySimilarTime = exports.assignSimilarTime = exports.assignSimilarDate = exports.assignTheNextDay = void 0;
+    exports.implySimilarTime =
+      exports.assignSimilarTime =
+      exports.assignSimilarDate =
+      exports.assignTheNextDay =
+        void 0;
     var index_1 = require_dist();
     function assignTheNextDay(component, targetDayJs) {
       targetDayJs = targetDayJs.add(1, "day");
@@ -2381,7 +2915,7 @@ var require_dayjs = __commonJS({
       component.imply("millisecond", targetDayJs.millisecond());
     }
     exports.implySimilarTime = implySimilarTime;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/timezone.js
@@ -2581,7 +3115,7 @@ var require_timezone = __commonJS({
       YAKT: 600,
       YAPT: 600,
       YEKST: 360,
-      YEKT: 360
+      YEKT: 360,
     };
     function toTimezoneOffset(timezoneInput) {
       var _a;
@@ -2591,21 +3125,29 @@ var require_timezone = __commonJS({
       if (typeof timezoneInput === "number") {
         return timezoneInput;
       }
-      return (_a = exports.TIMEZONE_ABBR_MAP[timezoneInput]) !== null && _a !== void 0 ? _a : null;
+      return (_a = exports.TIMEZONE_ABBR_MAP[timezoneInput]) !== null &&
+          _a !== void 0
+        ? _a
+        : null;
     }
     exports.toTimezoneOffset = toTimezoneOffset;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/results.js
 var require_results = __commonJS({
   "node_modules/chrono-node/dist/results.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.ParsingResult = exports.ParsingComponents = exports.ReferenceWithTimezone = void 0;
+    exports.ParsingResult =
+      exports.ParsingComponents =
+      exports
+        .ReferenceWithTimezone =
+        void 0;
     var quarterOfYear_1 = __importDefault2(require_quarterOfYear());
     var dayjs_1 = __importDefault2(require_dayjs_min());
     var dayjs_2 = require_dayjs();
@@ -2618,12 +3160,17 @@ var require_results = __commonJS({
         if (input instanceof Date) {
           this.instant = input;
         } else {
-          this.instant = (_a = input.instant) !== null && _a !== void 0 ? _a : new Date();
+          this.instant = (_a = input.instant) !== null && _a !== void 0
+            ? _a
+            : new Date();
           this.timezoneOffset = timezone_1.toTimezoneOffset(input.timezone);
         }
       }
       getDateWithAdjustedTimezone() {
-        return new Date(this.instant.getTime() + this.getSystemTimezoneAdjustmentMinute(this.instant) * 6e4);
+        return new Date(
+          this.instant.getTime() +
+            this.getSystemTimezoneAdjustmentMinute(this.instant) * 6e4,
+        );
       }
       getSystemTimezoneAdjustmentMinute(date, overrideTimezoneOffset) {
         var _a;
@@ -2631,7 +3178,12 @@ var require_results = __commonJS({
           date = new Date();
         }
         const currentTimezoneOffset = -date.getTimezoneOffset();
-        const targetTimezoneOffset = (_a = overrideTimezoneOffset !== null && overrideTimezoneOffset !== void 0 ? overrideTimezoneOffset : this.timezoneOffset) !== null && _a !== void 0 ? _a : currentTimezoneOffset;
+        const targetTimezoneOffset = (_a = overrideTimezoneOffset !== null &&
+                  overrideTimezoneOffset !== void 0
+                ? overrideTimezoneOffset
+                : this.timezoneOffset) !== null && _a !== void 0
+          ? _a
+          : currentTimezoneOffset;
         return currentTimezoneOffset - targetTimezoneOffset;
       }
     };
@@ -2699,44 +3251,68 @@ var require_results = __commonJS({
         return component;
       }
       isOnlyDate() {
-        return !this.isCertain("hour") && !this.isCertain("minute") && !this.isCertain("second");
+        return !this.isCertain("hour") && !this.isCertain("minute") &&
+          !this.isCertain("second");
       }
       isOnlyTime() {
-        return !this.isCertain("weekday") && !this.isCertain("day") && !this.isCertain("month");
+        return !this.isCertain("weekday") && !this.isCertain("day") &&
+          !this.isCertain("month");
       }
       isOnlyWeekdayComponent() {
-        return this.isCertain("weekday") && !this.isCertain("day") && !this.isCertain("month");
+        return this.isCertain("weekday") && !this.isCertain("day") &&
+          !this.isCertain("month");
       }
       isOnlyDayMonthComponent() {
-        return this.isCertain("day") && this.isCertain("month") && !this.isCertain("year");
+        return this.isCertain("day") && this.isCertain("month") &&
+          !this.isCertain("year");
       }
       isValidDate() {
         const date = this.dateWithoutTimezoneAdjustment();
-        if (date.getFullYear() !== this.get("year"))
+        if (date.getFullYear() !== this.get("year")) {
           return false;
-        if (date.getMonth() !== this.get("month") - 1)
+        }
+        if (date.getMonth() !== this.get("month") - 1) {
           return false;
-        if (date.getDate() !== this.get("day"))
+        }
+        if (date.getDate() !== this.get("day")) {
           return false;
-        if (this.get("hour") != null && date.getHours() != this.get("hour"))
+        }
+        if (this.get("hour") != null && date.getHours() != this.get("hour")) {
           return false;
-        if (this.get("minute") != null && date.getMinutes() != this.get("minute"))
+        }
+        if (
+          this.get("minute") != null && date.getMinutes() != this.get("minute")
+        ) {
           return false;
+        }
         return true;
       }
       toString() {
-        return `[ParsingComponents {knownValues: ${JSON.stringify(this.knownValues)}, impliedValues: ${JSON.stringify(this.impliedValues)}}, reference: ${JSON.stringify(this.reference)}]`;
+        return `[ParsingComponents {knownValues: ${
+          JSON.stringify(this.knownValues)
+        }, impliedValues: ${JSON.stringify(this.impliedValues)}}, reference: ${
+          JSON.stringify(this.reference)
+        }]`;
       }
       dayjs() {
         return dayjs_1.default(this.date());
       }
       date() {
         const date = this.dateWithoutTimezoneAdjustment();
-        const timezoneAdjustment = this.reference.getSystemTimezoneAdjustmentMinute(date, this.get("timezoneOffset"));
+        const timezoneAdjustment = this.reference
+          .getSystemTimezoneAdjustmentMinute(date, this.get("timezoneOffset"));
         return new Date(date.getTime() + timezoneAdjustment * 6e4);
       }
       dateWithoutTimezoneAdjustment() {
-        const date = new Date(this.get("year"), this.get("month") - 1, this.get("day"), this.get("hour"), this.get("minute"), this.get("second"), this.get("millisecond"));
+        const date = new Date(
+          this.get("year"),
+          this.get("month") - 1,
+          this.get("day"),
+          this.get("hour"),
+          this.get("minute"),
+          this.get("second"),
+          this.get("millisecond"),
+        );
         date.setFullYear(this.get("year"));
         return date;
       }
@@ -2750,12 +3326,18 @@ var require_results = __commonJS({
           dayjs_2.assignSimilarTime(components, date);
           dayjs_2.assignSimilarDate(components, date);
           if (reference.timezoneOffset !== null) {
-            components.assign("timezoneOffset", -reference.instant.getTimezoneOffset());
+            components.assign(
+              "timezoneOffset",
+              -reference.instant.getTimezoneOffset(),
+            );
           }
         } else {
           dayjs_2.implySimilarTime(components, date);
           if (reference.timezoneOffset !== null) {
-            components.imply("timezoneOffset", -reference.instant.getTimezoneOffset());
+            components.imply(
+              "timezoneOffset",
+              -reference.instant.getTimezoneOffset(),
+            );
           }
           if (fragments["d"]) {
             components.assign("day", date.date());
@@ -2806,12 +3388,14 @@ var require_results = __commonJS({
       }
     };
     exports.ParsingResult = ParsingResult;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/parsers/AbstractParserWithWordBoundary.js
 var require_AbstractParserWithWordBoundary = __commonJS({
-  "node_modules/chrono-node/dist/common/parsers/AbstractParserWithWordBoundary.js"(exports) {
+  "node_modules/chrono-node/dist/common/parsers/AbstractParserWithWordBoundary.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.AbstractParserWithWordBoundaryChecking = void 0;
@@ -2828,7 +3412,10 @@ var require_AbstractParserWithWordBoundary = __commonJS({
         if (innerPattern == this.cachedInnerPattern) {
           return this.cachedPattern;
         }
-        this.cachedPattern = new RegExp(`${this.patternLeftBoundary()}${innerPattern.source}`, innerPattern.flags);
+        this.cachedPattern = new RegExp(
+          `${this.patternLeftBoundary()}${innerPattern.source}`,
+          innerPattern.flags,
+        );
         this.cachedInnerPattern = innerPattern;
         return this.cachedPattern;
       }
@@ -2843,36 +3430,55 @@ var require_AbstractParserWithWordBoundary = __commonJS({
         return this.innerExtract(context2, match);
       }
     };
-    exports.AbstractParserWithWordBoundaryChecking = AbstractParserWithWordBoundaryChecking;
-  }
+    exports.AbstractParserWithWordBoundaryChecking =
+      AbstractParserWithWordBoundaryChecking;
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitWithinFormatParser.js
 var require_ENTimeUnitWithinFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitWithinFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitWithinFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN_WITH_PREFIX = new RegExp(`(?:within|in|for)\\s*(?:(?:about|around|roughly|approximately|just)\\s*(?:~\\s*)?)?(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`, "i");
-    var PATTERN_WITHOUT_PREFIX = new RegExp(`(?:(?:about|around|roughly|approximately|just)\\s*(?:~\\s*)?)?(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`, "i");
-    var ENTimeUnitWithinFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN_WITH_PREFIX = new RegExp(
+      `(?:within|in|for)\\s*(?:(?:about|around|roughly|approximately|just)\\s*(?:~\\s*)?)?(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`,
+      "i",
+    );
+    var PATTERN_WITHOUT_PREFIX = new RegExp(
+      `(?:(?:about|around|roughly|approximately|just)\\s*(?:~\\s*)?)?(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`,
+      "i",
+    );
+    var ENTimeUnitWithinFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
-        return context2.option.forwardDate ? PATTERN_WITHOUT_PREFIX : PATTERN_WITH_PREFIX;
+        return context2.option.forwardDate
+          ? PATTERN_WITHOUT_PREFIX
+          : PATTERN_WITH_PREFIX;
       }
       innerExtract(context2, match) {
         const timeUnits = constants_1.parseTimeUnits(match[1]);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = ENTimeUnitWithinFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameLittleEndianParser.js
 var require_ENMonthNameLittleEndianParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameLittleEndianParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameLittleEndianParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var years_1 = require_years();
@@ -2880,19 +3486,28 @@ var require_ENMonthNameLittleEndianParser = __commonJS({
     var constants_2 = require_constants();
     var constants_3 = require_constants();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`(?:on\\s{0,3})?(${constants_3.ORDINAL_NUMBER_PATTERN})(?:\\s{0,3}(?:to|\\-|\\\u2013|until|through|till)?\\s{0,3}(${constants_3.ORDINAL_NUMBER_PATTERN}))?(?:-|/|\\s{0,3}(?:of)?\\s{0,3})(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})(?:(?:-|/|,?\\s{0,3})(${constants_2.YEAR_PATTERN}(?![^\\s]\\d)))?(?=\\W|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `(?:on\\s{0,3})?(${constants_3.ORDINAL_NUMBER_PATTERN})(?:\\s{0,3}(?:to|\\-|\\\u2013|until|through|till)?\\s{0,3}(${constants_3.ORDINAL_NUMBER_PATTERN}))?(?:-|/|\\s{0,3}(?:of)?\\s{0,3})(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })(?:(?:-|/|,?\\s{0,3})(${constants_2.YEAR_PATTERN}(?![^\\s]\\d)))?(?=\\W|$)`,
+      "i",
+    );
     var DATE_GROUP = 1;
     var DATE_TO_GROUP = 2;
     var MONTH_NAME_GROUP = 3;
     var YEAR_GROUP = 4;
-    var ENMonthNameLittleEndianParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ENMonthNameLittleEndianParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
         const result = context2.createParsingResult(match.index, match[0]);
-        const month = constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month =
+          constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         const day = constants_3.parseOrdinalNumberPattern(match[DATE_GROUP]);
         if (day > 31) {
           match.index = match.index + match[DATE_GROUP].length;
@@ -2904,11 +3519,17 @@ var require_ENMonthNameLittleEndianParser = __commonJS({
           const yearNumber = constants_2.parseYear(match[YEAR_GROUP]);
           result.start.assign("year", yearNumber);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           result.start.imply("year", year);
         }
         if (match[DATE_TO_GROUP]) {
-          const endDate = constants_3.parseOrdinalNumberPattern(match[DATE_TO_GROUP]);
+          const endDate = constants_3.parseOrdinalNumberPattern(
+            match[DATE_TO_GROUP],
+          );
           result.end = result.start.clone();
           result.end.assign("day", endDate);
         }
@@ -2916,12 +3537,14 @@ var require_ENMonthNameLittleEndianParser = __commonJS({
       }
     };
     exports.default = ENMonthNameLittleEndianParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameMiddleEndianParser.js
 var require_ENMonthNameMiddleEndianParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameMiddleEndianParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameMiddleEndianParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var years_1 = require_years();
@@ -2929,37 +3552,52 @@ var require_ENMonthNameMiddleEndianParser = __commonJS({
     var constants_2 = require_constants();
     var constants_3 = require_constants();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})(?:-|/|\\s*,?\\s*)(${constants_2.ORDINAL_NUMBER_PATTERN})(?!\\s*(?:am|pm))\\s*(?:(?:to|\\-)\\s*(${constants_2.ORDINAL_NUMBER_PATTERN})\\s*)?(?:(?:-|/|\\s*,?\\s*)(${constants_3.YEAR_PATTERN}))?(?=\\W|$)(?!\\:\\d)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })(?:-|/|\\s*,?\\s*)(${constants_2.ORDINAL_NUMBER_PATTERN})(?!\\s*(?:am|pm))\\s*(?:(?:to|\\-)\\s*(${constants_2.ORDINAL_NUMBER_PATTERN})\\s*)?(?:(?:-|/|\\s*,?\\s*)(${constants_3.YEAR_PATTERN}))?(?=\\W|$)(?!\\:\\d)`,
+      "i",
+    );
     var MONTH_NAME_GROUP = 1;
     var DATE_GROUP = 2;
     var DATE_TO_GROUP = 3;
     var YEAR_GROUP = 4;
-    var ENMonthNameMiddleEndianParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ENMonthNameMiddleEndianParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
-        const month = constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month =
+          constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         const day = constants_2.parseOrdinalNumberPattern(match[DATE_GROUP]);
         if (day > 31) {
           return null;
         }
         const components = context2.createParsingComponents({
           day,
-          month
+          month,
         });
         if (match[YEAR_GROUP]) {
           const year = constants_3.parseYear(match[YEAR_GROUP]);
           components.assign("year", year);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           components.imply("year", year);
         }
         if (!match[DATE_TO_GROUP]) {
           return components;
         }
-        const endDate = constants_2.parseOrdinalNumberPattern(match[DATE_TO_GROUP]);
+        const endDate = constants_2.parseOrdinalNumberPattern(
+          match[DATE_TO_GROUP],
+        );
         const result = context2.createParsingResult(match.index, match[0]);
         result.start = components;
         result.end = components.clone();
@@ -2968,33 +3606,48 @@ var require_ENMonthNameMiddleEndianParser = __commonJS({
       }
     };
     exports.default = ENMonthNameMiddleEndianParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameParser.js
 var require_ENMonthNameParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENMonthNameParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants();
     var years_1 = require_years();
     var pattern_1 = require_pattern();
     var constants_2 = require_constants();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`((?:in)\\s*)?(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})\\s*(?:[,-]?\\s*(${constants_2.YEAR_PATTERN})?)?(?=[^\\s\\w]|\\s+[^0-9]|\\s+$|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `((?:in)\\s*)?(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })\\s*(?:[,-]?\\s*(${constants_2.YEAR_PATTERN})?)?(?=[^\\s\\w]|\\s+[^0-9]|\\s+$|$)`,
+      "i",
+    );
     var PREFIX_GROUP = 1;
     var MONTH_NAME_GROUP = 2;
     var YEAR_GROUP = 3;
-    var ENMonthNameParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ENMonthNameParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
         const monthName = match[MONTH_NAME_GROUP].toLowerCase();
-        if (match[0].length <= 3 && !constants_1.FULL_MONTH_NAME_DICTIONARY[monthName]) {
+        if (
+          match[0].length <= 3 &&
+          !constants_1.FULL_MONTH_NAME_DICTIONARY[monthName]
+        ) {
           return null;
         }
-        const result = context2.createParsingResult(match.index + (match[PREFIX_GROUP] || "").length, match.index + match[0].length);
+        const result = context2.createParsingResult(
+          match.index + (match[PREFIX_GROUP] || "").length,
+          match.index + match[0].length,
+        );
         result.start.imply("day", 1);
         const month = constants_1.MONTH_DICTIONARY[monthName];
         result.start.assign("month", month);
@@ -3009,28 +3662,40 @@ var require_ENMonthNameParser = __commonJS({
       }
     };
     exports.default = ENMonthNameParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENCasualYearMonthDayParser.js
 var require_ENCasualYearMonthDayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENCasualYearMonthDayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENCasualYearMonthDayParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`([0-9]{4})[\\.\\/\\s](?:(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})|([0-9]{1,2}))[\\.\\/\\s]([0-9]{1,2})(?=\\W|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `([0-9]{4})[\\.\\/\\s](?:(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })|([0-9]{1,2}))[\\.\\/\\s]([0-9]{1,2})(?=\\W|$)`,
+      "i",
+    );
     var YEAR_NUMBER_GROUP = 1;
     var MONTH_NAME_GROUP = 2;
     var MONTH_NUMBER_GROUP = 3;
     var DATE_NUMBER_GROUP = 4;
-    var ENCasualYearMonthDayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ENCasualYearMonthDayParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
-        const month = match[MONTH_NUMBER_GROUP] ? parseInt(match[MONTH_NUMBER_GROUP]) : constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month = match[MONTH_NUMBER_GROUP]
+          ? parseInt(match[MONTH_NUMBER_GROUP])
+          : constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         if (month < 1 || month > 12) {
           return null;
         }
@@ -3039,49 +3704,70 @@ var require_ENCasualYearMonthDayParser = __commonJS({
         return {
           day,
           month,
-          year
+          year,
         };
       }
     };
     exports.default = ENCasualYearMonthDayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENSlashMonthFormatParser.js
 var require_ENSlashMonthFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENSlashMonthFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENSlashMonthFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var PATTERN = new RegExp("([0-9]|0[1-9]|1[012])/([0-9]{4})", "i");
     var MONTH_GROUP = 1;
     var YEAR_GROUP = 2;
-    var ENSlashMonthFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ENSlashMonthFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
         const year = parseInt(match[YEAR_GROUP]);
         const month = parseInt(match[MONTH_GROUP]);
-        return context2.createParsingComponents().imply("day", 1).assign("month", month).assign("year", year);
+        return context2.createParsingComponents().imply("day", 1).assign(
+          "month",
+          month,
+        ).assign("year", year);
       }
     };
     exports.default = ENSlashMonthFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/parsers/AbstractTimeExpressionParser.js
 var require_AbstractTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/common/parsers/AbstractTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/common/parsers/AbstractTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.AbstractTimeExpressionParser = void 0;
     var index_1 = require_dist();
-    function primaryTimePattern(leftBoundary, primaryPrefix, primarySuffix, flags) {
-      return new RegExp(`${leftBoundary}${primaryPrefix}(\\d{1,4})(?:(?:\\.|:|\uFF1A)(\\d{1,2})(?:(?::|\uFF1A)(\\d{2})(?:\\.(\\d{1,6}))?)?)?(?:\\s*(a\\.m\\.|p\\.m\\.|am?|pm?))?${primarySuffix}`, flags);
+    function primaryTimePattern(
+      leftBoundary,
+      primaryPrefix,
+      primarySuffix,
+      flags,
+    ) {
+      return new RegExp(
+        `${leftBoundary}${primaryPrefix}(\\d{1,4})(?:(?:\\.|:|\uFF1A)(\\d{1,2})(?:(?::|\uFF1A)(\\d{2})(?:\\.(\\d{1,6}))?)?)?(?:\\s*(a\\.m\\.|p\\.m\\.|am?|pm?))?${primarySuffix}`,
+        flags,
+      );
     }
     function followingTimePatten(followingPhase, followingSuffix) {
-      return new RegExp(`^(${followingPhase})(\\d{1,4})(?:(?:\\.|\\:|\\\uFF1A)(\\d{1,2})(?:(?:\\.|\\:|\\\uFF1A)(\\d{1,2})(?:\\.(\\d{1,6}))?)?)?(?:\\s*(a\\.m\\.|p\\.m\\.|am?|pm?))?${followingSuffix}`, "i");
+      return new RegExp(
+        `^(${followingPhase})(\\d{1,4})(?:(?:\\.|\\:|\\\uFF1A)(\\d{1,2})(?:(?:\\.|\\:|\\\uFF1A)(\\d{1,2})(?:\\.(\\d{1,6}))?)?)?(?:\\s*(a\\.m\\.|p\\.m\\.|am?|pm?))?${followingSuffix}`,
+        "i",
+      );
     }
     var HOUR_GROUP = 2;
     var MINUTE_GROUP = 3;
@@ -3114,25 +3800,41 @@ var require_AbstractTimeExpressionParser = __commonJS({
         return this.getPrimaryTimePatternThroughCache();
       }
       extract(context2, match) {
-        const startComponents = this.extractPrimaryTimeComponents(context2, match);
+        const startComponents = this.extractPrimaryTimeComponents(
+          context2,
+          match,
+        );
         if (!startComponents) {
           match.index += match[0].length;
           return null;
         }
         const index = match.index + match[1].length;
         const text = match[0].substring(match[1].length);
-        const result = context2.createParsingResult(index, text, startComponents);
+        const result = context2.createParsingResult(
+          index,
+          text,
+          startComponents,
+        );
         match.index += match[0].length;
         const remainingText = context2.text.substring(match.index);
         const followingPattern = this.getFollowingTimePatternThroughCache();
         const followingMatch = followingPattern.exec(remainingText);
-        if (text.match(/^\d{3,4}/) && followingMatch && followingMatch[0].match(/^\s*([+-])\s*\d{2,4}$/)) {
+        if (
+          text.match(/^\d{3,4}/) && followingMatch &&
+          followingMatch[0].match(/^\s*([+-])\s*\d{2,4}$/)
+        ) {
           return null;
         }
-        if (!followingMatch || followingMatch[0].match(/^\s*([+-])\s*\d{3,4}$/)) {
+        if (
+          !followingMatch || followingMatch[0].match(/^\s*([+-])\s*\d{3,4}$/)
+        ) {
           return this.checkAndReturnWithoutFollowingPattern(result);
         }
-        result.end = this.extractFollowingTimeComponents(context2, followingMatch, result);
+        result.end = this.extractFollowingTimeComponents(
+          context2,
+          followingMatch,
+          result,
+        );
         if (result.end) {
           result.text += followingMatch[0];
         }
@@ -3166,8 +3868,9 @@ var require_AbstractTimeExpressionParser = __commonJS({
           meridiem = index_1.Meridiem.PM;
         }
         if (match[AM_PM_HOUR_GROUP] != null) {
-          if (hour > 12)
+          if (hour > 12) {
             return null;
+          }
           const ampm = match[AM_PM_HOUR_GROUP][0].toLowerCase();
           if (ampm == "a") {
             meridiem = index_1.Meridiem.AM;
@@ -3194,15 +3897,19 @@ var require_AbstractTimeExpressionParser = __commonJS({
           }
         }
         if (match[MILLI_SECOND_GROUP] != null) {
-          const millisecond = parseInt(match[MILLI_SECOND_GROUP].substring(0, 3));
-          if (millisecond >= 1e3)
+          const millisecond = parseInt(
+            match[MILLI_SECOND_GROUP].substring(0, 3),
+          );
+          if (millisecond >= 1e3) {
             return null;
+          }
           components.assign("millisecond", millisecond);
         }
         if (match[SECOND_GROUP] != null) {
           const second = parseInt(match[SECOND_GROUP]);
-          if (second >= 60)
+          if (second >= 60) {
             return null;
+          }
           components.assign("second", second);
         }
         return components;
@@ -3210,15 +3917,19 @@ var require_AbstractTimeExpressionParser = __commonJS({
       extractFollowingTimeComponents(context2, match, result) {
         const components = context2.createParsingComponents();
         if (match[MILLI_SECOND_GROUP] != null) {
-          const millisecond = parseInt(match[MILLI_SECOND_GROUP].substring(0, 3));
-          if (millisecond >= 1e3)
+          const millisecond = parseInt(
+            match[MILLI_SECOND_GROUP].substring(0, 3),
+          );
+          if (millisecond >= 1e3) {
             return null;
+          }
           components.assign("millisecond", millisecond);
         }
         if (match[SECOND_GROUP] != null) {
           const second = parseInt(match[SECOND_GROUP]);
-          if (second >= 60)
+          if (second >= 60) {
             return null;
+          }
           components.assign("second", second);
         }
         let hour = parseInt(match[HOUR_GROUP]);
@@ -3252,8 +3963,9 @@ var require_AbstractTimeExpressionParser = __commonJS({
           }
           if (ampm == "p") {
             meridiem = index_1.Meridiem.PM;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
           if (!result.start.isCertain("meridiem")) {
             if (meridiem == index_1.Meridiem.AM) {
@@ -3274,7 +3986,8 @@ var require_AbstractTimeExpressionParser = __commonJS({
         if (meridiem >= 0) {
           components.assign("meridiem", meridiem);
         } else {
-          const startAtPM = result.start.isCertain("meridiem") && result.start.get("hour") > 12;
+          const startAtPM = result.start.isCertain("meridiem") &&
+            result.start.get("hour") > 12;
           if (startAtPM) {
             if (result.start.get("hour") - 12 > hour) {
               components.imply("meridiem", index_1.Meridiem.AM);
@@ -3309,7 +4022,9 @@ var require_AbstractTimeExpressionParser = __commonJS({
           if (this.strictMode) {
             return null;
           }
-          if (endingNumbers.includes(".") && !endingNumbers.match(/\d(\.\d{2})+$/)) {
+          if (
+            endingNumbers.includes(".") && !endingNumbers.match(/\d(\.\d{2})+$/)
+          ) {
             return null;
           }
           const endingNumberVal = parseInt(endingNumbers);
@@ -3323,14 +4038,18 @@ var require_AbstractTimeExpressionParser = __commonJS({
         if (result.text.match(/^\d+-\d+$/)) {
           return null;
         }
-        const endingWithNumbers = result.text.match(/[^\d:.](\d[\d.]+)\s*-\s*(\d[\d.]+)$/);
+        const endingWithNumbers = result.text.match(
+          /[^\d:.](\d[\d.]+)\s*-\s*(\d[\d.]+)$/,
+        );
         if (endingWithNumbers) {
           if (this.strictMode) {
             return null;
           }
           const startingNumbers = endingWithNumbers[1];
           const endingNumbers = endingWithNumbers[2];
-          if (endingNumbers.includes(".") && !endingNumbers.match(/\d(\.\d{2})+$/)) {
+          if (
+            endingNumbers.includes(".") && !endingNumbers.match(/\d(\.\d{2})+$/)
+          ) {
             return null;
           }
           const endingNumberVal = parseInt(endingNumbers);
@@ -3344,10 +4063,18 @@ var require_AbstractTimeExpressionParser = __commonJS({
       getPrimaryTimePatternThroughCache() {
         const primaryPrefix = this.primaryPrefix();
         const primarySuffix = this.primarySuffix();
-        if (this.cachedPrimaryPrefix === primaryPrefix && this.cachedPrimarySuffix === primarySuffix) {
+        if (
+          this.cachedPrimaryPrefix === primaryPrefix &&
+          this.cachedPrimarySuffix === primarySuffix
+        ) {
           return this.cachedPrimaryTimePattern;
         }
-        this.cachedPrimaryTimePattern = primaryTimePattern(this.primaryPatternLeftBoundary(), primaryPrefix, primarySuffix, this.patternFlags());
+        this.cachedPrimaryTimePattern = primaryTimePattern(
+          this.primaryPatternLeftBoundary(),
+          primaryPrefix,
+          primarySuffix,
+          this.patternFlags(),
+        );
         this.cachedPrimaryPrefix = primaryPrefix;
         this.cachedPrimarySuffix = primarySuffix;
         return this.cachedPrimaryTimePattern;
@@ -3355,27 +4082,36 @@ var require_AbstractTimeExpressionParser = __commonJS({
       getFollowingTimePatternThroughCache() {
         const followingPhase = this.followingPhase();
         const followingSuffix = this.followingSuffix();
-        if (this.cachedFollowingPhase === followingPhase && this.cachedFollowingSuffix === followingSuffix) {
+        if (
+          this.cachedFollowingPhase === followingPhase &&
+          this.cachedFollowingSuffix === followingSuffix
+        ) {
           return this.cachedFollowingTimePatten;
         }
-        this.cachedFollowingTimePatten = followingTimePatten(followingPhase, followingSuffix);
+        this.cachedFollowingTimePatten = followingTimePatten(
+          followingPhase,
+          followingSuffix,
+        );
         this.cachedFollowingPhase = followingPhase;
         this.cachedFollowingSuffix = followingSuffix;
         return this.cachedFollowingTimePatten;
       }
     };
     exports.AbstractTimeExpressionParser = AbstractTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENTimeExpressionParser.js
 var require_ENTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var index_1 = require_dist();
     var AbstractTimeExpressionParser_1 = require_AbstractTimeExpressionParser();
-    var ENTimeExpressionParser = class extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
+    var ENTimeExpressionParser = class
+      extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
       constructor(strictMode) {
         super(strictMode);
       }
@@ -3419,7 +4155,7 @@ var require_ENTimeExpressionParser = __commonJS({
       }
     };
     exports.default = ENTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/utils/timeunits.js
@@ -3442,12 +4178,17 @@ var require_timeunits = __commonJS({
       for (const key in timeUnits) {
         date = date.add(timeUnits[key], key);
       }
-      if ("day" in timeUnits || "d" in timeUnits || "week" in timeUnits || "month" in timeUnits || "year" in timeUnits) {
+      if (
+        "day" in timeUnits || "d" in timeUnits || "week" in timeUnits ||
+        "month" in timeUnits || "year" in timeUnits
+      ) {
         output.imply("day", date.date());
         output.imply("month", date.month() + 1);
         output.imply("year", date.year());
       }
-      if ("second" in timeUnits || "minute" in timeUnits || "hour" in timeUnits) {
+      if (
+        "second" in timeUnits || "minute" in timeUnits || "hour" in timeUnits
+      ) {
         output.imply("second", date.second());
         output.imply("minute", date.minute());
         output.imply("hour", date.hour());
@@ -3455,21 +4196,32 @@ var require_timeunits = __commonJS({
       return output;
     }
     exports.addImpliedTimeUnits = addImpliedTimeUnits;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitAgoFormatParser.js
 var require_ENTimeUnitAgoFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitAgoFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitAgoFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
-    var PATTERN = new RegExp(`(${constants_1.TIME_UNITS_PATTERN})\\s{0,5}(?:ago|before|earlier)(?=(?:\\W|$))`, "i");
-    var STRICT_PATTERN = new RegExp(`(${constants_1.TIME_UNITS_PATTERN})\\s{0,5}ago(?=(?:\\W|$))`, "i");
-    var ENTimeUnitAgoFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      `(${constants_1.TIME_UNITS_PATTERN})\\s{0,5}(?:ago|before|earlier)(?=(?:\\W|$))`,
+      "i",
+    );
+    var STRICT_PATTERN = new RegExp(
+      `(${constants_1.TIME_UNITS_PATTERN})\\s{0,5}ago(?=(?:\\W|$))`,
+      "i",
+    );
+    var ENTimeUnitAgoFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       constructor(strictMode) {
         super();
         this.strictMode = strictMode;
@@ -3480,25 +4232,39 @@ var require_ENTimeUnitAgoFormatParser = __commonJS({
       innerExtract(context2, match) {
         const timeUnits = constants_1.parseTimeUnits(match[1]);
         const outputTimeUnits = timeunits_1.reverseTimeUnits(timeUnits);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, outputTimeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          outputTimeUnits,
+        );
       }
     };
     exports.default = ENTimeUnitAgoFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitLaterFormatParser.js
 var require_ENTimeUnitLaterFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitLaterFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitLaterFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`(${constants_1.TIME_UNITS_PATTERN})\\s{0,5}(?:later|after|from now|henceforth|forward|out)(?=(?:\\W|$))`, "i");
-    var STRICT_PATTERN = new RegExp("(" + constants_1.TIME_UNITS_PATTERN + ")(later|from now)(?=(?:\\W|$))", "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `(${constants_1.TIME_UNITS_PATTERN})\\s{0,5}(?:later|after|from now|henceforth|forward|out)(?=(?:\\W|$))`,
+      "i",
+    );
+    var STRICT_PATTERN = new RegExp(
+      "(" + constants_1.TIME_UNITS_PATTERN + ")(later|from now)(?=(?:\\W|$))",
+      "i",
+    );
     var GROUP_NUM_TIMEUNITS = 1;
-    var ENTimeUnitLaterFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ENTimeUnitLaterFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       constructor(strictMode) {
         super();
         this.strictMode = strictMode;
@@ -3507,12 +4273,17 @@ var require_ENTimeUnitLaterFormatParser = __commonJS({
         return this.strictMode ? STRICT_PATTERN : PATTERN;
       }
       innerExtract(context2, match) {
-        const fragments = constants_1.parseTimeUnits(match[GROUP_NUM_TIMEUNITS]);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, fragments);
+        const fragments = constants_1.parseTimeUnits(
+          match[GROUP_NUM_TIMEUNITS],
+        );
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          fragments,
+        );
       }
     };
     exports.default = ENTimeUnitLaterFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/abstractRefiners.js
@@ -3537,16 +4308,33 @@ var require_abstractRefiners = __commonJS({
         let nextResult = null;
         for (let i4 = 1; i4 < results.length; i4++) {
           nextResult = results[i4];
-          const textBetween = context2.text.substring(curResult.index + curResult.text.length, nextResult.index);
-          if (!this.shouldMergeResults(textBetween, curResult, nextResult, context2)) {
+          const textBetween = context2.text.substring(
+            curResult.index + curResult.text.length,
+            nextResult.index,
+          );
+          if (
+            !this.shouldMergeResults(
+              textBetween,
+              curResult,
+              nextResult,
+              context2,
+            )
+          ) {
             mergedResults.push(curResult);
             curResult = nextResult;
           } else {
             const left = curResult;
             const right = nextResult;
-            const mergedResult = this.mergeResults(textBetween, left, right, context2);
+            const mergedResult = this.mergeResults(
+              textBetween,
+              left,
+              right,
+              context2,
+            );
             context2.debug(() => {
-              console.log(`${this.constructor.name} merged ${left} and ${right} into ${mergedResult}`);
+              console.log(
+                `${this.constructor.name} merged ${left} and ${right} into ${mergedResult}`,
+              );
             });
             curResult = mergedResult;
           }
@@ -3558,21 +4346,28 @@ var require_abstractRefiners = __commonJS({
       }
     };
     exports.MergingRefiner = MergingRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/refiners/AbstractMergeDateRangeRefiner.js
 var require_AbstractMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/common/refiners/AbstractMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/common/refiners/AbstractMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var abstractRefiners_1 = require_abstractRefiners();
-    var AbstractMergeDateRangeRefiner = class extends abstractRefiners_1.MergingRefiner {
+    var AbstractMergeDateRangeRefiner = class
+      extends abstractRefiners_1.MergingRefiner {
       shouldMergeResults(textBetween, currentResult, nextResult) {
-        return !currentResult.end && !nextResult.end && textBetween.match(this.patternBetween()) != null;
+        return !currentResult.end && !nextResult.end &&
+          textBetween.match(this.patternBetween()) != null;
       }
       mergeResults(textBetween, fromResult, toResult) {
-        if (!fromResult.start.isOnlyWeekdayComponent() && !toResult.start.isOnlyWeekdayComponent()) {
+        if (
+          !fromResult.start.isOnlyWeekdayComponent() &&
+          !toResult.start.isOnlyWeekdayComponent()
+        ) {
           toResult.start.getCertainComponents().forEach((key) => {
             if (!fromResult.start.isCertain(key)) {
               fromResult.start.assign(key, toResult.start.get(key));
@@ -3584,15 +4379,23 @@ var require_AbstractMergeDateRangeRefiner = __commonJS({
             }
           });
         }
-        if (fromResult.start.date().getTime() > toResult.start.date().getTime()) {
+        if (
+          fromResult.start.date().getTime() > toResult.start.date().getTime()
+        ) {
           let fromMoment = fromResult.start.dayjs();
           let toMoment = toResult.start.dayjs();
-          if (fromResult.start.isOnlyWeekdayComponent() && fromMoment.add(-7, "days").isBefore(toMoment)) {
+          if (
+            fromResult.start.isOnlyWeekdayComponent() &&
+            fromMoment.add(-7, "days").isBefore(toMoment)
+          ) {
             fromMoment = fromMoment.add(-7, "days");
             fromResult.start.imply("day", fromMoment.date());
             fromResult.start.imply("month", fromMoment.month() + 1);
             fromResult.start.imply("year", fromMoment.year());
-          } else if (toResult.start.isOnlyWeekdayComponent() && toMoment.add(7, "days").isAfter(fromMoment)) {
+          } else if (
+            toResult.start.isOnlyWeekdayComponent() &&
+            toMoment.add(7, "days").isAfter(fromMoment)
+          ) {
             toMoment = toMoment.add(7, "days");
             toResult.start.imply("day", toMoment.date());
             toResult.start.imply("month", toMoment.month() + 1);
@@ -3614,25 +4417,31 @@ var require_AbstractMergeDateRangeRefiner = __commonJS({
       }
     };
     exports.default = AbstractMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/refiners/ENMergeDateRangeRefiner.js
 var require_ENMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/refiners/ENMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/refiners/ENMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var ENMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var ENMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(to|-)\s*$/i;
       }
     };
     exports.default = ENMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/calculation/mergingCalculation.js
@@ -3648,10 +4457,17 @@ var require_mergingCalculation = __commonJS({
       const beginTime = timeResult.start;
       result.start = mergeDateTimeComponent(beginDate, beginTime);
       if (dateResult.end != null || timeResult.end != null) {
-        const endDate = dateResult.end == null ? dateResult.start : dateResult.end;
-        const endTime = timeResult.end == null ? timeResult.start : timeResult.end;
+        const endDate = dateResult.end == null
+          ? dateResult.start
+          : dateResult.end;
+        const endTime = timeResult.end == null
+          ? timeResult.start
+          : timeResult.end;
         const endDateTime = mergeDateTimeComponent(endDate, endTime);
-        if (dateResult.end == null && endDateTime.date().getTime() < result.start.date().getTime()) {
+        if (
+          dateResult.end == null &&
+          endDateTime.date().getTime() < result.start.date().getTime()
+        ) {
           if (endDateTime.isCertain("day")) {
             endDateTime.assign("day", endDateTime.get("day") + 1);
           } else {
@@ -3671,29 +4487,50 @@ var require_mergingCalculation = __commonJS({
         if (timeComponent.isCertain("second")) {
           dateTimeComponent.assign("second", timeComponent.get("second"));
           if (timeComponent.isCertain("millisecond")) {
-            dateTimeComponent.assign("millisecond", timeComponent.get("millisecond"));
+            dateTimeComponent.assign(
+              "millisecond",
+              timeComponent.get("millisecond"),
+            );
           } else {
-            dateTimeComponent.imply("millisecond", timeComponent.get("millisecond"));
+            dateTimeComponent.imply(
+              "millisecond",
+              timeComponent.get("millisecond"),
+            );
           }
         } else {
           dateTimeComponent.imply("second", timeComponent.get("second"));
-          dateTimeComponent.imply("millisecond", timeComponent.get("millisecond"));
+          dateTimeComponent.imply(
+            "millisecond",
+            timeComponent.get("millisecond"),
+          );
         }
       } else {
         dateTimeComponent.imply("hour", timeComponent.get("hour"));
         dateTimeComponent.imply("minute", timeComponent.get("minute"));
         dateTimeComponent.imply("second", timeComponent.get("second"));
-        dateTimeComponent.imply("millisecond", timeComponent.get("millisecond"));
+        dateTimeComponent.imply(
+          "millisecond",
+          timeComponent.get("millisecond"),
+        );
       }
       if (timeComponent.isCertain("timezoneOffset")) {
-        dateTimeComponent.assign("timezoneOffset", timeComponent.get("timezoneOffset"));
+        dateTimeComponent.assign(
+          "timezoneOffset",
+          timeComponent.get("timezoneOffset"),
+        );
       }
       if (timeComponent.isCertain("meridiem")) {
         dateTimeComponent.assign("meridiem", timeComponent.get("meridiem"));
-      } else if (timeComponent.get("meridiem") != null && dateTimeComponent.get("meridiem") == null) {
+      } else if (
+        timeComponent.get("meridiem") != null &&
+        dateTimeComponent.get("meridiem") == null
+      ) {
         dateTimeComponent.imply("meridiem", timeComponent.get("meridiem"));
       }
-      if (dateTimeComponent.get("meridiem") == index_1.Meridiem.PM && dateTimeComponent.get("hour") < 12) {
+      if (
+        dateTimeComponent.get("meridiem") == index_1.Meridiem.PM &&
+        dateTimeComponent.get("hour") < 12
+      ) {
         if (timeComponent.isCertain("hour")) {
           dateTimeComponent.assign("hour", dateTimeComponent.get("hour") + 12);
         } else {
@@ -3703,55 +4540,74 @@ var require_mergingCalculation = __commonJS({
       return dateTimeComponent;
     }
     exports.mergeDateTimeComponent = mergeDateTimeComponent;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/refiners/AbstractMergeDateTimeRefiner.js
 var require_AbstractMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/common/refiners/AbstractMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/common/refiners/AbstractMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var abstractRefiners_1 = require_abstractRefiners();
     var mergingCalculation_1 = require_mergingCalculation();
-    var ENMergeDateTimeRefiner = class extends abstractRefiners_1.MergingRefiner {
+    var ENMergeDateTimeRefiner = class
+      extends abstractRefiners_1.MergingRefiner {
       shouldMergeResults(textBetween, currentResult, nextResult) {
-        return (currentResult.start.isOnlyDate() && nextResult.start.isOnlyTime() || nextResult.start.isOnlyDate() && currentResult.start.isOnlyTime()) && textBetween.match(this.patternBetween()) != null;
+        return (currentResult.start.isOnlyDate() &&
+            nextResult.start.isOnlyTime() ||
+          nextResult.start.isOnlyDate() && currentResult.start.isOnlyTime()) &&
+          textBetween.match(this.patternBetween()) != null;
       }
       mergeResults(textBetween, currentResult, nextResult) {
-        const result = currentResult.start.isOnlyDate() ? mergingCalculation_1.mergeDateTimeResult(currentResult, nextResult) : mergingCalculation_1.mergeDateTimeResult(nextResult, currentResult);
+        const result = currentResult.start.isOnlyDate()
+          ? mergingCalculation_1.mergeDateTimeResult(currentResult, nextResult)
+          : mergingCalculation_1.mergeDateTimeResult(nextResult, currentResult);
         result.index = currentResult.index;
         result.text = currentResult.text + textBetween + nextResult.text;
         return result;
       }
     };
     exports.default = ENMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/refiners/ENMergeDateTimeRefiner.js
 var require_ENMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/refiners/ENMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/refiners/ENMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateTimeRefiner_1 = __importDefault2(require_AbstractMergeDateTimeRefiner());
-    var ENMergeDateTimeRefiner = class extends AbstractMergeDateTimeRefiner_1.default {
+    var AbstractMergeDateTimeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateTimeRefiner(),
+    );
+    var ENMergeDateTimeRefiner = class
+      extends AbstractMergeDateTimeRefiner_1.default {
       patternBetween() {
         return new RegExp("^\\s*(T|at|after|before|on|of|,|-)?\\s*$");
       }
     };
     exports.default = ENMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/refiners/ExtractTimezoneAbbrRefiner.js
 var require_ExtractTimezoneAbbrRefiner = __commonJS({
-  "node_modules/chrono-node/dist/common/refiners/ExtractTimezoneAbbrRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/common/refiners/ExtractTimezoneAbbrRefiner.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var TIMEZONE_NAME_PATTERN = new RegExp("^\\s*,?\\s*\\(?([A-Z]{2,4})\\)?(?=\\W|$)", "i");
+    var TIMEZONE_NAME_PATTERN = new RegExp(
+      "^\\s*,?\\s*\\(?([A-Z]{2,4})\\)?(?=\\W|$)",
+      "i",
+    );
     var DEFAULT_TIMEZONE_ABBR_MAP = {
       ACDT: 630,
       ACST: 570,
@@ -3943,32 +4799,49 @@ var require_ExtractTimezoneAbbrRefiner = __commonJS({
       YAKT: 600,
       YAPT: 600,
       YEKST: 360,
-      YEKT: 360
+      YEKT: 360,
     };
     var ExtractTimezoneAbbrRefiner = class {
       constructor(timezoneOverrides) {
-        this.timezone = Object.assign(Object.assign({}, DEFAULT_TIMEZONE_ABBR_MAP), timezoneOverrides);
+        this.timezone = Object.assign(
+          Object.assign({}, DEFAULT_TIMEZONE_ABBR_MAP),
+          timezoneOverrides,
+        );
       }
       refine(context2, results) {
         var _a;
-        const timezoneOverrides = (_a = context2.option.timezones) !== null && _a !== void 0 ? _a : {};
+        const timezoneOverrides =
+          (_a = context2.option.timezones) !== null && _a !== void 0 ? _a : {};
         results.forEach((result) => {
           var _a2, _b;
-          const suffix = context2.text.substring(result.index + result.text.length);
+          const suffix = context2.text.substring(
+            result.index + result.text.length,
+          );
           const match = TIMEZONE_NAME_PATTERN.exec(suffix);
           if (!match) {
             return;
           }
           const timezoneAbbr = match[1].toUpperCase();
-          const extractedTimezoneOffset = (_b = (_a2 = timezoneOverrides[timezoneAbbr]) !== null && _a2 !== void 0 ? _a2 : this.timezone[timezoneAbbr]) !== null && _b !== void 0 ? _b : null;
+          const extractedTimezoneOffset =
+            (_b = (_a2 = timezoneOverrides[timezoneAbbr]) !== null &&
+                    _a2 !== void 0
+                  ? _a2
+                  : this.timezone[timezoneAbbr]) !== null && _b !== void 0
+              ? _b
+              : null;
           if (extractedTimezoneOffset === null) {
             return;
           }
           context2.debug(() => {
-            console.log(`Extracting timezone: '${timezoneAbbr}' into: ${extractedTimezoneOffset} for: ${result.start}`);
+            console.log(
+              `Extracting timezone: '${timezoneAbbr}' into: ${extractedTimezoneOffset} for: ${result.start}`,
+            );
           });
           const currentTimezoneOffset = result.start.get("timezoneOffset");
-          if (currentTimezoneOffset !== null && extractedTimezoneOffset != currentTimezoneOffset) {
+          if (
+            currentTimezoneOffset !== null &&
+            extractedTimezoneOffset != currentTimezoneOffset
+          ) {
             if (result.start.isCertain("timezoneOffset")) {
               return;
             }
@@ -3993,25 +4866,32 @@ var require_ExtractTimezoneAbbrRefiner = __commonJS({
       }
     };
     exports.default = ExtractTimezoneAbbrRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/refiners/ExtractTimezoneOffsetRefiner.js
 var require_ExtractTimezoneOffsetRefiner = __commonJS({
-  "node_modules/chrono-node/dist/common/refiners/ExtractTimezoneOffsetRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/common/refiners/ExtractTimezoneOffsetRefiner.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var TIMEZONE_OFFSET_PATTERN = new RegExp("^\\s*(?:\\(?(?:GMT|UTC)\\s?)?([+-])(\\d{1,2})(?::?(\\d{2}))?\\)?", "i");
+    var TIMEZONE_OFFSET_PATTERN = new RegExp(
+      "^\\s*(?:\\(?(?:GMT|UTC)\\s?)?([+-])(\\d{1,2})(?::?(\\d{2}))?\\)?",
+      "i",
+    );
     var TIMEZONE_OFFSET_SIGN_GROUP = 1;
     var TIMEZONE_OFFSET_HOUR_OFFSET_GROUP = 2;
     var TIMEZONE_OFFSET_MINUTE_OFFSET_GROUP = 3;
     var ExtractTimezoneOffsetRefiner = class {
       refine(context2, results) {
-        results.forEach(function(result) {
+        results.forEach(function (result) {
           if (result.start.isCertain("timezoneOffset")) {
             return;
           }
-          const suffix = context2.text.substring(result.index + result.text.length);
+          const suffix = context2.text.substring(
+            result.index + result.text.length,
+          );
           const match = TIMEZONE_OFFSET_PATTERN.exec(suffix);
           if (!match) {
             return;
@@ -4020,7 +4900,9 @@ var require_ExtractTimezoneOffsetRefiner = __commonJS({
             console.log(`Extracting timezone: '${match[0]}' into : ${result}`);
           });
           const hourOffset = parseInt(match[TIMEZONE_OFFSET_HOUR_OFFSET_GROUP]);
-          const minuteOffset = parseInt(match[TIMEZONE_OFFSET_MINUTE_OFFSET_GROUP] || "0");
+          const minuteOffset = parseInt(
+            match[TIMEZONE_OFFSET_MINUTE_OFFSET_GROUP] || "0",
+          );
           let timezoneOffset = hourOffset * 60 + minuteOffset;
           if (timezoneOffset > 14 * 60) {
             return;
@@ -4038,12 +4920,14 @@ var require_ExtractTimezoneOffsetRefiner = __commonJS({
       }
     };
     exports.default = ExtractTimezoneOffsetRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/refiners/OverlapRemovalRefiner.js
 var require_OverlapRemovalRefiner = __commonJS({
-  "node_modules/chrono-node/dist/common/refiners/OverlapRemovalRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/common/refiners/OverlapRemovalRefiner.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var OverlapRemovalRefiner = class {
@@ -4071,16 +4955,19 @@ var require_OverlapRemovalRefiner = __commonJS({
       }
     };
     exports.default = OverlapRemovalRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/refiners/ForwardDateRefiner.js
 var require_ForwardDateRefiner = __commonJS({
-  "node_modules/chrono-node/dist/common/refiners/ForwardDateRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/common/refiners/ForwardDateRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
     var ForwardDateRefiner = class {
@@ -4088,23 +4975,37 @@ var require_ForwardDateRefiner = __commonJS({
         if (!context2.option.forwardDate) {
           return results;
         }
-        results.forEach(function(result) {
+        results.forEach(function (result) {
           let refMoment = dayjs_1.default(context2.refDate);
-          if (result.start.isOnlyDayMonthComponent() && refMoment.isAfter(result.start.dayjs())) {
-            for (let i4 = 0; i4 < 3 && refMoment.isAfter(result.start.dayjs()); i4++) {
+          if (
+            result.start.isOnlyDayMonthComponent() &&
+            refMoment.isAfter(result.start.dayjs())
+          ) {
+            for (
+              let i4 = 0;
+              i4 < 3 && refMoment.isAfter(result.start.dayjs());
+              i4++
+            ) {
               result.start.imply("year", result.start.get("year") + 1);
               context2.debug(() => {
-                console.log(`Forward yearly adjusted for ${result} (${result.start})`);
+                console.log(
+                  `Forward yearly adjusted for ${result} (${result.start})`,
+                );
               });
               if (result.end && !result.end.isCertain("year")) {
                 result.end.imply("year", result.end.get("year") + 1);
                 context2.debug(() => {
-                  console.log(`Forward yearly adjusted for ${result} (${result.end})`);
+                  console.log(
+                    `Forward yearly adjusted for ${result} (${result.end})`,
+                  );
                 });
               }
             }
           }
-          if (result.start.isOnlyWeekdayComponent() && refMoment.isAfter(result.start.dayjs())) {
+          if (
+            result.start.isOnlyWeekdayComponent() &&
+            refMoment.isAfter(result.start.dayjs())
+          ) {
             if (refMoment.day() >= result.start.get("weekday")) {
               refMoment = refMoment.day(result.start.get("weekday") + 7);
             } else {
@@ -4114,7 +5015,9 @@ var require_ForwardDateRefiner = __commonJS({
             result.start.imply("month", refMoment.month() + 1);
             result.start.imply("year", refMoment.year());
             context2.debug(() => {
-              console.log(`Forward weekly adjusted for ${result} (${result.start})`);
+              console.log(
+                `Forward weekly adjusted for ${result} (${result.start})`,
+              );
             });
             if (result.end && result.end.isOnlyWeekdayComponent()) {
               if (refMoment.day() > result.end.get("weekday")) {
@@ -4126,7 +5029,9 @@ var require_ForwardDateRefiner = __commonJS({
               result.end.imply("month", refMoment.month() + 1);
               result.end.imply("year", refMoment.year());
               context2.debug(() => {
-                console.log(`Forward weekly adjusted for ${result} (${result.end})`);
+                console.log(
+                  `Forward weekly adjusted for ${result} (${result.end})`,
+                );
               });
             }
           }
@@ -4135,12 +5040,14 @@ var require_ForwardDateRefiner = __commonJS({
       }
     };
     exports.default = ForwardDateRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/refiners/UnlikelyFormatFilter.js
 var require_UnlikelyFormatFilter = __commonJS({
-  "node_modules/chrono-node/dist/common/refiners/UnlikelyFormatFilter.js"(exports) {
+  "node_modules/chrono-node/dist/common/refiners/UnlikelyFormatFilter.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var abstractRefiners_1 = require_abstractRefiners();
@@ -4176,13 +5083,20 @@ var require_UnlikelyFormatFilter = __commonJS({
       isStrictModeValid(context2, result) {
         if (result.start.isOnlyWeekdayComponent()) {
           context2.debug(() => {
-            console.log(`(Strict) Removing weekday only component: ${result} (${result.end})`);
+            console.log(
+              `(Strict) Removing weekday only component: ${result} (${result.end})`,
+            );
           });
           return false;
         }
-        if (result.start.isOnlyTime() && (!result.start.isCertain("hour") || !result.start.isCertain("minute"))) {
+        if (
+          result.start.isOnlyTime() &&
+          (!result.start.isCertain("hour") || !result.start.isCertain("minute"))
+        ) {
           context2.debug(() => {
-            console.log(`(Strict) Removing uncertain time component: ${result} (${result.end})`);
+            console.log(
+              `(Strict) Removing uncertain time component: ${result} (${result.end})`,
+            );
           });
           return false;
         }
@@ -4190,7 +5104,7 @@ var require_UnlikelyFormatFilter = __commonJS({
       }
     };
     exports.default = UnlikelyFormatFilter;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/parsers/ISOFormatParser.js
@@ -4198,8 +5112,12 @@ var require_ISOFormatParser = __commonJS({
   "node_modules/chrono-node/dist/common/parsers/ISOFormatParser.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp("([0-9]{4})\\-([0-9]{1,2})\\-([0-9]{1,2})(?:T([0-9]{1,2}):([0-9]{1,2})(?::([0-9]{1,2})(?:\\.(\\d{1,4}))?)?(?:Z|([+-]\\d{2}):?(\\d{2})?)?)?(?=\\W|$)", "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      "([0-9]{4})\\-([0-9]{1,2})\\-([0-9]{1,2})(?:T([0-9]{1,2}):([0-9]{1,2})(?::([0-9]{1,2})(?:\\.(\\d{1,4}))?)?(?:Z|([+-]\\d{2}):?(\\d{2})?)?)?(?=\\W|$)",
+      "i",
+    );
     var YEAR_NUMBER_GROUP = 1;
     var MONTH_NUMBER_GROUP = 2;
     var DATE_NUMBER_GROUP = 3;
@@ -4209,7 +5127,8 @@ var require_ISOFormatParser = __commonJS({
     var MILLISECOND_NUMBER_GROUP = 7;
     var TZD_HOUR_OFFSET_GROUP = 8;
     var TZD_MINUTE_OFFSET_GROUP = 9;
-    var ISOFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ISOFormatParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -4225,7 +5144,9 @@ var require_ISOFormatParser = __commonJS({
             components["second"] = parseInt(match[SECOND_NUMBER_GROUP]);
           }
           if (match[MILLISECOND_NUMBER_GROUP] != null) {
-            components["millisecond"] = parseInt(match[MILLISECOND_NUMBER_GROUP]);
+            components["millisecond"] = parseInt(
+              match[MILLISECOND_NUMBER_GROUP],
+            );
           }
           if (match[TZD_HOUR_OFFSET_GROUP] == null) {
             components["timezoneOffset"] = 0;
@@ -4248,16 +5169,19 @@ var require_ISOFormatParser = __commonJS({
       }
     };
     exports.default = ISOFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/refiners/MergeWeekdayComponentRefiner.js
 var require_MergeWeekdayComponentRefiner = __commonJS({
-  "node_modules/chrono-node/dist/common/refiners/MergeWeekdayComponentRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/common/refiners/MergeWeekdayComponentRefiner.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var abstractRefiners_1 = require_abstractRefiners();
-    var MergeWeekdayComponentRefiner = class extends abstractRefiners_1.MergingRefiner {
+    var MergeWeekdayComponentRefiner = class
+      extends abstractRefiners_1.MergingRefiner {
       mergeResults(textBetween, currentResult, nextResult) {
         const newResult = nextResult.clone();
         newResult.index = currentResult.index;
@@ -4269,54 +5193,90 @@ var require_MergeWeekdayComponentRefiner = __commonJS({
         return newResult;
       }
       shouldMergeResults(textBetween, currentResult, nextResult) {
-        const weekdayThenNormalDate = currentResult.start.isOnlyWeekdayComponent() && !currentResult.start.isCertain("hour") && nextResult.start.isCertain("day");
+        const weekdayThenNormalDate =
+          currentResult.start.isOnlyWeekdayComponent() &&
+          !currentResult.start.isCertain("hour") &&
+          nextResult.start.isCertain("day");
         return weekdayThenNormalDate && textBetween.match(/^,?\s*$/) != null;
       }
     };
     exports.default = MergeWeekdayComponentRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/configurations.js
 var require_configurations = __commonJS({
   "node_modules/chrono-node/dist/configurations.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.includeCommonConfiguration = void 0;
-    var ExtractTimezoneAbbrRefiner_1 = __importDefault2(require_ExtractTimezoneAbbrRefiner());
-    var ExtractTimezoneOffsetRefiner_1 = __importDefault2(require_ExtractTimezoneOffsetRefiner());
-    var OverlapRemovalRefiner_1 = __importDefault2(require_OverlapRemovalRefiner());
+    var ExtractTimezoneAbbrRefiner_1 = __importDefault2(
+      require_ExtractTimezoneAbbrRefiner(),
+    );
+    var ExtractTimezoneOffsetRefiner_1 = __importDefault2(
+      require_ExtractTimezoneOffsetRefiner(),
+    );
+    var OverlapRemovalRefiner_1 = __importDefault2(
+      require_OverlapRemovalRefiner(),
+    );
     var ForwardDateRefiner_1 = __importDefault2(require_ForwardDateRefiner());
-    var UnlikelyFormatFilter_1 = __importDefault2(require_UnlikelyFormatFilter());
+    var UnlikelyFormatFilter_1 = __importDefault2(
+      require_UnlikelyFormatFilter(),
+    );
     var ISOFormatParser_1 = __importDefault2(require_ISOFormatParser());
-    var MergeWeekdayComponentRefiner_1 = __importDefault2(require_MergeWeekdayComponentRefiner());
+    var MergeWeekdayComponentRefiner_1 = __importDefault2(
+      require_MergeWeekdayComponentRefiner(),
+    );
     function includeCommonConfiguration(configuration, strictMode = false) {
       configuration.parsers.unshift(new ISOFormatParser_1.default());
-      configuration.refiners.unshift(new MergeWeekdayComponentRefiner_1.default());
-      configuration.refiners.unshift(new ExtractTimezoneAbbrRefiner_1.default());
-      configuration.refiners.unshift(new ExtractTimezoneOffsetRefiner_1.default());
+      configuration.refiners.unshift(
+        new MergeWeekdayComponentRefiner_1.default(),
+      );
+      configuration.refiners.unshift(
+        new ExtractTimezoneAbbrRefiner_1.default(),
+      );
+      configuration.refiners.unshift(
+        new ExtractTimezoneOffsetRefiner_1.default(),
+      );
       configuration.refiners.unshift(new OverlapRemovalRefiner_1.default());
       configuration.refiners.push(new OverlapRemovalRefiner_1.default());
       configuration.refiners.push(new ForwardDateRefiner_1.default());
-      configuration.refiners.push(new UnlikelyFormatFilter_1.default(strictMode));
+      configuration.refiners.push(
+        new UnlikelyFormatFilter_1.default(strictMode),
+      );
       return configuration;
     }
     exports.includeCommonConfiguration = includeCommonConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/casualReferences.js
 var require_casualReferences = __commonJS({
   "node_modules/chrono-node/dist/common/casualReferences.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.noon = exports.morning = exports.midnight = exports.yesterdayEvening = exports.evening = exports.lastNight = exports.tonight = exports.theDayAfter = exports.tomorrow = exports.theDayBefore = exports.yesterday = exports.today = exports.now = void 0;
+    exports.noon =
+      exports.morning =
+      exports.midnight =
+      exports.yesterdayEvening =
+      exports.evening =
+      exports.lastNight =
+      exports.tonight =
+      exports.theDayAfter =
+      exports.tomorrow =
+      exports.theDayBefore =
+      exports.yesterday =
+      exports.today =
+      exports.now =
+        void 0;
     var results_1 = require_results();
     var dayjs_1 = __importDefault2(require_dayjs_min());
     var dayjs_2 = require_dayjs();
@@ -4420,51 +5380,73 @@ var require_casualReferences = __commonJS({
       return component;
     }
     exports.noon = noon;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENCasualDateParser.js
 var require_ENCasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENCasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENCasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var dayjs_2 = require_dayjs();
     var references = __importStar2(require_casualReferences());
-    var PATTERN = /(now|today|tonight|tomorrow|tmr|tmrw|yesterday|last\s*night)(?=\W|$)/i;
-    var ENCasualDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN =
+      /(now|today|tonight|tomorrow|tmr|tmrw|yesterday|last\s*night)(?=\W|$)/i;
+    var ENCasualDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
         return PATTERN;
       }
@@ -4499,23 +5481,29 @@ var require_ENCasualDateParser = __commonJS({
       }
     };
     exports.default = ENCasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENCasualTimeParser.js
 var require_ENCasualTimeParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENCasualTimeParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENCasualTimeParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var index_1 = require_dist();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var dayjs_1 = __importDefault2(require_dayjs_min());
     var dayjs_2 = require_dayjs();
-    var PATTERN = /(?:this)?\s{0,3}(morning|afternoon|evening|night|midnight|noon)(?=\W|$)/i;
-    var ENCasualTimeParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN =
+      /(?:this)?\s{0,3}(morning|afternoon|evening|night|midnight|noon)(?=\W|$)/i;
+    var ENCasualTimeParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -4551,7 +5539,7 @@ var require_ENCasualTimeParser = __commonJS({
       }
     };
     exports.default = ENCasualTimeParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/calculation/weekdays.js
@@ -4559,7 +5547,12 @@ var require_weekdays = __commonJS({
   "node_modules/chrono-node/dist/common/calculation/weekdays.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.getBackwardDaysToWeekday = exports.getDaysForwardToWeekday = exports.getDaysToWeekdayClosest = exports.getDaysToWeekday = exports.createParsingComponentsAtWeekday = void 0;
+    exports.getBackwardDaysToWeekday =
+      exports.getDaysForwardToWeekday =
+      exports.getDaysToWeekdayClosest =
+      exports.getDaysToWeekday =
+      exports.createParsingComponentsAtWeekday =
+        void 0;
     var index_1 = require_dist();
     var results_1 = require_results();
     var timeunits_1 = require_timeunits();
@@ -4567,7 +5560,9 @@ var require_weekdays = __commonJS({
       const refDate = reference.getDateWithAdjustedTimezone();
       const daysToWeekday = getDaysToWeekday(refDate, weekday, modifier);
       let components = new results_1.ParsingComponents(reference);
-      components = timeunits_1.addImpliedTimeUnits(components, { "day": daysToWeekday });
+      components = timeunits_1.addImpliedTimeUnits(components, {
+        "day": daysToWeekday,
+      });
       components.assign("weekday", weekday);
       return components;
     }
@@ -4584,10 +5579,12 @@ var require_weekdays = __commonJS({
             return weekday == index_1.Weekday.SUNDAY ? 7 : weekday;
           }
           if (refWeekday == index_1.Weekday.SATURDAY) {
-            if (weekday == index_1.Weekday.SATURDAY)
+            if (weekday == index_1.Weekday.SATURDAY) {
               return 7;
-            if (weekday == index_1.Weekday.SUNDAY)
+            }
+            if (weekday == index_1.Weekday.SUNDAY) {
               return 8;
+            }
             return 1 + weekday;
           }
           if (weekday < refWeekday && weekday != index_1.Weekday.SUNDAY) {
@@ -4623,23 +5620,32 @@ var require_weekdays = __commonJS({
       return backwardCount;
     }
     exports.getBackwardDaysToWeekday = getBackwardDaysToWeekday;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENWeekdayParser.js
 var require_ENWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var weekdays_1 = require_weekdays();
-    var PATTERN = new RegExp(`(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:on\\s*?)?(?:(this|last|past|next)\\s*)?(${pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)})(?:\\s*(?:\\,|\\)|\\\uFF09))?(?:\\s*(this|last|past|next)\\s*week)?(?=\\W|$)`, "i");
+    var PATTERN = new RegExp(
+      `(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:on\\s*?)?(?:(this|last|past|next)\\s*)?(${
+        pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)
+      })(?:\\s*(?:\\,|\\)|\\\uFF09))?(?:\\s*(this|last|past|next)\\s*week)?(?=\\W|$)`,
+      "i",
+    );
     var PREFIX_GROUP = 1;
     var WEEKDAY_GROUP = 2;
     var POSTFIX_GROUP = 3;
-    var ENWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ENWeekdayParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -4659,30 +5665,45 @@ var require_ENWeekdayParser = __commonJS({
         } else if (modifierWord == "this") {
           modifier = "this";
         }
-        return weekdays_1.createParsingComponentsAtWeekday(context2.reference, weekday, modifier);
+        return weekdays_1.createParsingComponentsAtWeekday(
+          context2.reference,
+          weekday,
+          modifier,
+        );
       }
     };
     exports.default = ENWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENRelativeDateFormatParser.js
 var require_ENRelativeDateFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENRelativeDateFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENRelativeDateFormatParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants();
     var results_1 = require_results();
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var pattern_1 = require_pattern();
-    var PATTERN = new RegExp(`(this|last|past|next|after\\s*this)\\s*(${pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)})(?=\\s*)(?=\\W|$)`, "i");
+    var PATTERN = new RegExp(
+      `(this|last|past|next|after\\s*this)\\s*(${
+        pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)
+      })(?=\\s*)(?=\\W|$)`,
+      "i",
+    );
     var MODIFIER_WORD_GROUP = 1;
     var RELATIVE_WORD_GROUP = 2;
-    var ENRelativeDateFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ENRelativeDateFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -4693,12 +5714,18 @@ var require_ENRelativeDateFormatParser = __commonJS({
         if (modifier == "next" || modifier.startsWith("after")) {
           const timeUnits = {};
           timeUnits[timeunit] = 1;
-          return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+          return results_1.ParsingComponents.createRelativeFromReference(
+            context2.reference,
+            timeUnits,
+          );
         }
         if (modifier == "last" || modifier == "past") {
           const timeUnits = {};
           timeUnits[timeunit] = -1;
-          return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+          return results_1.ParsingComponents.createRelativeFromReference(
+            context2.reference,
+            timeUnits,
+          );
         }
         const components = context2.createParsingComponents();
         let date = dayjs_1.default(context2.reference.instant);
@@ -4723,7 +5750,7 @@ var require_ENRelativeDateFormatParser = __commonJS({
       }
     };
     exports.default = ENRelativeDateFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/chrono.js
@@ -4743,7 +5770,7 @@ var require_chrono = __commonJS({
       clone() {
         return new Chrono({
           parsers: [...this.parsers],
-          refiners: [...this.refiners]
+          refiners: [...this.refiners],
         });
       }
       parseDate(text, referenceDate, option) {
@@ -4760,7 +5787,7 @@ var require_chrono = __commonJS({
         results.sort((a3, b2) => {
           return a3.index - b2.index;
         });
-        this.refiners.forEach(function(refiner) {
+        this.refiners.forEach(function (refiner) {
           results = refiner.refine(context2, results);
         });
         return results;
@@ -4772,7 +5799,8 @@ var require_chrono = __commonJS({
         let remainingText = context2.text;
         let match = pattern.exec(remainingText);
         while (match) {
-          const index = match.index + originalText.length - remainingText.length;
+          const index = match.index + originalText.length -
+            remainingText.length;
           match.index = index;
           const result = parser.extract(context2, match);
           if (!result) {
@@ -4787,11 +5815,21 @@ var require_chrono = __commonJS({
             parsedResult = context2.createParsingResult(match.index, match[0]);
             parsedResult.start = result;
           } else {
-            parsedResult = context2.createParsingResult(match.index, match[0], result);
+            parsedResult = context2.createParsingResult(
+              match.index,
+              match[0],
+              result,
+            );
           }
-          context2.debug(() => console.log(`${parser.constructor.name} extracted result ${parsedResult}`));
+          context2.debug(() =>
+            console.log(
+              `${parser.constructor.name} extracted result ${parsedResult}`,
+            )
+          );
           results.push(parsedResult);
-          remainingText = originalText.substring(index + parsedResult.text.length);
+          remainingText = originalText.substring(
+            index + parsedResult.text.length,
+          );
           match = pattern.exec(remainingText);
         }
         return results;
@@ -4811,11 +5849,28 @@ var require_chrono = __commonJS({
         }
         return new results_1.ParsingComponents(this.reference, components);
       }
-      createParsingResult(index, textOrEndIndex, startComponents, endComponents) {
-        const text = typeof textOrEndIndex === "string" ? textOrEndIndex : this.text.substring(index, textOrEndIndex);
-        const start = startComponents ? this.createParsingComponents(startComponents) : null;
-        const end = endComponents ? this.createParsingComponents(endComponents) : null;
-        return new results_1.ParsingResult(this.reference, index, text, start, end);
+      createParsingResult(
+        index,
+        textOrEndIndex,
+        startComponents,
+        endComponents,
+      ) {
+        const text = typeof textOrEndIndex === "string"
+          ? textOrEndIndex
+          : this.text.substring(index, textOrEndIndex);
+        const start = startComponents
+          ? this.createParsingComponents(startComponents)
+          : null;
+        const end = endComponents
+          ? this.createParsingComponents(endComponents)
+          : null;
+        return new results_1.ParsingResult(
+          this.reference,
+          index,
+          text,
+          start,
+          end,
+        );
       }
       debug(block) {
         if (this.option.debug) {
@@ -4829,16 +5884,21 @@ var require_chrono = __commonJS({
       }
     };
     exports.ParsingContext = ParsingContext;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/common/parsers/SlashDateFormatParser.js
 var require_SlashDateFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/common/parsers/SlashDateFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/common/parsers/SlashDateFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var years_1 = require_years();
-    var PATTERN = new RegExp("([^\\d]|^)([0-3]{0,1}[0-9]{1})[\\/\\.\\-]([0-3]{0,1}[0-9]{1})(?:[\\/\\.\\-]([0-9]{4}|[0-9]{2}))?(\\W|$)", "i");
+    var PATTERN = new RegExp(
+      "([^\\d]|^)([0-3]{0,1}[0-9]{1})[\\/\\.\\-]([0-3]{0,1}[0-9]{1})(?:[\\/\\.\\-]([0-9]{4}|[0-9]{2}))?(\\W|$)",
+      "i",
+    );
     var OPENING_GROUP = 1;
     var ENDING_GROUP = 5;
     var FIRST_NUMBERS_GROUP = 2;
@@ -4846,8 +5906,12 @@ var require_SlashDateFormatParser = __commonJS({
     var YEAR_GROUP = 4;
     var SlashDateFormatParser = class {
       constructor(littleEndian) {
-        this.groupNumberMonth = littleEndian ? SECOND_NUMBERS_GROUP : FIRST_NUMBERS_GROUP;
-        this.groupNumberDay = littleEndian ? FIRST_NUMBERS_GROUP : SECOND_NUMBERS_GROUP;
+        this.groupNumberMonth = littleEndian
+          ? SECOND_NUMBERS_GROUP
+          : FIRST_NUMBERS_GROUP;
+        this.groupNumberDay = littleEndian
+          ? FIRST_NUMBERS_GROUP
+          : SECOND_NUMBERS_GROUP;
       }
       pattern() {
         return PATTERN;
@@ -4858,7 +5922,11 @@ var require_SlashDateFormatParser = __commonJS({
           return;
         }
         const index = match.index + match[OPENING_GROUP].length;
-        const text = match[0].substr(match[OPENING_GROUP].length, match[0].length - match[OPENING_GROUP].length - match[ENDING_GROUP].length);
+        const text = match[0].substr(
+          match[OPENING_GROUP].length,
+          match[0].length - match[OPENING_GROUP].length -
+            match[ENDING_GROUP].length,
+        );
         if (text.match(/^\d\.\d$/) || text.match(/^\d\.\d{1,2}\.\d{1,2}\s*$/)) {
           return;
         }
@@ -4887,27 +5955,39 @@ var require_SlashDateFormatParser = __commonJS({
           const year = years_1.findMostLikelyADYear(rawYearNumber);
           result.start.assign("year", year);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           result.start.imply("year", year);
         }
         return result;
       }
     };
     exports.default = SlashDateFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitCasualRelativeFormatParser.js
 var require_ENTimeUnitCasualRelativeFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitCasualRelativeFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/parsers/ENTimeUnitCasualRelativeFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
-    var PATTERN = new RegExp(`(this|last|past|next|after|\\+|-)\\s*(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`, "i");
-    var ENTimeUnitCasualRelativeFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      `(this|last|past|next|after|\\+|-)\\s*(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`,
+      "i",
+    );
+    var ENTimeUnitCasualRelativeFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -4921,16 +6001,21 @@ var require_ENTimeUnitCasualRelativeFormatParser = __commonJS({
             timeUnits = timeunits_1.reverseTimeUnits(timeUnits);
             break;
         }
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = ENTimeUnitCasualRelativeFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/refiners/ENMergeRelativeDateRefiner.js
 var require_ENMergeRelativeDateRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/en/refiners/ENMergeRelativeDateRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/en/refiners/ENMergeRelativeDateRefiner.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var abstractRefiners_1 = require_abstractRefiners();
@@ -4943,7 +6028,8 @@ var require_ENMergeRelativeDateRefiner = __commonJS({
     function hasImpliedLaterReferenceDate(result) {
       return result.text.match(/\s+(after|since)$/i) != null;
     }
-    var ENMergeRelativeDateRefiner = class extends abstractRefiners_1.MergingRefiner {
+    var ENMergeRelativeDateRefiner = class
+      extends abstractRefiners_1.MergingRefiner {
       patternBetween() {
         return /^\s*$/i;
       }
@@ -4951,53 +6037,102 @@ var require_ENMergeRelativeDateRefiner = __commonJS({
         if (!textBetween.match(this.patternBetween())) {
           return false;
         }
-        if (!hasImpliedEarlierReferenceDate(currentResult) && !hasImpliedLaterReferenceDate(currentResult)) {
+        if (
+          !hasImpliedEarlierReferenceDate(currentResult) &&
+          !hasImpliedLaterReferenceDate(currentResult)
+        ) {
           return false;
         }
-        return !!nextResult.start.get("day") && !!nextResult.start.get("month") && !!nextResult.start.get("year");
+        return !!nextResult.start.get("day") &&
+          !!nextResult.start.get("month") && !!nextResult.start.get("year");
       }
       mergeResults(textBetween, currentResult, nextResult) {
         let timeUnits = constants_1.parseTimeUnits(currentResult.text);
         if (hasImpliedEarlierReferenceDate(currentResult)) {
           timeUnits = timeunits_1.reverseTimeUnits(timeUnits);
         }
-        const components = results_1.ParsingComponents.createRelativeFromReference(new results_1.ReferenceWithTimezone(nextResult.start.date()), timeUnits);
-        return new results_1.ParsingResult(nextResult.reference, currentResult.index, `${currentResult.text}${textBetween}${nextResult.text}`, components);
+        const components = results_1.ParsingComponents
+          .createRelativeFromReference(
+            new results_1.ReferenceWithTimezone(nextResult.start.date()),
+            timeUnits,
+          );
+        return new results_1.ParsingResult(
+          nextResult.reference,
+          currentResult.index,
+          `${currentResult.text}${textBetween}${nextResult.text}`,
+          components,
+        );
       }
     };
     exports.default = ENMergeRelativeDateRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/en/index.js
 var require_en = __commonJS({
   "node_modules/chrono-node/dist/locales/en/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.GB = exports.strict = exports.casual = void 0;
-    var ENTimeUnitWithinFormatParser_1 = __importDefault2(require_ENTimeUnitWithinFormatParser());
-    var ENMonthNameLittleEndianParser_1 = __importDefault2(require_ENMonthNameLittleEndianParser());
-    var ENMonthNameMiddleEndianParser_1 = __importDefault2(require_ENMonthNameMiddleEndianParser());
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.GB =
+      exports.strict =
+      exports.casual =
+        void 0;
+    var ENTimeUnitWithinFormatParser_1 = __importDefault2(
+      require_ENTimeUnitWithinFormatParser(),
+    );
+    var ENMonthNameLittleEndianParser_1 = __importDefault2(
+      require_ENMonthNameLittleEndianParser(),
+    );
+    var ENMonthNameMiddleEndianParser_1 = __importDefault2(
+      require_ENMonthNameMiddleEndianParser(),
+    );
     var ENMonthNameParser_1 = __importDefault2(require_ENMonthNameParser());
-    var ENCasualYearMonthDayParser_1 = __importDefault2(require_ENCasualYearMonthDayParser());
-    var ENSlashMonthFormatParser_1 = __importDefault2(require_ENSlashMonthFormatParser());
-    var ENTimeExpressionParser_1 = __importDefault2(require_ENTimeExpressionParser());
-    var ENTimeUnitAgoFormatParser_1 = __importDefault2(require_ENTimeUnitAgoFormatParser());
-    var ENTimeUnitLaterFormatParser_1 = __importDefault2(require_ENTimeUnitLaterFormatParser());
-    var ENMergeDateRangeRefiner_1 = __importDefault2(require_ENMergeDateRangeRefiner());
-    var ENMergeDateTimeRefiner_1 = __importDefault2(require_ENMergeDateTimeRefiner());
+    var ENCasualYearMonthDayParser_1 = __importDefault2(
+      require_ENCasualYearMonthDayParser(),
+    );
+    var ENSlashMonthFormatParser_1 = __importDefault2(
+      require_ENSlashMonthFormatParser(),
+    );
+    var ENTimeExpressionParser_1 = __importDefault2(
+      require_ENTimeExpressionParser(),
+    );
+    var ENTimeUnitAgoFormatParser_1 = __importDefault2(
+      require_ENTimeUnitAgoFormatParser(),
+    );
+    var ENTimeUnitLaterFormatParser_1 = __importDefault2(
+      require_ENTimeUnitLaterFormatParser(),
+    );
+    var ENMergeDateRangeRefiner_1 = __importDefault2(
+      require_ENMergeDateRangeRefiner(),
+    );
+    var ENMergeDateTimeRefiner_1 = __importDefault2(
+      require_ENMergeDateTimeRefiner(),
+    );
     var configurations_1 = require_configurations();
     var ENCasualDateParser_1 = __importDefault2(require_ENCasualDateParser());
     var ENCasualTimeParser_1 = __importDefault2(require_ENCasualTimeParser());
     var ENWeekdayParser_1 = __importDefault2(require_ENWeekdayParser());
-    var ENRelativeDateFormatParser_1 = __importDefault2(require_ENRelativeDateFormatParser());
+    var ENRelativeDateFormatParser_1 = __importDefault2(
+      require_ENRelativeDateFormatParser(),
+    );
     var chrono_1 = require_chrono();
-    var SlashDateFormatParser_1 = __importDefault2(require_SlashDateFormatParser());
-    var ENTimeUnitCasualRelativeFormatParser_1 = __importDefault2(require_ENTimeUnitCasualRelativeFormatParser());
-    var ENMergeRelativeDateRefiner_1 = __importDefault2(require_ENMergeRelativeDateRefiner());
+    var SlashDateFormatParser_1 = __importDefault2(
+      require_SlashDateFormatParser(),
+    );
+    var ENTimeUnitCasualRelativeFormatParser_1 = __importDefault2(
+      require_ENTimeUnitCasualRelativeFormatParser(),
+    );
+    var ENMergeRelativeDateRefiner_1 = __importDefault2(
+      require_ENMergeRelativeDateRefiner(),
+    );
     exports.casual = new chrono_1.Chrono(createCasualConfiguration(false));
     exports.strict = new chrono_1.Chrono(createConfiguration(true, false));
     exports.GB = new chrono_1.Chrono(createConfiguration(false, true));
@@ -5015,7 +6150,9 @@ var require_en = __commonJS({
       option.parsers.unshift(new ENCasualTimeParser_1.default());
       option.parsers.unshift(new ENMonthNameParser_1.default());
       option.parsers.unshift(new ENRelativeDateFormatParser_1.default());
-      option.parsers.unshift(new ENTimeUnitCasualRelativeFormatParser_1.default());
+      option.parsers.unshift(
+        new ENTimeUnitCasualRelativeFormatParser_1.default(),
+      );
       return option;
     }
     exports.createCasualConfiguration = createCasualConfiguration;
@@ -5031,22 +6168,29 @@ var require_en = __commonJS({
           new ENSlashMonthFormatParser_1.default(),
           new ENTimeExpressionParser_1.default(strictMode),
           new ENTimeUnitAgoFormatParser_1.default(strictMode),
-          new ENTimeUnitLaterFormatParser_1.default(strictMode)
+          new ENTimeUnitLaterFormatParser_1.default(strictMode),
         ],
-        refiners: [new ENMergeRelativeDateRefiner_1.default(), new ENMergeDateTimeRefiner_1.default(), new ENMergeDateRangeRefiner_1.default()]
+        refiners: [
+          new ENMergeRelativeDateRefiner_1.default(),
+          new ENMergeDateTimeRefiner_1.default(),
+          new ENMergeDateRangeRefiner_1.default(),
+        ],
       }, strictMode);
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/parsers/DETimeExpressionParser.js
 var require_DETimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/parsers/DETimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/parsers/DETimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var AbstractTimeExpressionParser_1 = require_AbstractTimeExpressionParser();
-    var DETimeExpressionParser = class extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
+    var DETimeExpressionParser = class
+      extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
       primaryPrefix() {
         return "(?:(?:um|von)\\s*)?";
       }
@@ -5061,7 +6205,7 @@ var require_DETimeExpressionParser = __commonJS({
       }
     };
     exports.default = DETimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/constants.js
@@ -5069,7 +6213,17 @@ var require_constants2 = __commonJS({
   "node_modules/chrono-node/dist/locales/de/constants.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseTimeUnits = exports.TIME_UNITS_PATTERN = exports.parseYear = exports.YEAR_PATTERN = exports.parseNumberPattern = exports.NUMBER_PATTERN = exports.TIME_UNIT_DICTIONARY = exports.INTEGER_WORD_DICTIONARY = exports.MONTH_DICTIONARY = exports.WEEKDAY_DICTIONARY = void 0;
+    exports.parseTimeUnits =
+      exports.TIME_UNITS_PATTERN =
+      exports.parseYear =
+      exports.YEAR_PATTERN =
+      exports.parseNumberPattern =
+      exports.NUMBER_PATTERN =
+      exports.TIME_UNIT_DICTIONARY =
+      exports.INTEGER_WORD_DICTIONARY =
+      exports.MONTH_DICTIONARY =
+      exports.WEEKDAY_DICTIONARY =
+        void 0;
     var pattern_1 = require_pattern();
     var years_1 = require_years();
     exports.WEEKDAY_DICTIONARY = {
@@ -5086,7 +6240,7 @@ var require_constants2 = __commonJS({
       "freitag": 5,
       "fr": 5,
       "samstag": 6,
-      "sa": 6
+      "sa": 6,
     };
     exports.MONTH_DICTIONARY = {
       "januar": 1,
@@ -5130,7 +6284,7 @@ var require_constants2 = __commonJS({
       "nov.": 11,
       "dezember": 12,
       "dez": 12,
-      "dez.": 12
+      "dez.": 12,
     };
     exports.INTEGER_WORD_DICTIONARY = {
       "eins": 1,
@@ -5150,7 +6304,7 @@ var require_constants2 = __commonJS({
       "zehn": 10,
       "elf": 11,
       "zw\xF6lf": 12,
-      "zwoelf": 12
+      "zwoelf": 12,
     };
     exports.TIME_UNIT_DICTIONARY = {
       sek: "second",
@@ -5182,9 +6336,11 @@ var require_constants2 = __commonJS({
       jahr: "year",
       jahre: "year",
       jahren: "year",
-      jahres: "year"
+      jahres: "year",
     };
-    exports.NUMBER_PATTERN = `(?:${pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)}|[0-9]+|[0-9]+\\.[0-9]+|half(?:\\s*an?)?|an?\\b(?:\\s*few)?|few|several|a?\\s*couple\\s*(?:of)?)`;
+    exports.NUMBER_PATTERN = `(?:${
+      pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)
+    }|[0-9]+|[0-9]+\\.[0-9]+|half(?:\\s*an?)?|an?\\b(?:\\s*few)?|few|several|a?\\s*couple\\s*(?:of)?)`;
     function parseNumberPattern(match) {
       const num = match.toLowerCase();
       if (exports.INTEGER_WORD_DICTIONARY[num] !== void 0) {
@@ -5203,7 +6359,8 @@ var require_constants2 = __commonJS({
       return parseFloat(num);
     }
     exports.parseNumberPattern = parseNumberPattern;
-    exports.YEAR_PATTERN = `(?:[0-9]{1,4}(?:\\s*[vn]\\.?\\s*(?:C(?:hr)?|(?:u\\.?|d\\.?(?:\\s*g\\.?)?)?\\s*Z)\\.?|\\s*(?:u\\.?|d\\.?(?:\\s*g\\.)?)\\s*Z\\.?)?)`;
+    exports.YEAR_PATTERN =
+      `(?:[0-9]{1,4}(?:\\s*[vn]\\.?\\s*(?:C(?:hr)?|(?:u\\.?|d\\.?(?:\\s*g\\.?)?)?\\s*Z)\\.?|\\s*(?:u\\.?|d\\.?(?:\\s*g\\.)?)\\s*Z\\.?)?)`;
     function parseYear(match) {
       if (/v/i.test(match)) {
         return -parseInt(match.replace(/[^0-9]+/gi, ""));
@@ -5218,9 +6375,14 @@ var require_constants2 = __commonJS({
       return years_1.findMostLikelyADYear(rawYearNumber);
     }
     exports.parseYear = parseYear;
-    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,5}(${pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)})\\s{0,5}`;
+    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,5}(${
+      pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)
+    })\\s{0,5}`;
     var SINGLE_TIME_UNIT_REGEX = new RegExp(SINGLE_TIME_UNIT_PATTERN, "i");
-    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern("", SINGLE_TIME_UNIT_PATTERN);
+    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern(
+      "",
+      SINGLE_TIME_UNIT_PATTERN,
+    );
     function parseTimeUnits(timeunitText) {
       const fragments = {};
       let remainingText = timeunitText;
@@ -5238,23 +6400,32 @@ var require_constants2 = __commonJS({
       const unit = exports.TIME_UNIT_DICTIONARY[match[2].toLowerCase()];
       fragments[unit] = num;
     }
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/parsers/DEWeekdayParser.js
 var require_DEWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/parsers/DEWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/parsers/DEWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants2();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var weekdays_1 = require_weekdays();
-    var PATTERN = new RegExp(`(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:a[mn]\\s*?)?(?:(diese[mn]|letzte[mn]|n(?:\xE4|ae)chste[mn])\\s*)?(${pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)})(?:\\s*(?:\\,|\\)|\\\uFF09))?(?:\\s*(diese|letzte|n(?:\xE4|ae)chste)\\s*woche)?(?=\\W|$)`, "i");
+    var PATTERN = new RegExp(
+      `(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:a[mn]\\s*?)?(?:(diese[mn]|letzte[mn]|n(?:\xE4|ae)chste[mn])\\s*)?(${
+        pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)
+      })(?:\\s*(?:\\,|\\)|\\\uFF09))?(?:\\s*(diese|letzte|n(?:\xE4|ae)chste)\\s*woche)?(?=\\W|$)`,
+      "i",
+    );
     var PREFIX_GROUP = 1;
     var SUFFIX_GROUP = 3;
     var WEEKDAY_GROUP = 2;
-    var DEWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var DEWeekdayParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -5274,21 +6445,33 @@ var require_DEWeekdayParser = __commonJS({
         } else if (modifierWord.match(/diese/)) {
           modifier = "this";
         }
-        return weekdays_1.createParsingComponentsAtWeekday(context2.reference, offset, modifier);
+        return weekdays_1.createParsingComponentsAtWeekday(
+          context2.reference,
+          offset,
+          modifier,
+        );
       }
     };
     exports.default = DEWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/parsers/DESpecificTimeExpressionParser.js
 var require_DESpecificTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/parsers/DESpecificTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/parsers/DESpecificTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var index_1 = require_dist();
-    var FIRST_REG_PATTERN = new RegExp("(^|\\s|T)(?:(?:um|von)\\s*)?(\\d{1,2})(?:h|:)?(?:(\\d{1,2})(?:m|:)?)?(?:(\\d{1,2})(?:s)?)?(?:\\s*Uhr)?(?:\\s*(morgens|vormittags|nachmittags|abends|nachts|am\\s+(?:Morgen|Vormittag|Nachmittag|Abend)|in\\s+der\\s+Nacht))?(?=\\W|$)", "i");
-    var SECOND_REG_PATTERN = new RegExp("^\\s*(\\-|\\\u2013|\\~|\\\u301C|bis(?:\\s+um)?|\\?)\\s*(\\d{1,2})(?:h|:)?(?:(\\d{1,2})(?:m|:)?)?(?:(\\d{1,2})(?:s)?)?(?:\\s*Uhr)?(?:\\s*(morgens|vormittags|nachmittags|abends|nachts|am\\s+(?:Morgen|Vormittag|Nachmittag|Abend)|in\\s+der\\s+Nacht))?(?=\\W|$)", "i");
+    var FIRST_REG_PATTERN = new RegExp(
+      "(^|\\s|T)(?:(?:um|von)\\s*)?(\\d{1,2})(?:h|:)?(?:(\\d{1,2})(?:m|:)?)?(?:(\\d{1,2})(?:s)?)?(?:\\s*Uhr)?(?:\\s*(morgens|vormittags|nachmittags|abends|nachts|am\\s+(?:Morgen|Vormittag|Nachmittag|Abend)|in\\s+der\\s+Nacht))?(?=\\W|$)",
+      "i",
+    );
+    var SECOND_REG_PATTERN = new RegExp(
+      "^\\s*(\\-|\\\u2013|\\~|\\\u301C|bis(?:\\s+um)?|\\?)\\s*(\\d{1,2})(?:h|:)?(?:(\\d{1,2})(?:m|:)?)?(?:(\\d{1,2})(?:s)?)?(?:\\s*Uhr)?(?:\\s*(morgens|vormittags|nachmittags|abends|nachts|am\\s+(?:Morgen|Vormittag|Nachmittag|Abend)|in\\s+der\\s+Nacht))?(?=\\W|$)",
+      "i",
+    );
     var HOUR_GROUP = 2;
     var MINUTE_GROUP = 3;
     var SECOND_GROUP = 4;
@@ -5298,20 +6481,31 @@ var require_DESpecificTimeExpressionParser = __commonJS({
         return FIRST_REG_PATTERN;
       }
       extract(context2, match) {
-        const result = context2.createParsingResult(match.index + match[1].length, match[0].substring(match[1].length));
+        const result = context2.createParsingResult(
+          match.index + match[1].length,
+          match[0].substring(match[1].length),
+        );
         if (result.text.match(/^\d{4}$/)) {
           match.index += match[0].length;
           return null;
         }
-        result.start = DESpecificTimeExpressionParser.extractTimeComponent(result.start.clone(), match);
+        result.start = DESpecificTimeExpressionParser.extractTimeComponent(
+          result.start.clone(),
+          match,
+        );
         if (!result.start) {
           match.index += match[0].length;
           return null;
         }
-        const remainingText = context2.text.substring(match.index + match[0].length);
+        const remainingText = context2.text.substring(
+          match.index + match[0].length,
+        );
         const secondMatch = SECOND_REG_PATTERN.exec(remainingText);
         if (secondMatch) {
-          result.end = DESpecificTimeExpressionParser.extractTimeComponent(result.start.clone(), secondMatch);
+          result.end = DESpecificTimeExpressionParser.extractTimeComponent(
+            result.start.clone(),
+            secondMatch,
+          );
           if (result.end) {
             result.text += secondMatch[0];
           }
@@ -5333,8 +6527,9 @@ var require_DESpecificTimeExpressionParser = __commonJS({
           meridiem = index_1.Meridiem.PM;
         }
         if (match[AM_PM_HOUR_GROUP] != null) {
-          if (hour > 12)
+          if (hour > 12) {
             return null;
+          }
           const ampm = match[AM_PM_HOUR_GROUP].toLowerCase();
           if (ampm.match(/morgen|vormittag/)) {
             meridiem = index_1.Meridiem.AM;
@@ -5373,67 +6568,85 @@ var require_DESpecificTimeExpressionParser = __commonJS({
         }
         if (match[SECOND_GROUP] != null) {
           const second = parseInt(match[SECOND_GROUP]);
-          if (second >= 60)
+          if (second >= 60) {
             return null;
+          }
           extractingComponents.assign("second", second);
         }
         return extractingComponents;
       }
     };
     exports.default = DESpecificTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/refiners/DEMergeDateRangeRefiner.js
 var require_DEMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/refiners/DEMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/refiners/DEMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var DEMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var DEMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(bis(?:\s*(?:am|zum))?|-)\s*$/i;
       }
     };
     exports.default = DEMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/refiners/DEMergeDateTimeRefiner.js
 var require_DEMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/refiners/DEMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/refiners/DEMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateTimeRefiner_1 = __importDefault2(require_AbstractMergeDateTimeRefiner());
-    var DEMergeDateTimeRefiner = class extends AbstractMergeDateTimeRefiner_1.default {
+    var AbstractMergeDateTimeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateTimeRefiner(),
+    );
+    var DEMergeDateTimeRefiner = class
+      extends AbstractMergeDateTimeRefiner_1.default {
       patternBetween() {
         return new RegExp("^\\s*(T|um|am|,|-)?\\s*$");
       }
     };
     exports.default = DEMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/parsers/DECasualTimeParser.js
 var require_DECasualTimeParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/parsers/DECasualTimeParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/parsers/DECasualTimeParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
     var index_1 = require_dist();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var dayjs_2 = require_dayjs();
     var timeunits_1 = require_timeunits();
-    var DECasualTimeParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var DECasualTimeParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
         return /(diesen)?\s*(morgen|vormittag|mittags?|nachmittag|abend|nacht|mitternacht)(?=\W|$)/i;
       }
@@ -5442,7 +6655,10 @@ var require_DECasualTimeParser = __commonJS({
         const timeKeywordPattern = match[2].toLowerCase();
         const component = context2.createParsingComponents();
         dayjs_2.implySimilarTime(component, targetDate);
-        return DECasualTimeParser.extractTimeComponents(component, timeKeywordPattern);
+        return DECasualTimeParser.extractTimeComponents(
+          component,
+          timeKeywordPattern,
+        );
       }
       static extractTimeComponents(component, timeKeywordPattern) {
         switch (timeKeywordPattern) {
@@ -5485,7 +6701,9 @@ var require_DECasualTimeParser = __commonJS({
             break;
           case "mitternacht":
             if (component.get("hour") > 1) {
-              component = timeunits_1.addImpliedTimeUnits(component, { "day": 1 });
+              component = timeunits_1.addImpliedTimeUnits(component, {
+                "day": 1,
+              });
             }
             component.imply("hour", 0);
             component.imply("minute", 0);
@@ -5497,54 +6715,78 @@ var require_DECasualTimeParser = __commonJS({
       }
     };
     exports.default = DECasualTimeParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/parsers/DECasualDateParser.js
 var require_DECasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/parsers/DECasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/parsers/DECasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var dayjs_2 = require_dayjs();
     var DECasualTimeParser_1 = __importDefault2(require_DECasualTimeParser());
     var references = __importStar2(require_casualReferences());
-    var PATTERN = new RegExp(`(jetzt|heute|morgen|\xFCbermorgen|uebermorgen|gestern|vorgestern|letzte\\s*nacht)(?:\\s*(morgen|vormittag|mittags?|nachmittag|abend|nacht|mitternacht))?(?=\\W|$)`, "i");
+    var PATTERN = new RegExp(
+      `(jetzt|heute|morgen|\xFCbermorgen|uebermorgen|gestern|vorgestern|letzte\\s*nacht)(?:\\s*(morgen|vormittag|mittags?|nachmittag|abend|nacht|mitternacht))?(?=\\W|$)`,
+      "i",
+    );
     var DATE_GROUP = 1;
     var TIME_GROUP = 2;
-    var DECasualDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var DECasualDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
         return PATTERN;
       }
@@ -5589,37 +6831,51 @@ var require_DECasualDateParser = __commonJS({
             break;
         }
         if (timeKeyword) {
-          component = DECasualTimeParser_1.default.extractTimeComponents(component, timeKeyword);
+          component = DECasualTimeParser_1.default.extractTimeComponents(
+            component,
+            timeKeyword,
+          );
         }
         return component;
       }
     };
     exports.default = DECasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/parsers/DEMonthNameLittleEndianParser.js
 var require_DEMonthNameLittleEndianParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/parsers/DEMonthNameLittleEndianParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/parsers/DEMonthNameLittleEndianParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var years_1 = require_years();
     var constants_1 = require_constants2();
     var constants_2 = require_constants2();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`(?:am\\s*?)?(?:den\\s*?)?([0-9]{1,2})\\.(?:\\s*(?:bis(?:\\s*(?:am|zum))?|\\-|\\\u2013|\\s)\\s*([0-9]{1,2})\\.?)?\\s*(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})(?:(?:-|/|,?\\s*)(${constants_2.YEAR_PATTERN}(?![^\\s]\\d)))?(?=\\W|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `(?:am\\s*?)?(?:den\\s*?)?([0-9]{1,2})\\.(?:\\s*(?:bis(?:\\s*(?:am|zum))?|\\-|\\\u2013|\\s)\\s*([0-9]{1,2})\\.?)?\\s*(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })(?:(?:-|/|,?\\s*)(${constants_2.YEAR_PATTERN}(?![^\\s]\\d)))?(?=\\W|$)`,
+      "i",
+    );
     var DATE_GROUP = 1;
     var DATE_TO_GROUP = 2;
     var MONTH_NAME_GROUP = 3;
     var YEAR_GROUP = 4;
-    var DEMonthNameLittleEndianParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var DEMonthNameLittleEndianParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
         const result = context2.createParsingResult(match.index, match[0]);
-        const month = constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month =
+          constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         const day = parseInt(match[DATE_GROUP]);
         if (day > 31) {
           match.index = match.index + match[DATE_GROUP].length;
@@ -5631,7 +6887,11 @@ var require_DEMonthNameLittleEndianParser = __commonJS({
           const yearNumber = constants_2.parseYear(match[YEAR_GROUP]);
           result.start.assign("year", yearNumber);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           result.start.imply("year", year);
         }
         if (match[DATE_TO_GROUP]) {
@@ -5643,25 +6903,35 @@ var require_DEMonthNameLittleEndianParser = __commonJS({
       }
     };
     exports.default = DEMonthNameLittleEndianParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/parsers/DETimeUnitRelativeFormatParser.js
 var require_DETimeUnitRelativeFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/de/parsers/DETimeUnitRelativeFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/de/parsers/DETimeUnitRelativeFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants2();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
     var pattern_1 = require_pattern();
-    var DETimeUnitAgoFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var DETimeUnitAgoFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       constructor() {
         super();
       }
       innerPattern() {
-        return new RegExp(`(?:\\s*((?:n\xE4chste|kommende|folgende|letzte|vergangene|vorige|vor(?:her|an)gegangene)(?:s|n|m|r)?|vor|in)\\s*)?(${constants_1.NUMBER_PATTERN})?(?:\\s*(n\xE4chste|kommende|folgende|letzte|vergangene|vorige|vor(?:her|an)gegangene)(?:s|n|m|r)?)?\\s*(${pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)})`, "i");
+        return new RegExp(
+          `(?:\\s*((?:n\xE4chste|kommende|folgende|letzte|vergangene|vorige|vor(?:her|an)gegangene)(?:s|n|m|r)?|vor|in)\\s*)?(${constants_1.NUMBER_PATTERN})?(?:\\s*(n\xE4chste|kommende|folgende|letzte|vergangene|vorige|vor(?:her|an)gegangene)(?:s|n|m|r)?)?\\s*(${
+            pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)
+          })`,
+          "i",
+        );
       }
       innerExtract(context2, match) {
         const num = match[2] ? constants_1.parseNumberPattern(match[2]) : 1;
@@ -5673,38 +6943,65 @@ var require_DETimeUnitRelativeFormatParser = __commonJS({
         if (!modifier) {
           return;
         }
-        if (/vor/.test(modifier) || /letzte/.test(modifier) || /vergangen/.test(modifier)) {
+        if (
+          /vor/.test(modifier) || /letzte/.test(modifier) ||
+          /vergangen/.test(modifier)
+        ) {
           timeUnits = timeunits_1.reverseTimeUnits(timeUnits);
         }
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = DETimeUnitAgoFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/de/index.js
 var require_de = __commonJS({
   "node_modules/chrono-node/dist/locales/de/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.strict = exports.casual = void 0;
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.strict =
+      exports.casual =
+        void 0;
     var configurations_1 = require_configurations();
     var chrono_1 = require_chrono();
-    var SlashDateFormatParser_1 = __importDefault2(require_SlashDateFormatParser());
+    var SlashDateFormatParser_1 = __importDefault2(
+      require_SlashDateFormatParser(),
+    );
     var ISOFormatParser_1 = __importDefault2(require_ISOFormatParser());
-    var DETimeExpressionParser_1 = __importDefault2(require_DETimeExpressionParser());
+    var DETimeExpressionParser_1 = __importDefault2(
+      require_DETimeExpressionParser(),
+    );
     var DEWeekdayParser_1 = __importDefault2(require_DEWeekdayParser());
-    var DESpecificTimeExpressionParser_1 = __importDefault2(require_DESpecificTimeExpressionParser());
-    var DEMergeDateRangeRefiner_1 = __importDefault2(require_DEMergeDateRangeRefiner());
-    var DEMergeDateTimeRefiner_1 = __importDefault2(require_DEMergeDateTimeRefiner());
+    var DESpecificTimeExpressionParser_1 = __importDefault2(
+      require_DESpecificTimeExpressionParser(),
+    );
+    var DEMergeDateRangeRefiner_1 = __importDefault2(
+      require_DEMergeDateRangeRefiner(),
+    );
+    var DEMergeDateTimeRefiner_1 = __importDefault2(
+      require_DEMergeDateTimeRefiner(),
+    );
     var DECasualDateParser_1 = __importDefault2(require_DECasualDateParser());
     var DECasualTimeParser_1 = __importDefault2(require_DECasualTimeParser());
-    var DEMonthNameLittleEndianParser_1 = __importDefault2(require_DEMonthNameLittleEndianParser());
-    var DETimeUnitRelativeFormatParser_1 = __importDefault2(require_DETimeUnitRelativeFormatParser());
+    var DEMonthNameLittleEndianParser_1 = __importDefault2(
+      require_DEMonthNameLittleEndianParser(),
+    );
+    var DETimeUnitRelativeFormatParser_1 = __importDefault2(
+      require_DETimeUnitRelativeFormatParser(),
+    );
     exports.casual = new chrono_1.Chrono(createCasualConfiguration());
     exports.strict = new chrono_1.Chrono(createConfiguration(true));
     function parse3(text, ref, option) {
@@ -5731,57 +7028,81 @@ var require_de = __commonJS({
           new DETimeExpressionParser_1.default(),
           new DESpecificTimeExpressionParser_1.default(),
           new DEMonthNameLittleEndianParser_1.default(),
-          new DEWeekdayParser_1.default()
+          new DEWeekdayParser_1.default(),
         ],
-        refiners: [new DEMergeDateRangeRefiner_1.default(), new DEMergeDateTimeRefiner_1.default()]
+        refiners: [
+          new DEMergeDateRangeRefiner_1.default(),
+          new DEMergeDateTimeRefiner_1.default(),
+        ],
       }, strictMode);
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRCasualDateParser.js
 var require_FRCasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRCasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRCasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
     var index_1 = require_dist();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var dayjs_2 = require_dayjs();
     var references = __importStar2(require_casualReferences());
-    var FRCasualDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var FRCasualDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
         return /(maintenant|aujourd'hui|demain|hier|cette\s*nuit|la\s*veille)(?=\W|$)/i;
       }
@@ -5813,17 +7134,21 @@ var require_FRCasualDateParser = __commonJS({
       }
     };
     exports.default = FRCasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRCasualTimeParser.js
 var require_FRCasualTimeParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRCasualTimeParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRCasualTimeParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var index_1 = require_dist();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var FRCasualTimeParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var FRCasualTimeParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
         return /(cet?)?\s*(matin|soir|après-midi|aprem|a midi|à minuit)(?=\W|$)/i;
       }
@@ -5861,16 +7186,19 @@ var require_FRCasualTimeParser = __commonJS({
       }
     };
     exports.default = FRCasualTimeParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRTimeExpressionParser.js
 var require_FRTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var AbstractTimeExpressionParser_1 = require_AbstractTimeExpressionParser();
-    var FRTimeExpressionParser = class extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
+    var FRTimeExpressionParser = class
+      extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
       primaryPrefix() {
         return "(?:(?:[\xE0a])\\s*)?";
       }
@@ -5885,43 +7213,55 @@ var require_FRTimeExpressionParser = __commonJS({
       }
     };
     exports.default = FRTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/refiners/FRMergeDateTimeRefiner.js
 var require_FRMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/refiners/FRMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/refiners/FRMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateTimeRefiner_1 = __importDefault2(require_AbstractMergeDateTimeRefiner());
-    var FRMergeDateTimeRefiner = class extends AbstractMergeDateTimeRefiner_1.default {
+    var AbstractMergeDateTimeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateTimeRefiner(),
+    );
+    var FRMergeDateTimeRefiner = class
+      extends AbstractMergeDateTimeRefiner_1.default {
       patternBetween() {
         return new RegExp("^\\s*(T|\xE0|a|vers|de|,|-)?\\s*$");
       }
     };
     exports.default = FRMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/refiners/FRMergeDateRangeRefiner.js
 var require_FRMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/refiners/FRMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/refiners/FRMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var FRMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var FRMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(à|a|-)\s*$/i;
       }
     };
     exports.default = FRMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/constants.js
@@ -5929,7 +7269,19 @@ var require_constants3 = __commonJS({
   "node_modules/chrono-node/dist/locales/fr/constants.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseTimeUnits = exports.TIME_UNITS_PATTERN = exports.parseYear = exports.YEAR_PATTERN = exports.parseOrdinalNumberPattern = exports.ORDINAL_NUMBER_PATTERN = exports.parseNumberPattern = exports.NUMBER_PATTERN = exports.TIME_UNIT_DICTIONARY = exports.INTEGER_WORD_DICTIONARY = exports.MONTH_DICTIONARY = exports.WEEKDAY_DICTIONARY = void 0;
+    exports.parseTimeUnits =
+      exports.TIME_UNITS_PATTERN =
+      exports.parseYear =
+      exports.YEAR_PATTERN =
+      exports.parseOrdinalNumberPattern =
+      exports.ORDINAL_NUMBER_PATTERN =
+      exports.parseNumberPattern =
+      exports.NUMBER_PATTERN =
+      exports.TIME_UNIT_DICTIONARY =
+      exports.INTEGER_WORD_DICTIONARY =
+      exports.MONTH_DICTIONARY =
+      exports.WEEKDAY_DICTIONARY =
+        void 0;
     var pattern_1 = require_pattern();
     exports.WEEKDAY_DICTIONARY = {
       "dimanche": 0,
@@ -5945,7 +7297,7 @@ var require_constants3 = __commonJS({
       "vendredi": 5,
       "ven": 5,
       "samedi": 6,
-      "sam": 6
+      "sam": 6,
     };
     exports.MONTH_DICTIONARY = {
       "janvier": 1,
@@ -5986,7 +7338,7 @@ var require_constants3 = __commonJS({
       "d\xE9cembre": 12,
       "decembre": 12,
       "dec": 12,
-      "dec.": 12
+      "dec.": 12,
     };
     exports.INTEGER_WORD_DICTIONARY = {
       "un": 1,
@@ -6001,7 +7353,7 @@ var require_constants3 = __commonJS({
       "dix": 10,
       "onze": 11,
       "douze": 12,
-      "treize": 13
+      "treize": 13,
     };
     exports.TIME_UNIT_DICTIONARY = {
       "sec": "second",
@@ -6025,9 +7377,11 @@ var require_constants3 = __commonJS({
       "trimestres": "quarter",
       "ans": "year",
       "ann\xE9e": "year",
-      "ann\xE9es": "year"
+      "ann\xE9es": "year",
     };
-    exports.NUMBER_PATTERN = `(?:${pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)}|[0-9]+|[0-9]+\\.[0-9]+|une?\\b|quelques?|demi-?)`;
+    exports.NUMBER_PATTERN = `(?:${
+      pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)
+    }|[0-9]+|[0-9]+\\.[0-9]+|une?\\b|quelques?|demi-?)`;
     function parseNumberPattern(match) {
       const num = match.toLowerCase();
       if (exports.INTEGER_WORD_DICTIONARY[num] !== void 0) {
@@ -6049,7 +7403,8 @@ var require_constants3 = __commonJS({
       return parseInt(num);
     }
     exports.parseOrdinalNumberPattern = parseOrdinalNumberPattern;
-    exports.YEAR_PATTERN = `(?:[1-9][0-9]{0,3}\\s*(?:AC|AD|p\\.\\s*C(?:hr?)?\\.\\s*n\\.)|[1-2][0-9]{3}|[5-9][0-9])`;
+    exports.YEAR_PATTERN =
+      `(?:[1-9][0-9]{0,3}\\s*(?:AC|AD|p\\.\\s*C(?:hr?)?\\.\\s*n\\.)|[1-2][0-9]{3}|[5-9][0-9])`;
     function parseYear(match) {
       if (/AC/i.test(match)) {
         match = match.replace(/BC/i, "");
@@ -6070,9 +7425,14 @@ var require_constants3 = __commonJS({
       return yearNumber;
     }
     exports.parseYear = parseYear;
-    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,5}(${pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)})\\s{0,5}`;
+    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,5}(${
+      pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)
+    })\\s{0,5}`;
     var SINGLE_TIME_UNIT_REGEX = new RegExp(SINGLE_TIME_UNIT_PATTERN, "i");
-    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern("", SINGLE_TIME_UNIT_PATTERN);
+    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern(
+      "",
+      SINGLE_TIME_UNIT_PATTERN,
+    );
     function parseTimeUnits(timeunitText) {
       const fragments = {};
       let remainingText = timeunitText;
@@ -6090,22 +7450,31 @@ var require_constants3 = __commonJS({
       const unit = exports.TIME_UNIT_DICTIONARY[match[2].toLowerCase()];
       fragments[unit] = num;
     }
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRWeekdayParser.js
 var require_FRWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants3();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var weekdays_1 = require_weekdays();
-    var PATTERN = new RegExp(`(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:(?:ce)\\s*)?(${pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)})(?:\\s*(?:\\,|\\)|\\\uFF09))?(?:\\s*(dernier|prochain)\\s*)?(?=\\W|\\d|$)`, "i");
+    var PATTERN = new RegExp(
+      `(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:(?:ce)\\s*)?(${
+        pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)
+      })(?:\\s*(?:\\,|\\)|\\\uFF09))?(?:\\s*(dernier|prochain)\\s*)?(?=\\W|\\d|$)`,
+      "i",
+    );
     var WEEKDAY_GROUP = 1;
     var POSTFIX_GROUP = 2;
-    var FRWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var FRWeekdayParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -6124,21 +7493,33 @@ var require_FRWeekdayParser = __commonJS({
         } else if (suffix == "prochain") {
           modifier = "next";
         }
-        return weekdays_1.createParsingComponentsAtWeekday(context2.reference, weekday, modifier);
+        return weekdays_1.createParsingComponentsAtWeekday(
+          context2.reference,
+          weekday,
+          modifier,
+        );
       }
     };
     exports.default = FRWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRSpecificTimeExpressionParser.js
 var require_FRSpecificTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRSpecificTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRSpecificTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var index_1 = require_dist();
-    var FIRST_REG_PATTERN = new RegExp("(^|\\s|T)(?:(?:[\xE0a])\\s*)?(\\d{1,2})(?:h|:)?(?:(\\d{1,2})(?:m|:)?)?(?:(\\d{1,2})(?:s|:)?)?(?:\\s*(A\\.M\\.|P\\.M\\.|AM?|PM?))?(?=\\W|$)", "i");
-    var SECOND_REG_PATTERN = new RegExp("^\\s*(\\-|\\\u2013|\\~|\\\u301C|[\xE0a]|\\?)\\s*(\\d{1,2})(?:h|:)?(?:(\\d{1,2})(?:m|:)?)?(?:(\\d{1,2})(?:s|:)?)?(?:\\s*(A\\.M\\.|P\\.M\\.|AM?|PM?))?(?=\\W|$)", "i");
+    var FIRST_REG_PATTERN = new RegExp(
+      "(^|\\s|T)(?:(?:[\xE0a])\\s*)?(\\d{1,2})(?:h|:)?(?:(\\d{1,2})(?:m|:)?)?(?:(\\d{1,2})(?:s|:)?)?(?:\\s*(A\\.M\\.|P\\.M\\.|AM?|PM?))?(?=\\W|$)",
+      "i",
+    );
+    var SECOND_REG_PATTERN = new RegExp(
+      "^\\s*(\\-|\\\u2013|\\~|\\\u301C|[\xE0a]|\\?)\\s*(\\d{1,2})(?:h|:)?(?:(\\d{1,2})(?:m|:)?)?(?:(\\d{1,2})(?:s|:)?)?(?:\\s*(A\\.M\\.|P\\.M\\.|AM?|PM?))?(?=\\W|$)",
+      "i",
+    );
     var HOUR_GROUP = 2;
     var MINUTE_GROUP = 3;
     var SECOND_GROUP = 4;
@@ -6148,20 +7529,31 @@ var require_FRSpecificTimeExpressionParser = __commonJS({
         return FIRST_REG_PATTERN;
       }
       extract(context2, match) {
-        const result = context2.createParsingResult(match.index + match[1].length, match[0].substring(match[1].length));
+        const result = context2.createParsingResult(
+          match.index + match[1].length,
+          match[0].substring(match[1].length),
+        );
         if (result.text.match(/^\d{4}$/)) {
           match.index += match[0].length;
           return null;
         }
-        result.start = FRSpecificTimeExpressionParser.extractTimeComponent(result.start.clone(), match);
+        result.start = FRSpecificTimeExpressionParser.extractTimeComponent(
+          result.start.clone(),
+          match,
+        );
         if (!result.start) {
           match.index += match[0].length;
           return null;
         }
-        const remainingText = context2.text.substring(match.index + match[0].length);
+        const remainingText = context2.text.substring(
+          match.index + match[0].length,
+        );
         const secondMatch = SECOND_REG_PATTERN.exec(remainingText);
         if (secondMatch) {
-          result.end = FRSpecificTimeExpressionParser.extractTimeComponent(result.start.clone(), secondMatch);
+          result.end = FRSpecificTimeExpressionParser.extractTimeComponent(
+            result.start.clone(),
+            secondMatch,
+          );
           if (result.end) {
             result.text += secondMatch[0];
           }
@@ -6183,8 +7575,9 @@ var require_FRSpecificTimeExpressionParser = __commonJS({
           meridiem = index_1.Meridiem.PM;
         }
         if (match[AM_PM_HOUR_GROUP] != null) {
-          if (hour > 12)
+          if (hour > 12) {
             return null;
+          }
           const ampm = match[AM_PM_HOUR_GROUP][0].toLowerCase();
           if (ampm == "a") {
             meridiem = index_1.Meridiem.AM;
@@ -6212,20 +7605,23 @@ var require_FRSpecificTimeExpressionParser = __commonJS({
         }
         if (match[SECOND_GROUP] != null) {
           const second = parseInt(match[SECOND_GROUP]);
-          if (second >= 60)
+          if (second >= 60) {
             return null;
+          }
           extractingComponents.assign("second", second);
         }
         return extractingComponents;
       }
     };
     exports.default = FRSpecificTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRMonthNameLittleEndianParser.js
 var require_FRMonthNameLittleEndianParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRMonthNameLittleEndianParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRMonthNameLittleEndianParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var years_1 = require_years();
@@ -6233,19 +7629,28 @@ var require_FRMonthNameLittleEndianParser = __commonJS({
     var constants_2 = require_constants3();
     var constants_3 = require_constants3();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`(?:on\\s*?)?(${constants_3.ORDINAL_NUMBER_PATTERN})(?:\\s*(?:au|\\-|\\\u2013|jusqu'au?|\\s)\\s*(${constants_3.ORDINAL_NUMBER_PATTERN}))?(?:-|/|\\s*(?:de)?\\s*)(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})(?:(?:-|/|,?\\s*)(${constants_2.YEAR_PATTERN}(?![^\\s]\\d)))?(?=\\W|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `(?:on\\s*?)?(${constants_3.ORDINAL_NUMBER_PATTERN})(?:\\s*(?:au|\\-|\\\u2013|jusqu'au?|\\s)\\s*(${constants_3.ORDINAL_NUMBER_PATTERN}))?(?:-|/|\\s*(?:de)?\\s*)(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })(?:(?:-|/|,?\\s*)(${constants_2.YEAR_PATTERN}(?![^\\s]\\d)))?(?=\\W|$)`,
+      "i",
+    );
     var DATE_GROUP = 1;
     var DATE_TO_GROUP = 2;
     var MONTH_NAME_GROUP = 3;
     var YEAR_GROUP = 4;
-    var FRMonthNameLittleEndianParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var FRMonthNameLittleEndianParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
         const result = context2.createParsingResult(match.index, match[0]);
-        const month = constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month =
+          constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         const day = constants_3.parseOrdinalNumberPattern(match[DATE_GROUP]);
         if (day > 31) {
           match.index = match.index + match[DATE_GROUP].length;
@@ -6257,11 +7662,17 @@ var require_FRMonthNameLittleEndianParser = __commonJS({
           const yearNumber = constants_2.parseYear(match[YEAR_GROUP]);
           result.start.assign("year", yearNumber);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           result.start.imply("year", year);
         }
         if (match[DATE_TO_GROUP]) {
-          const endDate = constants_3.parseOrdinalNumberPattern(match[DATE_TO_GROUP]);
+          const endDate = constants_3.parseOrdinalNumberPattern(
+            match[DATE_TO_GROUP],
+          );
           result.end = result.start.clone();
           result.end.assign("day", endDate);
         }
@@ -6269,72 +7680,104 @@ var require_FRMonthNameLittleEndianParser = __commonJS({
       }
     };
     exports.default = FRMonthNameLittleEndianParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitAgoFormatParser.js
 var require_FRTimeUnitAgoFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitAgoFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitAgoFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants3();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
-    var FRTimeUnitAgoFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var FRTimeUnitAgoFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       constructor() {
         super();
       }
       innerPattern() {
-        return new RegExp(`il y a\\s*(${constants_1.TIME_UNITS_PATTERN})(?=(?:\\W|$))`, "i");
+        return new RegExp(
+          `il y a\\s*(${constants_1.TIME_UNITS_PATTERN})(?=(?:\\W|$))`,
+          "i",
+        );
       }
       innerExtract(context2, match) {
         const timeUnits = constants_1.parseTimeUnits(match[1]);
         const outputTimeUnits = timeunits_1.reverseTimeUnits(timeUnits);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, outputTimeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          outputTimeUnits,
+        );
       }
     };
     exports.default = FRTimeUnitAgoFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitWithinFormatParser.js
 var require_FRTimeUnitWithinFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitWithinFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitWithinFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants3();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var FRTimeUnitWithinFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var FRTimeUnitWithinFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
-        return new RegExp(`(?:dans|en|pour|pendant|de)\\s*(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`, "i");
+        return new RegExp(
+          `(?:dans|en|pour|pendant|de)\\s*(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`,
+          "i",
+        );
       }
       innerExtract(context2, match) {
         const timeUnits = constants_1.parseTimeUnits(match[1]);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = FRTimeUnitWithinFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitRelativeFormatParser.js
 var require_FRTimeUnitRelativeFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitRelativeFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/fr/parsers/FRTimeUnitRelativeFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants3();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
     var pattern_1 = require_pattern();
-    var FRTimeUnitAgoFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var FRTimeUnitAgoFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       constructor() {
         super();
       }
       innerPattern() {
-        return new RegExp(`(?:les?|la|l'|du|des?)\\s*(${constants_1.NUMBER_PATTERN})?(?:\\s*(prochaine?s?|derni[e\xE8]re?s?|pass[\xE9e]e?s?|pr[\xE9e]c[\xE9e]dents?|suivante?s?))?\\s*(${pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)})(?:\\s*(prochaine?s?|derni[e\xE8]re?s?|pass[\xE9e]e?s?|pr[\xE9e]c[\xE9e]dents?|suivante?s?))?`, "i");
+        return new RegExp(
+          `(?:les?|la|l'|du|des?)\\s*(${constants_1.NUMBER_PATTERN})?(?:\\s*(prochaine?s?|derni[e\xE8]re?s?|pass[\xE9e]e?s?|pr[\xE9e]c[\xE9e]dents?|suivante?s?))?\\s*(${
+            pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)
+          })(?:\\s*(prochaine?s?|derni[e\xE8]re?s?|pass[\xE9e]e?s?|pr[\xE9e]c[\xE9e]dents?|suivante?s?))?`,
+          "i",
+        );
       }
       innerExtract(context2, match) {
         const num = match[1] ? constants_1.parseNumberPattern(match[1]) : 1;
@@ -6346,39 +7789,70 @@ var require_FRTimeUnitRelativeFormatParser = __commonJS({
         if (!modifier) {
           return;
         }
-        if (/derni[eè]re?s?/.test(modifier) || /pass[ée]e?s?/.test(modifier) || /pr[ée]c[ée]dents?/.test(modifier)) {
+        if (
+          /derni[eè]re?s?/.test(modifier) || /pass[ée]e?s?/.test(modifier) ||
+          /pr[ée]c[ée]dents?/.test(modifier)
+        ) {
           timeUnits = timeunits_1.reverseTimeUnits(timeUnits);
         }
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = FRTimeUnitAgoFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/fr/index.js
 var require_fr = __commonJS({
   "node_modules/chrono-node/dist/locales/fr/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.strict = exports.casual = void 0;
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.strict =
+      exports.casual =
+        void 0;
     var configurations_1 = require_configurations();
     var chrono_1 = require_chrono();
     var FRCasualDateParser_1 = __importDefault2(require_FRCasualDateParser());
     var FRCasualTimeParser_1 = __importDefault2(require_FRCasualTimeParser());
-    var SlashDateFormatParser_1 = __importDefault2(require_SlashDateFormatParser());
-    var FRTimeExpressionParser_1 = __importDefault2(require_FRTimeExpressionParser());
-    var FRMergeDateTimeRefiner_1 = __importDefault2(require_FRMergeDateTimeRefiner());
-    var FRMergeDateRangeRefiner_1 = __importDefault2(require_FRMergeDateRangeRefiner());
+    var SlashDateFormatParser_1 = __importDefault2(
+      require_SlashDateFormatParser(),
+    );
+    var FRTimeExpressionParser_1 = __importDefault2(
+      require_FRTimeExpressionParser(),
+    );
+    var FRMergeDateTimeRefiner_1 = __importDefault2(
+      require_FRMergeDateTimeRefiner(),
+    );
+    var FRMergeDateRangeRefiner_1 = __importDefault2(
+      require_FRMergeDateRangeRefiner(),
+    );
     var FRWeekdayParser_1 = __importDefault2(require_FRWeekdayParser());
-    var FRSpecificTimeExpressionParser_1 = __importDefault2(require_FRSpecificTimeExpressionParser());
-    var FRMonthNameLittleEndianParser_1 = __importDefault2(require_FRMonthNameLittleEndianParser());
-    var FRTimeUnitAgoFormatParser_1 = __importDefault2(require_FRTimeUnitAgoFormatParser());
-    var FRTimeUnitWithinFormatParser_1 = __importDefault2(require_FRTimeUnitWithinFormatParser());
-    var FRTimeUnitRelativeFormatParser_1 = __importDefault2(require_FRTimeUnitRelativeFormatParser());
+    var FRSpecificTimeExpressionParser_1 = __importDefault2(
+      require_FRSpecificTimeExpressionParser(),
+    );
+    var FRMonthNameLittleEndianParser_1 = __importDefault2(
+      require_FRMonthNameLittleEndianParser(),
+    );
+    var FRTimeUnitAgoFormatParser_1 = __importDefault2(
+      require_FRTimeUnitAgoFormatParser(),
+    );
+    var FRTimeUnitWithinFormatParser_1 = __importDefault2(
+      require_FRTimeUnitWithinFormatParser(),
+    );
+    var FRTimeUnitRelativeFormatParser_1 = __importDefault2(
+      require_FRTimeUnitRelativeFormatParser(),
+    );
     exports.casual = new chrono_1.Chrono(createCasualConfiguration());
     exports.strict = new chrono_1.Chrono(createConfiguration(true));
     function parse3(text, ref, option) {
@@ -6406,13 +7880,16 @@ var require_fr = __commonJS({
           new FRSpecificTimeExpressionParser_1.default(),
           new FRTimeUnitAgoFormatParser_1.default(),
           new FRTimeUnitWithinFormatParser_1.default(),
-          new FRWeekdayParser_1.default()
+          new FRWeekdayParser_1.default(),
         ],
-        refiners: [new FRMergeDateTimeRefiner_1.default(), new FRMergeDateRangeRefiner_1.default()]
+        refiners: [
+          new FRMergeDateTimeRefiner_1.default(),
+          new FRMergeDateRangeRefiner_1.default(),
+        ],
       }, strictMode);
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ja/constants.js
@@ -6422,27 +7899,35 @@ var require_constants4 = __commonJS({
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.toHankaku = void 0;
     function toHankaku(text) {
-      return String(text).replace(/\u2019/g, "'").replace(/\u201D/g, '"').replace(/\u3000/g, " ").replace(/\uFFE5/g, "\xA5").replace(/[\uFF01\uFF03-\uFF06\uFF08\uFF09\uFF0C-\uFF19\uFF1C-\uFF1F\uFF21-\uFF3B\uFF3D\uFF3F\uFF41-\uFF5B\uFF5D\uFF5E]/g, alphaNum);
+      return String(text).replace(/\u2019/g, "'").replace(/\u201D/g, '"')
+        .replace(/\u3000/g, " ").replace(/\uFFE5/g, "\xA5").replace(
+          /[\uFF01\uFF03-\uFF06\uFF08\uFF09\uFF0C-\uFF19\uFF1C-\uFF1F\uFF21-\uFF3B\uFF3D\uFF3F\uFF41-\uFF5B\uFF5D\uFF5E]/g,
+          alphaNum,
+        );
     }
     exports.toHankaku = toHankaku;
     function alphaNum(token) {
       return String.fromCharCode(token.charCodeAt(0) - 65248);
     }
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ja/parsers/JPStandardParser.js
 var require_JPStandardParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ja/parsers/JPStandardParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ja/parsers/JPStandardParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants4();
     var years_1 = require_years();
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var PATTERN = /(?:(?:([同今本])|((昭和|平成|令和)?([0-9０-９]{1,4}|元)))年\s*)?([0-9０-９]{1,2})月\s*([0-9０-９]{1,2})日/i;
+    var PATTERN =
+      /(?:(?:([同今本])|((昭和|平成|令和)?([0-9０-９]{1,4}|元)))年\s*)?([0-9０-９]{1,2})月\s*([0-9０-９]{1,2})日/i;
     var SPECIAL_YEAR_GROUP = 1;
     var TYPICAL_YEAR_GROUP = 2;
     var ERA_GROUP = 3;
@@ -6458,15 +7943,20 @@ var require_JPStandardParser = __commonJS({
         const day = parseInt(constants_1.toHankaku(match[DAY_GROUP]));
         const components = context2.createParsingComponents({
           day,
-          month
+          month,
         });
-        if (match[SPECIAL_YEAR_GROUP] && match[SPECIAL_YEAR_GROUP].match("\u540C|\u4ECA|\u672C")) {
+        if (
+          match[SPECIAL_YEAR_GROUP] &&
+          match[SPECIAL_YEAR_GROUP].match("\u540C|\u4ECA|\u672C")
+        ) {
           const moment3 = dayjs_1.default(context2.refDate);
           components.assign("year", moment3.year());
         }
         if (match[TYPICAL_YEAR_GROUP]) {
           const yearNumText = match[YEAR_NUMBER_GROUP];
-          let year = yearNumText == "\u5143" ? 1 : parseInt(constants_1.toHankaku(yearNumText));
+          let year = yearNumText == "\u5143"
+            ? 1
+            : parseInt(constants_1.toHankaku(yearNumText));
           if (match[ERA_GROUP] == "\u4EE4\u548C") {
             year += 2018;
           } else if (match[ERA_GROUP] == "\u5E73\u6210") {
@@ -6476,69 +7966,98 @@ var require_JPStandardParser = __commonJS({
           }
           components.assign("year", year);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           components.imply("year", year);
         }
         return components;
       }
     };
     exports.default = JPStandardParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ja/refiners/JPMergeDateRangeRefiner.js
 var require_JPMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/ja/refiners/JPMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ja/refiners/JPMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var JPMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var JPMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(から|ー|-)\s*$/i;
       }
     };
     exports.default = JPMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ja/parsers/JPCasualDateParser.js
 var require_JPCasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ja/parsers/JPCasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ja/parsers/JPCasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
     var index_1 = require_dist();
@@ -6561,7 +8080,10 @@ var require_JPCasualDateParser = __commonJS({
           case "\u5F53\u65E5":
             return references.today(context2.reference);
         }
-        if (text == "\u4ECA\u591C" || text == "\u4ECA\u5915" || text == "\u4ECA\u6669") {
+        if (
+          text == "\u4ECA\u591C" || text == "\u4ECA\u5915" ||
+          text == "\u4ECA\u6669"
+        ) {
           components.imply("hour", 22);
           components.assign("meridiem", index_1.Meridiem.PM);
         } else if (text.match("\u4ECA\u671D")) {
@@ -6575,20 +8097,29 @@ var require_JPCasualDateParser = __commonJS({
       }
     };
     exports.default = JPCasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ja/index.js
 var require_ja = __commonJS({
   "node_modules/chrono-node/dist/locales/ja/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.strict = exports.casual = void 0;
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.strict =
+      exports.casual =
+        void 0;
     var JPStandardParser_1 = __importDefault2(require_JPStandardParser());
-    var JPMergeDateRangeRefiner_1 = __importDefault2(require_JPMergeDateRangeRefiner());
+    var JPMergeDateRangeRefiner_1 = __importDefault2(
+      require_JPMergeDateRangeRefiner(),
+    );
     var JPCasualDateParser_1 = __importDefault2(require_JPCasualDateParser());
     var chrono_1 = require_chrono();
     exports.casual = new chrono_1.Chrono(createCasualConfiguration());
@@ -6610,11 +8141,11 @@ var require_ja = __commonJS({
     function createConfiguration() {
       return {
         parsers: [new JPStandardParser_1.default()],
-        refiners: [new JPMergeDateRangeRefiner_1.default()]
+        refiners: [new JPMergeDateRangeRefiner_1.default()],
       };
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/constants.js
@@ -6622,7 +8153,11 @@ var require_constants5 = __commonJS({
   "node_modules/chrono-node/dist/locales/pt/constants.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseYear = exports.YEAR_PATTERN = exports.MONTH_DICTIONARY = exports.WEEKDAY_DICTIONARY = void 0;
+    exports.parseYear =
+      exports.YEAR_PATTERN =
+      exports.MONTH_DICTIONARY =
+      exports.WEEKDAY_DICTIONARY =
+        void 0;
     exports.WEEKDAY_DICTIONARY = {
       "domingo": 0,
       "dom": 0,
@@ -6643,7 +8178,7 @@ var require_constants5 = __commonJS({
       "sex": 5,
       "s\xE1bado": 6,
       "sabado": 6,
-      "sab": 6
+      "sab": 6,
     };
     exports.MONTH_DICTIONARY = {
       "janeiro": 1,
@@ -6681,9 +8216,10 @@ var require_constants5 = __commonJS({
       "nov.": 11,
       "dezembro": 12,
       "dez": 12,
-      "dez.": 12
+      "dez.": 12,
     };
-    exports.YEAR_PATTERN = "[0-9]{1,4}(?![^\\s]\\d)(?:\\s*[a|d]\\.?\\s*c\\.?|\\s*a\\.?\\s*d\\.?)?";
+    exports.YEAR_PATTERN =
+      "[0-9]{1,4}(?![^\\s]\\d)(?:\\s*[a|d]\\.?\\s*c\\.?|\\s*a\\.?\\s*d\\.?)?";
     function parseYear(match) {
       if (match.match(/^[0-9]{1,4}$/)) {
         let yearNumber = parseInt(match);
@@ -6703,23 +8239,32 @@ var require_constants5 = __commonJS({
       return parseInt(match);
     }
     exports.parseYear = parseYear;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/parsers/PTWeekdayParser.js
 var require_PTWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/pt/parsers/PTWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/pt/parsers/PTWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants5();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var weekdays_1 = require_weekdays();
-    var PATTERN = new RegExp(`(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:(este|esta|passado|pr[o\xF3]ximo)\\s*)?(${pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)})(?:\\s*(?:\\,|\\)|\\\uFF09))?(?:\\s*(este|esta|passado|pr[\xF3o]ximo)\\s*semana)?(?=\\W|\\d|$)`, "i");
+    var PATTERN = new RegExp(
+      `(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:(este|esta|passado|pr[o\xF3]ximo)\\s*)?(${
+        pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)
+      })(?:\\s*(?:\\,|\\)|\\\uFF09))?(?:\\s*(este|esta|passado|pr[\xF3o]ximo)\\s*semana)?(?=\\W|\\d|$)`,
+      "i",
+    );
     var PREFIX_GROUP = 1;
     var WEEKDAY_GROUP = 2;
     var POSTFIX_GROUP = 3;
-    var PTWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PTWeekdayParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -6741,20 +8286,27 @@ var require_PTWeekdayParser = __commonJS({
         } else if (norm == "este") {
           modifier = "this";
         }
-        return weekdays_1.createParsingComponentsAtWeekday(context2.reference, weekday, modifier);
+        return weekdays_1.createParsingComponentsAtWeekday(
+          context2.reference,
+          weekday,
+          modifier,
+        );
       }
     };
     exports.default = PTWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/parsers/PTTimeExpressionParser.js
 var require_PTTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/pt/parsers/PTTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/pt/parsers/PTTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var AbstractTimeExpressionParser_1 = require_AbstractTimeExpressionParser();
-    var PTTimeExpressionParser = class extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
+    var PTTimeExpressionParser = class
+      extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
       primaryPrefix() {
         return "(?:(?:ao?|\xE0s?|das|da|de|do)\\s*)?";
       }
@@ -6763,67 +8315,90 @@ var require_PTTimeExpressionParser = __commonJS({
       }
     };
     exports.default = PTTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/refiners/PTMergeDateTimeRefiner.js
 var require_PTMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/pt/refiners/PTMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/pt/refiners/PTMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateTimeRefiner_1 = __importDefault2(require_AbstractMergeDateTimeRefiner());
-    var PTMergeDateTimeRefiner = class extends AbstractMergeDateTimeRefiner_1.default {
+    var AbstractMergeDateTimeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateTimeRefiner(),
+    );
+    var PTMergeDateTimeRefiner = class
+      extends AbstractMergeDateTimeRefiner_1.default {
       patternBetween() {
         return new RegExp("^\\s*(?:,|\xE0)?\\s*$");
       }
     };
     exports.default = PTMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/refiners/PTMergeDateRangeRefiner.js
 var require_PTMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/pt/refiners/PTMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/pt/refiners/PTMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var PTMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var PTMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(?:-)\s*$/i;
       }
     };
     exports.default = PTMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/parsers/PTMonthNameLittleEndianParser.js
 var require_PTMonthNameLittleEndianParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/pt/parsers/PTMonthNameLittleEndianParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/pt/parsers/PTMonthNameLittleEndianParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var years_1 = require_years();
     var constants_1 = require_constants5();
     var constants_2 = require_constants5();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`([0-9]{1,2})(?:\xBA|\xAA|\xB0)?(?:\\s*(?:desde|de|\\-|\\\u2013|ao?|\\s)\\s*([0-9]{1,2})(?:\xBA|\xAA|\xB0)?)?\\s*(?:de)?\\s*(?:-|/|\\s*(?:de|,)?\\s*)(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})(?:\\s*(?:de|,)?\\s*(${constants_2.YEAR_PATTERN}))?(?=\\W|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `([0-9]{1,2})(?:\xBA|\xAA|\xB0)?(?:\\s*(?:desde|de|\\-|\\\u2013|ao?|\\s)\\s*([0-9]{1,2})(?:\xBA|\xAA|\xB0)?)?\\s*(?:de)?\\s*(?:-|/|\\s*(?:de|,)?\\s*)(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })(?:\\s*(?:de|,)?\\s*(${constants_2.YEAR_PATTERN}))?(?=\\W|$)`,
+      "i",
+    );
     var DATE_GROUP = 1;
     var DATE_TO_GROUP = 2;
     var MONTH_NAME_GROUP = 3;
     var YEAR_GROUP = 4;
-    var PTMonthNameLittleEndianParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PTMonthNameLittleEndianParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
         const result = context2.createParsingResult(match.index, match[0]);
-        const month = constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month =
+          constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         const day = parseInt(match[DATE_GROUP]);
         if (day > 31) {
           match.index = match.index + match[DATE_GROUP].length;
@@ -6835,7 +8410,11 @@ var require_PTMonthNameLittleEndianParser = __commonJS({
           const yearNumber = constants_2.parseYear(match[YEAR_GROUP]);
           result.start.assign("year", yearNumber);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           result.start.imply("year", year);
         }
         if (match[DATE_TO_GROUP]) {
@@ -6847,45 +8426,65 @@ var require_PTMonthNameLittleEndianParser = __commonJS({
       }
     };
     exports.default = PTMonthNameLittleEndianParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/parsers/PTCasualDateParser.js
 var require_PTCasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/pt/parsers/PTCasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/pt/parsers/PTCasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var references = __importStar2(require_casualReferences());
-    var PTCasualDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PTCasualDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
         return /(agora|hoje|amanha|amanhã|ontem)(?=\W|$)/i;
       }
@@ -6907,22 +8506,27 @@ var require_PTCasualDateParser = __commonJS({
       }
     };
     exports.default = PTCasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/parsers/PTCasualTimeParser.js
 var require_PTCasualTimeParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/pt/parsers/PTCasualTimeParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/pt/parsers/PTCasualTimeParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var index_1 = require_dist();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var dayjs_1 = require_dayjs();
     var dayjs_2 = __importDefault2(require_dayjs_min());
-    var PTCasualTimeParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PTCasualTimeParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return /(?:esta\s*)?(manha|manhã|tarde|meia-noite|meio-dia|noite)(?=\W|$)/i;
       }
@@ -6958,26 +8562,43 @@ var require_PTCasualTimeParser = __commonJS({
       }
     };
     exports.default = PTCasualTimeParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/pt/index.js
 var require_pt = __commonJS({
   "node_modules/chrono-node/dist/locales/pt/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.strict = exports.casual = void 0;
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.strict =
+      exports.casual =
+        void 0;
     var configurations_1 = require_configurations();
     var chrono_1 = require_chrono();
-    var SlashDateFormatParser_1 = __importDefault2(require_SlashDateFormatParser());
+    var SlashDateFormatParser_1 = __importDefault2(
+      require_SlashDateFormatParser(),
+    );
     var PTWeekdayParser_1 = __importDefault2(require_PTWeekdayParser());
-    var PTTimeExpressionParser_1 = __importDefault2(require_PTTimeExpressionParser());
-    var PTMergeDateTimeRefiner_1 = __importDefault2(require_PTMergeDateTimeRefiner());
-    var PTMergeDateRangeRefiner_1 = __importDefault2(require_PTMergeDateRangeRefiner());
-    var PTMonthNameLittleEndianParser_1 = __importDefault2(require_PTMonthNameLittleEndianParser());
+    var PTTimeExpressionParser_1 = __importDefault2(
+      require_PTTimeExpressionParser(),
+    );
+    var PTMergeDateTimeRefiner_1 = __importDefault2(
+      require_PTMergeDateTimeRefiner(),
+    );
+    var PTMergeDateRangeRefiner_1 = __importDefault2(
+      require_PTMergeDateRangeRefiner(),
+    );
+    var PTMonthNameLittleEndianParser_1 = __importDefault2(
+      require_PTMonthNameLittleEndianParser(),
+    );
     var PTCasualDateParser_1 = __importDefault2(require_PTCasualDateParser());
     var PTCasualTimeParser_1 = __importDefault2(require_PTCasualTimeParser());
     exports.casual = new chrono_1.Chrono(createCasualConfiguration());
@@ -7003,87 +8624,122 @@ var require_pt = __commonJS({
           new SlashDateFormatParser_1.default(littleEndian),
           new PTWeekdayParser_1.default(),
           new PTTimeExpressionParser_1.default(),
-          new PTMonthNameLittleEndianParser_1.default()
+          new PTMonthNameLittleEndianParser_1.default(),
         ],
-        refiners: [new PTMergeDateTimeRefiner_1.default(), new PTMergeDateRangeRefiner_1.default()]
+        refiners: [
+          new PTMergeDateTimeRefiner_1.default(),
+          new PTMergeDateRangeRefiner_1.default(),
+        ],
       }, strictMode);
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/refiners/NLMergeDateRangeRefiner.js
 var require_NLMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/refiners/NLMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/refiners/NLMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var NLMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var NLMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(tot|-)\s*$/i;
       }
     };
     exports.default = NLMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/refiners/NLMergeDateTimeRefiner.js
 var require_NLMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/refiners/NLMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/refiners/NLMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateTimeRefiner_1 = __importDefault2(require_AbstractMergeDateTimeRefiner());
-    var NLMergeDateTimeRefiner = class extends AbstractMergeDateTimeRefiner_1.default {
+    var AbstractMergeDateTimeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateTimeRefiner(),
+    );
+    var NLMergeDateTimeRefiner = class
+      extends AbstractMergeDateTimeRefiner_1.default {
       patternBetween() {
         return new RegExp("^\\s*(om|na|voor|in de|,|-)?\\s*$");
       }
     };
     exports.default = NLMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLCasualDateParser.js
 var require_NLCasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLCasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLCasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var references = __importStar2(require_casualReferences());
-    var NLCasualDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLCasualDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
         return /(nu|vandaag|morgen|morgend|gisteren)(?=\W|$)/i;
       }
@@ -7105,24 +8761,29 @@ var require_NLCasualDateParser = __commonJS({
       }
     };
     exports.default = NLCasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLCasualTimeParser.js
 var require_NLCasualTimeParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLCasualTimeParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLCasualTimeParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var index_1 = require_dist();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var dayjs_1 = __importDefault2(require_dayjs_min());
     var dayjs_2 = require_dayjs();
     var DAY_GROUP = 1;
     var MOMENT_GROUP = 2;
-    var NLCasualTimeParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLCasualTimeParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return /(deze)?\s*(namiddag|avond|middernacht|ochtend|middag|'s middags|'s avonds|'s ochtends)(?=\W|$)/i;
       }
@@ -7166,7 +8827,7 @@ var require_NLCasualTimeParser = __commonJS({
       }
     };
     exports.default = NLCasualTimeParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/constants.js
@@ -7174,7 +8835,20 @@ var require_constants6 = __commonJS({
   "node_modules/chrono-node/dist/locales/nl/constants.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseTimeUnits = exports.TIME_UNITS_PATTERN = exports.parseYear = exports.YEAR_PATTERN = exports.parseOrdinalNumberPattern = exports.ORDINAL_NUMBER_PATTERN = exports.parseNumberPattern = exports.NUMBER_PATTERN = exports.TIME_UNIT_DICTIONARY = exports.ORDINAL_WORD_DICTIONARY = exports.INTEGER_WORD_DICTIONARY = exports.MONTH_DICTIONARY = exports.WEEKDAY_DICTIONARY = void 0;
+    exports.parseTimeUnits =
+      exports.TIME_UNITS_PATTERN =
+      exports.parseYear =
+      exports.YEAR_PATTERN =
+      exports.parseOrdinalNumberPattern =
+      exports.ORDINAL_NUMBER_PATTERN =
+      exports.parseNumberPattern =
+      exports.NUMBER_PATTERN =
+      exports.TIME_UNIT_DICTIONARY =
+      exports.ORDINAL_WORD_DICTIONARY =
+      exports.INTEGER_WORD_DICTIONARY =
+      exports.MONTH_DICTIONARY =
+      exports.WEEKDAY_DICTIONARY =
+        void 0;
     var pattern_1 = require_pattern();
     var years_1 = require_years();
     exports.WEEKDAY_DICTIONARY = {
@@ -7210,7 +8884,7 @@ var require_constants6 = __commonJS({
       zat: 6,
       "zat.": 6,
       "za": 6,
-      "za.": 6
+      "za.": 6,
     };
     exports.MONTH_DICTIONARY = {
       januari: 1,
@@ -7248,7 +8922,7 @@ var require_constants6 = __commonJS({
       "nov.": 11,
       december: 12,
       dec: 12,
-      "dec.": 12
+      "dec.": 12,
     };
     exports.INTEGER_WORD_DICTIONARY = {
       een: 1,
@@ -7262,7 +8936,7 @@ var require_constants6 = __commonJS({
       negen: 9,
       tien: 10,
       elf: 11,
-      twaalf: 12
+      twaalf: 12,
     };
     exports.ORDINAL_WORD_DICTIONARY = {
       eerste: 1,
@@ -7295,7 +8969,7 @@ var require_constants6 = __commonJS({
       "achtentwintig": 28,
       "negenentwintig": 29,
       "dertigste": 30,
-      "eenendertigste": 31
+      "eenendertigste": 31,
     };
     exports.TIME_UNIT_DICTIONARY = {
       sec: "second",
@@ -7321,9 +8995,11 @@ var require_constants6 = __commonJS({
       maanden: "month",
       jaar: "year",
       jr: "year",
-      jaren: "year"
+      jaren: "year",
     };
-    exports.NUMBER_PATTERN = `(?:${pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)}|[0-9]+|[0-9]+[\\.,][0-9]+|halve?|half|paar)`;
+    exports.NUMBER_PATTERN = `(?:${
+      pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)
+    }|[0-9]+|[0-9]+[\\.,][0-9]+|halve?|half|paar)`;
     function parseNumberPattern(match) {
       const num = match.toLowerCase();
       if (exports.INTEGER_WORD_DICTIONARY[num] !== void 0) {
@@ -7336,7 +9012,9 @@ var require_constants6 = __commonJS({
       return parseFloat(num.replace(",", "."));
     }
     exports.parseNumberPattern = parseNumberPattern;
-    exports.ORDINAL_NUMBER_PATTERN = `(?:${pattern_1.matchAnyPattern(exports.ORDINAL_WORD_DICTIONARY)}|[0-9]{1,2}(?:ste|de)?)`;
+    exports.ORDINAL_NUMBER_PATTERN = `(?:${
+      pattern_1.matchAnyPattern(exports.ORDINAL_WORD_DICTIONARY)
+    }|[0-9]{1,2}(?:ste|de)?)`;
     function parseOrdinalNumberPattern(match) {
       let num = match.toLowerCase();
       if (exports.ORDINAL_WORD_DICTIONARY[num] !== void 0) {
@@ -7346,7 +9024,8 @@ var require_constants6 = __commonJS({
       return parseInt(num);
     }
     exports.parseOrdinalNumberPattern = parseOrdinalNumberPattern;
-    exports.YEAR_PATTERN = `(?:[1-9][0-9]{0,3}\\s*(?:voor Christus|na Christus)|[1-2][0-9]{3}|[5-9][0-9])`;
+    exports.YEAR_PATTERN =
+      `(?:[1-9][0-9]{0,3}\\s*(?:voor Christus|na Christus)|[1-2][0-9]{3}|[5-9][0-9])`;
     function parseYear(match) {
       if (/voor Christus/i.test(match)) {
         match = match.replace(/voor Christus/i, "");
@@ -7360,9 +9039,14 @@ var require_constants6 = __commonJS({
       return years_1.findMostLikelyADYear(rawYearNumber);
     }
     exports.parseYear = parseYear;
-    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,5}(${pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)})\\s{0,5}`;
+    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,5}(${
+      pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)
+    })\\s{0,5}`;
     var SINGLE_TIME_UNIT_REGEX = new RegExp(SINGLE_TIME_UNIT_PATTERN, "i");
-    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern(`(?:(?:binnen|in)\\s*)?`, SINGLE_TIME_UNIT_PATTERN);
+    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern(
+      `(?:(?:binnen|in)\\s*)?`,
+      SINGLE_TIME_UNIT_PATTERN,
+    );
     function parseTimeUnits(timeunitText) {
       const fragments = {};
       let remainingText = timeunitText;
@@ -7380,44 +9064,65 @@ var require_constants6 = __commonJS({
       const unit = exports.TIME_UNIT_DICTIONARY[match[2].toLowerCase()];
       fragments[unit] = num;
     }
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitWithinFormatParser.js
 var require_NLTimeUnitWithinFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitWithinFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitWithinFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants6();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var NLTimeUnitWithinFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var NLTimeUnitWithinFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
-        return new RegExp(`(?:binnen|in|binnen de|voor)\\s*(` + constants_1.TIME_UNITS_PATTERN + `)(?=\\W|$)`, "i");
+        return new RegExp(
+          `(?:binnen|in|binnen de|voor)\\s*(` + constants_1.TIME_UNITS_PATTERN +
+            `)(?=\\W|$)`,
+          "i",
+        );
       }
       innerExtract(context2, match) {
         const timeUnits = constants_1.parseTimeUnits(match[1]);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = NLTimeUnitWithinFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLWeekdayParser.js
 var require_NLWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants6();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var weekdays_1 = require_weekdays();
-    var PATTERN = new RegExp(`(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:op\\s*?)?(?:(deze|vorige|volgende)\\s*(?:week\\s*)?)?(${pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)})(?=\\W|$)`, "i");
+    var PATTERN = new RegExp(
+      `(?:(?:\\,|\\(|\\\uFF08)\\s*)?(?:op\\s*?)?(?:(deze|vorige|volgende)\\s*(?:week\\s*)?)?(${
+        pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)
+      })(?=\\W|$)`,
+      "i",
+    );
     var PREFIX_GROUP = 1;
     var WEEKDAY_GROUP = 2;
     var POSTFIX_GROUP = 3;
-    var NLWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLWeekdayParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -7437,16 +9142,22 @@ var require_NLWeekdayParser = __commonJS({
         } else if (modifierWord == "deze") {
           modifier = "this";
         }
-        return weekdays_1.createParsingComponentsAtWeekday(context2.reference, weekday, modifier);
+        return weekdays_1.createParsingComponentsAtWeekday(
+          context2.reference,
+          weekday,
+          modifier,
+        );
       }
     };
     exports.default = NLWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLMonthNameMiddleEndianParser.js
 var require_NLMonthNameMiddleEndianParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLMonthNameMiddleEndianParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLMonthNameMiddleEndianParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var years_1 = require_years();
@@ -7454,18 +9165,27 @@ var require_NLMonthNameMiddleEndianParser = __commonJS({
     var constants_2 = require_constants6();
     var constants_3 = require_constants6();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`(?:on\\s*?)?(${constants_2.ORDINAL_NUMBER_PATTERN})(?:\\s*(?:tot|\\-|\\\u2013|until|through|till|\\s)\\s*(${constants_2.ORDINAL_NUMBER_PATTERN}))?(?:-|/|\\s*(?:of)?\\s*)(` + pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY) + `)(?:(?:-|/|,?\\s*)(${constants_3.YEAR_PATTERN}(?![^\\s]\\d)))?(?=\\W|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `(?:on\\s*?)?(${constants_2.ORDINAL_NUMBER_PATTERN})(?:\\s*(?:tot|\\-|\\\u2013|until|through|till|\\s)\\s*(${constants_2.ORDINAL_NUMBER_PATTERN}))?(?:-|/|\\s*(?:of)?\\s*)(` +
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY) +
+        `)(?:(?:-|/|,?\\s*)(${constants_3.YEAR_PATTERN}(?![^\\s]\\d)))?(?=\\W|$)`,
+      "i",
+    );
     var MONTH_NAME_GROUP = 3;
     var DATE_GROUP = 1;
     var DATE_TO_GROUP = 2;
     var YEAR_GROUP = 4;
-    var NLMonthNameMiddleEndianParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLMonthNameMiddleEndianParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
-        const month = constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month =
+          constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         const day = constants_2.parseOrdinalNumberPattern(match[DATE_GROUP]);
         if (day > 31) {
           match.index = match.index + match[DATE_GROUP].length;
@@ -7473,19 +9193,25 @@ var require_NLMonthNameMiddleEndianParser = __commonJS({
         }
         const components = context2.createParsingComponents({
           day,
-          month
+          month,
         });
         if (match[YEAR_GROUP]) {
           const year = constants_3.parseYear(match[YEAR_GROUP]);
           components.assign("year", year);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           components.imply("year", year);
         }
         if (!match[DATE_TO_GROUP]) {
           return components;
         }
-        const endDate = constants_2.parseOrdinalNumberPattern(match[DATE_TO_GROUP]);
+        const endDate = constants_2.parseOrdinalNumberPattern(
+          match[DATE_TO_GROUP],
+        );
         const result = context2.createParsingResult(match.index, match[0]);
         result.start = components;
         result.end = components.clone();
@@ -7494,23 +9220,32 @@ var require_NLMonthNameMiddleEndianParser = __commonJS({
       }
     };
     exports.default = NLMonthNameMiddleEndianParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLMonthNameParser.js
 var require_NLMonthNameParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLMonthNameParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLMonthNameParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants6();
     var years_1 = require_years();
     var pattern_1 = require_pattern();
     var constants_2 = require_constants6();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})\\s*(?:[,-]?\\s*(${constants_2.YEAR_PATTERN})?)?(?=[^\\s\\w]|\\s+[^0-9]|\\s+$|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })\\s*(?:[,-]?\\s*(${constants_2.YEAR_PATTERN})?)?(?=[^\\s\\w]|\\s+[^0-9]|\\s+$|$)`,
+      "i",
+    );
     var MONTH_NAME_GROUP = 1;
     var YEAR_GROUP = 2;
-    var NLMonthNameParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLMonthNameParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -7531,39 +9266,50 @@ var require_NLMonthNameParser = __commonJS({
       }
     };
     exports.default = NLMonthNameParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLSlashMonthFormatParser.js
 var require_NLSlashMonthFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLSlashMonthFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLSlashMonthFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var PATTERN = new RegExp("([0-9]|0[1-9]|1[012])/([0-9]{4})", "i");
     var MONTH_GROUP = 1;
     var YEAR_GROUP = 2;
-    var NLSlashMonthFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLSlashMonthFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
         const year = parseInt(match[YEAR_GROUP]);
         const month = parseInt(match[MONTH_GROUP]);
-        return context2.createParsingComponents().imply("day", 1).assign("month", month).assign("year", year);
+        return context2.createParsingComponents().imply("day", 1).assign(
+          "month",
+          month,
+        ).assign("year", year);
       }
     };
     exports.default = NLSlashMonthFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLTimeExpressionParser.js
 var require_NLTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var AbstractTimeExpressionParser_1 = require_AbstractTimeExpressionParser();
-    var NLTimeExpressionParser = class extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
+    var NLTimeExpressionParser = class
+      extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
       primaryPrefix() {
         return "(?:(?:om)\\s*)?";
       }
@@ -7581,28 +9327,40 @@ var require_NLTimeExpressionParser = __commonJS({
       }
     };
     exports.default = NLTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLCasualYearMonthDayParser.js
 var require_NLCasualYearMonthDayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLCasualYearMonthDayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLCasualYearMonthDayParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants6();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`([0-9]{4})[\\.\\/\\s](?:(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})|([0-9]{1,2}))[\\.\\/\\s]([0-9]{1,2})(?=\\W|$)`, "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `([0-9]{4})[\\.\\/\\s](?:(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })|([0-9]{1,2}))[\\.\\/\\s]([0-9]{1,2})(?=\\W|$)`,
+      "i",
+    );
     var YEAR_NUMBER_GROUP = 1;
     var MONTH_NAME_GROUP = 2;
     var MONTH_NUMBER_GROUP = 3;
     var DATE_NUMBER_GROUP = 4;
-    var NLCasualYearMonthDayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLCasualYearMonthDayParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
       innerExtract(context2, match) {
-        const month = match[MONTH_NUMBER_GROUP] ? parseInt(match[MONTH_NUMBER_GROUP]) : constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month = match[MONTH_NUMBER_GROUP]
+          ? parseInt(match[MONTH_NUMBER_GROUP])
+          : constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         if (month < 1 || month > 12) {
           return null;
         }
@@ -7611,29 +9369,34 @@ var require_NLCasualYearMonthDayParser = __commonJS({
         return {
           day,
           month,
-          year
+          year,
         };
       }
     };
     exports.default = NLCasualYearMonthDayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLCasualDateTimeParser.js
 var require_NLCasualDateTimeParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLCasualDateTimeParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLCasualDateTimeParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var index_1 = require_dist();
     var dayjs_1 = require_dayjs();
     var dayjs_2 = __importDefault2(require_dayjs_min());
     var DATE_GROUP = 1;
     var TIME_OF_DAY_GROUP = 2;
-    var NLCasualDateTimeParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLCasualDateTimeParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
         return /(gisteren|morgen|van)(ochtend|middag|namiddag|avond|nacht)(?=\W|$)/i;
       }
@@ -7675,20 +9438,28 @@ var require_NLCasualDateTimeParser = __commonJS({
       }
     };
     exports.default = NLCasualDateTimeParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitCasualRelativeFormatParser.js
 var require_NLTimeUnitCasualRelativeFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitCasualRelativeFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitCasualRelativeFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants6();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
-    var PATTERN = new RegExp(`(deze|vorige|afgelopen|komende|over|\\+|-)\\s*(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`, "i");
-    var NLTimeUnitCasualRelativeFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      `(deze|vorige|afgelopen|komende|over|\\+|-)\\s*(${constants_1.TIME_UNITS_PATTERN})(?=\\W|$)`,
+      "i",
+    );
+    var NLTimeUnitCasualRelativeFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -7702,30 +9473,44 @@ var require_NLTimeUnitCasualRelativeFormatParser = __commonJS({
             timeUnits = timeunits_1.reverseTimeUnits(timeUnits);
             break;
         }
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = NLTimeUnitCasualRelativeFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLRelativeDateFormatParser.js
 var require_NLRelativeDateFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLRelativeDateFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLRelativeDateFormatParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants6();
     var results_1 = require_results();
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var pattern_1 = require_pattern();
-    var PATTERN = new RegExp(`(dit|deze|komende|volgend|volgende|afgelopen|vorige)\\s*(${pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)})(?=\\s*)(?=\\W|$)`, "i");
+    var PATTERN = new RegExp(
+      `(dit|deze|komende|volgend|volgende|afgelopen|vorige)\\s*(${
+        pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)
+      })(?=\\s*)(?=\\W|$)`,
+      "i",
+    );
     var MODIFIER_WORD_GROUP = 1;
     var RELATIVE_WORD_GROUP = 2;
-    var NLRelativeDateFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLRelativeDateFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -7733,15 +9518,24 @@ var require_NLRelativeDateFormatParser = __commonJS({
         const modifier = match[MODIFIER_WORD_GROUP].toLowerCase();
         const unitWord = match[RELATIVE_WORD_GROUP].toLowerCase();
         const timeunit = constants_1.TIME_UNIT_DICTIONARY[unitWord];
-        if (modifier == "volgend" || modifier == "volgende" || modifier == "komende") {
+        if (
+          modifier == "volgend" || modifier == "volgende" ||
+          modifier == "komende"
+        ) {
           const timeUnits = {};
           timeUnits[timeunit] = 1;
-          return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+          return results_1.ParsingComponents.createRelativeFromReference(
+            context2.reference,
+            timeUnits,
+          );
         }
         if (modifier == "afgelopen" || modifier == "vorige") {
           const timeUnits = {};
           timeUnits[timeunit] = -1;
-          return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+          return results_1.ParsingComponents.createRelativeFromReference(
+            context2.reference,
+            timeUnits,
+          );
         }
         const components = context2.createParsingComponents();
         let date = dayjs_1.default(context2.reference.instant);
@@ -7766,21 +9560,33 @@ var require_NLRelativeDateFormatParser = __commonJS({
       }
     };
     exports.default = NLRelativeDateFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitAgoFormatParser.js
 var require_NLTimeUnitAgoFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitAgoFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitAgoFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants6();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
-    var PATTERN = new RegExp("(" + constants_1.TIME_UNITS_PATTERN + ")(?:geleden|voor|eerder)(?=(?:\\W|$))", "i");
-    var STRICT_PATTERN = new RegExp("(" + constants_1.TIME_UNITS_PATTERN + ")geleden(?=(?:\\W|$))", "i");
-    var NLTimeUnitAgoFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      "(" + constants_1.TIME_UNITS_PATTERN +
+        ")(?:geleden|voor|eerder)(?=(?:\\W|$))",
+      "i",
+    );
+    var STRICT_PATTERN = new RegExp(
+      "(" + constants_1.TIME_UNITS_PATTERN + ")geleden(?=(?:\\W|$))",
+      "i",
+    );
+    var NLTimeUnitAgoFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       constructor(strictMode) {
         super();
         this.strictMode = strictMode;
@@ -7791,25 +9597,40 @@ var require_NLTimeUnitAgoFormatParser = __commonJS({
       innerExtract(context2, match) {
         const timeUnits = constants_1.parseTimeUnits(match[1]);
         const outputTimeUnits = timeunits_1.reverseTimeUnits(timeUnits);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, outputTimeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          outputTimeUnits,
+        );
       }
     };
     exports.default = NLTimeUnitAgoFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitLaterFormatParser.js
 var require_NLTimeUnitLaterFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitLaterFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/nl/parsers/NLTimeUnitLaterFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants6();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp("(" + constants_1.TIME_UNITS_PATTERN + ")(later|na|vanaf nu|voortaan|vooruit|uit)(?=(?:\\W|$))", "i");
-    var STRICT_PATTERN = new RegExp("(" + constants_1.TIME_UNITS_PATTERN + ")(later|vanaf nu)(?=(?:\\W|$))", "i");
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      "(" + constants_1.TIME_UNITS_PATTERN +
+        ")(later|na|vanaf nu|voortaan|vooruit|uit)(?=(?:\\W|$))",
+      "i",
+    );
+    var STRICT_PATTERN = new RegExp(
+      "(" + constants_1.TIME_UNITS_PATTERN + ")(later|vanaf nu)(?=(?:\\W|$))",
+      "i",
+    );
     var GROUP_NUM_TIMEUNITS = 1;
-    var NLTimeUnitLaterFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var NLTimeUnitLaterFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       constructor(strictMode) {
         super();
         this.strictMode = strictMode;
@@ -7818,42 +9639,80 @@ var require_NLTimeUnitLaterFormatParser = __commonJS({
         return this.strictMode ? STRICT_PATTERN : PATTERN;
       }
       innerExtract(context2, match) {
-        const fragments = constants_1.parseTimeUnits(match[GROUP_NUM_TIMEUNITS]);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, fragments);
+        const fragments = constants_1.parseTimeUnits(
+          match[GROUP_NUM_TIMEUNITS],
+        );
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          fragments,
+        );
       }
     };
     exports.default = NLTimeUnitLaterFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/nl/index.js
 var require_nl = __commonJS({
   "node_modules/chrono-node/dist/locales/nl/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.strict = exports.casual = void 0;
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.strict =
+      exports.casual =
+        void 0;
     var configurations_1 = require_configurations();
     var chrono_1 = require_chrono();
-    var NLMergeDateRangeRefiner_1 = __importDefault2(require_NLMergeDateRangeRefiner());
-    var NLMergeDateTimeRefiner_1 = __importDefault2(require_NLMergeDateTimeRefiner());
+    var NLMergeDateRangeRefiner_1 = __importDefault2(
+      require_NLMergeDateRangeRefiner(),
+    );
+    var NLMergeDateTimeRefiner_1 = __importDefault2(
+      require_NLMergeDateTimeRefiner(),
+    );
     var NLCasualDateParser_1 = __importDefault2(require_NLCasualDateParser());
     var NLCasualTimeParser_1 = __importDefault2(require_NLCasualTimeParser());
-    var SlashDateFormatParser_1 = __importDefault2(require_SlashDateFormatParser());
-    var NLTimeUnitWithinFormatParser_1 = __importDefault2(require_NLTimeUnitWithinFormatParser());
+    var SlashDateFormatParser_1 = __importDefault2(
+      require_SlashDateFormatParser(),
+    );
+    var NLTimeUnitWithinFormatParser_1 = __importDefault2(
+      require_NLTimeUnitWithinFormatParser(),
+    );
     var NLWeekdayParser_1 = __importDefault2(require_NLWeekdayParser());
-    var NLMonthNameMiddleEndianParser_1 = __importDefault2(require_NLMonthNameMiddleEndianParser());
+    var NLMonthNameMiddleEndianParser_1 = __importDefault2(
+      require_NLMonthNameMiddleEndianParser(),
+    );
     var NLMonthNameParser_1 = __importDefault2(require_NLMonthNameParser());
-    var NLSlashMonthFormatParser_1 = __importDefault2(require_NLSlashMonthFormatParser());
-    var NLTimeExpressionParser_1 = __importDefault2(require_NLTimeExpressionParser());
-    var NLCasualYearMonthDayParser_1 = __importDefault2(require_NLCasualYearMonthDayParser());
-    var NLCasualDateTimeParser_1 = __importDefault2(require_NLCasualDateTimeParser());
-    var NLTimeUnitCasualRelativeFormatParser_1 = __importDefault2(require_NLTimeUnitCasualRelativeFormatParser());
-    var NLRelativeDateFormatParser_1 = __importDefault2(require_NLRelativeDateFormatParser());
-    var NLTimeUnitAgoFormatParser_1 = __importDefault2(require_NLTimeUnitAgoFormatParser());
-    var NLTimeUnitLaterFormatParser_1 = __importDefault2(require_NLTimeUnitLaterFormatParser());
+    var NLSlashMonthFormatParser_1 = __importDefault2(
+      require_NLSlashMonthFormatParser(),
+    );
+    var NLTimeExpressionParser_1 = __importDefault2(
+      require_NLTimeExpressionParser(),
+    );
+    var NLCasualYearMonthDayParser_1 = __importDefault2(
+      require_NLCasualYearMonthDayParser(),
+    );
+    var NLCasualDateTimeParser_1 = __importDefault2(
+      require_NLCasualDateTimeParser(),
+    );
+    var NLTimeUnitCasualRelativeFormatParser_1 = __importDefault2(
+      require_NLTimeUnitCasualRelativeFormatParser(),
+    );
+    var NLRelativeDateFormatParser_1 = __importDefault2(
+      require_NLRelativeDateFormatParser(),
+    );
+    var NLTimeUnitAgoFormatParser_1 = __importDefault2(
+      require_NLTimeUnitAgoFormatParser(),
+    );
+    var NLTimeUnitLaterFormatParser_1 = __importDefault2(
+      require_NLTimeUnitLaterFormatParser(),
+    );
     exports.casual = new chrono_1.Chrono(createCasualConfiguration());
     exports.strict = new chrono_1.Chrono(createConfiguration(true));
     function parse3(text, ref, option) {
@@ -7871,7 +9730,9 @@ var require_nl = __commonJS({
       option.parsers.unshift(new NLCasualDateTimeParser_1.default());
       option.parsers.unshift(new NLMonthNameParser_1.default());
       option.parsers.unshift(new NLRelativeDateFormatParser_1.default());
-      option.parsers.unshift(new NLTimeUnitCasualRelativeFormatParser_1.default());
+      option.parsers.unshift(
+        new NLTimeUnitCasualRelativeFormatParser_1.default(),
+      );
       return option;
     }
     exports.createCasualConfiguration = createCasualConfiguration;
@@ -7887,34 +9748,45 @@ var require_nl = __commonJS({
           new NLSlashMonthFormatParser_1.default(),
           new NLTimeExpressionParser_1.default(strictMode),
           new NLTimeUnitAgoFormatParser_1.default(strictMode),
-          new NLTimeUnitLaterFormatParser_1.default(strictMode)
+          new NLTimeUnitLaterFormatParser_1.default(strictMode),
         ],
-        refiners: [new NLMergeDateTimeRefiner_1.default(), new NLMergeDateRangeRefiner_1.default()]
+        refiners: [
+          new NLMergeDateTimeRefiner_1.default(),
+          new NLMergeDateRangeRefiner_1.default(),
+        ],
       }, strictMode);
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantCasualDateParser.js
 var require_ZHHantCasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantCasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantCasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var NOW_GROUP = 1;
     var DAY_GROUP_1 = 2;
     var TIME_GROUP_1 = 3;
     var TIME_GROUP_2 = 4;
     var DAY_GROUP_3 = 5;
     var TIME_GROUP_3 = 6;
-    var ZHHantCasualDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ZHHantCasualDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
-        return new RegExp("(\u800C\u5BB6|\u7ACB(?:\u523B|\u5373)|\u5373\u523B)|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(?:\u65E5|\u5929)(?:[\\s|,|\uFF0C]*)(?:(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?", "i");
+        return new RegExp(
+          "(\u800C\u5BB6|\u7ACB(?:\u523B|\u5373)|\u5373\u523B)|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(?:\u65E5|\u5929)(?:[\\s|,|\uFF0C]*)(?:(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?",
+          "i",
+        );
       }
       innerExtract(context2, match) {
         const index = match.index;
@@ -8010,7 +9882,7 @@ var require_ZHHantCasualDateParser = __commonJS({
       }
     };
     exports.default = ZHHantCasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/constants.js
@@ -8018,7 +9890,11 @@ var require_constants7 = __commonJS({
   "node_modules/chrono-node/dist/locales/zh/hant/constants.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.zhStringToYear = exports.zhStringToNumber = exports.WEEKDAY_OFFSET = exports.NUMBER = void 0;
+    exports.zhStringToYear =
+      exports.zhStringToNumber =
+      exports.WEEKDAY_OFFSET =
+      exports.NUMBER =
+        void 0;
     exports.NUMBER = {
       "\u96F6": 0,
       "\u4E00": 1,
@@ -8033,7 +9909,7 @@ var require_constants7 = __commonJS({
       "\u4E5D": 9,
       "\u5341": 10,
       "\u5EFF": 20,
-      "\u5345": 30
+      "\u5345": 30,
     };
     exports.WEEKDAY_OFFSET = {
       "\u5929": 0,
@@ -8043,14 +9919,16 @@ var require_constants7 = __commonJS({
       "\u4E09": 3,
       "\u56DB": 4,
       "\u4E94": 5,
-      "\u516D": 6
+      "\u516D": 6,
     };
     function zhStringToNumber(text) {
       let number = 0;
       for (let i4 = 0; i4 < text.length; i4++) {
         const char = text[i4];
         if (char === "\u5341") {
-          number = number === 0 ? exports.NUMBER[char] : number * exports.NUMBER[char];
+          number = number === 0
+            ? exports.NUMBER[char]
+            : number * exports.NUMBER[char];
         } else {
           number += exports.NUMBER[char];
         }
@@ -8067,46 +9945,62 @@ var require_constants7 = __commonJS({
       return parseInt(string2);
     }
     exports.zhStringToYear = zhStringToYear;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantDateParser.js
 var require_ZHHantDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants7();
     var YEAR_GROUP = 1;
     var MONTH_GROUP = 2;
     var DAY_GROUP = 3;
-    var ZHHantDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ZHHantDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
-        return new RegExp("(\\d{2,4}|[" + Object.keys(constants_1.NUMBER).join("") + "]{4}|[" + Object.keys(constants_1.NUMBER).join("") + "]{2})?(?:\\s*)(?:\u5E74)?(?:[\\s|,|\uFF0C]*)(\\d{1,2}|[" + Object.keys(constants_1.NUMBER).join("") + "]{1,2})(?:\\s*)(?:\u6708)(?:\\s*)(\\d{1,2}|[" + Object.keys(constants_1.NUMBER).join("") + "]{1,2})?(?:\\s*)(?:\u65E5|\u865F)?");
+        return new RegExp(
+          "(\\d{2,4}|[" + Object.keys(constants_1.NUMBER).join("") + "]{4}|[" +
+            Object.keys(constants_1.NUMBER).join("") +
+            "]{2})?(?:\\s*)(?:\u5E74)?(?:[\\s|,|\uFF0C]*)(\\d{1,2}|[" +
+            Object.keys(constants_1.NUMBER).join("") +
+            "]{1,2})(?:\\s*)(?:\u6708)(?:\\s*)(\\d{1,2}|[" +
+            Object.keys(constants_1.NUMBER).join("") +
+            "]{1,2})?(?:\\s*)(?:\u65E5|\u865F)?",
+        );
       }
       innerExtract(context2, match) {
         const startMoment = dayjs_1.default(context2.refDate);
         const result = context2.createParsingResult(match.index, match[0]);
         let month = parseInt(match[MONTH_GROUP]);
-        if (isNaN(month))
+        if (isNaN(month)) {
           month = constants_1.zhStringToNumber(match[MONTH_GROUP]);
+        }
         result.start.assign("month", month);
         if (match[DAY_GROUP]) {
           let day = parseInt(match[DAY_GROUP]);
-          if (isNaN(day))
+          if (isNaN(day)) {
             day = constants_1.zhStringToNumber(match[DAY_GROUP]);
+          }
           result.start.assign("day", day);
         } else {
           result.start.imply("day", startMoment.date());
         }
         if (match[YEAR_GROUP]) {
           let year = parseInt(match[YEAR_GROUP]);
-          if (isNaN(year))
+          if (isNaN(year)) {
             year = constants_1.zhStringToYear(match[YEAR_GROUP]);
+          }
           result.start.assign("year", year);
         } else {
           result.start.imply("year", startMoment.year());
@@ -8115,24 +10009,34 @@ var require_ZHHantDateParser = __commonJS({
       }
     };
     exports.default = ZHHantDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantDeadlineFormatParser.js
 var require_ZHHantDeadlineFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantDeadlineFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantDeadlineFormatParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants7();
-    var PATTERN = new RegExp("(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+|\u534A|\u5E7E)(?:\\s*)(?:\u500B)?(\u79D2(?:\u9418)?|\u5206\u9418|\u5C0F\u6642|\u9418|\u65E5|\u5929|\u661F\u671F|\u79AE\u62DC|\u6708|\u5E74)(?:(?:\u4E4B|\u904E)?\u5F8C|(?:\u4E4B)?\u5167)", "i");
+    var PATTERN = new RegExp(
+      "(\\d+|[" + Object.keys(constants_1.NUMBER).join("") +
+        "]+|\u534A|\u5E7E)(?:\\s*)(?:\u500B)?(\u79D2(?:\u9418)?|\u5206\u9418|\u5C0F\u6642|\u9418|\u65E5|\u5929|\u661F\u671F|\u79AE\u62DC|\u6708|\u5E74)(?:(?:\u4E4B|\u904E)?\u5F8C|(?:\u4E4B)?\u5167)",
+      "i",
+    );
     var NUMBER_GROUP = 1;
     var UNIT_GROUP = 2;
-    var ZHHantDeadlineFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ZHHantDeadlineFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -8187,22 +10091,31 @@ var require_ZHHantDeadlineFormatParser = __commonJS({
       }
     };
     exports.default = ZHHantDeadlineFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantRelationWeekdayParser.js
 var require_ZHHantRelationWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantRelationWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantRelationWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants7();
-    var PATTERN = new RegExp("(?<prefix>\u4E0A|\u4ECA|\u4E0B|\u9019|\u5462)(?:\u500B)?(?:\u661F\u671F|\u79AE\u62DC|\u9031)(?<weekday>" + Object.keys(constants_1.WEEKDAY_OFFSET).join("|") + ")");
-    var ZHHantRelationWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      "(?<prefix>\u4E0A|\u4ECA|\u4E0B|\u9019|\u5462)(?:\u500B)?(?:\u661F\u671F|\u79AE\u62DC|\u9031)(?<weekday>" +
+        Object.keys(constants_1.WEEKDAY_OFFSET).join("|") + ")",
+    );
+    var ZHHantRelationWeekdayParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -8210,15 +10123,18 @@ var require_ZHHantRelationWeekdayParser = __commonJS({
         const result = context2.createParsingResult(match.index, match[0]);
         const dayOfWeek = match.groups.weekday;
         const offset = constants_1.WEEKDAY_OFFSET[dayOfWeek];
-        if (offset === void 0)
+        if (offset === void 0) {
           return null;
+        }
         let modifier = null;
         const prefix = match.groups.prefix;
         if (prefix == "\u4E0A") {
           modifier = "last";
         } else if (prefix == "\u4E0B") {
           modifier = "next";
-        } else if (prefix == "\u4ECA" || prefix == "\u9019" || prefix == "\u5462") {
+        } else if (
+          prefix == "\u4ECA" || prefix == "\u9019" || prefix == "\u5462"
+        ) {
           modifier = "this";
         }
         let startMoment = dayjs_1.default(context2.refDate);
@@ -8235,7 +10151,9 @@ var require_ZHHantRelationWeekdayParser = __commonJS({
         } else {
           if (Math.abs(offset - 7 - refOffset) < Math.abs(offset - refOffset)) {
             startMoment = startMoment.day(offset - 7);
-          } else if (Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)) {
+          } else if (
+            Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)
+          ) {
             startMoment = startMoment.day(offset + 7);
           } else {
             startMoment = startMoment.day(offset);
@@ -8255,22 +10173,44 @@ var require_ZHHantRelationWeekdayParser = __commonJS({
       }
     };
     exports.default = ZHHantRelationWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantTimeExpressionParser.js
 var require_ZHHantTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants7();
-    var FIRST_REG_PATTERN = new RegExp("(?:\u7531|\u5F9E|\u81EA)?(?:(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(?:\u65E5|\u5929)(?:[\\s,\uFF0C]*)(?:(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?)?(?:[\\s,\uFF0C]*)(?:(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+)(?:\\s*)(?:\u9EDE|\u6642|:|\uFF1A)(?:\\s*)(\\d+|\u534A|\u6B63|\u6574|[" + Object.keys(constants_1.NUMBER).join("") + "]+)?(?:\\s*)(?:\u5206|:|\uFF1A)?(?:\\s*)(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+)?(?:\\s*)(?:\u79D2)?)(?:\\s*(A.M.|P.M.|AM?|PM?))?", "i");
-    var SECOND_REG_PATTERN = new RegExp("(?:^\\s*(?:\u5230|\u81F3|\\-|\\\u2013|\\~|\\\u301C)\\s*)(?:(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(?:\u65E5|\u5929)(?:[\\s,\uFF0C]*)(?:(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?)?(?:[\\s,\uFF0C]*)(?:(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+)(?:\\s*)(?:\u9EDE|\u6642|:|\uFF1A)(?:\\s*)(\\d+|\u534A|\u6B63|\u6574|[" + Object.keys(constants_1.NUMBER).join("") + "]+)?(?:\\s*)(?:\u5206|:|\uFF1A)?(?:\\s*)(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+)?(?:\\s*)(?:\u79D2)?)(?:\\s*(A.M.|P.M.|AM?|PM?))?", "i");
+    var FIRST_REG_PATTERN = new RegExp(
+      "(?:\u7531|\u5F9E|\u81EA)?(?:(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(?:\u65E5|\u5929)(?:[\\s,\uFF0C]*)(?:(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?)?(?:[\\s,\uFF0C]*)(?:(\\d+|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)(?:\\s*)(?:\u9EDE|\u6642|:|\uFF1A)(?:\\s*)(\\d+|\u534A|\u6B63|\u6574|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)?(?:\\s*)(?:\u5206|:|\uFF1A)?(?:\\s*)(\\d+|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)?(?:\\s*)(?:\u79D2)?)(?:\\s*(A.M.|P.M.|AM?|PM?))?",
+      "i",
+    );
+    var SECOND_REG_PATTERN = new RegExp(
+      "(?:^\\s*(?:\u5230|\u81F3|\\-|\\\u2013|\\~|\\\u301C)\\s*)(?:(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u5F8C|\u5927\u5F8C|\u807D|\u6628|\u5C0B|\u7434)(?:\u65E5|\u5929)(?:[\\s,\uFF0C]*)(?:(\u4E0A(?:\u5348|\u665D)|\u671D(?:\u65E9)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348|\u665D)|\u664F(?:\u665D)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?)?(?:[\\s,\uFF0C]*)(?:(\\d+|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)(?:\\s*)(?:\u9EDE|\u6642|:|\uFF1A)(?:\\s*)(\\d+|\u534A|\u6B63|\u6574|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)?(?:\\s*)(?:\u5206|:|\uFF1A)?(?:\\s*)(\\d+|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)?(?:\\s*)(?:\u79D2)?)(?:\\s*(A.M.|P.M.|AM?|PM?))?",
+      "i",
+    );
     var DAY_GROUP_1 = 1;
     var ZH_AM_PM_HOUR_GROUP_1 = 2;
     var ZH_AM_PM_HOUR_GROUP_2 = 3;
@@ -8280,7 +10220,9 @@ var require_ZHHantTimeExpressionParser = __commonJS({
     var MINUTE_GROUP = 7;
     var SECOND_GROUP = 8;
     var AM_PM_HOUR_GROUP = 9;
-    var ZHHantTimeExpressionParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ZHHantTimeExpressionParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return FIRST_REG_PATTERN;
       }
@@ -8342,8 +10284,9 @@ var require_ZHHantTimeExpressionParser = __commonJS({
           if (isNaN(second)) {
             second = constants_1.zhStringToNumber(match[SECOND_GROUP]);
           }
-          if (second >= 60)
+          if (second >= 60) {
             return null;
+          }
           result.start.assign("second", second);
         }
         hour = parseInt(match[HOUR_GROUP]);
@@ -8353,7 +10296,9 @@ var require_ZHHantTimeExpressionParser = __commonJS({
         if (match[MINUTE_GROUP]) {
           if (match[MINUTE_GROUP] == "\u534A") {
             minute = 30;
-          } else if (match[MINUTE_GROUP] == "\u6B63" || match[MINUTE_GROUP] == "\u6574") {
+          } else if (
+            match[MINUTE_GROUP] == "\u6B63" || match[MINUTE_GROUP] == "\u6574"
+          ) {
             minute = 0;
           } else {
             minute = parseInt(match[MINUTE_GROUP]);
@@ -8375,54 +10320,73 @@ var require_ZHHantTimeExpressionParser = __commonJS({
           meridiem = 1;
         }
         if (match[AM_PM_HOUR_GROUP]) {
-          if (hour > 12)
+          if (hour > 12) {
             return null;
+          }
           var ampm = match[AM_PM_HOUR_GROUP][0].toLowerCase();
           if (ampm == "a") {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           }
           if (ampm == "p") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_1]) {
           var zhAMPMString1 = match[ZH_AM_PM_HOUR_GROUP_1];
           var zhAMPM1 = zhAMPMString1[0];
           if (zhAMPM1 == "\u671D" || zhAMPM1 == "\u65E9") {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           } else if (zhAMPM1 == "\u665A") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_2]) {
           var zhAMPMString2 = match[ZH_AM_PM_HOUR_GROUP_2];
           var zhAMPM2 = zhAMPMString2[0];
-          if (zhAMPM2 == "\u4E0A" || zhAMPM2 == "\u671D" || zhAMPM2 == "\u65E9" || zhAMPM2 == "\u51CC") {
+          if (
+            zhAMPM2 == "\u4E0A" || zhAMPM2 == "\u671D" || zhAMPM2 == "\u65E9" ||
+            zhAMPM2 == "\u51CC"
+          ) {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
-          } else if (zhAMPM2 == "\u4E0B" || zhAMPM2 == "\u664F" || zhAMPM2 == "\u665A") {
+            }
+          } else if (
+            zhAMPM2 == "\u4E0B" || zhAMPM2 == "\u664F" || zhAMPM2 == "\u665A"
+          ) {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_3]) {
           var zhAMPMString3 = match[ZH_AM_PM_HOUR_GROUP_3];
           var zhAMPM3 = zhAMPMString3[0];
-          if (zhAMPM3 == "\u4E0A" || zhAMPM3 == "\u671D" || zhAMPM3 == "\u65E9" || zhAMPM3 == "\u51CC") {
+          if (
+            zhAMPM3 == "\u4E0A" || zhAMPM3 == "\u671D" || zhAMPM3 == "\u65E9" ||
+            zhAMPM3 == "\u51CC"
+          ) {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
-          } else if (zhAMPM3 == "\u4E0B" || zhAMPM3 == "\u664F" || zhAMPM3 == "\u665A") {
+            }
+          } else if (
+            zhAMPM3 == "\u4E0B" || zhAMPM3 == "\u664F" || zhAMPM3 == "\u665A"
+          ) {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         }
         result.start.assign("hour", hour);
@@ -8436,7 +10400,9 @@ var require_ZHHantTimeExpressionParser = __commonJS({
             result.start.imply("meridiem", 1);
           }
         }
-        match = SECOND_REG_PATTERN.exec(context2.text.substring(result.index + result.text.length));
+        match = SECOND_REG_PATTERN.exec(
+          context2.text.substring(result.index + result.text.length),
+        );
         if (!match) {
           if (result.text.match(/^\d+$/)) {
             return null;
@@ -8496,8 +10462,9 @@ var require_ZHHantTimeExpressionParser = __commonJS({
           if (isNaN(second)) {
             second = constants_1.zhStringToNumber(match[SECOND_GROUP]);
           }
-          if (second >= 60)
+          if (second >= 60) {
             return null;
+          }
           result.end.assign("second", second);
         }
         hour = parseInt(match[HOUR_GROUP]);
@@ -8507,7 +10474,9 @@ var require_ZHHantTimeExpressionParser = __commonJS({
         if (match[MINUTE_GROUP]) {
           if (match[MINUTE_GROUP] == "\u534A") {
             minute = 30;
-          } else if (match[MINUTE_GROUP] == "\u6B63" || match[MINUTE_GROUP] == "\u6574") {
+          } else if (
+            match[MINUTE_GROUP] == "\u6B63" || match[MINUTE_GROUP] == "\u6574"
+          ) {
             minute = 0;
           } else {
             minute = parseInt(match[MINUTE_GROUP]);
@@ -8529,18 +10498,21 @@ var require_ZHHantTimeExpressionParser = __commonJS({
           meridiem = 1;
         }
         if (match[AM_PM_HOUR_GROUP]) {
-          if (hour > 12)
+          if (hour > 12) {
             return null;
+          }
           var ampm = match[AM_PM_HOUR_GROUP][0].toLowerCase();
           if (ampm == "a") {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           }
           if (ampm == "p") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
           if (!result.start.isCertain("meridiem")) {
             if (meridiem == 0) {
@@ -8560,36 +10532,52 @@ var require_ZHHantTimeExpressionParser = __commonJS({
           var zhAMPM1 = zhAMPMString1[0];
           if (zhAMPM1 == "\u671D" || zhAMPM1 == "\u65E9") {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           } else if (zhAMPM1 == "\u665A") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_2]) {
           var zhAMPMString2 = match[ZH_AM_PM_HOUR_GROUP_2];
           var zhAMPM2 = zhAMPMString2[0];
-          if (zhAMPM2 == "\u4E0A" || zhAMPM2 == "\u671D" || zhAMPM2 == "\u65E9" || zhAMPM2 == "\u51CC") {
+          if (
+            zhAMPM2 == "\u4E0A" || zhAMPM2 == "\u671D" || zhAMPM2 == "\u65E9" ||
+            zhAMPM2 == "\u51CC"
+          ) {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
-          } else if (zhAMPM2 == "\u4E0B" || zhAMPM2 == "\u664F" || zhAMPM2 == "\u665A") {
+            }
+          } else if (
+            zhAMPM2 == "\u4E0B" || zhAMPM2 == "\u664F" || zhAMPM2 == "\u665A"
+          ) {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_3]) {
           var zhAMPMString3 = match[ZH_AM_PM_HOUR_GROUP_3];
           var zhAMPM3 = zhAMPMString3[0];
-          if (zhAMPM3 == "\u4E0A" || zhAMPM3 == "\u671D" || zhAMPM3 == "\u65E9" || zhAMPM3 == "\u51CC") {
+          if (
+            zhAMPM3 == "\u4E0A" || zhAMPM3 == "\u671D" || zhAMPM3 == "\u65E9" ||
+            zhAMPM3 == "\u51CC"
+          ) {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
-          } else if (zhAMPM3 == "\u4E0B" || zhAMPM3 == "\u664F" || zhAMPM3 == "\u665A") {
+            }
+          } else if (
+            zhAMPM3 == "\u4E0B" || zhAMPM3 == "\u664F" || zhAMPM3 == "\u665A"
+          ) {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         }
         result.text = result.text + match[0];
@@ -8598,7 +10586,8 @@ var require_ZHHantTimeExpressionParser = __commonJS({
         if (meridiem >= 0) {
           result.end.assign("meridiem", meridiem);
         } else {
-          const startAtPM = result.start.isCertain("meridiem") && result.start.get("meridiem") == 1;
+          const startAtPM = result.start.isCertain("meridiem") &&
+            result.start.get("meridiem") == 1;
           if (startAtPM && result.start.get("hour") > hour) {
             result.end.imply("meridiem", 0);
           } else if (hour > 12) {
@@ -8612,22 +10601,30 @@ var require_ZHHantTimeExpressionParser = __commonJS({
       }
     };
     exports.default = ZHHantTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantWeekdayParser.js
 var require_ZHHantWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hant/parsers/ZHHantWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants7();
-    var PATTERN = new RegExp("(?:\u661F\u671F|\u79AE\u62DC|\u9031)(?<weekday>" + Object.keys(constants_1.WEEKDAY_OFFSET).join("|") + ")");
-    var ZHHantWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      "(?:\u661F\u671F|\u79AE\u62DC|\u9031)(?<weekday>" +
+        Object.keys(constants_1.WEEKDAY_OFFSET).join("|") + ")",
+    );
+    var ZHHantWeekdayParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -8635,14 +10632,17 @@ var require_ZHHantWeekdayParser = __commonJS({
         const result = context2.createParsingResult(match.index, match[0]);
         const dayOfWeek = match.groups.weekday;
         const offset = constants_1.WEEKDAY_OFFSET[dayOfWeek];
-        if (offset === void 0)
+        if (offset === void 0) {
           return null;
+        }
         let startMoment = dayjs_1.default(context2.refDate);
         const startMomentFixed = false;
         const refOffset = startMoment.day();
         if (Math.abs(offset - 7 - refOffset) < Math.abs(offset - refOffset)) {
           startMoment = startMoment.day(offset - 7);
-        } else if (Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)) {
+        } else if (
+          Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)
+        ) {
           startMoment = startMoment.day(offset + 7);
         } else {
           startMoment = startMoment.day(offset);
@@ -8661,65 +10661,99 @@ var require_ZHHantWeekdayParser = __commonJS({
       }
     };
     exports.default = ZHHantWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/refiners/ZHHantMergeDateRangeRefiner.js
 var require_ZHHantMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hant/refiners/ZHHantMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hant/refiners/ZHHantMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var ZHHantMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var ZHHantMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(至|到|\-|\~|～|－|ー)\s*$/i;
       }
     };
     exports.default = ZHHantMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/refiners/ZHHantMergeDateTimeRefiner.js
 var require_ZHHantMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hant/refiners/ZHHantMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hant/refiners/ZHHantMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateTimeRefiner_1 = __importDefault2(require_AbstractMergeDateTimeRefiner());
-    var ZHHantMergeDateTimeRefiner = class extends AbstractMergeDateTimeRefiner_1.default {
+    var AbstractMergeDateTimeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateTimeRefiner(),
+    );
+    var ZHHantMergeDateTimeRefiner = class
+      extends AbstractMergeDateTimeRefiner_1.default {
       patternBetween() {
         return /^\s*$/i;
       }
     };
     exports.default = ZHHantMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hant/index.js
 var require_hant = __commonJS({
   "node_modules/chrono-node/dist/locales/zh/hant/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.strict = exports.casual = exports.hant = void 0;
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.strict =
+      exports.casual =
+      exports.hant =
+        void 0;
     var chrono_1 = require_chrono();
-    var ExtractTimezoneOffsetRefiner_1 = __importDefault2(require_ExtractTimezoneOffsetRefiner());
+    var ExtractTimezoneOffsetRefiner_1 = __importDefault2(
+      require_ExtractTimezoneOffsetRefiner(),
+    );
     var configurations_1 = require_configurations();
-    var ZHHantCasualDateParser_1 = __importDefault2(require_ZHHantCasualDateParser());
+    var ZHHantCasualDateParser_1 = __importDefault2(
+      require_ZHHantCasualDateParser(),
+    );
     var ZHHantDateParser_1 = __importDefault2(require_ZHHantDateParser());
-    var ZHHantDeadlineFormatParser_1 = __importDefault2(require_ZHHantDeadlineFormatParser());
-    var ZHHantRelationWeekdayParser_1 = __importDefault2(require_ZHHantRelationWeekdayParser());
-    var ZHHantTimeExpressionParser_1 = __importDefault2(require_ZHHantTimeExpressionParser());
+    var ZHHantDeadlineFormatParser_1 = __importDefault2(
+      require_ZHHantDeadlineFormatParser(),
+    );
+    var ZHHantRelationWeekdayParser_1 = __importDefault2(
+      require_ZHHantRelationWeekdayParser(),
+    );
+    var ZHHantTimeExpressionParser_1 = __importDefault2(
+      require_ZHHantTimeExpressionParser(),
+    );
     var ZHHantWeekdayParser_1 = __importDefault2(require_ZHHantWeekdayParser());
-    var ZHHantMergeDateRangeRefiner_1 = __importDefault2(require_ZHHantMergeDateRangeRefiner());
-    var ZHHantMergeDateTimeRefiner_1 = __importDefault2(require_ZHHantMergeDateTimeRefiner());
+    var ZHHantMergeDateRangeRefiner_1 = __importDefault2(
+      require_ZHHantMergeDateRangeRefiner(),
+    );
+    var ZHHantMergeDateTimeRefiner_1 = __importDefault2(
+      require_ZHHantMergeDateTimeRefiner(),
+    );
     exports.hant = new chrono_1.Chrono(createCasualConfiguration());
     exports.casual = new chrono_1.Chrono(createCasualConfiguration());
     exports.strict = new chrono_1.Chrono(createConfiguration());
@@ -8744,36 +10778,49 @@ var require_hant = __commonJS({
           new ZHHantRelationWeekdayParser_1.default(),
           new ZHHantWeekdayParser_1.default(),
           new ZHHantTimeExpressionParser_1.default(),
-          new ZHHantDeadlineFormatParser_1.default()
+          new ZHHantDeadlineFormatParser_1.default(),
         ],
-        refiners: [new ZHHantMergeDateRangeRefiner_1.default(), new ZHHantMergeDateTimeRefiner_1.default()]
+        refiners: [
+          new ZHHantMergeDateRangeRefiner_1.default(),
+          new ZHHantMergeDateTimeRefiner_1.default(),
+        ],
       });
-      configuration.refiners = configuration.refiners.filter((refiner) => !(refiner instanceof ExtractTimezoneOffsetRefiner_1.default));
+      configuration.refiners = configuration.refiners.filter((refiner) =>
+        !(refiner instanceof ExtractTimezoneOffsetRefiner_1.default)
+      );
       return configuration;
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansCasualDateParser.js
 var require_ZHHansCasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansCasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansCasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var NOW_GROUP = 1;
     var DAY_GROUP_1 = 2;
     var TIME_GROUP_1 = 3;
     var TIME_GROUP_2 = 4;
     var DAY_GROUP_3 = 5;
     var TIME_GROUP_3 = 6;
-    var ZHHansCasualDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ZHHansCasualDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern(context2) {
-        return new RegExp("(\u73B0\u5728|\u7ACB(?:\u523B|\u5373)|\u5373\u523B)|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(\u65E9|\u665A)|(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(?:\u65E5|\u5929)(?:[\\s|,|\uFF0C]*)(?:(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?", "i");
+        return new RegExp(
+          "(\u73B0\u5728|\u7ACB(?:\u523B|\u5373)|\u5373\u523B)|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(\u65E9|\u665A)|(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(?:\u65E5|\u5929)(?:[\\s|,|\uFF0C]*)(?:(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?",
+          "i",
+        );
       }
       innerExtract(context2, match) {
         const index = match.index;
@@ -8869,7 +10916,7 @@ var require_ZHHansCasualDateParser = __commonJS({
       }
     };
     exports.default = ZHHansCasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/constants.js
@@ -8877,7 +10924,11 @@ var require_constants8 = __commonJS({
   "node_modules/chrono-node/dist/locales/zh/hans/constants.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.zhStringToYear = exports.zhStringToNumber = exports.WEEKDAY_OFFSET = exports.NUMBER = void 0;
+    exports.zhStringToYear =
+      exports.zhStringToNumber =
+      exports.WEEKDAY_OFFSET =
+      exports.NUMBER =
+        void 0;
     exports.NUMBER = {
       "\u96F6": 0,
       "\u3007": 0,
@@ -8891,7 +10942,7 @@ var require_constants8 = __commonJS({
       "\u4E03": 7,
       "\u516B": 8,
       "\u4E5D": 9,
-      "\u5341": 10
+      "\u5341": 10,
     };
     exports.WEEKDAY_OFFSET = {
       "\u5929": 0,
@@ -8901,14 +10952,16 @@ var require_constants8 = __commonJS({
       "\u4E09": 3,
       "\u56DB": 4,
       "\u4E94": 5,
-      "\u516D": 6
+      "\u516D": 6,
     };
     function zhStringToNumber(text) {
       let number = 0;
       for (let i4 = 0; i4 < text.length; i4++) {
         const char = text[i4];
         if (char === "\u5341") {
-          number = number === 0 ? exports.NUMBER[char] : number * exports.NUMBER[char];
+          number = number === 0
+            ? exports.NUMBER[char]
+            : number * exports.NUMBER[char];
         } else {
           number += exports.NUMBER[char];
         }
@@ -8925,46 +10978,62 @@ var require_constants8 = __commonJS({
       return parseInt(string2);
     }
     exports.zhStringToYear = zhStringToYear;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansDateParser.js
 var require_ZHHansDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants8();
     var YEAR_GROUP = 1;
     var MONTH_GROUP = 2;
     var DAY_GROUP = 3;
-    var ZHHansDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ZHHansDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
-        return new RegExp("(\\d{2,4}|[" + Object.keys(constants_1.NUMBER).join("") + "]{4}|[" + Object.keys(constants_1.NUMBER).join("") + "]{2})?(?:\\s*)(?:\u5E74)?(?:[\\s|,|\uFF0C]*)(\\d{1,2}|[" + Object.keys(constants_1.NUMBER).join("") + "]{1,3})(?:\\s*)(?:\u6708)(?:\\s*)(\\d{1,2}|[" + Object.keys(constants_1.NUMBER).join("") + "]{1,3})?(?:\\s*)(?:\u65E5|\u53F7)?");
+        return new RegExp(
+          "(\\d{2,4}|[" + Object.keys(constants_1.NUMBER).join("") + "]{4}|[" +
+            Object.keys(constants_1.NUMBER).join("") +
+            "]{2})?(?:\\s*)(?:\u5E74)?(?:[\\s|,|\uFF0C]*)(\\d{1,2}|[" +
+            Object.keys(constants_1.NUMBER).join("") +
+            "]{1,3})(?:\\s*)(?:\u6708)(?:\\s*)(\\d{1,2}|[" +
+            Object.keys(constants_1.NUMBER).join("") +
+            "]{1,3})?(?:\\s*)(?:\u65E5|\u53F7)?",
+        );
       }
       innerExtract(context2, match) {
         const startMoment = dayjs_1.default(context2.refDate);
         const result = context2.createParsingResult(match.index, match[0]);
         let month = parseInt(match[MONTH_GROUP]);
-        if (isNaN(month))
+        if (isNaN(month)) {
           month = constants_1.zhStringToNumber(match[MONTH_GROUP]);
+        }
         result.start.assign("month", month);
         if (match[DAY_GROUP]) {
           let day = parseInt(match[DAY_GROUP]);
-          if (isNaN(day))
+          if (isNaN(day)) {
             day = constants_1.zhStringToNumber(match[DAY_GROUP]);
+          }
           result.start.assign("day", day);
         } else {
           result.start.imply("day", startMoment.date());
         }
         if (match[YEAR_GROUP]) {
           let year = parseInt(match[YEAR_GROUP]);
-          if (isNaN(year))
+          if (isNaN(year)) {
             year = constants_1.zhStringToYear(match[YEAR_GROUP]);
+          }
           result.start.assign("year", year);
         } else {
           result.start.imply("year", startMoment.year());
@@ -8973,24 +11042,34 @@ var require_ZHHansDateParser = __commonJS({
       }
     };
     exports.default = ZHHansDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansDeadlineFormatParser.js
 var require_ZHHansDeadlineFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansDeadlineFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansDeadlineFormatParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants8();
-    var PATTERN = new RegExp("(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+|\u534A|\u51E0)(?:\\s*)(?:\u4E2A)?(\u79D2(?:\u949F)?|\u5206\u949F|\u5C0F\u65F6|\u949F|\u65E5|\u5929|\u661F\u671F|\u793C\u62DC|\u6708|\u5E74)(?:(?:\u4E4B|\u8FC7)?\u540E|(?:\u4E4B)?\u5185)", "i");
+    var PATTERN = new RegExp(
+      "(\\d+|[" + Object.keys(constants_1.NUMBER).join("") +
+        "]+|\u534A|\u51E0)(?:\\s*)(?:\u4E2A)?(\u79D2(?:\u949F)?|\u5206\u949F|\u5C0F\u65F6|\u949F|\u65E5|\u5929|\u661F\u671F|\u793C\u62DC|\u6708|\u5E74)(?:(?:\u4E4B|\u8FC7)?\u540E|(?:\u4E4B)?\u5185)",
+      "i",
+    );
     var NUMBER_GROUP = 1;
     var UNIT_GROUP = 2;
-    var ZHHansDeadlineFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ZHHansDeadlineFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -9045,22 +11124,31 @@ var require_ZHHansDeadlineFormatParser = __commonJS({
       }
     };
     exports.default = ZHHansDeadlineFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansRelationWeekdayParser.js
 var require_ZHHansRelationWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansRelationWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansRelationWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants8();
-    var PATTERN = new RegExp("(?<prefix>\u4E0A|\u4E0B|\u8FD9)(?:\u4E2A)?(?:\u661F\u671F|\u793C\u62DC|\u5468)(?<weekday>" + Object.keys(constants_1.WEEKDAY_OFFSET).join("|") + ")");
-    var ZHHansRelationWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      "(?<prefix>\u4E0A|\u4E0B|\u8FD9)(?:\u4E2A)?(?:\u661F\u671F|\u793C\u62DC|\u5468)(?<weekday>" +
+        Object.keys(constants_1.WEEKDAY_OFFSET).join("|") + ")",
+    );
+    var ZHHansRelationWeekdayParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -9068,8 +11156,9 @@ var require_ZHHansRelationWeekdayParser = __commonJS({
         const result = context2.createParsingResult(match.index, match[0]);
         const dayOfWeek = match.groups.weekday;
         const offset = constants_1.WEEKDAY_OFFSET[dayOfWeek];
-        if (offset === void 0)
+        if (offset === void 0) {
           return null;
+        }
         let modifier = null;
         const prefix = match.groups.prefix;
         if (prefix == "\u4E0A") {
@@ -9093,7 +11182,9 @@ var require_ZHHansRelationWeekdayParser = __commonJS({
         } else {
           if (Math.abs(offset - 7 - refOffset) < Math.abs(offset - refOffset)) {
             startMoment = startMoment.day(offset - 7);
-          } else if (Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)) {
+          } else if (
+            Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)
+          ) {
             startMoment = startMoment.day(offset + 7);
           } else {
             startMoment = startMoment.day(offset);
@@ -9113,22 +11204,44 @@ var require_ZHHansRelationWeekdayParser = __commonJS({
       }
     };
     exports.default = ZHHansRelationWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansTimeExpressionParser.js
 var require_ZHHansTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants8();
-    var FIRST_REG_PATTERN = new RegExp("(?:\u4ECE|\u81EA)?(?:(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(?:\u65E5|\u5929)(?:[\\s,\uFF0C]*)(?:(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?)?(?:[\\s,\uFF0C]*)(?:(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+)(?:\\s*)(?:\u70B9|\u65F6|:|\uFF1A)(?:\\s*)(\\d+|\u534A|\u6B63|\u6574|[" + Object.keys(constants_1.NUMBER).join("") + "]+)?(?:\\s*)(?:\u5206|:|\uFF1A)?(?:\\s*)(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+)?(?:\\s*)(?:\u79D2)?)(?:\\s*(A.M.|P.M.|AM?|PM?))?", "i");
-    var SECOND_REG_PATTERN = new RegExp("(?:^\\s*(?:\u5230|\u81F3|\\-|\\\u2013|\\~|\\\u301C)\\s*)(?:(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(?:\u65E5|\u5929)(?:[\\s,\uFF0C]*)(?:(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?)?(?:[\\s,\uFF0C]*)(?:(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+)(?:\\s*)(?:\u70B9|\u65F6|:|\uFF1A)(?:\\s*)(\\d+|\u534A|\u6B63|\u6574|[" + Object.keys(constants_1.NUMBER).join("") + "]+)?(?:\\s*)(?:\u5206|:|\uFF1A)?(?:\\s*)(\\d+|[" + Object.keys(constants_1.NUMBER).join("") + "]+)?(?:\\s*)(?:\u79D2)?)(?:\\s*(A.M.|P.M.|AM?|PM?))?", "i");
+    var FIRST_REG_PATTERN = new RegExp(
+      "(?:\u4ECE|\u81EA)?(?:(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(?:\u65E5|\u5929)(?:[\\s,\uFF0C]*)(?:(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?)?(?:[\\s,\uFF0C]*)(?:(\\d+|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)(?:\\s*)(?:\u70B9|\u65F6|:|\uFF1A)(?:\\s*)(\\d+|\u534A|\u6B63|\u6574|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)?(?:\\s*)(?:\u5206|:|\uFF1A)?(?:\\s*)(\\d+|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)?(?:\\s*)(?:\u79D2)?)(?:\\s*(A.M.|P.M.|AM?|PM?))?",
+      "i",
+    );
+    var SECOND_REG_PATTERN = new RegExp(
+      "(?:^\\s*(?:\u5230|\u81F3|\\-|\\\u2013|\\~|\\\u301C)\\s*)(?:(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(\u65E9|\u671D|\u665A)|(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668))|(\u4ECA|\u660E|\u524D|\u5927\u524D|\u540E|\u5927\u540E|\u6628)(?:\u65E5|\u5929)(?:[\\s,\uFF0C]*)(?:(\u4E0A(?:\u5348)|\u65E9(?:\u4E0A)|\u4E0B(?:\u5348)|\u665A(?:\u4E0A)|\u591C(?:\u665A)?|\u4E2D(?:\u5348)|\u51CC(?:\u6668)))?)?(?:[\\s,\uFF0C]*)(?:(\\d+|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)(?:\\s*)(?:\u70B9|\u65F6|:|\uFF1A)(?:\\s*)(\\d+|\u534A|\u6B63|\u6574|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)?(?:\\s*)(?:\u5206|:|\uFF1A)?(?:\\s*)(\\d+|[" +
+        Object.keys(constants_1.NUMBER).join("") +
+        "]+)?(?:\\s*)(?:\u79D2)?)(?:\\s*(A.M.|P.M.|AM?|PM?))?",
+      "i",
+    );
     var DAY_GROUP_1 = 1;
     var ZH_AM_PM_HOUR_GROUP_1 = 2;
     var ZH_AM_PM_HOUR_GROUP_2 = 3;
@@ -9138,7 +11251,9 @@ var require_ZHHansTimeExpressionParser = __commonJS({
     var MINUTE_GROUP = 7;
     var SECOND_GROUP = 8;
     var AM_PM_HOUR_GROUP = 9;
-    var ZHHansTimeExpressionParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var ZHHansTimeExpressionParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return FIRST_REG_PATTERN;
       }
@@ -9200,8 +11315,9 @@ var require_ZHHansTimeExpressionParser = __commonJS({
           if (isNaN(second)) {
             second = constants_1.zhStringToNumber(match[SECOND_GROUP]);
           }
-          if (second >= 60)
+          if (second >= 60) {
             return null;
+          }
           result.start.assign("second", second);
         }
         hour = parseInt(match[HOUR_GROUP]);
@@ -9211,7 +11327,9 @@ var require_ZHHansTimeExpressionParser = __commonJS({
         if (match[MINUTE_GROUP]) {
           if (match[MINUTE_GROUP] == "\u534A") {
             minute = 30;
-          } else if (match[MINUTE_GROUP] == "\u6B63" || match[MINUTE_GROUP] == "\u6574") {
+          } else if (
+            match[MINUTE_GROUP] == "\u6B63" || match[MINUTE_GROUP] == "\u6574"
+          ) {
             minute = 0;
           } else {
             minute = parseInt(match[MINUTE_GROUP]);
@@ -9233,54 +11351,67 @@ var require_ZHHansTimeExpressionParser = __commonJS({
           meridiem = 1;
         }
         if (match[AM_PM_HOUR_GROUP]) {
-          if (hour > 12)
+          if (hour > 12) {
             return null;
+          }
           const ampm = match[AM_PM_HOUR_GROUP][0].toLowerCase();
           if (ampm == "a") {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           }
           if (ampm == "p") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_1]) {
           const zhAMPMString1 = match[ZH_AM_PM_HOUR_GROUP_1];
           const zhAMPM1 = zhAMPMString1[0];
           if (zhAMPM1 == "\u65E9") {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           } else if (zhAMPM1 == "\u665A") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_2]) {
           const zhAMPMString2 = match[ZH_AM_PM_HOUR_GROUP_2];
           const zhAMPM2 = zhAMPMString2[0];
-          if (zhAMPM2 == "\u4E0A" || zhAMPM2 == "\u65E9" || zhAMPM2 == "\u51CC") {
+          if (
+            zhAMPM2 == "\u4E0A" || zhAMPM2 == "\u65E9" || zhAMPM2 == "\u51CC"
+          ) {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           } else if (zhAMPM2 == "\u4E0B" || zhAMPM2 == "\u665A") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_3]) {
           const zhAMPMString3 = match[ZH_AM_PM_HOUR_GROUP_3];
           const zhAMPM3 = zhAMPMString3[0];
-          if (zhAMPM3 == "\u4E0A" || zhAMPM3 == "\u65E9" || zhAMPM3 == "\u51CC") {
+          if (
+            zhAMPM3 == "\u4E0A" || zhAMPM3 == "\u65E9" || zhAMPM3 == "\u51CC"
+          ) {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           } else if (zhAMPM3 == "\u4E0B" || zhAMPM3 == "\u665A") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         }
         result.start.assign("hour", hour);
@@ -9294,7 +11425,9 @@ var require_ZHHansTimeExpressionParser = __commonJS({
             result.start.imply("meridiem", 1);
           }
         }
-        match = SECOND_REG_PATTERN.exec(context2.text.substring(result.index + result.text.length));
+        match = SECOND_REG_PATTERN.exec(
+          context2.text.substring(result.index + result.text.length),
+        );
         if (!match) {
           if (result.text.match(/^\d+$/)) {
             return null;
@@ -9354,8 +11487,9 @@ var require_ZHHansTimeExpressionParser = __commonJS({
           if (isNaN(second)) {
             second = constants_1.zhStringToNumber(match[SECOND_GROUP]);
           }
-          if (second >= 60)
+          if (second >= 60) {
             return null;
+          }
           result.end.assign("second", second);
         }
         hour = parseInt(match[HOUR_GROUP]);
@@ -9365,7 +11499,9 @@ var require_ZHHansTimeExpressionParser = __commonJS({
         if (match[MINUTE_GROUP]) {
           if (match[MINUTE_GROUP] == "\u534A") {
             minute = 30;
-          } else if (match[MINUTE_GROUP] == "\u6B63" || match[MINUTE_GROUP] == "\u6574") {
+          } else if (
+            match[MINUTE_GROUP] == "\u6B63" || match[MINUTE_GROUP] == "\u6574"
+          ) {
             minute = 0;
           } else {
             minute = parseInt(match[MINUTE_GROUP]);
@@ -9387,18 +11523,21 @@ var require_ZHHansTimeExpressionParser = __commonJS({
           meridiem = 1;
         }
         if (match[AM_PM_HOUR_GROUP]) {
-          if (hour > 12)
+          if (hour > 12) {
             return null;
+          }
           const ampm = match[AM_PM_HOUR_GROUP][0].toLowerCase();
           if (ampm == "a") {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           }
           if (ampm == "p") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
           if (!result.start.isCertain("meridiem")) {
             if (meridiem == 0) {
@@ -9418,36 +11557,46 @@ var require_ZHHansTimeExpressionParser = __commonJS({
           const zhAMPM1 = zhAMPMString1[0];
           if (zhAMPM1 == "\u65E9") {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           } else if (zhAMPM1 == "\u665A") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_2]) {
           const zhAMPMString2 = match[ZH_AM_PM_HOUR_GROUP_2];
           const zhAMPM2 = zhAMPMString2[0];
-          if (zhAMPM2 == "\u4E0A" || zhAMPM2 == "\u65E9" || zhAMPM2 == "\u51CC") {
+          if (
+            zhAMPM2 == "\u4E0A" || zhAMPM2 == "\u65E9" || zhAMPM2 == "\u51CC"
+          ) {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           } else if (zhAMPM2 == "\u4E0B" || zhAMPM2 == "\u665A") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         } else if (match[ZH_AM_PM_HOUR_GROUP_3]) {
           const zhAMPMString3 = match[ZH_AM_PM_HOUR_GROUP_3];
           const zhAMPM3 = zhAMPMString3[0];
-          if (zhAMPM3 == "\u4E0A" || zhAMPM3 == "\u65E9" || zhAMPM3 == "\u51CC") {
+          if (
+            zhAMPM3 == "\u4E0A" || zhAMPM3 == "\u65E9" || zhAMPM3 == "\u51CC"
+          ) {
             meridiem = 0;
-            if (hour == 12)
+            if (hour == 12) {
               hour = 0;
+            }
           } else if (zhAMPM3 == "\u4E0B" || zhAMPM3 == "\u665A") {
             meridiem = 1;
-            if (hour != 12)
+            if (hour != 12) {
               hour += 12;
+            }
           }
         }
         result.text = result.text + match[0];
@@ -9456,7 +11605,8 @@ var require_ZHHansTimeExpressionParser = __commonJS({
         if (meridiem >= 0) {
           result.end.assign("meridiem", meridiem);
         } else {
-          const startAtPM = result.start.isCertain("meridiem") && result.start.get("meridiem") == 1;
+          const startAtPM = result.start.isCertain("meridiem") &&
+            result.start.get("meridiem") == 1;
           if (startAtPM && result.start.get("hour") > hour) {
             result.end.imply("meridiem", 0);
           } else if (hour > 12) {
@@ -9470,22 +11620,30 @@ var require_ZHHansTimeExpressionParser = __commonJS({
       }
     };
     exports.default = ZHHansTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansWeekdayParser.js
 var require_ZHHansWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hans/parsers/ZHHansWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var constants_1 = require_constants8();
-    var PATTERN = new RegExp("(?:\u661F\u671F|\u793C\u62DC|\u5468)(?<weekday>" + Object.keys(constants_1.WEEKDAY_OFFSET).join("|") + ")");
-    var ZHHansWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      "(?:\u661F\u671F|\u793C\u62DC|\u5468)(?<weekday>" +
+        Object.keys(constants_1.WEEKDAY_OFFSET).join("|") + ")",
+    );
+    var ZHHansWeekdayParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -9493,14 +11651,17 @@ var require_ZHHansWeekdayParser = __commonJS({
         const result = context2.createParsingResult(match.index, match[0]);
         const dayOfWeek = match.groups.weekday;
         const offset = constants_1.WEEKDAY_OFFSET[dayOfWeek];
-        if (offset === void 0)
+        if (offset === void 0) {
           return null;
+        }
         let startMoment = dayjs_1.default(context2.refDate);
         const startMomentFixed = false;
         const refOffset = startMoment.day();
         if (Math.abs(offset - 7 - refOffset) < Math.abs(offset - refOffset)) {
           startMoment = startMoment.day(offset - 7);
-        } else if (Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)) {
+        } else if (
+          Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)
+        ) {
           startMoment = startMoment.day(offset + 7);
         } else {
           startMoment = startMoment.day(offset);
@@ -9519,65 +11680,99 @@ var require_ZHHansWeekdayParser = __commonJS({
       }
     };
     exports.default = ZHHansWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/refiners/ZHHansMergeDateRangeRefiner.js
 var require_ZHHansMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hans/refiners/ZHHansMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hans/refiners/ZHHansMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var ZHHansMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var ZHHansMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(至|到|-|~|～|－|ー)\s*$/i;
       }
     };
     exports.default = ZHHansMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/refiners/ZHHansMergeDateTimeRefiner.js
 var require_ZHHansMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/zh/hans/refiners/ZHHansMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/zh/hans/refiners/ZHHansMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateTimeRefiner_1 = __importDefault2(require_AbstractMergeDateTimeRefiner());
-    var ZHHansMergeDateTimeRefiner = class extends AbstractMergeDateTimeRefiner_1.default {
+    var AbstractMergeDateTimeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateTimeRefiner(),
+    );
+    var ZHHansMergeDateTimeRefiner = class
+      extends AbstractMergeDateTimeRefiner_1.default {
       patternBetween() {
         return /^\s*$/i;
       }
     };
     exports.default = ZHHansMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/hans/index.js
 var require_hans = __commonJS({
   "node_modules/chrono-node/dist/locales/zh/hans/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.strict = exports.casual = exports.hans = void 0;
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.strict =
+      exports.casual =
+      exports.hans =
+        void 0;
     var chrono_1 = require_chrono();
-    var ExtractTimezoneOffsetRefiner_1 = __importDefault2(require_ExtractTimezoneOffsetRefiner());
+    var ExtractTimezoneOffsetRefiner_1 = __importDefault2(
+      require_ExtractTimezoneOffsetRefiner(),
+    );
     var configurations_1 = require_configurations();
-    var ZHHansCasualDateParser_1 = __importDefault2(require_ZHHansCasualDateParser());
+    var ZHHansCasualDateParser_1 = __importDefault2(
+      require_ZHHansCasualDateParser(),
+    );
     var ZHHansDateParser_1 = __importDefault2(require_ZHHansDateParser());
-    var ZHHansDeadlineFormatParser_1 = __importDefault2(require_ZHHansDeadlineFormatParser());
-    var ZHHansRelationWeekdayParser_1 = __importDefault2(require_ZHHansRelationWeekdayParser());
-    var ZHHansTimeExpressionParser_1 = __importDefault2(require_ZHHansTimeExpressionParser());
+    var ZHHansDeadlineFormatParser_1 = __importDefault2(
+      require_ZHHansDeadlineFormatParser(),
+    );
+    var ZHHansRelationWeekdayParser_1 = __importDefault2(
+      require_ZHHansRelationWeekdayParser(),
+    );
+    var ZHHansTimeExpressionParser_1 = __importDefault2(
+      require_ZHHansTimeExpressionParser(),
+    );
     var ZHHansWeekdayParser_1 = __importDefault2(require_ZHHansWeekdayParser());
-    var ZHHansMergeDateRangeRefiner_1 = __importDefault2(require_ZHHansMergeDateRangeRefiner());
-    var ZHHansMergeDateTimeRefiner_1 = __importDefault2(require_ZHHansMergeDateTimeRefiner());
+    var ZHHansMergeDateRangeRefiner_1 = __importDefault2(
+      require_ZHHansMergeDateRangeRefiner(),
+    );
+    var ZHHansMergeDateTimeRefiner_1 = __importDefault2(
+      require_ZHHansMergeDateTimeRefiner(),
+    );
     exports.hans = new chrono_1.Chrono(createCasualConfiguration());
     exports.casual = new chrono_1.Chrono(createCasualConfiguration());
     exports.strict = new chrono_1.Chrono(createConfiguration());
@@ -9602,50 +11797,77 @@ var require_hans = __commonJS({
           new ZHHansRelationWeekdayParser_1.default(),
           new ZHHansWeekdayParser_1.default(),
           new ZHHansTimeExpressionParser_1.default(),
-          new ZHHansDeadlineFormatParser_1.default()
+          new ZHHansDeadlineFormatParser_1.default(),
         ],
-        refiners: [new ZHHansMergeDateRangeRefiner_1.default(), new ZHHansMergeDateTimeRefiner_1.default()]
+        refiners: [
+          new ZHHansMergeDateRangeRefiner_1.default(),
+          new ZHHansMergeDateTimeRefiner_1.default(),
+        ],
       });
-      configuration.refiners = configuration.refiners.filter((refiner) => !(refiner instanceof ExtractTimezoneOffsetRefiner_1.default));
+      configuration.refiners = configuration.refiners.filter((refiner) =>
+        !(refiner instanceof ExtractTimezoneOffsetRefiner_1.default)
+      );
       return configuration;
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/zh/index.js
 var require_zh = __commonJS({
   "node_modules/chrono-node/dist/locales/zh/index.js"(exports) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __exportStar2 = exports && exports.__exportStar || function(m2, exports2) {
-      for (var p2 in m2)
-        if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p2))
-          __createBinding2(exports2, m2, p2);
-    };
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __exportStar2 = exports && exports.__exportStar ||
+      function (m2, exports2) {
+        for (var p2 in m2) {
+          if (
+            p2 !== "default" &&
+            !Object.prototype.hasOwnProperty.call(exports2, p2)
+          ) {
+            __createBinding2(exports2, m2, p2);
+          }
+        }
+      };
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
@@ -9654,7 +11876,7 @@ var require_zh = __commonJS({
     exports.hans = void 0;
     __exportStar2(require_hant(), exports);
     exports.hans = __importStar2(require_hans());
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/constants.js
@@ -9662,237 +11884,296 @@ var require_constants9 = __commonJS({
   "node_modules/chrono-node/dist/locales/ru/constants.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseTimeUnits = exports.TIME_UNITS_PATTERN = exports.parseYear = exports.YEAR_PATTERN = exports.parseOrdinalNumberPattern = exports.ORDINAL_NUMBER_PATTERN = exports.parseNumberPattern = exports.NUMBER_PATTERN = exports.TIME_UNIT_DICTIONARY = exports.ORDINAL_WORD_DICTIONARY = exports.INTEGER_WORD_DICTIONARY = exports.MONTH_DICTIONARY = exports.FULL_MONTH_NAME_DICTIONARY = exports.WEEKDAY_DICTIONARY = exports.REGEX_PARTS = void 0;
+    exports.parseTimeUnits =
+      exports.TIME_UNITS_PATTERN =
+      exports.parseYear =
+      exports.YEAR_PATTERN =
+      exports.parseOrdinalNumberPattern =
+      exports.ORDINAL_NUMBER_PATTERN =
+      exports.parseNumberPattern =
+      exports.NUMBER_PATTERN =
+      exports.TIME_UNIT_DICTIONARY =
+      exports.ORDINAL_WORD_DICTIONARY =
+      exports.INTEGER_WORD_DICTIONARY =
+      exports.MONTH_DICTIONARY =
+      exports.FULL_MONTH_NAME_DICTIONARY =
+      exports.WEEKDAY_DICTIONARY =
+      exports.REGEX_PARTS =
+        void 0;
     var pattern_1 = require_pattern();
     var years_1 = require_years();
     exports.REGEX_PARTS = {
       leftBoundary: "([^\\p{L}\\p{N}_]|^)",
       rightBoundary: "(?=[^\\p{L}\\p{N}_]|$)",
-      flags: "iu"
+      flags: "iu",
     };
     exports.WEEKDAY_DICTIONARY = {
-      \u0432\u043E\u0441\u043A\u0440\u0435\u0441\u0435\u043D\u044C\u0435: 0,
-      \u0432\u043E\u0441\u043A\u0440\u0435\u0441\u0435\u043D\u044C\u044F: 0,
-      \u0432\u0441\u043A: 0,
+      воскресенье: 0,
+      воскресенья: 0,
+      вск: 0,
       "\u0432\u0441\u043A.": 0,
-      \u043F\u043E\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u0438\u043A: 1,
-      \u043F\u043E\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u0438\u043A\u0430: 1,
-      \u043F\u043D: 1,
+      понедельник: 1,
+      понедельника: 1,
+      пн: 1,
       "\u043F\u043D.": 1,
-      \u0432\u0442\u043E\u0440\u043D\u0438\u043A: 2,
-      \u0432\u0442\u043E\u0440\u043D\u0438\u043A\u0430: 2,
-      \u0432\u0442: 2,
+      вторник: 2,
+      вторника: 2,
+      вт: 2,
       "\u0432\u0442.": 2,
-      \u0441\u0440\u0435\u0434\u0430: 3,
-      \u0441\u0440\u0435\u0434\u044B: 3,
-      \u0441\u0440\u0435\u0434\u0443: 3,
-      \u0441\u0440: 3,
+      среда: 3,
+      среды: 3,
+      среду: 3,
+      ср: 3,
       "\u0441\u0440.": 3,
-      \u0447\u0435\u0442\u0432\u0435\u0440\u0433: 4,
-      \u0447\u0435\u0442\u0432\u0435\u0440\u0433\u0430: 4,
-      \u0447\u0442: 4,
+      четверг: 4,
+      четверга: 4,
+      чт: 4,
       "\u0447\u0442.": 4,
-      \u043F\u044F\u0442\u043D\u0438\u0446\u0430: 5,
-      \u043F\u044F\u0442\u043D\u0438\u0446\u0443: 5,
-      \u043F\u044F\u0442\u043D\u0438\u0446\u044B: 5,
-      \u043F\u0442: 5,
+      пятница: 5,
+      пятницу: 5,
+      пятницы: 5,
+      пт: 5,
       "\u043F\u0442.": 5,
-      \u0441\u0443\u0431\u0431\u043E\u0442\u0430: 6,
-      \u0441\u0443\u0431\u0431\u043E\u0442\u0443: 6,
-      \u0441\u0443\u0431\u0431\u043E\u0442\u044B: 6,
-      \u0441\u0431: 6,
-      "\u0441\u0431.": 6
+      суббота: 6,
+      субботу: 6,
+      субботы: 6,
+      сб: 6,
+      "\u0441\u0431.": 6,
     };
     exports.FULL_MONTH_NAME_DICTIONARY = {
-      \u044F\u043D\u0432\u0430\u0440\u044C: 1,
-      \u044F\u043D\u0432\u0430\u0440\u044F: 1,
-      \u044F\u043D\u0432\u0430\u0440\u0435: 1,
-      \u0444\u0435\u0432\u0440\u0430\u043B\u044C: 2,
-      \u0444\u0435\u0432\u0440\u0430\u043B\u044F: 2,
-      \u0444\u0435\u0432\u0440\u0430\u043B\u0435: 2,
-      \u043C\u0430\u0440\u0442: 3,
-      \u043C\u0430\u0440\u0442\u0430: 3,
-      \u043C\u0430\u0440\u0442\u0435: 3,
-      \u0430\u043F\u0440\u0435\u043B\u044C: 4,
-      \u0430\u043F\u0440\u0435\u043B\u044F: 4,
-      \u0430\u043F\u0440\u0435\u043B\u0435: 4,
-      \u043C\u0430\u0439: 5,
-      \u043C\u0430\u044F: 5,
-      \u043C\u0430\u0435: 5,
-      \u0438\u044E\u043D\u044C: 6,
-      \u0438\u044E\u043D\u044F: 6,
-      \u0438\u044E\u043D\u0435: 6,
-      \u0438\u044E\u043B\u044C: 7,
-      \u0438\u044E\u043B\u044F: 7,
-      \u0438\u044E\u043B\u0435: 7,
-      \u0430\u0432\u0433\u0443\u0441\u0442: 8,
-      \u0430\u0432\u0433\u0443\u0441\u0442\u0430: 8,
-      \u0430\u0432\u0433\u0443\u0441\u0442\u0435: 8,
-      \u0441\u0435\u043D\u0442\u044F\u0431\u0440\u044C: 9,
-      \u0441\u0435\u043D\u0442\u044F\u0431\u0440\u044F: 9,
-      \u0441\u0435\u043D\u0442\u044F\u0431\u0440\u0435: 9,
-      \u043E\u043A\u0442\u044F\u0431\u0440\u044C: 10,
-      \u043E\u043A\u0442\u044F\u0431\u0440\u044F: 10,
-      \u043E\u043A\u0442\u044F\u0431\u0440\u0435: 10,
-      \u043D\u043E\u044F\u0431\u0440\u044C: 11,
-      \u043D\u043E\u044F\u0431\u0440\u044F: 11,
-      \u043D\u043E\u044F\u0431\u0440\u0435: 11,
-      \u0434\u0435\u043A\u0430\u0431\u0440\u044C: 12,
-      \u0434\u0435\u043A\u0430\u0431\u0440\u044F: 12,
-      \u0434\u0435\u043A\u0430\u0431\u0440\u0435: 12
+      январь: 1,
+      января: 1,
+      январе: 1,
+      февраль: 2,
+      февраля: 2,
+      феврале: 2,
+      март: 3,
+      марта: 3,
+      марте: 3,
+      апрель: 4,
+      апреля: 4,
+      апреле: 4,
+      май: 5,
+      мая: 5,
+      мае: 5,
+      июнь: 6,
+      июня: 6,
+      июне: 6,
+      июль: 7,
+      июля: 7,
+      июле: 7,
+      август: 8,
+      августа: 8,
+      августе: 8,
+      сентябрь: 9,
+      сентября: 9,
+      сентябре: 9,
+      октябрь: 10,
+      октября: 10,
+      октябре: 10,
+      ноябрь: 11,
+      ноября: 11,
+      ноябре: 11,
+      декабрь: 12,
+      декабря: 12,
+      декабре: 12,
     };
-    exports.MONTH_DICTIONARY = Object.assign(Object.assign({}, exports.FULL_MONTH_NAME_DICTIONARY), { \u044F\u043D\u0432: 1, "\u044F\u043D\u0432.": 1, \u0444\u0435\u0432: 2, "\u0444\u0435\u0432.": 2, \u043C\u0430\u0440: 3, "\u043C\u0430\u0440.": 3, \u0430\u043F\u0440: 4, "\u0430\u043F\u0440.": 4, \u0430\u0432\u0433: 8, "\u0430\u0432\u0433.": 8, \u0441\u0435\u043D: 9, "\u0441\u0435\u043D.": 9, \u043E\u043A\u0442: 10, "\u043E\u043A\u0442.": 10, \u043D\u043E\u044F: 11, "\u043D\u043E\u044F.": 11, \u0434\u0435\u043A: 12, "\u0434\u0435\u043A.": 12 });
+    exports.MONTH_DICTIONARY = Object.assign(
+      Object.assign({}, exports.FULL_MONTH_NAME_DICTIONARY),
+      {
+        янв: 1,
+        "\u044F\u043D\u0432.": 1,
+        фев: 2,
+        "\u0444\u0435\u0432.": 2,
+        мар: 3,
+        "\u043C\u0430\u0440.": 3,
+        апр: 4,
+        "\u0430\u043F\u0440.": 4,
+        авг: 8,
+        "\u0430\u0432\u0433.": 8,
+        сен: 9,
+        "\u0441\u0435\u043D.": 9,
+        окт: 10,
+        "\u043E\u043A\u0442.": 10,
+        ноя: 11,
+        "\u043D\u043E\u044F.": 11,
+        дек: 12,
+        "\u0434\u0435\u043A.": 12,
+      },
+    );
     exports.INTEGER_WORD_DICTIONARY = {
-      \u043E\u0434\u0438\u043D: 1,
-      \u043E\u0434\u043D\u0430: 1,
-      \u043E\u0434\u043D\u043E\u0439: 1,
-      \u043E\u0434\u043D\u0443: 1,
-      \u0434\u0432\u0435: 2,
-      \u0434\u0432\u0430: 2,
-      \u0434\u0432\u0443\u0445: 2,
-      \u0442\u0440\u0438: 3,
-      \u0442\u0440\u0435\u0445: 3,
-      \u0442\u0440\u0451\u0445: 3,
-      \u0447\u0435\u0442\u044B\u0440\u0435: 4,
-      \u0447\u0435\u0442\u044B\u0440\u0435\u0445: 4,
-      \u0447\u0435\u0442\u044B\u0440\u0451\u0445: 4,
-      \u043F\u044F\u0442\u044C: 5,
-      \u043F\u044F\u0442\u0438: 5,
-      \u0448\u0435\u0441\u0442\u044C: 6,
-      \u0448\u0435\u0441\u0442\u0438: 6,
-      \u0441\u0435\u043C\u044C: 7,
-      \u0441\u0435\u043C\u0438: 7,
-      \u0432\u043E\u0441\u0435\u043C\u044C: 8,
-      \u0432\u043E\u0441\u044C\u043C\u0438: 8,
-      \u0434\u0435\u0432\u044F\u0442\u044C: 9,
-      \u0434\u0435\u0432\u044F\u0442\u0438: 9,
-      \u0434\u0435\u0441\u044F\u0442\u044C: 10,
-      \u0434\u0435\u0441\u044F\u0442\u0438: 10,
-      \u043E\u0434\u0438\u043D\u043D\u0430\u0434\u0446\u0430\u0442\u044C: 11,
-      \u043E\u0434\u0438\u043D\u043D\u0430\u0434\u0446\u0430\u0442\u0438: 11,
-      \u0434\u0432\u0435\u043D\u0430\u0434\u0446\u0430\u0442\u044C: 12,
-      \u0434\u0432\u0435\u043D\u0430\u0434\u0446\u0430\u0442\u0438: 12
+      один: 1,
+      одна: 1,
+      одной: 1,
+      одну: 1,
+      две: 2,
+      два: 2,
+      двух: 2,
+      три: 3,
+      трех: 3,
+      трёх: 3,
+      четыре: 4,
+      четырех: 4,
+      четырёх: 4,
+      пять: 5,
+      пяти: 5,
+      шесть: 6,
+      шести: 6,
+      семь: 7,
+      семи: 7,
+      восемь: 8,
+      восьми: 8,
+      девять: 9,
+      девяти: 9,
+      десять: 10,
+      десяти: 10,
+      одиннадцать: 11,
+      одиннадцати: 11,
+      двенадцать: 12,
+      двенадцати: 12,
     };
     exports.ORDINAL_WORD_DICTIONARY = {
-      \u043F\u0435\u0440\u0432\u043E\u0435: 1,
-      \u043F\u0435\u0440\u0432\u043E\u0433\u043E: 1,
-      \u0432\u0442\u043E\u0440\u043E\u0435: 2,
-      \u0432\u0442\u043E\u0440\u043E\u0433\u043E: 2,
-      \u0442\u0440\u0435\u0442\u044C\u0435: 3,
-      \u0442\u0440\u0435\u0442\u044C\u0435\u0433\u043E: 3,
-      \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0435: 4,
-      \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0433\u043E: 4,
-      \u043F\u044F\u0442\u043E\u0435: 5,
-      \u043F\u044F\u0442\u043E\u0433\u043E: 5,
-      \u0448\u0435\u0441\u0442\u043E\u0435: 6,
-      \u0448\u0435\u0441\u0442\u043E\u0433\u043E: 6,
-      \u0441\u0435\u0434\u044C\u043C\u043E\u0435: 7,
-      \u0441\u0435\u0434\u044C\u043C\u043E\u0433\u043E: 7,
-      \u0432\u043E\u0441\u044C\u043C\u043E\u0435: 8,
-      \u0432\u043E\u0441\u044C\u043C\u043E\u0433\u043E: 8,
-      \u0434\u0435\u0432\u044F\u0442\u043E\u0435: 9,
-      \u0434\u0435\u0432\u044F\u0442\u043E\u0433\u043E: 9,
-      \u0434\u0435\u0441\u044F\u0442\u043E\u0435: 10,
-      \u0434\u0435\u0441\u044F\u0442\u043E\u0433\u043E: 10,
-      \u043E\u0434\u0438\u043D\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 11,
-      \u043E\u0434\u0438\u043D\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 11,
-      \u0434\u0432\u0435\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 12,
-      \u0434\u0432\u0435\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 12,
-      \u0442\u0440\u0438\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 13,
-      \u0442\u0440\u0438\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 13,
-      \u0447\u0435\u0442\u044B\u0440\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 14,
-      \u0447\u0435\u0442\u044B\u0440\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 14,
-      \u043F\u044F\u0442\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 15,
-      \u043F\u044F\u0442\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 15,
-      \u0448\u0435\u0441\u0442\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 16,
-      \u0448\u0435\u0441\u0442\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 16,
-      \u0441\u0435\u043C\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 17,
-      \u0441\u0435\u043C\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 17,
-      \u0432\u043E\u0441\u0435\u043C\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 18,
-      \u0432\u043E\u0441\u0435\u043C\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 18,
-      \u0434\u0435\u0432\u044F\u0442\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 19,
-      \u0434\u0435\u0432\u044F\u0442\u043D\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 19,
-      \u0434\u0432\u0430\u0434\u0446\u0430\u0442\u043E\u0435: 20,
-      \u0434\u0432\u0430\u0434\u0446\u0430\u0442\u043E\u0433\u043E: 20,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u043F\u0435\u0440\u0432\u043E\u0435": 21,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u043F\u0435\u0440\u0432\u043E\u0433\u043E": 21,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0432\u0442\u043E\u0440\u043E\u0435": 22,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0432\u0442\u043E\u0440\u043E\u0433\u043E": 22,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0442\u0440\u0435\u0442\u044C\u0435": 23,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0442\u0440\u0435\u0442\u044C\u0435\u0433\u043E": 23,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0435": 24,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0433\u043E": 24,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u043F\u044F\u0442\u043E\u0435": 25,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u043F\u044F\u0442\u043E\u0433\u043E": 25,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0448\u0435\u0441\u0442\u043E\u0435": 26,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0448\u0435\u0441\u0442\u043E\u0433\u043E": 26,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0441\u0435\u0434\u044C\u043C\u043E\u0435": 27,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0441\u0435\u0434\u044C\u043C\u043E\u0433\u043E": 27,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0432\u043E\u0441\u044C\u043C\u043E\u0435": 28,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0432\u043E\u0441\u044C\u043C\u043E\u0433\u043E": 28,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0434\u0435\u0432\u044F\u0442\u043E\u0435": 29,
-      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0434\u0435\u0432\u044F\u0442\u043E\u0433\u043E": 29,
+      первое: 1,
+      первого: 1,
+      второе: 2,
+      второго: 2,
+      третье: 3,
+      третьего: 3,
+      четвертое: 4,
+      четвертого: 4,
+      пятое: 5,
+      пятого: 5,
+      шестое: 6,
+      шестого: 6,
+      седьмое: 7,
+      седьмого: 7,
+      восьмое: 8,
+      восьмого: 8,
+      девятое: 9,
+      девятого: 9,
+      десятое: 10,
+      десятого: 10,
+      одиннадцатое: 11,
+      одиннадцатого: 11,
+      двенадцатое: 12,
+      двенадцатого: 12,
+      тринадцатое: 13,
+      тринадцатого: 13,
+      четырнадцатое: 14,
+      четырнадцатого: 14,
+      пятнадцатое: 15,
+      пятнадцатого: 15,
+      шестнадцатое: 16,
+      шестнадцатого: 16,
+      семнадцатое: 17,
+      семнадцатого: 17,
+      восемнадцатое: 18,
+      восемнадцатого: 18,
+      девятнадцатое: 19,
+      девятнадцатого: 19,
+      двадцатое: 20,
+      двадцатого: 20,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u043F\u0435\u0440\u0432\u043E\u0435":
+        21,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u043F\u0435\u0440\u0432\u043E\u0433\u043E":
+        21,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0432\u0442\u043E\u0440\u043E\u0435":
+        22,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0432\u0442\u043E\u0440\u043E\u0433\u043E":
+        22,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0442\u0440\u0435\u0442\u044C\u0435":
+        23,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0442\u0440\u0435\u0442\u044C\u0435\u0433\u043E":
+        23,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0435":
+        24,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0433\u043E":
+        24,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u043F\u044F\u0442\u043E\u0435":
+        25,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u043F\u044F\u0442\u043E\u0433\u043E":
+        25,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0448\u0435\u0441\u0442\u043E\u0435":
+        26,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0448\u0435\u0441\u0442\u043E\u0433\u043E":
+        26,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0441\u0435\u0434\u044C\u043C\u043E\u0435":
+        27,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0441\u0435\u0434\u044C\u043C\u043E\u0433\u043E":
+        27,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0432\u043E\u0441\u044C\u043C\u043E\u0435":
+        28,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0432\u043E\u0441\u044C\u043C\u043E\u0433\u043E":
+        28,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0434\u0435\u0432\u044F\u0442\u043E\u0435":
+        29,
+      "\u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0434\u0435\u0432\u044F\u0442\u043E\u0433\u043E":
+        29,
       "\u0442\u0440\u0438\u0434\u0446\u0430\u0442\u043E\u0435": 30,
       "\u0442\u0440\u0438\u0434\u0446\u0430\u0442\u043E\u0433\u043E": 30,
-      "\u0442\u0440\u0438\u0434\u0446\u0430\u0442\u044C \u043F\u0435\u0440\u0432\u043E\u0435": 31,
-      "\u0442\u0440\u0438\u0434\u0446\u0430\u0442\u044C \u043F\u0435\u0440\u0432\u043E\u0433\u043E": 31
+      "\u0442\u0440\u0438\u0434\u0446\u0430\u0442\u044C \u043F\u0435\u0440\u0432\u043E\u0435":
+        31,
+      "\u0442\u0440\u0438\u0434\u0446\u0430\u0442\u044C \u043F\u0435\u0440\u0432\u043E\u0433\u043E":
+        31,
     };
     exports.TIME_UNIT_DICTIONARY = {
-      \u0441\u0435\u043A: "second",
-      \u0441\u0435\u043A\u0443\u043D\u0434\u0430: "second",
-      \u0441\u0435\u043A\u0443\u043D\u0434: "second",
-      \u0441\u0435\u043A\u0443\u043D\u0434\u044B: "second",
-      \u0441\u0435\u043A\u0443\u043D\u0434\u0443: "second",
-      \u0441\u0435\u043A\u0443\u043D\u0434\u043E\u0447\u043A\u0430: "second",
-      \u0441\u0435\u043A\u0443\u043D\u0434\u043E\u0447\u043A\u0438: "second",
-      \u0441\u0435\u043A\u0443\u043D\u0434\u043E\u0447\u0435\u043A: "second",
-      \u0441\u0435\u043A\u0443\u043D\u0434\u043E\u0447\u043A\u0443: "second",
-      \u043C\u0438\u043D: "minute",
-      \u043C\u0438\u043D\u0443\u0442\u0430: "minute",
-      \u043C\u0438\u043D\u0443\u0442: "minute",
-      \u043C\u0438\u043D\u0443\u0442\u044B: "minute",
-      \u043C\u0438\u043D\u0443\u0442\u0443: "minute",
-      \u043C\u0438\u043D\u0443\u0442\u043E\u043A: "minute",
-      \u043C\u0438\u043D\u0443\u0442\u043A\u0438: "minute",
-      \u043C\u0438\u043D\u0443\u0442\u043A\u0443: "minute",
-      \u0447\u0430\u0441: "hour",
-      \u0447\u0430\u0441\u043E\u0432: "hour",
-      \u0447\u0430\u0441\u0430: "hour",
-      \u0447\u0430\u0441\u0443: "hour",
-      \u0447\u0430\u0441\u0438\u043A\u043E\u0432: "hour",
-      \u0447\u0430\u0441\u0438\u043A\u0430: "hour",
-      \u0447\u0430\u0441\u0438\u043A\u0435: "hour",
-      \u0447\u0430\u0441\u0438\u043A: "hour",
-      \u0434\u0435\u043D\u044C: "d",
-      \u0434\u043D\u044F: "d",
-      \u0434\u043D\u0435\u0439: "d",
-      \u0441\u0443\u0442\u043E\u043A: "d",
-      \u0441\u0443\u0442\u043A\u0438: "d",
-      \u043D\u0435\u0434\u0435\u043B\u044F: "week",
-      \u043D\u0435\u0434\u0435\u043B\u0435: "week",
-      \u043D\u0435\u0434\u0435\u043B\u0438: "week",
-      \u043D\u0435\u0434\u0435\u043B\u044E: "week",
-      \u043D\u0435\u0434\u0435\u043B\u044C: "week",
-      \u043D\u0435\u0434\u0435\u043B\u044C\u043A\u0435: "week",
-      \u043D\u0435\u0434\u0435\u043B\u044C\u043A\u0438: "week",
-      \u043D\u0435\u0434\u0435\u043B\u0435\u043A: "week",
-      \u043C\u0435\u0441\u044F\u0446: "month",
-      \u043C\u0435\u0441\u044F\u0446\u0435: "month",
-      \u043C\u0435\u0441\u044F\u0446\u0435\u0432: "month",
-      \u043C\u0435\u0441\u044F\u0446\u0430: "month",
-      \u043A\u0432\u0430\u0440\u0442\u0430\u043B: "quarter",
-      \u043A\u0432\u0430\u0440\u0442\u0430\u043B\u0435: "quarter",
-      \u043A\u0432\u0430\u0440\u0442\u0430\u043B\u043E\u0432: "quarter",
-      \u0433\u043E\u0434: "year",
-      \u0433\u043E\u0434\u0430: "year",
-      \u0433\u043E\u0434\u0443: "year",
-      \u0433\u043E\u0434\u043E\u0432: "year",
-      \u043B\u0435\u0442: "year",
-      \u0433\u043E\u0434\u0438\u043A: "year",
-      \u0433\u043E\u0434\u0438\u043A\u0430: "year",
-      \u0433\u043E\u0434\u0438\u043A\u043E\u0432: "year"
+      сек: "second",
+      секунда: "second",
+      секунд: "second",
+      секунды: "second",
+      секунду: "second",
+      секундочка: "second",
+      секундочки: "second",
+      секундочек: "second",
+      секундочку: "second",
+      мин: "minute",
+      минута: "minute",
+      минут: "minute",
+      минуты: "minute",
+      минуту: "minute",
+      минуток: "minute",
+      минутки: "minute",
+      минутку: "minute",
+      час: "hour",
+      часов: "hour",
+      часа: "hour",
+      часу: "hour",
+      часиков: "hour",
+      часика: "hour",
+      часике: "hour",
+      часик: "hour",
+      день: "d",
+      дня: "d",
+      дней: "d",
+      суток: "d",
+      сутки: "d",
+      неделя: "week",
+      неделе: "week",
+      недели: "week",
+      неделю: "week",
+      недель: "week",
+      недельке: "week",
+      недельки: "week",
+      неделек: "week",
+      месяц: "month",
+      месяце: "month",
+      месяцев: "month",
+      месяца: "month",
+      квартал: "quarter",
+      квартале: "quarter",
+      кварталов: "quarter",
+      год: "year",
+      года: "year",
+      году: "year",
+      годов: "year",
+      лет: "year",
+      годик: "year",
+      годика: "year",
+      годиков: "year",
     };
-    exports.NUMBER_PATTERN = `(?:${pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)}|[0-9]+|[0-9]+\\.[0-9]+|\u043F\u043E\u043B|\u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E|\u043F\u0430\u0440(?:\u044B|\u0443)|\\s{0,3})`;
+    exports.NUMBER_PATTERN = `(?:${
+      pattern_1.matchAnyPattern(exports.INTEGER_WORD_DICTIONARY)
+    }|[0-9]+|[0-9]+\\.[0-9]+|\u043F\u043E\u043B|\u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E|\u043F\u0430\u0440(?:\u044B|\u0443)|\\s{0,3})`;
     function parseNumberPattern(match) {
       const num = match.toLowerCase();
       if (exports.INTEGER_WORD_DICTIONARY[num] !== void 0) {
@@ -9910,7 +12191,9 @@ var require_constants9 = __commonJS({
       return parseFloat(num);
     }
     exports.parseNumberPattern = parseNumberPattern;
-    exports.ORDINAL_NUMBER_PATTERN = `(?:${pattern_1.matchAnyPattern(exports.ORDINAL_WORD_DICTIONARY)}|[0-9]{1,2}(?:\u0433\u043E|\u043E\u0433\u043E|\u0435|\u043E\u0435)?)`;
+    exports.ORDINAL_NUMBER_PATTERN = `(?:${
+      pattern_1.matchAnyPattern(exports.ORDINAL_WORD_DICTIONARY)
+    }|[0-9]{1,2}(?:\u0433\u043E|\u043E\u0433\u043E|\u0435|\u043E\u0435)?)`;
     function parseOrdinalNumberPattern(match) {
       let num = match.toLowerCase();
       if (exports.ORDINAL_WORD_DICTIONARY[num] !== void 0) {
@@ -9919,8 +12202,10 @@ var require_constants9 = __commonJS({
       return parseInt(num);
     }
     exports.parseOrdinalNumberPattern = parseOrdinalNumberPattern;
-    var year = "(?:\\s+(?:\u0433\u043E\u0434\u0443|\u0433\u043E\u0434\u0430|\u0433\u043E\u0434|\u0433|\u0433.))?";
-    exports.YEAR_PATTERN = `(?:[1-9][0-9]{0,3}${year}\\s*(?:\u043D.\u044D.|\u0434\u043E \u043D.\u044D.|\u043D. \u044D.|\u0434\u043E \u043D. \u044D.)|[1-2][0-9]{3}${year}|[5-9][0-9]${year})`;
+    var year =
+      "(?:\\s+(?:\u0433\u043E\u0434\u0443|\u0433\u043E\u0434\u0430|\u0433\u043E\u0434|\u0433|\u0433.))?";
+    exports.YEAR_PATTERN =
+      `(?:[1-9][0-9]{0,3}${year}\\s*(?:\u043D.\u044D.|\u0434\u043E \u043D.\u044D.|\u043D. \u044D.|\u0434\u043E \u043D. \u044D.)|[1-2][0-9]{3}${year}|[5-9][0-9]${year})`;
     function parseYear(match) {
       if (/(год|года|г|г.)/i.test(match)) {
         match = match.replace(/(год|года|г|г.)/i, "");
@@ -9937,9 +12222,14 @@ var require_constants9 = __commonJS({
       return years_1.findMostLikelyADYear(rawYearNumber);
     }
     exports.parseYear = parseYear;
-    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,3}(${pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)})`;
+    var SINGLE_TIME_UNIT_PATTERN = `(${exports.NUMBER_PATTERN})\\s{0,3}(${
+      pattern_1.matchAnyPattern(exports.TIME_UNIT_DICTIONARY)
+    })`;
     var SINGLE_TIME_UNIT_REGEX = new RegExp(SINGLE_TIME_UNIT_PATTERN, "i");
-    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern(`(?:(?:\u043E\u043A\u043E\u043B\u043E|\u043F\u0440\u0438\u043C\u0435\u0440\u043D\u043E)\\s{0,3})?`, SINGLE_TIME_UNIT_PATTERN);
+    exports.TIME_UNITS_PATTERN = pattern_1.repeatedTimeunitPattern(
+      `(?:(?:\u043E\u043A\u043E\u043B\u043E|\u043F\u0440\u0438\u043C\u0435\u0440\u043D\u043E)\\s{0,3})?`,
+      SINGLE_TIME_UNIT_PATTERN,
+    );
     function parseTimeUnits(timeunitText) {
       const fragments = {};
       let remainingText = timeunitText;
@@ -9957,39 +12247,55 @@ var require_constants9 = __commonJS({
       const unit = exports.TIME_UNIT_DICTIONARY[match[2].toLowerCase()];
       fragments[unit] = num;
     }
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitWithinFormatParser.js
 var require_RUTimeUnitWithinFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitWithinFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitWithinFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants9();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = `(?:(?:\u043E\u043A\u043E\u043B\u043E|\u043F\u0440\u0438\u043C\u0435\u0440\u043D\u043E)\\s*(?:~\\s*)?)?(${constants_1.TIME_UNITS_PATTERN})${constants_1.REGEX_PARTS.rightBoundary}`;
-    var PATTERN_WITH_PREFIX = new RegExp(`(?:\u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435|\u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0438)\\s*${PATTERN}`, constants_1.REGEX_PARTS.flags);
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN =
+      `(?:(?:\u043E\u043A\u043E\u043B\u043E|\u043F\u0440\u0438\u043C\u0435\u0440\u043D\u043E)\\s*(?:~\\s*)?)?(${constants_1.TIME_UNITS_PATTERN})${constants_1.REGEX_PARTS.rightBoundary}`;
+    var PATTERN_WITH_PREFIX = new RegExp(
+      `(?:\u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435|\u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0438)\\s*${PATTERN}`,
+      constants_1.REGEX_PARTS.flags,
+    );
     var PATTERN_WITHOUT_PREFIX = new RegExp(PATTERN, "i");
-    var RUTimeUnitWithinFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var RUTimeUnitWithinFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       patternLeftBoundary() {
         return constants_1.REGEX_PARTS.leftBoundary;
       }
       innerPattern(context2) {
-        return context2.option.forwardDate ? PATTERN_WITHOUT_PREFIX : PATTERN_WITH_PREFIX;
+        return context2.option.forwardDate
+          ? PATTERN_WITHOUT_PREFIX
+          : PATTERN_WITH_PREFIX;
       }
       innerExtract(context2, match) {
         const timeUnits = constants_1.parseTimeUnits(match[1]);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = RUTimeUnitWithinFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUMonthNameLittleEndianParser.js
 var require_RUMonthNameLittleEndianParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUMonthNameLittleEndianParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUMonthNameLittleEndianParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var years_1 = require_years();
@@ -9997,13 +12303,21 @@ var require_RUMonthNameLittleEndianParser = __commonJS({
     var constants_2 = require_constants9();
     var constants_3 = require_constants9();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`(?:\u0441)?\\s*(${constants_3.ORDINAL_NUMBER_PATTERN})(?:\\s{0,3}(?:\u043F\u043E|-|\u2013|\u0434\u043E)?\\s{0,3}(${constants_3.ORDINAL_NUMBER_PATTERN}))?(?:-|\\/|\\s{0,3}(?:of)?\\s{0,3})(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})(?:(?:-|\\/|,?\\s{0,3})(${constants_2.YEAR_PATTERN}(?![^\\s]\\d)))?${constants_1.REGEX_PARTS.rightBoundary}`, constants_1.REGEX_PARTS.flags);
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `(?:\u0441)?\\s*(${constants_3.ORDINAL_NUMBER_PATTERN})(?:\\s{0,3}(?:\u043F\u043E|-|\u2013|\u0434\u043E)?\\s{0,3}(${constants_3.ORDINAL_NUMBER_PATTERN}))?(?:-|\\/|\\s{0,3}(?:of)?\\s{0,3})(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })(?:(?:-|\\/|,?\\s{0,3})(${constants_2.YEAR_PATTERN}(?![^\\s]\\d)))?${constants_1.REGEX_PARTS.rightBoundary}`,
+      constants_1.REGEX_PARTS.flags,
+    );
     var DATE_GROUP = 1;
     var DATE_TO_GROUP = 2;
     var MONTH_NAME_GROUP = 3;
     var YEAR_GROUP = 4;
-    var RUMonthNameLittleEndianParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var RUMonthNameLittleEndianParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       patternLeftBoundary() {
         return constants_1.REGEX_PARTS.leftBoundary;
       }
@@ -10012,7 +12326,8 @@ var require_RUMonthNameLittleEndianParser = __commonJS({
       }
       innerExtract(context2, match) {
         const result = context2.createParsingResult(match.index, match[0]);
-        const month = constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
+        const month =
+          constants_1.MONTH_DICTIONARY[match[MONTH_NAME_GROUP].toLowerCase()];
         const day = constants_3.parseOrdinalNumberPattern(match[DATE_GROUP]);
         if (day > 31) {
           match.index = match.index + match[DATE_GROUP].length;
@@ -10024,11 +12339,17 @@ var require_RUMonthNameLittleEndianParser = __commonJS({
           const yearNumber = constants_2.parseYear(match[YEAR_GROUP]);
           result.start.assign("year", yearNumber);
         } else {
-          const year = years_1.findYearClosestToRef(context2.refDate, day, month);
+          const year = years_1.findYearClosestToRef(
+            context2.refDate,
+            day,
+            month,
+          );
           result.start.imply("year", year);
         }
         if (match[DATE_TO_GROUP]) {
-          const endDate = constants_3.parseOrdinalNumberPattern(match[DATE_TO_GROUP]);
+          const endDate = constants_3.parseOrdinalNumberPattern(
+            match[DATE_TO_GROUP],
+          );
           result.end = result.start.clone();
           result.end.assign("day", endDate);
         }
@@ -10036,23 +12357,32 @@ var require_RUMonthNameLittleEndianParser = __commonJS({
       }
     };
     exports.default = RUMonthNameLittleEndianParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUMonthNameParser.js
 var require_RUMonthNameParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUMonthNameParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUMonthNameParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants9();
     var years_1 = require_years();
     var pattern_1 = require_pattern();
     var constants_2 = require_constants9();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
-    var PATTERN = new RegExp(`((?:\u0432)\\s*)?(${pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)})\\s*(?:[,-]?\\s*(${constants_2.YEAR_PATTERN})?)?(?=[^\\s\\w]|\\s+[^0-9]|\\s+$|$)`, constants_1.REGEX_PARTS.flags);
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
+    var PATTERN = new RegExp(
+      `((?:\u0432)\\s*)?(${
+        pattern_1.matchAnyPattern(constants_1.MONTH_DICTIONARY)
+      })\\s*(?:[,-]?\\s*(${constants_2.YEAR_PATTERN})?)?(?=[^\\s\\w]|\\s+[^0-9]|\\s+$|$)`,
+      constants_1.REGEX_PARTS.flags,
+    );
     var MONTH_NAME_GROUP = 2;
     var YEAR_GROUP = 3;
-    var RUMonthNameParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var RUMonthNameParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       patternLeftBoundary() {
         return constants_1.REGEX_PARTS.leftBoundary;
       }
@@ -10061,10 +12391,16 @@ var require_RUMonthNameParser = __commonJS({
       }
       innerExtract(context2, match) {
         const monthName = match[MONTH_NAME_GROUP].toLowerCase();
-        if (match[0].length <= 3 && !constants_1.FULL_MONTH_NAME_DICTIONARY[monthName]) {
+        if (
+          match[0].length <= 3 &&
+          !constants_1.FULL_MONTH_NAME_DICTIONARY[monthName]
+        ) {
           return null;
         }
-        const result = context2.createParsingResult(match.index, match.index + match[0].length);
+        const result = context2.createParsingResult(
+          match.index,
+          match.index + match[0].length,
+        );
         result.start.imply("day", 1);
         const month = constants_1.MONTH_DICTIONARY[monthName];
         result.start.assign("month", month);
@@ -10079,18 +12415,21 @@ var require_RUMonthNameParser = __commonJS({
       }
     };
     exports.default = RUMonthNameParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUTimeExpressionParser.js
 var require_RUTimeExpressionParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUTimeExpressionParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUTimeExpressionParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var index_1 = require_dist();
     var AbstractTimeExpressionParser_1 = require_AbstractTimeExpressionParser();
     var constants_1 = require_constants9();
-    var RUTimeExpressionParser = class extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
+    var RUTimeExpressionParser = class
+      extends AbstractTimeExpressionParser_1.AbstractTimeExpressionParser {
       constructor(strictMode) {
         super(strictMode);
       }
@@ -10121,7 +12460,11 @@ var require_RUTimeExpressionParser = __commonJS({
               components.assign("meridiem", index_1.Meridiem.AM);
             }
           }
-          if (match[0].endsWith("\u043F\u043E\u0441\u043B\u0435 \u043F\u043E\u043B\u0443\u0434\u043D\u044F")) {
+          if (
+            match[0].endsWith(
+              "\u043F\u043E\u0441\u043B\u0435 \u043F\u043E\u043B\u0443\u0434\u043D\u044F",
+            )
+          ) {
             components.assign("meridiem", index_1.Meridiem.PM);
             const hour = components.get("hour");
             if (hour >= 0 && hour <= 6) {
@@ -10140,20 +12483,28 @@ var require_RUTimeExpressionParser = __commonJS({
       }
     };
     exports.default = RUTimeExpressionParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitAgoFormatParser.js
 var require_RUTimeUnitAgoFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitAgoFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitAgoFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants9();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
-    var PATTERN = new RegExp(`(${constants_1.TIME_UNITS_PATTERN})\\s{0,5}\u043D\u0430\u0437\u0430\u0434(?=(?:\\W|$))`, constants_1.REGEX_PARTS.flags);
-    var RUTimeUnitAgoFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      `(${constants_1.TIME_UNITS_PATTERN})\\s{0,5}\u043D\u0430\u0437\u0430\u0434(?=(?:\\W|$))`,
+      constants_1.REGEX_PARTS.flags,
+    );
+    var RUTimeUnitAgoFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       patternLeftBoundary() {
         return constants_1.REGEX_PARTS.leftBoundary;
       }
@@ -10163,87 +12514,125 @@ var require_RUTimeUnitAgoFormatParser = __commonJS({
       innerExtract(context2, match) {
         const timeUnits = constants_1.parseTimeUnits(match[1]);
         const outputTimeUnits = timeunits_1.reverseTimeUnits(timeUnits);
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, outputTimeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          outputTimeUnits,
+        );
       }
     };
     exports.default = RUTimeUnitAgoFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/refiners/RUMergeDateRangeRefiner.js
 var require_RUMergeDateRangeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/refiners/RUMergeDateRangeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/refiners/RUMergeDateRangeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateRangeRefiner_1 = __importDefault2(require_AbstractMergeDateRangeRefiner());
-    var RUMergeDateRangeRefiner = class extends AbstractMergeDateRangeRefiner_1.default {
+    var AbstractMergeDateRangeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateRangeRefiner(),
+    );
+    var RUMergeDateRangeRefiner = class
+      extends AbstractMergeDateRangeRefiner_1.default {
       patternBetween() {
         return /^\s*(и до|и по|до|по|-)\s*$/i;
       }
     };
     exports.default = RUMergeDateRangeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/refiners/RUMergeDateTimeRefiner.js
 var require_RUMergeDateTimeRefiner = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/refiners/RUMergeDateTimeRefiner.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/refiners/RUMergeDateTimeRefiner.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractMergeDateTimeRefiner_1 = __importDefault2(require_AbstractMergeDateTimeRefiner());
-    var RUMergeDateTimeRefiner = class extends AbstractMergeDateTimeRefiner_1.default {
+    var AbstractMergeDateTimeRefiner_1 = __importDefault2(
+      require_AbstractMergeDateTimeRefiner(),
+    );
+    var RUMergeDateTimeRefiner = class
+      extends AbstractMergeDateTimeRefiner_1.default {
       patternBetween() {
         return new RegExp(`^\\s*(T|\u0432|,|-)?\\s*$`);
       }
     };
     exports.default = RUMergeDateTimeRefiner;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUCasualDateParser.js
 var require_RUCasualDateParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUCasualDateParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUCasualDateParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var references = __importStar2(require_casualReferences());
     var constants_1 = require_constants9();
-    var PATTERN = new RegExp(`(?:\u0441|\u0441\u043E)?\\s*(\u0441\u0435\u0433\u043E\u0434\u043D\u044F|\u0432\u0447\u0435\u0440\u0430|\u0437\u0430\u0432\u0442\u0440\u0430|\u043F\u043E\u0441\u043B\u0435\u0437\u0430\u0432\u0442\u0440\u0430|\u043F\u043E\u0437\u0430\u0432\u0447\u0435\u0440\u0430)${constants_1.REGEX_PARTS.rightBoundary}`, constants_1.REGEX_PARTS.flags);
-    var RUCasualDateParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      `(?:\u0441|\u0441\u043E)?\\s*(\u0441\u0435\u0433\u043E\u0434\u043D\u044F|\u0432\u0447\u0435\u0440\u0430|\u0437\u0430\u0432\u0442\u0440\u0430|\u043F\u043E\u0441\u043B\u0435\u0437\u0430\u0432\u0442\u0440\u0430|\u043F\u043E\u0437\u0430\u0432\u0447\u0435\u0440\u0430)${constants_1.REGEX_PARTS.rightBoundary}`,
+      constants_1.REGEX_PARTS.flags,
+    );
+    var RUCasualDateParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       patternLeftBoundary() {
         return constants_1.REGEX_PARTS.leftBoundary;
       }
@@ -10269,52 +12658,76 @@ var require_RUCasualDateParser = __commonJS({
       }
     };
     exports.default = RUCasualDateParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUCasualTimeParser.js
 var require_RUCasualTimeParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUCasualTimeParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUCasualTimeParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var references = __importStar2(require_casualReferences());
     var dayjs_1 = require_dayjs();
     var dayjs_2 = __importDefault2(require_dayjs_min());
     var constants_1 = require_constants9();
-    var PATTERN = new RegExp(`(\u0441\u0435\u0439\u0447\u0430\u0441|\u043F\u0440\u043E\u0448\u043B\u044B\u043C\\s*\u0432\u0435\u0447\u0435\u0440\u043E\u043C|\u043F\u0440\u043E\u0448\u043B\u043E\u0439\\s*\u043D\u043E\u0447\u044C\u044E|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439\\s*\u043D\u043E\u0447\u044C\u044E|\u0441\u0435\u0433\u043E\u0434\u043D\u044F\\s*\u043D\u043E\u0447\u044C\u044E|\u044D\u0442\u043E\u0439\\s*\u043D\u043E\u0447\u044C\u044E|\u043D\u043E\u0447\u044C\u044E|\u044D\u0442\u0438\u043C \u0443\u0442\u0440\u043E\u043C|\u0443\u0442\u0440\u043E\u043C|\u0443\u0442\u0440\u0430|\u0432\\s*\u043F\u043E\u043B\u0434\u0435\u043D\u044C|\u0432\u0435\u0447\u0435\u0440\u043E\u043C|\u0432\u0435\u0447\u0435\u0440\u0430|\u0432\\s*\u043F\u043E\u043B\u043D\u043E\u0447\u044C)${constants_1.REGEX_PARTS.rightBoundary}`, constants_1.REGEX_PARTS.flags);
-    var RUCasualTimeParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      `(\u0441\u0435\u0439\u0447\u0430\u0441|\u043F\u0440\u043E\u0448\u043B\u044B\u043C\\s*\u0432\u0435\u0447\u0435\u0440\u043E\u043C|\u043F\u0440\u043E\u0448\u043B\u043E\u0439\\s*\u043D\u043E\u0447\u044C\u044E|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439\\s*\u043D\u043E\u0447\u044C\u044E|\u0441\u0435\u0433\u043E\u0434\u043D\u044F\\s*\u043D\u043E\u0447\u044C\u044E|\u044D\u0442\u043E\u0439\\s*\u043D\u043E\u0447\u044C\u044E|\u043D\u043E\u0447\u044C\u044E|\u044D\u0442\u0438\u043C \u0443\u0442\u0440\u043E\u043C|\u0443\u0442\u0440\u043E\u043C|\u0443\u0442\u0440\u0430|\u0432\\s*\u043F\u043E\u043B\u0434\u0435\u043D\u044C|\u0432\u0435\u0447\u0435\u0440\u043E\u043C|\u0432\u0435\u0447\u0435\u0440\u0430|\u0432\\s*\u043F\u043E\u043B\u043D\u043E\u0447\u044C)${constants_1.REGEX_PARTS.rightBoundary}`,
+      constants_1.REGEX_PARTS.flags,
+    );
+    var RUCasualTimeParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       patternLeftBoundary() {
         return constants_1.REGEX_PARTS.leftBoundary;
       }
@@ -10328,10 +12741,16 @@ var require_RUCasualTimeParser = __commonJS({
         if (lowerText === "\u0441\u0435\u0439\u0447\u0430\u0441") {
           return references.now(context2.reference);
         }
-        if (lowerText === "\u0432\u0435\u0447\u0435\u0440\u043E\u043C" || lowerText === "\u0432\u0435\u0447\u0435\u0440\u0430") {
+        if (
+          lowerText === "\u0432\u0435\u0447\u0435\u0440\u043E\u043C" ||
+          lowerText === "\u0432\u0435\u0447\u0435\u0440\u0430"
+        ) {
           return references.evening(context2.reference);
         }
-        if (lowerText.endsWith("\u0443\u0442\u0440\u043E\u043C") || lowerText.endsWith("\u0443\u0442\u0440\u0430")) {
+        if (
+          lowerText.endsWith("\u0443\u0442\u0440\u043E\u043C") ||
+          lowerText.endsWith("\u0443\u0442\u0440\u0430")
+        ) {
           return references.morning(context2.reference);
         }
         if (lowerText.match(/в\s*полдень/)) {
@@ -10349,30 +12768,42 @@ var require_RUCasualTimeParser = __commonJS({
           dayjs_1.assignSimilarDate(component, targetDate);
           component.imply("hour", 0);
         }
-        if (lowerText.match(/в\s*полночь/) || lowerText.endsWith("\u043D\u043E\u0447\u044C\u044E")) {
+        if (
+          lowerText.match(/в\s*полночь/) ||
+          lowerText.endsWith("\u043D\u043E\u0447\u044C\u044E")
+        ) {
           return references.midnight(context2.reference);
         }
         return component;
       }
     };
     exports.default = RUCasualTimeParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUWeekdayParser.js
 var require_RUWeekdayParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUWeekdayParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUWeekdayParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants9();
     var pattern_1 = require_pattern();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var weekdays_1 = require_weekdays();
-    var PATTERN = new RegExp(`(?:(?:,|\\(|\uFF08)\\s*)?(?:\u0432\\s*?)?(?:(\u044D\u0442\u0443|\u044D\u0442\u043E\u0442|\u043F\u0440\u043E\u0448\u043B\u044B\u0439|\u043F\u0440\u043E\u0448\u043B\u0443\u044E|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E)\\s*)?(${pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)})(?:\\s*(?:,|\\)|\uFF09))?(?:\\s*\u043D\u0430\\s*(\u044D\u0442\u043E\u0439|\u043F\u0440\u043E\u0448\u043B\u043E\u0439|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439)\\s*\u043D\u0435\u0434\u0435\u043B\u0435)?${constants_1.REGEX_PARTS.rightBoundary}`, constants_1.REGEX_PARTS.flags);
+    var PATTERN = new RegExp(
+      `(?:(?:,|\\(|\uFF08)\\s*)?(?:\u0432\\s*?)?(?:(\u044D\u0442\u0443|\u044D\u0442\u043E\u0442|\u043F\u0440\u043E\u0448\u043B\u044B\u0439|\u043F\u0440\u043E\u0448\u043B\u0443\u044E|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E)\\s*)?(${
+        pattern_1.matchAnyPattern(constants_1.WEEKDAY_DICTIONARY)
+      })(?:\\s*(?:,|\\)|\uFF09))?(?:\\s*\u043D\u0430\\s*(\u044D\u0442\u043E\u0439|\u043F\u0440\u043E\u0448\u043B\u043E\u0439|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439)\\s*\u043D\u0435\u0434\u0435\u043B\u0435)?${constants_1.REGEX_PARTS.rightBoundary}`,
+      constants_1.REGEX_PARTS.flags,
+    );
     var PREFIX_GROUP = 1;
     var WEEKDAY_GROUP = 2;
     var POSTFIX_GROUP = 3;
-    var RUWeekdayParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var RUWeekdayParser = class extends AbstractParserWithWordBoundary_1
+      .AbstractParserWithWordBoundaryChecking {
       innerPattern() {
         return PATTERN;
       }
@@ -10388,37 +12819,69 @@ var require_RUWeekdayParser = __commonJS({
         modifierWord = modifierWord || "";
         modifierWord = modifierWord.toLowerCase();
         let modifier = null;
-        if (modifierWord == "\u043F\u0440\u043E\u0448\u043B\u044B\u0439" || modifierWord == "\u043F\u0440\u043E\u0448\u043B\u0443\u044E" || modifierWord == "\u043F\u0440\u043E\u0448\u043B\u043E\u0439") {
+        if (
+          modifierWord == "\u043F\u0440\u043E\u0448\u043B\u044B\u0439" ||
+          modifierWord == "\u043F\u0440\u043E\u0448\u043B\u0443\u044E" ||
+          modifierWord == "\u043F\u0440\u043E\u0448\u043B\u043E\u0439"
+        ) {
           modifier = "last";
-        } else if (modifierWord == "\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439" || modifierWord == "\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E" || modifierWord == "\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439" || modifierWord == "\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E") {
+        } else if (
+          modifierWord ==
+            "\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439" ||
+          modifierWord ==
+            "\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E" ||
+          modifierWord ==
+            "\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439" ||
+          modifierWord ==
+            "\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E"
+        ) {
           modifier = "next";
-        } else if (modifierWord == "\u044D\u0442\u043E\u0442" || modifierWord == "\u044D\u0442\u0443" || modifierWord == "\u044D\u0442\u043E\u0439") {
+        } else if (
+          modifierWord == "\u044D\u0442\u043E\u0442" ||
+          modifierWord == "\u044D\u0442\u0443" ||
+          modifierWord == "\u044D\u0442\u043E\u0439"
+        ) {
           modifier = "this";
         }
-        return weekdays_1.createParsingComponentsAtWeekday(context2.reference, weekday, modifier);
+        return weekdays_1.createParsingComponentsAtWeekday(
+          context2.reference,
+          weekday,
+          modifier,
+        );
       }
     };
     exports.default = RUWeekdayParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RURelativeDateFormatParser.js
 var require_RURelativeDateFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RURelativeDateFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RURelativeDateFormatParser.js"(
+    exports,
+  ) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants9();
     var results_1 = require_results();
     var dayjs_1 = __importDefault2(require_dayjs_min());
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var pattern_1 = require_pattern();
-    var PATTERN = new RegExp(`(\u0432 \u043F\u0440\u043E\u0448\u043B\u043E\u043C|\u043D\u0430 \u043F\u0440\u043E\u0448\u043B\u043E\u0439|\u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439|\u0432 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C|\u043D\u0430 \u044D\u0442\u043E\u0439|\u0432 \u044D\u0442\u043E\u043C)\\s*(${pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)})(?=\\s*)${constants_1.REGEX_PARTS.rightBoundary}`, constants_1.REGEX_PARTS.flags);
+    var PATTERN = new RegExp(
+      `(\u0432 \u043F\u0440\u043E\u0448\u043B\u043E\u043C|\u043D\u0430 \u043F\u0440\u043E\u0448\u043B\u043E\u0439|\u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439|\u0432 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C|\u043D\u0430 \u044D\u0442\u043E\u0439|\u0432 \u044D\u0442\u043E\u043C)\\s*(${
+        pattern_1.matchAnyPattern(constants_1.TIME_UNIT_DICTIONARY)
+      })(?=\\s*)${constants_1.REGEX_PARTS.rightBoundary}`,
+      constants_1.REGEX_PARTS.flags,
+    );
     var MODIFIER_WORD_GROUP = 1;
     var RELATIVE_WORD_GROUP = 2;
-    var RURelativeDateFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var RURelativeDateFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       patternLeftBoundary() {
         return constants_1.REGEX_PARTS.leftBoundary;
       }
@@ -10429,15 +12892,29 @@ var require_RURelativeDateFormatParser = __commonJS({
         const modifier = match[MODIFIER_WORD_GROUP].toLowerCase();
         const unitWord = match[RELATIVE_WORD_GROUP].toLowerCase();
         const timeunit = constants_1.TIME_UNIT_DICTIONARY[unitWord];
-        if (modifier == "\u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439" || modifier == "\u0432 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C") {
+        if (
+          modifier ==
+            "\u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439" ||
+          modifier ==
+            "\u0432 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u043C"
+        ) {
           const timeUnits = {};
           timeUnits[timeunit] = 1;
-          return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+          return results_1.ParsingComponents.createRelativeFromReference(
+            context2.reference,
+            timeUnits,
+          );
         }
-        if (modifier == "\u0432 \u043F\u0440\u043E\u0448\u043B\u043E\u043C" || modifier == "\u043D\u0430 \u043F\u0440\u043E\u0448\u043B\u043E\u0439") {
+        if (
+          modifier == "\u0432 \u043F\u0440\u043E\u0448\u043B\u043E\u043C" ||
+          modifier == "\u043D\u0430 \u043F\u0440\u043E\u0448\u043B\u043E\u0439"
+        ) {
           const timeUnits = {};
           timeUnits[timeunit] = -1;
-          return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+          return results_1.ParsingComponents.createRelativeFromReference(
+            context2.reference,
+            timeUnits,
+          );
         }
         const components = context2.createParsingComponents();
         let date = dayjs_1.default(context2.reference.instant);
@@ -10462,20 +12939,28 @@ var require_RURelativeDateFormatParser = __commonJS({
       }
     };
     exports.default = RURelativeDateFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitCasualRelativeFormatParser.js
 var require_RUTimeUnitCasualRelativeFormatParser = __commonJS({
-  "node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitCasualRelativeFormatParser.js"(exports) {
+  "node_modules/chrono-node/dist/locales/ru/parsers/RUTimeUnitCasualRelativeFormatParser.js"(
+    exports,
+  ) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var constants_1 = require_constants9();
     var results_1 = require_results();
-    var AbstractParserWithWordBoundary_1 = require_AbstractParserWithWordBoundary();
+    var AbstractParserWithWordBoundary_1 =
+      require_AbstractParserWithWordBoundary();
     var timeunits_1 = require_timeunits();
-    var PATTERN = new RegExp(`(\u044D\u0442\u0438|\u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0435|\u043F\u0440\u043E\u0448\u043B\u044B\u0435|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0435|\u043F\u043E\u0441\u043B\u0435|\u0447\u0435\u0440\u0435\u0437|\\+|-)\\s*(${constants_1.TIME_UNITS_PATTERN})${constants_1.REGEX_PARTS.rightBoundary}`, constants_1.REGEX_PARTS.flags);
-    var RUTimeUnitCasualRelativeFormatParser = class extends AbstractParserWithWordBoundary_1.AbstractParserWithWordBoundaryChecking {
+    var PATTERN = new RegExp(
+      `(\u044D\u0442\u0438|\u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0435|\u043F\u0440\u043E\u0448\u043B\u044B\u0435|\u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0435|\u043F\u043E\u0441\u043B\u0435|\u0447\u0435\u0440\u0435\u0437|\\+|-)\\s*(${constants_1.TIME_UNITS_PATTERN})${constants_1.REGEX_PARTS.rightBoundary}`,
+      constants_1.REGEX_PARTS.flags,
+    );
+    var RUTimeUnitCasualRelativeFormatParser = class
+      extends AbstractParserWithWordBoundary_1
+        .AbstractParserWithWordBoundaryChecking {
       patternLeftBoundary() {
         return constants_1.REGEX_PARTS.leftBoundary;
       }
@@ -10492,37 +12977,65 @@ var require_RUTimeUnitCasualRelativeFormatParser = __commonJS({
             timeUnits = timeunits_1.reverseTimeUnits(timeUnits);
             break;
         }
-        return results_1.ParsingComponents.createRelativeFromReference(context2.reference, timeUnits);
+        return results_1.ParsingComponents.createRelativeFromReference(
+          context2.reference,
+          timeUnits,
+        );
       }
     };
     exports.default = RUTimeUnitCasualRelativeFormatParser;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/locales/ru/index.js
 var require_ru = __commonJS({
   "node_modules/chrono-node/dist/locales/ru/index.js"(exports) {
     "use strict";
-    var __importDefault2 = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault2 = exports && exports.__importDefault ||
+      function (mod) {
+        return mod && mod.__esModule ? mod : { "default": mod };
+      };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createConfiguration = exports.createCasualConfiguration = exports.parseDate = exports.parse = exports.strict = exports.casual = void 0;
-    var RUTimeUnitWithinFormatParser_1 = __importDefault2(require_RUTimeUnitWithinFormatParser());
-    var RUMonthNameLittleEndianParser_1 = __importDefault2(require_RUMonthNameLittleEndianParser());
+    exports.createConfiguration =
+      exports.createCasualConfiguration =
+      exports.parseDate =
+      exports.parse =
+      exports.strict =
+      exports.casual =
+        void 0;
+    var RUTimeUnitWithinFormatParser_1 = __importDefault2(
+      require_RUTimeUnitWithinFormatParser(),
+    );
+    var RUMonthNameLittleEndianParser_1 = __importDefault2(
+      require_RUMonthNameLittleEndianParser(),
+    );
     var RUMonthNameParser_1 = __importDefault2(require_RUMonthNameParser());
-    var RUTimeExpressionParser_1 = __importDefault2(require_RUTimeExpressionParser());
-    var RUTimeUnitAgoFormatParser_1 = __importDefault2(require_RUTimeUnitAgoFormatParser());
-    var RUMergeDateRangeRefiner_1 = __importDefault2(require_RUMergeDateRangeRefiner());
-    var RUMergeDateTimeRefiner_1 = __importDefault2(require_RUMergeDateTimeRefiner());
+    var RUTimeExpressionParser_1 = __importDefault2(
+      require_RUTimeExpressionParser(),
+    );
+    var RUTimeUnitAgoFormatParser_1 = __importDefault2(
+      require_RUTimeUnitAgoFormatParser(),
+    );
+    var RUMergeDateRangeRefiner_1 = __importDefault2(
+      require_RUMergeDateRangeRefiner(),
+    );
+    var RUMergeDateTimeRefiner_1 = __importDefault2(
+      require_RUMergeDateTimeRefiner(),
+    );
     var configurations_1 = require_configurations();
     var RUCasualDateParser_1 = __importDefault2(require_RUCasualDateParser());
     var RUCasualTimeParser_1 = __importDefault2(require_RUCasualTimeParser());
     var RUWeekdayParser_1 = __importDefault2(require_RUWeekdayParser());
-    var RURelativeDateFormatParser_1 = __importDefault2(require_RURelativeDateFormatParser());
+    var RURelativeDateFormatParser_1 = __importDefault2(
+      require_RURelativeDateFormatParser(),
+    );
     var chrono_1 = require_chrono();
-    var SlashDateFormatParser_1 = __importDefault2(require_SlashDateFormatParser());
-    var RUTimeUnitCasualRelativeFormatParser_1 = __importDefault2(require_RUTimeUnitCasualRelativeFormatParser());
+    var SlashDateFormatParser_1 = __importDefault2(
+      require_SlashDateFormatParser(),
+    );
+    var RUTimeUnitCasualRelativeFormatParser_1 = __importDefault2(
+      require_RUTimeUnitCasualRelativeFormatParser(),
+    );
     exports.casual = new chrono_1.Chrono(createCasualConfiguration());
     exports.strict = new chrono_1.Chrono(createConfiguration(true));
     function parse3(text, ref, option) {
@@ -10539,7 +13052,9 @@ var require_ru = __commonJS({
       option.parsers.unshift(new RUCasualTimeParser_1.default());
       option.parsers.unshift(new RUMonthNameParser_1.default());
       option.parsers.unshift(new RURelativeDateFormatParser_1.default());
-      option.parsers.unshift(new RUTimeUnitCasualRelativeFormatParser_1.default());
+      option.parsers.unshift(
+        new RUTimeUnitCasualRelativeFormatParser_1.default(),
+      );
       return option;
     }
     exports.createCasualConfiguration = createCasualConfiguration;
@@ -10551,62 +13066,99 @@ var require_ru = __commonJS({
           new RUMonthNameLittleEndianParser_1.default(),
           new RUWeekdayParser_1.default(),
           new RUTimeExpressionParser_1.default(strictMode),
-          new RUTimeUnitAgoFormatParser_1.default()
+          new RUTimeUnitAgoFormatParser_1.default(),
         ],
-        refiners: [new RUMergeDateTimeRefiner_1.default(), new RUMergeDateRangeRefiner_1.default()]
+        refiners: [
+          new RUMergeDateTimeRefiner_1.default(),
+          new RUMergeDateRangeRefiner_1.default(),
+        ],
       }, strictMode);
     }
     exports.createConfiguration = createConfiguration;
-  }
+  },
 });
 
 // node_modules/chrono-node/dist/index.js
 var require_dist = __commonJS({
   "node_modules/chrono-node/dist/index.js"(exports) {
     "use strict";
-    var __createBinding2 = exports && exports.__createBinding || (Object.create ? function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      Object.defineProperty(o6, k22, { enumerable: true, get: function() {
-        return m2[k2];
-      } });
-    } : function(o6, m2, k2, k22) {
-      if (k22 === void 0)
-        k22 = k2;
-      o6[k22] = m2[k2];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o6, v2) {
-      Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-    } : function(o6, v2) {
-      o6["default"] = v2;
-    });
-    var __importStar2 = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding2 = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          Object.defineProperty(o6, k22, {
+            enumerable: true,
+            get: function () {
+              return m2[k2];
+            },
+          });
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        });
+    var __importStar2 = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k2 in mod)
-          if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+        for (var k2 in mod) {
+          if (
+            k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+          ) {
             __createBinding2(result, mod, k2);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseDate = exports.parse = exports.casual = exports.strict = exports.ru = exports.zh = exports.nl = exports.pt = exports.ja = exports.fr = exports.de = exports.Weekday = exports.Meridiem = exports.Chrono = exports.en = void 0;
+    exports.parseDate =
+      exports.parse =
+      exports.casual =
+      exports.strict =
+      exports.ru =
+      exports.zh =
+      exports.nl =
+      exports.pt =
+      exports.ja =
+      exports.fr =
+      exports.de =
+      exports.Weekday =
+      exports.Meridiem =
+      exports.Chrono =
+      exports.en =
+        void 0;
     var en = __importStar2(require_en());
     exports.en = en;
     var chrono_1 = require_chrono();
-    Object.defineProperty(exports, "Chrono", { enumerable: true, get: function() {
-      return chrono_1.Chrono;
-    } });
+    Object.defineProperty(exports, "Chrono", {
+      enumerable: true,
+      get: function () {
+        return chrono_1.Chrono;
+      },
+    });
     var Meridiem;
-    (function(Meridiem2) {
+    (function (Meridiem2) {
       Meridiem2[Meridiem2["AM"] = 0] = "AM";
       Meridiem2[Meridiem2["PM"] = 1] = "PM";
     })(Meridiem = exports.Meridiem || (exports.Meridiem = {}));
     var Weekday;
-    (function(Weekday2) {
+    (function (Weekday2) {
       Weekday2[Weekday2["SUNDAY"] = 0] = "SUNDAY";
       Weekday2[Weekday2["MONDAY"] = 1] = "MONDAY";
       Weekday2[Weekday2["TUESDAY"] = 2] = "TUESDAY";
@@ -10639,7 +13191,7 @@ var require_dist = __commonJS({
       return exports.casual.parseDate(text, ref, option);
     }
     exports.parseDate = parseDate;
-  }
+  },
 });
 
 // node_modules/tslib/tslib.js
@@ -10670,13 +13222,21 @@ var require_tslib = __commonJS({
     var __classPrivateFieldSet2;
     var __classPrivateFieldIn2;
     var __createBinding2;
-    (function(factory) {
-      var root = typeof global === "object" ? global : typeof self === "object" ? self : typeof this === "object" ? this : {};
+    (function (factory) {
+      var root = typeof global === "object"
+        ? global
+        : typeof self === "object"
+        ? self
+        : typeof this === "object"
+        ? this
+        : {};
       if (typeof define === "function" && define.amd) {
-        define("tslib", ["exports"], function(exports2) {
+        define("tslib", ["exports"], function (exports2) {
           factory(createExporter(root, createExporter(exports2)));
         });
-      } else if (typeof module2 === "object" && typeof module2.exports === "object") {
+      } else if (
+        typeof module2 === "object" && typeof module2.exports === "object"
+      ) {
         factory(createExporter(root, createExporter(module2.exports)));
       } else {
         factory(createExporter(root));
@@ -10689,74 +13249,117 @@ var require_tslib = __commonJS({
             exports2.__esModule = true;
           }
         }
-        return function(id, v2) {
+        return function (id, v2) {
           return exports2[id] = previous ? previous(id, v2) : v2;
         };
       }
-    })(function(exporter) {
-      var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d3, b2) {
-        d3.__proto__ = b2;
-      } || function(d3, b2) {
-        for (var p2 in b2)
-          if (Object.prototype.hasOwnProperty.call(b2, p2))
-            d3[p2] = b2[p2];
-      };
-      __extends2 = function(d3, b2) {
-        if (typeof b2 !== "function" && b2 !== null)
-          throw new TypeError("Class extends value " + String(b2) + " is not a constructor or null");
+    })(function (exporter) {
+      var extendStatics = Object.setPrototypeOf ||
+        { __proto__: [] } instanceof Array && function (d3, b2) {
+            d3.__proto__ = b2;
+          } ||
+        function (d3, b2) {
+          for (var p2 in b2) {
+            if (Object.prototype.hasOwnProperty.call(b2, p2)) {
+              d3[p2] = b2[p2];
+            }
+          }
+        };
+      __extends2 = function (d3, b2) {
+        if (typeof b2 !== "function" && b2 !== null) {
+          throw new TypeError(
+            "Class extends value " + String(b2) +
+              " is not a constructor or null",
+          );
+        }
         extendStatics(d3, b2);
         function __() {
           this.constructor = d3;
         }
-        d3.prototype = b2 === null ? Object.create(b2) : (__.prototype = b2.prototype, new __());
+        d3.prototype = b2 === null
+          ? Object.create(b2)
+          : (__.prototype = b2.prototype, new __());
       };
-      __assign2 = Object.assign || function(t3) {
+      __assign2 = Object.assign || function (t3) {
         for (var s5, i4 = 1, n6 = arguments.length; i4 < n6; i4++) {
           s5 = arguments[i4];
-          for (var p2 in s5)
-            if (Object.prototype.hasOwnProperty.call(s5, p2))
+          for (var p2 in s5) {
+            if (Object.prototype.hasOwnProperty.call(s5, p2)) {
               t3[p2] = s5[p2];
+            }
+          }
         }
         return t3;
       };
-      __rest2 = function(s5, e7) {
+      __rest2 = function (s5, e7) {
         var t3 = {};
-        for (var p2 in s5)
-          if (Object.prototype.hasOwnProperty.call(s5, p2) && e7.indexOf(p2) < 0)
+        for (var p2 in s5) {
+          if (
+            Object.prototype.hasOwnProperty.call(s5, p2) && e7.indexOf(p2) < 0
+          ) {
             t3[p2] = s5[p2];
-        if (s5 != null && typeof Object.getOwnPropertySymbols === "function")
-          for (var i4 = 0, p2 = Object.getOwnPropertySymbols(s5); i4 < p2.length; i4++) {
-            if (e7.indexOf(p2[i4]) < 0 && Object.prototype.propertyIsEnumerable.call(s5, p2[i4]))
-              t3[p2[i4]] = s5[p2[i4]];
           }
+        }
+        if (s5 != null && typeof Object.getOwnPropertySymbols === "function") {
+          for (
+            var i4 = 0, p2 = Object.getOwnPropertySymbols(s5);
+            i4 < p2.length;
+            i4++
+          ) {
+            if (
+              e7.indexOf(p2[i4]) < 0 &&
+              Object.prototype.propertyIsEnumerable.call(s5, p2[i4])
+            ) {
+              t3[p2[i4]] = s5[p2[i4]];
+            }
+          }
+        }
         return t3;
       };
-      __decorate2 = function(decorators, target, key, desc) {
-        var c3 = arguments.length, r4 = c3 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d3;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      __decorate2 = function (decorators, target, key, desc) {
+        var c3 = arguments.length,
+          r4 = c3 < 3
+            ? target
+            : desc === null
+            ? desc = Object.getOwnPropertyDescriptor(target, key)
+            : desc,
+          d3;
+        if (
+          typeof Reflect === "object" && typeof Reflect.decorate === "function"
+        ) {
           r4 = Reflect.decorate(decorators, target, key, desc);
-        else
-          for (var i4 = decorators.length - 1; i4 >= 0; i4--)
-            if (d3 = decorators[i4])
-              r4 = (c3 < 3 ? d3(r4) : c3 > 3 ? d3(target, key, r4) : d3(target, key)) || r4;
+        } else {
+          for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
+            if (d3 = decorators[i4]) {
+              r4 = (c3 < 3
+                ? d3(r4)
+                : c3 > 3
+                ? d3(target, key, r4)
+                : d3(target, key)) || r4;
+            }
+          }
+        }
         return c3 > 3 && r4 && Object.defineProperty(target, key, r4), r4;
       };
-      __param2 = function(paramIndex, decorator) {
-        return function(target, key) {
+      __param2 = function (paramIndex, decorator) {
+        return function (target, key) {
           decorator(target, key, paramIndex);
         };
       };
-      __metadata2 = function(metadataKey, metadataValue) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
+      __metadata2 = function (metadataKey, metadataValue) {
+        if (
+          typeof Reflect === "object" && typeof Reflect.metadata === "function"
+        ) {
           return Reflect.metadata(metadataKey, metadataValue);
+        }
       };
-      __awaiter2 = function(thisArg, _arguments, P2, generator) {
+      __awaiter2 = function (thisArg, _arguments, P2, generator) {
         function adopt(value) {
-          return value instanceof P2 ? value : new P2(function(resolve) {
+          return value instanceof P2 ? value : new P2(function (resolve) {
             resolve(value);
           });
         }
-        return new (P2 || (P2 = Promise))(function(resolve, reject) {
+        return new (P2 || (P2 = Promise))(function (resolve, reject) {
           function fulfilled(value) {
             try {
               step(generator.next(value));
@@ -10772,34 +13375,59 @@ var require_tslib = __commonJS({
             }
           }
           function step(result) {
-            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+            result.done
+              ? resolve(result.value)
+              : adopt(result.value).then(fulfilled, rejected);
           }
           step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
       };
-      __generator2 = function(thisArg, body) {
-        var _2 = { label: 0, sent: function() {
-          if (t3[0] & 1)
-            throw t3[1];
-          return t3[1];
-        }, trys: [], ops: [] }, f2, y2, t3, g2;
-        return g2 = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g2[Symbol.iterator] = function() {
-          return this;
-        }), g2;
+      __generator2 = function (thisArg, body) {
+        var _2 = {
+            label: 0,
+            sent: function () {
+              if (t3[0] & 1) {
+                throw t3[1];
+              }
+              return t3[1];
+            },
+            trys: [],
+            ops: [],
+          },
+          f2,
+          y2,
+          t3,
+          g2;
+        return g2 = { next: verb(0), "throw": verb(1), "return": verb(2) },
+          typeof Symbol === "function" && (g2[Symbol.iterator] = function () {
+            return this;
+          }),
+          g2;
         function verb(n6) {
-          return function(v2) {
+          return function (v2) {
             return step([n6, v2]);
           };
         }
         function step(op) {
-          if (f2)
+          if (f2) {
             throw new TypeError("Generator is already executing.");
-          while (_2)
+          }
+          while (_2) {
             try {
-              if (f2 = 1, y2 && (t3 = op[0] & 2 ? y2["return"] : op[0] ? y2["throw"] || ((t3 = y2["return"]) && t3.call(y2), 0) : y2.next) && !(t3 = t3.call(y2, op[1])).done)
+              if (
+                f2 = 1,
+                  y2 && (t3 = op[0] & 2
+                    ? y2["return"]
+                    : op[0]
+                    ? y2["throw"] || ((t3 = y2["return"]) && t3.call(y2), 0)
+                    : y2.next) &&
+                  !(t3 = t3.call(y2, op[1])).done
+              ) {
                 return t3;
-              if (y2 = 0, t3)
+              }
+              if (y2 = 0, t3) {
                 op = [op[0] & 2, t3.value];
+              }
               switch (op[0]) {
                 case 0:
                 case 1:
@@ -10818,7 +13446,10 @@ var require_tslib = __commonJS({
                   _2.trys.pop();
                   continue;
                 default:
-                  if (!(t3 = _2.trys, t3 = t3.length > 0 && t3[t3.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                  if (
+                    !(t3 = _2.trys, t3 = t3.length > 0 && t3[t3.length - 1]) &&
+                    (op[0] === 6 || op[0] === 2)
+                  ) {
                     _2 = 0;
                     continue;
                   }
@@ -10836,8 +13467,9 @@ var require_tslib = __commonJS({
                     _2.ops.push(op);
                     break;
                   }
-                  if (t3[2])
+                  if (t3[2]) {
                     _2.ops.pop();
+                  }
                   _2.trys.pop();
                   continue;
               }
@@ -10848,107 +13480,154 @@ var require_tslib = __commonJS({
             } finally {
               f2 = t3 = 0;
             }
-          if (op[0] & 5)
+          }
+          if (op[0] & 5) {
             throw op[1];
+          }
           return { value: op[0] ? op[1] : void 0, done: true };
         }
       };
-      __exportStar2 = function(m2, o6) {
-        for (var p2 in m2)
-          if (p2 !== "default" && !Object.prototype.hasOwnProperty.call(o6, p2))
+      __exportStar2 = function (m2, o6) {
+        for (var p2 in m2) {
+          if (
+            p2 !== "default" && !Object.prototype.hasOwnProperty.call(o6, p2)
+          ) {
             __createBinding2(o6, m2, p2);
-      };
-      __createBinding2 = Object.create ? function(o6, m2, k2, k22) {
-        if (k22 === void 0)
-          k22 = k2;
-        var desc = Object.getOwnPropertyDescriptor(m2, k2);
-        if (!desc || ("get" in desc ? !m2.__esModule : desc.writable || desc.configurable)) {
-          desc = { enumerable: true, get: function() {
-            return m2[k2];
-          } };
+          }
         }
-        Object.defineProperty(o6, k22, desc);
-      } : function(o6, m2, k2, k22) {
-        if (k22 === void 0)
-          k22 = k2;
-        o6[k22] = m2[k2];
       };
-      __values2 = function(o6) {
-        var s5 = typeof Symbol === "function" && Symbol.iterator, m2 = s5 && o6[s5], i4 = 0;
-        if (m2)
+      __createBinding2 = Object.create
+        ? function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          var desc = Object.getOwnPropertyDescriptor(m2, k2);
+          if (
+            !desc || ("get" in desc
+              ? !m2.__esModule
+              : desc.writable || desc.configurable)
+          ) {
+            desc = {
+              enumerable: true,
+              get: function () {
+                return m2[k2];
+              },
+            };
+          }
+          Object.defineProperty(o6, k22, desc);
+        }
+        : function (o6, m2, k2, k22) {
+          if (k22 === void 0) {
+            k22 = k2;
+          }
+          o6[k22] = m2[k2];
+        };
+      __values2 = function (o6) {
+        var s5 = typeof Symbol === "function" && Symbol.iterator,
+          m2 = s5 && o6[s5],
+          i4 = 0;
+        if (m2) {
           return m2.call(o6);
-        if (o6 && typeof o6.length === "number")
+        }
+        if (o6 && typeof o6.length === "number") {
           return {
-            next: function() {
-              if (o6 && i4 >= o6.length)
+            next: function () {
+              if (o6 && i4 >= o6.length) {
                 o6 = void 0;
+              }
               return { value: o6 && o6[i4++], done: !o6 };
-            }
+            },
           };
-        throw new TypeError(s5 ? "Object is not iterable." : "Symbol.iterator is not defined.");
+        }
+        throw new TypeError(
+          s5 ? "Object is not iterable." : "Symbol.iterator is not defined.",
+        );
       };
-      __read2 = function(o6, n6) {
+      __read2 = function (o6, n6) {
         var m2 = typeof Symbol === "function" && o6[Symbol.iterator];
-        if (!m2)
+        if (!m2) {
           return o6;
+        }
         var i4 = m2.call(o6), r4, ar = [], e7;
         try {
-          while ((n6 === void 0 || n6-- > 0) && !(r4 = i4.next()).done)
+          while ((n6 === void 0 || n6-- > 0) && !(r4 = i4.next()).done) {
             ar.push(r4.value);
+          }
         } catch (error) {
           e7 = { error };
         } finally {
           try {
-            if (r4 && !r4.done && (m2 = i4["return"]))
+            if (r4 && !r4.done && (m2 = i4["return"])) {
               m2.call(i4);
+            }
           } finally {
-            if (e7)
+            if (e7) {
               throw e7.error;
+            }
           }
         }
         return ar;
       };
-      __spread2 = function() {
-        for (var ar = [], i4 = 0; i4 < arguments.length; i4++)
+      __spread2 = function () {
+        for (var ar = [], i4 = 0; i4 < arguments.length; i4++) {
           ar = ar.concat(__read2(arguments[i4]));
+        }
         return ar;
       };
-      __spreadArrays2 = function() {
-        for (var s5 = 0, i4 = 0, il = arguments.length; i4 < il; i4++)
+      __spreadArrays2 = function () {
+        for (var s5 = 0, i4 = 0, il = arguments.length; i4 < il; i4++) {
           s5 += arguments[i4].length;
-        for (var r4 = Array(s5), k2 = 0, i4 = 0; i4 < il; i4++)
-          for (var a3 = arguments[i4], j = 0, jl = a3.length; j < jl; j++, k2++)
+        }
+        for (var r4 = Array(s5), k2 = 0, i4 = 0; i4 < il; i4++) {
+          for (
+            var a3 = arguments[i4], j = 0, jl = a3.length;
+            j < jl;
+            j++, k2++
+          ) {
             r4[k2] = a3[j];
+          }
+        }
         return r4;
       };
-      __spreadArray2 = function(to, from, pack) {
-        if (pack || arguments.length === 2)
+      __spreadArray2 = function (to, from, pack) {
+        if (pack || arguments.length === 2) {
           for (var i4 = 0, l5 = from.length, ar; i4 < l5; i4++) {
             if (ar || !(i4 in from)) {
-              if (!ar)
+              if (!ar) {
                 ar = Array.prototype.slice.call(from, 0, i4);
+              }
               ar[i4] = from[i4];
             }
           }
+        }
         return to.concat(ar || Array.prototype.slice.call(from));
       };
-      __await2 = function(v2) {
-        return this instanceof __await2 ? (this.v = v2, this) : new __await2(v2);
+      __await2 = function (v2) {
+        return this instanceof __await2
+          ? (this.v = v2, this)
+          : new __await2(v2);
       };
-      __asyncGenerator2 = function(thisArg, _arguments, generator) {
-        if (!Symbol.asyncIterator)
+      __asyncGenerator2 = function (thisArg, _arguments, generator) {
+        if (!Symbol.asyncIterator) {
           throw new TypeError("Symbol.asyncIterator is not defined.");
+        }
         var g2 = generator.apply(thisArg, _arguments || []), i4, q = [];
-        return i4 = {}, verb("next"), verb("throw"), verb("return"), i4[Symbol.asyncIterator] = function() {
-          return this;
-        }, i4;
+        return i4 = {},
+          verb("next"),
+          verb("throw"),
+          verb("return"),
+          i4[Symbol.asyncIterator] = function () {
+            return this;
+          },
+          i4;
         function verb(n6) {
-          if (g2[n6])
-            i4[n6] = function(v2) {
-              return new Promise(function(a3, b2) {
+          if (g2[n6]) {
+            i4[n6] = function (v2) {
+              return new Promise(function (a3, b2) {
                 q.push([n6, v2, a3, b2]) > 1 || resume(n6, v2);
               });
             };
+          }
         }
         function resume(n6, v2) {
           try {
@@ -10958,7 +13637,9 @@ var require_tslib = __commonJS({
           }
         }
         function step(r4) {
-          r4.value instanceof __await2 ? Promise.resolve(r4.value.v).then(fulfill, reject) : settle(q[0][2], r4);
+          r4.value instanceof __await2
+            ? Promise.resolve(r4.value.v).then(fulfill, reject)
+            : settle(q[0][2], r4);
         }
         function fulfill(value) {
           resume("next", value);
@@ -10967,44 +13648,67 @@ var require_tslib = __commonJS({
           resume("throw", value);
         }
         function settle(f2, v2) {
-          if (f2(v2), q.shift(), q.length)
+          if (f2(v2), q.shift(), q.length) {
             resume(q[0][0], q[0][1]);
+          }
         }
       };
-      __asyncDelegator2 = function(o6) {
+      __asyncDelegator2 = function (o6) {
         var i4, p2;
-        return i4 = {}, verb("next"), verb("throw", function(e7) {
-          throw e7;
-        }), verb("return"), i4[Symbol.iterator] = function() {
-          return this;
-        }, i4;
+        return i4 = {},
+          verb("next"),
+          verb("throw", function (e7) {
+            throw e7;
+          }),
+          verb("return"),
+          i4[Symbol.iterator] = function () {
+            return this;
+          },
+          i4;
         function verb(n6, f2) {
-          i4[n6] = o6[n6] ? function(v2) {
-            return (p2 = !p2) ? { value: __await2(o6[n6](v2)), done: n6 === "return" } : f2 ? f2(v2) : v2;
-          } : f2;
+          i4[n6] = o6[n6]
+            ? function (v2) {
+              return (p2 = !p2)
+                ? { value: __await2(o6[n6](v2)), done: n6 === "return" }
+                : f2
+                ? f2(v2)
+                : v2;
+            }
+            : f2;
         }
       };
-      __asyncValues2 = function(o6) {
-        if (!Symbol.asyncIterator)
+      __asyncValues2 = function (o6) {
+        if (!Symbol.asyncIterator) {
           throw new TypeError("Symbol.asyncIterator is not defined.");
+        }
         var m2 = o6[Symbol.asyncIterator], i4;
-        return m2 ? m2.call(o6) : (o6 = typeof __values2 === "function" ? __values2(o6) : o6[Symbol.iterator](), i4 = {}, verb("next"), verb("throw"), verb("return"), i4[Symbol.asyncIterator] = function() {
-          return this;
-        }, i4);
+        return m2
+          ? m2.call(o6)
+          : (o6 = typeof __values2 === "function"
+            ? __values2(o6)
+            : o6[Symbol.iterator](),
+            i4 = {},
+            verb("next"),
+            verb("throw"),
+            verb("return"),
+            i4[Symbol.asyncIterator] = function () {
+              return this;
+            },
+            i4);
         function verb(n6) {
-          i4[n6] = o6[n6] && function(v2) {
-            return new Promise(function(resolve, reject) {
+          i4[n6] = o6[n6] && function (v2) {
+            return new Promise(function (resolve, reject) {
               v2 = o6[n6](v2), settle(resolve, reject, v2.done, v2.value);
             });
           };
         }
         function settle(resolve, reject, d3, v2) {
-          Promise.resolve(v2).then(function(v3) {
+          Promise.resolve(v2).then(function (v3) {
             resolve({ value: v3, done: d3 });
           }, reject);
         }
       };
-      __makeTemplateObject2 = function(cooked, raw) {
+      __makeTemplateObject2 = function (cooked, raw) {
         if (Object.defineProperty) {
           Object.defineProperty(cooked, "raw", { value: raw });
         } else {
@@ -11012,46 +13716,87 @@ var require_tslib = __commonJS({
         }
         return cooked;
       };
-      var __setModuleDefault = Object.create ? function(o6, v2) {
-        Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
-      } : function(o6, v2) {
-        o6["default"] = v2;
-      };
-      __importStar2 = function(mod) {
-        if (mod && mod.__esModule)
+      var __setModuleDefault = Object.create
+        ? function (o6, v2) {
+          Object.defineProperty(o6, "default", { enumerable: true, value: v2 });
+        }
+        : function (o6, v2) {
+          o6["default"] = v2;
+        };
+      __importStar2 = function (mod) {
+        if (mod && mod.__esModule) {
           return mod;
+        }
         var result = {};
         if (mod != null) {
-          for (var k2 in mod)
-            if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
+          for (var k2 in mod) {
+            if (
+              k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)
+            ) {
               __createBinding2(result, mod, k2);
+            }
+          }
         }
         __setModuleDefault(result, mod);
         return result;
       };
-      __importDefault2 = function(mod) {
+      __importDefault2 = function (mod) {
         return mod && mod.__esModule ? mod : { "default": mod };
       };
-      __classPrivateFieldGet2 = function(receiver, state, kind, f2) {
-        if (kind === "a" && !f2)
+      __classPrivateFieldGet2 = function (receiver, state, kind, f2) {
+        if (kind === "a" && !f2) {
           throw new TypeError("Private accessor was defined without a getter");
-        if (typeof state === "function" ? receiver !== state || !f2 : !state.has(receiver))
-          throw new TypeError("Cannot read private member from an object whose class did not declare it");
-        return kind === "m" ? f2 : kind === "a" ? f2.call(receiver) : f2 ? f2.value : state.get(receiver);
+        }
+        if (
+          typeof state === "function"
+            ? receiver !== state || !f2
+            : !state.has(receiver)
+        ) {
+          throw new TypeError(
+            "Cannot read private member from an object whose class did not declare it",
+          );
+        }
+        return kind === "m"
+          ? f2
+          : kind === "a"
+          ? f2.call(receiver)
+          : f2
+          ? f2.value
+          : state.get(receiver);
       };
-      __classPrivateFieldSet2 = function(receiver, state, value, kind, f2) {
-        if (kind === "m")
+      __classPrivateFieldSet2 = function (receiver, state, value, kind, f2) {
+        if (kind === "m") {
           throw new TypeError("Private method is not writable");
-        if (kind === "a" && !f2)
+        }
+        if (kind === "a" && !f2) {
           throw new TypeError("Private accessor was defined without a setter");
-        if (typeof state === "function" ? receiver !== state || !f2 : !state.has(receiver))
-          throw new TypeError("Cannot write private member to an object whose class did not declare it");
-        return kind === "a" ? f2.call(receiver, value) : f2 ? f2.value = value : state.set(receiver, value), value;
+        }
+        if (
+          typeof state === "function"
+            ? receiver !== state || !f2
+            : !state.has(receiver)
+        ) {
+          throw new TypeError(
+            "Cannot write private member to an object whose class did not declare it",
+          );
+        }
+        return kind === "a"
+          ? f2.call(receiver, value)
+          : f2
+          ? f2.value = value
+          : state.set(receiver, value),
+          value;
       };
-      __classPrivateFieldIn2 = function(state, receiver) {
-        if (receiver === null || typeof receiver !== "object" && typeof receiver !== "function")
+      __classPrivateFieldIn2 = function (state, receiver) {
+        if (
+          receiver === null ||
+          typeof receiver !== "object" && typeof receiver !== "function"
+        ) {
           throw new TypeError("Cannot use 'in' operator on non-object");
-        return typeof state === "function" ? receiver === state : state.has(receiver);
+        }
+        return typeof state === "function"
+          ? receiver === state
+          : state.has(receiver);
       };
       exporter("__extends", __extends2);
       exporter("__assign", __assign2);
@@ -11079,26 +13824,31 @@ var require_tslib = __commonJS({
       exporter("__classPrivateFieldSet", __classPrivateFieldSet2);
       exporter("__classPrivateFieldIn", __classPrivateFieldIn2);
     });
-  }
+  },
 });
 
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
-  default: () => AppleRemindersPlugin
+  default: () => AppleRemindersPlugin,
 });
 module.exports = __toCommonJS(main_exports);
 var import_obsidian4 = require("obsidian");
 
 // node_modules/@lit/reactive-element/css-tag.js
 var t = window;
-var e = t.ShadowRoot && (t.ShadyCSS === void 0 || t.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype;
+var e = t.ShadowRoot && (t.ShadyCSS === void 0 || t.ShadyCSS.nativeShadow) &&
+  "adoptedStyleSheets" in Document.prototype &&
+  "replace" in CSSStyleSheet.prototype;
 var s = Symbol();
 var n = /* @__PURE__ */ new WeakMap();
 var o = class {
   constructor(t3, e7, n6) {
-    if (this._$cssResult$ = true, n6 !== s)
-      throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
+    if (this._$cssResult$ = true, n6 !== s) {
+      throw Error(
+        "CSSResult is not constructable. Use `unsafeCSS` or `css` instead.",
+      );
+    }
     this.cssText = t3, this.t = e7;
   }
   get styleSheet() {
@@ -11106,7 +13856,10 @@ var o = class {
     const s5 = this.t;
     if (e && t3 === void 0) {
       const e7 = s5 !== void 0 && s5.length === 1;
-      e7 && (t3 = n.get(s5)), t3 === void 0 && ((this.o = t3 = new CSSStyleSheet()).replaceSync(this.cssText), e7 && n.set(s5, t3));
+      e7 && (t3 = n.get(s5)),
+        t3 === void 0 &&
+        ((this.o = t3 = new CSSStyleSheet()).replaceSync(this.cssText),
+          e7 && n.set(s5, t3));
     }
     return t3;
   }
@@ -11116,27 +13869,44 @@ var o = class {
 };
 var r = (t3) => new o(typeof t3 == "string" ? t3 : t3 + "", void 0, s);
 var i = (t3, ...e7) => {
-  const n6 = t3.length === 1 ? t3[0] : e7.reduce((e8, s5, n7) => e8 + ((t4) => {
-    if (t4._$cssResult$ === true)
-      return t4.cssText;
-    if (typeof t4 == "number")
-      return t4;
-    throw Error("Value passed to 'css' function must be a 'css' function result: " + t4 + ". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.");
-  })(s5) + t3[n7 + 1], t3[0]);
+  const n6 = t3.length === 1 ? t3[0] : e7.reduce((e8, s5, n7) =>
+    e8 + ((t4) => {
+      if (t4._$cssResult$ === true) {
+        return t4.cssText;
+      }
+      if (typeof t4 == "number") {
+        return t4;
+      }
+      throw Error(
+        "Value passed to 'css' function must be a 'css' function result: " +
+          t4 +
+          ". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.",
+      );
+    })(s5) + t3[n7 + 1], t3[0]);
   return new o(n6, t3, s);
 };
 var S = (s5, n6) => {
-  e ? s5.adoptedStyleSheets = n6.map((t3) => t3 instanceof CSSStyleSheet ? t3 : t3.styleSheet) : n6.forEach((e7) => {
-    const n7 = document.createElement("style"), o6 = t.litNonce;
-    o6 !== void 0 && n7.setAttribute("nonce", o6), n7.textContent = e7.cssText, s5.appendChild(n7);
-  });
+  e
+    ? s5.adoptedStyleSheets = n6.map((t3) =>
+      t3 instanceof CSSStyleSheet ? t3 : t3.styleSheet
+    )
+    : n6.forEach((e7) => {
+      const n7 = document.createElement("style"), o6 = t.litNonce;
+      o6 !== void 0 && n7.setAttribute("nonce", o6),
+        n7.textContent = e7.cssText,
+        s5.appendChild(n7);
+    });
 };
-var c = e ? (t3) => t3 : (t3) => t3 instanceof CSSStyleSheet ? ((t4) => {
-  let e7 = "";
-  for (const s5 of t4.cssRules)
-    e7 += s5.cssText;
-  return r(e7);
-})(t3) : t3;
+var c = e ? (t3) => t3 : (t3) =>
+  t3 instanceof CSSStyleSheet
+    ? ((t4) => {
+      let e7 = "";
+      for (const s5 of t4.cssRules) {
+        e7 += s5.cssText;
+      }
+      return r(e7);
+    })(t3)
+    : t3;
 
 // node_modules/@lit/reactive-element/reactive-element.js
 var s2;
@@ -11144,40 +13914,54 @@ var e2 = window;
 var r2 = e2.trustedTypes;
 var h = r2 ? r2.emptyScript : "";
 var o2 = e2.reactiveElementPolyfillSupport;
-var n2 = { toAttribute(t3, i4) {
-  switch (i4) {
-    case Boolean:
-      t3 = t3 ? h : null;
-      break;
-    case Object:
-    case Array:
-      t3 = t3 == null ? t3 : JSON.stringify(t3);
-  }
-  return t3;
-}, fromAttribute(t3, i4) {
-  let s5 = t3;
-  switch (i4) {
-    case Boolean:
-      s5 = t3 !== null;
-      break;
-    case Number:
-      s5 = t3 === null ? null : Number(t3);
-      break;
-    case Object:
-    case Array:
-      try {
-        s5 = JSON.parse(t3);
-      } catch (t4) {
-        s5 = null;
-      }
-  }
-  return s5;
-} };
+var n2 = {
+  toAttribute(t3, i4) {
+    switch (i4) {
+      case Boolean:
+        t3 = t3 ? h : null;
+        break;
+      case Object:
+      case Array:
+        t3 = t3 == null ? t3 : JSON.stringify(t3);
+    }
+    return t3;
+  },
+  fromAttribute(t3, i4) {
+    let s5 = t3;
+    switch (i4) {
+      case Boolean:
+        s5 = t3 !== null;
+        break;
+      case Number:
+        s5 = t3 === null ? null : Number(t3);
+        break;
+      case Object:
+      case Array:
+        try {
+          s5 = JSON.parse(t3);
+        } catch (t4) {
+          s5 = null;
+        }
+    }
+    return s5;
+  },
+};
 var a = (t3, i4) => i4 !== t3 && (i4 == i4 || t3 == t3);
-var l = { attribute: true, type: String, converter: n2, reflect: false, hasChanged: a };
+var l = {
+  attribute: true,
+  type: String,
+  converter: n2,
+  reflect: false,
+  hasChanged: a,
+};
 var d = class extends HTMLElement {
   constructor() {
-    super(), this._$Ei = /* @__PURE__ */ new Map(), this.isUpdatePending = false, this.hasUpdated = false, this._$El = null, this.u();
+    super(),
+      this._$Ei = /* @__PURE__ */ new Map(),
+      this.isUpdatePending = false,
+      this.hasUpdated = false,
+      this._$El = null,
+      this.u();
   }
   static addInitializer(t3) {
     var i4;
@@ -11189,34 +13973,57 @@ var d = class extends HTMLElement {
     return this.elementProperties.forEach((i4, s5) => {
       const e7 = this._$Ep(s5, i4);
       e7 !== void 0 && (this._$Ev.set(e7, s5), t3.push(e7));
-    }), t3;
+    }),
+      t3;
   }
   static createProperty(t3, i4 = l) {
-    if (i4.state && (i4.attribute = false), this.finalize(), this.elementProperties.set(t3, i4), !i4.noAccessor && !this.prototype.hasOwnProperty(t3)) {
-      const s5 = typeof t3 == "symbol" ? Symbol() : "__" + t3, e7 = this.getPropertyDescriptor(t3, s5, i4);
+    if (
+      i4.state && (i4.attribute = false),
+        this.finalize(),
+        this.elementProperties.set(t3, i4),
+        !i4.noAccessor && !this.prototype.hasOwnProperty(t3)
+    ) {
+      const s5 = typeof t3 == "symbol" ? Symbol() : "__" + t3,
+        e7 = this.getPropertyDescriptor(t3, s5, i4);
       e7 !== void 0 && Object.defineProperty(this.prototype, t3, e7);
     }
   }
   static getPropertyDescriptor(t3, i4, s5) {
-    return { get() {
-      return this[i4];
-    }, set(e7) {
-      const r4 = this[t3];
-      this[i4] = e7, this.requestUpdate(t3, r4, s5);
-    }, configurable: true, enumerable: true };
+    return {
+      get() {
+        return this[i4];
+      },
+      set(e7) {
+        const r4 = this[t3];
+        this[i4] = e7, this.requestUpdate(t3, r4, s5);
+      },
+      configurable: true,
+      enumerable: true,
+    };
   }
   static getPropertyOptions(t3) {
     return this.elementProperties.get(t3) || l;
   }
   static finalize() {
-    if (this.hasOwnProperty("finalized"))
+    if (this.hasOwnProperty("finalized")) {
       return false;
+    }
     this.finalized = true;
     const t3 = Object.getPrototypeOf(this);
-    if (t3.finalize(), this.elementProperties = new Map(t3.elementProperties), this._$Ev = /* @__PURE__ */ new Map(), this.hasOwnProperty("properties")) {
-      const t4 = this.properties, i4 = [...Object.getOwnPropertyNames(t4), ...Object.getOwnPropertySymbols(t4)];
-      for (const s5 of i4)
+    if (
+      t3.finalize(),
+        this.elementProperties = new Map(t3.elementProperties),
+        this._$Ev = /* @__PURE__ */ new Map(),
+        this.hasOwnProperty("properties")
+    ) {
+      const t4 = this.properties,
+        i4 = [
+          ...Object.getOwnPropertyNames(t4),
+          ...Object.getOwnPropertySymbols(t4),
+        ];
+      for (const s5 of i4) {
         this.createProperty(s5, t4[s5]);
+      }
     }
     return this.elementStyles = this.finalizeStyles(this.styles), true;
   }
@@ -11224,27 +14031,43 @@ var d = class extends HTMLElement {
     const s5 = [];
     if (Array.isArray(i4)) {
       const e7 = new Set(i4.flat(1 / 0).reverse());
-      for (const i5 of e7)
+      for (const i5 of e7) {
         s5.unshift(c(i5));
-    } else
+      }
+    } else {
       i4 !== void 0 && s5.push(c(i4));
+    }
     return s5;
   }
   static _$Ep(t3, i4) {
     const s5 = i4.attribute;
-    return s5 === false ? void 0 : typeof s5 == "string" ? s5 : typeof t3 == "string" ? t3.toLowerCase() : void 0;
+    return s5 === false
+      ? void 0
+      : typeof s5 == "string"
+      ? s5
+      : typeof t3 == "string"
+      ? t3.toLowerCase()
+      : void 0;
   }
   u() {
     var t3;
-    this._$E_ = new Promise((t4) => this.enableUpdating = t4), this._$AL = /* @__PURE__ */ new Map(), this._$Eg(), this.requestUpdate(), (t3 = this.constructor.h) === null || t3 === void 0 || t3.forEach((t4) => t4(this));
+    this._$E_ = new Promise((t4) => this.enableUpdating = t4),
+      this._$AL = /* @__PURE__ */ new Map(),
+      this._$Eg(),
+      this.requestUpdate(),
+      (t3 = this.constructor.h) === null || t3 === void 0 ||
+      t3.forEach((t4) => t4(this));
   }
   addController(t3) {
     var i4, s5;
-    ((i4 = this._$ES) !== null && i4 !== void 0 ? i4 : this._$ES = []).push(t3), this.renderRoot !== void 0 && this.isConnected && ((s5 = t3.hostConnected) === null || s5 === void 0 || s5.call(t3));
+    ((i4 = this._$ES) !== null && i4 !== void 0 ? i4 : this._$ES = []).push(t3),
+      this.renderRoot !== void 0 && this.isConnected &&
+      ((s5 = t3.hostConnected) === null || s5 === void 0 || s5.call(t3));
   }
   removeController(t3) {
     var i4;
-    (i4 = this._$ES) === null || i4 === void 0 || i4.splice(this._$ES.indexOf(t3) >>> 0, 1);
+    (i4 = this._$ES) === null || i4 === void 0 ||
+      i4.splice(this._$ES.indexOf(t3) >>> 0, 1);
   }
   _$Eg() {
     this.constructor.elementProperties.forEach((t3, i4) => {
@@ -11253,15 +14076,21 @@ var d = class extends HTMLElement {
   }
   createRenderRoot() {
     var t3;
-    const s5 = (t3 = this.shadowRoot) !== null && t3 !== void 0 ? t3 : this.attachShadow(this.constructor.shadowRootOptions);
+    const s5 = (t3 = this.shadowRoot) !== null && t3 !== void 0
+      ? t3
+      : this.attachShadow(this.constructor.shadowRootOptions);
     return S(s5, this.constructor.elementStyles), s5;
   }
   connectedCallback() {
     var t3;
-    this.renderRoot === void 0 && (this.renderRoot = this.createRenderRoot()), this.enableUpdating(true), (t3 = this._$ES) === null || t3 === void 0 || t3.forEach((t4) => {
-      var i4;
-      return (i4 = t4.hostConnected) === null || i4 === void 0 ? void 0 : i4.call(t4);
-    });
+    this.renderRoot === void 0 && (this.renderRoot = this.createRenderRoot()),
+      this.enableUpdating(true),
+      (t3 = this._$ES) === null || t3 === void 0 || t3.forEach((t4) => {
+        var i4;
+        return (i4 = t4.hostConnected) === null || i4 === void 0
+          ? void 0
+          : i4.call(t4);
+      });
   }
   enableUpdating(t3) {
   }
@@ -11269,7 +14098,9 @@ var d = class extends HTMLElement {
     var t3;
     (t3 = this._$ES) === null || t3 === void 0 || t3.forEach((t4) => {
       var i4;
-      return (i4 = t4.hostDisconnected) === null || i4 === void 0 ? void 0 : i4.call(t4);
+      return (i4 = t4.hostDisconnected) === null || i4 === void 0
+        ? void 0
+        : i4.call(t4);
     });
   }
   attributeChangedCallback(t3, i4, s5) {
@@ -11279,21 +14110,45 @@ var d = class extends HTMLElement {
     var e7;
     const r4 = this.constructor._$Ep(t3, s5);
     if (r4 !== void 0 && s5.reflect === true) {
-      const h3 = (((e7 = s5.converter) === null || e7 === void 0 ? void 0 : e7.toAttribute) !== void 0 ? s5.converter : n2).toAttribute(i4, s5.type);
-      this._$El = t3, h3 == null ? this.removeAttribute(r4) : this.setAttribute(r4, h3), this._$El = null;
+      const h3 = (((e7 = s5.converter) === null || e7 === void 0
+          ? void 0
+          : e7.toAttribute) !== void 0
+        ? s5.converter
+        : n2).toAttribute(i4, s5.type);
+      this._$El = t3,
+        h3 == null ? this.removeAttribute(r4) : this.setAttribute(r4, h3),
+        this._$El = null;
     }
   }
   _$AK(t3, i4) {
     var s5;
     const e7 = this.constructor, r4 = e7._$Ev.get(t3);
     if (r4 !== void 0 && this._$El !== r4) {
-      const t4 = e7.getPropertyOptions(r4), h3 = typeof t4.converter == "function" ? { fromAttribute: t4.converter } : ((s5 = t4.converter) === null || s5 === void 0 ? void 0 : s5.fromAttribute) !== void 0 ? t4.converter : n2;
-      this._$El = r4, this[r4] = h3.fromAttribute(i4, t4.type), this._$El = null;
+      const t4 = e7.getPropertyOptions(r4),
+        h3 = typeof t4.converter == "function"
+          ? { fromAttribute: t4.converter }
+          : ((s5 = t4.converter) === null || s5 === void 0
+              ? void 0
+              : s5.fromAttribute) !== void 0
+          ? t4.converter
+          : n2;
+      this._$El = r4,
+        this[r4] = h3.fromAttribute(i4, t4.type),
+        this._$El = null;
     }
   }
   requestUpdate(t3, i4, s5) {
     let e7 = true;
-    t3 !== void 0 && (((s5 = s5 || this.constructor.getPropertyOptions(t3)).hasChanged || a)(this[t3], i4) ? (this._$AL.has(t3) || this._$AL.set(t3, i4), s5.reflect === true && this._$El !== t3 && (this._$EC === void 0 && (this._$EC = /* @__PURE__ */ new Map()), this._$EC.set(t3, s5))) : e7 = false), !this.isUpdatePending && e7 && (this._$E_ = this._$Ej());
+    t3 !== void 0 &&
+    (((s5 = s5 || this.constructor.getPropertyOptions(t3)).hasChanged || a)(
+        this[t3],
+        i4,
+      )
+      ? (this._$AL.has(t3) || this._$AL.set(t3, i4),
+        s5.reflect === true && this._$El !== t3 &&
+        (this._$EC === void 0 && (this._$EC = /* @__PURE__ */ new Map()),
+          this._$EC.set(t3, s5)))
+      : e7 = false), !this.isUpdatePending && e7 && (this._$E_ = this._$Ej());
   }
   _$Ej() {
     return __async(this, null, function* () {
@@ -11312,16 +14167,26 @@ var d = class extends HTMLElement {
   }
   performUpdate() {
     var t3;
-    if (!this.isUpdatePending)
+    if (!this.isUpdatePending) {
       return;
-    this.hasUpdated, this._$Ei && (this._$Ei.forEach((t4, i5) => this[i5] = t4), this._$Ei = void 0);
+    }
+    this.hasUpdated,
+      this._$Ei &&
+      (this._$Ei.forEach((t4, i5) => this[i5] = t4), this._$Ei = void 0);
     let i4 = false;
     const s5 = this._$AL;
     try {
-      i4 = this.shouldUpdate(s5), i4 ? (this.willUpdate(s5), (t3 = this._$ES) === null || t3 === void 0 || t3.forEach((t4) => {
-        var i5;
-        return (i5 = t4.hostUpdate) === null || i5 === void 0 ? void 0 : i5.call(t4);
-      }), this.update(s5)) : this._$Ek();
+      i4 = this.shouldUpdate(s5),
+        i4
+          ? (this.willUpdate(s5),
+            (t3 = this._$ES) === null || t3 === void 0 || t3.forEach((t4) => {
+              var i5;
+              return (i5 = t4.hostUpdate) === null || i5 === void 0
+                ? void 0
+                : i5.call(t4);
+            }),
+            this.update(s5))
+          : this._$Ek();
     } catch (t4) {
       throw i4 = false, this._$Ek(), t4;
     }
@@ -11333,8 +14198,12 @@ var d = class extends HTMLElement {
     var i4;
     (i4 = this._$ES) === null || i4 === void 0 || i4.forEach((t4) => {
       var i5;
-      return (i5 = t4.hostUpdated) === null || i5 === void 0 ? void 0 : i5.call(t4);
-    }), this.hasUpdated || (this.hasUpdated = true, this.firstUpdated(t3)), this.updated(t3);
+      return (i5 = t4.hostUpdated) === null || i5 === void 0
+        ? void 0
+        : i5.call(t4);
+    }),
+      this.hasUpdated || (this.hasUpdated = true, this.firstUpdated(t3)),
+      this.updated(t3);
   }
   _$Ek() {
     this._$AL = /* @__PURE__ */ new Map(), this.isUpdatePending = false;
@@ -11349,14 +14218,23 @@ var d = class extends HTMLElement {
     return true;
   }
   update(t3) {
-    this._$EC !== void 0 && (this._$EC.forEach((t4, i4) => this._$EO(i4, this[i4], t4)), this._$EC = void 0), this._$Ek();
+    this._$EC !== void 0 &&
+    (this._$EC.forEach((t4, i4) => this._$EO(i4, this[i4], t4)),
+      this._$EC = void 0), this._$Ek();
   }
   updated(t3) {
   }
   firstUpdated(t3) {
   }
 };
-d.finalized = true, d.elementProperties = /* @__PURE__ */ new Map(), d.elementStyles = [], d.shadowRootOptions = { mode: "open" }, o2 == null || o2({ ReactiveElement: d }), ((s2 = e2.reactiveElementVersions) !== null && s2 !== void 0 ? s2 : e2.reactiveElementVersions = []).push("1.4.1");
+d.finalized = true,
+  d.elementProperties = /* @__PURE__ */ new Map(),
+  d.elementStyles = [],
+  d.shadowRootOptions = { mode: "open" },
+  o2 == null || o2({ ReactiveElement: d }),
+  ((s2 = e2.reactiveElementVersions) !== null && s2 !== void 0
+    ? s2
+    : e2.reactiveElementVersions = []).push("1.4.1");
 
 // node_modules/lit-html/lit-html.js
 var t2;
@@ -11368,17 +14246,22 @@ var n3 = "?" + o3;
 var l2 = `<${n3}>`;
 var h2 = document;
 var r3 = (t3 = "") => h2.createComment(t3);
-var d2 = (t3) => t3 === null || typeof t3 != "object" && typeof t3 != "function";
+var d2 = (t3) =>
+  t3 === null || typeof t3 != "object" && typeof t3 != "function";
 var u = Array.isArray;
-var c2 = (t3) => u(t3) || typeof (t3 == null ? void 0 : t3[Symbol.iterator]) == "function";
+var c2 = (t3) =>
+  u(t3) || typeof (t3 == null ? void 0 : t3[Symbol.iterator]) == "function";
 var v = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g;
 var a2 = /-->/g;
 var f = />/g;
-var _ = RegExp(`>|[ 	
+var _ = RegExp(
+  `>|[ 	
 \f\r](?:([^\\s"'>=/]+)([ 	
 \f\r]*=[ 	
 \f\r]*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g");
+\f\r"'\`<>=]|("|')|))|$)`,
+  "g",
+);
 var m = /'/g;
 var p = /"/g;
 var $ = /^(?:script|style|textarea|title)$/i;
@@ -11390,11 +14273,22 @@ var b = Symbol.for("lit-nothing");
 var T = /* @__PURE__ */ new WeakMap();
 var A = (t3, i4, s5) => {
   var e7, o6;
-  const n6 = (e7 = s5 == null ? void 0 : s5.renderBefore) !== null && e7 !== void 0 ? e7 : i4;
+  const n6 =
+    (e7 = s5 == null ? void 0 : s5.renderBefore) !== null && e7 !== void 0
+      ? e7
+      : i4;
   let l5 = n6._$litPart$;
   if (l5 === void 0) {
-    const t4 = (o6 = s5 == null ? void 0 : s5.renderBefore) !== null && o6 !== void 0 ? o6 : null;
-    n6._$litPart$ = l5 = new S2(i4.insertBefore(r3(), t4), t4, void 0, s5 != null ? s5 : {});
+    const t4 =
+      (o6 = s5 == null ? void 0 : s5.renderBefore) !== null && o6 !== void 0
+        ? o6
+        : null;
+    n6._$litPart$ = l5 = new S2(
+      i4.insertBefore(r3(), t4),
+      t4,
+      void 0,
+      s5 != null ? s5 : {},
+    );
   }
   return l5._$AI(t3), l5;
 };
@@ -11405,14 +14299,44 @@ var C = (t3, i4) => {
   for (let i5 = 0; i5 < s5; i5++) {
     const s6 = t3[i5];
     let e7, u3, c3 = -1, g2 = 0;
-    for (; g2 < s6.length && (d3.lastIndex = g2, u3 = d3.exec(s6), u3 !== null); )
-      g2 = d3.lastIndex, d3 === v ? u3[1] === "!--" ? d3 = a2 : u3[1] !== void 0 ? d3 = f : u3[2] !== void 0 ? ($.test(u3[2]) && (h3 = RegExp("</" + u3[2], "g")), d3 = _) : u3[3] !== void 0 && (d3 = _) : d3 === _ ? u3[0] === ">" ? (d3 = h3 != null ? h3 : v, c3 = -1) : u3[1] === void 0 ? c3 = -2 : (c3 = d3.lastIndex - u3[2].length, e7 = u3[1], d3 = u3[3] === void 0 ? _ : u3[3] === '"' ? p : m) : d3 === p || d3 === m ? d3 = _ : d3 === a2 || d3 === f ? d3 = v : (d3 = _, h3 = void 0);
+    for (
+      ;
+      g2 < s6.length && (d3.lastIndex = g2, u3 = d3.exec(s6), u3 !== null);
+    ) {
+      g2 = d3.lastIndex,
+        d3 === v
+          ? u3[1] === "!--"
+            ? d3 = a2
+            : u3[1] !== void 0
+            ? d3 = f
+            : u3[2] !== void 0
+            ? ($.test(u3[2]) && (h3 = RegExp("</" + u3[2], "g")), d3 = _)
+            : u3[3] !== void 0 && (d3 = _)
+          : d3 === _
+          ? u3[0] === ">"
+            ? (d3 = h3 != null ? h3 : v, c3 = -1)
+            : u3[1] === void 0
+            ? c3 = -2
+            : (c3 = d3.lastIndex - u3[2].length,
+              e7 = u3[1],
+              d3 = u3[3] === void 0 ? _ : u3[3] === '"' ? p : m)
+          : d3 === p || d3 === m
+          ? d3 = _
+          : d3 === a2 || d3 === f
+          ? d3 = v
+          : (d3 = _, h3 = void 0);
+    }
     const y2 = d3 === _ && t3[i5 + 1].startsWith("/>") ? " " : "";
-    r4 += d3 === v ? s6 + l2 : c3 >= 0 ? (n6.push(e7), s6.slice(0, c3) + "$lit$" + s6.slice(c3) + o3 + y2) : s6 + o3 + (c3 === -2 ? (n6.push(void 0), i5) : y2);
+    r4 += d3 === v
+      ? s6 + l2
+      : c3 >= 0
+      ? (n6.push(e7), s6.slice(0, c3) + "$lit$" + s6.slice(c3) + o3 + y2)
+      : s6 + o3 + (c3 === -2 ? (n6.push(void 0), i5) : y2);
   }
   const u2 = r4 + (t3[s5] || "<?>") + (i4 === 2 ? "</svg>" : "");
-  if (!Array.isArray(t3) || !t3.hasOwnProperty("raw"))
+  if (!Array.isArray(t3) || !t3.hasOwnProperty("raw")) {
     throw Error("invalid template strings array");
+  }
   return [e3 !== void 0 ? e3.createHTML(u2) : u2, n6];
 };
 var P = class {
@@ -11421,43 +14345,70 @@ var P = class {
     this.parts = [];
     let h3 = 0, d3 = 0;
     const u2 = t3.length - 1, c3 = this.parts, [v2, a3] = C(t3, i4);
-    if (this.el = P.createElement(v2, e7), E.currentNode = this.el.content, i4 === 2) {
+    if (
+      this.el = P.createElement(v2, e7),
+        E.currentNode = this.el.content,
+        i4 === 2
+    ) {
       const t4 = this.el.content, i5 = t4.firstChild;
       i5.remove(), t4.append(...i5.childNodes);
     }
-    for (; (l5 = E.nextNode()) !== null && c3.length < u2; ) {
+    for (; (l5 = E.nextNode()) !== null && c3.length < u2;) {
       if (l5.nodeType === 1) {
         if (l5.hasAttributes()) {
           const t4 = [];
-          for (const i5 of l5.getAttributeNames())
+          for (const i5 of l5.getAttributeNames()) {
             if (i5.endsWith("$lit$") || i5.startsWith(o3)) {
               const s5 = a3[d3++];
               if (t4.push(i5), s5 !== void 0) {
-                const t5 = l5.getAttribute(s5.toLowerCase() + "$lit$").split(o3), i6 = /([.?@])?(.*)/.exec(s5);
-                c3.push({ type: 1, index: h3, name: i6[2], strings: t5, ctor: i6[1] === "." ? R : i6[1] === "?" ? H : i6[1] === "@" ? I : M });
-              } else
+                const t5 = l5.getAttribute(s5.toLowerCase() + "$lit$").split(
+                    o3,
+                  ),
+                  i6 = /([.?@])?(.*)/.exec(s5);
+                c3.push({
+                  type: 1,
+                  index: h3,
+                  name: i6[2],
+                  strings: t5,
+                  ctor: i6[1] === "."
+                    ? R
+                    : i6[1] === "?"
+                    ? H
+                    : i6[1] === "@"
+                    ? I
+                    : M,
+                });
+              } else {
                 c3.push({ type: 6, index: h3 });
+              }
             }
-          for (const i5 of t4)
+          }
+          for (const i5 of t4) {
             l5.removeAttribute(i5);
+          }
         }
         if ($.test(l5.tagName)) {
           const t4 = l5.textContent.split(o3), i5 = t4.length - 1;
           if (i5 > 0) {
             l5.textContent = s3 ? s3.emptyScript : "";
-            for (let s5 = 0; s5 < i5; s5++)
-              l5.append(t4[s5], r3()), E.nextNode(), c3.push({ type: 2, index: ++h3 });
+            for (let s5 = 0; s5 < i5; s5++) {
+              l5.append(t4[s5], r3()),
+                E.nextNode(),
+                c3.push({ type: 2, index: ++h3 });
+            }
             l5.append(t4[i5], r3());
           }
         }
-      } else if (l5.nodeType === 8)
-        if (l5.data === n3)
+      } else if (l5.nodeType === 8) {
+        if (l5.data === n3) {
           c3.push({ type: 2, index: h3 });
-        else {
+        } else {
           let t4 = -1;
-          for (; (t4 = l5.data.indexOf(o3, t4 + 1)) !== -1; )
+          for (; (t4 = l5.data.indexOf(o3, t4 + 1)) !== -1;) {
             c3.push({ type: 7, index: h3 }), t4 += o3.length - 1;
+          }
         }
+      }
       h3++;
     }
   }
@@ -11468,11 +14419,24 @@ var P = class {
 };
 function V(t3, i4, s5 = t3, e7) {
   var o6, n6, l5, h3;
-  if (i4 === x)
+  if (i4 === x) {
     return i4;
-  let r4 = e7 !== void 0 ? (o6 = s5._$Cl) === null || o6 === void 0 ? void 0 : o6[e7] : s5._$Cu;
+  }
+  let r4 = e7 !== void 0
+    ? (o6 = s5._$Cl) === null || o6 === void 0 ? void 0 : o6[e7]
+    : s5._$Cu;
   const u2 = d2(i4) ? void 0 : i4._$litDirective$;
-  return (r4 == null ? void 0 : r4.constructor) !== u2 && ((n6 = r4 == null ? void 0 : r4._$AO) === null || n6 === void 0 || n6.call(r4, false), u2 === void 0 ? r4 = void 0 : (r4 = new u2(t3), r4._$AT(t3, s5, e7)), e7 !== void 0 ? ((l5 = (h3 = s5)._$Cl) !== null && l5 !== void 0 ? l5 : h3._$Cl = [])[e7] = r4 : s5._$Cu = r4), r4 !== void 0 && (i4 = V(t3, r4._$AS(t3, i4.values), r4, e7)), i4;
+  return (r4 == null ? void 0 : r4.constructor) !== u2 &&
+    ((n6 = r4 == null ? void 0 : r4._$AO) === null || n6 === void 0 ||
+      n6.call(r4, false),
+      u2 === void 0 ? r4 = void 0 : (r4 = new u2(t3), r4._$AT(t3, s5, e7)),
+      e7 !== void 0
+        ? ((l5 = (h3 = s5)._$Cl) !== null && l5 !== void 0 ? l5 : h3._$Cl = [])[
+          e7
+        ] = r4
+        : s5._$Cu = r4),
+    r4 !== void 0 && (i4 = V(t3, r4._$AS(t3, i4.values), r4, e7)),
+    i4;
 }
 var N = class {
   constructor(t3, i4) {
@@ -11486,13 +14450,23 @@ var N = class {
   }
   p(t3) {
     var i4;
-    const { el: { content: s5 }, parts: e7 } = this._$AD, o6 = ((i4 = t3 == null ? void 0 : t3.creationScope) !== null && i4 !== void 0 ? i4 : h2).importNode(s5, true);
+    const { el: { content: s5 }, parts: e7 } = this._$AD,
+      o6 =
+        ((i4 = t3 == null ? void 0 : t3.creationScope) !== null && i4 !== void 0
+          ? i4
+          : h2).importNode(s5, true);
     E.currentNode = o6;
     let n6 = E.nextNode(), l5 = 0, r4 = 0, d3 = e7[0];
-    for (; d3 !== void 0; ) {
+    for (; d3 !== void 0;) {
       if (l5 === d3.index) {
         let i5;
-        d3.type === 2 ? i5 = new S2(n6, n6.nextSibling, this, t3) : d3.type === 1 ? i5 = new d3.ctor(n6, d3.name, d3.strings, this, t3) : d3.type === 6 && (i5 = new L(n6, this, t3)), this.v.push(i5), d3 = e7[++r4];
+        d3.type === 2
+          ? i5 = new S2(n6, n6.nextSibling, this, t3)
+          : d3.type === 1
+          ? i5 = new d3.ctor(n6, d3.name, d3.strings, this, t3)
+          : d3.type === 6 && (i5 = new L(n6, this, t3)),
+          this.v.push(i5),
+          d3 = e7[++r4];
       }
       l5 !== (d3 == null ? void 0 : d3.index) && (n6 = E.nextNode(), l5++);
     }
@@ -11500,18 +14474,34 @@ var N = class {
   }
   m(t3) {
     let i4 = 0;
-    for (const s5 of this.v)
-      s5 !== void 0 && (s5.strings !== void 0 ? (s5._$AI(t3, s5, i4), i4 += s5.strings.length - 2) : s5._$AI(t3[i4])), i4++;
+    for (const s5 of this.v) {
+      s5 !== void 0 &&
+      (s5.strings !== void 0
+        ? (s5._$AI(t3, s5, i4), i4 += s5.strings.length - 2)
+        : s5._$AI(t3[i4])), i4++;
+    }
   }
 };
 var S2 = class {
   constructor(t3, i4, s5, e7) {
     var o6;
-    this.type = 2, this._$AH = b, this._$AN = void 0, this._$AA = t3, this._$AB = i4, this._$AM = s5, this.options = e7, this._$C_ = (o6 = e7 == null ? void 0 : e7.isConnected) === null || o6 === void 0 || o6;
+    this.type = 2,
+      this._$AH = b,
+      this._$AN = void 0,
+      this._$AA = t3,
+      this._$AB = i4,
+      this._$AM = s5,
+      this.options = e7,
+      this._$C_ = (o6 = e7 == null ? void 0 : e7.isConnected) === null ||
+        o6 === void 0 || o6;
   }
   get _$AU() {
     var t3, i4;
-    return (i4 = (t3 = this._$AM) === null || t3 === void 0 ? void 0 : t3._$AU) !== null && i4 !== void 0 ? i4 : this._$C_;
+    return (i4 = (t3 = this._$AM) === null || t3 === void 0
+            ? void 0
+            : t3._$AU) !== null && i4 !== void 0
+      ? i4
+      : this._$C_;
   }
   get parentNode() {
     let t3 = this._$AA.parentNode;
@@ -11525,7 +14515,18 @@ var S2 = class {
     return this._$AB;
   }
   _$AI(t3, i4 = this) {
-    t3 = V(this, t3, i4), d2(t3) ? t3 === b || t3 == null || t3 === "" ? (this._$AH !== b && this._$AR(), this._$AH = b) : t3 !== this._$AH && t3 !== x && this.$(t3) : t3._$litType$ !== void 0 ? this.T(t3) : t3.nodeType !== void 0 ? this.k(t3) : c2(t3) ? this.O(t3) : this.$(t3);
+    t3 = V(this, t3, i4),
+      d2(t3)
+        ? t3 === b || t3 == null || t3 === ""
+          ? (this._$AH !== b && this._$AR(), this._$AH = b)
+          : t3 !== this._$AH && t3 !== x && this.$(t3)
+        : t3._$litType$ !== void 0
+        ? this.T(t3)
+        : t3.nodeType !== void 0
+        ? this.k(t3)
+        : c2(t3)
+        ? this.O(t3)
+        : this.$(t3);
   }
   S(t3, i4 = this._$AB) {
     return this._$AA.parentNode.insertBefore(t3, i4);
@@ -11534,14 +14535,22 @@ var S2 = class {
     this._$AH !== t3 && (this._$AR(), this._$AH = this.S(t3));
   }
   $(t3) {
-    this._$AH !== b && d2(this._$AH) ? this._$AA.nextSibling.data = t3 : this.k(h2.createTextNode(t3)), this._$AH = t3;
+    this._$AH !== b && d2(this._$AH)
+      ? this._$AA.nextSibling.data = t3
+      : this.k(h2.createTextNode(t3)), this._$AH = t3;
   }
   T(t3) {
     var i4;
-    const { values: s5, _$litType$: e7 } = t3, o6 = typeof e7 == "number" ? this._$AC(t3) : (e7.el === void 0 && (e7.el = P.createElement(e7.h, this.options)), e7);
-    if (((i4 = this._$AH) === null || i4 === void 0 ? void 0 : i4._$AD) === o6)
+    const { values: s5, _$litType$: e7 } = t3,
+      o6 = typeof e7 == "number"
+        ? this._$AC(t3)
+        : (e7.el === void 0 && (e7.el = P.createElement(e7.h, this.options)),
+          e7);
+    if (
+      ((i4 = this._$AH) === null || i4 === void 0 ? void 0 : i4._$AD) === o6
+    ) {
       this._$AH.m(s5);
-    else {
+    } else {
       const t4 = new N(o6, this), i5 = t4.p(this.options);
       t4.m(s5), this.k(i5), this._$AH = t4;
     }
@@ -11554,25 +14563,47 @@ var S2 = class {
     u(this._$AH) || (this._$AH = [], this._$AR());
     const i4 = this._$AH;
     let s5, e7 = 0;
-    for (const o6 of t3)
-      e7 === i4.length ? i4.push(s5 = new S2(this.S(r3()), this.S(r3()), this, this.options)) : s5 = i4[e7], s5._$AI(o6), e7++;
-    e7 < i4.length && (this._$AR(s5 && s5._$AB.nextSibling, e7), i4.length = e7);
+    for (const o6 of t3) {
+      e7 === i4.length
+        ? i4.push(s5 = new S2(this.S(r3()), this.S(r3()), this, this.options))
+        : s5 = i4[e7],
+        s5._$AI(o6),
+        e7++;
+    }
+    e7 < i4.length &&
+      (this._$AR(s5 && s5._$AB.nextSibling, e7), i4.length = e7);
   }
   _$AR(t3 = this._$AA.nextSibling, i4) {
     var s5;
-    for ((s5 = this._$AP) === null || s5 === void 0 || s5.call(this, false, true, i4); t3 && t3 !== this._$AB; ) {
+    for (
+      (s5 = this._$AP) === null || s5 === void 0 ||
+      s5.call(this, false, true, i4);
+      t3 && t3 !== this._$AB;
+    ) {
       const i5 = t3.nextSibling;
       t3.remove(), t3 = i5;
     }
   }
   setConnected(t3) {
     var i4;
-    this._$AM === void 0 && (this._$C_ = t3, (i4 = this._$AP) === null || i4 === void 0 || i4.call(this, t3));
+    this._$AM === void 0 &&
+      (this._$C_ = t3,
+        (i4 = this._$AP) === null || i4 === void 0 || i4.call(this, t3));
   }
 };
 var M = class {
   constructor(t3, i4, s5, e7, o6) {
-    this.type = 1, this._$AH = b, this._$AN = void 0, this.element = t3, this.name = i4, this._$AM = e7, this.options = o6, s5.length > 2 || s5[0] !== "" || s5[1] !== "" ? (this._$AH = Array(s5.length - 1).fill(new String()), this.strings = s5) : this._$AH = b;
+    this.type = 1,
+      this._$AH = b,
+      this._$AN = void 0,
+      this.element = t3,
+      this.name = i4,
+      this._$AM = e7,
+      this.options = o6,
+      s5.length > 2 || s5[0] !== "" || s5[1] !== ""
+        ? (this._$AH = Array(s5.length - 1).fill(new String()),
+          this.strings = s5)
+        : this._$AH = b;
   }
   get tagName() {
     return this.element.tagName;
@@ -11583,18 +14614,29 @@ var M = class {
   _$AI(t3, i4 = this, s5, e7) {
     const o6 = this.strings;
     let n6 = false;
-    if (o6 === void 0)
-      t3 = V(this, t3, i4, 0), n6 = !d2(t3) || t3 !== this._$AH && t3 !== x, n6 && (this._$AH = t3);
-    else {
+    if (o6 === void 0) {
+      t3 = V(this, t3, i4, 0),
+        n6 = !d2(t3) || t3 !== this._$AH && t3 !== x,
+        n6 && (this._$AH = t3);
+    } else {
       const e8 = t3;
       let l5, h3;
-      for (t3 = o6[0], l5 = 0; l5 < o6.length - 1; l5++)
-        h3 = V(this, e8[s5 + l5], i4, l5), h3 === x && (h3 = this._$AH[l5]), n6 || (n6 = !d2(h3) || h3 !== this._$AH[l5]), h3 === b ? t3 = b : t3 !== b && (t3 += (h3 != null ? h3 : "") + o6[l5 + 1]), this._$AH[l5] = h3;
+      for (t3 = o6[0], l5 = 0; l5 < o6.length - 1; l5++) {
+        h3 = V(this, e8[s5 + l5], i4, l5),
+          h3 === x && (h3 = this._$AH[l5]),
+          n6 || (n6 = !d2(h3) || h3 !== this._$AH[l5]),
+          h3 === b
+            ? t3 = b
+            : t3 !== b && (t3 += (h3 != null ? h3 : "") + o6[l5 + 1]),
+          this._$AH[l5] = h3;
+      }
     }
     n6 && !e7 && this.P(t3);
   }
   P(t3) {
-    t3 === b ? this.element.removeAttribute(this.name) : this.element.setAttribute(this.name, t3 != null ? t3 : "");
+    t3 === b
+      ? this.element.removeAttribute(this.name)
+      : this.element.setAttribute(this.name, t3 != null ? t3 : "");
   }
 };
 var R = class extends M {
@@ -11611,7 +14653,9 @@ var H = class extends M {
     super(...arguments), this.type = 4;
   }
   P(t3) {
-    t3 && t3 !== b ? this.element.setAttribute(this.name, k) : this.element.removeAttribute(this.name);
+    t3 && t3 !== b
+      ? this.element.setAttribute(this.name, k)
+      : this.element.removeAttribute(this.name);
   }
 };
 var I = class extends M {
@@ -11620,19 +14664,40 @@ var I = class extends M {
   }
   _$AI(t3, i4 = this) {
     var s5;
-    if ((t3 = (s5 = V(this, t3, i4, 0)) !== null && s5 !== void 0 ? s5 : b) === x)
+    if (
+      (t3 = (s5 = V(this, t3, i4, 0)) !== null && s5 !== void 0 ? s5 : b) === x
+    ) {
       return;
-    const e7 = this._$AH, o6 = t3 === b && e7 !== b || t3.capture !== e7.capture || t3.once !== e7.once || t3.passive !== e7.passive, n6 = t3 !== b && (e7 === b || o6);
-    o6 && this.element.removeEventListener(this.name, this, e7), n6 && this.element.addEventListener(this.name, this, t3), this._$AH = t3;
+    }
+    const e7 = this._$AH,
+      o6 = t3 === b && e7 !== b || t3.capture !== e7.capture ||
+        t3.once !== e7.once || t3.passive !== e7.passive,
+      n6 = t3 !== b && (e7 === b || o6);
+    o6 && this.element.removeEventListener(this.name, this, e7),
+      n6 && this.element.addEventListener(this.name, this, t3),
+      this._$AH = t3;
   }
   handleEvent(t3) {
     var i4, s5;
-    typeof this._$AH == "function" ? this._$AH.call((s5 = (i4 = this.options) === null || i4 === void 0 ? void 0 : i4.host) !== null && s5 !== void 0 ? s5 : this.element, t3) : this._$AH.handleEvent(t3);
+    typeof this._$AH == "function"
+      ? this._$AH.call(
+        (s5 = (i4 = this.options) === null || i4 === void 0
+              ? void 0
+              : i4.host) !== null && s5 !== void 0
+          ? s5
+          : this.element,
+        t3,
+      )
+      : this._$AH.handleEvent(t3);
   }
 };
 var L = class {
   constructor(t3, i4, s5) {
-    this.element = t3, this.type = 6, this._$AN = void 0, this._$AM = i4, this.options = s5;
+    this.element = t3,
+      this.type = 6,
+      this._$AN = void 0,
+      this._$AM = i4,
+      this.options = s5;
   }
   get _$AU() {
     return this._$AM._$AU;
@@ -11642,88 +14707,140 @@ var L = class {
   }
 };
 var Z = i2.litHtmlPolyfillSupport;
-Z == null || Z(P, S2), ((t2 = i2.litHtmlVersions) !== null && t2 !== void 0 ? t2 : i2.litHtmlVersions = []).push("2.3.1");
+Z == null || Z(P, S2),
+  ((t2 = i2.litHtmlVersions) !== null && t2 !== void 0
+    ? t2
+    : i2.litHtmlVersions = []).push("2.3.1");
 
 // node_modules/lit-element/lit-element.js
 var l3;
 var o4;
 var s4 = class extends d {
   constructor() {
-    super(...arguments), this.renderOptions = { host: this }, this._$Do = void 0;
+    super(...arguments),
+      this.renderOptions = { host: this },
+      this._$Do = void 0;
   }
   createRenderRoot() {
     var t3, e7;
     const i4 = super.createRenderRoot();
-    return (t3 = (e7 = this.renderOptions).renderBefore) !== null && t3 !== void 0 || (e7.renderBefore = i4.firstChild), i4;
+    return (t3 = (e7 = this.renderOptions).renderBefore) !== null &&
+        t3 !== void 0 || (e7.renderBefore = i4.firstChild),
+      i4;
   }
   update(t3) {
     const i4 = this.render();
-    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(t3), this._$Do = A(i4, this.renderRoot, this.renderOptions);
+    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected),
+      super.update(t3),
+      this._$Do = A(i4, this.renderRoot, this.renderOptions);
   }
   connectedCallback() {
     var t3;
-    super.connectedCallback(), (t3 = this._$Do) === null || t3 === void 0 || t3.setConnected(true);
+    super.connectedCallback(),
+      (t3 = this._$Do) === null || t3 === void 0 || t3.setConnected(true);
   }
   disconnectedCallback() {
     var t3;
-    super.disconnectedCallback(), (t3 = this._$Do) === null || t3 === void 0 || t3.setConnected(false);
+    super.disconnectedCallback(),
+      (t3 = this._$Do) === null || t3 === void 0 || t3.setConnected(false);
   }
   render() {
     return x;
   }
 };
-s4.finalized = true, s4._$litElement$ = true, (l3 = globalThis.litElementHydrateSupport) === null || l3 === void 0 || l3.call(globalThis, { LitElement: s4 });
+s4.finalized = true,
+  s4._$litElement$ = true,
+  (l3 = globalThis.litElementHydrateSupport) === null || l3 === void 0 ||
+  l3.call(globalThis, { LitElement: s4 });
 var n4 = globalThis.litElementPolyfillSupport;
 n4 == null || n4({ LitElement: s4 });
-((o4 = globalThis.litElementVersions) !== null && o4 !== void 0 ? o4 : globalThis.litElementVersions = []).push("3.2.2");
+((o4 = globalThis.litElementVersions) !== null && o4 !== void 0
+  ? o4
+  : globalThis.litElementVersions = []).push("3.2.2");
 
 // node_modules/@lit/reactive-element/decorators/custom-element.js
-var e4 = (e7) => (n6) => typeof n6 == "function" ? ((e8, n7) => (customElements.define(e8, n7), n7))(e7, n6) : ((e8, n7) => {
-  const { kind: t3, elements: s5 } = n7;
-  return { kind: t3, elements: s5, finisher(n8) {
-    customElements.define(e8, n8);
-  } };
-})(e7, n6);
+var e4 = (e7) => (n6) =>
+  typeof n6 == "function"
+    ? ((e8, n7) => (customElements.define(e8, n7), n7))(e7, n6)
+    : ((e8, n7) => {
+      const { kind: t3, elements: s5 } = n7;
+      return {
+        kind: t3,
+        elements: s5,
+        finisher(n8) {
+          customElements.define(e8, n8);
+        },
+      };
+    })(e7, n6);
 
 // node_modules/@lit/reactive-element/decorators/property.js
-var i3 = (i4, e7) => e7.kind === "method" && e7.descriptor && !("value" in e7.descriptor) ? __spreadProps(__spreadValues({}, e7), { finisher(n6) {
-  n6.createProperty(e7.key, i4);
-} }) : { kind: "field", key: Symbol(), placement: "own", descriptor: {}, originalKey: e7.key, initializer() {
-  typeof e7.initializer == "function" && (this[e7.key] = e7.initializer.call(this));
-}, finisher(n6) {
-  n6.createProperty(e7.key, i4);
-} };
+var i3 = (i4, e7) =>
+  e7.kind === "method" && e7.descriptor && !("value" in e7.descriptor)
+    ? __spreadProps(__spreadValues({}, e7), {
+      finisher(n6) {
+        n6.createProperty(e7.key, i4);
+      },
+    })
+    : {
+      kind: "field",
+      key: Symbol(),
+      placement: "own",
+      descriptor: {},
+      originalKey: e7.key,
+      initializer() {
+        typeof e7.initializer == "function" &&
+          (this[e7.key] = e7.initializer.call(this));
+      },
+      finisher(n6) {
+        n6.createProperty(e7.key, i4);
+      },
+    };
 function e5(e7) {
-  return (n6, t3) => t3 !== void 0 ? ((i4, e8, n7) => {
-    e8.constructor.createProperty(n7, i4);
-  })(e7, n6, t3) : i3(e7, n6);
+  return (n6, t3) =>
+    t3 !== void 0
+      ? ((i4, e8, n7) => {
+        e8.constructor.createProperty(n7, i4);
+      })(e7, n6, t3)
+      : i3(e7, n6);
 }
 
 // node_modules/@lit/reactive-element/decorators/query-assigned-elements.js
 var n5;
-var e6 = ((n5 = window.HTMLSlotElement) === null || n5 === void 0 ? void 0 : n5.prototype.assignedElements) != null ? (o6, n6) => o6.assignedElements(n6) : (o6, n6) => o6.assignedNodes(n6).filter((o7) => o7.nodeType === Node.ELEMENT_NODE);
+var e6 =
+  ((n5 = window.HTMLSlotElement) === null || n5 === void 0
+      ? void 0
+      : n5.prototype.assignedElements) != null
+    ? (o6, n6) => o6.assignedElements(n6)
+    : (o6, n6) =>
+      o6.assignedNodes(n6).filter((o7) => o7.nodeType === Node.ELEMENT_NODE);
 
 // src/data/apple-integration.ts
 var import_node_osascript = __toESM(require_lib());
-var executor = (script, variables = null) => __async(void 0, null, function* () {
-  return new Promise((resolve, reject) => {
-    let childProcess = import_node_osascript.default.execute(script, variables, (err, res, raw) => {
-      if (err)
-        reject(err);
-      resolve(res);
+var executor = (script, variables = null) =>
+  __async(void 0, null, function* () {
+    return new Promise((resolve, reject) => {
+      let childProcess = import_node_osascript.default.execute(
+        script,
+        variables,
+        (err, res, raw) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(res);
+        },
+      );
+      setTimeout(() => {
+        childProcess.stdin.pause();
+        childProcess.kill();
+        reject("Apple Script timed out");
+      }, 3e4);
     });
-    setTimeout(() => {
-      childProcess.stdin.pause();
-      childProcess.kill();
-      reject("Apple Script timed out");
-    }, 3e4);
   });
-});
 
 // src/ui/settings.ts
 var import_obsidian = require("obsidian");
 var DEFAULT_SETTINGS = {
-  autoRefreshTime: 60
+  autoRefreshTime: 60,
 };
 var SampleSettingTab = class extends import_obsidian.PluginSettingTab {
   constructor(app, plugin) {
@@ -11734,10 +14851,19 @@ var SampleSettingTab = class extends import_obsidian.PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
     containerEl.createEl("h2", { text: "Apple Reminders Plugin" });
-    new import_obsidian.Setting(containerEl).setName("Auto Refresh Time (seconds)").setDesc("Please input time in seconds. This controls the interval between which the plugin automatically refreshes with Apple Reminders. (Restart Obsidian for changes to take affect)").setTooltip("300 seconds = 5 minutes").addSlider((text) => text.setLimits(60, 600, 10).setValue(this.plugin.settings.autoRefreshTime).onChange((value) => __async(this, null, function* () {
-      this.plugin.settings.autoRefreshTime = value;
-      yield this.plugin.saveSettings();
-    })));
+    new import_obsidian.Setting(containerEl).setName(
+      "Auto Refresh Time (seconds)",
+    ).setDesc(
+      "Please input time in seconds. This controls the interval between which the plugin automatically refreshes with Apple Reminders. (Restart Obsidian for changes to take affect)",
+    ).setTooltip("300 seconds = 5 minutes").addSlider((text) =>
+      text.setLimits(60, 600, 10).setValue(this.plugin.settings.autoRefreshTime)
+        .onChange((value) =>
+          __async(this, null, function* () {
+            this.plugin.settings.autoRefreshTime = value;
+            yield this.plugin.saveSettings();
+          })
+        )
+    );
   }
 };
 
@@ -11751,8 +14877,9 @@ var APPLE_DATE_FORMAT = "dddd, DD MMMM at H:m:ss";
 // src/data/utilities.ts
 function predicate(reminder, filters, filename) {
   var match = true;
-  if (filters == null)
+  if (filters == null) {
     return true;
+  }
   filters.forEach((filter) => {
     if (filter != null) {
       if (filter.date != null) {
@@ -11765,9 +14892,17 @@ function predicate(reminder, filters, filename) {
             var start = (0, import_obsidian2.moment)(range.start.date());
             if (range.end != null) {
               var end = (0, import_obsidian2.moment)(range.end.date());
-              match && (match = (0, import_obsidian2.moment)(reminder["due date"], APPLE_DATE_FORMAT).isBetween(start, end, "day", "[]"));
+              match &&
+                (match = (0, import_obsidian2.moment)(
+                  reminder["due date"],
+                  APPLE_DATE_FORMAT,
+                ).isBetween(start, end, "day", "[]"));
             } else {
-              match && (match = (0, import_obsidian2.moment)(reminder["due date"], APPLE_DATE_FORMAT).isSame(start, "day"));
+              match &&
+                (match = (0, import_obsidian2.moment)(
+                  reminder["due date"],
+                  APPLE_DATE_FORMAT,
+                ).isSame(start, "day"));
             }
           }
         }
@@ -11795,16 +14930,21 @@ function predicate(reminder, filters, filename) {
 }
 
 // src/data/reminders-data.service.ts
-var RemindersDataService = function() {
+var RemindersDataService = function () {
   let logger = console.log;
   let settings = DEFAULT_SETTINGS;
-  const getAllLists = () => __async(this, null, function* () {
-    logger("Getting all lists");
-    return yield executor(`tell application "Reminders" to return properties of lists`);
-  });
-  const getList = (list_name) => __async(this, null, function* () {
-    logger("Looking for " + list_name);
-    let ret = yield executor(`tell application "Reminders"
+  const getAllLists = () =>
+    __async(this, null, function* () {
+      logger("Getting all lists");
+      return yield executor(
+        `tell application "Reminders" to return properties of lists`,
+      );
+    });
+  const getList = (list_name) =>
+    __async(this, null, function* () {
+      logger("Looking for " + list_name);
+      let ret = yield executor(
+        `tell application "Reminders"
                         try
                             return properties of list list_name
                         on error
@@ -11812,27 +14952,39 @@ var RemindersDataService = function() {
                             set name of lis to list_name
                             return properties of lis
                         end try
-                    end tell`, { list_name });
-    logger("Done", 3e3);
-    return ret;
-  });
-  const getReminders = (list_name, filters) => __async(this, null, function* () {
-    logger("Getting reminders in " + list_name);
-    let x2 = yield executor(`tell list list_name in application "Reminders"
+                    end tell`,
+        { list_name },
+      );
+      logger("Done", 3e3);
+      return ret;
+    });
+  const getReminders = (list_name, filters) =>
+    __async(this, null, function* () {
+      logger("Getting reminders in " + list_name);
+      let x2 = yield executor(
+        `tell list list_name in application "Reminders"
                         set buffer to ((current date) - hours * 1)
                         return properties of reminders whose completion date comes after buffer or completed is false	
-                    end tell`, { list_name });
-    logger("Done", 3e3);
-    if (!Array.isArray(x2))
-      return [];
-    if (filters) {
-      x2 = x2.filter((value) => predicate(value, filters, null));
-    }
-    return x2;
-  });
-  const getOrCreateReminder = (list_name, reminder_name) => __async(this, null, function* () {
-    logger("Looking for " + reminder_name + " in " + list_name + " before attempting to create");
-    let ret = yield executor(`tell list list_name in application "Reminders"
+                    end tell`,
+        { list_name },
+      );
+      logger("Done", 3e3);
+      if (!Array.isArray(x2)) {
+        return [];
+      }
+      if (filters) {
+        x2 = x2.filter((value) => predicate(value, filters, null));
+      }
+      return x2;
+    });
+  const getOrCreateReminder = (list_name, reminder_name) =>
+    __async(this, null, function* () {
+      logger(
+        "Looking for " + reminder_name + " in " + list_name +
+          " before attempting to create",
+      );
+      let ret = yield executor(
+        `tell list list_name in application "Reminders"
                                     try
                                         return properties of reminder reminder_name
                                     on error
@@ -11840,21 +14992,27 @@ var RemindersDataService = function() {
                                         set name of rem to reminder_name
                                         return properties of rem
                                     end try
-                                end tell`, { list_name, reminder_name });
-    return ret;
-  });
+                                end tell`,
+        { list_name, reminder_name },
+      );
+      return ret;
+    });
   const refreshReminder = (reminderId) => {
   };
-  const toggleReminderDoneStatus = (list_name, reminder_name) => __async(this, null, function* () {
-    logger("Toggling Reminder: " + reminder_name + " in list " + list_name);
-    let ret = yield executor(`tell list list_name in application "Reminders"
+  const toggleReminderDoneStatus = (list_name, reminder_name) =>
+    __async(this, null, function* () {
+      logger("Toggling Reminder: " + reminder_name + " in list " + list_name);
+      let ret = yield executor(
+        `tell list list_name in application "Reminders"
                                     set rem to reminder reminder_name
                                     set completed in rem to not completed in rem
                                     return properties of rem
-                                end tell`, { list_name, reminder_name });
-    logger("Done", 3e3);
-    return ret;
-  });
+                                end tell`,
+        { list_name, reminder_name },
+      );
+      logger("Done", 3e3);
+      return ret;
+    });
   return {
     getAllLists,
     getList,
@@ -11875,10 +15033,12 @@ var RemindersDataService = function() {
       return Promise.all([
         getList(spec.list),
         getReminders(spec["list"], spec["filters"]),
-        Promise.all(customReminders.map((rem) => getOrCreateReminder(spec.list, rem)))
+        Promise.all(
+          customReminders.map((rem) => getOrCreateReminder(spec.list, rem)),
+        ),
       ]);
     },
-    getSettings: () => settings
+    getSettings: () => settings,
   };
 }();
 
@@ -11942,14 +15102,17 @@ var LoadingBarComponent = class extends s4 {
   }
 };
 LoadingBarComponent = __decorateClass([
-  e4("apple-list-loading-bar")
+  e4("apple-list-loading-bar"),
 ], LoadingBarComponent);
 
 // src/ui/reminder.element.ts
 var import_obsidian3 = require("obsidian");
 var ReminderElement = class extends s4 {
   onCheckboxChange(event) {
-    RemindersDataService.toggleReminderDoneStatus(this.list_name, this.model.name).then((rem) => {
+    RemindersDataService.toggleReminderDoneStatus(
+      this.list_name,
+      this.model.name,
+    ).then((rem) => {
       this.model = rem;
     });
   }
@@ -11962,14 +15125,34 @@ var ReminderElement = class extends s4 {
 					@change=${this.onCheckboxChange}
 					?checked=${this.model.completed} />
 				<span class="apple-reminder-fields">
-					${this.model.priority && this.model.priority > 0 ? y`
+					${
+      this.model.priority && this.model.priority > 0
+        ? y`
 							<span class="apple-reminder-priority">
-								${Array.from(Array(Math.ceil((10 - this.model.priority) / 3)).keys()).reduce((prev, curr) => prev + "!", "")}
+								${
+          Array.from(Array(Math.ceil((10 - this.model.priority) / 3)).keys())
+            .reduce((prev, curr) => prev + "!", "")
+        }
 							</span>
-						` : ""}
+						`
+        : ""
+    }
 					<span class="apple-reminder-name"> ${this.model.name} </span>
-					${this.model.body && this.model.body != "missing value" ? y`<br /><small class="apple-reminder-note">${this.model.body}</small>` : ""}
-					${this.model["due date"] && this.model["due date"] != "missing value" ? y`<br /><small class="apple-reminder-due-date">${(0, import_obsidian3.moment)(this.model["due date"], APPLE_DATE_FORMAT).format("	 YYYY/MM/DD, hh:mm a (Z)")}</small>` : ""}
+					${
+      this.model.body && this.model.body != "missing value"
+        ? y`<br /><small class="apple-reminder-note">${this.model.body}</small>`
+        : ""
+    }
+					${
+      this.model["due date"] && this.model["due date"] != "missing value"
+        ? y`<br /><small class="apple-reminder-due-date">${
+          (0, import_obsidian3.moment)(
+            this.model["due date"],
+            APPLE_DATE_FORMAT,
+          ).format("	 YYYY/MM/DD, hh:mm a (Z)")
+        }</small>`
+        : ""
+    }
 				</span>
 			</span>
 									<br class="apple-list-break"/>
@@ -12027,14 +15210,24 @@ ReminderElement.styles = i`
 			opacity: 0.2;
 		}
 	`;
-__decorateClass([
-  e5()
-], ReminderElement.prototype, "list_name", 2);
-__decorateClass([
-  e5()
-], ReminderElement.prototype, "model", 2);
+__decorateClass(
+  [
+    e5(),
+  ],
+  ReminderElement.prototype,
+  "list_name",
+  2,
+);
+__decorateClass(
+  [
+    e5(),
+  ],
+  ReminderElement.prototype,
+  "model",
+  2,
+);
 ReminderElement = __decorateClass([
-  e4("apple-reminder-element")
+  e4("apple-reminder-element"),
 ], ReminderElement);
 
 // src/ui/list.element.ts
@@ -12057,12 +15250,14 @@ var ListElement = class extends s4 {
   }
   refresh() {
     this.refreshDisabled = true;
-    RemindersDataService.fetchData(this.spec, this.fileName).then(([listData, reminders, customReminders]) => {
-      this.reminders = reminders;
-      this.listMeta = listData;
-      this.customReminders = customReminders;
-      this.refreshDisabled = false;
-    });
+    RemindersDataService.fetchData(this.spec, this.fileName).then(
+      ([listData, reminders, customReminders]) => {
+        this.reminders = reminders;
+        this.listMeta = listData;
+        this.customReminders = customReminders;
+        this.refreshDisabled = false;
+      },
+    );
   }
   render() {
     var _a, _b, _c;
@@ -12071,15 +15266,29 @@ var ListElement = class extends s4 {
 				<hr class="apple-list-top-rule" />
 				<h2>
 					<span
-						style="color: ${(_a = this.listMeta) == null ? void 0 : _a.color}">${!((_b = this.listMeta) == null ? void 0 : _b.name) ? (_c = this.spec) == null ? void 0 : _c.list : this.listMeta.name}</span>
+						style="color: ${
+      (_a = this.listMeta) == null ? void 0 : _a.color
+    }">${
+      !((_b = this.listMeta) == null ? void 0 : _b.name)
+        ? (_c = this.spec) == null ? void 0 : _c.list
+        : this.listMeta.name
+    }</span>
 				</h2>
 
-				${this.listMeta ? y`
+				${
+      this.listMeta
+        ? y`
 					<span class="apple-list-reminders">
-						${this.elements.length > 0 ? this.elements : y`<small style="padding-bottom: 1rem;">No reminders found</small>`}
+						${
+          this.elements.length > 0
+            ? this.elements
+            : y`<small style="padding-bottom: 1rem;">No reminders found</small>`
+        }
 					</span>
 
-				` : this.loadingBar}
+				`
+        : this.loadingBar
+    }
 				<br />
 				<button @click="${this.refresh}" ?disabled="${this.refreshDisabled}">Refresh</button>
 				<hr class="apple-list-bottom-rule" />
@@ -12098,26 +15307,56 @@ ListElement.styles = i`
 			opacity: 0;
 		}
 	`;
-__decorateClass([
-  e5()
-], ListElement.prototype, "spec", 2);
-__decorateClass([
-  e5()
-], ListElement.prototype, "refreshDisabled", 2);
-__decorateClass([
-  e5()
-], ListElement.prototype, "reminders", 2);
-__decorateClass([
-  e5()
-], ListElement.prototype, "customReminders", 2);
-__decorateClass([
-  e5()
-], ListElement.prototype, "listMeta", 2);
-__decorateClass([
-  e5()
-], ListElement.prototype, "fileName", 2);
+__decorateClass(
+  [
+    e5(),
+  ],
+  ListElement.prototype,
+  "spec",
+  2,
+);
+__decorateClass(
+  [
+    e5(),
+  ],
+  ListElement.prototype,
+  "refreshDisabled",
+  2,
+);
+__decorateClass(
+  [
+    e5(),
+  ],
+  ListElement.prototype,
+  "reminders",
+  2,
+);
+__decorateClass(
+  [
+    e5(),
+  ],
+  ListElement.prototype,
+  "customReminders",
+  2,
+);
+__decorateClass(
+  [
+    e5(),
+  ],
+  ListElement.prototype,
+  "listMeta",
+  2,
+);
+__decorateClass(
+  [
+    e5(),
+  ],
+  ListElement.prototype,
+  "fileName",
+  2,
+);
 ListElement = __decorateClass([
-  e4("apple-list-element")
+  e4("apple-list-element"),
 ], ListElement);
 
 // node_modules/yaml/browser/dist/nodes/Node.js
@@ -12128,23 +15367,30 @@ var PAIR = Symbol.for("yaml.pair");
 var SCALAR = Symbol.for("yaml.scalar");
 var SEQ = Symbol.for("yaml.seq");
 var NODE_TYPE = Symbol.for("yaml.node.type");
-var isAlias = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === ALIAS;
-var isDocument = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === DOC;
-var isMap = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === MAP;
-var isPair = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === PAIR;
-var isScalar = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === SCALAR;
-var isSeq = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === SEQ;
+var isAlias = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === ALIAS;
+var isDocument = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === DOC;
+var isMap = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === MAP;
+var isPair = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === PAIR;
+var isScalar = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === SCALAR;
+var isSeq = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === SEQ;
 function isCollection(node) {
-  if (node && typeof node === "object")
+  if (node && typeof node === "object") {
     switch (node[NODE_TYPE]) {
       case MAP:
       case SEQ:
         return true;
     }
+  }
   return false;
 }
 function isNode(node) {
-  if (node && typeof node === "object")
+  if (node && typeof node === "object") {
     switch (node[NODE_TYPE]) {
       case ALIAS:
       case MAP:
@@ -12152,17 +15398,23 @@ function isNode(node) {
       case SEQ:
         return true;
     }
+  }
   return false;
 }
-var hasAnchor = (node) => (isScalar(node) || isCollection(node)) && !!node.anchor;
+var hasAnchor = (node) =>
+  (isScalar(node) || isCollection(node)) && !!node.anchor;
 var NodeBase = class {
   constructor(type) {
     Object.defineProperty(this, NODE_TYPE, { value: type });
   }
   clone() {
-    const copy = Object.create(Object.getPrototypeOf(this), Object.getOwnPropertyDescriptors(this));
-    if (this.range)
+    const copy = Object.create(
+      Object.getPrototypeOf(this),
+      Object.getOwnPropertyDescriptors(this),
+    );
+    if (this.range) {
       copy.range = this.range.slice();
+    }
     return copy;
   }
 };
@@ -12175,10 +15427,12 @@ function visit(node, visitor) {
   const visitor_ = initVisitor(visitor);
   if (isDocument(node)) {
     const cd = visit_(null, node.contents, visitor_, Object.freeze([node]));
-    if (cd === REMOVE)
+    if (cd === REMOVE) {
       node.contents = null;
-  } else
+    }
+  } else {
     visit_(null, node, visitor_, Object.freeze([]));
+  }
 }
 visit.BREAK = BREAK;
 visit.SKIP = SKIP;
@@ -12194,11 +15448,11 @@ function visit_(key, node, visitor, path) {
       path = Object.freeze(path.concat(node));
       for (let i4 = 0; i4 < node.items.length; ++i4) {
         const ci = visit_(i4, node.items[i4], visitor, path);
-        if (typeof ci === "number")
+        if (typeof ci === "number") {
           i4 = ci - 1;
-        else if (ci === BREAK)
+        } else if (ci === BREAK) {
           return BREAK;
-        else if (ci === REMOVE) {
+        } else if (ci === REMOVE) {
           node.items.splice(i4, 1);
           i4 -= 1;
         }
@@ -12206,15 +15460,17 @@ function visit_(key, node, visitor, path) {
     } else if (isPair(node)) {
       path = Object.freeze(path.concat(node));
       const ck = visit_("key", node.key, visitor, path);
-      if (ck === BREAK)
+      if (ck === BREAK) {
         return BREAK;
-      else if (ck === REMOVE)
+      } else if (ck === REMOVE) {
         node.key = null;
+      }
       const cv = visit_("value", node.value, visitor, path);
-      if (cv === BREAK)
+      if (cv === BREAK) {
         return BREAK;
-      else if (cv === REMOVE)
+      } else if (cv === REMOVE) {
         node.value = null;
+      }
     }
   }
   return ctrl;
@@ -12223,11 +15479,18 @@ function visitAsync(node, visitor) {
   return __async(this, null, function* () {
     const visitor_ = initVisitor(visitor);
     if (isDocument(node)) {
-      const cd = yield visitAsync_(null, node.contents, visitor_, Object.freeze([node]));
-      if (cd === REMOVE)
+      const cd = yield visitAsync_(
+        null,
+        node.contents,
+        visitor_,
+        Object.freeze([node]),
+      );
+      if (cd === REMOVE) {
         node.contents = null;
-    } else
+      }
+    } else {
       yield visitAsync_(null, node, visitor_, Object.freeze([]));
+    }
   });
 }
 visitAsync.BREAK = BREAK;
@@ -12245,11 +15508,11 @@ function visitAsync_(key, node, visitor, path) {
         path = Object.freeze(path.concat(node));
         for (let i4 = 0; i4 < node.items.length; ++i4) {
           const ci = yield visitAsync_(i4, node.items[i4], visitor, path);
-          if (typeof ci === "number")
+          if (typeof ci === "number") {
             i4 = ci - 1;
-          else if (ci === BREAK)
+          } else if (ci === BREAK) {
             return BREAK;
-          else if (ci === REMOVE) {
+          } else if (ci === REMOVE) {
             node.items.splice(i4, 1);
             i4 -= 1;
           }
@@ -12257,52 +15520,78 @@ function visitAsync_(key, node, visitor, path) {
       } else if (isPair(node)) {
         path = Object.freeze(path.concat(node));
         const ck = yield visitAsync_("key", node.key, visitor, path);
-        if (ck === BREAK)
+        if (ck === BREAK) {
           return BREAK;
-        else if (ck === REMOVE)
+        } else if (ck === REMOVE) {
           node.key = null;
+        }
         const cv = yield visitAsync_("value", node.value, visitor, path);
-        if (cv === BREAK)
+        if (cv === BREAK) {
           return BREAK;
-        else if (cv === REMOVE)
+        } else if (cv === REMOVE) {
           node.value = null;
+        }
       }
     }
     return ctrl;
   });
 }
 function initVisitor(visitor) {
-  if (typeof visitor === "object" && (visitor.Collection || visitor.Node || visitor.Value)) {
-    return Object.assign({
-      Alias: visitor.Node,
-      Map: visitor.Node,
-      Scalar: visitor.Node,
-      Seq: visitor.Node
-    }, visitor.Value && {
-      Map: visitor.Value,
-      Scalar: visitor.Value,
-      Seq: visitor.Value
-    }, visitor.Collection && {
-      Map: visitor.Collection,
-      Seq: visitor.Collection
-    }, visitor);
+  if (
+    typeof visitor === "object" &&
+    (visitor.Collection || visitor.Node || visitor.Value)
+  ) {
+    return Object.assign(
+      {
+        Alias: visitor.Node,
+        Map: visitor.Node,
+        Scalar: visitor.Node,
+        Seq: visitor.Node,
+      },
+      visitor.Value && {
+        Map: visitor.Value,
+        Scalar: visitor.Value,
+        Seq: visitor.Value,
+      },
+      visitor.Collection && {
+        Map: visitor.Collection,
+        Seq: visitor.Collection,
+      },
+      visitor,
+    );
   }
   return visitor;
 }
 function callVisitor(key, node, visitor, path) {
   var _a, _b, _c, _d, _e;
-  if (typeof visitor === "function")
+  if (typeof visitor === "function") {
     return visitor(key, node, path);
-  if (isMap(node))
-    return (_a = visitor.Map) == null ? void 0 : _a.call(visitor, key, node, path);
-  if (isSeq(node))
-    return (_b = visitor.Seq) == null ? void 0 : _b.call(visitor, key, node, path);
-  if (isPair(node))
-    return (_c = visitor.Pair) == null ? void 0 : _c.call(visitor, key, node, path);
-  if (isScalar(node))
-    return (_d = visitor.Scalar) == null ? void 0 : _d.call(visitor, key, node, path);
-  if (isAlias(node))
-    return (_e = visitor.Alias) == null ? void 0 : _e.call(visitor, key, node, path);
+  }
+  if (isMap(node)) {
+    return (_a = visitor.Map) == null
+      ? void 0
+      : _a.call(visitor, key, node, path);
+  }
+  if (isSeq(node)) {
+    return (_b = visitor.Seq) == null
+      ? void 0
+      : _b.call(visitor, key, node, path);
+  }
+  if (isPair(node)) {
+    return (_c = visitor.Pair) == null
+      ? void 0
+      : _c.call(visitor, key, node, path);
+  }
+  if (isScalar(node)) {
+    return (_d = visitor.Scalar) == null
+      ? void 0
+      : _d.call(visitor, key, node, path);
+  }
+  if (isAlias(node)) {
+    return (_e = visitor.Alias) == null
+      ? void 0
+      : _e.call(visitor, key, node, path);
+  }
   return void 0;
 }
 function replaceNode(key, path, node) {
@@ -12310,10 +15599,11 @@ function replaceNode(key, path, node) {
   if (isCollection(parent)) {
     parent.items[key] = node;
   } else if (isPair(parent)) {
-    if (key === "key")
+    if (key === "key") {
       parent.key = node;
-    else
+    } else {
       parent.value = node;
+    }
   } else if (isDocument(parent)) {
     parent.contents = node;
   } else {
@@ -12329,7 +15619,7 @@ var escapeChars = {
   "[": "%5B",
   "]": "%5D",
   "{": "%7B",
-  "}": "%7D"
+  "}": "%7D",
 };
 var escapeTagName = (tn) => tn.replace(/[!,[\]{}]/g, (ch) => escapeChars[ch]);
 var Directives = class {
@@ -12354,7 +15644,7 @@ var Directives = class {
         this.atNextDocument = false;
         this.yaml = {
           explicit: Directives.defaultYaml.explicit,
-          version: "1.2"
+          version: "1.2",
         };
         this.tags = Object.assign({}, Directives.defaultTags);
         break;
@@ -12373,8 +15663,9 @@ var Directives = class {
       case "%TAG": {
         if (parts.length !== 2) {
           onError(0, "%TAG directive should contain exactly two parts");
-          if (parts.length < 2)
+          if (parts.length < 2) {
             return false;
+          }
         }
         const [handle, prefix] = parts;
         this.tags[handle] = prefix;
@@ -12402,8 +15693,9 @@ var Directives = class {
     }
   }
   tagName(source, onError) {
-    if (source === "!")
+    if (source === "!") {
       return "!";
+    }
     if (source[0] !== "!") {
       onError(`Not a valid tag: ${source}`);
       return null;
@@ -12414,46 +15706,57 @@ var Directives = class {
         onError(`Verbatim tags aren't resolved, so ${source} is invalid.`);
         return null;
       }
-      if (source[source.length - 1] !== ">")
+      if (source[source.length - 1] !== ">") {
         onError("Verbatim tags must end with a >");
+      }
       return verbatim;
     }
     const [, handle, suffix] = source.match(/^(.*!)([^!]*)$/);
-    if (!suffix)
+    if (!suffix) {
       onError(`The ${source} tag has no suffix`);
+    }
     const prefix = this.tags[handle];
-    if (prefix)
+    if (prefix) {
       return prefix + decodeURIComponent(suffix);
-    if (handle === "!")
+    }
+    if (handle === "!") {
       return source;
+    }
     onError(`Could not resolve tag: ${source}`);
     return null;
   }
   tagString(tag) {
     for (const [handle, prefix] of Object.entries(this.tags)) {
-      if (tag.startsWith(prefix))
+      if (tag.startsWith(prefix)) {
         return handle + escapeTagName(tag.substring(prefix.length));
+      }
     }
     return tag[0] === "!" ? tag : `!<${tag}>`;
   }
   toString(doc) {
-    const lines = this.yaml.explicit ? [`%YAML ${this.yaml.version || "1.2"}`] : [];
+    const lines = this.yaml.explicit
+      ? [`%YAML ${this.yaml.version || "1.2"}`]
+      : [];
     const tagEntries = Object.entries(this.tags);
     let tagNames;
     if (doc && tagEntries.length > 0 && isNode(doc.contents)) {
       const tags = {};
       visit(doc.contents, (_key, node) => {
-        if (isNode(node) && node.tag)
+        if (isNode(node) && node.tag) {
           tags[node.tag] = true;
+        }
       });
       tagNames = Object.keys(tags);
-    } else
+    } else {
       tagNames = [];
+    }
     for (const [handle, prefix] of tagEntries) {
-      if (handle === "!!" && prefix === "tag:yaml.org,2002:")
+      if (handle === "!!" && prefix === "tag:yaml.org,2002:") {
         continue;
-      if (!doc || tagNames.some((tn) => tn.startsWith(prefix)))
+      }
+      if (!doc || tagNames.some((tn) => tn.startsWith(prefix))) {
         lines.push(`%TAG ${handle} ${prefix}`);
+      }
     }
     return lines.join("\n");
   }
@@ -12465,7 +15768,8 @@ Directives.defaultTags = { "!!": "tag:yaml.org,2002:" };
 function anchorIsValid(anchor) {
   if (/[\x00-\x19\s,[\]{}]/.test(anchor)) {
     const sa = JSON.stringify(anchor);
-    const msg = `Anchor must not contain whitespace or control characters: ${sa}`;
+    const msg =
+      `Anchor must not contain whitespace or control characters: ${sa}`;
     throw new Error(msg);
   }
   return true;
@@ -12474,17 +15778,19 @@ function anchorNames(root) {
   const anchors = /* @__PURE__ */ new Set();
   visit(root, {
     Value(_key, node) {
-      if (node.anchor)
+      if (node.anchor) {
         anchors.add(node.anchor);
-    }
+      }
+    },
   });
   return anchors;
 }
 function findNewAnchor(prefix, exclude) {
   for (let i4 = 1; true; ++i4) {
     const name = `${prefix}${i4}`;
-    if (!exclude.has(name))
+    if (!exclude.has(name)) {
       return name;
+    }
   }
 }
 function createNodeAnchors(doc, prefix) {
@@ -12494,8 +15800,9 @@ function createNodeAnchors(doc, prefix) {
   return {
     onAnchor: (source) => {
       aliasObjects.push(source);
-      if (!prevAnchors)
+      if (!prevAnchors) {
         prevAnchors = anchorNames(doc);
+      }
       const anchor = findNewAnchor(prefix, prevAnchors);
       prevAnchors.add(anchor);
       return anchor;
@@ -12503,16 +15810,21 @@ function createNodeAnchors(doc, prefix) {
     setAnchors: () => {
       for (const source of aliasObjects) {
         const ref = sourceObjects.get(source);
-        if (typeof ref === "object" && ref.anchor && (isScalar(ref.node) || isCollection(ref.node))) {
+        if (
+          typeof ref === "object" && ref.anchor &&
+          (isScalar(ref.node) || isCollection(ref.node))
+        ) {
           ref.node.anchor = ref.anchor;
         } else {
-          const error = new Error("Failed to resolve repeated object (this should not happen)");
+          const error = new Error(
+            "Failed to resolve repeated object (this should not happen)",
+          );
           error.source = source;
           throw error;
         }
       }
     },
-    sourceObjects
+    sourceObjects,
   };
 }
 
@@ -12524,28 +15836,32 @@ var Alias = class extends NodeBase {
     Object.defineProperty(this, "tag", {
       set() {
         throw new Error("Alias nodes cannot have tags");
-      }
+      },
     });
   }
   resolve(doc) {
     let found = void 0;
     visit(doc, {
       Node: (_key, node) => {
-        if (node === this)
+        if (node === this) {
           return visit.BREAK;
-        if (node.anchor === this.source)
+        }
+        if (node.anchor === this.source) {
           found = node;
-      }
+        }
+      },
     });
     return found;
   }
   toJSON(_arg, ctx) {
-    if (!ctx)
+    if (!ctx) {
       return { source: this.source };
+    }
     const { anchors, doc, maxAliasCount } = ctx;
     const source = this.resolve(doc);
     if (!source) {
-      const msg = `Unresolved alias (the anchor must be set before the alias): ${this.source}`;
+      const msg =
+        `Unresolved alias (the anchor must be set before the alias): ${this.source}`;
       throw new ReferenceError(msg);
     }
     const data = anchors.get(source);
@@ -12555,10 +15871,12 @@ var Alias = class extends NodeBase {
     }
     if (maxAliasCount >= 0) {
       data.count += 1;
-      if (data.aliasCount === 0)
+      if (data.aliasCount === 0) {
         data.aliasCount = getAliasCount(doc, source, anchors);
+      }
       if (data.count * data.aliasCount > maxAliasCount) {
-        const msg = "Excessive alias count indicates a resource exhaustion attack";
+        const msg =
+          "Excessive alias count indicates a resource exhaustion attack";
         throw new ReferenceError(msg);
       }
     }
@@ -12569,11 +15887,13 @@ var Alias = class extends NodeBase {
     if (ctx) {
       anchorIsValid(this.source);
       if (ctx.options.verifyAliasOrder && !ctx.anchors.has(this.source)) {
-        const msg = `Unresolved alias (the anchor must be set before the alias): ${this.source}`;
+        const msg =
+          `Unresolved alias (the anchor must be set before the alias): ${this.source}`;
         throw new Error(msg);
       }
-      if (ctx.implicitKey)
+      if (ctx.implicitKey) {
         return `${src} `;
+      }
     }
     return src;
   }
@@ -12587,8 +15907,9 @@ function getAliasCount(doc, node, anchors) {
     let count = 0;
     for (const item of node.items) {
       const c3 = getAliasCount(doc, item, anchors);
-      if (c3 > count)
+      if (c3 > count) {
         count = c3;
+      }
     }
     return count;
   } else if (isPair(node)) {
@@ -12601,11 +15922,13 @@ function getAliasCount(doc, node, anchors) {
 
 // node_modules/yaml/browser/dist/nodes/toJS.js
 function toJS(value, arg, ctx) {
-  if (Array.isArray(value))
+  if (Array.isArray(value)) {
     return value.map((v2, i4) => toJS(v2, String(i4), ctx));
+  }
   if (value && typeof value.toJSON === "function") {
-    if (!ctx || !hasAnchor(value))
+    if (!ctx || !hasAnchor(value)) {
       return value.toJSON(arg, ctx);
+    }
     const data = { aliasCount: 0, count: 1, res: void 0 };
     ctx.anchors.set(value, data);
     ctx.onCreate = (res2) => {
@@ -12613,24 +15936,29 @@ function toJS(value, arg, ctx) {
       delete ctx.onCreate;
     };
     const res = value.toJSON(arg, ctx);
-    if (ctx.onCreate)
+    if (ctx.onCreate) {
       ctx.onCreate(res);
+    }
     return res;
   }
-  if (typeof value === "bigint" && !(ctx == null ? void 0 : ctx.keep))
+  if (typeof value === "bigint" && !(ctx == null ? void 0 : ctx.keep)) {
     return Number(value);
+  }
   return value;
 }
 
 // node_modules/yaml/browser/dist/nodes/Scalar.js
-var isScalarValue = (value) => !value || typeof value !== "function" && typeof value !== "object";
+var isScalarValue = (value) =>
+  !value || typeof value !== "function" && typeof value !== "object";
 var Scalar = class extends NodeBase {
   constructor(value) {
     super(SCALAR);
     this.value = value;
   }
   toJSON(arg, ctx) {
-    return (ctx == null ? void 0 : ctx.keep) ? this.value : toJS(this.value, arg, ctx);
+    return (ctx == null ? void 0 : ctx.keep)
+      ? this.value
+      : toJS(this.value, arg, ctx);
   }
   toString() {
     return String(this.value);
@@ -12648,45 +15976,65 @@ function findTagObject(value, tagName, tags) {
   var _a;
   if (tagName) {
     const match = tags.filter((t3) => t3.tag === tagName);
-    const tagObj = (_a = match.find((t3) => !t3.format)) != null ? _a : match[0];
-    if (!tagObj)
+    const tagObj = (_a = match.find((t3) => !t3.format)) != null
+      ? _a
+      : match[0];
+    if (!tagObj) {
       throw new Error(`Tag ${tagName} not found`);
+    }
     return tagObj;
   }
   return tags.find((t3) => {
     var _a2;
-    return ((_a2 = t3.identify) == null ? void 0 : _a2.call(t3, value)) && !t3.format;
+    return ((_a2 = t3.identify) == null ? void 0 : _a2.call(t3, value)) &&
+      !t3.format;
   });
 }
 function createNode(value, tagName, ctx) {
   var _a, _b;
-  if (isDocument(value))
+  if (isDocument(value)) {
     value = value.contents;
-  if (isNode(value))
+  }
+  if (isNode(value)) {
     return value;
+  }
   if (isPair(value)) {
-    const map2 = (_b = (_a = ctx.schema[MAP]).createNode) == null ? void 0 : _b.call(_a, ctx.schema, null, ctx);
+    const map2 = (_b = (_a = ctx.schema[MAP]).createNode) == null
+      ? void 0
+      : _b.call(_a, ctx.schema, null, ctx);
     map2.items.push(value);
     return map2;
   }
-  if (value instanceof String || value instanceof Number || value instanceof Boolean || typeof BigInt === "function" && value instanceof BigInt) {
+  if (
+    value instanceof String || value instanceof Number ||
+    value instanceof Boolean ||
+    typeof BigInt === "function" && value instanceof BigInt
+  ) {
     value = value.valueOf();
   }
-  const { aliasDuplicateObjects, onAnchor, onTagObj, schema: schema4, sourceObjects } = ctx;
+  const {
+    aliasDuplicateObjects,
+    onAnchor,
+    onTagObj,
+    schema: schema4,
+    sourceObjects,
+  } = ctx;
   let ref = void 0;
   if (aliasDuplicateObjects && value && typeof value === "object") {
     ref = sourceObjects.get(value);
     if (ref) {
-      if (!ref.anchor)
+      if (!ref.anchor) {
         ref.anchor = onAnchor(value);
+      }
       return new Alias(ref.anchor);
     } else {
       ref = { anchor: null, node: null };
       sourceObjects.set(value, ref);
     }
   }
-  if (tagName == null ? void 0 : tagName.startsWith("!!"))
+  if (tagName == null ? void 0 : tagName.startsWith("!!")) {
     tagName = defaultTagPrefix + tagName.slice(2);
+  }
   let tagObj = findTagObject(value, tagName, schema4.tags);
   if (!tagObj) {
     if (value && typeof value.toJSON === "function") {
@@ -12694,21 +16042,30 @@ function createNode(value, tagName, ctx) {
     }
     if (!value || typeof value !== "object") {
       const node2 = new Scalar(value);
-      if (ref)
+      if (ref) {
         ref.node = node2;
+      }
       return node2;
     }
-    tagObj = value instanceof Map ? schema4[MAP] : Symbol.iterator in Object(value) ? schema4[SEQ] : schema4[MAP];
+    tagObj = value instanceof Map
+      ? schema4[MAP]
+      : Symbol.iterator in Object(value)
+      ? schema4[SEQ]
+      : schema4[MAP];
   }
   if (onTagObj) {
     onTagObj(tagObj);
     delete ctx.onTagObj;
   }
-  const node = (tagObj == null ? void 0 : tagObj.createNode) ? tagObj.createNode(ctx.schema, value, ctx) : new Scalar(value);
-  if (tagName)
+  const node = (tagObj == null ? void 0 : tagObj.createNode)
+    ? tagObj.createNode(ctx.schema, value, ctx)
+    : new Scalar(value);
+  if (tagName) {
     node.tag = tagName;
-  if (ref)
+  }
+  if (ref) {
     ref.node = node;
+  }
   return node;
 }
 
@@ -12732,10 +16089,12 @@ function collectionFromPath(schema4, path, value) {
       throw new Error("This should not happen, please report a bug.");
     },
     schema: schema4,
-    sourceObjects: /* @__PURE__ */ new Map()
+    sourceObjects: /* @__PURE__ */ new Map(),
   });
 }
-var isEmptyPath = (path) => path == null || typeof path === "object" && !!path[Symbol.iterator]().next().done;
+var isEmptyPath = (path) =>
+  path == null ||
+  typeof path === "object" && !!path[Symbol.iterator]().next().done;
 var Collection = class extends NodeBase {
   constructor(type, schema4) {
     super(type);
@@ -12743,62 +16102,81 @@ var Collection = class extends NodeBase {
       value: schema4,
       configurable: true,
       enumerable: false,
-      writable: true
+      writable: true,
     });
   }
   clone(schema4) {
-    const copy = Object.create(Object.getPrototypeOf(this), Object.getOwnPropertyDescriptors(this));
-    if (schema4)
+    const copy = Object.create(
+      Object.getPrototypeOf(this),
+      Object.getOwnPropertyDescriptors(this),
+    );
+    if (schema4) {
       copy.schema = schema4;
-    copy.items = copy.items.map((it) => isNode(it) || isPair(it) ? it.clone(schema4) : it);
-    if (this.range)
+    }
+    copy.items = copy.items.map((it) =>
+      isNode(it) || isPair(it) ? it.clone(schema4) : it
+    );
+    if (this.range) {
       copy.range = this.range.slice();
+    }
     return copy;
   }
   addIn(path, value) {
-    if (isEmptyPath(path))
+    if (isEmptyPath(path)) {
       this.add(value);
-    else {
+    } else {
       const [key, ...rest] = path;
       const node = this.get(key, true);
-      if (isCollection(node))
+      if (isCollection(node)) {
         node.addIn(rest, value);
-      else if (node === void 0 && this.schema)
+      } else if (node === void 0 && this.schema) {
         this.set(key, collectionFromPath(this.schema, rest, value));
-      else
-        throw new Error(`Expected YAML collection at ${key}. Remaining path: ${rest}`);
+      } else {
+        throw new Error(
+          `Expected YAML collection at ${key}. Remaining path: ${rest}`,
+        );
+      }
     }
   }
   deleteIn(path) {
     const [key, ...rest] = path;
-    if (rest.length === 0)
+    if (rest.length === 0) {
       return this.delete(key);
+    }
     const node = this.get(key, true);
-    if (isCollection(node))
+    if (isCollection(node)) {
       return node.deleteIn(rest);
-    else
-      throw new Error(`Expected YAML collection at ${key}. Remaining path: ${rest}`);
+    } else {
+      throw new Error(
+        `Expected YAML collection at ${key}. Remaining path: ${rest}`,
+      );
+    }
   }
   getIn(path, keepScalar) {
     const [key, ...rest] = path;
     const node = this.get(key, true);
-    if (rest.length === 0)
+    if (rest.length === 0) {
       return !keepScalar && isScalar(node) ? node.value : node;
-    else
+    } else {
       return isCollection(node) ? node.getIn(rest, keepScalar) : void 0;
+    }
   }
   hasAllNullValues(allowScalar) {
     return this.items.every((node) => {
-      if (!isPair(node))
+      if (!isPair(node)) {
         return false;
+      }
       const n6 = node.value;
-      return n6 == null || allowScalar && isScalar(n6) && n6.value == null && !n6.commentBefore && !n6.comment && !n6.tag;
+      return n6 == null ||
+        allowScalar && isScalar(n6) && n6.value == null && !n6.commentBefore &&
+          !n6.comment && !n6.tag;
     });
   }
   hasIn(path) {
     const [key, ...rest] = path;
-    if (rest.length === 0)
+    if (rest.length === 0) {
       return this.has(key);
+    }
     const node = this.get(key, true);
     return isCollection(node) ? node.hasIn(rest) : false;
   }
@@ -12808,12 +16186,15 @@ var Collection = class extends NodeBase {
       this.set(key, value);
     } else {
       const node = this.get(key, true);
-      if (isCollection(node))
+      if (isCollection(node)) {
         node.setIn(rest, value);
-      else if (node === void 0 && this.schema)
+      } else if (node === void 0 && this.schema) {
         this.set(key, collectionFromPath(this.schema, rest, value));
-      else
-        throw new Error(`Expected YAML collection at ${key}. Remaining path: ${rest}`);
+      } else {
+        throw new Error(
+          `Expected YAML collection at ${key}. Remaining path: ${rest}`,
+        );
+      }
     }
   }
 };
@@ -12822,30 +16203,45 @@ Collection.maxFlowStringSingleLineLength = 60;
 // node_modules/yaml/browser/dist/stringify/stringifyComment.js
 var stringifyComment = (str) => str.replace(/^(?!$)(?: $)?/gm, "#");
 function indentComment(comment, indent) {
-  if (/^\n+$/.test(comment))
+  if (/^\n+$/.test(comment)) {
     return comment.substring(1);
+  }
   return indent ? comment.replace(/^(?! *$)/gm, indent) : comment;
 }
-var lineComment = (str, indent, comment) => str.endsWith("\n") ? indentComment(comment, indent) : comment.includes("\n") ? "\n" + indentComment(comment, indent) : (str.endsWith(" ") ? "" : " ") + comment;
+var lineComment = (str, indent, comment) =>
+  str.endsWith("\n")
+    ? indentComment(comment, indent)
+    : comment.includes("\n")
+    ? "\n" + indentComment(comment, indent)
+    : (str.endsWith(" ") ? "" : " ") + comment;
 
 // node_modules/yaml/browser/dist/stringify/foldFlowLines.js
 var FOLD_FLOW = "flow";
 var FOLD_BLOCK = "block";
 var FOLD_QUOTED = "quoted";
-function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth = 80, minContentWidth = 20, onFold, onOverflow } = {}) {
-  if (!lineWidth || lineWidth < 0)
+function foldFlowLines(
+  text,
+  indent,
+  mode = "flow",
+  { indentAtStart, lineWidth = 80, minContentWidth = 20, onFold, onOverflow } =
+    {},
+) {
+  if (!lineWidth || lineWidth < 0) {
     return text;
+  }
   const endStep = Math.max(1 + minContentWidth, 1 + lineWidth - indent.length);
-  if (text.length <= endStep)
+  if (text.length <= endStep) {
     return text;
+  }
   const folds = [];
   const escapedFolds = {};
   let end = lineWidth - indent.length;
   if (typeof indentAtStart === "number") {
-    if (indentAtStart > lineWidth - Math.max(2, minContentWidth))
+    if (indentAtStart > lineWidth - Math.max(2, minContentWidth)) {
       folds.push(0);
-    else
+    } else {
       end = lineWidth - indentAtStart;
+    }
   }
   let split = void 0;
   let prev = void 0;
@@ -12855,10 +16251,11 @@ function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth =
   let escEnd = -1;
   if (mode === FOLD_BLOCK) {
     i4 = consumeMoreIndentedLines(text, i4);
-    if (i4 !== -1)
+    if (i4 !== -1) {
       end = i4 + endStep;
+    }
   }
-  for (let ch; ch = text[i4 += 1]; ) {
+  for (let ch; ch = text[i4 += 1];) {
     if (mode === FOLD_QUOTED && ch === "\\") {
       escStart = i4;
       switch (text[i4 + 1]) {
@@ -12877,15 +16274,19 @@ function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth =
       escEnd = i4;
     }
     if (ch === "\n") {
-      if (mode === FOLD_BLOCK)
+      if (mode === FOLD_BLOCK) {
         i4 = consumeMoreIndentedLines(text, i4);
+      }
       end = i4 + endStep;
       split = void 0;
     } else {
-      if (ch === " " && prev && prev !== " " && prev !== "\n" && prev !== "	") {
+      if (
+        ch === " " && prev && prev !== " " && prev !== "\n" && prev !== "	"
+      ) {
         const next = text[i4 + 1];
-        if (next && next !== " " && next !== "\n" && next !== "	")
+        if (next && next !== " " && next !== "\n" && next !== "	") {
           split = i4;
+        }
       }
       if (i4 >= end) {
         if (split) {
@@ -12899,8 +16300,9 @@ function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth =
             overflow = true;
           }
           const j = i4 > escEnd + 1 ? i4 - 2 : escStart - 1;
-          if (escapedFolds[j])
+          if (escapedFolds[j]) {
             return text;
+          }
           folds.push(j);
           escapedFolds[j] = true;
           end = j + endStep;
@@ -12912,22 +16314,26 @@ function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth =
     }
     prev = ch;
   }
-  if (overflow && onOverflow)
+  if (overflow && onOverflow) {
     onOverflow();
-  if (folds.length === 0)
+  }
+  if (folds.length === 0) {
     return text;
-  if (onFold)
+  }
+  if (onFold) {
     onFold();
+  }
   let res = text.slice(0, folds[0]);
   for (let i5 = 0; i5 < folds.length; ++i5) {
     const fold = folds[i5];
     const end2 = folds[i5 + 1] || text.length;
-    if (fold === 0)
+    if (fold === 0) {
       res = `
 ${indent}${text.slice(0, end2)}`;
-    else {
-      if (mode === FOLD_QUOTED && escapedFolds[fold])
+    } else {
+      if (mode === FOLD_QUOTED && escapedFolds[fold]) {
         res += `${text[fold]}\\`;
+      }
       res += `
 ${indent}${text.slice(fold + 1, end2)}`;
     }
@@ -12949,31 +16355,36 @@ function consumeMoreIndentedLines(text, i4) {
 var getFoldOptions = (ctx) => ({
   indentAtStart: ctx.indentAtStart,
   lineWidth: ctx.options.lineWidth,
-  minContentWidth: ctx.options.minContentWidth
+  minContentWidth: ctx.options.minContentWidth,
 });
 var containsDocumentMarker = (str) => /^(%|---|\.\.\.)/m.test(str);
 function lineLengthOverLimit(str, lineWidth, indentLength) {
-  if (!lineWidth || lineWidth < 0)
+  if (!lineWidth || lineWidth < 0) {
     return false;
+  }
   const limit = lineWidth - indentLength;
   const strLen = str.length;
-  if (strLen <= limit)
+  if (strLen <= limit) {
     return false;
+  }
   for (let i4 = 0, start = 0; i4 < strLen; ++i4) {
     if (str[i4] === "\n") {
-      if (i4 - start > limit)
+      if (i4 - start > limit) {
         return true;
+      }
       start = i4 + 1;
-      if (strLen - start <= limit)
+      if (strLen - start <= limit) {
         return false;
+      }
     }
   }
   return true;
 }
 function doubleQuotedString(value, ctx) {
   const json = JSON.stringify(value);
-  if (ctx.options.doubleQuotedAsJSON)
+  if (ctx.options.doubleQuotedAsJSON) {
     return json;
+  }
   const { implicitKey } = ctx;
   const minMultiLineLength = ctx.options.doubleQuotedMinMultiLineLength;
   const indent = ctx.indent || (containsDocumentMarker(value) ? "  " : "");
@@ -12986,7 +16397,7 @@ function doubleQuotedString(value, ctx) {
       start = i4;
       ch = "\\";
     }
-    if (ch === "\\")
+    if (ch === "\\") {
       switch (json[i4 + 1]) {
         case "u":
           {
@@ -13018,27 +16429,35 @@ function doubleQuotedString(value, ctx) {
                 str += "\\P";
                 break;
               default:
-                if (code.substr(0, 2) === "00")
+                if (code.substr(0, 2) === "00") {
                   str += "\\x" + code.substr(2);
-                else
+                } else {
                   str += json.substr(i4, 6);
+                }
             }
             i4 += 5;
             start = i4 + 1;
           }
           break;
         case "n":
-          if (implicitKey || json[i4 + 2] === '"' || json.length < minMultiLineLength) {
+          if (
+            implicitKey || json[i4 + 2] === '"' ||
+            json.length < minMultiLineLength
+          ) {
             i4 += 1;
           } else {
             str += json.slice(start, i4) + "\n\n";
-            while (json[i4 + 2] === "\\" && json[i4 + 3] === "n" && json[i4 + 4] !== '"') {
+            while (
+              json[i4 + 2] === "\\" && json[i4 + 3] === "n" &&
+              json[i4 + 4] !== '"'
+            ) {
               str += "\n";
               i4 += 2;
             }
             str += indent;
-            if (json[i4 + 2] === " ")
+            if (json[i4 + 2] === " ") {
               str += "\\";
+            }
             i4 += 1;
             start = i4 + 1;
           }
@@ -13046,32 +16465,45 @@ function doubleQuotedString(value, ctx) {
         default:
           i4 += 1;
       }
+    }
   }
   str = start ? str + json.slice(start) : json;
-  return implicitKey ? str : foldFlowLines(str, indent, FOLD_QUOTED, getFoldOptions(ctx));
+  return implicitKey
+    ? str
+    : foldFlowLines(str, indent, FOLD_QUOTED, getFoldOptions(ctx));
 }
 function singleQuotedString(value, ctx) {
-  if (ctx.options.singleQuote === false || ctx.implicitKey && value.includes("\n") || /[ \t]\n|\n[ \t]/.test(value))
+  if (
+    ctx.options.singleQuote === false ||
+    ctx.implicitKey && value.includes("\n") || /[ \t]\n|\n[ \t]/.test(value)
+  ) {
     return doubleQuotedString(value, ctx);
+  }
   const indent = ctx.indent || (containsDocumentMarker(value) ? "  " : "");
-  const res = "'" + value.replace(/'/g, "''").replace(/\n+/g, `$&
-${indent}`) + "'";
-  return ctx.implicitKey ? res : foldFlowLines(res, indent, FOLD_FLOW, getFoldOptions(ctx));
+  const res = "'" + value.replace(/'/g, "''").replace(
+    /\n+/g,
+    `$&
+${indent}`,
+  ) + "'";
+  return ctx.implicitKey
+    ? res
+    : foldFlowLines(res, indent, FOLD_FLOW, getFoldOptions(ctx));
 }
 function quotedString(value, ctx) {
   const { singleQuote } = ctx.options;
   let qs;
-  if (singleQuote === false)
+  if (singleQuote === false) {
     qs = doubleQuotedString;
-  else {
+  } else {
     const hasDouble = value.includes('"');
     const hasSingle = value.includes("'");
-    if (hasDouble && !hasSingle)
+    if (hasDouble && !hasSingle) {
       qs = singleQuotedString;
-    else if (hasSingle && !hasDouble)
+    } else if (hasSingle && !hasDouble) {
       qs = doubleQuotedString;
-    else
+    } else {
       qs = singleQuote ? singleQuotedString : doubleQuotedString;
+    }
   }
   return qs(value, ctx);
 }
@@ -13080,16 +16512,25 @@ function blockString({ comment, type, value }, ctx, onComment, onChompKeep) {
   if (!blockQuote || /\n[\t ]+$/.test(value) || /^\s*$/.test(value)) {
     return quotedString(value, ctx);
   }
-  const indent = ctx.indent || (ctx.forceBlockIndent || containsDocumentMarker(value) ? "  " : "");
-  const literal = blockQuote === "literal" ? true : blockQuote === "folded" || type === Scalar.BLOCK_FOLDED ? false : type === Scalar.BLOCK_LITERAL ? true : !lineLengthOverLimit(value, lineWidth, indent.length);
-  if (!value)
+  const indent = ctx.indent ||
+    (ctx.forceBlockIndent || containsDocumentMarker(value) ? "  " : "");
+  const literal = blockQuote === "literal"
+    ? true
+    : blockQuote === "folded" || type === Scalar.BLOCK_FOLDED
+    ? false
+    : type === Scalar.BLOCK_LITERAL
+    ? true
+    : !lineLengthOverLimit(value, lineWidth, indent.length);
+  if (!value) {
     return literal ? "|\n" : ">\n";
+  }
   let chomp;
   let endStart;
   for (endStart = value.length; endStart > 0; --endStart) {
     const ch = value[endStart - 1];
-    if (ch !== "\n" && ch !== "	" && ch !== " ")
+    if (ch !== "\n" && ch !== "	" && ch !== " ") {
       break;
+    }
   }
   let end = value.substring(endStart);
   const endNlPos = end.indexOf("\n");
@@ -13097,15 +16538,17 @@ function blockString({ comment, type, value }, ctx, onComment, onChompKeep) {
     chomp = "-";
   } else if (value === end || endNlPos !== end.length - 1) {
     chomp = "+";
-    if (onChompKeep)
+    if (onChompKeep) {
       onChompKeep();
+    }
   } else {
     chomp = "";
   }
   if (end) {
     value = value.slice(0, -end.length);
-    if (end[end.length - 1] === "\n")
+    if (end[end.length - 1] === "\n") {
       end = end.slice(0, -1);
+    }
     end = end.replace(/\n+(?!\n|$)/g, `$&${indent}`);
   }
   let startWithSpace = false;
@@ -13113,77 +16556,113 @@ function blockString({ comment, type, value }, ctx, onComment, onChompKeep) {
   let startNlPos = -1;
   for (startEnd = 0; startEnd < value.length; ++startEnd) {
     const ch = value[startEnd];
-    if (ch === " ")
+    if (ch === " ") {
       startWithSpace = true;
-    else if (ch === "\n")
+    } else if (ch === "\n") {
       startNlPos = startEnd;
-    else
+    } else {
       break;
+    }
   }
-  let start = value.substring(0, startNlPos < startEnd ? startNlPos + 1 : startEnd);
+  let start = value.substring(
+    0,
+    startNlPos < startEnd ? startNlPos + 1 : startEnd,
+  );
   if (start) {
     value = value.substring(start.length);
     start = start.replace(/\n+/g, `$&${indent}`);
   }
   const indentSize = indent ? "2" : "1";
-  let header = (literal ? "|" : ">") + (startWithSpace ? indentSize : "") + chomp;
+  let header = (literal ? "|" : ">") + (startWithSpace ? indentSize : "") +
+    chomp;
   if (comment) {
     header += " " + commentString(comment.replace(/ ?[\r\n]+/g, " "));
-    if (onComment)
+    if (onComment) {
       onComment();
+    }
   }
   if (literal) {
     value = value.replace(/\n+/g, `$&${indent}`);
     return `${header}
 ${indent}${start}${value}${end}`;
   }
-  value = value.replace(/\n+/g, "\n$&").replace(/(?:^|\n)([\t ].*)(?:([\n\t ]*)\n(?![\n\t ]))?/g, "$1$2").replace(/\n+/g, `$&${indent}`);
-  const body = foldFlowLines(`${start}${value}${end}`, indent, FOLD_BLOCK, getFoldOptions(ctx));
+  value = value.replace(/\n+/g, "\n$&").replace(
+    /(?:^|\n)([\t ].*)(?:([\n\t ]*)\n(?![\n\t ]))?/g,
+    "$1$2",
+  ).replace(/\n+/g, `$&${indent}`);
+  const body = foldFlowLines(
+    `${start}${value}${end}`,
+    indent,
+    FOLD_BLOCK,
+    getFoldOptions(ctx),
+  );
   return `${header}
 ${indent}${body}`;
 }
 function plainString(item, ctx, onComment, onChompKeep) {
   const { type, value } = item;
   const { actualString, implicitKey, indent, inFlow } = ctx;
-  if (implicitKey && /[\n[\]{},]/.test(value) || inFlow && /[[\]{},]/.test(value)) {
+  if (
+    implicitKey && /[\n[\]{},]/.test(value) || inFlow && /[[\]{},]/.test(value)
+  ) {
     return quotedString(value, ctx);
   }
-  if (!value || /^[\n\t ,[\]{}#&*!|>'"%@`]|^[?-]$|^[?-][ \t]|[\n:][ \t]|[ \t]\n|[\n\t ]#|[\n\t :]$/.test(value)) {
-    return implicitKey || inFlow || !value.includes("\n") ? quotedString(value, ctx) : blockString(item, ctx, onComment, onChompKeep);
+  if (
+    !value ||
+    /^[\n\t ,[\]{}#&*!|>'"%@`]|^[?-]$|^[?-][ \t]|[\n:][ \t]|[ \t]\n|[\n\t ]#|[\n\t :]$/
+      .test(value)
+  ) {
+    return implicitKey || inFlow || !value.includes("\n")
+      ? quotedString(value, ctx)
+      : blockString(item, ctx, onComment, onChompKeep);
   }
-  if (!implicitKey && !inFlow && type !== Scalar.PLAIN && value.includes("\n")) {
+  if (
+    !implicitKey && !inFlow && type !== Scalar.PLAIN && value.includes("\n")
+  ) {
     return blockString(item, ctx, onComment, onChompKeep);
   }
   if (indent === "" && containsDocumentMarker(value)) {
     ctx.forceBlockIndent = true;
     return blockString(item, ctx, onComment, onChompKeep);
   }
-  const str = value.replace(/\n+/g, `$&
-${indent}`);
+  const str = value.replace(
+    /\n+/g,
+    `$&
+${indent}`,
+  );
   if (actualString) {
     const test = (tag) => {
       var _a;
-      return tag.default && tag.tag !== "tag:yaml.org,2002:str" && ((_a = tag.test) == null ? void 0 : _a.test(str));
+      return tag.default && tag.tag !== "tag:yaml.org,2002:str" &&
+        ((_a = tag.test) == null ? void 0 : _a.test(str));
     };
     const { compat, tags } = ctx.doc.schema;
-    if (tags.some(test) || (compat == null ? void 0 : compat.some(test)))
+    if (tags.some(test) || (compat == null ? void 0 : compat.some(test))) {
       return quotedString(value, ctx);
+    }
   }
-  return implicitKey ? str : foldFlowLines(str, indent, FOLD_FLOW, getFoldOptions(ctx));
+  return implicitKey
+    ? str
+    : foldFlowLines(str, indent, FOLD_FLOW, getFoldOptions(ctx));
 }
 function stringifyString(item, ctx, onComment, onChompKeep) {
   const { implicitKey, inFlow } = ctx;
-  const ss = typeof item.value === "string" ? item : Object.assign({}, item, { value: String(item.value) });
+  const ss = typeof item.value === "string"
+    ? item
+    : Object.assign({}, item, { value: String(item.value) });
   let { type } = item;
   if (type !== Scalar.QUOTE_DOUBLE) {
-    if (/[\x00-\x08\x0b-\x1f\x7f-\x9f\u{D800}-\u{DFFF}]/u.test(ss.value))
+    if (/[\x00-\x08\x0b-\x1f\x7f-\x9f\u{D800}-\u{DFFF}]/u.test(ss.value)) {
       type = Scalar.QUOTE_DOUBLE;
+    }
   }
   const _stringify = (_type) => {
     switch (_type) {
       case Scalar.BLOCK_FOLDED:
       case Scalar.BLOCK_LITERAL:
-        return implicitKey || inFlow ? quotedString(ss.value, ctx) : blockString(ss, ctx, onComment, onChompKeep);
+        return implicitKey || inFlow
+          ? quotedString(ss.value, ctx)
+          : blockString(ss, ctx, onComment, onChompKeep);
       case Scalar.QUOTE_DOUBLE:
         return doubleQuotedString(ss.value, ctx);
       case Scalar.QUOTE_SINGLE:
@@ -13199,32 +16678,37 @@ function stringifyString(item, ctx, onComment, onChompKeep) {
     const { defaultKeyType, defaultStringType } = ctx.options;
     const t3 = implicitKey && defaultKeyType || defaultStringType;
     res = _stringify(t3);
-    if (res === null)
+    if (res === null) {
       throw new Error(`Unsupported default string type ${t3}`);
+    }
   }
   return res;
 }
 
 // node_modules/yaml/browser/dist/stringify/stringify.js
 function createStringifyContext(doc, options) {
-  const opt = Object.assign({
-    blockQuote: true,
-    commentString: stringifyComment,
-    defaultKeyType: null,
-    defaultStringType: "PLAIN",
-    directives: null,
-    doubleQuotedAsJSON: false,
-    doubleQuotedMinMultiLineLength: 40,
-    falseStr: "false",
-    indentSeq: true,
-    lineWidth: 80,
-    minContentWidth: 20,
-    nullStr: "null",
-    simpleKeys: false,
-    singleQuote: null,
-    trueStr: "true",
-    verifyAliasOrder: true
-  }, doc.schema.toStringOptions, options);
+  const opt = Object.assign(
+    {
+      blockQuote: true,
+      commentString: stringifyComment,
+      defaultKeyType: null,
+      defaultStringType: "PLAIN",
+      directives: null,
+      doubleQuotedAsJSON: false,
+      doubleQuotedMinMultiLineLength: 40,
+      falseStr: "false",
+      indentSeq: true,
+      lineWidth: 80,
+      minContentWidth: 20,
+      nullStr: "null",
+      simpleKeys: false,
+      singleQuote: null,
+      trueStr: "true",
+      verifyAliasOrder: true,
+    },
+    doc.schema.toStringOptions,
+    options,
+  );
   let inFlow;
   switch (opt.collectionStyle) {
     case "block":
@@ -13242,15 +16726,18 @@ function createStringifyContext(doc, options) {
     indent: "",
     indentStep: typeof opt.indent === "number" ? " ".repeat(opt.indent) : "  ",
     inFlow,
-    options: opt
+    options: opt,
   };
 }
 function getTagObject(tags, item) {
   var _a, _b, _c, _d;
   if (item.tag) {
     const match = tags.filter((t3) => t3.tag === item.tag);
-    if (match.length > 0)
-      return (_a = match.find((t3) => t3.format === item.format)) != null ? _a : match[0];
+    if (match.length > 0) {
+      return (_a = match.find((t3) => t3.format === item.format)) != null
+        ? _a
+        : match[0];
+    }
   }
   let tagObj = void 0;
   let obj;
@@ -13260,20 +16747,27 @@ function getTagObject(tags, item) {
       var _a2;
       return (_a2 = t3.identify) == null ? void 0 : _a2.call(t3, obj);
     });
-    tagObj = (_b = match.find((t3) => t3.format === item.format)) != null ? _b : match.find((t3) => !t3.format);
+    tagObj = (_b = match.find((t3) => t3.format === item.format)) != null
+      ? _b
+      : match.find((t3) => !t3.format);
   } else {
     obj = item;
     tagObj = tags.find((t3) => t3.nodeClass && obj instanceof t3.nodeClass);
   }
   if (!tagObj) {
-    const name = (_d = (_c = obj == null ? void 0 : obj.constructor) == null ? void 0 : _c.name) != null ? _d : typeof obj;
+    const name = (_d = (_c = obj == null ? void 0 : obj.constructor) == null
+        ? void 0
+        : _c.name) != null
+      ? _d
+      : typeof obj;
     throw new Error(`Tag not resolved for ${name} value`);
   }
   return tagObj;
 }
 function stringifyProps(node, tagObj, { anchors, doc }) {
-  if (!doc.directives)
+  if (!doc.directives) {
     return "";
+  }
   const props = [];
   const anchor = (isScalar(node) || isCollection(node)) && node.anchor;
   if (anchor && anchorIsValid(anchor)) {
@@ -13281,44 +16775,68 @@ function stringifyProps(node, tagObj, { anchors, doc }) {
     props.push(`&${anchor}`);
   }
   const tag = node.tag ? node.tag : tagObj.default ? null : tagObj.tag;
-  if (tag)
+  if (tag) {
     props.push(doc.directives.tagString(tag));
+  }
   return props.join(" ");
 }
 function stringify(item, ctx, onComment, onChompKeep) {
   var _a, _b;
-  if (isPair(item))
+  if (isPair(item)) {
     return item.toString(ctx, onComment, onChompKeep);
+  }
   if (isAlias(item)) {
-    if (ctx.doc.directives)
+    if (ctx.doc.directives) {
       return item.toString(ctx);
+    }
     if ((_a = ctx.resolvedAliases) == null ? void 0 : _a.has(item)) {
-      throw new TypeError(`Cannot stringify circular structure without alias nodes`);
+      throw new TypeError(
+        `Cannot stringify circular structure without alias nodes`,
+      );
     } else {
-      if (ctx.resolvedAliases)
+      if (ctx.resolvedAliases) {
         ctx.resolvedAliases.add(item);
-      else
+      } else {
         ctx.resolvedAliases = /* @__PURE__ */ new Set([item]);
+      }
       item = item.resolve(ctx.doc);
     }
   }
   let tagObj = void 0;
-  const node = isNode(item) ? item : ctx.doc.createNode(item, { onTagObj: (o6) => tagObj = o6 });
-  if (!tagObj)
+  const node = isNode(item)
+    ? item
+    : ctx.doc.createNode(item, { onTagObj: (o6) => tagObj = o6 });
+  if (!tagObj) {
     tagObj = getTagObject(ctx.doc.schema.tags, node);
+  }
   const props = stringifyProps(node, tagObj, ctx);
-  if (props.length > 0)
-    ctx.indentAtStart = ((_b = ctx.indentAtStart) != null ? _b : 0) + props.length + 1;
-  const str = typeof tagObj.stringify === "function" ? tagObj.stringify(node, ctx, onComment, onChompKeep) : isScalar(node) ? stringifyString(node, ctx, onComment, onChompKeep) : node.toString(ctx, onComment, onChompKeep);
-  if (!props)
+  if (props.length > 0) {
+    ctx.indentAtStart = ((_b = ctx.indentAtStart) != null ? _b : 0) +
+      props.length + 1;
+  }
+  const str = typeof tagObj.stringify === "function"
+    ? tagObj.stringify(node, ctx, onComment, onChompKeep)
+    : isScalar(node)
+    ? stringifyString(node, ctx, onComment, onChompKeep)
+    : node.toString(ctx, onComment, onChompKeep);
+  if (!props) {
     return str;
-  return isScalar(node) || str[0] === "{" || str[0] === "[" ? `${props} ${str}` : `${props}
+  }
+  return isScalar(node) || str[0] === "{" || str[0] === "["
+    ? `${props} ${str}`
+    : `${props}
 ${ctx.indent}${str}`;
 }
 
 // node_modules/yaml/browser/dist/stringify/stringifyPair.js
 function stringifyPair({ key, value }, ctx, onComment, onChompKeep) {
-  const { allNullValues, doc, indent, indentStep, options: { commentString, indentSeq, simpleKeys } } = ctx;
+  const {
+    allNullValues,
+    doc,
+    indent,
+    indentStep,
+    options: { commentString, indentSeq, simpleKeys },
+  } = ctx;
   let keyComment = isNode(key) && key.comment || null;
   if (simpleKeys) {
     if (keyComment) {
@@ -13329,51 +16847,69 @@ function stringifyPair({ key, value }, ctx, onComment, onChompKeep) {
       throw new Error(msg);
     }
   }
-  let explicitKey = !simpleKeys && (!key || keyComment && value == null && !ctx.inFlow || isCollection(key) || (isScalar(key) ? key.type === Scalar.BLOCK_FOLDED || key.type === Scalar.BLOCK_LITERAL : typeof key === "object"));
+  let explicitKey = !simpleKeys &&
+    (!key || keyComment && value == null && !ctx.inFlow || isCollection(key) ||
+      (isScalar(key)
+        ? key.type === Scalar.BLOCK_FOLDED || key.type === Scalar.BLOCK_LITERAL
+        : typeof key === "object"));
   ctx = Object.assign({}, ctx, {
     allNullValues: false,
     implicitKey: !explicitKey && (simpleKeys || !allNullValues),
-    indent: indent + indentStep
+    indent: indent + indentStep,
   });
   let keyCommentDone = false;
   let chompKeep = false;
-  let str = stringify(key, ctx, () => keyCommentDone = true, () => chompKeep = true);
+  let str = stringify(
+    key,
+    ctx,
+    () => keyCommentDone = true,
+    () => chompKeep = true,
+  );
   if (!explicitKey && !ctx.inFlow && str.length > 1024) {
-    if (simpleKeys)
-      throw new Error("With simple keys, single line scalar must not span more than 1024 characters");
+    if (simpleKeys) {
+      throw new Error(
+        "With simple keys, single line scalar must not span more than 1024 characters",
+      );
+    }
     explicitKey = true;
   }
   if (ctx.inFlow) {
     if (allNullValues || value == null) {
-      if (keyCommentDone && onComment)
+      if (keyCommentDone && onComment) {
         onComment();
+      }
       return str === "" ? "?" : explicitKey ? `? ${str}` : str;
     }
   } else if (allNullValues && !simpleKeys || value == null && explicitKey) {
     str = `? ${str}`;
     if (keyComment && !keyCommentDone) {
       str += lineComment(str, ctx.indent, commentString(keyComment));
-    } else if (chompKeep && onChompKeep)
+    } else if (chompKeep && onChompKeep) {
       onChompKeep();
+    }
     return str;
   }
-  if (keyCommentDone)
+  if (keyCommentDone) {
     keyComment = null;
+  }
   if (explicitKey) {
-    if (keyComment)
+    if (keyComment) {
       str += lineComment(str, ctx.indent, commentString(keyComment));
+    }
     str = `? ${str}
 ${indent}:`;
   } else {
     str = `${str}:`;
-    if (keyComment)
+    if (keyComment) {
       str += lineComment(str, ctx.indent, commentString(keyComment));
+    }
   }
   let vcb = "";
   let valueComment = null;
   if (isNode(value)) {
-    if (value.spaceBefore)
+    if (value.spaceBefore) {
       vcb = "\n";
+    }
     if (value.commentBefore) {
       const cs = commentString(value.commentBefore);
       vcb += `
@@ -13384,32 +16920,45 @@ ${indentComment(cs, ctx.indent)}`;
     value = doc.createNode(value);
   }
   ctx.implicitKey = false;
-  if (!explicitKey && !keyComment && isScalar(value))
+  if (!explicitKey && !keyComment && isScalar(value)) {
     ctx.indentAtStart = str.length + 1;
+  }
   chompKeep = false;
-  if (!indentSeq && indentStep.length >= 2 && !ctx.inFlow && !explicitKey && isSeq(value) && !value.flow && !value.tag && !value.anchor) {
+  if (
+    !indentSeq && indentStep.length >= 2 && !ctx.inFlow && !explicitKey &&
+    isSeq(value) && !value.flow && !value.tag && !value.anchor
+  ) {
     ctx.indent = ctx.indent.substr(2);
   }
   let valueCommentDone = false;
-  const valueStr = stringify(value, ctx, () => valueCommentDone = true, () => chompKeep = true);
+  const valueStr = stringify(
+    value,
+    ctx,
+    () => valueCommentDone = true,
+    () => chompKeep = true,
+  );
   let ws = " ";
   if (vcb || keyComment) {
-    if (valueStr === "" && !ctx.inFlow)
+    if (valueStr === "" && !ctx.inFlow) {
       ws = vcb === "\n" ? "\n\n" : vcb;
-    else
+    } else {
       ws = `${vcb}
 ${ctx.indent}`;
+    }
   } else if (!explicitKey && isCollection(value)) {
     const flow = valueStr[0] === "[" || valueStr[0] === "{";
-    if (!flow || valueStr.includes("\n"))
+    if (!flow || valueStr.includes("\n")) {
       ws = `
 ${ctx.indent}`;
-  } else if (valueStr === "" || valueStr[0] === "\n")
+    }
+  } else if (valueStr === "" || valueStr[0] === "\n") {
     ws = "";
+  }
   str += ws + valueStr;
   if (ctx.inFlow) {
-    if (valueCommentDone && onComment)
+    if (valueCommentDone && onComment) {
       onComment();
+    }
   } else if (valueComment && !valueCommentDone) {
     str += lineComment(str, ctx.indent, commentString(valueComment));
   } else if (chompKeep && onChompKeep) {
@@ -13421,10 +16970,11 @@ ${ctx.indent}`;
 // node_modules/yaml/browser/dist/log.js
 function warn(logLevel, warning) {
   if (logLevel === "debug" || logLevel === "warn") {
-    if (typeof process !== "undefined" && process.emitWarning)
+    if (typeof process !== "undefined" && process.emitWarning) {
       process.emitWarning(warning);
-    else
+    } else {
       console.warn(warning);
+    }
   }
 }
 
@@ -13433,14 +16983,17 @@ var MERGE_KEY = "<<";
 function addPairToJSMap(ctx, map2, { key, value }) {
   if ((ctx == null ? void 0 : ctx.doc.schema.merge) && isMergeKey(key)) {
     value = isAlias(value) ? value.resolve(ctx.doc) : value;
-    if (isSeq(value))
-      for (const it of value.items)
+    if (isSeq(value)) {
+      for (const it of value.items) {
         mergeToJSMap(ctx, map2, it);
-    else if (Array.isArray(value))
-      for (const it of value)
+      }
+    } else if (Array.isArray(value)) {
+      for (const it of value) {
         mergeToJSMap(ctx, map2, it);
-    else
+      }
+    } else {
       mergeToJSMap(ctx, map2, value);
+    }
   } else {
     const jsKey = toJS(key, "", ctx);
     if (map2 instanceof Map) {
@@ -13450,29 +17003,35 @@ function addPairToJSMap(ctx, map2, { key, value }) {
     } else {
       const stringKey = stringifyKey(key, jsKey, ctx);
       const jsValue = toJS(value, stringKey, ctx);
-      if (stringKey in map2)
+      if (stringKey in map2) {
         Object.defineProperty(map2, stringKey, {
           value: jsValue,
           writable: true,
           enumerable: true,
-          configurable: true
+          configurable: true,
         });
-      else
+      } else {
         map2[stringKey] = jsValue;
+      }
     }
   }
   return map2;
 }
-var isMergeKey = (key) => key === MERGE_KEY || isScalar(key) && key.value === MERGE_KEY && (!key.type || key.type === Scalar.PLAIN);
+var isMergeKey = (key) =>
+  key === MERGE_KEY ||
+  isScalar(key) && key.value === MERGE_KEY &&
+    (!key.type || key.type === Scalar.PLAIN);
 function mergeToJSMap(ctx, map2, value) {
   const source = ctx && isAlias(value) ? value.resolve(ctx.doc) : value;
-  if (!isMap(source))
+  if (!isMap(source)) {
     throw new Error("Merge sources must be maps or map aliases");
+  }
   const srcMap = source.toJSON(null, ctx, Map);
   for (const [key, value2] of srcMap) {
     if (map2 instanceof Map) {
-      if (!map2.has(key))
+      if (!map2.has(key)) {
         map2.set(key, value2);
+      }
     } else if (map2 instanceof Set) {
       map2.add(key);
     } else if (!Object.prototype.hasOwnProperty.call(map2, key)) {
@@ -13480,30 +17039,37 @@ function mergeToJSMap(ctx, map2, value) {
         value: value2,
         writable: true,
         enumerable: true,
-        configurable: true
+        configurable: true,
       });
     }
   }
   return map2;
 }
 function stringifyKey(key, jsKey, ctx) {
-  if (jsKey === null)
+  if (jsKey === null) {
     return "";
-  if (typeof jsKey !== "object")
+  }
+  if (typeof jsKey !== "object") {
     return String(jsKey);
+  }
   if (isNode(key) && ctx && ctx.doc) {
     const strCtx = createStringifyContext(ctx.doc, {});
     strCtx.anchors = /* @__PURE__ */ new Set();
-    for (const node of ctx.anchors.keys())
+    for (const node of ctx.anchors.keys()) {
       strCtx.anchors.add(node.anchor);
+    }
     strCtx.inFlow = true;
     strCtx.inStringifyKey = true;
     const strKey = key.toString(strCtx);
     if (!ctx.mapKeyWarned) {
       let jsonStr = JSON.stringify(strKey);
-      if (jsonStr.length > 40)
+      if (jsonStr.length > 40) {
         jsonStr = jsonStr.substring(0, 36) + '..."';
-      warn(ctx.doc.options.logLevel, `Keys with collection values will be stringified due to JS Object restrictions: ${jsonStr}. Set mapAsMap: true to use object keys.`);
+      }
+      warn(
+        ctx.doc.options.logLevel,
+        `Keys with collection values will be stringified due to JS Object restrictions: ${jsonStr}. Set mapAsMap: true to use object keys.`,
+      );
       ctx.mapKeyWarned = true;
     }
     return strKey;
@@ -13525,18 +17091,24 @@ var Pair = class {
   }
   clone(schema4) {
     let { key, value } = this;
-    if (isNode(key))
+    if (isNode(key)) {
       key = key.clone(schema4);
-    if (isNode(value))
+    }
+    if (isNode(value)) {
       value = value.clone(schema4);
+    }
     return new Pair(key, value);
   }
   toJSON(_2, ctx) {
-    const pair = (ctx == null ? void 0 : ctx.mapAsMap) ? /* @__PURE__ */ new Map() : {};
+    const pair = (ctx == null ? void 0 : ctx.mapAsMap)
+      ? /* @__PURE__ */ new Map()
+      : {};
     return addPairToJSMap(ctx, pair, this);
   }
   toString(ctx, onComment, onChompKeep) {
-    return (ctx == null ? void 0 : ctx.doc) ? stringifyPair(this, ctx, onComment, onChompKeep) : JSON.stringify(this);
+    return (ctx == null ? void 0 : ctx.doc)
+      ? stringifyPair(this, ctx, onComment, onChompKeep)
+      : JSON.stringify(this);
   }
 };
 
@@ -13547,7 +17119,11 @@ function stringifyCollection(collection, ctx, options) {
   const stringify4 = flow ? stringifyFlowCollection : stringifyBlockCollection;
   return stringify4(collection, ctx, options);
 }
-function stringifyBlockCollection({ comment, items }, ctx, { blockItemPrefix, flowChars, itemIndent, onChompKeep, onComment }) {
+function stringifyBlockCollection(
+  { comment, items },
+  ctx,
+  { blockItemPrefix, flowChars, itemIndent, onChompKeep, onComment },
+) {
   const { indent, options: { commentString } } = ctx;
   const itemCtx = Object.assign({}, ctx, { indent: itemIndent, type: null });
   let chompKeep = false;
@@ -13556,25 +17132,35 @@ function stringifyBlockCollection({ comment, items }, ctx, { blockItemPrefix, fl
     const item = items[i4];
     let comment2 = null;
     if (isNode(item)) {
-      if (!chompKeep && item.spaceBefore)
+      if (!chompKeep && item.spaceBefore) {
         lines.push("");
+      }
       addCommentBefore(ctx, lines, item.commentBefore, chompKeep);
-      if (item.comment)
+      if (item.comment) {
         comment2 = item.comment;
+      }
     } else if (isPair(item)) {
       const ik = isNode(item.key) ? item.key : null;
       if (ik) {
-        if (!chompKeep && ik.spaceBefore)
+        if (!chompKeep && ik.spaceBefore) {
           lines.push("");
+        }
         addCommentBefore(ctx, lines, ik.commentBefore, chompKeep);
       }
     }
     chompKeep = false;
-    let str2 = stringify(item, itemCtx, () => comment2 = null, () => chompKeep = true);
-    if (comment2)
+    let str2 = stringify(
+      item,
+      itemCtx,
+      () => comment2 = null,
+      () => chompKeep = true,
+    );
+    if (comment2) {
       str2 += lineComment(str2, itemIndent, commentString(comment2));
-    if (chompKeep && comment2)
+    }
+    if (chompKeep && comment2) {
       chompKeep = false;
+    }
     lines.push(blockItemPrefix + str2);
   }
   let str;
@@ -13584,25 +17170,33 @@ function stringifyBlockCollection({ comment, items }, ctx, { blockItemPrefix, fl
     str = lines[0];
     for (let i4 = 1; i4 < lines.length; ++i4) {
       const line = lines[i4];
-      str += line ? `
-${indent}${line}` : "\n";
+      str += line
+        ? `
+${indent}${line}`
+        : "\n";
     }
   }
   if (comment) {
     str += "\n" + indentComment(commentString(comment), indent);
-    if (onComment)
+    if (onComment) {
       onComment();
-  } else if (chompKeep && onChompKeep)
+    }
+  } else if (chompKeep && onChompKeep) {
     onChompKeep();
+  }
   return str;
 }
-function stringifyFlowCollection({ comment, items }, ctx, { flowChars, itemIndent, onComment }) {
+function stringifyFlowCollection(
+  { comment, items },
+  ctx,
+  { flowChars, itemIndent, onComment },
+) {
   const { indent, indentStep, options: { commentString } } = ctx;
   itemIndent += indentStep;
   const itemCtx = Object.assign({}, ctx, {
     indent: itemIndent,
     inFlow: true,
-    type: null
+    type: null,
   });
   let reqNewline = false;
   let linesAtValue = 0;
@@ -13611,39 +17205,49 @@ function stringifyFlowCollection({ comment, items }, ctx, { flowChars, itemInden
     const item = items[i4];
     let comment2 = null;
     if (isNode(item)) {
-      if (item.spaceBefore)
+      if (item.spaceBefore) {
         lines.push("");
+      }
       addCommentBefore(ctx, lines, item.commentBefore, false);
-      if (item.comment)
+      if (item.comment) {
         comment2 = item.comment;
+      }
     } else if (isPair(item)) {
       const ik = isNode(item.key) ? item.key : null;
       if (ik) {
-        if (ik.spaceBefore)
+        if (ik.spaceBefore) {
           lines.push("");
+        }
         addCommentBefore(ctx, lines, ik.commentBefore, false);
-        if (ik.comment)
+        if (ik.comment) {
           reqNewline = true;
+        }
       }
       const iv = isNode(item.value) ? item.value : null;
       if (iv) {
-        if (iv.comment)
+        if (iv.comment) {
           comment2 = iv.comment;
-        if (iv.commentBefore)
+        }
+        if (iv.commentBefore) {
           reqNewline = true;
+        }
       } else if (item.value == null && ik && ik.comment) {
         comment2 = ik.comment;
       }
     }
-    if (comment2)
+    if (comment2) {
       reqNewline = true;
+    }
     let str2 = stringify(item, itemCtx, () => comment2 = null);
-    if (i4 < items.length - 1)
+    if (i4 < items.length - 1) {
       str2 += ",";
-    if (comment2)
+    }
+    if (comment2) {
       str2 += lineComment(str2, itemIndent, commentString(comment2));
-    if (!reqNewline && (lines.length > linesAtValue || str2.includes("\n")))
+    }
+    if (!reqNewline && (lines.length > linesAtValue || str2.includes("\n"))) {
       reqNewline = true;
+    }
     lines.push(str2);
     linesAtValue = lines.length;
   }
@@ -13658,9 +17262,12 @@ function stringifyFlowCollection({ comment, items }, ctx, { flowChars, itemInden
     }
     if (reqNewline) {
       str = start;
-      for (const line of lines)
-        str += line ? `
-${indentStep}${indent}${line}` : "\n";
+      for (const line of lines) {
+        str += line
+          ? `
+${indentStep}${indent}${line}`
+          : "\n";
+      }
       str += `
 ${indent}${end}`;
     } else {
@@ -13669,14 +17276,21 @@ ${indent}${end}`;
   }
   if (comment) {
     str += lineComment(str, commentString(comment), indent);
-    if (onComment)
+    if (onComment) {
       onComment();
+    }
   }
   return str;
 }
-function addCommentBefore({ indent, options: { commentString } }, lines, comment, chompKeep) {
-  if (comment && chompKeep)
+function addCommentBefore(
+  { indent, options: { commentString } },
+  lines,
+  comment,
+  chompKeep,
+) {
+  if (comment && chompKeep) {
     comment = comment.replace(/^\n+/, "");
+  }
   if (comment) {
     const ic = indentComment(commentString(comment), indent);
     lines.push(ic.trimStart());
@@ -13688,10 +17302,12 @@ function findPair(items, key) {
   const k2 = isScalar(key) ? key.value : key;
   for (const it of items) {
     if (isPair(it)) {
-      if (it.key === key || it.key === k2)
+      if (it.key === key || it.key === k2) {
         return it;
-      if (isScalar(it.key) && it.key.value === k2)
+      }
+      if (isScalar(it.key) && it.key.value === k2) {
         return it;
+      }
     }
   }
   return void 0;
@@ -13707,35 +17323,40 @@ var YAMLMap = class extends Collection {
   add(pair, overwrite) {
     var _a;
     let _pair;
-    if (isPair(pair))
+    if (isPair(pair)) {
       _pair = pair;
-    else if (!pair || typeof pair !== "object" || !("key" in pair)) {
+    } else if (!pair || typeof pair !== "object" || !("key" in pair)) {
       _pair = new Pair(pair, pair == null ? void 0 : pair.value);
-    } else
+    } else {
       _pair = new Pair(pair.key, pair.value);
+    }
     const prev = findPair(this.items, _pair.key);
     const sortEntries = (_a = this.schema) == null ? void 0 : _a.sortMapEntries;
     if (prev) {
-      if (!overwrite)
+      if (!overwrite) {
         throw new Error(`Key ${_pair.key} already set`);
-      if (isScalar(prev.value) && isScalarValue(_pair.value))
+      }
+      if (isScalar(prev.value) && isScalarValue(_pair.value)) {
         prev.value.value = _pair.value;
-      else
+      } else {
         prev.value = _pair.value;
+      }
     } else if (sortEntries) {
       const i4 = this.items.findIndex((item) => sortEntries(_pair, item) < 0);
-      if (i4 === -1)
+      if (i4 === -1) {
         this.items.push(_pair);
-      else
+      } else {
         this.items.splice(i4, 0, _pair);
+      }
     } else {
       this.items.push(_pair);
     }
   }
   delete(key) {
     const it = findPair(this.items, key);
-    if (!it)
+    if (!it) {
       return false;
+    }
     const del = this.items.splice(this.items.indexOf(it), 1);
     return del.length > 0;
   }
@@ -13743,7 +17364,9 @@ var YAMLMap = class extends Collection {
     var _a;
     const it = findPair(this.items, key);
     const node = it == null ? void 0 : it.value;
-    return (_a = !keepScalar && isScalar(node) ? node.value : node) != null ? _a : void 0;
+    return (_a = !keepScalar && isScalar(node) ? node.value : node) != null
+      ? _a
+      : void 0;
   }
   has(key) {
     return !!findPair(this.items, key);
@@ -13752,28 +17375,39 @@ var YAMLMap = class extends Collection {
     this.add(new Pair(key, value), true);
   }
   toJSON(_2, ctx, Type) {
-    const map2 = Type ? new Type() : (ctx == null ? void 0 : ctx.mapAsMap) ? /* @__PURE__ */ new Map() : {};
-    if (ctx == null ? void 0 : ctx.onCreate)
+    const map2 = Type
+      ? new Type()
+      : (ctx == null ? void 0 : ctx.mapAsMap)
+      ? /* @__PURE__ */ new Map()
+      : {};
+    if (ctx == null ? void 0 : ctx.onCreate) {
       ctx.onCreate(map2);
-    for (const item of this.items)
+    }
+    for (const item of this.items) {
       addPairToJSMap(ctx, map2, item);
+    }
     return map2;
   }
   toString(ctx, onComment, onChompKeep) {
-    if (!ctx)
+    if (!ctx) {
       return JSON.stringify(this);
-    for (const item of this.items) {
-      if (!isPair(item))
-        throw new Error(`Map items must all be pairs; found ${JSON.stringify(item)} instead`);
     }
-    if (!ctx.allNullValues && this.hasAllNullValues(false))
+    for (const item of this.items) {
+      if (!isPair(item)) {
+        throw new Error(
+          `Map items must all be pairs; found ${JSON.stringify(item)} instead`,
+        );
+      }
+    }
+    if (!ctx.allNullValues && this.hasAllNullValues(false)) {
       ctx = Object.assign({}, ctx, { allNullValues: true });
+    }
     return stringifyCollection(this, ctx, {
       blockItemPrefix: "",
       flowChars: { start: "{", end: "}" },
       itemIndent: ctx.indent || "",
       onChompKeep,
-      onComment
+      onComment,
     });
   }
 };
@@ -13783,19 +17417,23 @@ function createMap(schema4, obj, ctx) {
   const { keepUndefined, replacer } = ctx;
   const map2 = new YAMLMap(schema4);
   const add = (key, value) => {
-    if (typeof replacer === "function")
+    if (typeof replacer === "function") {
       value = replacer.call(obj, key, value);
-    else if (Array.isArray(replacer) && !replacer.includes(key))
+    } else if (Array.isArray(replacer) && !replacer.includes(key)) {
       return;
-    if (value !== void 0 || keepUndefined)
+    }
+    if (value !== void 0 || keepUndefined) {
       map2.items.push(createPair(key, value, ctx));
+    }
   };
   if (obj instanceof Map) {
-    for (const [key, value] of obj)
+    for (const [key, value] of obj) {
       add(key, value);
+    }
   } else if (obj && typeof obj === "object") {
-    for (const key of Object.keys(obj))
+    for (const key of Object.keys(obj)) {
       add(key, obj[key]);
+    }
   }
   if (typeof schema4.sortMapEntries === "function") {
     map2.items.sort(schema4.sortMapEntries);
@@ -13809,10 +17447,11 @@ var map = {
   nodeClass: YAMLMap,
   tag: "tag:yaml.org,2002:map",
   resolve(map2, onError) {
-    if (!isMap(map2))
+    if (!isMap(map2)) {
       onError("Expected a mapping for this tag");
+    }
     return map2;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/nodes/YAMLSeq.js
@@ -13829,15 +17468,17 @@ var YAMLSeq = class extends Collection {
   }
   delete(key) {
     const idx = asItemIndex(key);
-    if (typeof idx !== "number")
+    if (typeof idx !== "number") {
       return false;
+    }
     const del = this.items.splice(idx, 1);
     return del.length > 0;
   }
   get(key, keepScalar) {
     const idx = asItemIndex(key);
-    if (typeof idx !== "number")
+    if (typeof idx !== "number") {
       return void 0;
+    }
     const it = this.items[idx];
     return !keepScalar && isScalar(it) ? it.value : it;
   }
@@ -13847,40 +17488,48 @@ var YAMLSeq = class extends Collection {
   }
   set(key, value) {
     const idx = asItemIndex(key);
-    if (typeof idx !== "number")
+    if (typeof idx !== "number") {
       throw new Error(`Expected a valid index, not ${key}.`);
+    }
     const prev = this.items[idx];
-    if (isScalar(prev) && isScalarValue(value))
+    if (isScalar(prev) && isScalarValue(value)) {
       prev.value = value;
-    else
+    } else {
       this.items[idx] = value;
+    }
   }
   toJSON(_2, ctx) {
     const seq2 = [];
-    if (ctx == null ? void 0 : ctx.onCreate)
+    if (ctx == null ? void 0 : ctx.onCreate) {
       ctx.onCreate(seq2);
+    }
     let i4 = 0;
-    for (const item of this.items)
+    for (const item of this.items) {
       seq2.push(toJS(item, String(i4++), ctx));
+    }
     return seq2;
   }
   toString(ctx, onComment, onChompKeep) {
-    if (!ctx)
+    if (!ctx) {
       return JSON.stringify(this);
+    }
     return stringifyCollection(this, ctx, {
       blockItemPrefix: "- ",
       flowChars: { start: "[", end: "]" },
       itemIndent: (ctx.indent || "") + "  ",
       onChompKeep,
-      onComment
+      onComment,
     });
   }
 };
 function asItemIndex(key) {
   let idx = isScalar(key) ? key.value : key;
-  if (idx && typeof idx === "string")
+  if (idx && typeof idx === "string") {
     idx = Number(idx);
-  return typeof idx === "number" && Number.isInteger(idx) && idx >= 0 ? idx : null;
+  }
+  return typeof idx === "number" && Number.isInteger(idx) && idx >= 0
+    ? idx
+    : null;
 }
 
 // node_modules/yaml/browser/dist/schema/common/seq.js
@@ -13906,10 +17555,11 @@ var seq = {
   nodeClass: YAMLSeq,
   tag: "tag:yaml.org,2002:seq",
   resolve(seq2, onError) {
-    if (!isSeq(seq2))
+    if (!isSeq(seq2)) {
       onError("Expected a sequence for this tag");
+    }
     return seq2;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/common/string.js
@@ -13921,7 +17571,7 @@ var string = {
   stringify(item, ctx, onComment, onChompKeep) {
     ctx = Object.assign({ actualString: true }, ctx);
     return stringifyString(item, ctx, onComment, onChompKeep);
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/common/null.js
@@ -13932,7 +17582,10 @@ var nullTag = {
   tag: "tag:yaml.org,2002:null",
   test: /^(?:~|[Nn]ull|NULL)?$/,
   resolve: () => new Scalar(null),
-  stringify: ({ source }, ctx) => typeof source === "string" && nullTag.test.test(source) ? source : ctx.options.nullStr
+  stringify: ({ source }, ctx) =>
+    typeof source === "string" && nullTag.test.test(source)
+      ? source
+      : ctx.options.nullStr,
 };
 
 // node_modules/yaml/browser/dist/schema/core/bool.js
@@ -13945,30 +17598,37 @@ var boolTag = {
   stringify({ source, value }, ctx) {
     if (source && boolTag.test.test(source)) {
       const sv = source[0] === "t" || source[0] === "T";
-      if (value === sv)
+      if (value === sv) {
         return source;
+      }
     }
     return value ? ctx.options.trueStr : ctx.options.falseStr;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/stringify/stringifyNumber.js
 function stringifyNumber({ format, minFractionDigits, tag, value }) {
-  if (typeof value === "bigint")
+  if (typeof value === "bigint") {
     return String(value);
+  }
   const num = typeof value === "number" ? value : Number(value);
-  if (!isFinite(num))
+  if (!isFinite(num)) {
     return isNaN(num) ? ".nan" : num < 0 ? "-.inf" : ".inf";
+  }
   let n6 = JSON.stringify(value);
-  if (!format && minFractionDigits && (!tag || tag === "tag:yaml.org,2002:float") && /^\d/.test(n6)) {
+  if (
+    !format && minFractionDigits &&
+    (!tag || tag === "tag:yaml.org,2002:float") && /^\d/.test(n6)
+  ) {
     let i4 = n6.indexOf(".");
     if (i4 < 0) {
       i4 = n6.length;
       n6 += ".";
     }
     let d3 = minFractionDigits - (n6.length - i4 - 1);
-    while (d3-- > 0)
+    while (d3-- > 0) {
       n6 += "0";
+    }
   }
   return n6;
 }
@@ -13979,8 +17639,13 @@ var floatNaN = {
   default: true,
   tag: "tag:yaml.org,2002:float",
   test: /^(?:[-+]?\.(?:inf|Inf|INF|nan|NaN|NAN))$/,
-  resolve: (str) => str.slice(-3).toLowerCase() === "nan" ? NaN : str[0] === "-" ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY,
-  stringify: stringifyNumber
+  resolve: (str) =>
+    str.slice(-3).toLowerCase() === "nan"
+      ? NaN
+      : str[0] === "-"
+      ? Number.NEGATIVE_INFINITY
+      : Number.POSITIVE_INFINITY,
+  stringify: stringifyNumber,
 };
 var floatExp = {
   identify: (value) => typeof value === "number",
@@ -13992,7 +17657,7 @@ var floatExp = {
   stringify(node) {
     const num = Number(node.value);
     return isFinite(num) ? num.toExponential() : stringifyNumber(node);
-  }
+  },
 };
 var float = {
   identify: (value) => typeof value === "number",
@@ -14002,20 +17667,24 @@ var float = {
   resolve(str) {
     const node = new Scalar(parseFloat(str));
     const dot = str.indexOf(".");
-    if (dot !== -1 && str[str.length - 1] === "0")
+    if (dot !== -1 && str[str.length - 1] === "0") {
       node.minFractionDigits = str.length - dot - 1;
+    }
     return node;
   },
-  stringify: stringifyNumber
+  stringify: stringifyNumber,
 };
 
 // node_modules/yaml/browser/dist/schema/core/int.js
-var intIdentify = (value) => typeof value === "bigint" || Number.isInteger(value);
-var intResolve = (str, offset, radix, { intAsBigInt }) => intAsBigInt ? BigInt(str) : parseInt(str.substring(offset), radix);
+var intIdentify = (value) =>
+  typeof value === "bigint" || Number.isInteger(value);
+var intResolve = (str, offset, radix, { intAsBigInt }) =>
+  intAsBigInt ? BigInt(str) : parseInt(str.substring(offset), radix);
 function intStringify(node, radix, prefix) {
   const { value } = node;
-  if (intIdentify(value) && value >= 0)
+  if (intIdentify(value) && value >= 0) {
     return prefix + value.toString(radix);
+  }
   return stringifyNumber(node);
 }
 var intOct = {
@@ -14025,7 +17694,7 @@ var intOct = {
   format: "OCT",
   test: /^0o[0-7]+$/,
   resolve: (str, _onError, opt) => intResolve(str, 2, 8, opt),
-  stringify: (node) => intStringify(node, 8, "0o")
+  stringify: (node) => intStringify(node, 8, "0o"),
 };
 var int = {
   identify: intIdentify,
@@ -14033,7 +17702,7 @@ var int = {
   tag: "tag:yaml.org,2002:int",
   test: /^[-+]?[0-9]+$/,
   resolve: (str, _onError, opt) => intResolve(str, 0, 10, opt),
-  stringify: stringifyNumber
+  stringify: stringifyNumber,
 };
 var intHex = {
   identify: (value) => intIdentify(value) && value >= 0,
@@ -14042,7 +17711,7 @@ var intHex = {
   format: "HEX",
   test: /^0x[0-9a-fA-F]+$/,
   resolve: (str, _onError, opt) => intResolve(str, 2, 16, opt),
-  stringify: (node) => intStringify(node, 16, "0x")
+  stringify: (node) => intStringify(node, 16, "0x"),
 };
 
 // node_modules/yaml/browser/dist/schema/core/schema.js
@@ -14057,7 +17726,7 @@ var schema = [
   intHex,
   floatNaN,
   floatExp,
-  float
+  float,
 ];
 
 // node_modules/yaml/browser/dist/schema/json/schema.js
@@ -14071,7 +17740,7 @@ var jsonScalars = [
     default: true,
     tag: "tag:yaml.org,2002:str",
     resolve: (str) => str,
-    stringify: stringifyJSON
+    stringify: stringifyJSON,
   },
   {
     identify: (value) => value == null,
@@ -14080,7 +17749,7 @@ var jsonScalars = [
     tag: "tag:yaml.org,2002:null",
     test: /^null$/,
     resolve: () => null,
-    stringify: stringifyJSON
+    stringify: stringifyJSON,
   },
   {
     identify: (value) => typeof value === "boolean",
@@ -14088,15 +17757,17 @@ var jsonScalars = [
     tag: "tag:yaml.org,2002:bool",
     test: /^true|false$/,
     resolve: (str) => str === "true",
-    stringify: stringifyJSON
+    stringify: stringifyJSON,
   },
   {
     identify: intIdentify2,
     default: true,
     tag: "tag:yaml.org,2002:int",
     test: /^-?(?:0|[1-9][0-9]*)$/,
-    resolve: (str, _onError, { intAsBigInt }) => intAsBigInt ? BigInt(str) : parseInt(str, 10),
-    stringify: ({ value }) => intIdentify2(value) ? value.toString() : JSON.stringify(value)
+    resolve: (str, _onError, { intAsBigInt }) =>
+      intAsBigInt ? BigInt(str) : parseInt(str, 10),
+    stringify: ({ value }) =>
+      intIdentify2(value) ? value.toString() : JSON.stringify(value),
   },
   {
     identify: (value) => typeof value === "number",
@@ -14104,8 +17775,8 @@ var jsonScalars = [
     tag: "tag:yaml.org,2002:float",
     test: /^-?(?:0|[1-9][0-9]*)(?:\.[0-9]*)?(?:[eE][-+]?[0-9]+)?$/,
     resolve: (str) => parseFloat(str),
-    stringify: stringifyJSON
-  }
+    stringify: stringifyJSON,
+  },
 ];
 var jsonError = {
   default: true,
@@ -14114,7 +17785,7 @@ var jsonError = {
   resolve(str, onError) {
     onError(`Unresolved plain scalar ${JSON.stringify(str)}`);
     return str;
-  }
+  },
 };
 var schema2 = [map, seq].concat(jsonScalars, jsonError);
 
@@ -14129,11 +17800,14 @@ var binary = {
     } else if (typeof atob === "function") {
       const str = atob(src.replace(/[\n\r]/g, ""));
       const buffer = new Uint8Array(str.length);
-      for (let i4 = 0; i4 < str.length; ++i4)
+      for (let i4 = 0; i4 < str.length; ++i4) {
         buffer[i4] = str.charCodeAt(i4);
+      }
       return buffer;
     } else {
-      onError("This environment does not support reading binary tags; either Buffer or atob is required");
+      onError(
+        "This environment does not support reading binary tags; either Buffer or atob is required",
+      );
       return src;
     }
   },
@@ -14141,19 +17815,28 @@ var binary = {
     const buf = value;
     let str;
     if (typeof Buffer === "function") {
-      str = buf instanceof Buffer ? buf.toString("base64") : Buffer.from(buf.buffer).toString("base64");
+      str = buf instanceof Buffer
+        ? buf.toString("base64")
+        : Buffer.from(buf.buffer).toString("base64");
     } else if (typeof btoa === "function") {
       let s5 = "";
-      for (let i4 = 0; i4 < buf.length; ++i4)
+      for (let i4 = 0; i4 < buf.length; ++i4) {
         s5 += String.fromCharCode(buf[i4]);
+      }
       str = btoa(s5);
     } else {
-      throw new Error("This environment does not support writing binary tags; either Buffer or btoa is required");
+      throw new Error(
+        "This environment does not support writing binary tags; either Buffer or btoa is required",
+      );
     }
-    if (!type)
+    if (!type) {
       type = Scalar.BLOCK_LITERAL;
+    }
     if (type !== Scalar.QUOTE_DOUBLE) {
-      const lineWidth = Math.max(ctx.options.lineWidth - ctx.indent.length, ctx.options.minContentWidth);
+      const lineWidth = Math.max(
+        ctx.options.lineWidth - ctx.indent.length,
+        ctx.options.minContentWidth,
+      );
       const n6 = Math.ceil(str.length / lineWidth);
       const lines = new Array(n6);
       for (let i4 = 0, o6 = 0; i4 < n6; ++i4, o6 += lineWidth) {
@@ -14161,8 +17844,13 @@ var binary = {
       }
       str = lines.join(type === Scalar.BLOCK_LITERAL ? "\n" : " ");
     }
-    return stringifyString({ comment, type, value: str }, ctx, onComment, onChompKeep);
-  }
+    return stringifyString(
+      { comment, type, value: str },
+      ctx,
+      onComment,
+      onChompKeep,
+    );
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/pairs.js
@@ -14171,26 +17859,33 @@ function resolvePairs(seq2, onError) {
   if (isSeq(seq2)) {
     for (let i4 = 0; i4 < seq2.items.length; ++i4) {
       let item = seq2.items[i4];
-      if (isPair(item))
+      if (isPair(item)) {
         continue;
-      else if (isMap(item)) {
-        if (item.items.length > 1)
+      } else if (isMap(item)) {
+        if (item.items.length > 1) {
           onError("Each pair must have its own sequence indicator");
+        }
         const pair = item.items[0] || new Pair(new Scalar(null));
-        if (item.commentBefore)
-          pair.key.commentBefore = pair.key.commentBefore ? `${item.commentBefore}
-${pair.key.commentBefore}` : item.commentBefore;
+        if (item.commentBefore) {
+          pair.key.commentBefore = pair.key.commentBefore
+            ? `${item.commentBefore}
+${pair.key.commentBefore}`
+            : item.commentBefore;
+        }
         if (item.comment) {
           const cn = (_a = pair.value) != null ? _a : pair.key;
-          cn.comment = cn.comment ? `${item.comment}
-${cn.comment}` : item.comment;
+          cn.comment = cn.comment
+            ? `${item.comment}
+${cn.comment}`
+            : item.comment;
         }
         item = pair;
       }
       seq2.items[i4] = isPair(item) ? item : new Pair(item);
     }
-  } else
+  } else {
     onError("Expected a sequence for this tag");
+  }
   return seq2;
 }
 function createPairs(schema4, iterable, ctx) {
@@ -14198,29 +17893,33 @@ function createPairs(schema4, iterable, ctx) {
   const pairs2 = new YAMLSeq(schema4);
   pairs2.tag = "tag:yaml.org,2002:pairs";
   let i4 = 0;
-  if (iterable && Symbol.iterator in Object(iterable))
+  if (iterable && Symbol.iterator in Object(iterable)) {
     for (let it of iterable) {
-      if (typeof replacer === "function")
+      if (typeof replacer === "function") {
         it = replacer.call(iterable, String(i4++), it);
+      }
       let key, value;
       if (Array.isArray(it)) {
         if (it.length === 2) {
           key = it[0];
           value = it[1];
-        } else
+        } else {
           throw new TypeError(`Expected [key, value] tuple: ${it}`);
+        }
       } else if (it && it instanceof Object) {
         const keys = Object.keys(it);
         if (keys.length === 1) {
           key = keys[0];
           value = it[key];
-        } else
+        } else {
           throw new TypeError(`Expected { key: value } tuple: ${it}`);
+        }
       } else {
         key = it;
       }
       pairs2.items.push(createPair(key, value, ctx));
     }
+  }
   return pairs2;
 }
 var pairs = {
@@ -14228,7 +17927,7 @@ var pairs = {
   default: false,
   tag: "tag:yaml.org,2002:pairs",
   resolve: resolvePairs,
-  createNode: createPairs
+  createNode: createPairs,
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/omap.js
@@ -14243,11 +17942,13 @@ var YAMLOMap = class extends YAMLSeq {
     this.tag = YAMLOMap.tag;
   }
   toJSON(_2, ctx) {
-    if (!ctx)
+    if (!ctx) {
       return super.toJSON(_2);
+    }
     const map2 = /* @__PURE__ */ new Map();
-    if (ctx == null ? void 0 : ctx.onCreate)
+    if (ctx == null ? void 0 : ctx.onCreate) {
       ctx.onCreate(map2);
+    }
     for (const pair of this.items) {
       let key, value;
       if (isPair(pair)) {
@@ -14256,8 +17957,9 @@ var YAMLOMap = class extends YAMLSeq {
       } else {
         key = toJS(pair, "", ctx);
       }
-      if (map2.has(key))
+      if (map2.has(key)) {
         throw new Error("Ordered maps must not include duplicate keys");
+      }
       map2.set(key, value);
     }
     return map2;
@@ -14289,14 +17991,15 @@ var omap = {
     const omap2 = new YAMLOMap();
     omap2.items = pairs2.items;
     return omap2;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/bool.js
 function boolStringify({ value, source }, ctx) {
   const boolObj = value ? trueTag : falseTag;
-  if (source && boolObj.test.test(source))
+  if (source && boolObj.test.test(source)) {
     return source;
+  }
   return value ? ctx.options.trueStr : ctx.options.falseStr;
 }
 var trueTag = {
@@ -14305,7 +18008,7 @@ var trueTag = {
   tag: "tag:yaml.org,2002:bool",
   test: /^(?:Y|y|[Yy]es|YES|[Tt]rue|TRUE|[Oo]n|ON)$/,
   resolve: () => new Scalar(true),
-  stringify: boolStringify
+  stringify: boolStringify,
 };
 var falseTag = {
   identify: (value) => value === false,
@@ -14313,7 +18016,7 @@ var falseTag = {
   tag: "tag:yaml.org,2002:bool",
   test: /^(?:N|n|[Nn]o|NO|[Ff]alse|FALSE|[Oo]ff|OFF)$/i,
   resolve: () => new Scalar(false),
-  stringify: boolStringify
+  stringify: boolStringify,
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/float.js
@@ -14322,8 +18025,13 @@ var floatNaN2 = {
   default: true,
   tag: "tag:yaml.org,2002:float",
   test: /^[-+]?\.(?:inf|Inf|INF|nan|NaN|NAN)$/,
-  resolve: (str) => str.slice(-3).toLowerCase() === "nan" ? NaN : str[0] === "-" ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY,
-  stringify: stringifyNumber
+  resolve: (str) =>
+    str.slice(-3).toLowerCase() === "nan"
+      ? NaN
+      : str[0] === "-"
+      ? Number.NEGATIVE_INFINITY
+      : Number.POSITIVE_INFINITY,
+  stringify: stringifyNumber,
 };
 var floatExp2 = {
   identify: (value) => typeof value === "number",
@@ -14335,7 +18043,7 @@ var floatExp2 = {
   stringify(node) {
     const num = Number(node.value);
     return isFinite(num) ? num.toExponential() : stringifyNumber(node);
-  }
+  },
 };
 var float2 = {
   identify: (value) => typeof value === "number",
@@ -14347,20 +18055,23 @@ var float2 = {
     const dot = str.indexOf(".");
     if (dot !== -1) {
       const f2 = str.substring(dot + 1).replace(/_/g, "");
-      if (f2[f2.length - 1] === "0")
+      if (f2[f2.length - 1] === "0") {
         node.minFractionDigits = f2.length;
+      }
     }
     return node;
   },
-  stringify: stringifyNumber
+  stringify: stringifyNumber,
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/int.js
-var intIdentify3 = (value) => typeof value === "bigint" || Number.isInteger(value);
+var intIdentify3 = (value) =>
+  typeof value === "bigint" || Number.isInteger(value);
 function intResolve2(str, offset, radix, { intAsBigInt }) {
   const sign = str[0];
-  if (sign === "-" || sign === "+")
+  if (sign === "-" || sign === "+") {
     offset += 1;
+  }
   str = str.substring(offset).replace(/_/g, "");
   if (intAsBigInt) {
     switch (radix) {
@@ -14395,7 +18106,7 @@ var intBin = {
   format: "BIN",
   test: /^[-+]?0b[0-1_]+$/,
   resolve: (str, _onError, opt) => intResolve2(str, 2, 2, opt),
-  stringify: (node) => intStringify2(node, 2, "0b")
+  stringify: (node) => intStringify2(node, 2, "0b"),
 };
 var intOct2 = {
   identify: intIdentify3,
@@ -14404,7 +18115,7 @@ var intOct2 = {
   format: "OCT",
   test: /^[-+]?0[0-7_]+$/,
   resolve: (str, _onError, opt) => intResolve2(str, 1, 8, opt),
-  stringify: (node) => intStringify2(node, 8, "0")
+  stringify: (node) => intStringify2(node, 8, "0"),
 };
 var int2 = {
   identify: intIdentify3,
@@ -14412,7 +18123,7 @@ var int2 = {
   tag: "tag:yaml.org,2002:int",
   test: /^[-+]?[0-9][0-9_]*$/,
   resolve: (str, _onError, opt) => intResolve2(str, 0, 10, opt),
-  stringify: stringifyNumber
+  stringify: stringifyNumber,
 };
 var intHex2 = {
   identify: intIdentify3,
@@ -14421,7 +18132,7 @@ var intHex2 = {
   format: "HEX",
   test: /^[-+]?0x[0-9a-fA-F_]+$/,
   resolve: (str, _onError, opt) => intResolve2(str, 2, 16, opt),
-  stringify: (node) => intStringify2(node, 16, "0x")
+  stringify: (node) => intStringify2(node, 16, "0x"),
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/set.js
@@ -14432,23 +18143,33 @@ var YAMLSet = class extends YAMLMap {
   }
   add(key) {
     let pair;
-    if (isPair(key))
+    if (isPair(key)) {
       pair = key;
-    else if (typeof key === "object" && "key" in key && "value" in key && key.value === null)
+    } else if (
+      typeof key === "object" && "key" in key && "value" in key &&
+      key.value === null
+    ) {
       pair = new Pair(key.key, null);
-    else
+    } else {
       pair = new Pair(key, null);
+    }
     const prev = findPair(this.items, pair.key);
-    if (!prev)
+    if (!prev) {
       this.items.push(pair);
+    }
   }
   get(key, keepPair) {
     const pair = findPair(this.items, key);
-    return !keepPair && isPair(pair) ? isScalar(pair.key) ? pair.key.value : pair.key : pair;
+    return !keepPair && isPair(pair)
+      ? isScalar(pair.key) ? pair.key.value : pair.key
+      : pair;
   }
   set(key, value) {
-    if (typeof value !== "boolean")
-      throw new Error(`Expected boolean value for set(key, value) in a YAML set, not ${typeof value}`);
+    if (typeof value !== "boolean") {
+      throw new Error(
+        `Expected boolean value for set(key, value) in a YAML set, not ${typeof value}`,
+      );
+    }
     const prev = findPair(this.items, key);
     if (prev && !value) {
       this.items.splice(this.items.indexOf(prev), 1);
@@ -14460,12 +18181,18 @@ var YAMLSet = class extends YAMLMap {
     return super.toJSON(_2, ctx, Set);
   }
   toString(ctx, onComment, onChompKeep) {
-    if (!ctx)
+    if (!ctx) {
       return JSON.stringify(this);
-    if (this.hasAllNullValues(true))
-      return super.toString(Object.assign({}, ctx, { allNullValues: true }), onComment, onChompKeep);
-    else
+    }
+    if (this.hasAllNullValues(true)) {
+      return super.toString(
+        Object.assign({}, ctx, { allNullValues: true }),
+        onComment,
+        onChompKeep,
+      );
+    } else {
       throw new Error("Set items must all have null values");
+    }
   }
 };
 YAMLSet.tag = "tag:yaml.org,2002:set";
@@ -14477,25 +18204,29 @@ var set = {
   tag: "tag:yaml.org,2002:set",
   resolve(map2, onError) {
     if (isMap(map2)) {
-      if (map2.hasAllNullValues(true))
+      if (map2.hasAllNullValues(true)) {
         return Object.assign(new YAMLSet(), map2);
-      else
+      } else {
         onError("Set items must all have null values");
-    } else
+      }
+    } else {
       onError("Expected a mapping for this tag");
+    }
     return map2;
   },
   createNode(schema4, iterable, ctx) {
     const { replacer } = ctx;
     const set2 = new YAMLSet(schema4);
-    if (iterable && Symbol.iterator in Object(iterable))
+    if (iterable && Symbol.iterator in Object(iterable)) {
       for (let value of iterable) {
-        if (typeof replacer === "function")
+        if (typeof replacer === "function") {
           value = replacer.call(iterable, value, value);
+        }
         set2.items.push(createPair(value, null, ctx));
       }
+    }
     return set2;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/timestamp.js
@@ -14503,16 +18234,20 @@ function parseSexagesimal(str, asBigInt) {
   const sign = str[0];
   const parts = sign === "-" || sign === "+" ? str.substring(1) : str;
   const num = (n6) => asBigInt ? BigInt(n6) : Number(n6);
-  const res = parts.replace(/_/g, "").split(":").reduce((res2, p2) => res2 * num(60) + num(p2), num(0));
+  const res = parts.replace(/_/g, "").split(":").reduce(
+    (res2, p2) => res2 * num(60) + num(p2),
+    num(0),
+  );
   return sign === "-" ? num(-1) * res : res;
 }
 function stringifySexagesimal(node) {
   let { value } = node;
   let num = (n6) => n6;
-  if (typeof value === "bigint")
+  if (typeof value === "bigint") {
     num = (n6) => BigInt(n6);
-  else if (isNaN(value) || !isFinite(value))
+  } else if (isNaN(value) || !isFinite(value)) {
     return stringifyNumber(node);
+  }
   let sign = "";
   if (value < 0) {
     sign = "-";
@@ -14530,7 +18265,9 @@ function stringifySexagesimal(node) {
       parts.unshift(value);
     }
   }
-  return sign + parts.map((n6) => n6 < 10 ? "0" + String(n6) : String(n6)).join(":").replace(/000000\d*$/, "");
+  return sign +
+    parts.map((n6) => n6 < 10 ? "0" + String(n6) : String(n6)).join(":")
+      .replace(/000000\d*$/, "");
 }
 var intTime = {
   identify: (value) => typeof value === "bigint" || Number.isInteger(value),
@@ -14538,8 +18275,9 @@ var intTime = {
   tag: "tag:yaml.org,2002:int",
   format: "TIME",
   test: /^[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+$/,
-  resolve: (str, _onError, { intAsBigInt }) => parseSexagesimal(str, intAsBigInt),
-  stringify: stringifySexagesimal
+  resolve: (str, _onError, { intAsBigInt }) =>
+    parseSexagesimal(str, intAsBigInt),
+  stringify: stringifySexagesimal,
 };
 var floatTime = {
   identify: (value) => typeof value === "number",
@@ -14548,30 +18286,43 @@ var floatTime = {
   format: "TIME",
   test: /^[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+\.[0-9_]*$/,
   resolve: (str) => parseSexagesimal(str, false),
-  stringify: stringifySexagesimal
+  stringify: stringifySexagesimal,
 };
 var timestamp = {
   identify: (value) => value instanceof Date,
   default: true,
   tag: "tag:yaml.org,2002:timestamp",
-  test: RegExp("^([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})(?:(?:t|T|[ \\t]+)([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}(\\.[0-9]+)?)(?:[ \\t]*(Z|[-+][012]?[0-9](?::[0-9]{2})?))?)?$"),
+  test: RegExp(
+    "^([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})(?:(?:t|T|[ \\t]+)([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}(\\.[0-9]+)?)(?:[ \\t]*(Z|[-+][012]?[0-9](?::[0-9]{2})?))?)?$",
+  ),
   resolve(str) {
     const match = str.match(timestamp.test);
-    if (!match)
+    if (!match) {
       throw new Error("!!timestamp expects a date, starting with yyyy-mm-dd");
+    }
     const [, year, month, day, hour, minute, second] = match.map(Number);
     const millisec = match[7] ? Number((match[7] + "00").substr(1, 3)) : 0;
-    let date = Date.UTC(year, month - 1, day, hour || 0, minute || 0, second || 0, millisec);
+    let date = Date.UTC(
+      year,
+      month - 1,
+      day,
+      hour || 0,
+      minute || 0,
+      second || 0,
+      millisec,
+    );
     const tz = match[8];
     if (tz && tz !== "Z") {
       let d3 = parseSexagesimal(tz, false);
-      if (Math.abs(d3) < 30)
+      if (Math.abs(d3) < 30) {
         d3 *= 60;
+      }
       date -= 6e4 * d3;
     }
     return new Date(date);
   },
-  stringify: ({ value }) => value.toISOString().replace(/((T00:00)?:00)?\.000Z$/, "")
+  stringify: ({ value }) =>
+    value.toISOString().replace(/((T00:00)?:00)?\.000Z$/, ""),
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/schema.js
@@ -14595,7 +18346,7 @@ var schema3 = [
   set,
   intTime,
   floatTime,
-  timestamp
+  timestamp,
 ];
 
 // node_modules/yaml/browser/dist/schema/tags.js
@@ -14604,7 +18355,7 @@ var schemas = /* @__PURE__ */ new Map([
   ["failsafe", [map, seq, string]],
   ["json", schema2],
   ["yaml11", schema3],
-  ["yaml-1.1", schema3]
+  ["yaml-1.1", schema3],
 ]);
 var tagsByName = {
   binary,
@@ -14623,47 +18374,70 @@ var tagsByName = {
   pairs,
   seq,
   set,
-  timestamp
+  timestamp,
 };
 var coreKnownTags = {
   "tag:yaml.org,2002:binary": binary,
   "tag:yaml.org,2002:omap": omap,
   "tag:yaml.org,2002:pairs": pairs,
   "tag:yaml.org,2002:set": set,
-  "tag:yaml.org,2002:timestamp": timestamp
+  "tag:yaml.org,2002:timestamp": timestamp,
 };
 function getTags(customTags, schemaName) {
   let tags = schemas.get(schemaName);
   if (!tags) {
-    if (Array.isArray(customTags))
+    if (Array.isArray(customTags)) {
       tags = [];
-    else {
-      const keys = Array.from(schemas.keys()).filter((key) => key !== "yaml11").map((key) => JSON.stringify(key)).join(", ");
-      throw new Error(`Unknown schema "${schemaName}"; use one of ${keys} or define customTags array`);
+    } else {
+      const keys = Array.from(schemas.keys()).filter((key) => key !== "yaml11")
+        .map((key) => JSON.stringify(key)).join(", ");
+      throw new Error(
+        `Unknown schema "${schemaName}"; use one of ${keys} or define customTags array`,
+      );
     }
   }
   if (Array.isArray(customTags)) {
-    for (const tag of customTags)
+    for (const tag of customTags) {
       tags = tags.concat(tag);
+    }
   } else if (typeof customTags === "function") {
     tags = customTags(tags.slice());
   }
   return tags.map((tag) => {
-    if (typeof tag !== "string")
+    if (typeof tag !== "string") {
       return tag;
+    }
     const tagObj = tagsByName[tag];
-    if (tagObj)
+    if (tagObj) {
       return tagObj;
-    const keys = Object.keys(tagsByName).map((key) => JSON.stringify(key)).join(", ");
+    }
+    const keys = Object.keys(tagsByName).map((key) => JSON.stringify(key)).join(
+      ", ",
+    );
     throw new Error(`Unknown custom tag "${tag}"; use one of ${keys}`);
   });
 }
 
 // node_modules/yaml/browser/dist/schema/Schema.js
-var sortMapEntriesByKey = (a3, b2) => a3.key < b2.key ? -1 : a3.key > b2.key ? 1 : 0;
+var sortMapEntriesByKey = (a3, b2) =>
+  a3.key < b2.key ? -1 : a3.key > b2.key ? 1 : 0;
 var Schema = class {
-  constructor({ compat, customTags, merge, resolveKnownTags, schema: schema4, sortMapEntries, toStringDefaults }) {
-    this.compat = Array.isArray(compat) ? getTags(compat, "compat") : compat ? getTags(null, compat) : null;
+  constructor(
+    {
+      compat,
+      customTags,
+      merge,
+      resolveKnownTags,
+      schema: schema4,
+      sortMapEntries,
+      toStringDefaults,
+    },
+  ) {
+    this.compat = Array.isArray(compat)
+      ? getTags(compat, "compat")
+      : compat
+      ? getTags(null, compat)
+      : null;
     this.merge = !!merge;
     this.name = typeof schema4 === "string" && schema4 || "core";
     this.knownTags = resolveKnownTags ? coreKnownTags : {};
@@ -14672,10 +18446,17 @@ var Schema = class {
     Object.defineProperty(this, MAP, { value: map });
     Object.defineProperty(this, SCALAR, { value: string });
     Object.defineProperty(this, SEQ, { value: seq });
-    this.sortMapEntries = typeof sortMapEntries === "function" ? sortMapEntries : sortMapEntries === true ? sortMapEntriesByKey : null;
+    this.sortMapEntries = typeof sortMapEntries === "function"
+      ? sortMapEntries
+      : sortMapEntries === true
+      ? sortMapEntriesByKey
+      : null;
   }
   clone() {
-    const copy = Object.create(Schema.prototype, Object.getOwnPropertyDescriptors(this));
+    const copy = Object.create(
+      Schema.prototype,
+      Object.getOwnPropertyDescriptors(this),
+    );
     copy.tags = this.tags.slice();
     return copy;
   }
@@ -14691,16 +18472,19 @@ function stringifyDocument(doc, options) {
     if (dir) {
       lines.push(dir);
       hasDirectives = true;
-    } else if (doc.directives.docStart)
+    } else if (doc.directives.docStart) {
       hasDirectives = true;
+    }
   }
-  if (hasDirectives)
+  if (hasDirectives) {
     lines.push("---");
+  }
   const ctx = createStringifyContext(doc, options);
   const { commentString } = ctx.options;
   if (doc.commentBefore) {
-    if (lines.length !== 1)
+    if (lines.length !== 1) {
       lines.unshift("");
+    }
     const cs = commentString(doc.commentBefore);
     lines.unshift(indentComment(cs, ""));
   }
@@ -14708,8 +18492,9 @@ function stringifyDocument(doc, options) {
   let contentComment = null;
   if (doc.contents) {
     if (isNode(doc.contents)) {
-      if (doc.contents.spaceBefore && hasDirectives)
+      if (doc.contents.spaceBefore && hasDirectives) {
         lines.push("");
+      }
       if (doc.contents.commentBefore) {
         const cs = commentString(doc.contents.commentBefore);
         lines.push(indentComment(cs, ""));
@@ -14718,13 +18503,22 @@ function stringifyDocument(doc, options) {
       contentComment = doc.contents.comment;
     }
     const onChompKeep = contentComment ? void 0 : () => chompKeep = true;
-    let body = stringify(doc.contents, ctx, () => contentComment = null, onChompKeep);
-    if (contentComment)
+    let body = stringify(
+      doc.contents,
+      ctx,
+      () => contentComment = null,
+      onChompKeep,
+    );
+    if (contentComment) {
       body += lineComment(body, "", commentString(contentComment));
-    if ((body[0] === "|" || body[0] === ">") && lines[lines.length - 1] === "---") {
+    }
+    if (
+      (body[0] === "|" || body[0] === ">") && lines[lines.length - 1] === "---"
+    ) {
       lines[lines.length - 1] = `--- ${body}`;
-    } else
+    } else {
       lines.push(body);
+    }
   } else {
     lines.push(stringify(doc.contents, ctx));
   }
@@ -14742,11 +18536,13 @@ function stringifyDocument(doc, options) {
     }
   } else {
     let dc = doc.comment;
-    if (dc && chompKeep)
+    if (dc && chompKeep) {
       dc = dc.replace(/^\n+/, "");
+    }
     if (dc) {
-      if ((!chompKeep || contentComment) && lines[lines.length - 1] !== "")
+      if ((!chompKeep || contentComment) && lines[lines.length - 1] !== "") {
         lines.push("");
+      }
       lines.push(indentComment(commentString(dc), ""));
     }
   }
@@ -14760,26 +18556,28 @@ function applyReviver(reviver, obj, key, val) {
       for (let i4 = 0, len = val.length; i4 < len; ++i4) {
         const v0 = val[i4];
         const v1 = applyReviver(reviver, val, String(i4), v0);
-        if (v1 === void 0)
+        if (v1 === void 0) {
           delete val[i4];
-        else if (v1 !== v0)
+        } else if (v1 !== v0) {
           val[i4] = v1;
+        }
       }
     } else if (val instanceof Map) {
       for (const k2 of Array.from(val.keys())) {
         const v0 = val.get(k2);
         const v1 = applyReviver(reviver, val, k2, v0);
-        if (v1 === void 0)
+        if (v1 === void 0) {
           val.delete(k2);
-        else if (v1 !== v0)
+        } else if (v1 !== v0) {
           val.set(k2, v1);
+        }
       }
     } else if (val instanceof Set) {
       for (const v0 of Array.from(val)) {
         const v1 = applyReviver(reviver, val, v0, v0);
-        if (v1 === void 0)
+        if (v1 === void 0) {
           val.delete(v0);
-        else if (v1 !== v0) {
+        } else if (v1 !== v0) {
           val.delete(v0);
           val.add(v1);
         }
@@ -14787,10 +18585,11 @@ function applyReviver(reviver, obj, key, val) {
     } else {
       for (const [k2, v0] of Object.entries(val)) {
         const v1 = applyReviver(reviver, val, k2, v0);
-        if (v1 === void 0)
+        if (v1 === void 0) {
           delete val[k2];
-        else if (v1 !== v0)
+        } else if (v1 !== v0) {
           val[k2] = v1;
+        }
       }
     }
   }
@@ -14819,52 +18618,62 @@ var Document2 = class {
       prettyErrors: true,
       strict: true,
       uniqueKeys: true,
-      version: "1.2"
+      version: "1.2",
     }, options);
     this.options = opt;
     let { version } = opt;
     if (options == null ? void 0 : options._directives) {
       this.directives = options._directives.atDocument();
-      if (this.directives.yaml.explicit)
+      if (this.directives.yaml.explicit) {
         version = this.directives.yaml.version;
-    } else
+      }
+    } else {
       this.directives = new Directives({ version });
+    }
     this.setSchema(version, options);
-    if (value === void 0)
+    if (value === void 0) {
       this.contents = null;
-    else {
+    } else {
       this.contents = this.createNode(value, _replacer, options);
     }
   }
   clone() {
     const copy = Object.create(Document2.prototype, {
-      [NODE_TYPE]: { value: DOC }
+      [NODE_TYPE]: { value: DOC },
     });
     copy.commentBefore = this.commentBefore;
     copy.comment = this.comment;
     copy.errors = this.errors.slice();
     copy.warnings = this.warnings.slice();
     copy.options = Object.assign({}, this.options);
-    if (this.directives)
+    if (this.directives) {
       copy.directives = this.directives.clone();
+    }
     copy.schema = this.schema.clone();
-    copy.contents = isNode(this.contents) ? this.contents.clone(copy.schema) : this.contents;
-    if (this.range)
+    copy.contents = isNode(this.contents)
+      ? this.contents.clone(copy.schema)
+      : this.contents;
+    if (this.range) {
       copy.range = this.range.slice();
+    }
     return copy;
   }
   add(value) {
-    if (assertCollection(this.contents))
+    if (assertCollection(this.contents)) {
       this.contents.add(value);
+    }
   }
   addIn(path, value) {
-    if (assertCollection(this.contents))
+    if (assertCollection(this.contents)) {
       this.contents.addIn(path, value);
+    }
   }
   createAlias(node, name) {
     if (!node.anchor) {
       const prev = anchorNames(this);
-      node.anchor = !name || prev.has(name) ? findNewAnchor(name || "a", prev) : name;
+      node.anchor = !name || prev.has(name)
+        ? findNewAnchor(name || "a", prev)
+        : name;
     }
     return new Alias(node.anchor);
   }
@@ -14874,29 +18683,44 @@ var Document2 = class {
       value = replacer.call({ "": value }, "", value);
       _replacer = replacer;
     } else if (Array.isArray(replacer)) {
-      const keyToStr = (v2) => typeof v2 === "number" || v2 instanceof String || v2 instanceof Number;
+      const keyToStr = (v2) =>
+        typeof v2 === "number" || v2 instanceof String || v2 instanceof Number;
       const asStr = replacer.filter(keyToStr).map(String);
-      if (asStr.length > 0)
+      if (asStr.length > 0) {
         replacer = replacer.concat(asStr);
+      }
       _replacer = replacer;
     } else if (options === void 0 && replacer) {
       options = replacer;
       replacer = void 0;
     }
-    const { aliasDuplicateObjects, anchorPrefix, flow, keepUndefined, onTagObj, tag } = options != null ? options : {};
-    const { onAnchor, setAnchors, sourceObjects } = createNodeAnchors(this, anchorPrefix || "a");
+    const {
+      aliasDuplicateObjects,
+      anchorPrefix,
+      flow,
+      keepUndefined,
+      onTagObj,
+      tag,
+    } = options != null ? options : {};
+    const { onAnchor, setAnchors, sourceObjects } = createNodeAnchors(
+      this,
+      anchorPrefix || "a",
+    );
     const ctx = {
-      aliasDuplicateObjects: aliasDuplicateObjects != null ? aliasDuplicateObjects : true,
+      aliasDuplicateObjects: aliasDuplicateObjects != null
+        ? aliasDuplicateObjects
+        : true,
       keepUndefined: keepUndefined != null ? keepUndefined : false,
       onAnchor,
       onTagObj,
       replacer: _replacer,
       schema: this.schema,
-      sourceObjects
+      sourceObjects,
     };
     const node = createNode(value, tag, ctx);
-    if (flow && isCollection(node))
+    if (flow && isCollection(node)) {
       node.flow = true;
+    }
     setAnchors();
     return node;
   }
@@ -14910,27 +18734,38 @@ var Document2 = class {
   }
   deleteIn(path) {
     if (isEmptyPath(path)) {
-      if (this.contents == null)
+      if (this.contents == null) {
         return false;
+      }
       this.contents = null;
       return true;
     }
-    return assertCollection(this.contents) ? this.contents.deleteIn(path) : false;
+    return assertCollection(this.contents)
+      ? this.contents.deleteIn(path)
+      : false;
   }
   get(key, keepScalar) {
-    return isCollection(this.contents) ? this.contents.get(key, keepScalar) : void 0;
+    return isCollection(this.contents)
+      ? this.contents.get(key, keepScalar)
+      : void 0;
   }
   getIn(path, keepScalar) {
-    if (isEmptyPath(path))
-      return !keepScalar && isScalar(this.contents) ? this.contents.value : this.contents;
-    return isCollection(this.contents) ? this.contents.getIn(path, keepScalar) : void 0;
+    if (isEmptyPath(path)) {
+      return !keepScalar && isScalar(this.contents)
+        ? this.contents.value
+        : this.contents;
+    }
+    return isCollection(this.contents)
+      ? this.contents.getIn(path, keepScalar)
+      : void 0;
   }
   has(key) {
     return isCollection(this.contents) ? this.contents.has(key) : false;
   }
   hasIn(path) {
-    if (isEmptyPath(path))
+    if (isEmptyPath(path)) {
       return this.contents !== void 0;
+    }
     return isCollection(this.contents) ? this.contents.hasIn(path) : false;
   }
   set(key, value) {
@@ -14941,50 +18776,59 @@ var Document2 = class {
     }
   }
   setIn(path, value) {
-    if (isEmptyPath(path))
+    if (isEmptyPath(path)) {
       this.contents = value;
-    else if (this.contents == null) {
+    } else if (this.contents == null) {
       this.contents = collectionFromPath(this.schema, Array.from(path), value);
     } else if (assertCollection(this.contents)) {
       this.contents.setIn(path, value);
     }
   }
   setSchema(version, options = {}) {
-    if (typeof version === "number")
+    if (typeof version === "number") {
       version = String(version);
+    }
     let opt;
     switch (version) {
       case "1.1":
-        if (this.directives)
+        if (this.directives) {
           this.directives.yaml.version = "1.1";
-        else
+        } else {
           this.directives = new Directives({ version: "1.1" });
+        }
         opt = { merge: true, resolveKnownTags: false, schema: "yaml-1.1" };
         break;
       case "1.2":
       case "next":
-        if (this.directives)
+        if (this.directives) {
           this.directives.yaml.version = version;
-        else
+        } else {
           this.directives = new Directives({ version });
+        }
         opt = { merge: false, resolveKnownTags: true, schema: "core" };
         break;
       case null:
-        if (this.directives)
+        if (this.directives) {
           delete this.directives;
+        }
         opt = null;
         break;
       default: {
         const sv = JSON.stringify(version);
-        throw new Error(`Expected '1.1', '1.2' or null as first argument, but found: ${sv}`);
+        throw new Error(
+          `Expected '1.1', '1.2' or null as first argument, but found: ${sv}`,
+        );
       }
     }
-    if (options.schema instanceof Object)
+    if (options.schema instanceof Object) {
       this.schema = options.schema;
-    else if (opt)
+    } else if (opt) {
       this.schema = new Schema(Object.assign(opt, options));
-    else
-      throw new Error(`With a null YAML version, the { schema: Schema } option is required`);
+    } else {
+      throw new Error(
+        `With a null YAML version, the { schema: Schema } option is required`,
+      );
+    }
   }
   toJS({ json, jsonArg, mapAsMap, maxAliasCount, onAnchor, reviver } = {}) {
     const ctx = {
@@ -14994,21 +18838,29 @@ var Document2 = class {
       mapAsMap: mapAsMap === true,
       mapKeyWarned: false,
       maxAliasCount: typeof maxAliasCount === "number" ? maxAliasCount : 100,
-      stringify
+      stringify,
     };
     const res = toJS(this.contents, jsonArg != null ? jsonArg : "", ctx);
-    if (typeof onAnchor === "function")
-      for (const { count, res: res2 } of ctx.anchors.values())
+    if (typeof onAnchor === "function") {
+      for (const { count, res: res2 } of ctx.anchors.values()) {
         onAnchor(res2, count);
-    return typeof reviver === "function" ? applyReviver(reviver, { "": res }, "", res) : res;
+      }
+    }
+    return typeof reviver === "function"
+      ? applyReviver(reviver, { "": res }, "", res)
+      : res;
   }
   toJSON(jsonArg, onAnchor) {
     return this.toJS({ json: true, jsonArg, mapAsMap: false, onAnchor });
   }
   toString(options = {}) {
-    if (this.errors.length > 0)
+    if (this.errors.length > 0) {
       throw new Error("Document with errors cannot be stringified");
-    if ("indent" in options && (!Number.isInteger(options.indent) || Number(options.indent) <= 0)) {
+    }
+    if (
+      "indent" in options &&
+      (!Number.isInteger(options.indent) || Number(options.indent) <= 0)
+    ) {
       const s5 = JSON.stringify(options.indent);
       throw new Error(`"indent" option must be a positive integer, not ${s5}`);
     }
@@ -15016,8 +18868,9 @@ var Document2 = class {
   }
 };
 function assertCollection(contents) {
-  if (isCollection(contents))
+  if (isCollection(contents)) {
     return true;
+  }
   throw new Error("Expected a YAML collection as document contents");
 }
 
@@ -15042,24 +18895,28 @@ var YAMLWarning = class extends YAMLError {
   }
 };
 var prettifyError = (src, lc) => (error) => {
-  if (error.pos[0] === -1)
+  if (error.pos[0] === -1) {
     return;
+  }
   error.linePos = error.pos.map((pos) => lc.linePos(pos));
   const { line, col } = error.linePos[0];
   error.message += ` at line ${line}, column ${col}`;
   let ci = col - 1;
-  let lineStr = src.substring(lc.lineStarts[line - 1], lc.lineStarts[line]).replace(/[\n\r]+$/, "");
+  let lineStr = src.substring(lc.lineStarts[line - 1], lc.lineStarts[line])
+    .replace(/[\n\r]+$/, "");
   if (ci >= 60 && lineStr.length > 80) {
     const trimStart = Math.min(ci - 39, lineStr.length - 79);
     lineStr = "\u2026" + lineStr.substring(trimStart);
     ci -= trimStart - 1;
   }
-  if (lineStr.length > 80)
+  if (lineStr.length > 80) {
     lineStr = lineStr.substring(0, 79) + "\u2026";
+  }
   if (line > 1 && /^ *$/.test(lineStr.substring(0, ci))) {
     let prev = src.substring(lc.lineStarts[line - 2], lc.lineStarts[line - 1]);
-    if (prev.length > 80)
+    if (prev.length > 80) {
       prev = prev.substring(0, 79) + "\u2026\n";
+    }
     lineStr = prev + lineStr;
   }
   if (/[^ ]/.test(lineStr)) {
@@ -15078,7 +18935,10 @@ ${pointer}
 };
 
 // node_modules/yaml/browser/dist/compose/resolve-props.js
-function resolveProps(tokens, { flow, indicator, next, offset, onError, startOnNewline }) {
+function resolveProps(
+  tokens,
+  { flow, indicator, next, offset, onError, startOnNewline },
+) {
   let spaceBefore = false;
   let atNewline = startOnNewline;
   let hasSpace = startOnNewline;
@@ -15094,78 +18954,130 @@ function resolveProps(tokens, { flow, indicator, next, offset, onError, startOnN
   let start = null;
   for (const token of tokens) {
     if (reqSpace) {
-      if (token.type !== "space" && token.type !== "newline" && token.type !== "comma")
-        onError(token.offset, "MISSING_CHAR", "Tags and anchors must be separated from the next token by white space");
+      if (
+        token.type !== "space" && token.type !== "newline" &&
+        token.type !== "comma"
+      ) {
+        onError(
+          token.offset,
+          "MISSING_CHAR",
+          "Tags and anchors must be separated from the next token by white space",
+        );
+      }
       reqSpace = false;
     }
     switch (token.type) {
       case "space":
-        if (!flow && atNewline && indicator !== "doc-start" && token.source[0] === "	")
-          onError(token, "TAB_AS_INDENT", "Tabs are not allowed as indentation");
+        if (
+          !flow && atNewline && indicator !== "doc-start" &&
+          token.source[0] === "	"
+        ) {
+          onError(
+            token,
+            "TAB_AS_INDENT",
+            "Tabs are not allowed as indentation",
+          );
+        }
         hasSpace = true;
         break;
       case "comment": {
-        if (!hasSpace)
-          onError(token, "MISSING_CHAR", "Comments must be separated from other tokens by white space characters");
+        if (!hasSpace) {
+          onError(
+            token,
+            "MISSING_CHAR",
+            "Comments must be separated from other tokens by white space characters",
+          );
+        }
         const cb = token.source.substring(1) || " ";
-        if (!comment)
+        if (!comment) {
           comment = cb;
-        else
+        } else {
           comment += commentSep + cb;
+        }
         commentSep = "";
         atNewline = false;
         break;
       }
       case "newline":
         if (atNewline) {
-          if (comment)
+          if (comment) {
             comment += token.source;
-          else
+          } else {
             spaceBefore = true;
-        } else
+          }
+        } else {
           commentSep += token.source;
+        }
         atNewline = true;
         hasNewline = true;
-        if (anchor || tag)
+        if (anchor || tag) {
           hasNewlineAfterProp = true;
+        }
         hasSpace = true;
         break;
       case "anchor":
-        if (anchor)
-          onError(token, "MULTIPLE_ANCHORS", "A node can have at most one anchor");
-        if (token.source.endsWith(":"))
-          onError(token.offset + token.source.length - 1, "BAD_ALIAS", "Anchor ending in : is ambiguous", true);
+        if (anchor) {
+          onError(
+            token,
+            "MULTIPLE_ANCHORS",
+            "A node can have at most one anchor",
+          );
+        }
+        if (token.source.endsWith(":")) {
+          onError(
+            token.offset + token.source.length - 1,
+            "BAD_ALIAS",
+            "Anchor ending in : is ambiguous",
+            true,
+          );
+        }
         anchor = token;
-        if (start === null)
+        if (start === null) {
           start = token.offset;
+        }
         atNewline = false;
         hasSpace = false;
         reqSpace = true;
         break;
       case "tag": {
-        if (tag)
+        if (tag) {
           onError(token, "MULTIPLE_TAGS", "A node can have at most one tag");
+        }
         tag = token;
-        if (start === null)
+        if (start === null) {
           start = token.offset;
+        }
         atNewline = false;
         hasSpace = false;
         reqSpace = true;
         break;
       }
       case indicator:
-        if (anchor || tag)
-          onError(token, "BAD_PROP_ORDER", `Anchors and tags must be after the ${token.source} indicator`);
-        if (found)
-          onError(token, "UNEXPECTED_TOKEN", `Unexpected ${token.source} in ${flow != null ? flow : "collection"}`);
+        if (anchor || tag) {
+          onError(
+            token,
+            "BAD_PROP_ORDER",
+            `Anchors and tags must be after the ${token.source} indicator`,
+          );
+        }
+        if (found) {
+          onError(
+            token,
+            "UNEXPECTED_TOKEN",
+            `Unexpected ${token.source} in ${
+              flow != null ? flow : "collection"
+            }`,
+          );
+        }
         found = token;
         atNewline = false;
         hasSpace = false;
         break;
       case "comma":
         if (flow) {
-          if (comma)
+          if (comma) {
             onError(token, "UNEXPECTED_TOKEN", `Unexpected , in ${flow}`);
+          }
           comma = token;
           atNewline = false;
           hasSpace = false;
@@ -15179,8 +19091,16 @@ function resolveProps(tokens, { flow, indicator, next, offset, onError, startOnN
   }
   const last = tokens[tokens.length - 1];
   const end = last ? last.offset + last.source.length : offset;
-  if (reqSpace && next && next.type !== "space" && next.type !== "newline" && next.type !== "comma" && (next.type !== "scalar" || next.source !== ""))
-    onError(next.offset, "MISSING_CHAR", "Tags and anchors must be separated from the next token by white space");
+  if (
+    reqSpace && next && next.type !== "space" && next.type !== "newline" &&
+    next.type !== "comma" && (next.type !== "scalar" || next.source !== "")
+  ) {
+    onError(
+      next.offset,
+      "MISSING_CHAR",
+      "Tags and anchors must be separated from the next token by white space",
+    );
+  }
   return {
     comma,
     found,
@@ -15191,39 +19111,48 @@ function resolveProps(tokens, { flow, indicator, next, offset, onError, startOnN
     anchor,
     tag,
     end,
-    start: start != null ? start : end
+    start: start != null ? start : end,
   };
 }
 
 // node_modules/yaml/browser/dist/compose/util-contains-newline.js
 function containsNewline(key) {
-  if (!key)
+  if (!key) {
     return null;
+  }
   switch (key.type) {
     case "alias":
     case "scalar":
     case "double-quoted-scalar":
     case "single-quoted-scalar":
-      if (key.source.includes("\n"))
+      if (key.source.includes("\n")) {
         return true;
+      }
       if (key.end) {
-        for (const st of key.end)
-          if (st.type === "newline")
+        for (const st of key.end) {
+          if (st.type === "newline") {
             return true;
+          }
+        }
       }
       return false;
     case "flow-collection":
       for (const it of key.items) {
-        for (const st of it.start)
-          if (st.type === "newline")
+        for (const st of it.start) {
+          if (st.type === "newline") {
             return true;
-        if (it.sep) {
-          for (const st of it.sep)
-            if (st.type === "newline")
-              return true;
+          }
         }
-        if (containsNewline(it.key) || containsNewline(it.value))
+        if (it.sep) {
+          for (const st of it.sep) {
+            if (st.type === "newline") {
+              return true;
+            }
+          }
+        }
+        if (containsNewline(it.key) || containsNewline(it.value)) {
           return true;
+        }
       }
       return false;
     default:
@@ -15235,7 +19164,10 @@ function containsNewline(key) {
 function flowIndentCheck(indent, fc, onError) {
   if ((fc == null ? void 0 : fc.type) === "flow-collection") {
     const end = fc.end[0];
-    if (end.indent === indent && (end.source === "]" || end.source === "}") && containsNewline(fc)) {
+    if (
+      end.indent === indent && (end.source === "]" || end.source === "}") &&
+      containsNewline(fc)
+    ) {
       const msg = "Flow end indicator should be more indented than parent";
       onError(end, "BAD_INDENT", msg, true);
     }
@@ -15245,19 +19177,31 @@ function flowIndentCheck(indent, fc, onError) {
 // node_modules/yaml/browser/dist/compose/util-map-includes.js
 function mapIncludes(ctx, items, search) {
   const { uniqueKeys } = ctx.options;
-  if (uniqueKeys === false)
+  if (uniqueKeys === false) {
     return false;
-  const isEqual = typeof uniqueKeys === "function" ? uniqueKeys : (a3, b2) => a3 === b2 || isScalar(a3) && isScalar(b2) && a3.value === b2.value && !(a3.value === "<<" && ctx.schema.merge);
+  }
+  const isEqual = typeof uniqueKeys === "function"
+    ? uniqueKeys
+    : (a3, b2) =>
+      a3 === b2 ||
+      isScalar(a3) && isScalar(b2) && a3.value === b2.value &&
+        !(a3.value === "<<" && ctx.schema.merge);
   return items.some((pair) => isEqual(pair.key, search));
 }
 
 // node_modules/yaml/browser/dist/compose/resolve-block-map.js
 var startColMsg = "All mapping items must start at the same column";
-function resolveBlockMap({ composeNode: composeNode2, composeEmptyNode: composeEmptyNode2 }, ctx, bm, onError) {
+function resolveBlockMap(
+  { composeNode: composeNode2, composeEmptyNode: composeEmptyNode2 },
+  ctx,
+  bm,
+  onError,
+) {
   var _a;
   const map2 = new YAMLMap(ctx.schema);
-  if (ctx.atRoot)
+  if (ctx.atRoot) {
     ctx.atRoot = false;
+  }
   let offset = bm.offset;
   for (const collItem of bm.items) {
     const { start, key, sep, value } = collItem;
@@ -15266,72 +19210,114 @@ function resolveBlockMap({ composeNode: composeNode2, composeEmptyNode: composeE
       next: key != null ? key : sep == null ? void 0 : sep[0],
       offset,
       onError,
-      startOnNewline: true
+      startOnNewline: true,
     });
     const implicitKey = !keyProps.found;
     if (implicitKey) {
       if (key) {
-        if (key.type === "block-seq")
-          onError(offset, "BLOCK_AS_IMPLICIT_KEY", "A block sequence may not be used as an implicit map key");
-        else if ("indent" in key && key.indent !== bm.indent)
+        if (key.type === "block-seq") {
+          onError(
+            offset,
+            "BLOCK_AS_IMPLICIT_KEY",
+            "A block sequence may not be used as an implicit map key",
+          );
+        } else if ("indent" in key && key.indent !== bm.indent) {
           onError(offset, "BAD_INDENT", startColMsg);
+        }
       }
       if (!keyProps.anchor && !keyProps.tag && !sep) {
         if (keyProps.comment) {
-          if (map2.comment)
+          if (map2.comment) {
             map2.comment += "\n" + keyProps.comment;
-          else
+          } else {
             map2.comment = keyProps.comment;
+          }
         }
         continue;
       }
       if (keyProps.hasNewlineAfterProp || containsNewline(key)) {
-        onError(key != null ? key : start[start.length - 1], "MULTILINE_IMPLICIT_KEY", "Implicit keys need to be on a single line");
+        onError(
+          key != null ? key : start[start.length - 1],
+          "MULTILINE_IMPLICIT_KEY",
+          "Implicit keys need to be on a single line",
+        );
       }
-    } else if (((_a = keyProps.found) == null ? void 0 : _a.indent) !== bm.indent) {
+    } else if (
+      ((_a = keyProps.found) == null ? void 0 : _a.indent) !== bm.indent
+    ) {
       onError(offset, "BAD_INDENT", startColMsg);
     }
     const keyStart = keyProps.end;
-    const keyNode = key ? composeNode2(ctx, key, keyProps, onError) : composeEmptyNode2(ctx, keyStart, start, null, keyProps, onError);
-    if (ctx.schema.compat)
+    const keyNode = key
+      ? composeNode2(ctx, key, keyProps, onError)
+      : composeEmptyNode2(ctx, keyStart, start, null, keyProps, onError);
+    if (ctx.schema.compat) {
       flowIndentCheck(bm.indent, key, onError);
-    if (mapIncludes(ctx, map2.items, keyNode))
+    }
+    if (mapIncludes(ctx, map2.items, keyNode)) {
       onError(keyStart, "DUPLICATE_KEY", "Map keys must be unique");
+    }
     const valueProps = resolveProps(sep != null ? sep : [], {
       indicator: "map-value-ind",
       next: value,
       offset: keyNode.range[2],
       onError,
-      startOnNewline: !key || key.type === "block-scalar"
+      startOnNewline: !key || key.type === "block-scalar",
     });
     offset = valueProps.end;
     if (valueProps.found) {
       if (implicitKey) {
-        if ((value == null ? void 0 : value.type) === "block-map" && !valueProps.hasNewline)
-          onError(offset, "BLOCK_AS_IMPLICIT_KEY", "Nested mappings are not allowed in compact mappings");
-        if (ctx.options.strict && keyProps.start < valueProps.found.offset - 1024)
-          onError(keyNode.range, "KEY_OVER_1024_CHARS", "The : indicator must be at most 1024 chars after the start of an implicit block mapping key");
+        if (
+          (value == null ? void 0 : value.type) === "block-map" &&
+          !valueProps.hasNewline
+        ) {
+          onError(
+            offset,
+            "BLOCK_AS_IMPLICIT_KEY",
+            "Nested mappings are not allowed in compact mappings",
+          );
+        }
+        if (
+          ctx.options.strict && keyProps.start < valueProps.found.offset - 1024
+        ) {
+          onError(
+            keyNode.range,
+            "KEY_OVER_1024_CHARS",
+            "The : indicator must be at most 1024 chars after the start of an implicit block mapping key",
+          );
+        }
       }
-      const valueNode = value ? composeNode2(ctx, value, valueProps, onError) : composeEmptyNode2(ctx, offset, sep, null, valueProps, onError);
-      if (ctx.schema.compat)
+      const valueNode = value
+        ? composeNode2(ctx, value, valueProps, onError)
+        : composeEmptyNode2(ctx, offset, sep, null, valueProps, onError);
+      if (ctx.schema.compat) {
         flowIndentCheck(bm.indent, value, onError);
+      }
       offset = valueNode.range[2];
       const pair = new Pair(keyNode, valueNode);
-      if (ctx.options.keepSourceTokens)
+      if (ctx.options.keepSourceTokens) {
         pair.srcToken = collItem;
+      }
       map2.items.push(pair);
     } else {
-      if (implicitKey)
-        onError(keyNode.range, "MISSING_CHAR", "Implicit map keys need to be followed by map values");
+      if (implicitKey) {
+        onError(
+          keyNode.range,
+          "MISSING_CHAR",
+          "Implicit map keys need to be followed by map values",
+        );
+      }
       if (valueProps.comment) {
-        if (keyNode.comment)
+        if (keyNode.comment) {
           keyNode.comment += "\n" + valueProps.comment;
-        else
+        } else {
           keyNode.comment = valueProps.comment;
+        }
       }
       const pair = new Pair(keyNode);
-      if (ctx.options.keepSourceTokens)
+      if (ctx.options.keepSourceTokens) {
         pair.srcToken = collItem;
+      }
       map2.items.push(pair);
     }
   }
@@ -15340,10 +19326,16 @@ function resolveBlockMap({ composeNode: composeNode2, composeEmptyNode: composeE
 }
 
 // node_modules/yaml/browser/dist/compose/resolve-block-seq.js
-function resolveBlockSeq({ composeNode: composeNode2, composeEmptyNode: composeEmptyNode2 }, ctx, bs, onError) {
+function resolveBlockSeq(
+  { composeNode: composeNode2, composeEmptyNode: composeEmptyNode2 },
+  ctx,
+  bs,
+  onError,
+) {
   const seq2 = new YAMLSeq(ctx.schema);
-  if (ctx.atRoot)
+  if (ctx.atRoot) {
     ctx.atRoot = false;
+  }
   let offset = bs.offset;
   for (const { start, value } of bs.items) {
     const props = resolveProps(start, {
@@ -15351,24 +19343,33 @@ function resolveBlockSeq({ composeNode: composeNode2, composeEmptyNode: composeE
       next: value,
       offset,
       onError,
-      startOnNewline: true
+      startOnNewline: true,
     });
     offset = props.end;
     if (!props.found) {
       if (props.anchor || props.tag || value) {
-        if (value && value.type === "block-seq")
-          onError(offset, "BAD_INDENT", "All sequence items must start at the same column");
-        else
+        if (value && value.type === "block-seq") {
+          onError(
+            offset,
+            "BAD_INDENT",
+            "All sequence items must start at the same column",
+          );
+        } else {
           onError(offset, "MISSING_CHAR", "Sequence item without - indicator");
+        }
       } else {
-        if (props.comment)
+        if (props.comment) {
           seq2.comment = props.comment;
+        }
         continue;
       }
     }
-    const node = value ? composeNode2(ctx, value, props, onError) : composeEmptyNode2(ctx, offset, start, null, props, onError);
-    if (ctx.schema.compat)
+    const node = value
+      ? composeNode2(ctx, value, props, onError)
+      : composeEmptyNode2(ctx, offset, start, null, props, onError);
+    if (ctx.schema.compat) {
       flowIndentCheck(bs.indent, value, onError);
+    }
     offset = node.range[2];
     seq2.items.push(node);
   }
@@ -15389,19 +19390,26 @@ function resolveEnd(end, offset, reqSpace, onError) {
           hasSpace = true;
           break;
         case "comment": {
-          if (reqSpace && !hasSpace)
-            onError(token, "MISSING_CHAR", "Comments must be separated from other tokens by white space characters");
+          if (reqSpace && !hasSpace) {
+            onError(
+              token,
+              "MISSING_CHAR",
+              "Comments must be separated from other tokens by white space characters",
+            );
+          }
           const cb = source.substring(1) || " ";
-          if (!comment)
+          if (!comment) {
             comment = cb;
-          else
+          } else {
             comment += sep + cb;
+          }
           sep = "";
           break;
         }
         case "newline":
-          if (comment)
+          if (comment) {
             sep += source;
+          }
           hasSpace = true;
           break;
         default:
@@ -15415,16 +19423,23 @@ function resolveEnd(end, offset, reqSpace, onError) {
 
 // node_modules/yaml/browser/dist/compose/resolve-flow-collection.js
 var blockMsg = "Block collections are not allowed within flow collections";
-var isBlock = (token) => token && (token.type === "block-map" || token.type === "block-seq");
-function resolveFlowCollection({ composeNode: composeNode2, composeEmptyNode: composeEmptyNode2 }, ctx, fc, onError) {
+var isBlock = (token) =>
+  token && (token.type === "block-map" || token.type === "block-seq");
+function resolveFlowCollection(
+  { composeNode: composeNode2, composeEmptyNode: composeEmptyNode2 },
+  ctx,
+  fc,
+  onError,
+) {
   var _a;
   const isMap2 = fc.start.source === "{";
   const fcName = isMap2 ? "flow map" : "flow sequence";
   const coll = isMap2 ? new YAMLMap(ctx.schema) : new YAMLSeq(ctx.schema);
   coll.flow = true;
   const atRoot = ctx.atRoot;
-  if (atRoot)
+  if (atRoot) {
     ctx.atRoot = false;
+  }
   let offset = fc.offset + fc.start.source.length;
   for (let i4 = 0; i4 < fc.items.length; ++i4) {
     const collItem = fc.items[i4];
@@ -15435,115 +19450,164 @@ function resolveFlowCollection({ composeNode: composeNode2, composeEmptyNode: co
       next: key != null ? key : sep == null ? void 0 : sep[0],
       offset,
       onError,
-      startOnNewline: false
+      startOnNewline: false,
     });
     if (!props.found) {
       if (!props.anchor && !props.tag && !sep && !value) {
-        if (i4 === 0 && props.comma)
+        if (i4 === 0 && props.comma) {
           onError(props.comma, "UNEXPECTED_TOKEN", `Unexpected , in ${fcName}`);
-        else if (i4 < fc.items.length - 1)
-          onError(props.start, "UNEXPECTED_TOKEN", `Unexpected empty item in ${fcName}`);
+        } else if (i4 < fc.items.length - 1) {
+          onError(
+            props.start,
+            "UNEXPECTED_TOKEN",
+            `Unexpected empty item in ${fcName}`,
+          );
+        }
         if (props.comment) {
-          if (coll.comment)
+          if (coll.comment) {
             coll.comment += "\n" + props.comment;
-          else
+          } else {
             coll.comment = props.comment;
+          }
         }
         offset = props.end;
         continue;
       }
-      if (!isMap2 && ctx.options.strict && containsNewline(key))
-        onError(key, "MULTILINE_IMPLICIT_KEY", "Implicit keys of flow sequence pairs need to be on a single line");
+      if (!isMap2 && ctx.options.strict && containsNewline(key)) {
+        onError(
+          key,
+          "MULTILINE_IMPLICIT_KEY",
+          "Implicit keys of flow sequence pairs need to be on a single line",
+        );
+      }
     }
     if (i4 === 0) {
-      if (props.comma)
+      if (props.comma) {
         onError(props.comma, "UNEXPECTED_TOKEN", `Unexpected , in ${fcName}`);
+      }
     } else {
-      if (!props.comma)
-        onError(props.start, "MISSING_CHAR", `Missing , between ${fcName} items`);
+      if (!props.comma) {
+        onError(
+          props.start,
+          "MISSING_CHAR",
+          `Missing , between ${fcName} items`,
+        );
+      }
       if (props.comment) {
         let prevItemComment = "";
         loop:
-          for (const st of start) {
-            switch (st.type) {
-              case "comma":
-              case "space":
-                break;
-              case "comment":
-                prevItemComment = st.source.substring(1);
-                break loop;
-              default:
-                break loop;
-            }
+        for (const st of start) {
+          switch (st.type) {
+            case "comma":
+            case "space":
+              break;
+            case "comment":
+              prevItemComment = st.source.substring(1);
+              break loop;
+            default:
+              break loop;
           }
+        }
         if (prevItemComment) {
           let prev = coll.items[coll.items.length - 1];
-          if (isPair(prev))
+          if (isPair(prev)) {
             prev = (_a = prev.value) != null ? _a : prev.key;
-          if (prev.comment)
+          }
+          if (prev.comment) {
             prev.comment += "\n" + prevItemComment;
-          else
+          } else {
             prev.comment = prevItemComment;
+          }
           props.comment = props.comment.substring(prevItemComment.length + 1);
         }
       }
     }
     if (!isMap2 && !sep && !props.found) {
-      const valueNode = value ? composeNode2(ctx, value, props, onError) : composeEmptyNode2(ctx, props.end, sep, null, props, onError);
+      const valueNode = value
+        ? composeNode2(ctx, value, props, onError)
+        : composeEmptyNode2(ctx, props.end, sep, null, props, onError);
       coll.items.push(valueNode);
       offset = valueNode.range[2];
-      if (isBlock(value))
+      if (isBlock(value)) {
         onError(valueNode.range, "BLOCK_IN_FLOW", blockMsg);
+      }
     } else {
       const keyStart = props.end;
-      const keyNode = key ? composeNode2(ctx, key, props, onError) : composeEmptyNode2(ctx, keyStart, start, null, props, onError);
-      if (isBlock(key))
+      const keyNode = key
+        ? composeNode2(ctx, key, props, onError)
+        : composeEmptyNode2(ctx, keyStart, start, null, props, onError);
+      if (isBlock(key)) {
         onError(keyNode.range, "BLOCK_IN_FLOW", blockMsg);
+      }
       const valueProps = resolveProps(sep != null ? sep : [], {
         flow: fcName,
         indicator: "map-value-ind",
         next: value,
         offset: keyNode.range[2],
         onError,
-        startOnNewline: false
+        startOnNewline: false,
       });
       if (valueProps.found) {
         if (!isMap2 && !props.found && ctx.options.strict) {
-          if (sep)
+          if (sep) {
             for (const st of sep) {
-              if (st === valueProps.found)
+              if (st === valueProps.found) {
                 break;
+              }
               if (st.type === "newline") {
-                onError(st, "MULTILINE_IMPLICIT_KEY", "Implicit keys of flow sequence pairs need to be on a single line");
+                onError(
+                  st,
+                  "MULTILINE_IMPLICIT_KEY",
+                  "Implicit keys of flow sequence pairs need to be on a single line",
+                );
                 break;
               }
             }
-          if (props.start < valueProps.found.offset - 1024)
-            onError(valueProps.found, "KEY_OVER_1024_CHARS", "The : indicator must be at most 1024 chars after the start of an implicit flow sequence key");
+          }
+          if (props.start < valueProps.found.offset - 1024) {
+            onError(
+              valueProps.found,
+              "KEY_OVER_1024_CHARS",
+              "The : indicator must be at most 1024 chars after the start of an implicit flow sequence key",
+            );
+          }
         }
       } else if (value) {
-        if ("source" in value && value.source && value.source[0] === ":")
+        if ("source" in value && value.source && value.source[0] === ":") {
           onError(value, "MISSING_CHAR", `Missing space after : in ${fcName}`);
-        else
-          onError(valueProps.start, "MISSING_CHAR", `Missing , or : between ${fcName} items`);
+        } else {
+          onError(
+            valueProps.start,
+            "MISSING_CHAR",
+            `Missing , or : between ${fcName} items`,
+          );
+        }
       }
-      const valueNode = value ? composeNode2(ctx, value, valueProps, onError) : valueProps.found ? composeEmptyNode2(ctx, valueProps.end, sep, null, valueProps, onError) : null;
+      const valueNode = value
+        ? composeNode2(ctx, value, valueProps, onError)
+        : valueProps.found
+        ? composeEmptyNode2(ctx, valueProps.end, sep, null, valueProps, onError)
+        : null;
       if (valueNode) {
-        if (isBlock(value))
+        if (isBlock(value)) {
           onError(valueNode.range, "BLOCK_IN_FLOW", blockMsg);
+        }
       } else if (valueProps.comment) {
-        if (keyNode.comment)
+        if (keyNode.comment) {
           keyNode.comment += "\n" + valueProps.comment;
-        else
+        } else {
           keyNode.comment = valueProps.comment;
+        }
       }
       const pair = new Pair(keyNode, valueNode);
-      if (ctx.options.keepSourceTokens)
+      if (ctx.options.keepSourceTokens) {
         pair.srcToken = collItem;
+      }
       if (isMap2) {
         const map2 = coll;
-        if (mapIncludes(ctx, map2.items, keyNode))
+        if (mapIncludes(ctx, map2.items, keyNode)) {
           onError(keyStart, "DUPLICATE_KEY", "Map keys must be unique");
+        }
         map2.items.push(pair);
       } else {
         const map2 = new YAMLMap(ctx.schema);
@@ -15557,22 +19621,26 @@ function resolveFlowCollection({ composeNode: composeNode2, composeEmptyNode: co
   const expectedEnd = isMap2 ? "}" : "]";
   const [ce, ...ee] = fc.end;
   let cePos = offset;
-  if (ce && ce.source === expectedEnd)
+  if (ce && ce.source === expectedEnd) {
     cePos = ce.offset + ce.source.length;
-  else {
+  } else {
     const name = fcName[0].toUpperCase() + fcName.substring(1);
-    const msg = atRoot ? `${name} must end with a ${expectedEnd}` : `${name} in block collection must be sufficiently indented and end with a ${expectedEnd}`;
+    const msg = atRoot
+      ? `${name} must end with a ${expectedEnd}`
+      : `${name} in block collection must be sufficiently indented and end with a ${expectedEnd}`;
     onError(offset, atRoot ? "MISSING_CHAR" : "BAD_INDENT", msg);
-    if (ce && ce.source.length !== 1)
+    if (ce && ce.source.length !== 1) {
       ee.unshift(ce);
+    }
   }
   if (ee.length > 0) {
     const end = resolveEnd(ee, cePos, ctx.options.strict, onError);
     if (end.comment) {
-      if (coll.comment)
+      if (coll.comment) {
         coll.comment += "\n" + end.comment;
-      else
+      } else {
         coll.comment = end.comment;
+      }
     }
     coll.range = [fc.offset, cePos, end.offset];
   } else {
@@ -15598,35 +19666,52 @@ function composeCollection(CN2, ctx, token, tagToken, onError) {
       break;
     }
   }
-  if (!tagToken)
+  if (!tagToken) {
     return coll;
-  const tagName = ctx.directives.tagName(tagToken.source, (msg) => onError(tagToken, "TAG_RESOLVE_FAILED", msg));
-  if (!tagName)
+  }
+  const tagName = ctx.directives.tagName(
+    tagToken.source,
+    (msg) => onError(tagToken, "TAG_RESOLVE_FAILED", msg),
+  );
+  if (!tagName) {
     return coll;
+  }
   const Coll = coll.constructor;
   if (tagName === "!" || tagName === Coll.tagName) {
     coll.tag = Coll.tagName;
     return coll;
   }
   const expType = isMap(coll) ? "map" : "seq";
-  let tag = ctx.schema.tags.find((t3) => t3.collection === expType && t3.tag === tagName);
+  let tag = ctx.schema.tags.find((t3) =>
+    t3.collection === expType && t3.tag === tagName
+  );
   if (!tag) {
     const kt = ctx.schema.knownTags[tagName];
     if (kt && kt.collection === expType) {
       ctx.schema.tags.push(Object.assign({}, kt, { default: false }));
       tag = kt;
     } else {
-      onError(tagToken, "TAG_RESOLVE_FAILED", `Unresolved tag: ${tagName}`, true);
+      onError(
+        tagToken,
+        "TAG_RESOLVE_FAILED",
+        `Unresolved tag: ${tagName}`,
+        true,
+      );
       coll.tag = tagName;
       return coll;
     }
   }
-  const res = tag.resolve(coll, (msg) => onError(tagToken, "TAG_RESOLVE_FAILED", msg), ctx.options);
+  const res = tag.resolve(
+    coll,
+    (msg) => onError(tagToken, "TAG_RESOLVE_FAILED", msg),
+    ctx.options,
+  );
   const node = isNode(res) ? res : new Scalar(res);
   node.range = coll.range;
   node.tag = tagName;
-  if (tag == null ? void 0 : tag.format)
+  if (tag == null ? void 0 : tag.format) {
     node.format = tag.format;
+  }
   return node;
 }
 
@@ -15634,24 +19719,34 @@ function composeCollection(CN2, ctx, token, tagToken, onError) {
 function resolveBlockScalar(scalar, strict, onError) {
   const start = scalar.offset;
   const header = parseBlockScalarHeader(scalar, strict, onError);
-  if (!header)
+  if (!header) {
     return { value: "", type: null, comment: "", range: [start, start, start] };
+  }
   const type = header.mode === ">" ? Scalar.BLOCK_FOLDED : Scalar.BLOCK_LITERAL;
   const lines = scalar.source ? splitLines(scalar.source) : [];
   let chompStart = lines.length;
   for (let i4 = lines.length - 1; i4 >= 0; --i4) {
     const content = lines[i4][1];
-    if (content === "" || content === "\r")
+    if (content === "" || content === "\r") {
       chompStart = i4;
-    else
+    } else {
       break;
+    }
   }
   if (chompStart === 0) {
-    const value2 = header.chomp === "+" && lines.length > 0 ? "\n".repeat(Math.max(1, lines.length - 1)) : "";
+    const value2 = header.chomp === "+" && lines.length > 0
+      ? "\n".repeat(Math.max(1, lines.length - 1))
+      : "";
     let end2 = start + header.length;
-    if (scalar.source)
+    if (scalar.source) {
       end2 += scalar.source.length;
-    return { value: value2, type, comment: header.comment, range: [start, end2, end2] };
+    }
+    return {
+      value: value2,
+      type,
+      comment: header.comment,
+      range: [start, end2, end2],
+    };
   }
   let trimIndent = scalar.indent + header.indent;
   let offset = scalar.offset + header.length;
@@ -15659,38 +19754,47 @@ function resolveBlockScalar(scalar, strict, onError) {
   for (let i4 = 0; i4 < chompStart; ++i4) {
     const [indent, content] = lines[i4];
     if (content === "" || content === "\r") {
-      if (header.indent === 0 && indent.length > trimIndent)
+      if (header.indent === 0 && indent.length > trimIndent) {
         trimIndent = indent.length;
+      }
     } else {
       if (indent.length < trimIndent) {
-        const message = "Block scalars with more-indented leading empty lines must use an explicit indentation indicator";
+        const message =
+          "Block scalars with more-indented leading empty lines must use an explicit indentation indicator";
         onError(offset + indent.length, "MISSING_CHAR", message);
       }
-      if (header.indent === 0)
+      if (header.indent === 0) {
         trimIndent = indent.length;
+      }
       contentStart = i4;
       break;
     }
     offset += indent.length + content.length + 1;
   }
   for (let i4 = lines.length - 1; i4 >= chompStart; --i4) {
-    if (lines[i4][0].length > trimIndent)
+    if (lines[i4][0].length > trimIndent) {
       chompStart = i4 + 1;
+    }
   }
   let value = "";
   let sep = "";
   let prevMoreIndented = false;
-  for (let i4 = 0; i4 < contentStart; ++i4)
+  for (let i4 = 0; i4 < contentStart; ++i4) {
     value += lines[i4][0].slice(trimIndent) + "\n";
+  }
   for (let i4 = contentStart; i4 < chompStart; ++i4) {
     let [indent, content] = lines[i4];
     offset += indent.length + content.length + 1;
     const crlf = content[content.length - 1] === "\r";
-    if (crlf)
+    if (crlf) {
       content = content.slice(0, -1);
+    }
     if (content && indent.length < trimIndent) {
-      const src = header.indent ? "explicit indentation indicator" : "first line";
-      const message = `Block scalar lines must not be less indented than their ${src}`;
+      const src = header.indent
+        ? "explicit indentation indicator"
+        : "first line";
+      const message =
+        `Block scalar lines must not be less indented than their ${src}`;
       onError(offset - content.length - (crlf ? 2 : 1), "BAD_INDENT", message);
       indent = "";
     }
@@ -15698,18 +19802,20 @@ function resolveBlockScalar(scalar, strict, onError) {
       value += sep + indent.slice(trimIndent) + content;
       sep = "\n";
     } else if (indent.length > trimIndent || content[0] === "	") {
-      if (sep === " ")
+      if (sep === " ") {
         sep = "\n";
-      else if (!prevMoreIndented && sep === "\n")
+      } else if (!prevMoreIndented && sep === "\n") {
         sep = "\n\n";
+      }
       value += sep + indent.slice(trimIndent) + content;
       sep = "\n";
       prevMoreIndented = true;
     } else if (content === "") {
-      if (sep === "\n")
+      if (sep === "\n") {
         value += "\n";
-      else
+      } else {
         sep = "\n";
+      }
     } else {
       value += sep + content;
       sep = " ";
@@ -15720,10 +19826,12 @@ function resolveBlockScalar(scalar, strict, onError) {
     case "-":
       break;
     case "+":
-      for (let i4 = chompStart; i4 < lines.length; ++i4)
+      for (let i4 = chompStart; i4 < lines.length; ++i4) {
         value += "\n" + lines[i4][0].slice(trimIndent);
-      if (value[value.length - 1] !== "\n")
+      }
+      if (value[value.length - 1] !== "\n") {
         value += "\n";
+      }
       break;
     default:
       value += "\n";
@@ -15743,18 +19851,24 @@ function parseBlockScalarHeader({ offset, props }, strict, onError) {
   let error = -1;
   for (let i4 = 1; i4 < source.length; ++i4) {
     const ch = source[i4];
-    if (!chomp && (ch === "-" || ch === "+"))
+    if (!chomp && (ch === "-" || ch === "+")) {
       chomp = ch;
-    else {
+    } else {
       const n6 = Number(ch);
-      if (!indent && n6)
+      if (!indent && n6) {
         indent = n6;
-      else if (error === -1)
+      } else if (error === -1) {
         error = offset + i4;
+      }
     }
   }
-  if (error !== -1)
-    onError(error, "UNEXPECTED_TOKEN", `Block scalar header includes extra characters: ${source}`);
+  if (error !== -1) {
+    onError(
+      error,
+      "UNEXPECTED_TOKEN",
+      `Block scalar header includes extra characters: ${source}`,
+    );
+  }
   let hasSpace = false;
   let comment = "";
   let length = source.length;
@@ -15768,7 +19882,8 @@ function parseBlockScalarHeader({ offset, props }, strict, onError) {
         break;
       case "comment":
         if (strict && !hasSpace) {
-          const message = "Comments must be separated from other tokens by white space characters";
+          const message =
+            "Comments must be separated from other tokens by white space characters";
           onError(token, "MISSING_CHAR", message);
         }
         length += token.source.length;
@@ -15779,11 +19894,13 @@ function parseBlockScalarHeader({ offset, props }, strict, onError) {
         length += token.source.length;
         break;
       default: {
-        const message = `Unexpected token in block scalar header: ${token.type}`;
+        const message =
+          `Unexpected token in block scalar header: ${token.type}`;
         onError(token, "UNEXPECTED_TOKEN", message);
         const ts = token.source;
-        if (ts && typeof ts === "string")
+        if (ts && typeof ts === "string") {
           length += ts.length;
+        }
       }
     }
   }
@@ -15793,10 +19910,13 @@ function splitLines(source) {
   const split = source.split(/\n( *)/);
   const first = split[0];
   const m2 = first.match(/^( *)/);
-  const line0 = (m2 == null ? void 0 : m2[1]) ? [m2[1], first.slice(m2[1].length)] : ["", first];
+  const line0 = (m2 == null ? void 0 : m2[1])
+    ? [m2[1], first.slice(m2[1].length)]
+    : ["", first];
   const lines = [line0];
-  for (let i4 = 1; i4 < split.length; i4 += 2)
+  for (let i4 = 1; i4 < split.length; i4 += 2) {
     lines.push([split[i4], split[i4 + 1]]);
+  }
   return lines;
 }
 
@@ -15820,12 +19940,16 @@ function resolveFlowScalar(scalar, strict, onError) {
       value = doubleQuotedValue(source, _onError);
       break;
     default:
-      onError(scalar, "UNEXPECTED_TOKEN", `Expected a flow scalar value, but found: ${type}`);
+      onError(
+        scalar,
+        "UNEXPECTED_TOKEN",
+        `Expected a flow scalar value, but found: ${type}`,
+      );
       return {
         value: "",
         type: null,
         comment: "",
-        range: [offset, offset + source.length, offset + source.length]
+        range: [offset, offset + source.length, offset + source.length],
       };
   }
   const valueEnd = offset + source.length;
@@ -15834,7 +19958,7 @@ function resolveFlowScalar(scalar, strict, onError) {
     value,
     type: _type,
     comment: re.comment,
-    range: [offset, valueEnd, re.offset]
+    range: [offset, valueEnd, re.offset],
   };
 }
 function plainValue(source, onError) {
@@ -15860,13 +19984,15 @@ function plainValue(source, onError) {
       break;
     }
   }
-  if (badChar)
+  if (badChar) {
     onError(0, "BAD_SCALAR_START", `Plain value cannot start with ${badChar}`);
+  }
   return foldLines(source);
 }
 function singleQuotedValue(source, onError) {
-  if (source[source.length - 1] !== "'" || source.length === 1)
+  if (source[source.length - 1] !== "'" || source.length === 1) {
     onError(source.length, "MISSING_CHAR", "Missing closing 'quote");
+  }
   return foldLines(source.slice(1, -1)).replace(/''/g, "'");
 }
 function foldLines(source) {
@@ -15880,18 +20006,20 @@ function foldLines(source) {
     line = new RegExp("[ \\t]*(.*?)[ \\t]*\\r?\\n", "sy");
   }
   let match = first.exec(source);
-  if (!match)
+  if (!match) {
     return source;
+  }
   let res = match[1];
   let sep = " ";
   let pos = first.lastIndex;
   line.lastIndex = pos;
   while (match = line.exec(source)) {
     if (match[1] === "") {
-      if (sep === "\n")
+      if (sep === "\n") {
         res += sep;
-      else
+      } else {
         sep = "\n";
+      }
     } else {
       res += sep + match[1];
       sep = " ";
@@ -15901,14 +20029,16 @@ function foldLines(source) {
   const last = new RegExp("[ \\t]*(.*)", "sy");
   last.lastIndex = pos;
   match = last.exec(source);
-  return res + sep + ((_a = match == null ? void 0 : match[1]) != null ? _a : "");
+  return res + sep +
+    ((_a = match == null ? void 0 : match[1]) != null ? _a : "");
 }
 function doubleQuotedValue(source, onError) {
   let res = "";
   for (let i4 = 1; i4 < source.length - 1; ++i4) {
     const ch = source[i4];
-    if (ch === "\r" && source[i4 + 1] === "\n")
+    if (ch === "\r" && source[i4 + 1] === "\n") {
       continue;
+    }
     if (ch === "\n") {
       const { fold, offset } = foldNewline(source, i4);
       res += fold;
@@ -15916,16 +20046,18 @@ function doubleQuotedValue(source, onError) {
     } else if (ch === "\\") {
       let next = source[++i4];
       const cc = escapeCodes[next];
-      if (cc)
+      if (cc) {
         res += cc;
-      else if (next === "\n") {
+      } else if (next === "\n") {
         next = source[i4 + 1];
-        while (next === " " || next === "	")
+        while (next === " " || next === "	") {
           next = source[++i4 + 1];
+        }
       } else if (next === "\r" && source[i4 + 1] === "\n") {
         next = source[++i4 + 1];
-        while (next === " " || next === "	")
+        while (next === " " || next === "	") {
           next = source[++i4 + 1];
+        }
       } else if (next === "x" || next === "u" || next === "U") {
         const length = { x: 2, u: 4, U: 8 }[next];
         res += parseCharCode(source, i4 + 1, length, onError);
@@ -15938,31 +20070,37 @@ function doubleQuotedValue(source, onError) {
     } else if (ch === " " || ch === "	") {
       const wsStart = i4;
       let next = source[i4 + 1];
-      while (next === " " || next === "	")
+      while (next === " " || next === "	") {
         next = source[++i4 + 1];
-      if (next !== "\n" && !(next === "\r" && source[i4 + 2] === "\n"))
+      }
+      if (next !== "\n" && !(next === "\r" && source[i4 + 2] === "\n")) {
         res += i4 > wsStart ? source.slice(wsStart, i4 + 1) : ch;
+      }
     } else {
       res += ch;
     }
   }
-  if (source[source.length - 1] !== '"' || source.length === 1)
+  if (source[source.length - 1] !== '"' || source.length === 1) {
     onError(source.length, "MISSING_CHAR", 'Missing closing "quote');
+  }
   return res;
 }
 function foldNewline(source, offset) {
   let fold = "";
   let ch = source[offset + 1];
   while (ch === " " || ch === "	" || ch === "\n" || ch === "\r") {
-    if (ch === "\r" && source[offset + 2] !== "\n")
+    if (ch === "\r" && source[offset + 2] !== "\n") {
       break;
-    if (ch === "\n")
+    }
+    if (ch === "\n") {
       fold += "\n";
+    }
     offset += 1;
     ch = source[offset + 1];
   }
-  if (!fold)
+  if (!fold) {
     fold = " ";
+  }
   return { fold, offset };
 }
 var escapeCodes = {
@@ -15983,7 +20121,7 @@ var escapeCodes = {
   '"': '"',
   "/": "/",
   "\\": "\\",
-  "	": "	"
+  "	": "	",
 };
 function parseCharCode(source, offset, length, onError) {
   const cc = source.substr(offset, length);
@@ -15999,12 +20137,28 @@ function parseCharCode(source, offset, length, onError) {
 
 // node_modules/yaml/browser/dist/compose/compose-scalar.js
 function composeScalar(ctx, token, tagToken, onError) {
-  const { value, type, comment, range } = token.type === "block-scalar" ? resolveBlockScalar(token, ctx.options.strict, onError) : resolveFlowScalar(token, ctx.options.strict, onError);
-  const tagName = tagToken ? ctx.directives.tagName(tagToken.source, (msg) => onError(tagToken, "TAG_RESOLVE_FAILED", msg)) : null;
-  const tag = tagToken && tagName ? findScalarTagByName(ctx.schema, value, tagName, tagToken, onError) : token.type === "scalar" ? findScalarTagByTest(ctx, value, token, onError) : ctx.schema[SCALAR];
+  const { value, type, comment, range } = token.type === "block-scalar"
+    ? resolveBlockScalar(token, ctx.options.strict, onError)
+    : resolveFlowScalar(token, ctx.options.strict, onError);
+  const tagName = tagToken
+    ? ctx.directives.tagName(
+      tagToken.source,
+      (msg) => onError(tagToken, "TAG_RESOLVE_FAILED", msg),
+    )
+    : null;
+  const tag = tagToken && tagName
+    ? findScalarTagByName(ctx.schema, value, tagName, tagToken, onError)
+    : token.type === "scalar"
+    ? findScalarTagByTest(ctx, value, token, onError)
+    : ctx.schema[SCALAR];
   let scalar;
   try {
-    const res = tag.resolve(value, (msg) => onError(tagToken != null ? tagToken : token, "TAG_RESOLVE_FAILED", msg), ctx.options);
+    const res = tag.resolve(
+      value,
+      (msg) =>
+        onError(tagToken != null ? tagToken : token, "TAG_RESOLVE_FAILED", msg),
+      ctx.options,
+    );
     scalar = isScalar(res) ? res : new Scalar(res);
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
@@ -16013,51 +20167,73 @@ function composeScalar(ctx, token, tagToken, onError) {
   }
   scalar.range = range;
   scalar.source = value;
-  if (type)
+  if (type) {
     scalar.type = type;
-  if (tagName)
+  }
+  if (tagName) {
     scalar.tag = tagName;
-  if (tag.format)
+  }
+  if (tag.format) {
     scalar.format = tag.format;
-  if (comment)
+  }
+  if (comment) {
     scalar.comment = comment;
+  }
   return scalar;
 }
 function findScalarTagByName(schema4, value, tagName, tagToken, onError) {
   var _a;
-  if (tagName === "!")
+  if (tagName === "!") {
     return schema4[SCALAR];
+  }
   const matchWithTest = [];
   for (const tag of schema4.tags) {
     if (!tag.collection && tag.tag === tagName) {
-      if (tag.default && tag.test)
+      if (tag.default && tag.test) {
         matchWithTest.push(tag);
-      else
+      } else {
         return tag;
+      }
     }
   }
-  for (const tag of matchWithTest)
-    if ((_a = tag.test) == null ? void 0 : _a.test(value))
+  for (const tag of matchWithTest) {
+    if ((_a = tag.test) == null ? void 0 : _a.test(value)) {
       return tag;
+    }
+  }
   const kt = schema4.knownTags[tagName];
   if (kt && !kt.collection) {
     schema4.tags.push(Object.assign({}, kt, { default: false, test: void 0 }));
     return kt;
   }
-  onError(tagToken, "TAG_RESOLVE_FAILED", `Unresolved tag: ${tagName}`, tagName !== "tag:yaml.org,2002:str");
+  onError(
+    tagToken,
+    "TAG_RESOLVE_FAILED",
+    `Unresolved tag: ${tagName}`,
+    tagName !== "tag:yaml.org,2002:str",
+  );
   return schema4[SCALAR];
 }
-function findScalarTagByTest({ directives, schema: schema4 }, value, token, onError) {
+function findScalarTagByTest(
+  { directives, schema: schema4 },
+  value,
+  token,
+  onError,
+) {
   var _a;
   const tag = schema4.tags.find((tag2) => {
     var _a2;
-    return tag2.default && ((_a2 = tag2.test) == null ? void 0 : _a2.test(value));
+    return tag2.default &&
+      ((_a2 = tag2.test) == null ? void 0 : _a2.test(value));
   }) || schema4[SCALAR];
   if (schema4.compat) {
     const compat = (_a = schema4.compat.find((tag2) => {
-      var _a2;
-      return tag2.default && ((_a2 = tag2.test) == null ? void 0 : _a2.test(value));
-    })) != null ? _a : schema4[SCALAR];
+        var _a2;
+        return tag2.default &&
+          ((_a2 = tag2.test) == null ? void 0 : _a2.test(value));
+      })) != null
+      ? _a
+      : schema4[SCALAR];
     if (tag.tag !== compat.tag) {
       const ts = directives.tagString(tag.tag);
       const cs = directives.tagString(compat.tag);
@@ -16071,8 +20247,9 @@ function findScalarTagByTest({ directives, schema: schema4 }, value, token, onEr
 // node_modules/yaml/browser/dist/compose/util-empty-scalar-position.js
 function emptyScalarPosition(offset, before, pos) {
   if (before) {
-    if (pos === null)
+    if (pos === null) {
       pos = before.length;
+    }
     for (let i4 = pos - 1; i4 >= 0; --i4) {
       let st = before[i4];
       switch (st.type) {
@@ -16102,115 +20279,164 @@ function composeNode(ctx, token, props, onError) {
   switch (token.type) {
     case "alias":
       node = composeAlias(ctx, token, onError);
-      if (anchor || tag)
-        onError(token, "ALIAS_PROPS", "An alias node must not specify any properties");
+      if (anchor || tag) {
+        onError(
+          token,
+          "ALIAS_PROPS",
+          "An alias node must not specify any properties",
+        );
+      }
       break;
     case "scalar":
     case "single-quoted-scalar":
     case "double-quoted-scalar":
     case "block-scalar":
       node = composeScalar(ctx, token, tag, onError);
-      if (anchor)
+      if (anchor) {
         node.anchor = anchor.source.substring(1);
+      }
       break;
     case "block-map":
     case "block-seq":
     case "flow-collection":
       node = composeCollection(CN, ctx, token, tag, onError);
-      if (anchor)
+      if (anchor) {
         node.anchor = anchor.source.substring(1);
+      }
       break;
     default: {
-      const message = token.type === "error" ? token.message : `Unsupported token (type: ${token.type})`;
+      const message = token.type === "error"
+        ? token.message
+        : `Unsupported token (type: ${token.type})`;
       onError(token, "UNEXPECTED_TOKEN", message);
       node = composeEmptyNode(ctx, token.offset, void 0, null, props, onError);
       isSrcToken = false;
     }
   }
-  if (anchor && node.anchor === "")
+  if (anchor && node.anchor === "") {
     onError(anchor, "BAD_ALIAS", "Anchor cannot be an empty string");
-  if (spaceBefore)
-    node.spaceBefore = true;
-  if (comment) {
-    if (token.type === "scalar" && token.source === "")
-      node.comment = comment;
-    else
-      node.commentBefore = comment;
   }
-  if (ctx.options.keepSourceTokens && isSrcToken)
+  if (spaceBefore) {
+    node.spaceBefore = true;
+  }
+  if (comment) {
+    if (token.type === "scalar" && token.source === "") {
+      node.comment = comment;
+    } else {
+      node.commentBefore = comment;
+    }
+  }
+  if (ctx.options.keepSourceTokens && isSrcToken) {
     node.srcToken = token;
+  }
   return node;
 }
-function composeEmptyNode(ctx, offset, before, pos, { spaceBefore, comment, anchor, tag }, onError) {
+function composeEmptyNode(
+  ctx,
+  offset,
+  before,
+  pos,
+  { spaceBefore, comment, anchor, tag },
+  onError,
+) {
   const token = {
     type: "scalar",
     offset: emptyScalarPosition(offset, before, pos),
     indent: -1,
-    source: ""
+    source: "",
   };
   const node = composeScalar(ctx, token, tag, onError);
   if (anchor) {
     node.anchor = anchor.source.substring(1);
-    if (node.anchor === "")
+    if (node.anchor === "") {
       onError(anchor, "BAD_ALIAS", "Anchor cannot be an empty string");
+    }
   }
-  if (spaceBefore)
+  if (spaceBefore) {
     node.spaceBefore = true;
-  if (comment)
+  }
+  if (comment) {
     node.comment = comment;
+  }
   return node;
 }
 function composeAlias({ options }, { offset, source, end }, onError) {
   const alias = new Alias(source.substring(1));
-  if (alias.source === "")
+  if (alias.source === "") {
     onError(offset, "BAD_ALIAS", "Alias cannot be an empty string");
-  if (alias.source.endsWith(":"))
-    onError(offset + source.length - 1, "BAD_ALIAS", "Alias ending in : is ambiguous", true);
+  }
+  if (alias.source.endsWith(":")) {
+    onError(
+      offset + source.length - 1,
+      "BAD_ALIAS",
+      "Alias ending in : is ambiguous",
+      true,
+    );
+  }
   const valueEnd = offset + source.length;
   const re = resolveEnd(end, valueEnd, options.strict, onError);
   alias.range = [offset, valueEnd, re.offset];
-  if (re.comment)
+  if (re.comment) {
     alias.comment = re.comment;
+  }
   return alias;
 }
 
 // node_modules/yaml/browser/dist/compose/compose-doc.js
-function composeDoc(options, directives, { offset, start, value, end }, onError) {
+function composeDoc(
+  options,
+  directives,
+  { offset, start, value, end },
+  onError,
+) {
   const opts = Object.assign({ _directives: directives }, options);
   const doc = new Document2(void 0, opts);
   const ctx = {
     atRoot: true,
     directives: doc.directives,
     options: doc.options,
-    schema: doc.schema
+    schema: doc.schema,
   };
   const props = resolveProps(start, {
     indicator: "doc-start",
     next: value != null ? value : end == null ? void 0 : end[0],
     offset,
     onError,
-    startOnNewline: true
+    startOnNewline: true,
   });
   if (props.found) {
     doc.directives.docStart = true;
-    if (value && (value.type === "block-map" || value.type === "block-seq") && !props.hasNewline)
-      onError(props.end, "MISSING_CHAR", "Block collection cannot start on same line with directives-end marker");
+    if (
+      value && (value.type === "block-map" || value.type === "block-seq") &&
+      !props.hasNewline
+    ) {
+      onError(
+        props.end,
+        "MISSING_CHAR",
+        "Block collection cannot start on same line with directives-end marker",
+      );
+    }
   }
-  doc.contents = value ? composeNode(ctx, value, props, onError) : composeEmptyNode(ctx, props.end, start, null, props, onError);
+  doc.contents = value
+    ? composeNode(ctx, value, props, onError)
+    : composeEmptyNode(ctx, props.end, start, null, props, onError);
   const contentEnd = doc.contents.range[2];
   const re = resolveEnd(end, contentEnd, false, onError);
-  if (re.comment)
+  if (re.comment) {
     doc.comment = re.comment;
+  }
   doc.range = [offset, contentEnd, re.offset];
   return doc;
 }
 
 // node_modules/yaml/browser/dist/compose/composer.js
 function getErrorPos(src) {
-  if (typeof src === "number")
+  if (typeof src === "number") {
     return [src, src + 1];
-  if (Array.isArray(src))
+  }
+  if (Array.isArray(src)) {
     return src.length === 2 ? src : [src[0], src[1]];
+  }
   const { offset, source } = src;
   return [offset, offset + (typeof source === "string" ? source.length : 1)];
 }
@@ -16223,18 +20449,21 @@ function parsePrelude(prelude) {
     const source = prelude[i4];
     switch (source[0]) {
       case "#":
-        comment += (comment === "" ? "" : afterEmptyLine ? "\n\n" : "\n") + (source.substring(1) || " ");
+        comment += (comment === "" ? "" : afterEmptyLine ? "\n\n" : "\n") +
+          (source.substring(1) || " ");
         atComment = true;
         afterEmptyLine = false;
         break;
       case "%":
-        if (((_a = prelude[i4 + 1]) == null ? void 0 : _a[0]) !== "#")
+        if (((_a = prelude[i4 + 1]) == null ? void 0 : _a[0]) !== "#") {
           i4 += 1;
+        }
         atComment = false;
         break;
       default:
-        if (!atComment)
+        if (!atComment) {
           afterEmptyLine = true;
+        }
         atComment = false;
     }
   }
@@ -16249,10 +20478,11 @@ var Composer = class {
     this.warnings = [];
     this.onError = (source, code, message, warning) => {
       const pos = getErrorPos(source);
-      if (warning)
+      if (warning) {
         this.warnings.push(new YAMLWarning(pos, code, message));
-      else
+      } else {
         this.errors.push(new YAMLParseError(pos, code, message));
+      }
     };
     this.directives = new Directives({ version: options.version || "1.2" });
     this.options = options;
@@ -16262,21 +20492,28 @@ var Composer = class {
     if (comment) {
       const dc = doc.contents;
       if (afterDoc) {
-        doc.comment = doc.comment ? `${doc.comment}
-${comment}` : comment;
+        doc.comment = doc.comment
+          ? `${doc.comment}
+${comment}`
+          : comment;
       } else if (afterEmptyLine || doc.directives.docStart || !dc) {
         doc.commentBefore = comment;
       } else if (isCollection(dc) && !dc.flow && dc.items.length > 0) {
         let it = dc.items[0];
-        if (isPair(it))
+        if (isPair(it)) {
           it = it.key;
+        }
         const cb = it.commentBefore;
-        it.commentBefore = cb ? `${comment}
-${cb}` : comment;
+        it.commentBefore = cb
+          ? `${comment}
+${cb}`
+          : comment;
       } else {
         const cb = dc.commentBefore;
-        dc.commentBefore = cb ? `${comment}
-${cb}` : comment;
+        dc.commentBefore = cb
+          ? `${comment}
+${cb}`
+          : comment;
       }
     }
     if (afterDoc) {
@@ -16295,12 +20532,13 @@ ${cb}` : comment;
       comment: parsePrelude(this.prelude).comment,
       directives: this.directives,
       errors: this.errors,
-      warnings: this.warnings
+      warnings: this.warnings,
     };
   }
   *compose(tokens, forceDoc = false, endOffset = -1) {
-    for (const token of tokens)
+    for (const token of tokens) {
       yield* this.next(token);
+    }
     yield* this.end(forceDoc, endOffset);
   }
   *next(token) {
@@ -16315,12 +20553,23 @@ ${cb}` : comment;
         this.atDirectives = true;
         break;
       case "document": {
-        const doc = composeDoc(this.options, this.directives, token, this.onError);
-        if (this.atDirectives && !doc.directives.docStart)
-          this.onError(token, "MISSING_CHAR", "Missing directives-end/doc-start indicator line");
+        const doc = composeDoc(
+          this.options,
+          this.directives,
+          token,
+          this.onError,
+        );
+        if (this.atDirectives && !doc.directives.docStart) {
+          this.onError(
+            token,
+            "MISSING_CHAR",
+            "Missing directives-end/doc-start indicator line",
+          );
+        }
         this.decorate(doc, false);
-        if (this.doc)
+        if (this.doc) {
           yield this.doc;
+        }
         this.doc = doc;
         this.atDirectives = false;
         break;
@@ -16333,33 +20582,55 @@ ${cb}` : comment;
         this.prelude.push(token.source);
         break;
       case "error": {
-        const msg = token.source ? `${token.message}: ${JSON.stringify(token.source)}` : token.message;
-        const error = new YAMLParseError(getErrorPos(token), "UNEXPECTED_TOKEN", msg);
-        if (this.atDirectives || !this.doc)
+        const msg = token.source
+          ? `${token.message}: ${JSON.stringify(token.source)}`
+          : token.message;
+        const error = new YAMLParseError(
+          getErrorPos(token),
+          "UNEXPECTED_TOKEN",
+          msg,
+        );
+        if (this.atDirectives || !this.doc) {
           this.errors.push(error);
-        else
+        } else {
           this.doc.errors.push(error);
+        }
         break;
       }
       case "doc-end": {
         if (!this.doc) {
           const msg = "Unexpected doc-end without preceding document";
-          this.errors.push(new YAMLParseError(getErrorPos(token), "UNEXPECTED_TOKEN", msg));
+          this.errors.push(
+            new YAMLParseError(getErrorPos(token), "UNEXPECTED_TOKEN", msg),
+          );
           break;
         }
         this.doc.directives.docEnd = true;
-        const end = resolveEnd(token.end, token.offset + token.source.length, this.doc.options.strict, this.onError);
+        const end = resolveEnd(
+          token.end,
+          token.offset + token.source.length,
+          this.doc.options.strict,
+          this.onError,
+        );
         this.decorate(this.doc, true);
         if (end.comment) {
           const dc = this.doc.comment;
-          this.doc.comment = dc ? `${dc}
-${end.comment}` : end.comment;
+          this.doc.comment = dc
+            ? `${dc}
+${end.comment}`
+            : end.comment;
         }
         this.doc.range[2] = end.offset;
         break;
       }
       default:
-        this.errors.push(new YAMLParseError(getErrorPos(token), "UNEXPECTED_TOKEN", `Unsupported token ${token.type}`));
+        this.errors.push(
+          new YAMLParseError(
+            getErrorPos(token),
+            "UNEXPECTED_TOKEN",
+            `Unsupported token ${token.type}`,
+          ),
+        );
     }
   }
   *end(forceDoc = false, endOffset = -1) {
@@ -16368,10 +20639,18 @@ ${end.comment}` : end.comment;
       yield this.doc;
       this.doc = null;
     } else if (forceDoc) {
-      const opts = Object.assign({ _directives: this.directives }, this.options);
+      const opts = Object.assign(
+        { _directives: this.directives },
+        this.options,
+      );
       const doc = new Document2(void 0, opts);
-      if (this.atDirectives)
-        this.onError(endOffset, "MISSING_CHAR", "Missing directives-end indicator line");
+      if (this.atDirectives) {
+        this.onError(
+          endOffset,
+          "MISSING_CHAR",
+          "Missing directives-end indicator line",
+        );
+      }
       doc.range = [0, endOffset, endOffset];
       this.decorate(doc, false);
       yield doc;
@@ -16384,8 +20663,9 @@ var BREAK2 = Symbol("break visit");
 var SKIP2 = Symbol("skip children");
 var REMOVE2 = Symbol("remove item");
 function visit2(cst, visitor) {
-  if ("type" in cst && cst.type === "document")
+  if ("type" in cst && cst.type === "document") {
     cst = { start: cst.start, value: cst.value };
+  }
   _visit(Object.freeze([]), cst, visitor);
 }
 visit2.BREAK = BREAK2;
@@ -16397,8 +20677,9 @@ visit2.itemAtPath = (cst, path) => {
     const tok = item == null ? void 0 : item[field];
     if (tok && "items" in tok) {
       item = tok.items[index];
-    } else
+    } else {
       return void 0;
+    }
   }
   return item;
 };
@@ -16406,30 +20687,37 @@ visit2.parentCollection = (cst, path) => {
   const parent = visit2.itemAtPath(cst, path.slice(0, -1));
   const field = path[path.length - 1][0];
   const coll = parent == null ? void 0 : parent[field];
-  if (coll && "items" in coll)
+  if (coll && "items" in coll) {
     return coll;
+  }
   throw new Error("Parent collection not found");
 };
 function _visit(path, item, visitor) {
   let ctrl = visitor(item, path);
-  if (typeof ctrl === "symbol")
+  if (typeof ctrl === "symbol") {
     return ctrl;
+  }
   for (const field of ["key", "value"]) {
     const token = item[field];
     if (token && "items" in token) {
       for (let i4 = 0; i4 < token.items.length; ++i4) {
-        const ci = _visit(Object.freeze(path.concat([[field, i4]])), token.items[i4], visitor);
-        if (typeof ci === "number")
+        const ci = _visit(
+          Object.freeze(path.concat([[field, i4]])),
+          token.items[i4],
+          visitor,
+        );
+        if (typeof ci === "number") {
           i4 = ci - 1;
-        else if (ci === BREAK2)
+        } else if (ci === BREAK2) {
           return BREAK2;
-        else if (ci === REMOVE2) {
+        } else if (ci === REMOVE2) {
           token.items.splice(i4, 1);
           i4 -= 1;
         }
       }
-      if (typeof ctrl === "function" && field === "key")
+      if (typeof ctrl === "function" && field === "key") {
         ctrl = ctrl(item, path);
+      }
     }
   }
   return typeof ctrl === "function" ? ctrl(item, path) : ctrl;
@@ -16514,7 +20802,9 @@ function isEmpty(ch) {
   }
 }
 var hexDigits = "0123456789ABCDEFabcdef".split("");
-var tagChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-#;/?:@&=+$_.!~*'()".split("");
+var tagChars =
+  "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-#;/?:@&=+$_.!~*'()"
+    .split("");
 var invalidFlowScalarChars = ",[]{}".split("");
 var invalidAnchorChars = " ,[]{}\n\r	".split("");
 var isNotAnchorChar = (ch) => !ch || invalidAnchorChars.includes(ch);
@@ -16540,18 +20830,22 @@ var Lexer = class {
     }
     this.atEnd = !incomplete;
     let next = (_a = this.next) != null ? _a : "stream";
-    while (next && (incomplete || this.hasChars(1)))
+    while (next && (incomplete || this.hasChars(1))) {
       next = yield* this.parseNext(next);
+    }
   }
   atLineEnd() {
     let i4 = this.pos;
     let ch = this.buffer[i4];
-    while (ch === " " || ch === "	")
+    while (ch === " " || ch === "	") {
       ch = this.buffer[++i4];
-    if (!ch || ch === "#" || ch === "\n")
+    }
+    if (!ch || ch === "#" || ch === "\n") {
       return true;
-    if (ch === "\r")
+    }
+    if (ch === "\r") {
       return this.buffer[i4 + 1] === "\n";
+    }
     return false;
   }
   charAt(n6) {
@@ -16561,19 +20855,24 @@ var Lexer = class {
     let ch = this.buffer[offset];
     if (this.indentNext > 0) {
       let indent = 0;
-      while (ch === " ")
+      while (ch === " ") {
         ch = this.buffer[++indent + offset];
+      }
       if (ch === "\r") {
         const next = this.buffer[indent + offset + 1];
-        if (next === "\n" || !next && !this.atEnd)
+        if (next === "\n" || !next && !this.atEnd) {
           return offset + indent + 1;
+        }
       }
-      return ch === "\n" || indent >= this.indentNext || !ch && !this.atEnd ? offset + indent : -1;
+      return ch === "\n" || indent >= this.indentNext || !ch && !this.atEnd
+        ? offset + indent
+        : -1;
     }
     if (ch === "-" || ch === ".") {
       const dt = this.buffer.substr(offset, 3);
-      if ((dt === "---" || dt === "...") && isEmpty(this.buffer[offset + 3]))
+      if ((dt === "---" || dt === "...") && isEmpty(this.buffer[offset + 3])) {
         return -1;
+      }
     }
     return offset;
   }
@@ -16583,10 +20882,12 @@ var Lexer = class {
       end = this.buffer.indexOf("\n", this.pos);
       this.lineEndPos = end;
     }
-    if (end === -1)
+    if (end === -1) {
       return this.atEnd ? this.buffer.substring(this.pos) : null;
-    if (this.buffer[end - 1] === "\r")
+    }
+    if (this.buffer[end - 1] === "\r") {
       end -= 1;
+    }
     return this.buffer.substring(this.pos, end);
   }
   hasChars(n6) {
@@ -16624,8 +20925,9 @@ var Lexer = class {
   }
   *parseStream() {
     let line = this.getLine();
-    if (line === null)
+    if (line === null) {
       return this.setNext("stream");
+    }
     if (line[0] === BOM) {
       yield* this.pushCount(1);
       line = line.substring(1);
@@ -16635,17 +20937,20 @@ var Lexer = class {
       const cs = line.indexOf("#");
       if (cs !== -1) {
         const ch = line[cs - 1];
-        if (ch === " " || ch === "	")
+        if (ch === " " || ch === "	") {
           dirEnd = cs - 1;
+        }
       }
       while (true) {
         const ch = line[dirEnd - 1];
-        if (ch === " " || ch === "	")
+        if (ch === " " || ch === "	") {
           dirEnd -= 1;
-        else
+        } else {
           break;
+        }
       }
-      const n6 = (yield* this.pushCount(dirEnd)) + (yield* this.pushSpaces(true));
+      const n6 = (yield* this.pushCount(dirEnd)) +
+        (yield* this.pushSpaces(true));
       yield* this.pushCount(line.length - n6);
       this.pushNewline();
       return "stream";
@@ -16661,11 +20966,13 @@ var Lexer = class {
   }
   *parseLineStart() {
     const ch = this.charAt(0);
-    if (!ch && !this.atEnd)
+    if (!ch && !this.atEnd) {
       return this.setNext("line-start");
+    }
     if (ch === "-" || ch === ".") {
-      if (!this.atEnd && !this.hasChars(4))
+      if (!this.atEnd && !this.hasChars(4)) {
         return this.setNext("line-start");
+      }
       const s5 = this.peek(3);
       if (s5 === "---" && isEmpty(this.charAt(3))) {
         yield* this.pushCount(3);
@@ -16678,14 +20985,16 @@ var Lexer = class {
       }
     }
     this.indentValue = yield* this.pushSpaces(false);
-    if (this.indentNext > this.indentValue && !isEmpty(this.charAt(1)))
+    if (this.indentNext > this.indentValue && !isEmpty(this.charAt(1))) {
       this.indentNext = this.indentValue;
+    }
     return yield* this.parseBlockStart();
   }
   *parseBlockStart() {
     const [ch0, ch1] = this.peek(2);
-    if (!ch1 && !this.atEnd)
+    if (!ch1 && !this.atEnd) {
       return this.setNext("block-start");
+    }
     if ((ch0 === "-" || ch0 === "?" || ch0 === ":") && isEmpty(ch1)) {
       const n6 = (yield* this.pushCount(1)) + (yield* this.pushSpaces(true));
       this.indentNext = this.indentValue + 1;
@@ -16697,8 +21006,9 @@ var Lexer = class {
   *parseDocument() {
     yield* this.pushSpaces(true);
     const line = this.getLine();
-    if (line === null)
+    if (line === null) {
       return this.setNext("doc");
+    }
     let n6 = yield* this.pushIndicators();
     switch (line[n6]) {
       case "#":
@@ -16747,10 +21057,16 @@ var Lexer = class {
       sp += yield* this.pushSpaces(true);
     } while (nl + sp > 0);
     const line = this.getLine();
-    if (line === null)
+    if (line === null) {
       return this.setNext("flow");
-    if (indent !== -1 && indent < this.indentNext && line[0] !== "#" || indent === 0 && (line.startsWith("---") || line.startsWith("...")) && isEmpty(line[3])) {
-      const atFlowEndMarker = indent === this.indentNext - 1 && this.flowLevel === 1 && (line[0] === "]" || line[0] === "}");
+    }
+    if (
+      indent !== -1 && indent < this.indentNext && line[0] !== "#" ||
+      indent === 0 && (line.startsWith("---") || line.startsWith("...")) &&
+        isEmpty(line[3])
+    ) {
+      const atFlowEndMarker = indent === this.indentNext - 1 &&
+        this.flowLevel === 1 && (line[0] === "]" || line[0] === "}");
       if (!atFlowEndMarker) {
         this.flowLevel = 0;
         yield FLOW_END;
@@ -16807,15 +21123,18 @@ var Lexer = class {
     const quote = this.charAt(0);
     let end = this.buffer.indexOf(quote, this.pos + 1);
     if (quote === "'") {
-      while (end !== -1 && this.buffer[end + 1] === "'")
+      while (end !== -1 && this.buffer[end + 1] === "'") {
         end = this.buffer.indexOf("'", end + 2);
+      }
     } else {
       while (end !== -1) {
         let n6 = 0;
-        while (this.buffer[end - 1 - n6] === "\\")
+        while (this.buffer[end - 1 - n6] === "\\") {
           n6 += 1;
-        if (n6 % 2 === 0)
+        }
+        if (n6 % 2 === 0) {
           break;
+        }
         end = this.buffer.indexOf('"', end + 1);
       }
     }
@@ -16824,8 +21143,9 @@ var Lexer = class {
     if (nl !== -1) {
       while (nl !== -1) {
         const cs = this.continueScalar(nl + 1);
-        if (cs === -1)
+        if (cs === -1) {
           break;
+        }
         nl = qb.indexOf("\n", cs);
       }
       if (nl !== -1) {
@@ -16833,8 +21153,9 @@ var Lexer = class {
       }
     }
     if (end === -1) {
-      if (!this.atEnd)
+      if (!this.atEnd) {
         return this.setNext("quoted-scalar");
+      }
       end = this.buffer.length;
     }
     yield* this.pushToIndex(end + 1, false);
@@ -16846,12 +21167,13 @@ var Lexer = class {
     let i4 = this.pos;
     while (true) {
       const ch = this.buffer[++i4];
-      if (ch === "+")
+      if (ch === "+") {
         this.blockScalarKeep = true;
-      else if (ch > "0" && ch <= "9")
+      } else if (ch > "0" && ch <= "9") {
         this.blockScalarIndent = Number(ch) - 1;
-      else if (ch !== "-")
+      } else if (ch !== "-") {
         break;
+      }
     }
     return yield* this.pushUntil((ch) => isEmpty(ch) || ch === "#");
   }
@@ -16860,42 +21182,48 @@ var Lexer = class {
     let indent = 0;
     let ch;
     loop:
-      for (let i4 = this.pos; ch = this.buffer[i4]; ++i4) {
-        switch (ch) {
-          case " ":
-            indent += 1;
-            break;
-          case "\n":
-            nl = i4;
-            indent = 0;
-            break;
-          case "\r": {
-            const next = this.buffer[i4 + 1];
-            if (!next && !this.atEnd)
-              return this.setNext("block-scalar");
-            if (next === "\n")
-              break;
+    for (let i4 = this.pos; ch = this.buffer[i4]; ++i4) {
+      switch (ch) {
+        case " ":
+          indent += 1;
+          break;
+        case "\n":
+          nl = i4;
+          indent = 0;
+          break;
+        case "\r": {
+          const next = this.buffer[i4 + 1];
+          if (!next && !this.atEnd) {
+            return this.setNext("block-scalar");
           }
-          default:
-            break loop;
+          if (next === "\n") {
+            break;
+          }
         }
+        default:
+          break loop;
       }
-    if (!ch && !this.atEnd)
+    }
+    if (!ch && !this.atEnd) {
       return this.setNext("block-scalar");
+    }
     if (indent >= this.indentNext) {
-      if (this.blockScalarIndent === -1)
+      if (this.blockScalarIndent === -1) {
         this.indentNext = indent;
-      else
+      } else {
         this.indentNext += this.blockScalarIndent;
+      }
       do {
         const cs = this.continueScalar(nl + 1);
-        if (cs === -1)
+        if (cs === -1) {
           break;
+        }
         nl = this.buffer.indexOf("\n", cs);
       } while (nl !== -1);
       if (nl === -1) {
-        if (!this.atEnd)
+        if (!this.atEnd) {
           return this.setNext("block-scalar");
+        }
         nl = this.buffer.length;
       }
     }
@@ -16903,15 +21231,18 @@ var Lexer = class {
       do {
         let i4 = nl - 1;
         let ch2 = this.buffer[i4];
-        if (ch2 === "\r")
+        if (ch2 === "\r") {
           ch2 = this.buffer[--i4];
+        }
         const lastChar = i4;
-        while (ch2 === " " || ch2 === "	")
+        while (ch2 === " " || ch2 === "	") {
           ch2 = this.buffer[--i4];
-        if (ch2 === "\n" && i4 >= this.pos && i4 + 1 + indent > lastChar)
+        }
+        if (ch2 === "\n" && i4 >= this.pos && i4 + 1 + indent > lastChar) {
           nl = i4;
-        else
+        } else {
           break;
+        }
       } while (true);
     }
     yield SCALAR2;
@@ -16926,8 +21257,9 @@ var Lexer = class {
     while (ch = this.buffer[++i4]) {
       if (ch === ":") {
         const next = this.buffer[i4 + 1];
-        if (isEmpty(next) || inFlow && next === ",")
+        if (isEmpty(next) || inFlow && next === ",") {
           break;
+        }
         end = i4;
       } else if (isEmpty(ch)) {
         let next = this.buffer[i4 + 1];
@@ -16936,25 +21268,30 @@ var Lexer = class {
             i4 += 1;
             ch = "\n";
             next = this.buffer[i4 + 1];
-          } else
+          } else {
             end = i4;
+          }
         }
-        if (next === "#" || inFlow && invalidFlowScalarChars.includes(next))
+        if (next === "#" || inFlow && invalidFlowScalarChars.includes(next)) {
           break;
+        }
         if (ch === "\n") {
           const cs = this.continueScalar(i4 + 1);
-          if (cs === -1)
+          if (cs === -1) {
             break;
+          }
           i4 = Math.max(i4, cs - 2);
         }
       } else {
-        if (inFlow && invalidFlowScalarChars.includes(ch))
+        if (inFlow && invalidFlowScalarChars.includes(ch)) {
           break;
+        }
         end = i4;
       }
     }
-    if (!ch && !this.atEnd)
+    if (!ch && !this.atEnd) {
       return this.setNext("plain-scalar");
+    }
     yield SCALAR2;
     yield* this.pushToIndex(end + 1, true);
     return inFlow ? "flow" : "doc";
@@ -16973,27 +21310,32 @@ var Lexer = class {
       yield s5;
       this.pos += s5.length;
       return s5.length;
-    } else if (allowEmpty)
+    } else if (allowEmpty) {
       yield "";
+    }
     return 0;
   }
   *pushIndicators() {
     switch (this.charAt(0)) {
       case "!":
-        return (yield* this.pushTag()) + (yield* this.pushSpaces(true)) + (yield* this.pushIndicators());
+        return (yield* this.pushTag()) + (yield* this.pushSpaces(true)) +
+          (yield* this.pushIndicators());
       case "&":
-        return (yield* this.pushUntil(isNotAnchorChar)) + (yield* this.pushSpaces(true)) + (yield* this.pushIndicators());
+        return (yield* this.pushUntil(isNotAnchorChar)) +
+          (yield* this.pushSpaces(true)) + (yield* this.pushIndicators());
       case "-":
       case "?":
       case ":": {
         const inFlow = this.flowLevel > 0;
         const ch1 = this.charAt(1);
         if (isEmpty(ch1) || inFlow && invalidFlowScalarChars.includes(ch1)) {
-          if (!inFlow)
+          if (!inFlow) {
             this.indentNext = this.indentValue + 1;
-          else if (this.flowKey)
+          } else if (this.flowKey) {
             this.flowKey = false;
-          return (yield* this.pushCount(1)) + (yield* this.pushSpaces(true)) + (yield* this.pushIndicators());
+          }
+          return (yield* this.pushCount(1)) + (yield* this.pushSpaces(true)) +
+            (yield* this.pushIndicators());
         }
       }
     }
@@ -17003,31 +21345,37 @@ var Lexer = class {
     if (this.charAt(1) === "<") {
       let i4 = this.pos + 2;
       let ch = this.buffer[i4];
-      while (!isEmpty(ch) && ch !== ">")
+      while (!isEmpty(ch) && ch !== ">") {
         ch = this.buffer[++i4];
+      }
       return yield* this.pushToIndex(ch === ">" ? i4 + 1 : i4, false);
     } else {
       let i4 = this.pos + 1;
       let ch = this.buffer[i4];
       while (ch) {
-        if (tagChars.includes(ch))
+        if (tagChars.includes(ch)) {
           ch = this.buffer[++i4];
-        else if (ch === "%" && hexDigits.includes(this.buffer[i4 + 1]) && hexDigits.includes(this.buffer[i4 + 2])) {
+        } else if (
+          ch === "%" && hexDigits.includes(this.buffer[i4 + 1]) &&
+          hexDigits.includes(this.buffer[i4 + 2])
+        ) {
           ch = this.buffer[i4 += 3];
-        } else
+        } else {
           break;
+        }
       }
       return yield* this.pushToIndex(i4, false);
     }
   }
   *pushNewline() {
     const ch = this.buffer[this.pos];
-    if (ch === "\n")
+    if (ch === "\n") {
       return yield* this.pushCount(1);
-    else if (ch === "\r" && this.charAt(1) === "\n")
+    } else if (ch === "\r" && this.charAt(1) === "\n") {
       return yield* this.pushCount(2);
-    else
+    } else {
       return 0;
+    }
   }
   *pushSpaces(allowTabs) {
     let i4 = this.pos - 1;
@@ -17045,8 +21393,9 @@ var Lexer = class {
   *pushUntil(test) {
     let i4 = this.pos;
     let ch = this.buffer[i4];
-    while (!test(ch))
+    while (!test(ch)) {
       ch = this.buffer[++i4];
+    }
     return yield* this.pushToIndex(i4, false);
   }
 };
@@ -17061,15 +21410,18 @@ var LineCounter = class {
       let high = this.lineStarts.length;
       while (low < high) {
         const mid = low + high >> 1;
-        if (this.lineStarts[mid] < offset)
+        if (this.lineStarts[mid] < offset) {
           low = mid + 1;
-        else
+        } else {
           high = mid;
+        }
       }
-      if (this.lineStarts[low] === offset)
+      if (this.lineStarts[low] === offset) {
         return { line: low + 1, col: 1 };
-      if (low === 0)
+      }
+      if (low === 0) {
         return { line: 0, col: offset };
+      }
       const start = this.lineStarts[low - 1];
       return { line: low, col: offset - start + 1 };
     };
@@ -17078,9 +21430,11 @@ var LineCounter = class {
 
 // node_modules/yaml/browser/dist/parse/parser.js
 function includesToken(list, type) {
-  for (let i4 = 0; i4 < list.length; ++i4)
-    if (list[i4].type === type)
+  for (let i4 = 0; i4 < list.length; ++i4) {
+    if (list[i4].type === type) {
       return true;
+    }
+  }
   return false;
 }
 function findNonEmptyIndex(list) {
@@ -17125,20 +21479,21 @@ function getPrevProps(parent) {
 }
 function getFirstKeyStartProps(prev) {
   var _a;
-  if (prev.length === 0)
+  if (prev.length === 0) {
     return [];
+  }
   let i4 = prev.length;
   loop:
-    while (--i4 >= 0) {
-      switch (prev[i4].type) {
-        case "doc-start":
-        case "explicit-key-ind":
-        case "map-value-ind":
-        case "seq-item-ind":
-        case "newline":
-          break loop;
-      }
+  while (--i4 >= 0) {
+    switch (prev[i4].type) {
+      case "doc-start":
+      case "explicit-key-ind":
+      case "map-value-ind":
+      case "seq-item-ind":
+      case "newline":
+        break loop;
     }
+  }
   while (((_a = prev[++i4]) == null ? void 0 : _a.type) === "space") {
   }
   return prev.splice(i4, prev.length);
@@ -17146,17 +21501,23 @@ function getFirstKeyStartProps(prev) {
 function fixFlowSeqItems(fc) {
   if (fc.start.type === "flow-seq-start") {
     for (const it of fc.items) {
-      if (it.sep && !it.value && !includesToken(it.start, "explicit-key-ind") && !includesToken(it.sep, "map-value-ind")) {
-        if (it.key)
+      if (
+        it.sep && !it.value && !includesToken(it.start, "explicit-key-ind") &&
+        !includesToken(it.sep, "map-value-ind")
+      ) {
+        if (it.key) {
           it.value = it.key;
+        }
         delete it.key;
         if (isFlowToken(it.value)) {
-          if (it.value.end)
+          if (it.value.end) {
             Array.prototype.push.apply(it.value.end, it.sep);
-          else
+          } else {
             it.value.end = it.sep;
-        } else
+          }
+        } else {
           Array.prototype.push.apply(it.start, it.sep);
+        }
         delete it.sep;
       }
     }
@@ -17176,12 +21537,15 @@ var Parser = class {
     this.onNewLine = onNewLine;
   }
   *parse(source, incomplete = false) {
-    if (this.onNewLine && this.offset === 0)
+    if (this.onNewLine && this.offset === 0) {
       this.onNewLine(0);
-    for (const lexeme of this.lexer.lex(source, incomplete))
+    }
+    for (const lexeme of this.lexer.lex(source, incomplete)) {
       yield* this.next(lexeme);
-    if (!incomplete)
+    }
+    if (!incomplete) {
       yield* this.end();
+    }
   }
   *next(source) {
     this.source = source;
@@ -17207,18 +21571,21 @@ var Parser = class {
         case "newline":
           this.atNewLine = true;
           this.indent = 0;
-          if (this.onNewLine)
+          if (this.onNewLine) {
             this.onNewLine(this.offset + source.length);
+          }
           break;
         case "space":
-          if (this.atNewLine && source[0] === " ")
+          if (this.atNewLine && source[0] === " ") {
             this.indent += source.length;
+          }
           break;
         case "explicit-key-ind":
         case "map-value-ind":
         case "seq-item-ind":
-          if (this.atNewLine)
+          if (this.atNewLine) {
             this.indent += source.length;
+          }
           break;
         case "doc-mode":
         case "flow-error-end":
@@ -17230,32 +21597,35 @@ var Parser = class {
     }
   }
   *end() {
-    while (this.stack.length > 0)
+    while (this.stack.length > 0) {
       yield* this.pop();
+    }
   }
   get sourceToken() {
     const st = {
       type: this.type,
       offset: this.offset,
       indent: this.indent,
-      source: this.source
+      source: this.source,
     };
     return st;
   }
   *step() {
     const top = this.peek(1);
     if (this.type === "doc-end" && (!top || top.type !== "doc-end")) {
-      while (this.stack.length > 0)
+      while (this.stack.length > 0) {
         yield* this.pop();
+      }
       this.stack.push({
         type: "doc-end",
         offset: this.offset,
-        source: this.source
+        source: this.source,
       });
       return;
     }
-    if (!top)
+    if (!top) {
       return yield* this.stream();
+    }
     switch (top.type) {
       case "document":
         return yield* this.document(top);
@@ -17294,8 +21664,9 @@ var Parser = class {
       } else if (token.type === "flow-collection" && top.type === "document") {
         token.indent = 0;
       }
-      if (token.type === "flow-collection")
+      if (token.type === "flow-collection") {
         fixFlowSeqItems(token);
+      }
       switch (top.type) {
         case "document":
           top.value = token;
@@ -17320,33 +21691,47 @@ var Parser = class {
         }
         case "block-seq": {
           const it = top.items[top.items.length - 1];
-          if (it.value)
+          if (it.value) {
             top.items.push({ start: [], value: token });
-          else
+          } else {
             it.value = token;
+          }
           break;
         }
         case "flow-collection": {
           const it = top.items[top.items.length - 1];
-          if (!it || it.value)
+          if (!it || it.value) {
             top.items.push({ start: [], key: token, sep: [] });
-          else if (it.sep)
+          } else if (it.sep) {
             it.value = token;
-          else
+          } else {
             Object.assign(it, { key: token, sep: [] });
+          }
           return;
         }
         default:
           yield* this.pop();
           yield* this.pop(token);
       }
-      if ((top.type === "document" || top.type === "block-map" || top.type === "block-seq") && (token.type === "block-map" || token.type === "block-seq")) {
+      if (
+        (top.type === "document" || top.type === "block-map" ||
+          top.type === "block-seq") &&
+        (token.type === "block-map" || token.type === "block-seq")
+      ) {
         const last = token.items[token.items.length - 1];
-        if (last && !last.sep && !last.value && last.start.length > 0 && findNonEmptyIndex(last.start) === -1 && (token.indent === 0 || last.start.every((st) => st.type !== "comment" || st.indent < token.indent))) {
-          if (top.type === "document")
+        if (
+          last && !last.sep && !last.value && last.start.length > 0 &&
+          findNonEmptyIndex(last.start) === -1 &&
+          (token.indent === 0 ||
+            last.start.every((st) =>
+              st.type !== "comment" || st.indent < token.indent
+            ))
+        ) {
+          if (top.type === "document") {
             top.end = last.start;
-          else
+          } else {
             top.items.push({ start: last.start });
+          }
           token.items.splice(-1, 1);
         }
       }
@@ -17368,10 +21753,11 @@ var Parser = class {
         const doc = {
           type: "document",
           offset: this.offset,
-          start: []
+          start: [],
         };
-        if (this.type === "doc-start")
+        if (this.type === "doc-start") {
           doc.start.push(this.sourceToken);
+        }
         this.stack.push(doc);
         return;
       }
@@ -17380,19 +21766,21 @@ var Parser = class {
       type: "error",
       offset: this.offset,
       message: `Unexpected ${this.type} token in YAML stream`,
-      source: this.source
+      source: this.source,
     };
   }
   *document(doc) {
-    if (doc.value)
+    if (doc.value) {
       return yield* this.lineEnd(doc);
+    }
     switch (this.type) {
       case "doc-start": {
         if (findNonEmptyIndex(doc.start) !== -1) {
           yield* this.pop();
           yield* this.step();
-        } else
+        } else {
           doc.start.push(this.sourceToken);
+        }
         return;
       }
       case "anchor":
@@ -17404,14 +21792,14 @@ var Parser = class {
         return;
     }
     const bv = this.startBlockValue(doc);
-    if (bv)
+    if (bv) {
       this.stack.push(bv);
-    else {
+    } else {
       yield {
         type: "error",
         offset: this.offset,
         message: `Unexpected ${this.type} token in YAML document`,
-        source: this.source
+        source: this.source,
       };
     }
   }
@@ -17424,18 +21812,20 @@ var Parser = class {
         sep = scalar.end;
         sep.push(this.sourceToken);
         delete scalar.end;
-      } else
+      } else {
         sep = [this.sourceToken];
+      }
       const map2 = {
         type: "block-map",
         offset: scalar.offset,
         indent: scalar.indent,
-        items: [{ start, key: scalar, sep }]
+        items: [{ start, key: scalar, sep }],
       };
       this.onKeyLine = true;
       this.stack[this.stack.length - 1] = map2;
-    } else
+    } else {
       yield* this.lineEnd(scalar);
+    }
   }
   *blockScalar(scalar) {
     switch (this.type) {
@@ -17471,10 +21861,11 @@ var Parser = class {
         if (it.value) {
           const end = "end" in it.value ? it.value.end : void 0;
           const last = Array.isArray(end) ? end[end.length - 1] : void 0;
-          if ((last == null ? void 0 : last.type) === "comment")
+          if ((last == null ? void 0 : last.type) === "comment") {
             end == null ? void 0 : end.push(this.sourceToken);
-          else
+          } else {
             map2.items.push({ start: [this.sourceToken] });
+          }
         } else if (it.sep) {
           it.sep.push(this.sourceToken);
         } else {
@@ -17490,7 +21881,9 @@ var Parser = class {
         } else {
           if (this.atIndentedComment(it.start, map2.indent)) {
             const prev = map2.items[map2.items.length - 2];
-            const end = (_a = prev == null ? void 0 : prev.value) == null ? void 0 : _a.end;
+            const end = (_a = prev == null ? void 0 : prev.value) == null
+              ? void 0
+              : _a.end;
             if (Array.isArray(end)) {
               Array.prototype.push.apply(end, it.start);
               end.push(this.sourceToken);
@@ -17503,7 +21896,8 @@ var Parser = class {
         return;
     }
     if (this.indent >= map2.indent) {
-      const atNextItem = !this.onKeyLine && this.indent === map2.indent && it.sep;
+      const atNextItem = !this.onKeyLine && this.indent === map2.indent &&
+        it.sep;
       let start = [];
       if (atNextItem && it.sep && !it.value) {
         const nl = [];
@@ -17516,15 +21910,17 @@ var Parser = class {
             case "space":
               break;
             case "comment":
-              if (st.indent > map2.indent)
+              if (st.indent > map2.indent) {
                 nl.length = 0;
+              }
               break;
             default:
               nl.length = 0;
           }
         }
-        if (nl.length >= 2)
+        if (nl.length >= 2) {
           start = it.sep.splice(nl[1]);
+        }
       }
       switch (this.type) {
         case "anchor":
@@ -17550,7 +21946,7 @@ var Parser = class {
               type: "block-map",
               offset: this.offset,
               indent: this.indent,
-              items: [{ start: [this.sourceToken] }]
+              items: [{ start: [this.sourceToken] }],
             });
           }
           this.onKeyLine = true;
@@ -17566,19 +21962,29 @@ var Parser = class {
                   type: "block-map",
                   offset: this.offset,
                   indent: this.indent,
-                  items: [{ start: start2, key: null, sep: [this.sourceToken] }]
+                  items: [{
+                    start: start2,
+                    key: null,
+                    sep: [this.sourceToken],
+                  }],
                 });
               }
             } else if (it.value) {
-              map2.items.push({ start: [], key: null, sep: [this.sourceToken] });
+              map2.items.push({
+                start: [],
+                key: null,
+                sep: [this.sourceToken],
+              });
             } else if (includesToken(it.sep, "map-value-ind")) {
               this.stack.push({
                 type: "block-map",
                 offset: this.offset,
                 indent: this.indent,
-                items: [{ start, key: null, sep: [this.sourceToken] }]
+                items: [{ start, key: null, sep: [this.sourceToken] }],
               });
-            } else if (isFlowToken(it.key) && !includesToken(it.sep, "newline")) {
+            } else if (
+              isFlowToken(it.key) && !includesToken(it.sep, "newline")
+            ) {
               const start2 = getFirstKeyStartProps(it.start);
               const key = it.key;
               const sep = it.sep;
@@ -17588,7 +21994,7 @@ var Parser = class {
                 type: "block-map",
                 offset: this.offset,
                 indent: this.indent,
-                items: [{ start: start2, key, sep }]
+                items: [{ start: start2, key, sep }],
               });
             } else if (start.length > 0) {
               it.sep = it.sep.concat(start, this.sourceToken);
@@ -17605,7 +22011,7 @@ var Parser = class {
                 type: "block-map",
                 offset: this.offset,
                 indent: this.indent,
-                items: [{ start: [], key: null, sep: [this.sourceToken] }]
+                items: [{ start: [], key: null, sep: [this.sourceToken] }],
               });
             } else {
               it.sep.push(this.sourceToken);
@@ -17632,7 +22038,10 @@ var Parser = class {
         default: {
           const bv = this.startBlockValue(map2);
           if (bv) {
-            if (atNextItem && bv.type !== "block-seq" && includesToken(it.start, "explicit-key-ind")) {
+            if (
+              atNextItem && bv.type !== "block-seq" &&
+              includesToken(it.start, "explicit-key-ind")
+            ) {
               map2.items.push({ start });
             }
             this.stack.push(bv);
@@ -17652,21 +22061,25 @@ var Parser = class {
         if (it.value) {
           const end = "end" in it.value ? it.value.end : void 0;
           const last = Array.isArray(end) ? end[end.length - 1] : void 0;
-          if ((last == null ? void 0 : last.type) === "comment")
+          if ((last == null ? void 0 : last.type) === "comment") {
             end == null ? void 0 : end.push(this.sourceToken);
-          else
+          } else {
             seq2.items.push({ start: [this.sourceToken] });
-        } else
+          }
+        } else {
           it.start.push(this.sourceToken);
+        }
         return;
       case "space":
       case "comment":
-        if (it.value)
+        if (it.value) {
           seq2.items.push({ start: [this.sourceToken] });
-        else {
+        } else {
           if (this.atIndentedComment(it.start, seq2.indent)) {
             const prev = seq2.items[seq2.items.length - 2];
-            const end = (_a = prev == null ? void 0 : prev.value) == null ? void 0 : _a.end;
+            const end = (_a = prev == null ? void 0 : prev.value) == null
+              ? void 0
+              : _a.end;
             if (Array.isArray(end)) {
               Array.prototype.push.apply(end, it.start);
               end.push(this.sourceToken);
@@ -17679,17 +22092,20 @@ var Parser = class {
         return;
       case "anchor":
       case "tag":
-        if (it.value || this.indent <= seq2.indent)
+        if (it.value || this.indent <= seq2.indent) {
           break;
+        }
         it.start.push(this.sourceToken);
         return;
       case "seq-item-ind":
-        if (this.indent !== seq2.indent)
+        if (this.indent !== seq2.indent) {
           break;
-        if (it.value || includesToken(it.start, "seq-item-ind"))
+        }
+        if (it.value || includesToken(it.start, "seq-item-ind")) {
           seq2.items.push({ start: [this.sourceToken] });
-        else
+        } else {
           it.start.push(this.sourceToken);
+        }
         return;
     }
     if (this.indent > seq2.indent) {
@@ -17714,42 +22130,46 @@ var Parser = class {
       switch (this.type) {
         case "comma":
         case "explicit-key-ind":
-          if (!it || it.sep)
+          if (!it || it.sep) {
             fc.items.push({ start: [this.sourceToken] });
-          else
+          } else {
             it.start.push(this.sourceToken);
+          }
           return;
         case "map-value-ind":
-          if (!it || it.value)
+          if (!it || it.value) {
             fc.items.push({ start: [], key: null, sep: [this.sourceToken] });
-          else if (it.sep)
+          } else if (it.sep) {
             it.sep.push(this.sourceToken);
-          else
+          } else {
             Object.assign(it, { key: null, sep: [this.sourceToken] });
+          }
           return;
         case "space":
         case "comment":
         case "newline":
         case "anchor":
         case "tag":
-          if (!it || it.value)
+          if (!it || it.value) {
             fc.items.push({ start: [this.sourceToken] });
-          else if (it.sep)
+          } else if (it.sep) {
             it.sep.push(this.sourceToken);
-          else
+          } else {
             it.start.push(this.sourceToken);
+          }
           return;
         case "alias":
         case "scalar":
         case "single-quoted-scalar":
         case "double-quoted-scalar": {
           const fs = this.flowScalar(this.type);
-          if (!it || it.value)
+          if (!it || it.value) {
             fc.items.push({ start: [], key: fs, sep: [] });
-          else if (it.sep)
+          } else if (it.sep) {
             this.stack.push(fs);
-          else
+          } else {
             Object.assign(it, { key: fs, sep: [] });
+          }
           return;
         }
         case "flow-map-end":
@@ -17758,18 +22178,24 @@ var Parser = class {
           return;
       }
       const bv = this.startBlockValue(fc);
-      if (bv)
+      if (bv) {
         this.stack.push(bv);
-      else {
+      } else {
         yield* this.pop();
         yield* this.step();
       }
     } else {
       const parent = this.peek(2);
-      if (parent.type === "block-map" && (this.type === "map-value-ind" && parent.indent === fc.indent || this.type === "newline" && !parent.items[parent.items.length - 1].sep)) {
+      if (
+        parent.type === "block-map" &&
+        (this.type === "map-value-ind" && parent.indent === fc.indent ||
+          this.type === "newline" && !parent.items[parent.items.length - 1].sep)
+      ) {
         yield* this.pop();
         yield* this.step();
-      } else if (this.type === "map-value-ind" && parent.type !== "flow-collection") {
+      } else if (
+        this.type === "map-value-ind" && parent.type !== "flow-collection"
+      ) {
         const prev = getPrevProps(parent);
         const start = getFirstKeyStartProps(prev);
         fixFlowSeqItems(fc);
@@ -17779,7 +22205,7 @@ var Parser = class {
           type: "block-map",
           offset: fc.offset,
           indent: fc.indent,
-          items: [{ start, key: fc, sep }]
+          items: [{ start, key: fc, sep }],
         };
         this.onKeyLine = true;
         this.stack[this.stack.length - 1] = map2;
@@ -17800,7 +22226,7 @@ var Parser = class {
       type,
       offset: this.offset,
       indent: this.indent,
-      source: this.source
+      source: this.source,
     };
   }
   startBlockValue(parent) {
@@ -17816,7 +22242,7 @@ var Parser = class {
           offset: this.offset,
           indent: this.indent,
           props: [this.sourceToken],
-          source: ""
+          source: "",
         };
       case "flow-map-start":
       case "flow-seq-start":
@@ -17826,14 +22252,14 @@ var Parser = class {
           indent: this.indent,
           start: this.sourceToken,
           items: [],
-          end: []
+          end: [],
         };
       case "seq-item-ind":
         return {
           type: "block-seq",
           offset: this.offset,
           indent: this.indent,
-          items: [{ start: [this.sourceToken] }]
+          items: [{ start: [this.sourceToken] }],
         };
       case "explicit-key-ind": {
         this.onKeyLine = true;
@@ -17844,7 +22270,7 @@ var Parser = class {
           type: "block-map",
           offset: this.offset,
           indent: this.indent,
-          items: [{ start }]
+          items: [{ start }],
         };
       }
       case "map-value-ind": {
@@ -17855,27 +22281,31 @@ var Parser = class {
           type: "block-map",
           offset: this.offset,
           indent: this.indent,
-          items: [{ start, key: null, sep: [this.sourceToken] }]
+          items: [{ start, key: null, sep: [this.sourceToken] }],
         };
       }
     }
     return null;
   }
   atIndentedComment(start, indent) {
-    if (this.type !== "comment")
+    if (this.type !== "comment") {
       return false;
-    if (this.indent <= indent)
+    }
+    if (this.indent <= indent) {
       return false;
+    }
     return start.every((st) => st.type === "newline" || st.type === "space");
   }
   *documentEnd(docEnd) {
     if (this.type !== "doc-mode") {
-      if (docEnd.end)
+      if (docEnd.end) {
         docEnd.end.push(this.sourceToken);
-      else
+      } else {
         docEnd.end = [this.sourceToken];
-      if (this.type === "newline")
+      }
+      if (this.type === "newline") {
         yield* this.pop();
+      }
     }
   }
   *lineEnd(token) {
@@ -17894,12 +22324,14 @@ var Parser = class {
       case "space":
       case "comment":
       default:
-        if (token.end)
+        if (token.end) {
           token.end.push(this.sourceToken);
-        else
+        } else {
           token.end = [this.sourceToken];
-        if (this.type === "newline")
+        }
+        if (this.type === "newline") {
           yield* this.pop();
+        }
     }
   }
 };
@@ -17907,19 +22339,30 @@ var Parser = class {
 // node_modules/yaml/browser/dist/public-api.js
 function parseOptions(options) {
   const prettyErrors = options.prettyErrors !== false;
-  const lineCounter = options.lineCounter || prettyErrors && new LineCounter() || null;
+  const lineCounter = options.lineCounter ||
+    prettyErrors && new LineCounter() || null;
   return { lineCounter, prettyErrors };
 }
 function parseDocument(source, options = {}) {
   const { lineCounter, prettyErrors } = parseOptions(options);
-  const parser = new Parser(lineCounter == null ? void 0 : lineCounter.addNewLine);
+  const parser = new Parser(
+    lineCounter == null ? void 0 : lineCounter.addNewLine,
+  );
   const composer = new Composer(options);
   let doc = null;
-  for (const _doc of composer.compose(parser.parse(source), true, source.length)) {
-    if (!doc)
+  for (
+    const _doc of composer.compose(parser.parse(source), true, source.length)
+  ) {
+    if (!doc) {
       doc = _doc;
-    else if (doc.options.logLevel !== "silent") {
-      doc.errors.push(new YAMLParseError(_doc.range.slice(0, 2), "MULTIPLE_DOCS", "Source contains multiple documents; please use YAML.parseAllDocuments()"));
+    } else if (doc.options.logLevel !== "silent") {
+      doc.errors.push(
+        new YAMLParseError(
+          _doc.range.slice(0, 2),
+          "MULTIPLE_DOCS",
+          "Source contains multiple documents; please use YAML.parseAllDocuments()",
+        ),
+      );
       break;
     }
   }
@@ -17937,14 +22380,16 @@ function parse2(src, reviver, options) {
     options = reviver;
   }
   const doc = parseDocument(src, options);
-  if (!doc)
+  if (!doc) {
     return null;
+  }
   doc.warnings.forEach((warning) => warn(doc.options.logLevel, warning));
   if (doc.errors.length > 0) {
-    if (doc.options.logLevel !== "silent")
+    if (doc.options.logLevel !== "silent") {
       throw doc.errors[0];
-    else
+    } else {
       doc.errors = [];
+    }
   }
   return doc.toJS(Object.assign({ reviver: _reviver }, options));
 }
@@ -17976,7 +22421,7 @@ var {
   __importDefault,
   __classPrivateFieldGet,
   __classPrivateFieldSet,
-  __classPrivateFieldIn
+  __classPrivateFieldIn,
 } = import_tslib.default;
 
 // node_modules/rxjs/dist/esm5/internal/util/isFunction.js
@@ -17986,7 +22431,7 @@ function isFunction(value) {
 
 // node_modules/rxjs/dist/esm5/internal/util/createErrorClass.js
 function createErrorClass(createImpl) {
-  var _super = function(instance) {
+  var _super = function (instance) {
     Error.call(instance);
     instance.stack = new Error().stack;
   };
@@ -17997,12 +22442,15 @@ function createErrorClass(createImpl) {
 }
 
 // node_modules/rxjs/dist/esm5/internal/util/UnsubscriptionError.js
-var UnsubscriptionError = createErrorClass(function(_super) {
+var UnsubscriptionError = createErrorClass(function (_super) {
   return function UnsubscriptionErrorImpl(errors) {
     _super(this);
-    this.message = errors ? errors.length + " errors occurred during unsubscription:\n" + errors.map(function(err, i4) {
-      return i4 + 1 + ") " + err.toString();
-    }).join("\n  ") : "";
+    this.message = errors
+      ? errors.length + " errors occurred during unsubscription:\n" +
+        errors.map(function (err, i4) {
+          return i4 + 1 + ") " + err.toString();
+        }).join("\n  ")
+      : "";
     this.name = "UnsubscriptionError";
     this.errors = errors;
   };
@@ -18017,14 +22465,14 @@ function arrRemove(arr, item) {
 }
 
 // node_modules/rxjs/dist/esm5/internal/Subscription.js
-var Subscription = function() {
+var Subscription = function () {
   function Subscription3(initialTeardown) {
     this.initialTeardown = initialTeardown;
     this.closed = false;
     this._parentage = null;
     this._finalizers = null;
   }
-  Subscription3.prototype.unsubscribe = function() {
+  Subscription3.prototype.unsubscribe = function () {
     var e_1, _a, e_2, _b;
     var errors;
     if (!this.closed) {
@@ -18034,7 +22482,12 @@ var Subscription = function() {
         this._parentage = null;
         if (Array.isArray(_parentage)) {
           try {
-            for (var _parentage_1 = __values(_parentage), _parentage_1_1 = _parentage_1.next(); !_parentage_1_1.done; _parentage_1_1 = _parentage_1.next()) {
+            for (
+              var _parentage_1 = __values(_parentage),
+                _parentage_1_1 = _parentage_1.next();
+              !_parentage_1_1.done;
+              _parentage_1_1 = _parentage_1.next()
+            ) {
               var parent_1 = _parentage_1_1.value;
               parent_1.remove(this);
             }
@@ -18042,11 +22495,16 @@ var Subscription = function() {
             e_1 = { error: e_1_1 };
           } finally {
             try {
-              if (_parentage_1_1 && !_parentage_1_1.done && (_a = _parentage_1.return))
+              if (
+                _parentage_1_1 && !_parentage_1_1.done &&
+                (_a = _parentage_1.return)
+              ) {
                 _a.call(_parentage_1);
+              }
             } finally {
-              if (e_1)
+              if (e_1) {
                 throw e_1.error;
+              }
             }
           }
         } else {
@@ -18065,14 +22523,22 @@ var Subscription = function() {
       if (_finalizers) {
         this._finalizers = null;
         try {
-          for (var _finalizers_1 = __values(_finalizers), _finalizers_1_1 = _finalizers_1.next(); !_finalizers_1_1.done; _finalizers_1_1 = _finalizers_1.next()) {
+          for (
+            var _finalizers_1 = __values(_finalizers),
+              _finalizers_1_1 = _finalizers_1.next();
+            !_finalizers_1_1.done;
+            _finalizers_1_1 = _finalizers_1.next()
+          ) {
             var finalizer = _finalizers_1_1.value;
             try {
               execFinalizer(finalizer);
             } catch (err) {
               errors = errors !== null && errors !== void 0 ? errors : [];
               if (err instanceof UnsubscriptionError) {
-                errors = __spreadArray(__spreadArray([], __read(errors)), __read(err.errors));
+                errors = __spreadArray(
+                  __spreadArray([], __read(errors)),
+                  __read(err.errors),
+                );
               } else {
                 errors.push(err);
               }
@@ -18082,11 +22548,16 @@ var Subscription = function() {
           e_2 = { error: e_2_1 };
         } finally {
           try {
-            if (_finalizers_1_1 && !_finalizers_1_1.done && (_b = _finalizers_1.return))
+            if (
+              _finalizers_1_1 && !_finalizers_1_1.done &&
+              (_b = _finalizers_1.return)
+            ) {
               _b.call(_finalizers_1);
+            }
           } finally {
-            if (e_2)
+            if (e_2) {
               throw e_2.error;
+            }
           }
         }
       }
@@ -18095,7 +22566,7 @@ var Subscription = function() {
       }
     }
   };
-  Subscription3.prototype.add = function(teardown) {
+  Subscription3.prototype.add = function (teardown) {
     var _a;
     if (teardown && teardown !== this) {
       if (this.closed) {
@@ -18107,19 +22578,26 @@ var Subscription = function() {
           }
           teardown._addParent(this);
         }
-        (this._finalizers = (_a = this._finalizers) !== null && _a !== void 0 ? _a : []).push(teardown);
+        (this._finalizers = (_a = this._finalizers) !== null && _a !== void 0
+          ? _a
+          : []).push(teardown);
       }
     }
   };
-  Subscription3.prototype._hasParent = function(parent) {
+  Subscription3.prototype._hasParent = function (parent) {
     var _parentage = this._parentage;
-    return _parentage === parent || Array.isArray(_parentage) && _parentage.includes(parent);
+    return _parentage === parent ||
+      Array.isArray(_parentage) && _parentage.includes(parent);
   };
-  Subscription3.prototype._addParent = function(parent) {
+  Subscription3.prototype._addParent = function (parent) {
     var _parentage = this._parentage;
-    this._parentage = Array.isArray(_parentage) ? (_parentage.push(parent), _parentage) : _parentage ? [_parentage, parent] : parent;
+    this._parentage = Array.isArray(_parentage)
+      ? (_parentage.push(parent), _parentage)
+      : _parentage
+      ? [_parentage, parent]
+      : parent;
   };
-  Subscription3.prototype._removeParent = function(parent) {
+  Subscription3.prototype._removeParent = function (parent) {
     var _parentage = this._parentage;
     if (_parentage === parent) {
       this._parentage = null;
@@ -18127,14 +22605,14 @@ var Subscription = function() {
       arrRemove(_parentage, parent);
     }
   };
-  Subscription3.prototype.remove = function(teardown) {
+  Subscription3.prototype.remove = function (teardown) {
     var _finalizers = this._finalizers;
     _finalizers && arrRemove(_finalizers, teardown);
     if (teardown instanceof Subscription3) {
       teardown._removeParent(this);
     }
   };
-  Subscription3.EMPTY = function() {
+  Subscription3.EMPTY = function () {
     var empty = new Subscription3();
     empty.closed = true;
     return empty;
@@ -18143,7 +22621,9 @@ var Subscription = function() {
 }();
 var EMPTY_SUBSCRIPTION = Subscription.EMPTY;
 function isSubscription(value) {
-  return value instanceof Subscription || value && "closed" in value && isFunction(value.remove) && isFunction(value.add) && isFunction(value.unsubscribe);
+  return value instanceof Subscription ||
+    value && "closed" in value && isFunction(value.remove) &&
+      isFunction(value.add) && isFunction(value.unsubscribe);
 }
 function execFinalizer(finalizer) {
   if (isFunction(finalizer)) {
@@ -18159,32 +22639,42 @@ var config = {
   onStoppedNotification: null,
   Promise: void 0,
   useDeprecatedSynchronousErrorHandling: false,
-  useDeprecatedNextContext: false
+  useDeprecatedNextContext: false,
 };
 
 // node_modules/rxjs/dist/esm5/internal/scheduler/timeoutProvider.js
 var timeoutProvider = {
-  setTimeout: function(handler, timeout) {
+  setTimeout: function (handler, timeout) {
     var args = [];
     for (var _i = 2; _i < arguments.length; _i++) {
       args[_i - 2] = arguments[_i];
     }
     var delegate = timeoutProvider.delegate;
-    if (delegate === null || delegate === void 0 ? void 0 : delegate.setTimeout) {
-      return delegate.setTimeout.apply(delegate, __spreadArray([handler, timeout], __read(args)));
+    if (
+      delegate === null || delegate === void 0 ? void 0 : delegate.setTimeout
+    ) {
+      return delegate.setTimeout.apply(
+        delegate,
+        __spreadArray([handler, timeout], __read(args)),
+      );
     }
-    return setTimeout.apply(void 0, __spreadArray([handler, timeout], __read(args)));
+    return setTimeout.apply(
+      void 0,
+      __spreadArray([handler, timeout], __read(args)),
+    );
   },
-  clearTimeout: function(handle) {
+  clearTimeout: function (handle) {
     var delegate = timeoutProvider.delegate;
-    return ((delegate === null || delegate === void 0 ? void 0 : delegate.clearTimeout) || clearTimeout)(handle);
+    return ((delegate === null || delegate === void 0
+      ? void 0
+      : delegate.clearTimeout) || clearTimeout)(handle);
   },
-  delegate: void 0
+  delegate: void 0,
 };
 
 // node_modules/rxjs/dist/esm5/internal/util/reportUnhandledError.js
 function reportUnhandledError(err) {
-  timeoutProvider.setTimeout(function() {
+  timeoutProvider.setTimeout(function () {
     var onUnhandledError = config.onUnhandledError;
     if (onUnhandledError) {
       onUnhandledError(err);
@@ -18199,7 +22689,7 @@ function noop() {
 }
 
 // node_modules/rxjs/dist/esm5/internal/NotificationFactories.js
-var COMPLETE_NOTIFICATION = function() {
+var COMPLETE_NOTIFICATION = function () {
   return createNotification("C", void 0, void 0);
 }();
 function errorNotification(error) {
@@ -18212,7 +22702,7 @@ function createNotification(kind, value, error) {
   return {
     kind,
     value,
-    error
+    error,
   };
 }
 
@@ -18244,7 +22734,7 @@ function captureError(err) {
 }
 
 // node_modules/rxjs/dist/esm5/internal/Subscriber.js
-var Subscriber = function(_super) {
+var Subscriber = function (_super) {
   __extends(Subscriber2, _super);
   function Subscriber2(destination) {
     var _this = _super.call(this) || this;
@@ -18259,17 +22749,17 @@ var Subscriber = function(_super) {
     }
     return _this;
   }
-  Subscriber2.create = function(next, error, complete) {
+  Subscriber2.create = function (next, error, complete) {
     return new SafeSubscriber(next, error, complete);
   };
-  Subscriber2.prototype.next = function(value) {
+  Subscriber2.prototype.next = function (value) {
     if (this.isStopped) {
       handleStoppedNotification(nextNotification(value), this);
     } else {
       this._next(value);
     }
   };
-  Subscriber2.prototype.error = function(err) {
+  Subscriber2.prototype.error = function (err) {
     if (this.isStopped) {
       handleStoppedNotification(errorNotification(err), this);
     } else {
@@ -18277,7 +22767,7 @@ var Subscriber = function(_super) {
       this._error(err);
     }
   };
-  Subscriber2.prototype.complete = function() {
+  Subscriber2.prototype.complete = function () {
     if (this.isStopped) {
       handleStoppedNotification(COMPLETE_NOTIFICATION, this);
     } else {
@@ -18285,24 +22775,24 @@ var Subscriber = function(_super) {
       this._complete();
     }
   };
-  Subscriber2.prototype.unsubscribe = function() {
+  Subscriber2.prototype.unsubscribe = function () {
     if (!this.closed) {
       this.isStopped = true;
       _super.prototype.unsubscribe.call(this);
       this.destination = null;
     }
   };
-  Subscriber2.prototype._next = function(value) {
+  Subscriber2.prototype._next = function (value) {
     this.destination.next(value);
   };
-  Subscriber2.prototype._error = function(err) {
+  Subscriber2.prototype._error = function (err) {
     try {
       this.destination.error(err);
     } finally {
       this.unsubscribe();
     }
   };
-  Subscriber2.prototype._complete = function() {
+  Subscriber2.prototype._complete = function () {
     try {
       this.destination.complete();
     } finally {
@@ -18315,11 +22805,11 @@ var _bind = Function.prototype.bind;
 function bind(fn, thisArg) {
   return _bind.call(fn, thisArg);
 }
-var ConsumerObserver = function() {
+var ConsumerObserver = function () {
   function ConsumerObserver2(partialObserver) {
     this.partialObserver = partialObserver;
   }
-  ConsumerObserver2.prototype.next = function(value) {
+  ConsumerObserver2.prototype.next = function (value) {
     var partialObserver = this.partialObserver;
     if (partialObserver.next) {
       try {
@@ -18329,7 +22819,7 @@ var ConsumerObserver = function() {
       }
     }
   };
-  ConsumerObserver2.prototype.error = function(err) {
+  ConsumerObserver2.prototype.error = function (err) {
     var partialObserver = this.partialObserver;
     if (partialObserver.error) {
       try {
@@ -18341,7 +22831,7 @@ var ConsumerObserver = function() {
       handleUnhandledError(err);
     }
   };
-  ConsumerObserver2.prototype.complete = function() {
+  ConsumerObserver2.prototype.complete = function () {
     var partialObserver = this.partialObserver;
     if (partialObserver.complete) {
       try {
@@ -18353,28 +22843,31 @@ var ConsumerObserver = function() {
   };
   return ConsumerObserver2;
 }();
-var SafeSubscriber = function(_super) {
+var SafeSubscriber = function (_super) {
   __extends(SafeSubscriber2, _super);
   function SafeSubscriber2(observerOrNext, error, complete) {
     var _this = _super.call(this) || this;
     var partialObserver;
     if (isFunction(observerOrNext) || !observerOrNext) {
       partialObserver = {
-        next: observerOrNext !== null && observerOrNext !== void 0 ? observerOrNext : void 0,
+        next: observerOrNext !== null && observerOrNext !== void 0
+          ? observerOrNext
+          : void 0,
         error: error !== null && error !== void 0 ? error : void 0,
-        complete: complete !== null && complete !== void 0 ? complete : void 0
+        complete: complete !== null && complete !== void 0 ? complete : void 0,
       };
     } else {
       var context_1;
       if (_this && config.useDeprecatedNextContext) {
         context_1 = Object.create(observerOrNext);
-        context_1.unsubscribe = function() {
+        context_1.unsubscribe = function () {
           return _this.unsubscribe();
         };
         partialObserver = {
           next: observerOrNext.next && bind(observerOrNext.next, context_1),
           error: observerOrNext.error && bind(observerOrNext.error, context_1),
-          complete: observerOrNext.complete && bind(observerOrNext.complete, context_1)
+          complete: observerOrNext.complete &&
+            bind(observerOrNext.complete, context_1),
         };
       } else {
         partialObserver = observerOrNext;
@@ -18397,7 +22890,7 @@ function defaultErrorHandler(err) {
 }
 function handleStoppedNotification(notification, subscriber) {
   var onStoppedNotification = config.onStoppedNotification;
-  onStoppedNotification && timeoutProvider.setTimeout(function() {
+  onStoppedNotification && timeoutProvider.setTimeout(function () {
     return onStoppedNotification(notification, subscriber);
   });
 }
@@ -18405,11 +22898,11 @@ var EMPTY_OBSERVER = {
   closed: true,
   next: noop,
   error: defaultErrorHandler,
-  complete: noop
+  complete: noop,
 };
 
 // node_modules/rxjs/dist/esm5/internal/symbol/observable.js
-var observable = function() {
+var observable = function () {
   return typeof Symbol === "function" && Symbol.observable || "@@observable";
 }();
 
@@ -18427,47 +22920,55 @@ function pipeFromArray(fns) {
     return fns[0];
   }
   return function piped(input) {
-    return fns.reduce(function(prev, fn) {
+    return fns.reduce(function (prev, fn) {
       return fn(prev);
     }, input);
   };
 }
 
 // node_modules/rxjs/dist/esm5/internal/Observable.js
-var Observable = function() {
+var Observable = function () {
   function Observable2(subscribe) {
     if (subscribe) {
       this._subscribe = subscribe;
     }
   }
-  Observable2.prototype.lift = function(operator) {
+  Observable2.prototype.lift = function (operator) {
     var observable2 = new Observable2();
     observable2.source = this;
     observable2.operator = operator;
     return observable2;
   };
-  Observable2.prototype.subscribe = function(observerOrNext, error, complete) {
+  Observable2.prototype.subscribe = function (observerOrNext, error, complete) {
     var _this = this;
-    var subscriber = isSubscriber(observerOrNext) ? observerOrNext : new SafeSubscriber(observerOrNext, error, complete);
-    errorContext(function() {
+    var subscriber = isSubscriber(observerOrNext)
+      ? observerOrNext
+      : new SafeSubscriber(observerOrNext, error, complete);
+    errorContext(function () {
       var _a = _this, operator = _a.operator, source = _a.source;
-      subscriber.add(operator ? operator.call(subscriber, source) : source ? _this._subscribe(subscriber) : _this._trySubscribe(subscriber));
+      subscriber.add(
+        operator
+          ? operator.call(subscriber, source)
+          : source
+          ? _this._subscribe(subscriber)
+          : _this._trySubscribe(subscriber),
+      );
     });
     return subscriber;
   };
-  Observable2.prototype._trySubscribe = function(sink) {
+  Observable2.prototype._trySubscribe = function (sink) {
     try {
       return this._subscribe(sink);
     } catch (err) {
       sink.error(err);
     }
   };
-  Observable2.prototype.forEach = function(next, promiseCtor) {
+  Observable2.prototype.forEach = function (next, promiseCtor) {
     var _this = this;
     promiseCtor = getPromiseCtor(promiseCtor);
-    return new promiseCtor(function(resolve, reject) {
+    return new promiseCtor(function (resolve, reject) {
       var subscriber = new SafeSubscriber({
-        next: function(value) {
+        next: function (value) {
           try {
             next(value);
           } catch (err) {
@@ -18476,70 +22977,78 @@ var Observable = function() {
           }
         },
         error: reject,
-        complete: resolve
+        complete: resolve,
       });
       _this.subscribe(subscriber);
     });
   };
-  Observable2.prototype._subscribe = function(subscriber) {
+  Observable2.prototype._subscribe = function (subscriber) {
     var _a;
-    return (_a = this.source) === null || _a === void 0 ? void 0 : _a.subscribe(subscriber);
+    return (_a = this.source) === null || _a === void 0
+      ? void 0
+      : _a.subscribe(subscriber);
   };
-  Observable2.prototype[observable] = function() {
+  Observable2.prototype[observable] = function () {
     return this;
   };
-  Observable2.prototype.pipe = function() {
+  Observable2.prototype.pipe = function () {
     var operations = [];
     for (var _i = 0; _i < arguments.length; _i++) {
       operations[_i] = arguments[_i];
     }
     return pipeFromArray(operations)(this);
   };
-  Observable2.prototype.toPromise = function(promiseCtor) {
+  Observable2.prototype.toPromise = function (promiseCtor) {
     var _this = this;
     promiseCtor = getPromiseCtor(promiseCtor);
-    return new promiseCtor(function(resolve, reject) {
+    return new promiseCtor(function (resolve, reject) {
       var value;
-      _this.subscribe(function(x2) {
+      _this.subscribe(function (x2) {
         return value = x2;
-      }, function(err) {
+      }, function (err) {
         return reject(err);
-      }, function() {
+      }, function () {
         return resolve(value);
       });
     });
   };
-  Observable2.create = function(subscribe) {
+  Observable2.create = function (subscribe) {
     return new Observable2(subscribe);
   };
   return Observable2;
 }();
 function getPromiseCtor(promiseCtor) {
   var _a;
-  return (_a = promiseCtor !== null && promiseCtor !== void 0 ? promiseCtor : config.Promise) !== null && _a !== void 0 ? _a : Promise;
+  return (_a = promiseCtor !== null && promiseCtor !== void 0
+          ? promiseCtor
+          : config.Promise) !== null && _a !== void 0
+    ? _a
+    : Promise;
 }
 function isObserver(value) {
-  return value && isFunction(value.next) && isFunction(value.error) && isFunction(value.complete);
+  return value && isFunction(value.next) && isFunction(value.error) &&
+    isFunction(value.complete);
 }
 function isSubscriber(value) {
-  return value && value instanceof Subscriber || isObserver(value) && isSubscription(value);
+  return value && value instanceof Subscriber ||
+    isObserver(value) && isSubscription(value);
 }
 
 // node_modules/rxjs/dist/esm5/internal/scheduler/dateTimestampProvider.js
 var dateTimestampProvider = {
-  now: function() {
+  now: function () {
     return (dateTimestampProvider.delegate || Date).now();
   },
-  delegate: void 0
+  delegate: void 0,
 };
 
 // node_modules/rxjs/dist/esm5/internal/scheduler/Action.js
-var Action = function(_super) {
+var Action = function (_super) {
   __extends(Action2, _super);
   function Action2(scheduler, work) {
     return _super.call(this) || this;
   }
-  Action2.prototype.schedule = function(state, delay) {
+  Action2.prototype.schedule = function (state, delay) {
     if (delay === void 0) {
       delay = 0;
     }
@@ -18550,26 +23059,36 @@ var Action = function(_super) {
 
 // node_modules/rxjs/dist/esm5/internal/scheduler/intervalProvider.js
 var intervalProvider = {
-  setInterval: function(handler, timeout) {
+  setInterval: function (handler, timeout) {
     var args = [];
     for (var _i = 2; _i < arguments.length; _i++) {
       args[_i - 2] = arguments[_i];
     }
     var delegate = intervalProvider.delegate;
-    if (delegate === null || delegate === void 0 ? void 0 : delegate.setInterval) {
-      return delegate.setInterval.apply(delegate, __spreadArray([handler, timeout], __read(args)));
+    if (
+      delegate === null || delegate === void 0 ? void 0 : delegate.setInterval
+    ) {
+      return delegate.setInterval.apply(
+        delegate,
+        __spreadArray([handler, timeout], __read(args)),
+      );
     }
-    return setInterval.apply(void 0, __spreadArray([handler, timeout], __read(args)));
+    return setInterval.apply(
+      void 0,
+      __spreadArray([handler, timeout], __read(args)),
+    );
   },
-  clearInterval: function(handle) {
+  clearInterval: function (handle) {
     var delegate = intervalProvider.delegate;
-    return ((delegate === null || delegate === void 0 ? void 0 : delegate.clearInterval) || clearInterval)(handle);
+    return ((delegate === null || delegate === void 0
+      ? void 0
+      : delegate.clearInterval) || clearInterval)(handle);
   },
-  delegate: void 0
+  delegate: void 0,
 };
 
 // node_modules/rxjs/dist/esm5/internal/scheduler/AsyncAction.js
-var AsyncAction = function(_super) {
+var AsyncAction = function (_super) {
   __extends(AsyncAction2, _super);
   function AsyncAction2(scheduler, work) {
     var _this = _super.call(this, scheduler, work) || this;
@@ -18578,7 +23097,7 @@ var AsyncAction = function(_super) {
     _this.pending = false;
     return _this;
   }
-  AsyncAction2.prototype.schedule = function(state, delay) {
+  AsyncAction2.prototype.schedule = function (state, delay) {
     if (delay === void 0) {
       delay = 0;
     }
@@ -18596,13 +23115,16 @@ var AsyncAction = function(_super) {
     this.id = this.id || this.requestAsyncId(scheduler, this.id, delay);
     return this;
   };
-  AsyncAction2.prototype.requestAsyncId = function(scheduler, _id, delay) {
+  AsyncAction2.prototype.requestAsyncId = function (scheduler, _id, delay) {
     if (delay === void 0) {
       delay = 0;
     }
-    return intervalProvider.setInterval(scheduler.flush.bind(scheduler, this), delay);
+    return intervalProvider.setInterval(
+      scheduler.flush.bind(scheduler, this),
+      delay,
+    );
   };
-  AsyncAction2.prototype.recycleAsyncId = function(_scheduler, id, delay) {
+  AsyncAction2.prototype.recycleAsyncId = function (_scheduler, id, delay) {
     if (delay === void 0) {
       delay = 0;
     }
@@ -18612,7 +23134,7 @@ var AsyncAction = function(_super) {
     intervalProvider.clearInterval(id);
     return void 0;
   };
-  AsyncAction2.prototype.execute = function(state, delay) {
+  AsyncAction2.prototype.execute = function (state, delay) {
     if (this.closed) {
       return new Error("executing a cancelled action");
     }
@@ -18624,7 +23146,7 @@ var AsyncAction = function(_super) {
       this.id = this.recycleAsyncId(this.scheduler, this.id, null);
     }
   };
-  AsyncAction2.prototype._execute = function(state, _delay) {
+  AsyncAction2.prototype._execute = function (state, _delay) {
     var errored = false;
     var errorValue;
     try {
@@ -18638,7 +23160,7 @@ var AsyncAction = function(_super) {
       return errorValue;
     }
   };
-  AsyncAction2.prototype.unsubscribe = function() {
+  AsyncAction2.prototype.unsubscribe = function () {
     if (!this.closed) {
       var _a = this, id = _a.id, scheduler = _a.scheduler;
       var actions = scheduler.actions;
@@ -18656,7 +23178,7 @@ var AsyncAction = function(_super) {
 }(Action);
 
 // node_modules/rxjs/dist/esm5/internal/Scheduler.js
-var Scheduler = function() {
+var Scheduler = function () {
   function Scheduler2(schedulerActionCtor, now) {
     if (now === void 0) {
       now = Scheduler2.now;
@@ -18664,7 +23186,7 @@ var Scheduler = function() {
     this.schedulerActionCtor = schedulerActionCtor;
     this.now = now;
   }
-  Scheduler2.prototype.schedule = function(work, delay, state) {
+  Scheduler2.prototype.schedule = function (work, delay, state) {
     if (delay === void 0) {
       delay = 0;
     }
@@ -18675,7 +23197,7 @@ var Scheduler = function() {
 }();
 
 // node_modules/rxjs/dist/esm5/internal/scheduler/AsyncScheduler.js
-var AsyncScheduler = function(_super) {
+var AsyncScheduler = function (_super) {
   __extends(AsyncScheduler2, _super);
   function AsyncScheduler2(SchedulerAction, now) {
     if (now === void 0) {
@@ -18687,7 +23209,7 @@ var AsyncScheduler = function(_super) {
     _this._scheduled = void 0;
     return _this;
   }
-  AsyncScheduler2.prototype.flush = function(action) {
+  AsyncScheduler2.prototype.flush = function (action) {
     var actions = this.actions;
     if (this._active) {
       actions.push(action);
@@ -18741,13 +23263,13 @@ function timer(dueTime, intervalOrScheduler, scheduler) {
       intervalDuration = intervalOrScheduler;
     }
   }
-  return new Observable(function(subscriber) {
+  return new Observable(function (subscriber) {
     var due = isValidDate(dueTime) ? +dueTime - scheduler.now() : dueTime;
     if (due < 0) {
       due = 0;
     }
     var n6 = 0;
-    return scheduler.schedule(function() {
+    return scheduler.schedule(function () {
       if (!subscriber.closed) {
         subscriber.next(n6++);
         if (0 <= intervalDuration) {
@@ -18786,8 +23308,9 @@ var AppleRemindersPlugin = class extends import_obsidian4.Plugin {
       setTimeout(() => {
         this.statusBar.setText("\u{1F34E}");
       }, disappearIn);
-    } else
+    } else {
       this.statusBar.setText(msg);
+    }
   }
   onload() {
     return __async(this, null, function* () {
@@ -18795,40 +23318,58 @@ var AppleRemindersPlugin = class extends import_obsidian4.Plugin {
       this.statusBar = this.addStatusBarItem();
       this.statusBar.setText("Loading Apple Reminders...");
       this.addSettingTab(new SampleSettingTab(this.app, this));
-      RemindersDataService.setLogger((x2, timeout) => this.message(x2, timeout));
+      RemindersDataService.setLogger((x2, timeout) =>
+        this.message(x2, timeout)
+      );
       RemindersDataService.setSettings(this.settings);
-      this.registerMarkdownCodeBlockProcessor("apple-reminders", (src, el, ctx) => {
-        var _a, _b;
-        const spec = parse2(src.trim());
-        if (!spec["list"]) {
-          new import_obsidian4.Notice("You cannot have an apple-reminders block without a list name!", 3e3);
-          el.innerHTML = `
+      this.registerMarkdownCodeBlockProcessor(
+        "apple-reminders",
+        (src, el, ctx) => {
+          var _a, _b;
+          const spec = parse2(src.trim());
+          if (!spec["list"]) {
+            new import_obsidian4.Notice(
+              "You cannot have an apple-reminders block without a list name!",
+              3e3,
+            );
+            el.innerHTML = `
 					<pre>Please add list name to continue</pre>
 				`;
-          return;
-        }
-        let lE = new ListElement(spec);
-        let fileName = (_b = (_a = ctx.sourcePath.split("\\").last()) == null ? void 0 : _a.split("/").last()) == null ? void 0 : _b.trim().split(".").first();
-        lE.fileName = fileName;
-        let x2 = interval(RemindersDataService.getSettings().autoRefreshTime * 1e4).subscribe(() => {
-          RemindersDataService.fetchData(spec, fileName).then(([listData, reminders, customReminders]) => {
-            lE.reminders = reminders;
-            lE.listMeta = listData;
-            lE.customReminders = customReminders;
+            return;
+          }
+          let lE = new ListElement(spec);
+          let fileName = (_b = (_a = ctx.sourcePath.split("\\").last()) == null
+              ? void 0
+              : _a.split("/").last()) == null
+            ? void 0
+            : _b.trim().split(".").first();
+          lE.fileName = fileName;
+          let x2 = interval(
+            RemindersDataService.getSettings().autoRefreshTime * 1e4,
+          ).subscribe(() => {
+            RemindersDataService.fetchData(spec, fileName).then(
+              ([listData, reminders, customReminders]) => {
+                lE.reminders = reminders;
+                lE.listMeta = listData;
+                lE.customReminders = customReminders;
+              },
+            );
           });
-        });
-        this.elementRegister[src.trim()] = {
-          list: lE,
-          spec,
-          sub: x2
-        };
-        RemindersDataService.fetchData(spec, fileName).then(([listData, reminders, customReminders]) => {
-          lE.reminders = reminders;
-          lE.listMeta = listData;
-          lE.customReminders = customReminders;
-        });
-        el.appendChild(lE);
-      });
+          this.elementRegister[src.trim()] = {
+            list: lE,
+            spec,
+            sub: x2,
+          };
+          RemindersDataService.fetchData(spec, fileName).then(
+            ([listData, reminders, customReminders]) => {
+              lE.reminders = reminders;
+              lE.listMeta = listData;
+              lE.customReminders = customReminders;
+            },
+          );
+          el.appendChild(lE);
+        },
+      );
     });
   }
   onunload() {
@@ -18838,7 +23379,11 @@ var AppleRemindersPlugin = class extends import_obsidian4.Plugin {
   }
   loadSettings() {
     return __async(this, null, function* () {
-      this.settings = Object.assign({}, DEFAULT_SETTINGS, yield this.loadData());
+      this.settings = Object.assign(
+        {},
+        DEFAULT_SETTINGS,
+        yield this.loadData(),
+      );
     });
   }
   saveSettings() {

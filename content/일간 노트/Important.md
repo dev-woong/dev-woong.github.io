@@ -10,4 +10,3 @@ draft: true
 - [ ] Jaeger, Jipkin, OpenTracing 등 모니터링 도구 비교
 - [ ] Micro Service Architecture 관련 자료 확인
 - [ ] 객체지향 디자인 패턴 파악
-

@@ -1,364 +1,422 @@
-'use strict';
+"use strict";
 
-var obsidian = require('obsidian');
+var obsidian = require("obsidian");
 
 const defaultMaxLength = 50;
 const DEFAULT_DATA = {
-    recentFiles: [],
-    omittedPaths: [],
-    maxLength: null,
-    openType: 'tab',
+  recentFiles: [],
+  omittedPaths: [],
+  maxLength: null,
+  openType: "tab",
 };
-const RecentFilesListViewType = 'recent-files';
+const RecentFilesListViewType = "recent-files";
 class RecentFilesListView extends obsidian.ItemView {
-    constructor(leaf, plugin, data) {
-        super(leaf);
-        this.redraw = () => {
-            const openFile = this.app.workspace.getActiveFile();
-            const rootEl = createDiv({ cls: 'nav-folder mod-root' });
-            const childrenEl = rootEl.createDiv({ cls: 'nav-folder-children' });
-            this.data.recentFiles.forEach((currentFile) => {
-                const navFile = childrenEl.createDiv({ cls: 'nav-file recent-files-file' });
-                const navFileTitle = navFile.createDiv({ cls: 'nav-file-title recent-files-title' });
-                const navFileTitleContent = navFileTitle.createDiv({ cls: 'nav-file-title-content recent-files-title-content' });
-                navFileTitleContent.setText(currentFile.basename);
-                if (openFile && currentFile.path === openFile.path) {
-                    navFileTitle.addClass('is-active');
-                }
-                navFileTitle.setAttr('draggable', 'true');
-                navFileTitle.addEventListener('dragstart', (event) => {
-                    const file = this.app.metadataCache.getFirstLinkpathDest(currentFile.path, '');
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    const dragManager = this.app.dragManager;
-                    const dragData = dragManager.dragFile(event, file);
-                    dragManager.onDragStart(event, dragData);
-                });
-                navFileTitle.addEventListener('mouseover', (event) => {
-                    this.app.workspace.trigger('hover-link', {
-                        event,
-                        source: RecentFilesListViewType,
-                        hoverParent: rootEl,
-                        targetEl: navFile,
-                        linktext: currentFile.path,
-                    });
-                });
-                navFileTitle.addEventListener('contextmenu', (event) => {
-                    const menu = new obsidian.Menu(this.app);
-                    const file = this.app.vault.getAbstractFileByPath(currentFile.path);
-                    this.app.workspace.trigger('file-menu', menu, file, 'link-context-menu');
-                    menu.showAtPosition({ x: event.clientX, y: event.clientY });
-                });
-                navFileTitleContent.addEventListener('click', (event) => {
-                    this.focusFile(currentFile, event.ctrlKey || event.metaKey);
-                });
-                const navFileDelete = navFileTitle.createDiv({ cls: 'recent-files-file-delete' });
-                navFileDelete.appendChild(obsidian.getIcon("lucide-x"));
-                navFileDelete.addEventListener('click', async () => {
-                    await this.removeFile(currentFile);
-                    this.redraw();
-                });
-            });
-            const contentEl = this.containerEl.children[1];
-            contentEl.empty();
-            contentEl.appendChild(rootEl);
-        };
-        this.removeFile = async (file) => {
-            this.data.recentFiles = this.data.recentFiles.filter((currFile) => currFile.path !== file.path);
-            await this.plugin.pruneLength(); // Handles the save
-        };
-        this.updateData = async (file) => {
-            this.data.recentFiles = this.data.recentFiles.filter((currFile) => currFile.path !== file.path);
-            this.data.recentFiles.unshift({
-                basename: file.basename,
-                path: file.path,
-            });
-            await this.plugin.pruneLength(); // Handles the save
-        };
-        this.update = async (openedFile) => {
-            if (!openedFile || !this.plugin.shouldAddFile(openedFile)) {
-                return;
-            }
-            await this.updateData(openedFile);
-            this.redraw();
-        };
-        /**
-         * Open the provided file in the most recent leaf.
-         *
-         * @param shouldSplit Whether the file should be opened in a new split, or in
-         * the most recent split. If the most recent split is pinned, this is set to
-         * true.
-         */
-        this.focusFile = (file, shouldSplit = false) => {
-            const targetFile = this.app.vault
-                .getFiles()
-                .find((f) => f.path === file.path);
-            if (targetFile) {
-                let leaf = this.app.workspace.getMostRecentLeaf();
-                const createLeaf = shouldSplit || leaf.getViewState().pinned;
-                if (createLeaf) {
-                    if (this.plugin.data.openType == 'split')
-                        leaf = this.app.workspace.getLeaf('split');
-                    else if (this.plugin.data.openType == 'window')
-                        leaf = this.app.workspace.getLeaf('window');
-                    else
-                        leaf = this.app.workspace.getLeaf('tab');
-                }
-                leaf.openFile(targetFile);
-            }
-            else {
-                new obsidian.Notice('Cannot find a file with that name');
-                this.data.recentFiles = this.data.recentFiles.filter((fp) => fp.path !== file.path);
-                this.plugin.saveData();
-                this.redraw();
-            }
-        };
-        this.plugin = plugin;
-        this.data = data;
-    }
-    async onOpen() {
-        this.redraw();
-    }
-    getViewType() {
-        return RecentFilesListViewType;
-    }
-    getDisplayText() {
-        return 'Recent Files';
-    }
-    getIcon() {
-        return 'clock';
-    }
-    onHeaderMenu(menu) {
-        menu
-            .addItem((item) => {
-            item
-                .setTitle('Clear list')
-                .setIcon('sweep')
-                .onClick(async () => {
-                this.data.recentFiles = [];
-                await this.plugin.saveData();
-                this.redraw();
-            });
-        })
-            .addItem((item) => {
-            item
-                .setTitle('Close')
-                .setIcon('cross')
-                .onClick(() => {
-                this.app.workspace.detachLeavesOfType(RecentFilesListViewType);
-            });
+  constructor(leaf, plugin, data) {
+    super(leaf);
+    this.redraw = () => {
+      const openFile = this.app.workspace.getActiveFile();
+      const rootEl = createDiv({ cls: "nav-folder mod-root" });
+      const childrenEl = rootEl.createDiv({ cls: "nav-folder-children" });
+      this.data.recentFiles.forEach((currentFile) => {
+        const navFile = childrenEl.createDiv({
+          cls: "nav-file recent-files-file",
         });
-    }
-    load() {
-        super.load();
-        this.registerEvent(this.app.workspace.on('file-open', this.update));
-    }
+        const navFileTitle = navFile.createDiv({
+          cls: "nav-file-title recent-files-title",
+        });
+        const navFileTitleContent = navFileTitle.createDiv({
+          cls: "nav-file-title-content recent-files-title-content",
+        });
+        navFileTitleContent.setText(currentFile.basename);
+        if (openFile && currentFile.path === openFile.path) {
+          navFileTitle.addClass("is-active");
+        }
+        navFileTitle.setAttr("draggable", "true");
+        navFileTitle.addEventListener("dragstart", (event) => {
+          const file = this.app.metadataCache.getFirstLinkpathDest(
+            currentFile.path,
+            "",
+          );
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const dragManager = this.app.dragManager;
+          const dragData = dragManager.dragFile(event, file);
+          dragManager.onDragStart(event, dragData);
+        });
+        navFileTitle.addEventListener("mouseover", (event) => {
+          this.app.workspace.trigger("hover-link", {
+            event,
+            source: RecentFilesListViewType,
+            hoverParent: rootEl,
+            targetEl: navFile,
+            linktext: currentFile.path,
+          });
+        });
+        navFileTitle.addEventListener("contextmenu", (event) => {
+          const menu = new obsidian.Menu(this.app);
+          const file = this.app.vault.getAbstractFileByPath(currentFile.path);
+          this.app.workspace.trigger(
+            "file-menu",
+            menu,
+            file,
+            "link-context-menu",
+          );
+          menu.showAtPosition({ x: event.clientX, y: event.clientY });
+        });
+        navFileTitleContent.addEventListener("click", (event) => {
+          this.focusFile(currentFile, event.ctrlKey || event.metaKey);
+        });
+        const navFileDelete = navFileTitle.createDiv({
+          cls: "recent-files-file-delete",
+        });
+        navFileDelete.appendChild(obsidian.getIcon("lucide-x"));
+        navFileDelete.addEventListener("click", async () => {
+          await this.removeFile(currentFile);
+          this.redraw();
+        });
+      });
+      const contentEl = this.containerEl.children[1];
+      contentEl.empty();
+      contentEl.appendChild(rootEl);
+    };
+    this.removeFile = async (file) => {
+      this.data.recentFiles = this.data.recentFiles.filter((currFile) =>
+        currFile.path !== file.path
+      );
+      await this.plugin.pruneLength(); // Handles the save
+    };
+    this.updateData = async (file) => {
+      this.data.recentFiles = this.data.recentFiles.filter((currFile) =>
+        currFile.path !== file.path
+      );
+      this.data.recentFiles.unshift({
+        basename: file.basename,
+        path: file.path,
+      });
+      await this.plugin.pruneLength(); // Handles the save
+    };
+    this.update = async (openedFile) => {
+      if (!openedFile || !this.plugin.shouldAddFile(openedFile)) {
+        return;
+      }
+      await this.updateData(openedFile);
+      this.redraw();
+    };
+    /**
+     * Open the provided file in the most recent leaf.
+     *
+     * @param shouldSplit Whether the file should be opened in a new split, or in
+     * the most recent split. If the most recent split is pinned, this is set to
+     * true.
+     */
+    this.focusFile = (file, shouldSplit = false) => {
+      const targetFile = this.app.vault
+        .getFiles()
+        .find((f) => f.path === file.path);
+      if (targetFile) {
+        let leaf = this.app.workspace.getMostRecentLeaf();
+        const createLeaf = shouldSplit || leaf.getViewState().pinned;
+        if (createLeaf) {
+          if (this.plugin.data.openType == "split") {
+            leaf = this.app.workspace.getLeaf("split");
+          } else if (this.plugin.data.openType == "window") {
+            leaf = this.app.workspace.getLeaf("window");
+          } else {
+            leaf = this.app.workspace.getLeaf("tab");
+          }
+        }
+        leaf.openFile(targetFile);
+      } else {
+        new obsidian.Notice("Cannot find a file with that name");
+        this.data.recentFiles = this.data.recentFiles.filter((fp) =>
+          fp.path !== file.path
+        );
+        this.plugin.saveData();
+        this.redraw();
+      }
+    };
+    this.plugin = plugin;
+    this.data = data;
+  }
+  async onOpen() {
+    this.redraw();
+  }
+  getViewType() {
+    return RecentFilesListViewType;
+  }
+  getDisplayText() {
+    return "Recent Files";
+  }
+  getIcon() {
+    return "clock";
+  }
+  onHeaderMenu(menu) {
+    menu
+      .addItem((item) => {
+        item
+          .setTitle("Clear list")
+          .setIcon("sweep")
+          .onClick(async () => {
+            this.data.recentFiles = [];
+            await this.plugin.saveData();
+            this.redraw();
+          });
+      })
+      .addItem((item) => {
+        item
+          .setTitle("Close")
+          .setIcon("cross")
+          .onClick(() => {
+            this.app.workspace.detachLeavesOfType(RecentFilesListViewType);
+          });
+      });
+  }
+  load() {
+    super.load();
+    this.registerEvent(this.app.workspace.on("file-open", this.update));
+  }
 }
 class RecentFilesPlugin extends obsidian.Plugin {
-    constructor() {
-        super(...arguments);
-        this.pruneOmittedFiles = async () => {
-            this.data.recentFiles = this.data.recentFiles.filter(this.shouldAddFile);
-            await this.saveData();
-        };
-        this.pruneLength = async () => {
-            const toRemove = this.data.recentFiles.length - (this.data.maxLength || defaultMaxLength);
-            if (toRemove > 0) {
-                this.data.recentFiles.splice(this.data.recentFiles.length - toRemove, toRemove);
-            }
-            await this.saveData();
-        };
-        this.shouldAddFile = (file) => {
-            const patterns = this.data.omittedPaths.filter((path) => path.length > 0);
-            const fileMatchesRegex = (pattern) => {
-                try {
-                    return new RegExp(pattern).test(file.path);
-                }
-                catch (err) {
-                    console.error('Recent Files: Invalid regex pattern: ' + pattern);
-                    return false;
-                }
-            };
-            return !patterns.some(fileMatchesRegex);
-        };
-        this.initView = async () => {
-            let leaf = null;
-            for (leaf of this.app.workspace.getLeavesOfType(RecentFilesListViewType)) {
-                if (leaf.view instanceof RecentFilesListView)
-                    return;
-                // The view instance was created by an older version of the plugin,
-                // so clear it and recreate it (so it'll be the new version).
-                // This avoids the need to reload Obsidian to update the plugin.
-                await leaf.setViewState({ type: 'empty' });
-                break;
-            }
-            (leaf !== null && leaf !== void 0 ? leaf : this.app.workspace.getLeftLeaf(false)).setViewState({
-                type: RecentFilesListViewType,
-                active: true,
-            });
-        };
-        this.handleRename = async (file, oldPath) => {
-            const entry = this.data.recentFiles.find((recentFile) => recentFile.path === oldPath);
-            if (entry) {
-                entry.path = file.path;
-                entry.basename = this.trimExtension(file.name);
-                this.view.redraw();
-                await this.saveData();
-            }
-        };
-        this.handleDelete = async (file) => {
-            const beforeLen = this.data.recentFiles.length;
-            this.data.recentFiles = this.data.recentFiles.filter((recentFile) => recentFile.path !== file.path);
-            if (beforeLen !== this.data.recentFiles.length) {
-                this.view.redraw();
-                await this.saveData();
-            }
-        };
-        // trimExtension can be used to turn a filename into a basename when
-        // interacting with a TAbstractFile that does not have a basename property.
-        // private readonly trimExtension = (name: string): string => name.split('.')[0];
-        // from: https://stackoverflow.com/a/4250408/617864
-        this.trimExtension = (name) => name.replace(/\.[^/.]+$/, '');
-    }
-    async onload() {
-        console.log('Recent Files: Loading plugin v' + this.manifest.version);
-        await this.loadData();
-        obsidian.addIcon('sweep', sweepIcon);
-        this.registerView(RecentFilesListViewType, (leaf) => (this.view = new RecentFilesListView(leaf, this, this.data)));
-        this.addCommand({
-            id: 'recent-files-open',
-            name: 'Open',
-            callback: async () => {
-                let [leaf] = this.app.workspace.getLeavesOfType(RecentFilesListViewType);
-                if (!leaf) {
-                    leaf = this.app.workspace.getLeftLeaf(false);
-                    await leaf.setViewState({ type: RecentFilesListViewType });
-                }
-                this.app.workspace.revealLeaf(leaf);
-            }
+  constructor() {
+    super(...arguments);
+    this.pruneOmittedFiles = async () => {
+      this.data.recentFiles = this.data.recentFiles.filter(this.shouldAddFile);
+      await this.saveData();
+    };
+    this.pruneLength = async () => {
+      const toRemove = this.data.recentFiles.length -
+        (this.data.maxLength || defaultMaxLength);
+      if (toRemove > 0) {
+        this.data.recentFiles.splice(
+          this.data.recentFiles.length - toRemove,
+          toRemove,
+        );
+      }
+      await this.saveData();
+    };
+    this.shouldAddFile = (file) => {
+      const patterns = this.data.omittedPaths.filter((path) => path.length > 0);
+      const fileMatchesRegex = (pattern) => {
+        try {
+          return new RegExp(pattern).test(file.path);
+        } catch (err) {
+          console.error("Recent Files: Invalid regex pattern: " + pattern);
+          return false;
+        }
+      };
+      return !patterns.some(fileMatchesRegex);
+    };
+    this.initView = async () => {
+      let leaf = null;
+      for (
+        leaf of this.app.workspace.getLeavesOfType(RecentFilesListViewType)
+      ) {
+        if (leaf.view instanceof RecentFilesListView) {
+          return;
+        }
+        // The view instance was created by an older version of the plugin,
+        // so clear it and recreate it (so it'll be the new version).
+        // This avoids the need to reload Obsidian to update the plugin.
+        await leaf.setViewState({ type: "empty" });
+        break;
+      }
+      (leaf !== null && leaf !== void 0
+        ? leaf
+        : this.app.workspace.getLeftLeaf(false)).setViewState({
+          type: RecentFilesListViewType,
+          active: true,
         });
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        this.app.workspace.registerHoverLinkSource(RecentFilesListViewType, {
-            display: 'Recent Files',
-            defaultMod: true,
-        });
-        if (this.app.workspace.layoutReady) {
-            this.initView();
+    };
+    this.handleRename = async (file, oldPath) => {
+      const entry = this.data.recentFiles.find((recentFile) =>
+        recentFile.path === oldPath
+      );
+      if (entry) {
+        entry.path = file.path;
+        entry.basename = this.trimExtension(file.name);
+        this.view.redraw();
+        await this.saveData();
+      }
+    };
+    this.handleDelete = async (file) => {
+      const beforeLen = this.data.recentFiles.length;
+      this.data.recentFiles = this.data.recentFiles.filter((recentFile) =>
+        recentFile.path !== file.path
+      );
+      if (beforeLen !== this.data.recentFiles.length) {
+        this.view.redraw();
+        await this.saveData();
+      }
+    };
+    // trimExtension can be used to turn a filename into a basename when
+    // interacting with a TAbstractFile that does not have a basename property.
+    // private readonly trimExtension = (name: string): string => name.split('.')[0];
+    // from: https://stackoverflow.com/a/4250408/617864
+    this.trimExtension = (name) => name.replace(/\.[^/.]+$/, "");
+  }
+  async onload() {
+    console.log("Recent Files: Loading plugin v" + this.manifest.version);
+    await this.loadData();
+    obsidian.addIcon("sweep", sweepIcon);
+    this.registerView(
+      RecentFilesListViewType,
+      (leaf) => (this.view = new RecentFilesListView(leaf, this, this.data)),
+    );
+    this.addCommand({
+      id: "recent-files-open",
+      name: "Open",
+      callback: async () => {
+        let [leaf] = this.app.workspace.getLeavesOfType(
+          RecentFilesListViewType,
+        );
+        if (!leaf) {
+          leaf = this.app.workspace.getLeftLeaf(false);
+          await leaf.setViewState({ type: RecentFilesListViewType });
         }
-        else {
-            this.registerEvent(this.app.workspace.on('layout-ready', this.initView));
-        }
-        this.registerEvent(this.app.vault.on('rename', this.handleRename));
-        this.registerEvent(this.app.vault.on('delete', this.handleDelete));
-        this.addSettingTab(new RecentFilesSettingTab(this.app, this));
+        this.app.workspace.revealLeaf(leaf);
+      },
+    });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this.app.workspace.registerHoverLinkSource(RecentFilesListViewType, {
+      display: "Recent Files",
+      defaultMod: true,
+    });
+    if (this.app.workspace.layoutReady) {
+      this.initView();
+    } else {
+      this.registerEvent(this.app.workspace.on("layout-ready", this.initView));
     }
-    onunload() {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        this.app.workspace.unregisterHoverLinkSource(RecentFilesListViewType);
+    this.registerEvent(this.app.vault.on("rename", this.handleRename));
+    this.registerEvent(this.app.vault.on("delete", this.handleDelete));
+    this.addSettingTab(new RecentFilesSettingTab(this.app, this));
+  }
+  onunload() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this.app.workspace.unregisterHoverLinkSource(RecentFilesListViewType);
+  }
+  async loadData() {
+    this.data = Object.assign(DEFAULT_DATA, await super.loadData());
+    if (!this.data.maxLength) {
+      console.log(
+        "Recent Files: maxLength is not set, using default (" +
+          defaultMaxLength.toString() +
+          ")",
+      );
     }
-    async loadData() {
-        this.data = Object.assign(DEFAULT_DATA, await super.loadData());
-        if (!this.data.maxLength) {
-            console.log('Recent Files: maxLength is not set, using default (' +
-                defaultMaxLength.toString() +
-                ')');
-        }
-    }
-    async saveData() {
-        await super.saveData(this.data);
-    }
+  }
+  async saveData() {
+    await super.saveData(this.data);
+  }
 }
 class RecentFilesSettingTab extends obsidian.PluginSettingTab {
-    constructor(app, plugin) {
-        super(app, plugin);
-        this.plugin = plugin;
-    }
-    display() {
-        const { containerEl } = this;
-        containerEl.empty();
-        containerEl.createEl('h2', { text: 'Recent Files List' });
-        const fragment = document.createDocumentFragment();
-        const link = document.createElement('a');
-        link.href =
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#writing_a_regular_expression_pattern';
-        link.text = 'MDN - Regular expressions';
-        fragment.append('RegExp patterns to ignore. One pattern per line. See ');
-        fragment.append(link);
-        fragment.append(' for help.');
-        new obsidian.Setting(containerEl)
-            .setName('Omitted pathname patterns')
-            .setDesc(fragment)
-            .addTextArea((textArea) => {
-            textArea.inputEl.setAttr('rows', 6);
-            textArea
-                .setPlaceholder('^daily/\n\\.png$\nfoobar.*baz')
-                .setValue(this.plugin.data.omittedPaths.join('\n'));
-            textArea.inputEl.onblur = (e) => {
-                const patterns = e.target.value;
-                this.plugin.data.omittedPaths = patterns.split('\n');
-                this.plugin.pruneOmittedFiles();
-                this.plugin.view.redraw();
-            };
-        });
-        new obsidian.Setting(containerEl)
-            .setName('List length')
-            .setDesc('Maximum number of filenames to keep in the list.')
-            .addText((text) => {
-            var _a;
-            text.inputEl.setAttr('type', 'number');
-            text.inputEl.setAttr('placeholder', defaultMaxLength);
-            text
-                .setValue((_a = this.plugin.data.maxLength) === null || _a === void 0 ? void 0 : _a.toString())
-                .onChange((value) => {
-                const parsed = parseInt(value, 10);
-                if (!Number.isNaN(parsed) && parsed <= 0) {
-                    new obsidian.Notice('List length must be a positive integer');
-                    return;
-                }
-            });
-            text.inputEl.onblur = (e) => {
-                const maxfiles = e.target.value;
-                const parsed = parseInt(maxfiles, 10);
-                this.plugin.data.maxLength = parsed;
-                this.plugin.pruneLength();
-                this.plugin.view.redraw();
-            };
-        });
-        new obsidian.Setting(containerEl)
-            .setName("Open note in")
-            .setDesc("Open the clicked recent file record in a new tab, split, or window (only works on the desktop app).")
-            .addDropdown((dropdown) => {
-            const options = {
-                "tab": "tab",
-                "split": "split",
-                "window": "window",
-            };
-            dropdown
-                .addOptions(options)
-                .setValue(this.plugin.data.openType)
-                .onChange(async (value) => {
-                this.plugin.data.openType = value;
-                await this.plugin.saveData();
-                this.display();
-            });
-        });
-        const div = containerEl.createEl('div', {
-            cls: 'recent-files-donation',
-        });
-        const donateText = document.createElement('p');
-        donateText.appendText('If this plugin adds value for you and you would like to help support ' +
-            'continued development, please use the buttons below:');
-        div.appendChild(donateText);
-        const parser = new DOMParser();
-        div.appendChild(createDonateButton('https://paypal.me/tgrosinger', parser.parseFromString(paypal, 'text/xml').documentElement));
-        div.appendChild(createDonateButton('https://www.buymeacoffee.com/tgrosinger', parser.parseFromString(buyMeACoffee, 'text/xml').documentElement));
-    }
+  constructor(app, plugin) {
+    super(app, plugin);
+    this.plugin = plugin;
+  }
+  display() {
+    const { containerEl } = this;
+    containerEl.empty();
+    containerEl.createEl("h2", { text: "Recent Files List" });
+    const fragment = document.createDocumentFragment();
+    const link = document.createElement("a");
+    link.href =
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#writing_a_regular_expression_pattern";
+    link.text = "MDN - Regular expressions";
+    fragment.append("RegExp patterns to ignore. One pattern per line. See ");
+    fragment.append(link);
+    fragment.append(" for help.");
+    new obsidian.Setting(containerEl)
+      .setName("Omitted pathname patterns")
+      .setDesc(fragment)
+      .addTextArea((textArea) => {
+        textArea.inputEl.setAttr("rows", 6);
+        textArea
+          .setPlaceholder("^daily/\n\\.png$\nfoobar.*baz")
+          .setValue(this.plugin.data.omittedPaths.join("\n"));
+        textArea.inputEl.onblur = (e) => {
+          const patterns = e.target.value;
+          this.plugin.data.omittedPaths = patterns.split("\n");
+          this.plugin.pruneOmittedFiles();
+          this.plugin.view.redraw();
+        };
+      });
+    new obsidian.Setting(containerEl)
+      .setName("List length")
+      .setDesc("Maximum number of filenames to keep in the list.")
+      .addText((text) => {
+        var _a;
+        text.inputEl.setAttr("type", "number");
+        text.inputEl.setAttr("placeholder", defaultMaxLength);
+        text
+          .setValue(
+            (_a = this.plugin.data.maxLength) === null || _a === void 0
+              ? void 0
+              : _a.toString(),
+          )
+          .onChange((value) => {
+            const parsed = parseInt(value, 10);
+            if (!Number.isNaN(parsed) && parsed <= 0) {
+              new obsidian.Notice("List length must be a positive integer");
+              return;
+            }
+          });
+        text.inputEl.onblur = (e) => {
+          const maxfiles = e.target.value;
+          const parsed = parseInt(maxfiles, 10);
+          this.plugin.data.maxLength = parsed;
+          this.plugin.pruneLength();
+          this.plugin.view.redraw();
+        };
+      });
+    new obsidian.Setting(containerEl)
+      .setName("Open note in")
+      .setDesc(
+        "Open the clicked recent file record in a new tab, split, or window (only works on the desktop app).",
+      )
+      .addDropdown((dropdown) => {
+        const options = {
+          "tab": "tab",
+          "split": "split",
+          "window": "window",
+        };
+        dropdown
+          .addOptions(options)
+          .setValue(this.plugin.data.openType)
+          .onChange(async (value) => {
+            this.plugin.data.openType = value;
+            await this.plugin.saveData();
+            this.display();
+          });
+      });
+    const div = containerEl.createEl("div", {
+      cls: "recent-files-donation",
+    });
+    const donateText = document.createElement("p");
+    donateText.appendText(
+      "If this plugin adds value for you and you would like to help support " +
+        "continued development, please use the buttons below:",
+    );
+    div.appendChild(donateText);
+    const parser = new DOMParser();
+    div.appendChild(
+      createDonateButton(
+        "https://paypal.me/tgrosinger",
+        parser.parseFromString(paypal, "text/xml").documentElement,
+      ),
+    );
+    div.appendChild(
+      createDonateButton(
+        "https://www.buymeacoffee.com/tgrosinger",
+        parser.parseFromString(buyMeACoffee, "text/xml").documentElement,
+      ),
+    );
+  }
 }
 const createDonateButton = (link, img) => {
-    const a = document.createElement('a');
-    a.setAttribute('href', link);
-    a.addClass('recent-files-donate-button');
-    a.appendChild(img);
-    return a;
+  const a = document.createElement("a");
+  a.setAttribute("href", link);
+  a.addClass("recent-files-donate-button");
+  a.appendChild(img);
+  return a;
 };
 const sweepIcon = `
 <svg fill="currentColor" stroke="currentColor" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">

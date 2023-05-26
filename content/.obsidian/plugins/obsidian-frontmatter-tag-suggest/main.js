@@ -9,22 +9,41 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
+var __markAsModule = (target) =>
+  __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
   __markAsModule(target);
-  for (var name in all)
+  for (var name in all) {
     __defProp(target, name, { get: all[name], enumerable: true });
+  }
 };
 var __reExport = (target, module2, desc) => {
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== "default")
-        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
+    for (let key of __getOwnPropNames(module2)) {
+      if (!__hasOwnProp.call(target, key) && key !== "default") {
+        __defProp(target, key, {
+          get: () => module2[key],
+          enumerable: !(desc = __getOwnPropDesc(module2, key)) ||
+            desc.enumerable,
+        });
+      }
+    }
   }
   return target;
 };
 var __toModule = (module2) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
+  return __reExport(
+    __markAsModule(
+      __defProp(
+        module2 != null ? __create(__getProtoOf(module2)) : {},
+        "default",
+        module2 && module2.__esModule && "default" in module2
+          ? { get: () => module2.default, enumerable: true }
+          : { value: module2, enumerable: true },
+      ),
+    ),
+    module2,
+  );
 };
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve, reject) => {
@@ -42,14 +61,17 @@ var __async = (__this, __arguments, generator) => {
         reject(e);
       }
     };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    var step = (x) =>
+      x.done
+        ? resolve(x.value)
+        : Promise.resolve(x.value).then(fulfilled, rejected);
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
 
 // main.ts
 __export(exports, {
-  default: () => FrontmatterTagSuggestPlugin
+  default: () => FrontmatterTagSuggestPlugin,
 });
 var import_obsidian = __toModule(require("obsidian"));
 var FrontmatterTagSuggestPlugin = class extends import_obsidian.Plugin {
@@ -71,25 +93,32 @@ var TagSuggest = class extends import_obsidian.EditorSuggest {
   }
   inRange(range) {
     var _a;
-    if (!range || !range.length)
+    if (!range || !range.length) {
       return false;
-    if (((_a = range.match(/^---\n/gm)) == null ? void 0 : _a.length) != 1)
+    }
+    if (((_a = range.match(/^---\n/gm)) == null ? void 0 : _a.length) != 1) {
       return false;
-    if (!/^tags?:/gm.test(range))
+    }
+    if (!/^tags?:/gm.test(range)) {
       return false;
+    }
     const split = range.split(/(^\w+:?\s*\n?)/gm);
     for (let i = split.length - 1; i >= 0; i--) {
-      if (/(^\w+:?\s*\n?)/gm.test(split[i]))
+      if (/(^\w+:?\s*\n?)/gm.test(split[i])) {
         return split[i].startsWith("tags:");
+      }
     }
     return false;
   }
   onTrigger(cursor, editor, _) {
     var _a;
     const lineContents = editor.getLine(cursor.line).toLowerCase();
-    const onFrontmatterTagLine = lineContents.startsWith("tags:") || lineContents.startsWith("tag:") || this.inRange(editor.getRange({ line: 0, ch: 0 }, cursor));
+    const onFrontmatterTagLine = lineContents.startsWith("tags:") ||
+      lineContents.startsWith("tag:") ||
+      this.inRange(editor.getRange({ line: 0, ch: 0 }, cursor));
     if (onFrontmatterTagLine) {
-      this.inline = lineContents.startsWith("tags:") || lineContents.startsWith("tag:");
+      this.inline = lineContents.startsWith("tags:") ||
+        lineContents.startsWith("tag:");
       const sub = editor.getLine(cursor.line).substring(0, cursor.ch);
       const match = (_a = sub.match(/(\S+)$/)) == null ? void 0 : _a.first();
       if (match) {
@@ -98,9 +127,9 @@ var TagSuggest = class extends import_obsidian.EditorSuggest {
           end: cursor,
           start: {
             ch: sub.lastIndexOf(match),
-            line: cursor.line
+            line: cursor.line,
           },
-          query: match
+          query: match,
         };
         return matchData;
       }
@@ -108,7 +137,9 @@ var TagSuggest = class extends import_obsidian.EditorSuggest {
     return null;
   }
   getSuggestions(context) {
-    const suggestions = this.tags.filter((p) => p.toLowerCase().contains(context.query.toLowerCase()));
+    const suggestions = this.tags.filter((p) =>
+      p.toLowerCase().contains(context.query.toLowerCase())
+    );
     return suggestions;
   }
   renderSuggestion(suggestion, el) {
@@ -123,7 +154,11 @@ var TagSuggest = class extends import_obsidian.EditorSuggest {
         suggestion = `${suggestion}
  -`;
       }
-      this.context.editor.replaceRange(`${suggestion} `, this.context.start, this.context.end);
+      this.context.editor.replaceRange(
+        `${suggestion} `,
+        this.context.start,
+        this.context.end,
+      );
     }
   }
 };

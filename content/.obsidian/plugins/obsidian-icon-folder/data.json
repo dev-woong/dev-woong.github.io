@@ -31,7 +31,7 @@
   "post/TeamCity": "SiTeamcity",
   "post/Docker": "SiDocker",
   "일간 노트": {
-    "iconName": "RiCalendarEventFill",
+    "iconName": null,
     "inheritanceIcon": "FarCirclePlay"
   },
   "문서 관리": "RiCheckboxCircleFill",

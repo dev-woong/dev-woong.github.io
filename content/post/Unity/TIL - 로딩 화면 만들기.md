@@ -14,7 +14,8 @@ draft: true
 [고박사의 유니티 노트 [Unity 2D Basic] 06-01. 2D Tilemap Editor](https://www.youtube.com/watch?v=9Y0bUhwxRyk&list=PLC2Tit6NyVie46nbdEM00wFoojjRlXIcf&index=10)
 
 ## Tilemap Editor
+
 ### Tilemap Palette
+
 - Tilemap 오브젝트에 배치할 때는 Tile Asset들을 등록해두는 저장소
 - 팔레트에 있는 Tile Asset을 여러 속성에 따라 배치하거나 삭제할 수 있음
-

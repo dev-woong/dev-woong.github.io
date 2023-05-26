@@ -9,22 +9,41 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
+var __markAsModule = (target) =>
+  __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
   __markAsModule(target);
-  for (var name in all)
+  for (var name in all) {
     __defProp(target, name, { get: all[name], enumerable: true });
+  }
 };
 var __reExport = (target, module2, desc) => {
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== "default")
-        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
+    for (let key of __getOwnPropNames(module2)) {
+      if (!__hasOwnProp.call(target, key) && key !== "default") {
+        __defProp(target, key, {
+          get: () => module2[key],
+          enumerable: !(desc = __getOwnPropDesc(module2, key)) ||
+            desc.enumerable,
+        });
+      }
+    }
   }
   return target;
 };
 var __toModule = (module2) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
+  return __reExport(
+    __markAsModule(
+      __defProp(
+        module2 != null ? __create(__getProtoOf(module2)) : {},
+        "default",
+        module2 && module2.__esModule && "default" in module2
+          ? { get: () => module2.default, enumerable: true }
+          : { value: module2, enumerable: true },
+      ),
+    ),
+    module2,
+  );
 };
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve, reject) => {
@@ -42,14 +61,17 @@ var __async = (__this, __arguments, generator) => {
         reject(e);
       }
     };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    var step = (x) =>
+      x.done
+        ? resolve(x.value)
+        : Promise.resolve(x.value).then(fulfilled, rejected);
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
 
 // src/main.ts
 __export(exports, {
-  default: () => FileHider
+  default: () => FileHider,
 });
 
 // src/commands/toggleVisibility.ts
@@ -60,7 +82,7 @@ var VisibilityToggleCommand = class {
       name: "Toggle Visibility",
       callback: () => {
         plugin.toggleVisibility();
-      }
+      },
     });
   }
 };
@@ -69,7 +91,11 @@ var VisibilityToggleCommand = class {
 var import_obsidian = __toModule(require("obsidian"));
 var VisibilityToggleSetting = class {
   static create(plugin, container) {
-    return new import_obsidian.Setting(container).setName(`Hidden File Visibility`).setDesc(`Toggle whether or not files and folders that are told to be hidden will be hidden or not.`).addToggle((toggle) => {
+    return new import_obsidian.Setting(container).setName(
+      `Hidden File Visibility`,
+    ).setDesc(
+      `Toggle whether or not files and folders that are told to be hidden will be hidden or not.`,
+    ).addToggle((toggle) => {
       toggle.setValue(!plugin.settings.hidden).onChange(() => {
         plugin.toggleVisibility();
       });
@@ -114,7 +140,11 @@ var HiddenPathsModal = class extends import_obsidian2.Modal {
 // src/settings/manageHiddenPaths.ts
 var ManageHiddenPaths = class {
   static create(plugin, container) {
-    return new import_obsidian3.Setting(container).setName(`Hidden Files and Folders`).setDesc(`Add or remove files and folders from the list that are being hidden`).addButton((b) => {
+    return new import_obsidian3.Setting(container).setName(
+      `Hidden Files and Folders`,
+    ).setDesc(
+      `Add or remove files and folders from the list that are being hidden`,
+    ).addButton((b) => {
       b.setButtonText(`Manage`).onClick((event) => {
         if (!event.isTrusted) {
           return;
@@ -131,14 +161,13 @@ function changePathVisibility(path, hide) {
   if (!n) {
     return;
   }
-  ;
+
   let p = n.parentElement;
   if (hide) {
     p.style.display = `none`;
   } else {
     p.style.display = ``;
   }
-  ;
 }
 
 // src/main.ts
@@ -147,7 +176,7 @@ var FileHider = class extends import_obsidian4.Plugin {
     super(...arguments);
     this.settings = {
       hidden: true,
-      hiddenList: []
+      hiddenList: [],
     };
     this.style = null;
   }
@@ -168,7 +197,6 @@ var FileHider = class extends import_obsidian4.Plugin {
                 this.saveSettings();
               });
             }
-            ;
           });
         } else {
           menu.addItem((i) => {
@@ -183,17 +211,14 @@ var FileHider = class extends import_obsidian4.Plugin {
                 this.saveSettings();
               });
             }
-            ;
           });
         }
-        ;
       }));
       this.app.workspace.onLayoutReady(() => {
         setTimeout(() => {
           for (const path of this.settings.hiddenList) {
             changePathVisibility(path, this.settings.hidden);
           }
-          ;
         }, 200);
       });
       new VisibilityToggleCommand(this);
@@ -215,7 +240,7 @@ var FileHider = class extends import_obsidian4.Plugin {
     for (const path of this.settings.hiddenList) {
       changePathVisibility(path, this.settings.hidden);
     }
-    ;
+
     this.saveSettings();
   }
   unhidePath(path) {

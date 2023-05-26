@@ -6,4 +6,3 @@ date: <% tp.date.now() %>
 tags: [ tag1 ]
 draft: true
 ---
-

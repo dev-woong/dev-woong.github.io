@@ -8,7 +8,9 @@ tags:
 - Bug
 draft: true
 ---
-## Build Configuration  순서
+
+## Build Configuration 순서
+
 1. 태그 또는 패키지 버전 읽기
 2. 종속성 복원(Nuget Package 변경 여부를 체크하여 Cache 삭제)
 3. 종속성 패키지들 참조시켜 Build (Release, Unity)

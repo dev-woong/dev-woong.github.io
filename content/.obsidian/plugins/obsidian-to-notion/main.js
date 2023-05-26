@@ -13,38 +13,72 @@ var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __defNormalProp = (obj, key, value) =>
+  key in obj
+    ? __defProp(obj, key, {
+      enumerable: true,
+      configurable: true,
+      writable: true,
+      value,
+    })
+    : obj[key] = value;
 var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
+  for (var prop in b || (b = {})) {
+    if (__hasOwnProp.call(b, prop)) {
       __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
     }
+  }
+  if (__getOwnPropSymbols) {
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop)) {
+        __defNormalProp(a, prop, b[prop]);
+      }
+    }
+  }
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
-var __commonJS = (cb, mod) => function __require() {
-  return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
-};
+var __markAsModule = (target) =>
+  __defProp(target, "__esModule", { value: true });
+var __commonJS = (cb, mod) =>
+  function __require() {
+    return mod ||
+      (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod),
+      mod.exports;
+  };
 var __export = (target, all) => {
   __markAsModule(target);
-  for (var name in all)
+  for (var name in all) {
     __defProp(target, name, { get: all[name], enumerable: true });
+  }
 };
 var __reExport = (target, module2, desc) => {
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== "default")
-        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
+    for (let key of __getOwnPropNames(module2)) {
+      if (!__hasOwnProp.call(target, key) && key !== "default") {
+        __defProp(target, key, {
+          get: () => module2[key],
+          enumerable: !(desc = __getOwnPropDesc(module2, key)) ||
+            desc.enumerable,
+        });
+      }
+    }
   }
   return target;
 };
 var __toModule = (module2) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
+  return __reExport(
+    __markAsModule(
+      __defProp(
+        module2 != null ? __create(__getProtoOf(module2)) : {},
+        "default",
+        module2 && module2.__esModule && "default" in module2
+          ? { get: () => module2.default, enumerable: true }
+          : { value: module2, enumerable: true },
+      ),
+    ),
+    module2,
+  );
 };
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve, reject) => {
@@ -62,7 +96,10 @@ var __async = (__this, __arguments, generator) => {
         reject(e);
       }
     };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    var step = (x) =>
+      x.done
+        ? resolve(x.value)
+        : Promise.resolve(x.value).then(fulfilled, rejected);
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
@@ -77,16 +114,18 @@ var require_bail = __commonJS({
         throw err;
       }
     }
-  }
+  },
 });
 
 // node_modules/is-buffer/index.js
 var require_is_buffer = __commonJS({
   "node_modules/is-buffer/index.js"(exports, module2) {
     module2.exports = function isBuffer(obj) {
-      return obj != null && obj.constructor != null && typeof obj.constructor.isBuffer === "function" && obj.constructor.isBuffer(obj);
+      return obj != null && obj.constructor != null &&
+        typeof obj.constructor.isBuffer === "function" &&
+        obj.constructor.isBuffer(obj);
     };
-  }
+  },
 });
 
 // node_modules/extend/index.js
@@ -108,7 +147,8 @@ var require_extend = __commonJS({
         return false;
       }
       var hasOwnConstructor = hasOwn.call(obj, "constructor");
-      var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, "isPrototypeOf");
+      var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype &&
+        hasOwn.call(obj.constructor.prototype, "isPrototypeOf");
       if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
         return false;
       }
@@ -123,7 +163,7 @@ var require_extend = __commonJS({
           enumerable: true,
           configurable: true,
           value: options.newValue,
-          writable: true
+          writable: true,
         });
       } else {
         target[options.name] = options.newValue;
@@ -150,7 +190,10 @@ var require_extend = __commonJS({
         target = arguments[1] || {};
         i = 2;
       }
-      if (target == null || typeof target !== "object" && typeof target !== "function") {
+      if (
+        target == null ||
+        typeof target !== "object" && typeof target !== "function"
+      ) {
         target = {};
       }
       for (; i < length; ++i) {
@@ -160,14 +203,20 @@ var require_extend = __commonJS({
             src = getProperty(target, name);
             copy = getProperty(options, name);
             if (target !== copy) {
-              if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+              if (
+                deep && copy &&
+                (isPlainObject(copy) || (copyIsArray = isArray(copy)))
+              ) {
                 if (copyIsArray) {
                   copyIsArray = false;
                   clone = src && isArray(src) ? src : [];
                 } else {
                   clone = src && isPlainObject(src) ? src : {};
                 }
-                setProperty(target, { name, newValue: extend(deep, clone, copy) });
+                setProperty(target, {
+                  name,
+                  newValue: extend(deep, clone, copy),
+                });
               } else if (typeof copy !== "undefined") {
                 setProperty(target, { name, newValue: copy });
               }
@@ -177,7 +226,7 @@ var require_extend = __commonJS({
       }
       return target;
     };
-  }
+  },
 });
 
 // node_modules/is-plain-obj/index.js
@@ -191,7 +240,7 @@ var require_is_plain_obj = __commonJS({
       const prototype = Object.getPrototypeOf(value);
       return prototype === null || prototype === Object.prototype;
     };
-  }
+  },
 });
 
 // node_modules/trough/wrap.js
@@ -238,7 +287,7 @@ var require_wrap = __commonJS({
         done(null, value);
       }
     }
-  }
+  },
 });
 
 // node_modules/trough/index.js
@@ -294,7 +343,7 @@ var require_trough = __commonJS({
         return middleware;
       }
     }
-  }
+  },
 });
 
 // node_modules/unist-util-stringify-position/index.js
@@ -333,7 +382,7 @@ var require_unist_util_stringify_position = __commonJS({
     function index(value) {
       return value && typeof value === "number" ? value : 1;
     }
-  }
+  },
 });
 
 // node_modules/vfile-message/index.js
@@ -367,7 +416,7 @@ var require_vfile_message = __commonJS({
       range = stringify4(position) || "1:1";
       location = {
         start: { line: null, column: null },
-        end: { line: null, column: null }
+        end: { line: null, column: null },
       };
       if (position && position.position) {
         position = position.position;
@@ -407,7 +456,7 @@ var require_vfile_message = __commonJS({
       }
       return result;
     }
-  }
+  },
 });
 
 // node_modules/vfile/lib/minpath.browser.js
@@ -500,7 +549,11 @@ var require_minpath_browser = __commonJS({
           unmatchedSlash = true;
         }
       }
-      return end < 0 ? path.charCodeAt(0) === 47 ? "/" : "." : end === 1 && path.charCodeAt(0) === 47 ? "//" : path.slice(0, end);
+      return end < 0
+        ? path.charCodeAt(0) === 47 ? "/" : "."
+        : end === 1 && path.charCodeAt(0) === 47
+        ? "//"
+        : path.slice(0, end);
     }
     function extname(path) {
       var startDot = -1;
@@ -535,7 +588,10 @@ var require_minpath_browser = __commonJS({
           preDotState = -1;
         }
       }
-      if (startDot < 0 || end < 0 || preDotState === 0 || preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+      if (
+        startDot < 0 || end < 0 || preDotState === 0 ||
+        preDotState === 1 && startDot === end - 1 && startDot === startPart + 1
+      ) {
         return "";
       }
       return path.slice(startDot, end);
@@ -546,7 +602,9 @@ var require_minpath_browser = __commonJS({
       while (++index < arguments.length) {
         assertPath(arguments[index]);
         if (arguments[index]) {
-          joined = joined === void 0 ? arguments[index] : joined + "/" + arguments[index];
+          joined = joined === void 0
+            ? arguments[index]
+            : joined + "/" + arguments[index];
         }
       }
       return joined === void 0 ? "." : normalize(joined);
@@ -584,7 +642,11 @@ var require_minpath_browser = __commonJS({
         if (code === 47) {
           if (lastSlash === index - 1 || dots === 1) {
           } else if (lastSlash !== index - 1 && dots === 2) {
-            if (result.length < 2 || lastSegmentLength !== 2 || result.charCodeAt(result.length - 1) !== 46 || result.charCodeAt(result.length - 2) !== 46) {
+            if (
+              result.length < 2 || lastSegmentLength !== 2 ||
+              result.charCodeAt(result.length - 1) !== 46 ||
+              result.charCodeAt(result.length - 2) !== 46
+            ) {
               if (result.length > 2) {
                 lastSlashIndex = result.lastIndexOf("/");
                 if (lastSlashIndex !== result.length - 1) {
@@ -593,7 +655,8 @@ var require_minpath_browser = __commonJS({
                     lastSegmentLength = 0;
                   } else {
                     result = result.slice(0, lastSlashIndex);
-                    lastSegmentLength = result.length - 1 - result.lastIndexOf("/");
+                    lastSegmentLength = result.length - 1 -
+                      result.lastIndexOf("/");
                   }
                   lastSlash = index;
                   dots = 0;
@@ -631,10 +694,12 @@ var require_minpath_browser = __commonJS({
     }
     function assertPath(path) {
       if (typeof path !== "string") {
-        throw new TypeError("Path must be a string. Received " + JSON.stringify(path));
+        throw new TypeError(
+          "Path must be a string. Received " + JSON.stringify(path),
+        );
       }
     }
-  }
+  },
 });
 
 // node_modules/vfile/lib/minproc.browser.js
@@ -645,7 +710,7 @@ var require_minproc_browser = __commonJS({
     function cwd() {
       return "/";
     }
-  }
+  },
 });
 
 // node_modules/vfile/lib/core.js
@@ -659,20 +724,26 @@ var require_core = __commonJS({
     var own = {}.hasOwnProperty;
     var order = ["history", "path", "basename", "stem", "extname", "dirname"];
     VFile.prototype.toString = toString;
-    Object.defineProperty(VFile.prototype, "path", { get: getPath, set: setPath });
+    Object.defineProperty(VFile.prototype, "path", {
+      get: getPath,
+      set: setPath,
+    });
     Object.defineProperty(VFile.prototype, "dirname", {
       get: getDirname,
-      set: setDirname
+      set: setDirname,
     });
     Object.defineProperty(VFile.prototype, "basename", {
       get: getBasename,
-      set: setBasename
+      set: setBasename,
     });
     Object.defineProperty(VFile.prototype, "extname", {
       get: getExtname,
-      set: setExtname
+      set: setExtname,
     });
-    Object.defineProperty(VFile.prototype, "stem", { get: getStem, set: setStem });
+    Object.defineProperty(VFile.prototype, "stem", {
+      get: getStem,
+      set: setStem,
+    });
     function VFile(options) {
       var prop;
       var index;
@@ -744,7 +815,9 @@ var require_core = __commonJS({
       this.path = p.join(this.dirname, this.stem + (extname || ""));
     }
     function getStem() {
-      return typeof this.path === "string" ? p.basename(this.path, this.extname) : void 0;
+      return typeof this.path === "string"
+        ? p.basename(this.path, this.extname)
+        : void 0;
     }
     function setStem(stem) {
       assertNonEmpty(stem, "stem");
@@ -756,7 +829,9 @@ var require_core = __commonJS({
     }
     function assertPart(part, name) {
       if (part && part.indexOf(p.sep) > -1) {
-        throw new Error("`" + name + "` cannot be a path: did not expect `" + p.sep + "`");
+        throw new Error(
+          "`" + name + "` cannot be a path: did not expect `" + p.sep + "`",
+        );
       }
     }
     function assertNonEmpty(part, name) {
@@ -769,7 +844,7 @@ var require_core = __commonJS({
         throw new Error("Setting `" + name + "` requires `path` to be set too");
       }
     }
-  }
+  },
 });
 
 // node_modules/vfile/lib/index.js
@@ -802,7 +877,7 @@ var require_lib = __commonJS({
       message2.fatal = null;
       return message2;
     }
-  }
+  },
 });
 
 // node_modules/vfile/index.js
@@ -810,7 +885,7 @@ var require_vfile = __commonJS({
   "node_modules/vfile/index.js"(exports, module2) {
     "use strict";
     module2.exports = require_lib();
-  }
+  },
 });
 
 // node_modules/unified/index.js
@@ -826,7 +901,9 @@ var require_unified = __commonJS({
     module2.exports = unified().freeze();
     var slice = [].slice;
     var own = {}.hasOwnProperty;
-    var pipeline = trough().use(pipelineParse).use(pipelineRun).use(pipelineStringify);
+    var pipeline = trough().use(pipelineParse).use(pipelineRun).use(
+      pipelineStringify,
+    );
     function pipelineParse(p, ctx) {
       ctx.tree = p.parse(ctx.file);
     }
@@ -965,7 +1042,9 @@ var require_unified = __commonJS({
               add(plugins[index]);
             }
           } else {
-            throw new Error("Expected a list of plugins, not `" + plugins + "`");
+            throw new Error(
+              "Expected a list of plugins, not `" + plugins + "`",
+            );
           }
         }
         function addPlugin(plugin, value2) {
@@ -1087,7 +1166,8 @@ var require_unified = __commonJS({
       }
     }
     function newable(value, name) {
-      return typeof value === "function" && value.prototype && (keys(value.prototype) || name in value.prototype);
+      return typeof value === "function" && value.prototype &&
+        (keys(value.prototype) || name in value.prototype);
     }
     function keys(value) {
       var key;
@@ -1108,7 +1188,10 @@ var require_unified = __commonJS({
     }
     function assertUnfrozen(name, frozen) {
       if (frozen) {
-        throw new Error("Cannot invoke `" + name + "` on a frozen processor.\nCreate a new processor first, by invoking it: use `processor()` instead of `processor`.");
+        throw new Error(
+          "Cannot invoke `" + name +
+            "` on a frozen processor.\nCreate a new processor first, by invoking it: use `processor()` instead of `processor`.",
+        );
       }
     }
     function assertNode(node) {
@@ -1118,10 +1201,12 @@ var require_unified = __commonJS({
     }
     function assertDone(name, asyncName, complete) {
       if (!complete) {
-        throw new Error("`" + name + "` finished async. Use `" + asyncName + "` instead");
+        throw new Error(
+          "`" + name + "` finished async. Use `" + asyncName + "` instead",
+        );
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-string/index.js
@@ -1130,7 +1215,10 @@ var require_mdast_util_to_string = __commonJS({
     "use strict";
     module2.exports = toString;
     function toString(node) {
-      return node && (node.value || node.alt || node.title || "children" in node && all(node.children) || "length" in node && all(node)) || "";
+      return node &&
+          (node.value || node.alt || node.title ||
+            "children" in node && all(node.children) ||
+            "length" in node && all(node)) || "";
     }
     function all(values) {
       var result = [];
@@ -1140,7 +1228,7 @@ var require_mdast_util_to_string = __commonJS({
       }
       return result.join("");
     }
-  }
+  },
 });
 
 // node_modules/micromark/dist/constant/assign.js
@@ -1149,7 +1237,7 @@ var require_assign = __commonJS({
     "use strict";
     var assign = Object.assign;
     module2.exports = assign;
-  }
+  },
 });
 
 // node_modules/micromark/dist/constant/has-own-property.js
@@ -1158,7 +1246,7 @@ var require_has_own_property = __commonJS({
     "use strict";
     var own = {}.hasOwnProperty;
     module2.exports = own;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/normalize-identifier.js
@@ -1166,10 +1254,11 @@ var require_normalize_identifier = __commonJS({
   "node_modules/micromark/dist/util/normalize-identifier.js"(exports, module2) {
     "use strict";
     function normalizeIdentifier(value) {
-      return value.replace(/[\t\n\r ]+/g, " ").replace(/^ | $/g, "").toLowerCase().toUpperCase();
+      return value.replace(/[\t\n\r ]+/g, " ").replace(/^ | $/g, "")
+        .toLowerCase().toUpperCase();
     }
     module2.exports = normalizeIdentifier;
-  }
+  },
 });
 
 // node_modules/micromark/dist/constant/from-char-code.js
@@ -1178,7 +1267,7 @@ var require_from_char_code = __commonJS({
     "use strict";
     var fromCharCode = String.fromCharCode;
     module2.exports = fromCharCode;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/safe-from-int.js
@@ -1188,24 +1277,32 @@ var require_safe_from_int = __commonJS({
     var fromCharCode = require_from_char_code();
     function safeFromInt(value, base) {
       var code = parseInt(value, base);
-      if (code < 9 || code === 11 || code > 13 && code < 32 || code > 126 && code < 160 || code > 55295 && code < 57344 || code > 64975 && code < 65008 || (code & 65535) === 65535 || (code & 65535) === 65534 || code > 1114111) {
+      if (
+        code < 9 || code === 11 || code > 13 && code < 32 ||
+        code > 126 && code < 160 || code > 55295 && code < 57344 ||
+        code > 64975 && code < 65008 || (code & 65535) === 65535 ||
+        (code & 65535) === 65534 || code > 1114111
+      ) {
         return "\uFFFD";
       }
       return fromCharCode(code);
     }
     module2.exports = safeFromInt;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/markdown-line-ending.js
 var require_markdown_line_ending = __commonJS({
-  "node_modules/micromark/dist/character/markdown-line-ending.js"(exports, module2) {
+  "node_modules/micromark/dist/character/markdown-line-ending.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     function markdownLineEnding(code) {
       return code < -2;
     }
     module2.exports = markdownLineEnding;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/markdown-space.js
@@ -1216,7 +1313,7 @@ var require_markdown_space = __commonJS({
       return code === -2 || code === -1 || code === 32;
     }
     module2.exports = markdownSpace;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/factory-space.js
@@ -1245,7 +1342,7 @@ var require_factory_space = __commonJS({
       }
     }
     module2.exports = spaceFactory;
-  }
+  },
 });
 
 // node_modules/micromark/dist/initialize/content.js
@@ -1257,7 +1354,11 @@ var require_content = __commonJS({
     var factorySpace = require_factory_space();
     var tokenize = initializeContent;
     function initializeContent(effects) {
-      var contentStart = effects.attempt(this.parser.constructs.contentInitial, afterContentStartConstruct, paragraphInitial);
+      var contentStart = effects.attempt(
+        this.parser.constructs.contentInitial,
+        afterContentStartConstruct,
+        paragraphInitial,
+      );
       var previous;
       return contentStart;
       function afterContentStartConstruct(code) {
@@ -1277,7 +1378,7 @@ var require_content = __commonJS({
       function lineStart(code) {
         var token = effects.enter("chunkText", {
           contentType: "text",
-          previous
+          previous,
         });
         if (previous) {
           previous.next = token;
@@ -1302,18 +1403,21 @@ var require_content = __commonJS({
       }
     }
     exports.tokenize = tokenize;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/partial-blank-line.js
 var require_partial_blank_line = __commonJS({
-  "node_modules/micromark/dist/tokenize/partial-blank-line.js"(exports, module2) {
+  "node_modules/micromark/dist/tokenize/partial-blank-line.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var markdownLineEnding = require_markdown_line_ending();
     var factorySpace = require_factory_space();
     var partialBlankLine = {
       tokenize: tokenizePartialBlankLine,
-      partial: true
+      partial: true,
     };
     function tokenizePartialBlankLine(effects, ok, nok) {
       return factorySpace(effects, afterWhitespace, "linePrefix");
@@ -1322,7 +1426,7 @@ var require_partial_blank_line = __commonJS({
       }
     }
     module2.exports = partialBlankLine;
-  }
+  },
 });
 
 // node_modules/micromark/dist/initialize/document.js
@@ -1335,10 +1439,10 @@ var require_document = __commonJS({
     var partialBlankLine = require_partial_blank_line();
     var tokenize = initializeDocument;
     var containerConstruct = {
-      tokenize: tokenizeContainer
+      tokenize: tokenizeContainer,
     };
     var lazyFlowConstruct = {
-      tokenize: tokenizeLazyFlow
+      tokenize: tokenizeLazyFlow,
     };
     function initializeDocument(effects) {
       var self = this;
@@ -1346,7 +1450,7 @@ var require_document = __commonJS({
       var continued = 0;
       var inspectConstruct = {
         tokenize: tokenizeInspect,
-        partial: true
+        partial: true,
       };
       var inspectResult;
       var childFlow;
@@ -1355,7 +1459,11 @@ var require_document = __commonJS({
       function start(code) {
         if (continued < stack.length) {
           self.containerState = stack[continued][1];
-          return effects.attempt(stack[continued][0].continuation, documentContinue, documentContinued)(code);
+          return effects.attempt(
+            stack[continued][0].continuation,
+            documentContinue,
+            documentContinued,
+          )(code);
         }
         return documentContinued(code);
       }
@@ -1367,9 +1475,14 @@ var require_document = __commonJS({
         if (inspectResult && inspectResult.flowContinue) {
           return flowStart(code);
         }
-        self.interrupt = childFlow && childFlow.currentConstruct && childFlow.currentConstruct.interruptible;
+        self.interrupt = childFlow && childFlow.currentConstruct &&
+          childFlow.currentConstruct.interruptible;
         self.containerState = {};
-        return effects.attempt(containerConstruct, containerContinue, flowStart)(code);
+        return effects.attempt(
+          containerConstruct,
+          containerContinue,
+          flowStart,
+        )(code);
       }
       function containerContinue(code) {
         stack.push([self.currentConstruct, self.containerState]);
@@ -1386,7 +1499,7 @@ var require_document = __commonJS({
         effects.enter("chunkFlow", {
           contentType: "flow",
           previous: childToken,
-          _tokenizer: childFlow
+          _tokenizer: childFlow,
         });
         return flowContinue(code);
       }
@@ -1404,13 +1517,17 @@ var require_document = __commonJS({
         return flowContinue;
       }
       function documentAfterPeek(code) {
-        exitContainers(inspectResult.continued, inspectResult && inspectResult.flowEnd);
+        exitContainers(
+          inspectResult.continued,
+          inspectResult && inspectResult.flowEnd,
+        );
         continued = 0;
         return start(code);
       }
       function continueFlow(token) {
-        if (childToken)
+        if (childToken) {
           childToken.next = token;
+        }
         childToken = token;
         childFlow.lazy = inspectResult && inspectResult.lazy;
         childFlow.defineSkip(token.start);
@@ -1435,24 +1552,45 @@ var require_document = __commonJS({
         function inspectStart(code) {
           if (subcontinued < stack.length) {
             self.containerState = stack[subcontinued][1];
-            return effects2.attempt(stack[subcontinued][0].continuation, inspectContinue, inspectLess)(code);
+            return effects2.attempt(
+              stack[subcontinued][0].continuation,
+              inspectContinue,
+              inspectLess,
+            )(code);
           }
-          if (childFlow.currentConstruct && childFlow.currentConstruct.concrete) {
+          if (
+            childFlow.currentConstruct && childFlow.currentConstruct.concrete
+          ) {
             inspectResult.flowContinue = true;
             return inspectDone(code);
           }
-          self.interrupt = childFlow.currentConstruct && childFlow.currentConstruct.interruptible;
+          self.interrupt = childFlow.currentConstruct &&
+            childFlow.currentConstruct.interruptible;
           self.containerState = {};
-          return effects2.attempt(containerConstruct, inspectFlowEnd, inspectDone)(code);
+          return effects2.attempt(
+            containerConstruct,
+            inspectFlowEnd,
+            inspectDone,
+          )(code);
         }
         function inspectContinue(code) {
           subcontinued++;
-          return self.containerState._closeFlow ? inspectFlowEnd(code) : inspectStart(code);
+          return self.containerState._closeFlow
+            ? inspectFlowEnd(code)
+            : inspectStart(code);
         }
         function inspectLess(code) {
           if (childFlow.currentConstruct && childFlow.currentConstruct.lazy) {
             self.containerState = {};
-            return effects2.attempt(containerConstruct, inspectFlowEnd, effects2.attempt(lazyFlowConstruct, inspectFlowEnd, effects2.check(partialBlankLine, inspectFlowEnd, inspectLazy)))(code);
+            return effects2.attempt(
+              containerConstruct,
+              inspectFlowEnd,
+              effects2.attempt(
+                lazyFlowConstruct,
+                inspectFlowEnd,
+                effects2.check(partialBlankLine, inspectFlowEnd, inspectLazy),
+              ),
+            )(code);
           }
           return inspectFlowEnd(code);
         }
@@ -1474,13 +1612,27 @@ var require_document = __commonJS({
       }
     }
     function tokenizeContainer(effects, ok, nok) {
-      return factorySpace(effects, effects.attempt(this.parser.constructs.document, ok, nok), "linePrefix", this.parser.constructs.disable.null.indexOf("codeIndented") > -1 ? void 0 : 4);
+      return factorySpace(
+        effects,
+        effects.attempt(this.parser.constructs.document, ok, nok),
+        "linePrefix",
+        this.parser.constructs.disable.null.indexOf("codeIndented") > -1
+          ? void 0
+          : 4,
+      );
     }
     function tokenizeLazyFlow(effects, ok, nok) {
-      return factorySpace(effects, effects.lazy(this.parser.constructs.flow, ok, nok), "linePrefix", this.parser.constructs.disable.null.indexOf("codeIndented") > -1 ? void 0 : 4);
+      return factorySpace(
+        effects,
+        effects.lazy(this.parser.constructs.flow, ok, nok),
+        "linePrefix",
+        this.parser.constructs.disable.null.indexOf("codeIndented") > -1
+          ? void 0
+          : 4,
+      );
     }
     exports.tokenize = tokenize;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/size-chunks.js
@@ -1496,7 +1648,7 @@ var require_size_chunks = __commonJS({
       return size;
     }
     module2.exports = sizeChunks;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/prefix-size.js
@@ -1506,12 +1658,13 @@ var require_prefix_size = __commonJS({
     var sizeChunks = require_size_chunks();
     function prefixSize(events, type) {
       var tail = events[events.length - 1];
-      if (!tail || tail[1].type !== type)
+      if (!tail || tail[1].type !== type) {
         return 0;
+      }
       return sizeChunks(tail[2].sliceStream(tail[1]));
     }
     module2.exports = prefixSize;
-  }
+  },
 });
 
 // node_modules/micromark/dist/constant/splice.js
@@ -1520,7 +1673,7 @@ var require_splice = __commonJS({
     "use strict";
     var splice = [].splice;
     module2.exports = splice;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/chunked-splice.js
@@ -1543,8 +1696,9 @@ var require_chunked_splice = __commonJS({
         parameters.unshift(start, remove);
         splice.apply(list, parameters);
       } else {
-        if (remove)
+        if (remove) {
           splice.apply(list, [start, remove]);
+        }
         while (chunkStart < items.length) {
           parameters = items.slice(chunkStart, chunkStart + 1e4);
           parameters.unshift(start, 0);
@@ -1555,7 +1709,7 @@ var require_chunked_splice = __commonJS({
       }
     }
     module2.exports = chunkedSplice;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/shallow.js
@@ -1567,7 +1721,7 @@ var require_shallow = __commonJS({
       return assign({}, object);
     }
     module2.exports = shallow;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/subtokenize.js
@@ -1592,13 +1746,22 @@ var require_subtokenize = __commonJS({
           index = jumps[index];
         }
         event = events[index];
-        if (index && event[1].type === "chunkFlow" && events[index - 1][1].type === "listItemPrefix") {
+        if (
+          index && event[1].type === "chunkFlow" &&
+          events[index - 1][1].type === "listItemPrefix"
+        ) {
           subevents = event[1]._tokenizer.events;
           otherIndex = 0;
-          if (otherIndex < subevents.length && subevents[otherIndex][1].type === "lineEndingBlank") {
+          if (
+            otherIndex < subevents.length &&
+            subevents[otherIndex][1].type === "lineEndingBlank"
+          ) {
             otherIndex += 2;
           }
-          if (otherIndex < subevents.length && subevents[otherIndex][1].type === "content") {
+          if (
+            otherIndex < subevents.length &&
+            subevents[otherIndex][1].type === "content"
+          ) {
             while (++otherIndex < subevents.length) {
               if (subevents[otherIndex][1].type === "content") {
                 break;
@@ -1621,7 +1784,10 @@ var require_subtokenize = __commonJS({
           lineIndex = void 0;
           while (otherIndex--) {
             otherEvent = events[otherIndex];
-            if (otherEvent[1].type === "lineEnding" || otherEvent[1].type === "lineEndingBlank") {
+            if (
+              otherEvent[1].type === "lineEnding" ||
+              otherEvent[1].type === "lineEndingBlank"
+            ) {
               if (otherEvent[0] === "enter") {
                 if (lineIndex) {
                   events[lineIndex][1].type = "lineEndingBlank";
@@ -1648,7 +1814,8 @@ var require_subtokenize = __commonJS({
       var context = events[eventIndex][2];
       var startPosition = eventIndex - 1;
       var startPositions = [];
-      var tokenizer = token._tokenizer || context.parser[token.contentType](token.start);
+      var tokenizer = token._tokenizer ||
+        context.parser[token.contentType](token.start);
       var childEvents = tokenizer.events;
       var jumps = [];
       var gaps = {};
@@ -1686,7 +1853,11 @@ var require_subtokenize = __commonJS({
       while (index--) {
         if (childEvents[index][0] === "enter") {
           entered = true;
-        } else if (entered && childEvents[index][1].type === childEvents[index - 1][1].type && childEvents[index][1].start.line !== childEvents[index][1].end.line) {
+        } else if (
+          entered &&
+          childEvents[index][1].type === childEvents[index - 1][1].type &&
+          childEvents[index][1].start.line !== childEvents[index][1].end.line
+        ) {
           add(childEvents.slice(index + 1, end));
           token._tokenizer = token.next = void 0;
           token = token.previous;
@@ -1709,7 +1880,7 @@ var require_subtokenize = __commonJS({
       }
     }
     module2.exports = subtokenize;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/content.js
@@ -1724,11 +1895,11 @@ var require_content2 = __commonJS({
       tokenize: tokenizeContent,
       resolve: resolveContent,
       interruptible: true,
-      lazy: true
+      lazy: true,
     };
     var continuationConstruct = {
       tokenize: tokenizeContinuation,
-      partial: true
+      partial: true,
     };
     function resolveContent(events) {
       subtokenize(events);
@@ -1740,7 +1911,7 @@ var require_content2 = __commonJS({
       function start(code) {
         effects.enter("content");
         previous = effects.enter("chunkContent", {
-          contentType: "content"
+          contentType: "content",
         });
         return data(code);
       }
@@ -1749,7 +1920,11 @@ var require_content2 = __commonJS({
           return contentEnd(code);
         }
         if (markdownLineEnding(code)) {
-          return effects.check(continuationConstruct, contentContinue, contentEnd)(code);
+          return effects.check(
+            continuationConstruct,
+            contentContinue,
+            contentEnd,
+          )(code);
         }
         effects.consume(code);
         return data;
@@ -1764,7 +1939,7 @@ var require_content2 = __commonJS({
         effects.exit("chunkContent");
         previous = previous.next = effects.enter("chunkContent", {
           contentType: "content",
-          previous
+          previous,
         });
         return data;
       }
@@ -1782,14 +1957,17 @@ var require_content2 = __commonJS({
         if (code === null || markdownLineEnding(code)) {
           return nok(code);
         }
-        if (self.parser.constructs.disable.null.indexOf("codeIndented") > -1 || prefixSize(self.events, "linePrefix") < 4) {
+        if (
+          self.parser.constructs.disable.null.indexOf("codeIndented") > -1 ||
+          prefixSize(self.events, "linePrefix") < 4
+        ) {
           return effects.interrupt(self.parser.constructs.flow, nok, ok)(code);
         }
         return ok(code);
       }
     }
     module2.exports = content;
-  }
+  },
 });
 
 // node_modules/micromark/dist/initialize/flow.js
@@ -1803,7 +1981,23 @@ var require_flow = __commonJS({
     var tokenize = initializeFlow;
     function initializeFlow(effects) {
       var self = this;
-      var initial = effects.attempt(partialBlankLine, atBlankEnding, effects.attempt(this.parser.constructs.flowInitial, afterConstruct, factorySpace(effects, effects.attempt(this.parser.constructs.flow, afterConstruct, effects.attempt(content, afterConstruct)), "linePrefix")));
+      var initial = effects.attempt(
+        partialBlankLine,
+        atBlankEnding,
+        effects.attempt(
+          this.parser.constructs.flowInitial,
+          afterConstruct,
+          factorySpace(
+            effects,
+            effects.attempt(
+              this.parser.constructs.flow,
+              afterConstruct,
+              effects.attempt(content, afterConstruct),
+            ),
+            "linePrefix",
+          ),
+        ),
+      );
       return initial;
       function atBlankEnding(code) {
         if (code === null) {
@@ -1829,7 +2023,7 @@ var require_flow = __commonJS({
       }
     }
     exports.tokenize = tokenize;
-  }
+  },
 });
 
 // node_modules/micromark/dist/initialize/text.js
@@ -1842,12 +2036,14 @@ var require_text = __commonJS({
     var text = initializeFactory("text");
     var string2 = initializeFactory("string");
     var resolver = {
-      resolveAll: createResolver()
+      resolveAll: createResolver(),
     };
     function initializeFactory(field) {
       return {
         tokenize: initializeText,
-        resolveAll: createResolver(field === "text" ? resolveAllLineSuffixes : void 0)
+        resolveAll: createResolver(
+          field === "text" ? resolveAllLineSuffixes : void 0,
+        ),
       };
       function initializeText(effects) {
         var self = this;
@@ -1882,7 +2078,10 @@ var require_text = __commonJS({
           }
           if (list) {
             while (++index < list.length) {
-              if (!list[index].previous || list[index].previous.call(self, self.previous)) {
+              if (
+                !list[index].previous ||
+                list[index].previous.call(self, self.previous)
+              ) {
                 return true;
               }
             }
@@ -1924,7 +2123,11 @@ var require_text = __commonJS({
       var tabs;
       var token;
       while (++eventIndex <= events.length) {
-        if ((eventIndex === events.length || events[eventIndex][1].type === "lineEnding") && events[eventIndex - 1][1].type === "data") {
+        if (
+          (eventIndex === events.length ||
+            events[eventIndex][1].type === "lineEnding") &&
+          events[eventIndex - 1][1].type === "data"
+        ) {
           data = events[eventIndex - 1][1];
           chunks = context.sliceStream(data);
           index = chunks.length;
@@ -1939,14 +2142,14 @@ var require_text = __commonJS({
                 size++;
                 bufferIndex--;
               }
-              if (bufferIndex)
+              if (bufferIndex) {
                 break;
+              }
               bufferIndex = -1;
             } else if (chunk === -2) {
               tabs = true;
               size++;
-            } else if (chunk === -1)
-              ;
+            } else if (chunk === -1);
             else {
               index++;
               break;
@@ -1954,21 +2157,29 @@ var require_text = __commonJS({
           }
           if (size) {
             token = {
-              type: eventIndex === events.length || tabs || size < 2 ? "lineSuffix" : "hardBreakTrailing",
+              type: eventIndex === events.length || tabs || size < 2
+                ? "lineSuffix"
+                : "hardBreakTrailing",
               start: {
                 line: data.end.line,
                 column: data.end.column - size,
                 offset: data.end.offset - size,
                 _index: data.start._index + index,
-                _bufferIndex: index ? bufferIndex : data.start._bufferIndex + bufferIndex
+                _bufferIndex: index
+                  ? bufferIndex
+                  : data.start._bufferIndex + bufferIndex,
               },
-              end: shallow(data.end)
+              end: shallow(data.end),
             };
             data.end = shallow(token.start);
             if (data.start.offset === data.end.offset) {
               assign(data, token);
             } else {
-              events.splice(eventIndex, 0, ["enter", token, context], ["exit", token, context]);
+              events.splice(eventIndex, 0, ["enter", token, context], [
+                "exit",
+                token,
+                context,
+              ]);
               eventIndex += 2;
             }
           }
@@ -1980,7 +2191,7 @@ var require_text = __commonJS({
     exports.resolver = resolver;
     exports.string = string2;
     exports.text = text;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/miniflat.js
@@ -1988,10 +2199,14 @@ var require_miniflat = __commonJS({
   "node_modules/micromark/dist/util/miniflat.js"(exports, module2) {
     "use strict";
     function miniflat(value) {
-      return value === null || value === void 0 ? [] : "length" in value ? value : [value];
+      return value === null || value === void 0
+        ? []
+        : "length" in value
+        ? value
+        : [value];
     }
     module2.exports = miniflat;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/combine-extensions.js
@@ -2018,7 +2233,10 @@ var require_combine_extensions = __commonJS({
         left = hasOwnProperty.call(all, hook) ? all[hook] : all[hook] = {};
         right = extension2[hook];
         for (code in right) {
-          left[code] = constructs(miniflat(right[code]), hasOwnProperty.call(left, code) ? left[code] : []);
+          left[code] = constructs(
+            miniflat(right[code]),
+            hasOwnProperty.call(left, code) ? left[code] : [],
+          );
         }
       }
     }
@@ -2026,14 +2244,13 @@ var require_combine_extensions = __commonJS({
       var index = -1;
       var before = [];
       while (++index < list.length) {
-        ;
         (list[index].add === "after" ? existing : before).push(list[index]);
       }
       chunkedSplice(existing, 0, 0, before);
       return existing;
     }
     module2.exports = combineExtensions;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/chunked-push.js
@@ -2049,7 +2266,7 @@ var require_chunked_push = __commonJS({
       return items;
     }
     module2.exports = chunkedPush;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/resolve-all.js
@@ -2070,7 +2287,7 @@ var require_resolve_all = __commonJS({
       return events;
     }
     module2.exports = resolveAll;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/serialize-chunks.js
@@ -2097,8 +2314,9 @@ var require_serialize_chunks = __commonJS({
         } else if (chunk === -2) {
           value = "	";
         } else if (chunk === -1) {
-          if (atTab)
+          if (atTab) {
             continue;
+          }
           value = " ";
         } else {
           value = fromCharCode(chunk);
@@ -2109,7 +2327,7 @@ var require_serialize_chunks = __commonJS({
       return result.join("");
     }
     module2.exports = serializeChunks;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/slice-chunks.js
@@ -2136,7 +2354,7 @@ var require_slice_chunks = __commonJS({
       return view;
     }
     module2.exports = sliceChunks;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/create-tokenizer.js
@@ -2156,7 +2374,7 @@ var require_create_tokenizer = __commonJS({
       var point = from ? shallow(from) : {
         line: 1,
         column: 1,
-        offset: 0
+        offset: 0,
       };
       var columnStart = {};
       var resolveAllConstructs = [];
@@ -2169,11 +2387,11 @@ var require_create_tokenizer = __commonJS({
         attempt: constructFactory(onsuccessfulconstruct),
         check: constructFactory(onsuccessfulcheck),
         interrupt: constructFactory(onsuccessfulcheck, {
-          interrupt: true
+          interrupt: true,
         }),
         lazy: constructFactory(onsuccessfulcheck, {
-          lazy: true
-        })
+          lazy: true,
+        }),
       };
       var context = {
         previous: null,
@@ -2183,7 +2401,7 @@ var require_create_tokenizer = __commonJS({
         sliceSerialize,
         now,
         defineSkip: skip,
-        write
+        write,
       };
       var state = initialize.tokenize.call(context, effects);
       if (initialize.resolveAll) {
@@ -2199,7 +2417,11 @@ var require_create_tokenizer = __commonJS({
           return [];
         }
         addResult(initialize, 0);
-        context.events = resolveAll(resolveAllConstructs, context.events, context);
+        context.events = resolveAll(
+          resolveAllConstructs,
+          context.events,
+          context,
+        );
         return context.events;
       }
       function sliceSerialize(token) {
@@ -2225,7 +2447,9 @@ var require_create_tokenizer = __commonJS({
             if (point._bufferIndex < 0) {
               point._bufferIndex = 0;
             }
-            while (point._index === chunkIndex && point._bufferIndex < chunk.length) {
+            while (
+              point._index === chunkIndex && point._bufferIndex < chunk.length
+            ) {
               go(chunk.charCodeAt(point._bufferIndex));
             }
           } else {
@@ -2284,10 +2508,16 @@ var require_create_tokenizer = __commonJS({
           var constructIndex;
           var currentConstruct;
           var info;
-          return constructs.tokenize || "length" in constructs ? handleListOfConstructs(miniflat(constructs)) : handleMapOfConstructs;
+          return constructs.tokenize || "length" in constructs
+            ? handleListOfConstructs(miniflat(constructs))
+            : handleMapOfConstructs;
           function handleMapOfConstructs(code) {
             if (code in constructs || null in constructs) {
-              return handleListOfConstructs(constructs.null ? miniflat(constructs[code]).concat(miniflat(constructs.null)) : constructs[code])(code);
+              return handleListOfConstructs(
+                constructs.null
+                  ? miniflat(constructs[code]).concat(miniflat(constructs.null))
+                  : constructs[code],
+              )(code);
             }
             return bogusState(code);
           }
@@ -2304,10 +2534,19 @@ var require_create_tokenizer = __commonJS({
               if (!construct.partial) {
                 context.currentConstruct = construct;
               }
-              if (construct.name && context.parser.constructs.disable.null.indexOf(construct.name) > -1) {
+              if (
+                construct.name &&
+                context.parser.constructs.disable.null.indexOf(construct.name) >
+                  -1
+              ) {
                 return nok();
               }
-              return construct.tokenize.call(fields ? assign({}, context, fields) : context, effects, ok, nok)(code);
+              return construct.tokenize.call(
+                fields ? assign({}, context, fields) : context,
+                effects,
+                ok,
+                nok,
+              )(code);
             }
           }
           function ok(code) {
@@ -2324,11 +2563,18 @@ var require_create_tokenizer = __commonJS({
         }
       }
       function addResult(construct, from2) {
-        if (construct.resolveAll && resolveAllConstructs.indexOf(construct) < 0) {
+        if (
+          construct.resolveAll && resolveAllConstructs.indexOf(construct) < 0
+        ) {
           resolveAllConstructs.push(construct);
         }
         if (construct.resolve) {
-          chunkedSplice(context.events, from2, context.events.length - from2, construct.resolve(context.events.slice(from2), context));
+          chunkedSplice(
+            context.events,
+            from2,
+            context.events.length - from2,
+            construct.resolve(context.events.slice(from2), context),
+          );
         }
         if (construct.resolveTo) {
           context.events = construct.resolveTo(context.events, context);
@@ -2342,7 +2588,7 @@ var require_create_tokenizer = __commonJS({
         var startStack = Array.from(stack);
         return {
           restore,
-          from: startEventsIndex
+          from: startEventsIndex,
         };
         function restore() {
           point = startPoint;
@@ -2361,27 +2607,34 @@ var require_create_tokenizer = __commonJS({
       }
     }
     module2.exports = createTokenizer;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/markdown-line-ending-or-space.js
 var require_markdown_line_ending_or_space = __commonJS({
-  "node_modules/micromark/dist/character/markdown-line-ending-or-space.js"(exports, module2) {
+  "node_modules/micromark/dist/character/markdown-line-ending-or-space.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     function markdownLineEndingOrSpace(code) {
       return code < 0 || code === 32;
     }
     module2.exports = markdownLineEndingOrSpace;
-  }
+  },
 });
 
 // node_modules/micromark/dist/constant/unicode-punctuation-regex.js
 var require_unicode_punctuation_regex = __commonJS({
-  "node_modules/micromark/dist/constant/unicode-punctuation-regex.js"(exports, module2) {
+  "node_modules/micromark/dist/constant/unicode-punctuation-regex.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
-    var unicodePunctuation = /[!-\/:-@\[-`\{-~\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u09FD\u0A76\u0AF0\u0C77\u0C84\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E4F\u2E52\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]/;
+    var unicodePunctuation =
+      /[!-\/:-@\[-`\{-~\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u09FD\u0A76\u0AF0\u0C77\u0C84\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E4F\u2E52\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]/;
     module2.exports = unicodePunctuation;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/regex-check.js
@@ -2396,28 +2649,34 @@ var require_regex_check = __commonJS({
       }
     }
     module2.exports = regexCheck;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/unicode-punctuation.js
 var require_unicode_punctuation = __commonJS({
-  "node_modules/micromark/dist/character/unicode-punctuation.js"(exports, module2) {
+  "node_modules/micromark/dist/character/unicode-punctuation.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var unicodePunctuationRegex = require_unicode_punctuation_regex();
     var regexCheck = require_regex_check();
     var unicodePunctuation = regexCheck(unicodePunctuationRegex);
     module2.exports = unicodePunctuation;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/unicode-whitespace.js
 var require_unicode_whitespace = __commonJS({
-  "node_modules/micromark/dist/character/unicode-whitespace.js"(exports, module2) {
+  "node_modules/micromark/dist/character/unicode-whitespace.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var regexCheck = require_regex_check();
     var unicodeWhitespace = regexCheck(/\s/);
     module2.exports = unicodeWhitespace;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/classify-character.js
@@ -2428,7 +2687,10 @@ var require_classify_character = __commonJS({
     var unicodePunctuation = require_unicode_punctuation();
     var unicodeWhitespace = require_unicode_whitespace();
     function classifyCharacter(code) {
-      if (code === null || markdownLineEndingOrSpace(code) || unicodeWhitespace(code)) {
+      if (
+        code === null || markdownLineEndingOrSpace(code) ||
+        unicodeWhitespace(code)
+      ) {
         return 1;
       }
       if (unicodePunctuation(code)) {
@@ -2436,7 +2698,7 @@ var require_classify_character = __commonJS({
       }
     }
     module2.exports = classifyCharacter;
-  }
+  },
 });
 
 // node_modules/micromark/dist/util/move-point.js
@@ -2450,7 +2712,7 @@ var require_move_point = __commonJS({
       return point;
     }
     module2.exports = movePoint;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/attention.js
@@ -2466,7 +2728,7 @@ var require_attention = __commonJS({
     var attention = {
       name: "attention",
       tokenize: tokenizeAttention,
-      resolveAll: resolveAllAttention
+      resolveAll: resolveAllAttention,
     };
     function resolveAllAttention(events, context) {
       var index = -1;
@@ -2479,33 +2741,55 @@ var require_attention = __commonJS({
       var nextEvents;
       var offset;
       while (++index < events.length) {
-        if (events[index][0] === "enter" && events[index][1].type === "attentionSequence" && events[index][1]._close) {
+        if (
+          events[index][0] === "enter" &&
+          events[index][1].type === "attentionSequence" &&
+          events[index][1]._close
+        ) {
           open = index;
           while (open--) {
-            if (events[open][0] === "exit" && events[open][1].type === "attentionSequence" && events[open][1]._open && context.sliceSerialize(events[open][1]).charCodeAt(0) === context.sliceSerialize(events[index][1]).charCodeAt(0)) {
-              if ((events[open][1]._close || events[index][1]._open) && (events[index][1].end.offset - events[index][1].start.offset) % 3 && !((events[open][1].end.offset - events[open][1].start.offset + events[index][1].end.offset - events[index][1].start.offset) % 3)) {
+            if (
+              events[open][0] === "exit" &&
+              events[open][1].type === "attentionSequence" &&
+              events[open][1]._open &&
+              context.sliceSerialize(events[open][1]).charCodeAt(0) ===
+                context.sliceSerialize(events[index][1]).charCodeAt(0)
+            ) {
+              if (
+                (events[open][1]._close || events[index][1]._open) &&
+                (events[index][1].end.offset - events[index][1].start.offset) %
+                  3 &&
+                !((events[open][1].end.offset - events[open][1].start.offset +
+                  events[index][1].end.offset - events[index][1].start.offset) %
+                  3)
+              ) {
                 continue;
               }
-              use = events[open][1].end.offset - events[open][1].start.offset > 1 && events[index][1].end.offset - events[index][1].start.offset > 1 ? 2 : 1;
+              use =
+                events[open][1].end.offset - events[open][1].start.offset > 1 &&
+                  events[index][1].end.offset - events[index][1].start.offset >
+                    1
+                  ? 2
+                  : 1;
               openingSequence = {
                 type: use > 1 ? "strongSequence" : "emphasisSequence",
                 start: movePoint(shallow(events[open][1].end), -use),
-                end: shallow(events[open][1].end)
+                end: shallow(events[open][1].end),
               };
               closingSequence = {
                 type: use > 1 ? "strongSequence" : "emphasisSequence",
                 start: shallow(events[index][1].start),
-                end: movePoint(shallow(events[index][1].start), use)
+                end: movePoint(shallow(events[index][1].start), use),
               };
               text = {
                 type: use > 1 ? "strongText" : "emphasisText",
                 start: shallow(events[open][1].end),
-                end: shallow(events[index][1].start)
+                end: shallow(events[index][1].start),
               };
               group = {
                 type: use > 1 ? "strong" : "emphasis",
                 start: shallow(openingSequence.start),
-                end: shallow(closingSequence.end)
+                end: shallow(closingSequence.end),
               };
               events[open][1].end = shallow(openingSequence.start);
               events[index][1].start = shallow(closingSequence.end);
@@ -2513,27 +2797,34 @@ var require_attention = __commonJS({
               if (events[open][1].end.offset - events[open][1].start.offset) {
                 nextEvents = chunkedPush(nextEvents, [
                   ["enter", events[open][1], context],
-                  ["exit", events[open][1], context]
+                  ["exit", events[open][1], context],
                 ]);
               }
               nextEvents = chunkedPush(nextEvents, [
                 ["enter", group, context],
                 ["enter", openingSequence, context],
                 ["exit", openingSequence, context],
-                ["enter", text, context]
+                ["enter", text, context],
               ]);
-              nextEvents = chunkedPush(nextEvents, resolveAll(context.parser.constructs.insideSpan.null, events.slice(open + 1, index), context));
+              nextEvents = chunkedPush(
+                nextEvents,
+                resolveAll(
+                  context.parser.constructs.insideSpan.null,
+                  events.slice(open + 1, index),
+                  context,
+                ),
+              );
               nextEvents = chunkedPush(nextEvents, [
                 ["exit", text, context],
                 ["enter", closingSequence, context],
                 ["exit", closingSequence, context],
-                ["exit", group, context]
+                ["exit", group, context],
               ]);
               if (events[index][1].end.offset - events[index][1].start.offset) {
                 offset = 2;
                 nextEvents = chunkedPush(nextEvents, [
                   ["enter", events[index][1], context],
-                  ["exit", events[index][1], context]
+                  ["exit", events[index][1], context],
                 ]);
               } else {
                 offset = 0;
@@ -2581,7 +2872,7 @@ var require_attention = __commonJS({
       }
     }
     module2.exports = attention;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/ascii-alpha.js
@@ -2591,17 +2882,20 @@ var require_ascii_alpha = __commonJS({
     var regexCheck = require_regex_check();
     var asciiAlpha = regexCheck(/[A-Za-z]/);
     module2.exports = asciiAlpha;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/ascii-alphanumeric.js
 var require_ascii_alphanumeric = __commonJS({
-  "node_modules/micromark/dist/character/ascii-alphanumeric.js"(exports, module2) {
+  "node_modules/micromark/dist/character/ascii-alphanumeric.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var regexCheck = require_regex_check();
     var asciiAlphanumeric = regexCheck(/[\dA-Za-z]/);
     module2.exports = asciiAlphanumeric;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/ascii-atext.js
@@ -2611,7 +2905,7 @@ var require_ascii_atext = __commonJS({
     var regexCheck = require_regex_check();
     var asciiAtext = regexCheck(/[#-'*+\--9=?A-Z^-~]/);
     module2.exports = asciiAtext;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/ascii-control.js
@@ -2622,7 +2916,7 @@ var require_ascii_control = __commonJS({
       return code < 32 || code === 127;
     }
     module2.exports = asciiControl;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/autolink.js
@@ -2635,7 +2929,7 @@ var require_autolink = __commonJS({
     var asciiControl = require_ascii_control();
     var autolink = {
       name: "autolink",
-      tokenize: tokenizeAutolink
+      tokenize: tokenizeAutolink,
     };
     function tokenizeAutolink(effects, ok, nok) {
       var size = 1;
@@ -2656,14 +2950,20 @@ var require_autolink = __commonJS({
         return asciiAtext(code) ? emailAtext(code) : nok(code);
       }
       function schemeOrEmailAtext(code) {
-        return code === 43 || code === 45 || code === 46 || asciiAlphanumeric(code) ? schemeInsideOrEmailAtext(code) : emailAtext(code);
+        return code === 43 || code === 45 || code === 46 ||
+            asciiAlphanumeric(code)
+          ? schemeInsideOrEmailAtext(code)
+          : emailAtext(code);
       }
       function schemeInsideOrEmailAtext(code) {
         if (code === 58) {
           effects.consume(code);
           return urlInside;
         }
-        if ((code === 43 || code === 45 || code === 46 || asciiAlphanumeric(code)) && size++ < 32) {
+        if (
+          (code === 43 || code === 45 || code === 46 ||
+            asciiAlphanumeric(code)) && size++ < 32
+        ) {
           effects.consume(code);
           return schemeInsideOrEmailAtext;
         }
@@ -2723,7 +3023,7 @@ var require_autolink = __commonJS({
       }
     }
     module2.exports = autolink;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/block-quote.js
@@ -2736,9 +3036,9 @@ var require_block_quote = __commonJS({
       name: "blockQuote",
       tokenize: tokenizeBlockQuoteStart,
       continuation: {
-        tokenize: tokenizeBlockQuoteContinuation
+        tokenize: tokenizeBlockQuoteContinuation,
       },
-      exit
+      exit,
     };
     function tokenizeBlockQuoteStart(effects, ok, nok) {
       var self = this;
@@ -2747,7 +3047,7 @@ var require_block_quote = __commonJS({
         if (code === 62) {
           if (!self.containerState.open) {
             effects.enter("blockQuote", {
-              _container: true
+              _container: true,
             });
             self.containerState.open = true;
           }
@@ -2772,23 +3072,33 @@ var require_block_quote = __commonJS({
       }
     }
     function tokenizeBlockQuoteContinuation(effects, ok, nok) {
-      return factorySpace(effects, effects.attempt(blockQuote, ok, nok), "linePrefix", this.parser.constructs.disable.null.indexOf("codeIndented") > -1 ? void 0 : 4);
+      return factorySpace(
+        effects,
+        effects.attempt(blockQuote, ok, nok),
+        "linePrefix",
+        this.parser.constructs.disable.null.indexOf("codeIndented") > -1
+          ? void 0
+          : 4,
+      );
     }
     function exit(effects) {
       effects.exit("blockQuote");
     }
     module2.exports = blockQuote;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/ascii-punctuation.js
 var require_ascii_punctuation = __commonJS({
-  "node_modules/micromark/dist/character/ascii-punctuation.js"(exports, module2) {
+  "node_modules/micromark/dist/character/ascii-punctuation.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var regexCheck = require_regex_check();
     var asciiPunctuation = regexCheck(/[!-/:-@[-`{-~]/);
     module2.exports = asciiPunctuation;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/character-escape.js
@@ -2798,7 +3108,7 @@ var require_character_escape = __commonJS({
     var asciiPunctuation = require_ascii_punctuation();
     var characterEscape = {
       name: "characterEscape",
-      tokenize: tokenizeCharacterEscape
+      tokenize: tokenizeCharacterEscape,
     };
     function tokenizeCharacterEscape(effects, ok, nok) {
       return start;
@@ -2821,7 +3131,7 @@ var require_character_escape = __commonJS({
       }
     }
     module2.exports = characterEscape;
-  }
+  },
 });
 
 // node_modules/parse-entities/decode-entity.browser.js
@@ -2837,12 +3147,14 @@ var require_decode_entity_browser = __commonJS({
       el = el || document.createElement("i");
       el.innerHTML = entity;
       char = el.textContent;
-      if (char.charCodeAt(char.length - 1) === semicolon && characters !== "semi") {
+      if (
+        char.charCodeAt(char.length - 1) === semicolon && characters !== "semi"
+      ) {
         return false;
       }
       return char === entity ? false : char;
     }
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/ascii-digit.js
@@ -2852,7 +3164,7 @@ var require_ascii_digit = __commonJS({
     var regexCheck = require_regex_check();
     var asciiDigit = regexCheck(/\d/);
     module2.exports = asciiDigit;
-  }
+  },
 });
 
 // node_modules/micromark/dist/character/ascii-hex-digit.js
@@ -2862,12 +3174,15 @@ var require_ascii_hex_digit = __commonJS({
     var regexCheck = require_regex_check();
     var asciiHexDigit = regexCheck(/[\dA-Fa-f]/);
     module2.exports = asciiHexDigit;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/character-reference.js
 var require_character_reference = __commonJS({
-  "node_modules/micromark/dist/tokenize/character-reference.js"(exports, module2) {
+  "node_modules/micromark/dist/tokenize/character-reference.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var decodeEntity = require_decode_entity_browser();
     var asciiAlphanumeric = require_ascii_alphanumeric();
@@ -2876,10 +3191,12 @@ var require_character_reference = __commonJS({
     function _interopDefaultLegacy(e) {
       return e && typeof e === "object" && "default" in e ? e : { default: e };
     }
-    var decodeEntity__default = /* @__PURE__ */ _interopDefaultLegacy(decodeEntity);
+    var decodeEntity__default = /* @__PURE__ */ _interopDefaultLegacy(
+      decodeEntity,
+    );
     var characterReference = {
       name: "characterReference",
-      tokenize: tokenizeCharacterReference
+      tokenize: tokenizeCharacterReference,
     };
     function tokenizeCharacterReference(effects, ok, nok) {
       var self = this;
@@ -2925,7 +3242,10 @@ var require_character_reference = __commonJS({
         var token;
         if (code === 59 && size) {
           token = effects.exit("characterReferenceValue");
-          if (test === asciiAlphanumeric && !decodeEntity__default["default"](self.sliceSerialize(token))) {
+          if (
+            test === asciiAlphanumeric &&
+            !decodeEntity__default["default"](self.sliceSerialize(token))
+          ) {
             return nok(code);
           }
           effects.enter("characterReferenceMarker");
@@ -2942,7 +3262,7 @@ var require_character_reference = __commonJS({
       }
     }
     module2.exports = characterReference;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/code-fenced.js
@@ -2956,13 +3276,13 @@ var require_code_fenced = __commonJS({
     var codeFenced = {
       name: "codeFenced",
       tokenize: tokenizeCodeFenced,
-      concrete: true
+      concrete: true,
     };
     function tokenizeCodeFenced(effects, ok, nok) {
       var self = this;
       var closingFenceConstruct = {
         tokenize: tokenizeClosingFence,
-        partial: true
+        partial: true,
       };
       var initialPrefix = prefixSize(this.events, "linePrefix");
       var sizeOpen = 0;
@@ -2982,7 +3302,9 @@ var require_code_fenced = __commonJS({
           return sequenceOpen;
         }
         effects.exit("codeFencedFenceSequence");
-        return sizeOpen < 3 ? nok(code) : factorySpace(effects, infoOpen, "whitespace")(code);
+        return sizeOpen < 3
+          ? nok(code)
+          : factorySpace(effects, infoOpen, "whitespace")(code);
       }
       function infoOpen(code) {
         if (code === null || markdownLineEnding(code)) {
@@ -2990,7 +3312,7 @@ var require_code_fenced = __commonJS({
         }
         effects.enter("codeFencedFenceInfo");
         effects.enter("chunkString", {
-          contentType: "string"
+          contentType: "string",
         });
         return info(code);
       }
@@ -3000,8 +3322,9 @@ var require_code_fenced = __commonJS({
           effects.exit("codeFencedFenceInfo");
           return factorySpace(effects, infoAfter, "whitespace")(code);
         }
-        if (code === 96 && code === marker)
+        if (code === 96 && code === marker) {
           return nok(code);
+        }
         effects.consume(code);
         return info;
       }
@@ -3011,7 +3334,7 @@ var require_code_fenced = __commonJS({
         }
         effects.enter("codeFencedFenceMeta");
         effects.enter("chunkString", {
-          contentType: "string"
+          contentType: "string",
         });
         return meta(code);
       }
@@ -3021,8 +3344,9 @@ var require_code_fenced = __commonJS({
           effects.exit("codeFencedFenceMeta");
           return openAfter(code);
         }
-        if (code === 96 && code === marker)
+        if (code === 96 && code === marker) {
           return nok(code);
+        }
         effects.consume(code);
         return meta;
       }
@@ -3038,7 +3362,13 @@ var require_code_fenced = __commonJS({
           effects.enter("lineEnding");
           effects.consume(code);
           effects.exit("lineEnding");
-          return effects.attempt(closingFenceConstruct, after, initialPrefix ? factorySpace(effects, content, "linePrefix", initialPrefix + 1) : content);
+          return effects.attempt(
+            closingFenceConstruct,
+            after,
+            initialPrefix
+              ? factorySpace(effects, content, "linePrefix", initialPrefix + 1)
+              : content,
+          );
         }
         effects.enter("codeFlowValue");
         return contentContinue(code);
@@ -3057,7 +3387,14 @@ var require_code_fenced = __commonJS({
       }
       function tokenizeClosingFence(effects2, ok2, nok2) {
         var size = 0;
-        return factorySpace(effects2, closingSequenceStart, "linePrefix", this.parser.constructs.disable.null.indexOf("codeIndented") > -1 ? void 0 : 4);
+        return factorySpace(
+          effects2,
+          closingSequenceStart,
+          "linePrefix",
+          this.parser.constructs.disable.null.indexOf("codeIndented") > -1
+            ? void 0
+            : 4,
+        );
         function closingSequenceStart(code) {
           effects2.enter("codeFencedFence");
           effects2.enter("codeFencedFenceSequence");
@@ -3069,8 +3406,9 @@ var require_code_fenced = __commonJS({
             size++;
             return closingSequence;
           }
-          if (size < sizeOpen)
+          if (size < sizeOpen) {
             return nok2(code);
+          }
           effects2.exit("codeFencedFenceSequence");
           return factorySpace(effects2, closingSequenceEnd, "whitespace")(code);
         }
@@ -3084,7 +3422,7 @@ var require_code_fenced = __commonJS({
       }
     }
     module2.exports = codeFenced;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/code-indented.js
@@ -3098,17 +3436,17 @@ var require_code_indented = __commonJS({
     var codeIndented = {
       name: "codeIndented",
       tokenize: tokenizeCodeIndented,
-      resolve: resolveCodeIndented
+      resolve: resolveCodeIndented,
     };
     var indentedContentConstruct = {
       tokenize: tokenizeIndentedContent,
-      partial: true
+      partial: true,
     };
     function resolveCodeIndented(events, context) {
       var code = {
         type: "codeIndented",
         start: events[0][1].start,
-        end: events[events.length - 1][1].end
+        end: events[events.length - 1][1].end,
       };
       chunkedSplice(events, 0, 0, [["enter", code, context]]);
       chunkedSplice(events, events.length, 0, [["exit", code, context]]);
@@ -3121,7 +3459,9 @@ var require_code_indented = __commonJS({
           return ok(code);
         }
         if (markdownLineEnding(code)) {
-          return effects.attempt(indentedContentConstruct, afterPrefix, ok)(code);
+          return effects.attempt(indentedContentConstruct, afterPrefix, ok)(
+            code,
+          );
         }
         effects.enter("codeFlowValue");
         return content(code);
@@ -3149,7 +3489,7 @@ var require_code_indented = __commonJS({
       }
     }
     module2.exports = codeIndented;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/code-text.js
@@ -3161,18 +3501,25 @@ var require_code_text = __commonJS({
       name: "codeText",
       tokenize: tokenizeCodeText,
       resolve: resolveCodeText,
-      previous
+      previous,
     };
     function resolveCodeText(events) {
       var tailExitIndex = events.length - 4;
       var headEnterIndex = 3;
       var index;
       var enter;
-      if ((events[headEnterIndex][1].type === "lineEnding" || events[headEnterIndex][1].type === "space") && (events[tailExitIndex][1].type === "lineEnding" || events[tailExitIndex][1].type === "space")) {
+      if (
+        (events[headEnterIndex][1].type === "lineEnding" ||
+          events[headEnterIndex][1].type === "space") &&
+        (events[tailExitIndex][1].type === "lineEnding" ||
+          events[tailExitIndex][1].type === "space")
+      ) {
         index = headEnterIndex;
         while (++index < tailExitIndex) {
           if (events[index][1].type === "codeTextData") {
-            events[tailExitIndex][1].type = events[headEnterIndex][1].type = "codeTextPadding";
+            events[tailExitIndex][1].type =
+              events[headEnterIndex][1].type =
+                "codeTextPadding";
             headEnterIndex += 2;
             tailExitIndex -= 2;
             break;
@@ -3183,10 +3530,14 @@ var require_code_text = __commonJS({
       tailExitIndex++;
       while (++index <= tailExitIndex) {
         if (enter === void 0) {
-          if (index !== tailExitIndex && events[index][1].type !== "lineEnding") {
+          if (
+            index !== tailExitIndex && events[index][1].type !== "lineEnding"
+          ) {
             enter = index;
           }
-        } else if (index === tailExitIndex || events[index][1].type === "lineEnding") {
+        } else if (
+          index === tailExitIndex || events[index][1].type === "lineEnding"
+        ) {
           events[enter][1].type = "codeTextData";
           if (index !== enter + 2) {
             events[enter][1].end = events[index - 1][1].end;
@@ -3200,7 +3551,8 @@ var require_code_text = __commonJS({
       return events;
     }
     function previous(code) {
-      return code !== 96 || this.events[this.events.length - 1][1].type === "characterEscape";
+      return code !== 96 ||
+        this.events[this.events.length - 1][1].type === "characterEscape";
     }
     function tokenizeCodeText(effects, ok, nok) {
       var sizeOpen = 0;
@@ -3246,7 +3598,10 @@ var require_code_text = __commonJS({
         return data(code);
       }
       function data(code) {
-        if (code === null || code === 32 || code === 96 || markdownLineEnding(code)) {
+        if (
+          code === null || code === 32 || code === 96 ||
+          markdownLineEnding(code)
+        ) {
           effects.exit("codeTextData");
           return gap(code);
         }
@@ -3269,17 +3624,30 @@ var require_code_text = __commonJS({
       }
     }
     module2.exports = codeText;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/factory-destination.js
 var require_factory_destination = __commonJS({
-  "node_modules/micromark/dist/tokenize/factory-destination.js"(exports, module2) {
+  "node_modules/micromark/dist/tokenize/factory-destination.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var asciiControl = require_ascii_control();
     var markdownLineEndingOrSpace = require_markdown_line_ending_or_space();
     var markdownLineEnding = require_markdown_line_ending();
-    function destinationFactory(effects, ok, nok, type, literalType, literalMarkerType, rawType, stringType, max) {
+    function destinationFactory(
+      effects,
+      ok,
+      nok,
+      type,
+      literalType,
+      literalMarkerType,
+      rawType,
+      stringType,
+      max,
+    ) {
       var limit = max || Infinity;
       var balance = 0;
       return start;
@@ -3299,7 +3667,7 @@ var require_factory_destination = __commonJS({
         effects.enter(rawType);
         effects.enter(stringType);
         effects.enter("chunkString", {
-          contentType: "string"
+          contentType: "string",
         });
         return destinationRaw(code);
       }
@@ -3314,7 +3682,7 @@ var require_factory_destination = __commonJS({
         }
         effects.enter(stringType);
         effects.enter("chunkString", {
-          contentType: "string"
+          contentType: "string",
         });
         return destinationEnclosed(code);
       }
@@ -3339,8 +3707,9 @@ var require_factory_destination = __commonJS({
       }
       function destinationRaw(code) {
         if (code === 40) {
-          if (++balance > limit)
+          if (++balance > limit) {
             return nok(code);
+          }
           effects.consume(code);
           return destinationRaw;
         }
@@ -3356,16 +3725,18 @@ var require_factory_destination = __commonJS({
           return destinationRaw;
         }
         if (code === null || markdownLineEndingOrSpace(code)) {
-          if (balance)
+          if (balance) {
             return nok(code);
+          }
           effects.exit("chunkString");
           effects.exit(stringType);
           effects.exit(rawType);
           effects.exit(type);
           return ok(code);
         }
-        if (asciiControl(code))
+        if (asciiControl(code)) {
           return nok(code);
+        }
         effects.consume(code);
         return code === 92 ? destinationRawEscape : destinationRaw;
       }
@@ -3378,7 +3749,7 @@ var require_factory_destination = __commonJS({
       }
     }
     module2.exports = destinationFactory;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/factory-label.js
@@ -3401,7 +3772,12 @@ var require_factory_label = __commonJS({
         return atBreak;
       }
       function atBreak(code) {
-        if (code === null || code === 91 || code === 93 && !data || code === 94 && !size && "_hiddenFootnoteSupport" in self.parser.constructs || size > 999) {
+        if (
+          code === null || code === 91 || code === 93 && !data ||
+          code === 94 && !size &&
+            "_hiddenFootnoteSupport" in self.parser.constructs ||
+          size > 999
+        ) {
           return nok(code);
         }
         if (code === 93) {
@@ -3419,12 +3795,15 @@ var require_factory_label = __commonJS({
           return atBreak;
         }
         effects.enter("chunkString", {
-          contentType: "string"
+          contentType: "string",
         });
         return label(code);
       }
       function label(code) {
-        if (code === null || code === 91 || code === 93 || markdownLineEnding(code) || size++ > 999) {
+        if (
+          code === null || code === 91 || code === 93 ||
+          markdownLineEnding(code) || size++ > 999
+        ) {
           effects.exit("chunkString");
           return atBreak(code);
         }
@@ -3442,12 +3821,15 @@ var require_factory_label = __commonJS({
       }
     }
     module2.exports = labelFactory;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/factory-whitespace.js
 var require_factory_whitespace = __commonJS({
-  "node_modules/micromark/dist/tokenize/factory-whitespace.js"(exports, module2) {
+  "node_modules/micromark/dist/tokenize/factory-whitespace.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var markdownLineEnding = require_markdown_line_ending();
     var markdownSpace = require_markdown_space();
@@ -3464,13 +3846,17 @@ var require_factory_whitespace = __commonJS({
           return start;
         }
         if (markdownSpace(code)) {
-          return factorySpace(effects, start, seen ? "linePrefix" : "lineSuffix")(code);
+          return factorySpace(
+            effects,
+            start,
+            seen ? "linePrefix" : "lineSuffix",
+          )(code);
         }
         return ok(code);
       }
     }
     module2.exports = whitespaceFactory;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/factory-title.js
@@ -3516,7 +3902,7 @@ var require_factory_title = __commonJS({
           return factorySpace(effects, atTitleBreak, "linePrefix");
         }
         effects.enter("chunkString", {
-          contentType: "string"
+          contentType: "string",
         });
         return title(code);
       }
@@ -3537,7 +3923,7 @@ var require_factory_title = __commonJS({
       }
     }
     module2.exports = titleFactory;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/definition.js
@@ -3554,11 +3940,11 @@ var require_definition = __commonJS({
     var factoryTitle = require_factory_title();
     var definition = {
       name: "definition",
-      tokenize: tokenizeDefinition
+      tokenize: tokenizeDefinition,
     };
     var titleConstruct = {
       tokenize: tokenizeTitle,
-      partial: true
+      partial: true,
     };
     function tokenizeDefinition(effects, ok, nok) {
       var self = this;
@@ -3566,15 +3952,44 @@ var require_definition = __commonJS({
       return start;
       function start(code) {
         effects.enter("definition");
-        return factoryLabel.call(self, effects, labelAfter, nok, "definitionLabel", "definitionLabelMarker", "definitionLabelString")(code);
+        return factoryLabel.call(
+          self,
+          effects,
+          labelAfter,
+          nok,
+          "definitionLabel",
+          "definitionLabelMarker",
+          "definitionLabelString",
+        )(code);
       }
       function labelAfter(code) {
-        identifier = normalizeIdentifier(self.sliceSerialize(self.events[self.events.length - 1][1]).slice(1, -1));
+        identifier = normalizeIdentifier(
+          self.sliceSerialize(self.events[self.events.length - 1][1]).slice(
+            1,
+            -1,
+          ),
+        );
         if (code === 58) {
           effects.enter("definitionMarker");
           effects.consume(code);
           effects.exit("definitionMarker");
-          return factoryWhitespace(effects, factoryDestination(effects, effects.attempt(titleConstruct, factorySpace(effects, after, "whitespace"), factorySpace(effects, after, "whitespace")), nok, "definitionDestination", "definitionDestinationLiteral", "definitionDestinationLiteralMarker", "definitionDestinationRaw", "definitionDestinationString"));
+          return factoryWhitespace(
+            effects,
+            factoryDestination(
+              effects,
+              effects.attempt(
+                titleConstruct,
+                factorySpace(effects, after, "whitespace"),
+                factorySpace(effects, after, "whitespace"),
+              ),
+              nok,
+              "definitionDestination",
+              "definitionDestinationLiteral",
+              "definitionDestinationLiteralMarker",
+              "definitionDestinationRaw",
+              "definitionDestinationString",
+            ),
+          );
         }
         return nok(code);
       }
@@ -3592,11 +4007,20 @@ var require_definition = __commonJS({
     function tokenizeTitle(effects, ok, nok) {
       return start;
       function start(code) {
-        return markdownLineEndingOrSpace(code) ? factoryWhitespace(effects, before)(code) : nok(code);
+        return markdownLineEndingOrSpace(code)
+          ? factoryWhitespace(effects, before)(code)
+          : nok(code);
       }
       function before(code) {
         if (code === 34 || code === 39 || code === 40) {
-          return factoryTitle(effects, factorySpace(effects, after, "whitespace"), nok, "definitionTitle", "definitionTitleMarker", "definitionTitleString")(code);
+          return factoryTitle(
+            effects,
+            factorySpace(effects, after, "whitespace"),
+            nok,
+            "definitionTitle",
+            "definitionTitleMarker",
+            "definitionTitleString",
+          )(code);
         }
         return nok(code);
       }
@@ -3605,17 +4029,20 @@ var require_definition = __commonJS({
       }
     }
     module2.exports = definition;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/hard-break-escape.js
 var require_hard_break_escape = __commonJS({
-  "node_modules/micromark/dist/tokenize/hard-break-escape.js"(exports, module2) {
+  "node_modules/micromark/dist/tokenize/hard-break-escape.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var markdownLineEnding = require_markdown_line_ending();
     var hardBreakEscape = {
       name: "hardBreakEscape",
-      tokenize: tokenizeHardBreakEscape
+      tokenize: tokenizeHardBreakEscape,
     };
     function tokenizeHardBreakEscape(effects, ok, nok) {
       return start;
@@ -3635,7 +4062,7 @@ var require_hard_break_escape = __commonJS({
       }
     }
     module2.exports = hardBreakEscape;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/heading-atx.js
@@ -3650,7 +4077,7 @@ var require_heading_atx = __commonJS({
     var headingAtx = {
       name: "headingAtx",
       tokenize: tokenizeHeadingAtx,
-      resolve: resolveHeadingAtx
+      resolve: resolveHeadingAtx,
     };
     function resolveHeadingAtx(events, context) {
       var contentEnd = events.length - 2;
@@ -3660,29 +4087,37 @@ var require_heading_atx = __commonJS({
       if (events[contentStart][1].type === "whitespace") {
         contentStart += 2;
       }
-      if (contentEnd - 2 > contentStart && events[contentEnd][1].type === "whitespace") {
+      if (
+        contentEnd - 2 > contentStart &&
+        events[contentEnd][1].type === "whitespace"
+      ) {
         contentEnd -= 2;
       }
-      if (events[contentEnd][1].type === "atxHeadingSequence" && (contentStart === contentEnd - 1 || contentEnd - 4 > contentStart && events[contentEnd - 2][1].type === "whitespace")) {
+      if (
+        events[contentEnd][1].type === "atxHeadingSequence" &&
+        (contentStart === contentEnd - 1 ||
+          contentEnd - 4 > contentStart &&
+            events[contentEnd - 2][1].type === "whitespace")
+      ) {
         contentEnd -= contentStart + 1 === contentEnd ? 2 : 4;
       }
       if (contentEnd > contentStart) {
         content = {
           type: "atxHeadingText",
           start: events[contentStart][1].start,
-          end: events[contentEnd][1].end
+          end: events[contentEnd][1].end,
         };
         text = {
           type: "chunkText",
           start: events[contentStart][1].start,
           end: events[contentEnd][1].end,
-          contentType: "text"
+          contentType: "text",
         };
         chunkedSplice(events, contentStart, contentEnd - contentStart + 1, [
           ["enter", content, context],
           ["enter", text, context],
           ["exit", text, context],
-          ["exit", content, context]
+          ["exit", content, context],
         ]);
       }
       return events;
@@ -3740,7 +4175,7 @@ var require_heading_atx = __commonJS({
       }
     }
     module2.exports = headingAtx;
-  }
+  },
 });
 
 // node_modules/micromark/dist/constant/html-block-names.js
@@ -3809,10 +4244,10 @@ var require_html_block_names = __commonJS({
       "title",
       "tr",
       "track",
-      "ul"
+      "ul",
     ];
     module2.exports = basics;
-  }
+  },
 });
 
 // node_modules/micromark/dist/constant/html-raw-names.js
@@ -3821,7 +4256,7 @@ var require_html_raw_names = __commonJS({
     "use strict";
     var raws = ["pre", "script", "style", "textarea"];
     module2.exports = raws;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/html-flow.js
@@ -3841,16 +4276,18 @@ var require_html_flow = __commonJS({
       name: "htmlFlow",
       tokenize: tokenizeHtmlFlow,
       resolveTo: resolveToHtmlFlow,
-      concrete: true
+      concrete: true,
     };
     var nextBlankConstruct = {
       tokenize: tokenizeNextBlank,
-      partial: true
+      partial: true,
     };
     function resolveToHtmlFlow(events) {
       var index = events.length;
       while (index--) {
-        if (events[index][0] === "enter" && events[index][1].type === "htmlFlow") {
+        if (
+          events[index][0] === "enter" && events[index][1].type === "htmlFlow"
+        ) {
           break;
         }
       }
@@ -3927,7 +4364,9 @@ var require_html_flow = __commonJS({
       function cdataOpenInside(code) {
         if (code === buffer.charCodeAt(index++)) {
           effects.consume(code);
-          return index === buffer.length ? self.interrupt ? ok : continuation : cdataOpenInside;
+          return index === buffer.length
+            ? self.interrupt ? ok : continuation
+            : cdataOpenInside;
         }
         return nok(code);
       }
@@ -3940,8 +4379,14 @@ var require_html_flow = __commonJS({
         return nok(code);
       }
       function tagName(code) {
-        if (code === null || code === 47 || code === 62 || markdownLineEndingOrSpace(code)) {
-          if (code !== 47 && startTag && htmlRawNames.indexOf(buffer.toLowerCase()) > -1) {
+        if (
+          code === null || code === 47 || code === 62 ||
+          markdownLineEndingOrSpace(code)
+        ) {
+          if (
+            code !== 47 && startTag &&
+            htmlRawNames.indexOf(buffer.toLowerCase()) > -1
+          ) {
             kind = 1;
             return self.interrupt ? ok(code) : continuation(code);
           }
@@ -3954,7 +4399,11 @@ var require_html_flow = __commonJS({
             return self.interrupt ? ok(code) : continuation(code);
           }
           kind = 7;
-          return self.interrupt ? nok(code) : startTag ? completeAttributeNameBefore(code) : completeClosingTagAfter(code);
+          return self.interrupt
+            ? nok(code)
+            : startTag
+            ? completeAttributeNameBefore(code)
+            : completeClosingTagAfter(code);
         }
         if (code === 45 || asciiAlphanumeric(code)) {
           effects.consume(code);
@@ -3993,7 +4442,10 @@ var require_html_flow = __commonJS({
         return completeEnd(code);
       }
       function completeAttributeName(code) {
-        if (code === 45 || code === 46 || code === 58 || code === 95 || asciiAlphanumeric(code)) {
+        if (
+          code === 45 || code === 46 || code === 58 || code === 95 ||
+          asciiAlphanumeric(code)
+        ) {
           effects.consume(code);
           return completeAttributeName;
         }
@@ -4011,7 +4463,10 @@ var require_html_flow = __commonJS({
         return completeAttributeNameBefore(code);
       }
       function completeAttributeValueBefore(code) {
-        if (code === null || code === 60 || code === 61 || code === 62 || code === 96) {
+        if (
+          code === null || code === 60 || code === 61 || code === 62 ||
+          code === 96
+        ) {
           return nok(code);
         }
         if (code === 34 || code === 39) {
@@ -4038,7 +4493,11 @@ var require_html_flow = __commonJS({
         return completeAttributeValueQuoted;
       }
       function completeAttributeValueUnquoted(code) {
-        if (code === null || code === 34 || code === 39 || code === 60 || code === 61 || code === 62 || code === 96 || markdownLineEndingOrSpace(code)) {
+        if (
+          code === null || code === 34 || code === 39 || code === 60 ||
+          code === 61 || code === 62 || code === 96 ||
+          markdownLineEndingOrSpace(code)
+        ) {
           return completeAttributeNameAfter(code);
         }
         effects.consume(code);
@@ -4062,7 +4521,9 @@ var require_html_flow = __commonJS({
           effects.consume(code);
           return completeAfter;
         }
-        return code === null || markdownLineEnding(code) ? continuation(code) : nok(code);
+        return code === null || markdownLineEnding(code)
+          ? continuation(code)
+          : nok(code);
       }
       function continuation(code) {
         if (code === 45 && kind === 2) {
@@ -4086,7 +4547,11 @@ var require_html_flow = __commonJS({
           return continuationCharacterDataInside;
         }
         if (markdownLineEnding(code) && (kind === 6 || kind === 7)) {
-          return effects.check(nextBlankConstruct, continuationClose, continuationAtLineEnding)(code);
+          return effects.check(
+            nextBlankConstruct,
+            continuationClose,
+            continuationAtLineEnding,
+          )(code);
         }
         if (code === null || markdownLineEnding(code)) {
           return continuationAtLineEnding(code);
@@ -4176,7 +4641,7 @@ var require_html_flow = __commonJS({
       }
     }
     module2.exports = htmlFlow;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/html-text.js
@@ -4191,7 +4656,7 @@ var require_html_text = __commonJS({
     var factorySpace = require_factory_space();
     var htmlText = {
       name: "htmlText",
-      tokenize: tokenizeHtmlText
+      tokenize: tokenizeHtmlText,
     };
     function tokenizeHtmlText(effects, ok, nok) {
       var self = this;
@@ -4410,7 +4875,10 @@ var require_html_text = __commonJS({
         return end(code);
       }
       function tagOpenAttributeName(code) {
-        if (code === 45 || code === 46 || code === 58 || code === 95 || asciiAlphanumeric(code)) {
+        if (
+          code === 45 || code === 46 || code === 58 || code === 95 ||
+          asciiAlphanumeric(code)
+        ) {
           effects.consume(code);
           return tagOpenAttributeName;
         }
@@ -4432,7 +4900,10 @@ var require_html_text = __commonJS({
         return tagOpenBetween(code);
       }
       function tagOpenAttributeValueBefore(code) {
-        if (code === null || code === 60 || code === 61 || code === 62 || code === 96) {
+        if (
+          code === null || code === 60 || code === 61 || code === 62 ||
+          code === 96
+        ) {
           return nok(code);
         }
         if (code === 34 || code === 39) {
@@ -4474,7 +4945,10 @@ var require_html_text = __commonJS({
         return nok(code);
       }
       function tagOpenAttributeValueUnquoted(code) {
-        if (code === null || code === 34 || code === 39 || code === 60 || code === 61 || code === 96) {
+        if (
+          code === null || code === 34 || code === 39 || code === 60 ||
+          code === 61 || code === 96
+        ) {
           return nok(code);
         }
         if (code === 62 || markdownLineEndingOrSpace(code)) {
@@ -4488,7 +4962,14 @@ var require_html_text = __commonJS({
         effects.enter("lineEnding");
         effects.consume(code);
         effects.exit("lineEnding");
-        return factorySpace(effects, afterPrefix, "linePrefix", self.parser.constructs.disable.null.indexOf("codeIndented") > -1 ? void 0 : 4);
+        return factorySpace(
+          effects,
+          afterPrefix,
+          "linePrefix",
+          self.parser.constructs.disable.null.indexOf("codeIndented") > -1
+            ? void 0
+            : 4,
+        );
       }
       function afterPrefix(code) {
         effects.enter("htmlTextData");
@@ -4505,7 +4986,7 @@ var require_html_text = __commonJS({
       }
     }
     module2.exports = htmlText;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/label-end.js
@@ -4526,23 +5007,27 @@ var require_label_end = __commonJS({
       name: "labelEnd",
       tokenize: tokenizeLabelEnd,
       resolveTo: resolveToLabelEnd,
-      resolveAll: resolveAllLabelEnd
+      resolveAll: resolveAllLabelEnd,
     };
     var resourceConstruct = {
-      tokenize: tokenizeResource
+      tokenize: tokenizeResource,
     };
     var fullReferenceConstruct = {
-      tokenize: tokenizeFullReference
+      tokenize: tokenizeFullReference,
     };
     var collapsedReferenceConstruct = {
-      tokenize: tokenizeCollapsedReference
+      tokenize: tokenizeCollapsedReference,
     };
     function resolveAllLabelEnd(events) {
       var index = -1;
       var token;
       while (++index < events.length) {
         token = events[index][1];
-        if (!token._used && (token.type === "labelImage" || token.type === "labelLink" || token.type === "labelEnd")) {
+        if (
+          !token._used &&
+          (token.type === "labelImage" || token.type === "labelLink" ||
+            token.type === "labelEnd")
+        ) {
           events.splice(index + 1, token.type === "labelImage" ? 4 : 2);
           token.type = "data";
           index++;
@@ -4563,14 +5048,21 @@ var require_label_end = __commonJS({
       while (index--) {
         token = events[index][1];
         if (open) {
-          if (token.type === "link" || token.type === "labelLink" && token._inactive) {
+          if (
+            token.type === "link" ||
+            token.type === "labelLink" && token._inactive
+          ) {
             break;
           }
           if (events[index][0] === "enter" && token.type === "labelLink") {
             token._inactive = true;
           }
         } else if (close) {
-          if (events[index][0] === "enter" && (token.type === "labelImage" || token.type === "labelLink") && !token._balanced) {
+          if (
+            events[index][0] === "enter" &&
+            (token.type === "labelImage" || token.type === "labelLink") &&
+            !token._balanced
+          ) {
             open = index;
             if (token.type !== "labelLink") {
               offset = 2;
@@ -4584,30 +5076,37 @@ var require_label_end = __commonJS({
       group = {
         type: events[open][1].type === "labelLink" ? "link" : "image",
         start: shallow(events[open][1].start),
-        end: shallow(events[events.length - 1][1].end)
+        end: shallow(events[events.length - 1][1].end),
       };
       label = {
         type: "label",
         start: shallow(events[open][1].start),
-        end: shallow(events[close][1].end)
+        end: shallow(events[close][1].end),
       };
       text = {
         type: "labelText",
         start: shallow(events[open + offset + 2][1].end),
-        end: shallow(events[close - 2][1].start)
+        end: shallow(events[close - 2][1].start),
       };
       media = [
         ["enter", group, context],
-        ["enter", label, context]
+        ["enter", label, context],
       ];
       media = chunkedPush(media, events.slice(open + 1, open + offset + 3));
       media = chunkedPush(media, [["enter", text, context]]);
-      media = chunkedPush(media, resolveAll(context.parser.constructs.insideSpan.null, events.slice(open + offset + 4, close - 3), context));
+      media = chunkedPush(
+        media,
+        resolveAll(
+          context.parser.constructs.insideSpan.null,
+          events.slice(open + offset + 4, close - 3),
+          context,
+        ),
+      );
       media = chunkedPush(media, [
         ["exit", text, context],
         events[close - 2],
         events[close - 1],
-        ["exit", label, context]
+        ["exit", label, context],
       ]);
       media = chunkedPush(media, events.slice(close + 1));
       media = chunkedPush(media, [["exit", group, context]]);
@@ -4620,7 +5119,11 @@ var require_label_end = __commonJS({
       var labelStart;
       var defined;
       while (index--) {
-        if ((self.events[index][1].type === "labelImage" || self.events[index][1].type === "labelLink") && !self.events[index][1]._balanced) {
+        if (
+          (self.events[index][1].type === "labelImage" ||
+            self.events[index][1].type === "labelLink") &&
+          !self.events[index][1]._balanced
+        ) {
           labelStart = self.events[index][1];
           break;
         }
@@ -4630,12 +5133,14 @@ var require_label_end = __commonJS({
         if (!labelStart) {
           return nok(code);
         }
-        if (labelStart._inactive)
+        if (labelStart._inactive) {
           return balanced(code);
-        defined = self.parser.defined.indexOf(normalizeIdentifier(self.sliceSerialize({
-          start: labelStart.end,
-          end: self.now()
-        }))) > -1;
+        }
+        defined =
+          self.parser.defined.indexOf(normalizeIdentifier(self.sliceSerialize({
+            start: labelStart.end,
+            end: self.now(),
+          }))) > -1;
         effects.enter("labelEnd");
         effects.enter("labelMarker");
         effects.consume(code);
@@ -4645,10 +5150,20 @@ var require_label_end = __commonJS({
       }
       function afterLabelEnd(code) {
         if (code === 40) {
-          return effects.attempt(resourceConstruct, ok, defined ? ok : balanced)(code);
+          return effects.attempt(
+            resourceConstruct,
+            ok,
+            defined ? ok : balanced,
+          )(code);
         }
         if (code === 91) {
-          return effects.attempt(fullReferenceConstruct, ok, defined ? effects.attempt(collapsedReferenceConstruct, ok, balanced) : balanced)(code);
+          return effects.attempt(
+            fullReferenceConstruct,
+            ok,
+            defined
+              ? effects.attempt(collapsedReferenceConstruct, ok, balanced)
+              : balanced,
+          )(code);
         }
         return defined ? ok(code) : balanced(code);
       }
@@ -4670,14 +5185,33 @@ var require_label_end = __commonJS({
         if (code === 41) {
           return end(code);
         }
-        return factoryDestination(effects, destinationAfter, nok, "resourceDestination", "resourceDestinationLiteral", "resourceDestinationLiteralMarker", "resourceDestinationRaw", "resourceDestinationString", 3)(code);
+        return factoryDestination(
+          effects,
+          destinationAfter,
+          nok,
+          "resourceDestination",
+          "resourceDestinationLiteral",
+          "resourceDestinationLiteralMarker",
+          "resourceDestinationRaw",
+          "resourceDestinationString",
+          3,
+        )(code);
       }
       function destinationAfter(code) {
-        return markdownLineEndingOrSpace(code) ? factoryWhitespace(effects, between)(code) : end(code);
+        return markdownLineEndingOrSpace(code)
+          ? factoryWhitespace(effects, between)(code)
+          : end(code);
       }
       function between(code) {
         if (code === 34 || code === 39 || code === 40) {
-          return factoryTitle(effects, factoryWhitespace(effects, end), nok, "resourceTitle", "resourceTitleMarker", "resourceTitleString")(code);
+          return factoryTitle(
+            effects,
+            factoryWhitespace(effects, end),
+            nok,
+            "resourceTitle",
+            "resourceTitleMarker",
+            "resourceTitleString",
+          )(code);
         }
         return end(code);
       }
@@ -4696,10 +5230,27 @@ var require_label_end = __commonJS({
       var self = this;
       return start;
       function start(code) {
-        return factoryLabel.call(self, effects, afterLabel, nok, "reference", "referenceMarker", "referenceString")(code);
+        return factoryLabel.call(
+          self,
+          effects,
+          afterLabel,
+          nok,
+          "reference",
+          "referenceMarker",
+          "referenceString",
+        )(code);
       }
       function afterLabel(code) {
-        return self.parser.defined.indexOf(normalizeIdentifier(self.sliceSerialize(self.events[self.events.length - 1][1]).slice(1, -1))) < 0 ? nok(code) : ok(code);
+        return self.parser.defined.indexOf(
+            normalizeIdentifier(
+              self.sliceSerialize(self.events[self.events.length - 1][1]).slice(
+                1,
+                -1,
+              ),
+            ),
+          ) < 0
+          ? nok(code)
+          : ok(code);
       }
     }
     function tokenizeCollapsedReference(effects, ok, nok) {
@@ -4723,18 +5274,21 @@ var require_label_end = __commonJS({
       }
     }
     module2.exports = labelEnd;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/label-start-image.js
 var require_label_start_image = __commonJS({
-  "node_modules/micromark/dist/tokenize/label-start-image.js"(exports, module2) {
+  "node_modules/micromark/dist/tokenize/label-start-image.js"(
+    exports,
+    module2,
+  ) {
     "use strict";
     var labelEnd = require_label_end();
     var labelStartImage = {
       name: "labelStartImage",
       tokenize: tokenizeLabelStartImage,
-      resolveAll: labelEnd.resolveAll
+      resolveAll: labelEnd.resolveAll,
     };
     function tokenizeLabelStartImage(effects, ok, nok) {
       var self = this;
@@ -4757,11 +5311,13 @@ var require_label_start_image = __commonJS({
         return nok(code);
       }
       function after(code) {
-        return code === 94 && "_hiddenFootnoteSupport" in self.parser.constructs ? nok(code) : ok(code);
+        return code === 94 && "_hiddenFootnoteSupport" in self.parser.constructs
+          ? nok(code)
+          : ok(code);
       }
     }
     module2.exports = labelStartImage;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/label-start-link.js
@@ -4772,7 +5328,7 @@ var require_label_start_link = __commonJS({
     var labelStartLink = {
       name: "labelStartLink",
       tokenize: tokenizeLabelStartLink,
-      resolveAll: labelEnd.resolveAll
+      resolveAll: labelEnd.resolveAll,
     };
     function tokenizeLabelStartLink(effects, ok, nok) {
       var self = this;
@@ -4786,11 +5342,13 @@ var require_label_start_link = __commonJS({
         return after;
       }
       function after(code) {
-        return code === 94 && "_hiddenFootnoteSupport" in self.parser.constructs ? nok(code) : ok(code);
+        return code === 94 && "_hiddenFootnoteSupport" in self.parser.constructs
+          ? nok(code)
+          : ok(code);
       }
     }
     module2.exports = labelStartLink;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/line-ending.js
@@ -4800,7 +5358,7 @@ var require_line_ending = __commonJS({
     var factorySpace = require_factory_space();
     var lineEnding = {
       name: "lineEnding",
-      tokenize: tokenizeLineEnding
+      tokenize: tokenizeLineEnding,
     };
     function tokenizeLineEnding(effects, ok) {
       return start;
@@ -4812,7 +5370,7 @@ var require_line_ending = __commonJS({
       }
     }
     module2.exports = lineEnding;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/thematic-break.js
@@ -4824,7 +5382,7 @@ var require_thematic_break = __commonJS({
     var factorySpace = require_factory_space();
     var thematicBreak = {
       name: "thematicBreak",
-      tokenize: tokenizeThematicBreak
+      tokenize: tokenizeThematicBreak,
     };
     function tokenizeThematicBreak(effects, ok, nok) {
       var size = 0;
@@ -4860,7 +5418,7 @@ var require_thematic_break = __commonJS({
       }
     }
     module2.exports = thematicBreak;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/list.js
@@ -4878,17 +5436,17 @@ var require_list = __commonJS({
       name: "list",
       tokenize: tokenizeListStart,
       continuation: {
-        tokenize: tokenizeListContinuation
+        tokenize: tokenizeListContinuation,
       },
-      exit: tokenizeListEnd
+      exit: tokenizeListEnd,
     };
     var listItemPrefixWhitespaceConstruct = {
       tokenize: tokenizeListItemPrefixWhitespace,
-      partial: true
+      partial: true,
     };
     var indentConstruct = {
       tokenize: tokenizeIndent,
-      partial: true
+      partial: true,
     };
     function tokenizeListStart(effects, ok, nok) {
       var self = this;
@@ -4896,17 +5454,26 @@ var require_list = __commonJS({
       var size = 0;
       return start;
       function start(code) {
-        var kind = self.containerState.type || (code === 42 || code === 43 || code === 45 ? "listUnordered" : "listOrdered");
-        if (kind === "listUnordered" ? !self.containerState.marker || code === self.containerState.marker : asciiDigit(code)) {
+        var kind = self.containerState.type ||
+          (code === 42 || code === 43 || code === 45
+            ? "listUnordered"
+            : "listOrdered");
+        if (
+          kind === "listUnordered"
+            ? !self.containerState.marker || code === self.containerState.marker
+            : asciiDigit(code)
+        ) {
           if (!self.containerState.type) {
             self.containerState.type = kind;
             effects.enter(kind, {
-              _container: true
+              _container: true,
             });
           }
           if (kind === "listUnordered") {
             effects.enter("listItemPrefix");
-            return code === 42 || code === 45 ? effects.check(thematicBreak, nok, atMarker)(code) : atMarker(code);
+            return code === 42 || code === 45
+              ? effects.check(thematicBreak, nok, atMarker)(code)
+              : atMarker(code);
           }
           if (!self.interrupt || code === 49) {
             effects.enter("listItemPrefix");
@@ -4921,7 +5488,12 @@ var require_list = __commonJS({
           effects.consume(code);
           return inside;
         }
-        if ((!self.interrupt || size < 2) && (self.containerState.marker ? code === self.containerState.marker : code === 41 || code === 46)) {
+        if (
+          (!self.interrupt || size < 2) &&
+          (self.containerState.marker
+            ? code === self.containerState.marker
+            : code === 41 || code === 46)
+        ) {
           effects.exit("listItemValue");
           return atMarker(code);
         }
@@ -4932,7 +5504,15 @@ var require_list = __commonJS({
         effects.consume(code);
         effects.exit("listItemMarker");
         self.containerState.marker = self.containerState.marker || code;
-        return effects.check(partialBlankLine, self.interrupt ? nok : onBlank, effects.attempt(listItemPrefixWhitespaceConstruct, endOfPrefix, otherPrefix));
+        return effects.check(
+          partialBlankLine,
+          self.interrupt ? nok : onBlank,
+          effects.attempt(
+            listItemPrefixWhitespaceConstruct,
+            endOfPrefix,
+            otherPrefix,
+          ),
+        );
       }
       function onBlank(code) {
         self.containerState.initialBlankLine = true;
@@ -4949,7 +5529,8 @@ var require_list = __commonJS({
         return nok(code);
       }
       function endOfPrefix(code) {
-        self.containerState.size = initialSize + sizeChunks(self.sliceStream(effects.exit("listItemPrefix")));
+        self.containerState.size = initialSize +
+          sizeChunks(self.sliceStream(effects.exit("listItemPrefix")));
         return ok(code);
       }
     }
@@ -4958,28 +5539,56 @@ var require_list = __commonJS({
       self.containerState._closeFlow = void 0;
       return effects.check(partialBlankLine, onBlank, notBlank);
       function onBlank(code) {
-        self.containerState.furtherBlankLines = self.containerState.furtherBlankLines || self.containerState.initialBlankLine;
-        return factorySpace(effects, ok, "listItemIndent", self.containerState.size + 1)(code);
+        self.containerState.furtherBlankLines =
+          self.containerState.furtherBlankLines ||
+          self.containerState.initialBlankLine;
+        return factorySpace(
+          effects,
+          ok,
+          "listItemIndent",
+          self.containerState.size + 1,
+        )(code);
       }
       function notBlank(code) {
         if (self.containerState.furtherBlankLines || !markdownSpace(code)) {
-          self.containerState.furtherBlankLines = self.containerState.initialBlankLine = void 0;
+          self.containerState.furtherBlankLines =
+            self.containerState
+              .initialBlankLine =
+              void 0;
           return notInCurrentItem(code);
         }
-        self.containerState.furtherBlankLines = self.containerState.initialBlankLine = void 0;
+        self.containerState.furtherBlankLines =
+          self.containerState
+            .initialBlankLine =
+            void 0;
         return effects.attempt(indentConstruct, ok, notInCurrentItem)(code);
       }
       function notInCurrentItem(code) {
         self.containerState._closeFlow = true;
         self.interrupt = void 0;
-        return factorySpace(effects, effects.attempt(list, ok, nok), "linePrefix", self.parser.constructs.disable.null.indexOf("codeIndented") > -1 ? void 0 : 4)(code);
+        return factorySpace(
+          effects,
+          effects.attempt(list, ok, nok),
+          "linePrefix",
+          self.parser.constructs.disable.null.indexOf("codeIndented") > -1
+            ? void 0
+            : 4,
+        )(code);
       }
     }
     function tokenizeIndent(effects, ok, nok) {
       var self = this;
-      return factorySpace(effects, afterPrefix, "listItemIndent", self.containerState.size + 1);
+      return factorySpace(
+        effects,
+        afterPrefix,
+        "listItemIndent",
+        self.containerState.size + 1,
+      );
       function afterPrefix(code) {
-        return prefixSize(self.events, "listItemIndent") === self.containerState.size ? ok(code) : nok(code);
+        return prefixSize(self.events, "listItemIndent") ===
+            self.containerState.size
+          ? ok(code)
+          : nok(code);
       }
     }
     function tokenizeListEnd(effects) {
@@ -4987,13 +5596,23 @@ var require_list = __commonJS({
     }
     function tokenizeListItemPrefixWhitespace(effects, ok, nok) {
       var self = this;
-      return factorySpace(effects, afterPrefix, "listItemPrefixWhitespace", self.parser.constructs.disable.null.indexOf("codeIndented") > -1 ? void 0 : 4 + 1);
+      return factorySpace(
+        effects,
+        afterPrefix,
+        "listItemPrefixWhitespace",
+        self.parser.constructs.disable.null.indexOf("codeIndented") > -1
+          ? void 0
+          : 4 + 1,
+      );
       function afterPrefix(code) {
-        return markdownSpace(code) || !prefixSize(self.events, "listItemPrefixWhitespace") ? nok(code) : ok(code);
+        return markdownSpace(code) ||
+            !prefixSize(self.events, "listItemPrefixWhitespace")
+          ? nok(code)
+          : ok(code);
       }
     }
     module2.exports = list;
-  }
+  },
 });
 
 // node_modules/micromark/dist/tokenize/setext-underline.js
@@ -5006,7 +5625,7 @@ var require_setext_underline = __commonJS({
     var setextUnderline = {
       name: "setextUnderline",
       tokenize: tokenizeSetextUnderline,
-      resolveTo: resolveToSetextUnderline
+      resolveTo: resolveToSetextUnderline,
     };
     function resolveToSetextUnderline(events, context) {
       var index = events.length;
@@ -5035,7 +5654,7 @@ var require_setext_underline = __commonJS({
       heading = {
         type: "setextHeading",
         start: shallow(events[text][1].start),
-        end: shallow(events[events.length - 1][1].end)
+        end: shallow(events[events.length - 1][1].end),
       };
       events[text][1].type = "setextHeadingText";
       if (definition) {
@@ -5054,7 +5673,11 @@ var require_setext_underline = __commonJS({
       var marker;
       var paragraph;
       while (index--) {
-        if (self.events[index][1].type !== "lineEnding" && self.events[index][1].type !== "linePrefix" && self.events[index][1].type !== "content") {
+        if (
+          self.events[index][1].type !== "lineEnding" &&
+          self.events[index][1].type !== "linePrefix" &&
+          self.events[index][1].type !== "content"
+        ) {
           paragraph = self.events[index][1].type === "paragraph";
           break;
         }
@@ -5086,7 +5709,7 @@ var require_setext_underline = __commonJS({
       }
     }
     module2.exports = setextUnderline;
-  }
+  },
 });
 
 // node_modules/micromark/dist/constructs.js
@@ -5129,15 +5752,15 @@ var require_constructs = __commonJS({
       55: list,
       56: list,
       57: list,
-      62: blockQuote
+      62: blockQuote,
     };
     var contentInitial = {
-      91: definition
+      91: definition,
     };
     var flowInitial = {
       "-2": codeIndented,
       "-1": codeIndented,
-      32: codeIndented
+      32: codeIndented,
     };
     var flow = {
       35: headingAtx,
@@ -5147,11 +5770,11 @@ var require_constructs = __commonJS({
       61: setextUnderline,
       95: thematicBreak,
       96: codeFenced,
-      126: codeFenced
+      126: codeFenced,
     };
     var string2 = {
       38: characterReference,
-      92: characterEscape
+      92: characterEscape,
     };
     var text = {
       "-5": lineEnding,
@@ -5165,13 +5788,13 @@ var require_constructs = __commonJS({
       92: [hardBreakEscape, characterEscape],
       93: labelEnd,
       95: attention,
-      96: codeText
+      96: codeText,
     };
     var insideSpan = {
-      null: [attention, text$1.resolver]
+      null: [attention, text$1.resolver],
     };
     var disable = {
-      null: []
+      null: [],
     };
     exports.contentInitial = contentInitial;
     exports.disable = disable;
@@ -5181,7 +5804,7 @@ var require_constructs = __commonJS({
     exports.insideSpan = insideSpan;
     exports.string = string2;
     exports.text = text;
-  }
+  },
 });
 
 // node_modules/micromark/dist/parse.js
@@ -5200,12 +5823,14 @@ var require_parse = __commonJS({
       var settings = options || {};
       var parser = {
         defined: [],
-        constructs: combineExtensions([constructs].concat(miniflat(settings.extensions))),
+        constructs: combineExtensions(
+          [constructs].concat(miniflat(settings.extensions)),
+        ),
         content: create(content),
         document: create(document2),
         flow: create(flow),
         string: create(text.string),
-        text: create(text.text)
+        text: create(text.text),
       };
       return parser;
       function create(initializer) {
@@ -5216,7 +5841,7 @@ var require_parse = __commonJS({
       }
     }
     module2.exports = parse3;
-  }
+  },
 });
 
 // node_modules/micromark/dist/preprocess.js
@@ -5255,7 +5880,9 @@ var require_preprocess = __commonJS({
             buffer = value.slice(startPosition);
             break;
           }
-          if (code === 10 && startPosition === endPosition && atCarriageReturn) {
+          if (
+            code === 10 && startPosition === endPosition && atCarriageReturn
+          ) {
             chunks.push(-3);
             atCarriageReturn = void 0;
           } else {
@@ -5273,8 +5900,9 @@ var require_preprocess = __commonJS({
             } else if (code === 9) {
               next = Math.ceil(column / 4) * 4;
               chunks.push(-2);
-              while (column++ < next)
+              while (column++ < next) {
                 chunks.push(-1);
+              }
             } else if (code === 10) {
               chunks.push(-4);
               column = 1;
@@ -5286,17 +5914,19 @@ var require_preprocess = __commonJS({
           startPosition = endPosition + 1;
         }
         if (end) {
-          if (atCarriageReturn)
+          if (atCarriageReturn) {
             chunks.push(-5);
-          if (buffer)
+          }
+          if (buffer) {
             chunks.push(buffer);
+          }
           chunks.push(null);
         }
         return chunks;
       }
     }
     module2.exports = preprocess;
-  }
+  },
 });
 
 // node_modules/micromark/dist/postprocess.js
@@ -5310,7 +5940,7 @@ var require_postprocess = __commonJS({
       return events;
     }
     module2.exports = postprocess;
-  }
+  },
 });
 
 // node_modules/mdast-util-from-markdown/dist/index.js
@@ -5333,7 +5963,13 @@ var require_dist = __commonJS({
         options = encoding;
         encoding = void 0;
       }
-      return compiler(options)(postprocess(parser(options).document().write(preprocessor()(value, encoding, true))));
+      return compiler(options)(
+        postprocess(
+          parser(options).document().write(
+            preprocessor()(value, encoding, true),
+          ),
+        ),
+      );
     }
     function compiler(options) {
       var settings = options || {};
@@ -5344,7 +5980,7 @@ var require_dist = __commonJS({
           "fragment",
           "heading",
           "paragraph",
-          "strong"
+          "strong",
         ],
         enter: {
           autolink: opener(link),
@@ -5387,7 +6023,7 @@ var require_dist = __commonJS({
           resourceTitleString: buffer,
           setextHeading: opener(heading),
           strong: opener(strong),
-          thematicBreak: opener(thematicBreak)
+          thematicBreak: opener(thematicBreak),
         },
         exit: {
           atxHeading: closer(),
@@ -5437,8 +6073,8 @@ var require_dist = __commonJS({
           setextHeadingLineSequence: onexitsetextheadinglinesequence,
           setextHeadingText: onexitsetextheadingtext,
           strong: closer(),
-          thematicBreak: closer()
-        }
+          thematicBreak: closer(),
+        },
       }, settings.mdastExtensions || []);
       var data = {};
       return compile;
@@ -5459,10 +6095,13 @@ var require_dist = __commonJS({
           buffer,
           resume,
           setData,
-          getData
+          getData,
         };
         while (++index < events.length) {
-          if (events[index][1].type === "listOrdered" || events[index][1].type === "listUnordered") {
+          if (
+            events[index][1].type === "listOrdered" ||
+            events[index][1].type === "listUnordered"
+          ) {
             if (events[index][0] === "enter") {
               listStack.push(index);
             } else {
@@ -5475,18 +6114,36 @@ var require_dist = __commonJS({
         while (++index < events.length) {
           handler = config[events[index][0]];
           if (own.call(handler, events[index][1].type)) {
-            handler[events[index][1].type].call(assign({ sliceSerialize: events[index][2].sliceSerialize }, context), events[index][1]);
+            handler[events[index][1].type].call(
+              assign(
+                { sliceSerialize: events[index][2].sliceSerialize },
+                context,
+              ),
+              events[index][1],
+            );
           }
         }
         if (tokenStack.length) {
-          throw new Error("Cannot close document, a token (`" + tokenStack[tokenStack.length - 1].type + "`, " + stringifyPosition({
-            start: tokenStack[tokenStack.length - 1].start,
-            end: tokenStack[tokenStack.length - 1].end
-          }) + ") is still open");
+          throw new Error(
+            "Cannot close document, a token (`" +
+              tokenStack[tokenStack.length - 1].type + "`, " +
+              stringifyPosition({
+                start: tokenStack[tokenStack.length - 1].start,
+                end: tokenStack[tokenStack.length - 1].end,
+              }) + ") is still open",
+          );
         }
         tree.position = {
-          start: point(events.length ? events[0][1].start : { line: 1, column: 1, offset: 0 }),
-          end: point(events.length ? events[events.length - 2][1].end : { line: 1, column: 1, offset: 0 })
+          start: point(
+            events.length
+              ? events[0][1].start
+              : { line: 1, column: 1, offset: 0 },
+          ),
+          end: point(
+            events.length
+              ? events[events.length - 2][1].end
+              : { line: 1, column: 1, offset: 0 },
+          ),
         };
         index = -1;
         while (++index < config.transforms.length) {
@@ -5507,7 +6164,10 @@ var require_dist = __commonJS({
         var atMarker;
         while (++index <= length) {
           event = events[index];
-          if (event[1].type === "listUnordered" || event[1].type === "listOrdered" || event[1].type === "blockQuote") {
+          if (
+            event[1].type === "listUnordered" ||
+            event[1].type === "listOrdered" || event[1].type === "blockQuote"
+          ) {
             if (event[0] === "enter") {
               containerBalance++;
             } else {
@@ -5516,40 +6176,74 @@ var require_dist = __commonJS({
             atMarker = void 0;
           } else if (event[1].type === "lineEndingBlank") {
             if (event[0] === "enter") {
-              if (listItem2 && !atMarker && !containerBalance && !firstBlankLineIndex) {
+              if (
+                listItem2 && !atMarker && !containerBalance &&
+                !firstBlankLineIndex
+              ) {
                 firstBlankLineIndex = index;
               }
               atMarker = void 0;
             }
-          } else if (event[1].type === "linePrefix" || event[1].type === "listItemValue" || event[1].type === "listItemMarker" || event[1].type === "listItemPrefix" || event[1].type === "listItemPrefixWhitespace") {
+          } else if (
+            event[1].type === "linePrefix" ||
+            event[1].type === "listItemValue" ||
+            event[1].type === "listItemMarker" ||
+            event[1].type === "listItemPrefix" ||
+            event[1].type === "listItemPrefixWhitespace"
+          ) {
           } else {
             atMarker = void 0;
           }
-          if (!containerBalance && event[0] === "enter" && event[1].type === "listItemPrefix" || containerBalance === -1 && event[0] === "exit" && (event[1].type === "listUnordered" || event[1].type === "listOrdered")) {
+          if (
+            !containerBalance && event[0] === "enter" &&
+              event[1].type === "listItemPrefix" ||
+            containerBalance === -1 && event[0] === "exit" &&
+              (event[1].type === "listUnordered" ||
+                event[1].type === "listOrdered")
+          ) {
             if (listItem2) {
               tailIndex = index;
               lineIndex = void 0;
               while (tailIndex--) {
                 tailEvent = events[tailIndex];
-                if (tailEvent[1].type === "lineEnding" || tailEvent[1].type === "lineEndingBlank") {
-                  if (tailEvent[0] === "exit")
+                if (
+                  tailEvent[1].type === "lineEnding" ||
+                  tailEvent[1].type === "lineEndingBlank"
+                ) {
+                  if (tailEvent[0] === "exit") {
                     continue;
+                  }
                   if (lineIndex) {
                     events[lineIndex][1].type = "lineEndingBlank";
                     listSpread = true;
                   }
                   tailEvent[1].type = "lineEnding";
                   lineIndex = tailIndex;
-                } else if (tailEvent[1].type === "linePrefix" || tailEvent[1].type === "blockQuotePrefix" || tailEvent[1].type === "blockQuotePrefixWhitespace" || tailEvent[1].type === "blockQuoteMarker" || tailEvent[1].type === "listItemIndent") {
+                } else if (
+                  tailEvent[1].type === "linePrefix" ||
+                  tailEvent[1].type === "blockQuotePrefix" ||
+                  tailEvent[1].type === "blockQuotePrefixWhitespace" ||
+                  tailEvent[1].type === "blockQuoteMarker" ||
+                  tailEvent[1].type === "listItemIndent"
+                ) {
                 } else {
                   break;
                 }
               }
-              if (firstBlankLineIndex && (!lineIndex || firstBlankLineIndex < lineIndex)) {
+              if (
+                firstBlankLineIndex &&
+                (!lineIndex || firstBlankLineIndex < lineIndex)
+              ) {
                 listItem2._spread = true;
               }
-              listItem2.end = point(lineIndex ? events[lineIndex][1].start : event[1].end);
-              events.splice(lineIndex || index, 0, ["exit", listItem2, event[2]]);
+              listItem2.end = point(
+                lineIndex ? events[lineIndex][1].start : event[1].end,
+              );
+              events.splice(lineIndex || index, 0, [
+                "exit",
+                listItem2,
+                event[2],
+              ]);
               index++;
               length++;
             }
@@ -5557,7 +6251,7 @@ var require_dist = __commonJS({
               listItem2 = {
                 type: "listItem",
                 _spread: false,
-                start: point(event[1].start)
+                start: point(event[1].start),
               };
               events.splice(index, 0, ["enter", listItem2, event[2]]);
               index++;
@@ -5583,8 +6277,9 @@ var require_dist = __commonJS({
         return open;
         function open(token) {
           enter.call(this, create(token), token);
-          if (and)
+          if (and) {
             and.call(this, token);
+          }
         }
       }
       function buffer() {
@@ -5600,8 +6295,9 @@ var require_dist = __commonJS({
       function closer(and) {
         return close;
         function close(token) {
-          if (and)
+          if (and) {
             and.call(this, token);
+          }
           exit.call(this, token);
         }
       }
@@ -5609,9 +6305,19 @@ var require_dist = __commonJS({
         var node = this.stack.pop();
         var open = this.tokenStack.pop();
         if (!open) {
-          throw new Error("Cannot close `" + token.type + "` (" + stringifyPosition({ start: token.start, end: token.end }) + "): it\u2019s not open");
+          throw new Error(
+            "Cannot close `" + token.type + "` (" +
+              stringifyPosition({ start: token.start, end: token.end }) +
+              "): it\u2019s not open",
+          );
         } else if (open.type !== token.type) {
-          throw new Error("Cannot close `" + token.type + "` (" + stringifyPosition({ start: token.start, end: token.end }) + "): a different token (`" + open.type + "`, " + stringifyPosition({ start: open.start, end: open.end }) + ") is open");
+          throw new Error(
+            "Cannot close `" + token.type + "` (" +
+              stringifyPosition({ start: token.start, end: token.end }) +
+              "): a different token (`" + open.type + "`, " +
+              stringifyPosition({ start: open.start, end: open.end }) +
+              ") is open",
+          );
         }
         node.position.end = point(token.end);
         return node;
@@ -5624,7 +6330,10 @@ var require_dist = __commonJS({
       }
       function onenterlistitemvalue(token) {
         if (getData("expectingFirstListItemValue")) {
-          this.stack[this.stack.length - 2].start = parseInt(this.sliceSerialize(token), 10);
+          this.stack[this.stack.length - 2].start = parseInt(
+            this.sliceSerialize(token),
+            10,
+          );
           setData("expectingFirstListItemValue");
         }
       }
@@ -5637,14 +6346,18 @@ var require_dist = __commonJS({
         this.stack[this.stack.length - 1].meta = data2;
       }
       function onexitcodefencedfence() {
-        if (getData("flowCodeInside"))
+        if (getData("flowCodeInside")) {
           return;
+        }
         this.buffer();
         setData("flowCodeInside", true);
       }
       function onexitcodefenced() {
         var data2 = this.resume();
-        this.stack[this.stack.length - 1].value = data2.replace(/^(\r?\n|\r)|(\r?\n|\r)$/g, "");
+        this.stack[this.stack.length - 1].value = data2.replace(
+          /^(\r?\n|\r)|(\r?\n|\r)$/g,
+          "",
+        );
         setData("flowCodeInside");
       }
       function onexitcodeindented() {
@@ -5654,7 +6367,9 @@ var require_dist = __commonJS({
       function onexitdefinitionlabelstring(token) {
         var label = this.resume();
         this.stack[this.stack.length - 1].label = label;
-        this.stack[this.stack.length - 1].identifier = normalizeIdentifier(this.sliceSerialize(token)).toLowerCase();
+        this.stack[this.stack.length - 1].identifier = normalizeIdentifier(
+          this.sliceSerialize(token),
+        ).toLowerCase();
       }
       function onexitdefinitiontitlestring() {
         var data2 = this.resume();
@@ -5666,14 +6381,16 @@ var require_dist = __commonJS({
       }
       function onexitatxheadingsequence(token) {
         if (!this.stack[this.stack.length - 1].depth) {
-          this.stack[this.stack.length - 1].depth = this.sliceSerialize(token).length;
+          this.stack[this.stack.length - 1].depth =
+            this.sliceSerialize(token).length;
         }
       }
       function onexitsetextheadingtext() {
         setData("setextHeadingSlurpLineEnding", true);
       }
       function onexitsetextheadinglinesequence(token) {
-        this.stack[this.stack.length - 1].depth = this.sliceSerialize(token).charCodeAt(0) === 61 ? 1 : 2;
+        this.stack[this.stack.length - 1].depth =
+          this.sliceSerialize(token).charCodeAt(0) === 61 ? 1 : 2;
       }
       function onexitsetextheading() {
         setData("setextHeadingSlurpLineEnding");
@@ -5696,11 +6413,16 @@ var require_dist = __commonJS({
       function onexitlineending(token) {
         var context = this.stack[this.stack.length - 1];
         if (getData("atHardBreak")) {
-          context.children[context.children.length - 1].position.end = point(token.end);
+          context.children[context.children.length - 1].position.end = point(
+            token.end,
+          );
           setData("atHardBreak");
           return;
         }
-        if (!getData("setextHeadingSlurpLineEnding") && config.canContainEols.indexOf(context.type) > -1) {
+        if (
+          !getData("setextHeadingSlurpLineEnding") &&
+          config.canContainEols.indexOf(context.type) > -1
+        ) {
           onenterdata.call(this, token);
           onexitdata.call(this, token);
         }
@@ -5749,7 +6471,9 @@ var require_dist = __commonJS({
         setData("referenceType");
       }
       function onexitlabeltext(token) {
-        this.stack[this.stack.length - 2].identifier = normalizeIdentifier(this.sliceSerialize(token)).toLowerCase();
+        this.stack[this.stack.length - 2].identifier = normalizeIdentifier(
+          this.sliceSerialize(token),
+        ).toLowerCase();
       }
       function onexitlabel() {
         var fragment = this.stack[this.stack.length - 1];
@@ -5779,7 +6503,9 @@ var require_dist = __commonJS({
       function onexitreferencestring(token) {
         var label = this.resume();
         this.stack[this.stack.length - 1].label = label;
-        this.stack[this.stack.length - 1].identifier = normalizeIdentifier(this.sliceSerialize(token)).toLowerCase();
+        this.stack[this.stack.length - 1].identifier = normalizeIdentifier(
+          this.sliceSerialize(token),
+        ).toLowerCase();
         setData("referenceType", "full");
       }
       function onexitcharacterreferencemarker(token) {
@@ -5791,7 +6517,10 @@ var require_dist = __commonJS({
         var value;
         var tail;
         if (type) {
-          value = safeFromInt(data2, type === "characterReferenceMarkerNumeric" ? 10 : 16);
+          value = safeFromInt(
+            data2,
+            type === "characterReferenceMarkerNumeric" ? 10 : 16,
+          );
           setData("characterReferenceType");
         } else {
           value = decode(data2);
@@ -5806,7 +6535,8 @@ var require_dist = __commonJS({
       }
       function onexitautolinkemail(token) {
         onexitdata.call(this, token);
-        this.stack[this.stack.length - 1].url = "mailto:" + this.sliceSerialize(token);
+        this.stack[this.stack.length - 1].url = "mailto:" +
+          this.sliceSerialize(token);
       }
       function blockQuote() {
         return { type: "blockquote", children: [] };
@@ -5823,7 +6553,7 @@ var require_dist = __commonJS({
           identifier: "",
           label: null,
           title: null,
-          url: ""
+          url: "",
         };
       }
       function emphasis() {
@@ -5850,7 +6580,7 @@ var require_dist = __commonJS({
           ordered: token.type === "listOrdered",
           start: null,
           spread: token._spread,
-          children: []
+          children: [],
         };
       }
       function listItem(token) {
@@ -5858,7 +6588,7 @@ var require_dist = __commonJS({
           type: "listItem",
           spread: token._spread,
           checked: null,
-          children: []
+          children: [],
         };
       }
       function paragraph() {
@@ -5893,7 +6623,7 @@ var require_dist = __commonJS({
         }
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-from-markdown/index.js
@@ -5901,7 +6631,7 @@ var require_mdast_util_from_markdown = __commonJS({
   "node_modules/mdast-util-from-markdown/index.js"(exports, module2) {
     "use strict";
     module2.exports = require_dist();
-  }
+  },
 });
 
 // node_modules/remark-parse/index.js
@@ -5914,18 +6644,24 @@ var require_remark_parse = __commonJS({
       var self = this;
       this.Parser = parse4;
       function parse4(doc) {
-        return fromMarkdown(doc, Object.assign({}, self.data("settings"), options, {
-          extensions: self.data("micromarkExtensions") || [],
-          mdastExtensions: self.data("fromMarkdownExtensions") || []
-        }));
+        return fromMarkdown(
+          doc,
+          Object.assign({}, self.data("settings"), options, {
+            extensions: self.data("micromarkExtensions") || [],
+            mdastExtensions: self.data("fromMarkdownExtensions") || [],
+          }),
+        );
       }
     }
-  }
+  },
 });
 
 // node_modules/@tryfabric/martian/build/src/notion/languageMap.json
 var require_languageMap = __commonJS({
-  "node_modules/@tryfabric/martian/build/src/notion/languageMap.json"(exports, module2) {
+  "node_modules/@tryfabric/martian/build/src/notion/languageMap.json"(
+    exports,
+    module2,
+  ) {
     module2.exports = {
       abap: "abap",
       sh: "shell",
@@ -6033,9 +6769,9 @@ var require_languageMap = __commonJS({
       xsd: "xml",
       wsdl: "xml",
       yaml: "yaml",
-      yml: "yaml"
+      yml: "yaml",
     };
-  }
+  },
 });
 
 // node_modules/@tryfabric/martian/build/src/notion/common.js
@@ -6043,15 +6779,19 @@ var require_common = __commonJS({
   "node_modules/@tryfabric/martian/build/src/notion/common.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.isSupportedCodeLang = exports.SUPPORTED_CODE_BLOCK_LANGUAGES = exports.richText = exports.LIMITS = void 0;
+    exports.isSupportedCodeLang =
+      exports.SUPPORTED_CODE_BLOCK_LANGUAGES =
+      exports.richText =
+      exports.LIMITS =
+        void 0;
     exports.LIMITS = {
       PAYLOAD_BLOCKS: 1e3,
       RICH_TEXT_ARRAYS: 100,
       RICH_TEXT: {
         TEXT_CONTENT: 2e3,
         LINK_URL: 1e3,
-        EQUATION_EXPRESSION: 1e3
-      }
+        EQUATION_EXPRESSION: 1e3,
+      },
     };
     function richText(content, options = {}) {
       const annotations = __spreadValues({
@@ -6060,28 +6800,31 @@ var require_common = __commonJS({
         underline: false,
         italic: false,
         code: false,
-        color: "default"
+        color: "default",
       }, options.annotations || {});
-      if (options.type === "equation")
+      if (options.type === "equation") {
         return {
           type: "equation",
           annotations,
           equation: {
-            expression: content
-          }
+            expression: content,
+          },
         };
-      else
+      } else {
         return {
           type: "text",
           annotations,
           text: {
             content,
-            link: options.url ? {
-              type: "url",
-              url: options.url
-            } : void 0
-          }
+            link: options.url
+              ? {
+                type: "url",
+                url: options.url,
+              }
+              : void 0,
+          },
         };
+      }
     }
     exports.richText = richText;
     exports.SUPPORTED_CODE_BLOCK_LANGUAGES = [
@@ -6156,13 +6899,13 @@ var require_common = __commonJS({
       "webassembly",
       "xml",
       "yaml",
-      "java/c/c++/c#"
+      "java/c/c++/c#",
     ];
     function isSupportedCodeLang(lang) {
       return exports.SUPPORTED_CODE_BLOCK_LANGUAGES.includes(lang);
     }
     exports.isSupportedCodeLang = isSupportedCodeLang;
-  }
+  },
 });
 
 // node_modules/@tryfabric/martian/build/src/notion/blocks.js
@@ -6170,15 +6913,29 @@ var require_blocks = __commonJS({
   "node_modules/@tryfabric/martian/build/src/notion/blocks.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.equation = exports.tableRow = exports.table = exports.toDo = exports.numberedListItem = exports.bulletedListItem = exports.headingThree = exports.headingTwo = exports.headingOne = exports.table_of_contents = exports.image = exports.blockquote = exports.code = exports.paragraph = void 0;
+    exports.equation =
+      exports.tableRow =
+      exports.table =
+      exports.toDo =
+      exports.numberedListItem =
+      exports.bulletedListItem =
+      exports.headingThree =
+      exports.headingTwo =
+      exports.headingOne =
+      exports.table_of_contents =
+      exports.image =
+      exports.blockquote =
+      exports.code =
+      exports.paragraph =
+        void 0;
     var common_1 = require_common();
     function paragraph(text) {
       return {
         object: "block",
         type: "paragraph",
         paragraph: {
-          rich_text: text
-        }
+          rich_text: text,
+        },
       };
     }
     exports.paragraph = paragraph;
@@ -6188,8 +6945,8 @@ var require_blocks = __commonJS({
         type: "code",
         code: {
           rich_text: text,
-          language: lang
-        }
+          language: lang,
+        },
       };
     }
     exports.code = code;
@@ -6199,8 +6956,8 @@ var require_blocks = __commonJS({
         type: "quote",
         quote: {
           rich_text: text.length ? text : [(0, common_1.richText)("")],
-          children
-        }
+          children,
+        },
       };
     }
     exports.blockquote = blockquote;
@@ -6211,9 +6968,9 @@ var require_blocks = __commonJS({
         image: {
           type: "external",
           external: {
-            url
-          }
-        }
+            url,
+          },
+        },
       };
     }
     exports.image = image;
@@ -6221,7 +6978,7 @@ var require_blocks = __commonJS({
       return {
         object: "block",
         type: "table_of_contents",
-        table_of_contents: {}
+        table_of_contents: {},
       };
     }
     exports.table_of_contents = table_of_contents;
@@ -6230,8 +6987,8 @@ var require_blocks = __commonJS({
         object: "block",
         type: "heading_1",
         heading_1: {
-          rich_text: text
-        }
+          rich_text: text,
+        },
       };
     }
     exports.headingOne = headingOne;
@@ -6240,8 +6997,8 @@ var require_blocks = __commonJS({
         object: "block",
         type: "heading_2",
         heading_2: {
-          rich_text: text
-        }
+          rich_text: text,
+        },
       };
     }
     exports.headingTwo = headingTwo;
@@ -6250,8 +7007,8 @@ var require_blocks = __commonJS({
         object: "block",
         type: "heading_3",
         heading_3: {
-          rich_text: text
-        }
+          rich_text: text,
+        },
       };
     }
     exports.headingThree = headingThree;
@@ -6261,8 +7018,8 @@ var require_blocks = __commonJS({
         type: "bulleted_list_item",
         bulleted_list_item: {
           rich_text: text,
-          children: children.length ? children : void 0
-        }
+          children: children.length ? children : void 0,
+        },
       };
     }
     exports.bulletedListItem = bulletedListItem;
@@ -6272,8 +7029,8 @@ var require_blocks = __commonJS({
         type: "numbered_list_item",
         numbered_list_item: {
           rich_text: text,
-          children: children.length ? children : void 0
-        }
+          children: children.length ? children : void 0,
+        },
       };
     }
     exports.numberedListItem = numberedListItem;
@@ -6284,8 +7041,8 @@ var require_blocks = __commonJS({
         to_do: {
           rich_text: text,
           checked,
-          children: children.length ? children : void 0
-        }
+          children: children.length ? children : void 0,
+        },
       };
     }
     exports.toDo = toDo;
@@ -6296,8 +7053,12 @@ var require_blocks = __commonJS({
         table: {
           table_width: tableWidth,
           has_column_header: true,
-          children: (children === null || children === void 0 ? void 0 : children.length) ? children : []
-        }
+          children: (children === null || children === void 0
+              ? void 0
+              : children.length)
+            ? children
+            : [],
+        },
       };
     }
     exports.table = table;
@@ -6306,8 +7067,8 @@ var require_blocks = __commonJS({
         object: "block",
         type: "table_row",
         table_row: {
-          cells: cells.length ? cells : []
-        }
+          cells: cells.length ? cells : [],
+        },
       };
     }
     exports.tableRow = tableRow;
@@ -6315,35 +7076,49 @@ var require_blocks = __commonJS({
       return {
         type: "equation",
         equation: {
-          expression: value
-        }
+          expression: value,
+        },
       };
     }
     exports.equation = equation;
-  }
+  },
 });
 
 // node_modules/@tryfabric/martian/build/src/notion/index.js
 var require_notion = __commonJS({
   "node_modules/@tryfabric/martian/build/src/notion/index.js"(exports) {
     "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
-    });
-    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m)
-        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
-          __createBinding(exports2, m, p);
-    };
-    var __importDefault = exports && exports.__importDefault || function(mod) {
+    var __createBinding = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o, m, k, k2) {
+          if (k2 === void 0) {
+            k2 = k;
+          }
+          Object.defineProperty(o, k2, {
+            enumerable: true,
+            get: function () {
+              return m[k];
+            },
+          });
+        }
+        : function (o, m, k, k2) {
+          if (k2 === void 0) {
+            k2 = k;
+          }
+          o[k2] = m[k];
+        });
+    var __exportStar = exports && exports.__exportStar ||
+      function (m, exports2) {
+        for (var p in m) {
+          if (
+            p !== "default" &&
+            !Object.prototype.hasOwnProperty.call(exports2, p)
+          ) {
+            __createBinding(exports2, m, p);
+          }
+        }
+      };
+    var __importDefault = exports && exports.__importDefault || function (mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
     };
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -6355,42 +7130,56 @@ var require_notion = __commonJS({
       return lang ? languageMap_json_1.default[lang.toLowerCase()] : void 0;
     }
     exports.parseCodeLanguage = parseCodeLanguage;
-  }
+  },
 });
 
 // node_modules/@tryfabric/martian/build/src/parser/internal.js
 var require_internal = __commonJS({
   "node_modules/@tryfabric/martian/build/src/parser/internal.js"(exports) {
     "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
-      Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
-      o["default"] = v;
-    });
-    var __importStar = exports && exports.__importStar || function(mod) {
-      if (mod && mod.__esModule)
+    var __createBinding = exports && exports.__createBinding ||
+      (Object.create
+        ? function (o, m, k, k2) {
+          if (k2 === void 0) {
+            k2 = k;
+          }
+          Object.defineProperty(o, k2, {
+            enumerable: true,
+            get: function () {
+              return m[k];
+            },
+          });
+        }
+        : function (o, m, k, k2) {
+          if (k2 === void 0) {
+            k2 = k;
+          }
+          o[k2] = m[k];
+        });
+    var __setModuleDefault = exports && exports.__setModuleDefault ||
+      (Object.create
+        ? function (o, v) {
+          Object.defineProperty(o, "default", { enumerable: true, value: v });
+        }
+        : function (o, v) {
+          o["default"] = v;
+        });
+    var __importStar = exports && exports.__importStar || function (mod) {
+      if (mod && mod.__esModule) {
         return mod;
+      }
       var result = {};
       if (mod != null) {
-        for (var k in mod)
-          if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+        for (var k in mod) {
+          if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) {
             __createBinding(result, mod, k);
+          }
+        }
       }
       __setModuleDefault(result, mod);
       return result;
     };
-    var __importDefault = exports && exports.__importDefault || function(mod) {
+    var __importDefault = exports && exports.__importDefault || function (mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
     };
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -6406,15 +7195,24 @@ var require_internal = __commonJS({
     function ensureCodeBlockLanguage(lang) {
       if (lang) {
         lang = lang.toLowerCase();
-        return (0, notion_1.isSupportedCodeLang)(lang) ? lang : notion.parseCodeLanguage(lang);
+        return (0, notion_1.isSupportedCodeLang)(lang)
+          ? lang
+          : notion.parseCodeLanguage(lang);
       }
       return void 0;
     }
     function parseInline(element, options) {
       var _a;
       const copy = {
-        annotations: __spreadValues({}, (_a = options === null || options === void 0 ? void 0 : options.annotations) !== null && _a !== void 0 ? _a : {}),
-        url: options === null || options === void 0 ? void 0 : options.url
+        annotations: __spreadValues(
+          {},
+          (_a = options === null || options === void 0
+                ? void 0
+                : options.annotations) !== null && _a !== void 0
+            ? _a
+            : {},
+        ),
+        url: options === null || options === void 0 ? void 0 : options.url,
       };
       switch (element.type) {
         case "text":
@@ -6435,7 +7233,12 @@ var require_internal = __commonJS({
           copy.annotations.code = true;
           return [notion.richText(element.value, copy)];
         case "inlineMath":
-          return [notion.richText(element.value, __spreadProps(__spreadValues({}, copy), { type: "equation" }))];
+          return [
+            notion.richText(
+              element.value,
+              __spreadProps(__spreadValues({}, copy), { type: "equation" }),
+            ),
+          ];
         default:
           return [];
       }
@@ -6451,13 +7254,15 @@ var require_internal = __commonJS({
         ".tiff",
         ".bmp",
         ".svg",
-        ".heic"
+        ".heic",
       ];
       function dealWithError() {
         return notion.paragraph([notion.richText(image.url)]);
       }
       try {
-        if ((_a = options.strictImageUrls) !== null && _a !== void 0 ? _a : true) {
+        if (
+          (_a = options.strictImageUrls) !== null && _a !== void 0 ? _a : true
+        ) {
           const parsedUrl = new url_1.URL(image.url);
           const fileType = path_1.default.extname(parsedUrl.pathname);
           if (allowedTypes.includes(fileType)) {
@@ -6473,7 +7278,10 @@ var require_internal = __commonJS({
       }
     }
     function parseParagraph(element, options) {
-      const mightBeToc = element.children.length > 2 && element.children[0].type === "text" && element.children[0].value === "[[" && element.children[1].type === "emphasis";
+      const mightBeToc = element.children.length > 2 &&
+        element.children[0].type === "text" &&
+        element.children[0].value === "[[" &&
+        element.children[1].type === "emphasis";
       if (mightBeToc) {
         const emphasisItem = element.children[1];
         const emphasisTextItem = emphasisItem.children[0];
@@ -6500,7 +7308,9 @@ var require_internal = __commonJS({
       }
     }
     function parseBlockquote(element, options) {
-      const children = element.children.flatMap((child) => parseNode(child, options));
+      const children = element.children.flatMap((child) =>
+        parseNode(child, options)
+      );
       return notion.blockquote([], children);
     }
     function parseHeading(element) {
@@ -6526,7 +7336,9 @@ var require_internal = __commonJS({
           return [];
         }
         const text = paragraph.children.flatMap((child) => parseInline(child));
-        const parsedChildren = item.children.flatMap((child) => parseNode(child, options));
+        const parsedChildren = item.children.flatMap((child) =>
+          parseNode(child, options)
+        );
         if (element.start !== null && element.start !== void 0) {
           return [notion.numberedListItem(text, parsedChildren)];
         } else if (item.checked !== null && item.checked !== void 0) {
@@ -6540,12 +7352,17 @@ var require_internal = __commonJS({
       return [node.children.flatMap((child) => parseInline(child))];
     }
     function parseTableRow(node) {
-      const tableCells = node.children.flatMap((child) => parseTableCell(child));
+      const tableCells = node.children.flatMap((child) =>
+        parseTableCell(child)
+      );
       return [notion.tableRow(tableCells)];
     }
     function parseTable(node) {
       var _a;
-      const tableWidth = ((_a = node.children) === null || _a === void 0 ? void 0 : _a.length) ? node.children[0].children.length : 0;
+      const tableWidth =
+        ((_a = node.children) === null || _a === void 0 ? void 0 : _a.length)
+          ? node.children[0].children.length
+          : 0;
       const tableRows = node.children.flatMap((child) => parseTableRow(child));
       return [notion.table(tableRows, tableWidth)];
     }
@@ -6575,43 +7392,113 @@ var require_internal = __commonJS({
     }
     function parseBlocks(root, options) {
       var _a, _b, _c, _d;
-      const parsed = root.children.flatMap((item) => parseNode(item, options || {}));
-      const truncate = !!((_b = (_a = options === null || options === void 0 ? void 0 : options.notionLimits) === null || _a === void 0 ? void 0 : _a.truncate) !== null && _b !== void 0 ? _b : true), limitCallback = (_d = (_c = options === null || options === void 0 ? void 0 : options.notionLimits) === null || _c === void 0 ? void 0 : _c.onError) !== null && _d !== void 0 ? _d : () => {
-      };
-      if (parsed.length > notion_1.LIMITS.PAYLOAD_BLOCKS)
-        limitCallback(new Error(`Resulting blocks array exceeds Notion limit (${notion_1.LIMITS.PAYLOAD_BLOCKS})`));
-      return truncate ? parsed.slice(0, notion_1.LIMITS.PAYLOAD_BLOCKS) : parsed;
+      const parsed = root.children.flatMap((item) =>
+        parseNode(item, options || {})
+      );
+      const truncate = !!((_b = (_a = options === null || options === void 0
+                      ? void 0
+                      : options.notionLimits) === null || _a === void 0
+                ? void 0
+                : _a.truncate) !== null && _b !== void 0
+          ? _b
+          : true),
+        limitCallback = (_d = (_c = options === null || options === void 0
+                      ? void 0
+                      : options.notionLimits) === null || _c === void 0
+                ? void 0
+                : _c.onError) !== null && _d !== void 0
+          ? _d
+          : () => {
+          };
+      if (parsed.length > notion_1.LIMITS.PAYLOAD_BLOCKS) {
+        limitCallback(
+          new Error(
+            `Resulting blocks array exceeds Notion limit (${notion_1.LIMITS.PAYLOAD_BLOCKS})`,
+          ),
+        );
+      }
+      return truncate
+        ? parsed.slice(0, notion_1.LIMITS.PAYLOAD_BLOCKS)
+        : parsed;
     }
     exports.parseBlocks = parseBlocks;
     function parseRichText(root, options) {
       var _a, _b, _c, _d;
       const richTexts = [];
       root.children.forEach((child) => {
-        if (child.type === "paragraph")
-          child.children.forEach((child2) => richTexts.push(...parseInline(child2)));
-        else if ((options === null || options === void 0 ? void 0 : options.nonInline) === "throw")
-          throw new Error(`Unsupported markdown element: ${JSON.stringify(child)}`);
-      });
-      const truncate = !!((_b = (_a = options === null || options === void 0 ? void 0 : options.notionLimits) === null || _a === void 0 ? void 0 : _a.truncate) !== null && _b !== void 0 ? _b : true), limitCallback = (_d = (_c = options === null || options === void 0 ? void 0 : options.notionLimits) === null || _c === void 0 ? void 0 : _c.onError) !== null && _d !== void 0 ? _d : () => {
-      };
-      if (richTexts.length > notion_1.LIMITS.RICH_TEXT_ARRAYS)
-        limitCallback(new Error(`Resulting richTexts array exceeds Notion limit (${notion_1.LIMITS.RICH_TEXT_ARRAYS})`));
-      return (truncate ? richTexts.slice(0, notion_1.LIMITS.RICH_TEXT_ARRAYS) : richTexts).map((rt) => {
-        var _a2;
-        if (rt.type !== "text")
-          return rt;
-        if (rt.text.content.length > notion_1.LIMITS.RICH_TEXT.TEXT_CONTENT) {
-          limitCallback(new Error(`Resulting text content exceeds Notion limit (${notion_1.LIMITS.RICH_TEXT.TEXT_CONTENT})`));
-          if (truncate)
-            rt.text.content = rt.text.content.slice(0, notion_1.LIMITS.RICH_TEXT.TEXT_CONTENT - 3) + "...";
+        if (child.type === "paragraph") {
+          child.children.forEach((child2) =>
+            richTexts.push(...parseInline(child2))
+          );
+        } else if (
+          (options === null || options === void 0
+            ? void 0
+            : options.nonInline) === "throw"
+        ) {
+          throw new Error(
+            `Unsupported markdown element: ${JSON.stringify(child)}`,
+          );
         }
-        if (((_a2 = rt.text.link) === null || _a2 === void 0 ? void 0 : _a2.url) && rt.text.link.url.length > notion_1.LIMITS.RICH_TEXT.LINK_URL)
-          limitCallback(new Error(`Resulting text URL exceeds Notion limit (${notion_1.LIMITS.RICH_TEXT.LINK_URL})`));
-        return rt;
       });
+      const truncate = !!((_b = (_a = options === null || options === void 0
+                      ? void 0
+                      : options.notionLimits) === null || _a === void 0
+                ? void 0
+                : _a.truncate) !== null && _b !== void 0
+          ? _b
+          : true),
+        limitCallback = (_d = (_c = options === null || options === void 0
+                      ? void 0
+                      : options.notionLimits) === null || _c === void 0
+                ? void 0
+                : _c.onError) !== null && _d !== void 0
+          ? _d
+          : () => {
+          };
+      if (richTexts.length > notion_1.LIMITS.RICH_TEXT_ARRAYS) {
+        limitCallback(
+          new Error(
+            `Resulting richTexts array exceeds Notion limit (${notion_1.LIMITS.RICH_TEXT_ARRAYS})`,
+          ),
+        );
+      }
+      return (truncate
+        ? richTexts.slice(0, notion_1.LIMITS.RICH_TEXT_ARRAYS)
+        : richTexts).map((rt) => {
+          var _a2;
+          if (rt.type !== "text") {
+            return rt;
+          }
+          if (rt.text.content.length > notion_1.LIMITS.RICH_TEXT.TEXT_CONTENT) {
+            limitCallback(
+              new Error(
+                `Resulting text content exceeds Notion limit (${notion_1.LIMITS.RICH_TEXT.TEXT_CONTENT})`,
+              ),
+            );
+            if (truncate) {
+              rt.text.content = rt.text.content.slice(
+                0,
+                notion_1.LIMITS.RICH_TEXT.TEXT_CONTENT - 3,
+              ) + "...";
+            }
+          }
+          if (
+            ((_a2 = rt.text.link) === null || _a2 === void 0
+              ? void 0
+              : _a2.url) &&
+            rt.text.link.url.length > notion_1.LIMITS.RICH_TEXT.LINK_URL
+          ) {
+            limitCallback(
+              new Error(
+                `Resulting text URL exceeds Notion limit (${notion_1.LIMITS.RICH_TEXT.LINK_URL})`,
+              ),
+            );
+          }
+          return rt;
+        });
     }
     exports.parseRichText = parseRichText;
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm-autolink-literal/syntax.js
@@ -6629,21 +7516,28 @@ var require_syntax = __commonJS({
     var punctuation = { tokenize: tokenizePunctuation, partial: true };
     var namedCharacterReference = {
       tokenize: tokenizeNamedCharacterReference,
-      partial: true
+      partial: true,
     };
     var wwwAutolink = { tokenize: tokenizeWwwAutolink, previous: previousWww };
-    var httpAutolink = { tokenize: tokenizeHttpAutolink, previous: previousHttp };
-    var emailAutolink = { tokenize: tokenizeEmailAutolink, previous: previousEmail };
+    var httpAutolink = {
+      tokenize: tokenizeHttpAutolink,
+      previous: previousHttp,
+    };
+    var emailAutolink = {
+      tokenize: tokenizeEmailAutolink,
+      previous: previousEmail,
+    };
     var text = {};
     exports.text = text;
     var code = 48;
     while (code < 123) {
       text[code] = emailAutolink;
       code++;
-      if (code === 58)
+      if (code === 58) {
         code = 65;
-      else if (code === 91)
+      } else if (code === 91) {
         code = 97;
+      }
     }
     text[43] = emailAutolink;
     text[45] = emailAutolink;
@@ -6658,7 +7552,10 @@ var require_syntax = __commonJS({
       var hasDot;
       return start;
       function start(code2) {
-        if (!gfmAtext(code2) || !previousEmail(self.previous) || previous(self.events)) {
+        if (
+          !gfmAtext(code2) || !previousEmail(self.previous) ||
+          previous(self.events)
+        ) {
           return nok(code2);
         }
         effects.enter("literalAutolink");
@@ -6681,7 +7578,9 @@ var require_syntax = __commonJS({
           return effects.check(punctuation, done, dotContinuation)(code2);
         }
         if (code2 === 45 || code2 === 95) {
-          return effects.check(punctuation, nok, dashOrUnderscoreContinuation)(code2);
+          return effects.check(punctuation, nok, dashOrUnderscoreContinuation)(
+            code2,
+          );
         }
         if (asciiAlphanumeric(code2)) {
           effects.consume(code2);
@@ -6717,12 +7616,19 @@ var require_syntax = __commonJS({
       var self = this;
       return start;
       function start(code2) {
-        if (code2 !== 87 && code2 - 32 !== 87 || !previousWww(self.previous) || previous(self.events)) {
+        if (
+          code2 !== 87 && code2 - 32 !== 87 || !previousWww(self.previous) ||
+          previous(self.events)
+        ) {
           return nok(code2);
         }
         effects.enter("literalAutolink");
         effects.enter("literalAutolinkWww");
-        return effects.check(www, effects.attempt(domain, effects.attempt(path, done), nok), nok)(code2);
+        return effects.check(
+          www,
+          effects.attempt(domain, effects.attempt(path, done), nok),
+          nok,
+        )(code2);
       }
       function done(code2) {
         effects.exit("literalAutolinkWww");
@@ -6734,7 +7640,10 @@ var require_syntax = __commonJS({
       var self = this;
       return start;
       function start(code2) {
-        if (code2 !== 72 && code2 - 32 !== 72 || !previousHttp(self.previous) || previous(self.events)) {
+        if (
+          code2 !== 72 && code2 - 32 !== 72 || !previousHttp(self.previous) ||
+          previous(self.events)
+        ) {
           return nok(code2);
         }
         effects.enter("literalAutolink");
@@ -6792,7 +7701,10 @@ var require_syntax = __commonJS({
         return nok(code2);
       }
       function after(code2) {
-        return asciiControl(code2) || unicodeWhitespace(code2) || unicodePunctuation(code2) ? nok(code2) : effects.attempt(domain, effects.attempt(path, done), nok)(code2);
+        return asciiControl(code2) || unicodeWhitespace(code2) ||
+            unicodePunctuation(code2)
+          ? nok(code2)
+          : effects.attempt(domain, effects.attempt(path, done), nok)(code2);
       }
       function done(code2) {
         effects.exit("literalAutolinkHttp");
@@ -6828,7 +7740,9 @@ var require_syntax = __commonJS({
         return nok(code2);
       }
       function after(code2) {
-        return code2 === null || markdownLineEnding(code2) ? nok(code2) : ok(code2);
+        return code2 === null || markdownLineEnding(code2)
+          ? nok(code2)
+          : ok(code2);
       }
     }
     function tokenizeDomain(effects, ok, nok) {
@@ -6837,12 +7751,21 @@ var require_syntax = __commonJS({
       return domain2;
       function domain2(code2) {
         if (code2 === 38) {
-          return effects.check(namedCharacterReference, done, punctuationContinuation)(code2);
+          return effects.check(
+            namedCharacterReference,
+            done,
+            punctuationContinuation,
+          )(code2);
         }
         if (code2 === 46 || code2 === 95) {
-          return effects.check(punctuation, done, punctuationContinuation)(code2);
+          return effects.check(punctuation, done, punctuationContinuation)(
+            code2,
+          );
         }
-        if (asciiControl(code2) || unicodeWhitespace(code2) || code2 !== 45 && unicodePunctuation(code2)) {
+        if (
+          asciiControl(code2) || unicodeWhitespace(code2) ||
+          code2 !== 45 && unicodePunctuation(code2)
+        ) {
           return done(code2);
         }
         effects.consume(code2);
@@ -6855,8 +7778,9 @@ var require_syntax = __commonJS({
           effects.consume(code2);
           return domain2;
         }
-        if (code2 === 95)
+        if (code2 === 95) {
           hasUnderscoreInLastSegment = true;
+        }
         effects.consume(code2);
         return domain2;
       }
@@ -6872,13 +7796,21 @@ var require_syntax = __commonJS({
       return inPath;
       function inPath(code2) {
         if (code2 === 38) {
-          return effects.check(namedCharacterReference, ok, continuedPunctuation)(code2);
+          return effects.check(
+            namedCharacterReference,
+            ok,
+            continuedPunctuation,
+          )(code2);
         }
         if (code2 === 40) {
           balance++;
         }
         if (code2 === 41) {
-          return effects.check(punctuation, parenAtPathEnd, continuedPunctuation)(code2);
+          return effects.check(
+            punctuation,
+            parenAtPathEnd,
+            continuedPunctuation,
+          )(code2);
         }
         if (pathEnd(code2)) {
           return ok(code2);
@@ -6934,16 +7866,21 @@ var require_syntax = __commonJS({
       }
     }
     function trailingPunctuation(code2) {
-      return code2 === 33 || code2 === 34 || code2 === 39 || code2 === 41 || code2 === 42 || code2 === 44 || code2 === 46 || code2 === 58 || code2 === 59 || code2 === 60 || code2 === 63 || code2 === 95 || code2 === 126;
+      return code2 === 33 || code2 === 34 || code2 === 39 || code2 === 41 ||
+        code2 === 42 || code2 === 44 || code2 === 46 || code2 === 58 ||
+        code2 === 59 || code2 === 60 || code2 === 63 || code2 === 95 ||
+        code2 === 126;
     }
     function pathEnd(code2) {
       return code2 === null || code2 < 0 || code2 === 32 || code2 === 60;
     }
     function gfmAtext(code2) {
-      return code2 === 43 || code2 === 45 || code2 === 46 || code2 === 95 || asciiAlphanumeric(code2);
+      return code2 === 43 || code2 === 45 || code2 === 46 || code2 === 95 ||
+        asciiAlphanumeric(code2);
     }
     function previousWww(code2) {
-      return code2 === null || code2 < 0 || code2 === 32 || code2 === 40 || code2 === 42 || code2 === 95 || code2 === 126;
+      return code2 === null || code2 < 0 || code2 === 32 || code2 === 40 ||
+        code2 === 42 || code2 === 95 || code2 === 126;
     }
     function previousHttp(code2) {
       return code2 === null || !asciiAlpha(code2);
@@ -6954,24 +7891,34 @@ var require_syntax = __commonJS({
     function previous(events) {
       var index = events.length;
       while (index--) {
-        if ((events[index][1].type === "labelLink" || events[index][1].type === "labelImage") && !events[index][1]._balanced) {
+        if (
+          (events[index][1].type === "labelLink" ||
+            events[index][1].type === "labelImage") &&
+          !events[index][1]._balanced
+        ) {
           return true;
         }
       }
     }
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm-autolink-literal/index.js
 var require_micromark_extension_gfm_autolink_literal = __commonJS({
-  "node_modules/micromark-extension-gfm-autolink-literal/index.js"(exports, module2) {
+  "node_modules/micromark-extension-gfm-autolink-literal/index.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = require_syntax();
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm-strikethrough/index.js
 var require_micromark_extension_gfm_strikethrough = __commonJS({
-  "node_modules/micromark-extension-gfm-strikethrough/index.js"(exports, module2) {
+  "node_modules/micromark-extension-gfm-strikethrough/index.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = create;
     var classifyCharacter = require_classify_character();
     var chunkedSplice = require_chunked_splice();
@@ -6982,7 +7929,7 @@ var require_micromark_extension_gfm_strikethrough = __commonJS({
       var single = settings.singleTilde;
       var tokenizer = {
         tokenize: tokenizeStrikethrough,
-        resolveAll: resolveAllStrikethrough
+        resolveAll: resolveAllStrikethrough,
       };
       if (single === null || single === void 0) {
         single = true;
@@ -6995,34 +7942,53 @@ var require_micromark_extension_gfm_strikethrough = __commonJS({
         var open;
         var nextEvents;
         while (++index < events.length) {
-          if (events[index][0] === "enter" && events[index][1].type === "strikethroughSequenceTemporary" && events[index][1]._close) {
+          if (
+            events[index][0] === "enter" &&
+            events[index][1].type === "strikethroughSequenceTemporary" &&
+            events[index][1]._close
+          ) {
             open = index;
             while (open--) {
-              if (events[open][0] === "exit" && events[open][1].type === "strikethroughSequenceTemporary" && events[open][1]._open && events[index][1].end.offset - events[index][1].start.offset === events[open][1].end.offset - events[open][1].start.offset) {
+              if (
+                events[open][0] === "exit" &&
+                events[open][1].type === "strikethroughSequenceTemporary" &&
+                events[open][1]._open &&
+                events[index][1].end.offset - events[index][1].start.offset ===
+                  events[open][1].end.offset - events[open][1].start.offset
+              ) {
                 events[index][1].type = "strikethroughSequence";
                 events[open][1].type = "strikethroughSequence";
                 strikethrough = {
                   type: "strikethrough",
                   start: shallow(events[open][1].start),
-                  end: shallow(events[index][1].end)
+                  end: shallow(events[index][1].end),
                 };
                 text = {
                   type: "strikethroughText",
                   start: shallow(events[open][1].end),
-                  end: shallow(events[index][1].start)
+                  end: shallow(events[index][1].start),
                 };
                 nextEvents = [
                   ["enter", strikethrough, context],
                   ["enter", events[open][1], context],
                   ["exit", events[open][1], context],
-                  ["enter", text, context]
+                  ["enter", text, context],
                 ];
-                chunkedSplice(nextEvents, nextEvents.length, 0, resolveAll(context.parser.constructs.insideSpan.null, events.slice(open + 1, index), context));
+                chunkedSplice(
+                  nextEvents,
+                  nextEvents.length,
+                  0,
+                  resolveAll(
+                    context.parser.constructs.insideSpan.null,
+                    events.slice(open + 1, index),
+                    context,
+                  ),
+                );
                 chunkedSplice(nextEvents, nextEvents.length, 0, [
                   ["exit", text, context],
                   ["enter", events[index][1], context],
                   ["exit", events[index][1], context],
-                  ["exit", strikethrough, context]
+                  ["exit", strikethrough, context],
                 ]);
                 chunkedSplice(events, open - 1, index - open + 3, nextEvents);
                 index = open + nextEvents.length - 2;
@@ -7049,7 +8015,11 @@ var require_micromark_extension_gfm_strikethrough = __commonJS({
         var size = 0;
         return start;
         function start(code) {
-          if (code !== 126 || previous === 126 && events[events.length - 1][1].type !== "characterEscape") {
+          if (
+            code !== 126 ||
+            previous === 126 &&
+              events[events.length - 1][1].type !== "characterEscape"
+          ) {
             return nok(code);
           }
           effects.enter("strikethroughSequenceTemporary");
@@ -7060,14 +8030,16 @@ var require_micromark_extension_gfm_strikethrough = __commonJS({
           var token;
           var after;
           if (code === 126) {
-            if (size > 1)
+            if (size > 1) {
               return nok(code);
+            }
             effects.consume(code);
             size++;
             return more;
           }
-          if (size < 2 && !single)
+          if (size < 2 && !single) {
             return nok(code);
+          }
           token = effects.exit("strikethroughSequenceTemporary");
           after = classifyCharacter(code);
           token._open = !after || after === 2 && before;
@@ -7076,18 +8048,28 @@ var require_micromark_extension_gfm_strikethrough = __commonJS({
         }
       }
     }
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm-table/syntax.js
 var require_syntax2 = __commonJS({
   "node_modules/micromark-extension-gfm-table/syntax.js"(exports) {
     exports.flow = {
-      null: { tokenize: tokenizeTable, resolve: resolveTable, interruptible: true }
+      null: {
+        tokenize: tokenizeTable,
+        resolve: resolveTable,
+        interruptible: true,
+      },
     };
     var createSpace = require_factory_space();
-    var setextUnderlineMini = { tokenize: tokenizeSetextUnderlineMini, partial: true };
-    var nextPrefixedOrBlank = { tokenize: tokenizeNextPrefixedOrBlank, partial: true };
+    var setextUnderlineMini = {
+      tokenize: tokenizeSetextUnderlineMini,
+      partial: true,
+    };
+    var nextPrefixedOrBlank = {
+      tokenize: tokenizeNextPrefixedOrBlank,
+      partial: true,
+    };
     function resolveTable(events, context) {
       var length = events.length;
       var index = -1;
@@ -7108,36 +8090,60 @@ var require_syntax2 = __commonJS({
             contentStart = contentStart || index;
             contentEnd = index;
           }
-          if ((token.type === "tableCellDivider" || token.type === "tableRow") && contentEnd) {
+          if (
+            (token.type === "tableCellDivider" || token.type === "tableRow") &&
+            contentEnd
+          ) {
             content = {
               type: "tableContent",
               start: events[contentStart][1].start,
-              end: events[contentEnd][1].end
+              end: events[contentEnd][1].end,
             };
             text = {
               type: "chunkText",
               start: content.start,
               end: content.end,
-              contentType: "text"
+              contentType: "text",
             };
-            events.splice(contentStart, contentEnd - contentStart + 1, ["enter", content, context], ["enter", text, context], ["exit", text, context], ["exit", content, context]);
+            events.splice(
+              contentStart,
+              contentEnd - contentStart + 1,
+              ["enter", content, context],
+              ["enter", text, context],
+              ["exit", text, context],
+              ["exit", content, context],
+            );
             index -= contentEnd - contentStart - 3;
             length = events.length;
             contentStart = void 0;
             contentEnd = void 0;
           }
         }
-        if (events[index][0] === "exit" && cellStart && cellStart + 1 < index && (token.type === "tableCellDivider" || token.type === "tableRow" && (cellStart + 3 < index || events[cellStart][1].type !== "whitespace"))) {
+        if (
+          events[index][0] === "exit" && cellStart && cellStart + 1 < index &&
+          (token.type === "tableCellDivider" ||
+            token.type === "tableRow" &&
+              (cellStart + 3 < index ||
+                events[cellStart][1].type !== "whitespace"))
+        ) {
           cell = {
-            type: inDelimiterRow ? "tableDelimiter" : inHead ? "tableHeader" : "tableData",
+            type: inDelimiterRow
+              ? "tableDelimiter"
+              : inHead
+              ? "tableHeader"
+              : "tableData",
             start: events[cellStart][1].start,
-            end: events[index][1].end
+            end: events[index][1].end,
           };
-          events.splice(index + (token.type === "tableCellDivider" ? 1 : 0), 0, [
-            "exit",
-            cell,
-            context
-          ]);
+          events.splice(
+            index + (token.type === "tableCellDivider" ? 1 : 0),
+            0,
+            [
+              "exit",
+              cell,
+              context,
+            ],
+          );
           events.splice(cellStart, 0, ["enter", cell, context]);
           index += 2;
           length = events.length;
@@ -7239,7 +8245,11 @@ var require_syntax2 = __commonJS({
         effects.enter("lineEnding");
         effects.consume(code);
         effects.exit("lineEnding");
-        return effects.check(setextUnderlineMini, nok, createSpace(effects, rowStartDelimiter, "linePrefix", 4));
+        return effects.check(
+          setextUnderlineMini,
+          nok,
+          createSpace(effects, rowStartDelimiter, "linePrefix", 4),
+        );
       }
       function rowStartDelimiter(code) {
         if (code === null || code < 0 || code === 32) {
@@ -7297,7 +8307,9 @@ var require_syntax2 = __commonJS({
           effects.enter("tableDelimiterAlignment");
           effects.consume(code);
           effects.exit("tableDelimiterAlignment");
-          align[align.length - 1] = align[align.length - 1] === "left" ? "center" : "right";
+          align[align.length - 1] = align[align.length - 1] === "left"
+            ? "center"
+            : "right";
           return afterRightAlignment;
         }
         return atDelimiterRowBreak(code);
@@ -7336,7 +8348,9 @@ var require_syntax2 = __commonJS({
         if (code === null) {
           return tableClose(code);
         }
-        return effects.check(nextPrefixedOrBlank, tableClose, tableContinue)(code);
+        return effects.check(nextPrefixedOrBlank, tableClose, tableContinue)(
+          code,
+        );
       }
       function tableClose(code) {
         effects.exit("table");
@@ -7409,7 +8423,11 @@ var require_syntax2 = __commonJS({
         if (code === null) {
           return tableBodyClose(code);
         }
-        return effects.check(nextPrefixedOrBlank, tableBodyClose, tableBodyContinue)(code);
+        return effects.check(
+          nextPrefixedOrBlank,
+          tableBodyClose,
+          tableBodyContinue,
+        )(code);
       }
       function tableBodyClose(code) {
         effects.exit("tableBody");
@@ -7469,14 +8487,14 @@ var require_syntax2 = __commonJS({
         return nok(code);
       }
     }
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm-table/index.js
 var require_micromark_extension_gfm_table = __commonJS({
   "node_modules/micromark-extension-gfm-table/index.js"(exports, module2) {
     module2.exports = require_syntax2();
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm-task-list-item/syntax.js
@@ -7491,7 +8509,10 @@ var require_syntax3 = __commonJS({
       var self = this;
       return open;
       function open(code) {
-        if (code !== 91 || self.previous !== null || !self._gfmTasklistFirstContentOfListItem) {
+        if (
+          code !== 91 || self.previous !== null ||
+          !self._gfmTasklistFirstContentOfListItem
+        ) {
           return nok(code);
         }
         effects.enter("taskListCheck");
@@ -7530,17 +8551,23 @@ var require_syntax3 = __commonJS({
       var self = this;
       return spaceFactory(effects, after, "whitespace");
       function after(code) {
-        return prefixSize(self.events, "whitespace") && code !== null && !markdownLineEndingOrSpace(code) ? ok(code) : nok(code);
+        return prefixSize(self.events, "whitespace") && code !== null &&
+            !markdownLineEndingOrSpace(code)
+          ? ok(code)
+          : nok(code);
       }
     }
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm-task-list-item/index.js
 var require_micromark_extension_gfm_task_list_item = __commonJS({
-  "node_modules/micromark-extension-gfm-task-list-item/index.js"(exports, module2) {
+  "node_modules/micromark-extension-gfm-task-list-item/index.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = require_syntax3();
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm/syntax.js
@@ -7555,14 +8582,14 @@ var require_syntax4 = __commonJS({
     function create(options) {
       return combine([autolink, strikethrough(options), table, tasklist]);
     }
-  }
+  },
 });
 
 // node_modules/micromark-extension-gfm/index.js
 var require_micromark_extension_gfm = __commonJS({
   "node_modules/micromark-extension-gfm/index.js"(exports, module2) {
     module2.exports = require_syntax4();
-  }
+  },
 });
 
 // node_modules/ccount/index.js
@@ -7584,7 +8611,7 @@ var require_ccount = __commonJS({
       }
       return count;
     }
-  }
+  },
 });
 
 // node_modules/unist-util-is/convert.js
@@ -7612,8 +8639,9 @@ var require_convert = __commonJS({
       function all(node) {
         var key;
         for (key in test) {
-          if (node[key] !== test[key])
+          if (node[key] !== test[key]) {
             return false;
+          }
         }
         return true;
       }
@@ -7644,7 +8672,7 @@ var require_convert = __commonJS({
     function ok() {
       return true;
     }
-  }
+  },
 });
 
 // node_modules/unist-util-visit-parents/color.browser.js
@@ -7654,7 +8682,7 @@ var require_color_browser = __commonJS({
     function identity(d) {
       return d;
     }
-  }
+  },
 });
 
 // node_modules/unist-util-visit-parents/index.js
@@ -7685,8 +8713,13 @@ var require_unist_util_visit_parents = __commonJS({
         var value = typeof node === "object" && node !== null ? node : {};
         var name;
         if (typeof value.type === "string") {
-          name = typeof value.tagName === "string" ? value.tagName : typeof value.name === "string" ? value.name : void 0;
-          visit3.displayName = "node (" + color(value.type + (name ? "<" + name + ">" : "")) + ")";
+          name = typeof value.tagName === "string"
+            ? value.tagName
+            : typeof value.name === "string"
+            ? value.name
+            : void 0;
+          visit3.displayName = "node (" +
+            color(value.type + (name ? "<" + name + ">" : "")) + ")";
         }
         return visit3;
         function visit3() {
@@ -7703,11 +8736,17 @@ var require_unist_util_visit_parents = __commonJS({
           if (node.children && result[0] !== SKIP3) {
             offset = (reverse ? node.children.length : -1) + step;
             while (offset > -1 && offset < node.children.length) {
-              subresult = factory(node.children[offset], offset, grandparents)();
+              subresult = factory(
+                node.children[offset],
+                offset,
+                grandparents,
+              )();
               if (subresult[0] === EXIT) {
                 return subresult;
               }
-              offset = typeof subresult[1] === "number" ? subresult[1] : offset + step;
+              offset = typeof subresult[1] === "number"
+                ? subresult[1]
+                : offset + step;
             }
           }
           return result;
@@ -7723,7 +8762,7 @@ var require_unist_util_visit_parents = __commonJS({
       }
       return [value];
     }
-  }
+  },
 });
 
 // node_modules/escape-string-regexp/index.js
@@ -7734,9 +8773,12 @@ var require_escape_string_regexp = __commonJS({
       if (typeof string2 !== "string") {
         throw new TypeError("Expected a string");
       }
-      return string2.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&").replace(/-/g, "\\x2d");
+      return string2.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&").replace(
+        /-/g,
+        "\\x2d",
+      );
     };
-  }
+  },
 });
 
 // node_modules/mdast-util-find-and-replace/index.js
@@ -7777,10 +8819,16 @@ var require_mdast_util_find_and_replace = __commonJS({
           match = find2.exec(node.value);
           while (match) {
             position = match.index;
-            value = replace2.apply(null, [].concat(match, { index: match.index, input: match.input }));
+            value = replace2.apply(
+              null,
+              [].concat(match, { index: match.index, input: match.input }),
+            );
             if (value !== false) {
               if (start !== position) {
-                nodes.push({ type: "text", value: node.value.slice(start, position) });
+                nodes.push({
+                  type: "text",
+                  value: node.value.slice(start, position),
+                });
               }
               if (typeof value === "string" && value.length > 0) {
                 value = { type: "text", value };
@@ -7832,7 +8880,13 @@ var require_mdast_util_find_and_replace = __commonJS({
         var grandparent;
         while (++index < parents.length) {
           parent = parents[index];
-          if (ignored(parent, grandparent ? grandparent.children.indexOf(parent) : void 0, grandparent)) {
+          if (
+            ignored(
+              parent,
+              grandparent ? grandparent.children.indexOf(parent) : void 0,
+              grandparent,
+            )
+          ) {
             return;
           }
           grandparent = parent;
@@ -7852,7 +8906,7 @@ var require_mdast_util_find_and_replace = __commonJS({
         while (++index < schema4.length) {
           result.push([
             toExpression(schema4[index][0]),
-            toFunction(schema4[index][1])
+            toFunction(schema4[index][1]),
           ]);
         }
       } else {
@@ -7871,7 +8925,7 @@ var require_mdast_util_find_and_replace = __commonJS({
         return replace;
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm-autolink-literal/from-markdown.js
@@ -7886,13 +8940,13 @@ var require_from_markdown = __commonJS({
       literalAutolink: enterLiteralAutolink,
       literalAutolinkEmail: enterLiteralAutolinkValue,
       literalAutolinkHttp: enterLiteralAutolinkValue,
-      literalAutolinkWww: enterLiteralAutolinkValue
+      literalAutolinkWww: enterLiteralAutolinkValue,
     };
     exports.exit = {
       literalAutolink: exitLiteralAutolink,
       literalAutolinkEmail: exitLiteralAutolinkEmail,
       literalAutolinkHttp: exitLiteralAutolinkHttp,
-      literalAutolinkWww: exitLiteralAutolinkWww
+      literalAutolinkWww: exitLiteralAutolinkWww,
     };
     function enterLiteralAutolink(token) {
       this.enter({ type: "link", title: null, url: "", children: [] }, token);
@@ -7905,7 +8959,8 @@ var require_from_markdown = __commonJS({
     }
     function exitLiteralAutolinkWww(token) {
       this.config.exit.data.call(this, token);
-      this.stack[this.stack.length - 1].url = "http://" + this.sliceSerialize(token);
+      this.stack[this.stack.length - 1].url = "http://" +
+        this.sliceSerialize(token);
     }
     function exitLiteralAutolinkEmail(token) {
       this.config.exit.autolinkEmail.call(this, token);
@@ -7916,7 +8971,7 @@ var require_from_markdown = __commonJS({
     function transformGfmAutolinkLiterals(tree) {
       findAndReplace(tree, [
         [/(https?:\/\/|www(?=\.))([-.\w]+)([^ \t\r\n]*)/i, findUrl],
-        [/([-.\w+]+)@([-\w]+(?:\.[-\w]+)+)/, findEmail]
+        [/([-.\w+]+)@([-\w]+(?:\.[-\w]+)+)/, findEmail],
       ], { ignore: ["link", "linkReference"] });
     }
     function findUrl($0, protocol, domain, path, match) {
@@ -7935,13 +8990,14 @@ var require_from_markdown = __commonJS({
         return false;
       }
       parts = splitUrl(domain + path);
-      if (!parts[0])
+      if (!parts[0]) {
         return false;
+      }
       result = {
         type: "link",
         title: null,
         url: prefix + protocol + parts[0],
-        children: [{ type: "text", value: protocol + parts[0] }]
+        children: [{ type: "text", value: protocol + parts[0] }],
       };
       if (parts[1]) {
         result = [result, { type: "text", value: parts[1] }];
@@ -7956,12 +9012,20 @@ var require_from_markdown = __commonJS({
         type: "link",
         title: null,
         url: "mailto:" + atext + "@" + label,
-        children: [{ type: "text", value: atext + "@" + label }]
+        children: [{ type: "text", value: atext + "@" + label }],
       };
     }
     function isCorrectDomain(domain) {
       var parts = domain.split(".");
-      if (parts.length < 2 || parts[parts.length - 1] && (/_/.test(parts[parts.length - 1]) || !/[a-zA-Z\d]/.test(parts[parts.length - 1])) || parts[parts.length - 2] && (/_/.test(parts[parts.length - 2]) || !/[a-zA-Z\d]/.test(parts[parts.length - 2]))) {
+      if (
+        parts.length < 2 ||
+        parts[parts.length - 1] &&
+          (/_/.test(parts[parts.length - 1]) ||
+            !/[a-zA-Z\d]/.test(parts[parts.length - 1])) ||
+        parts[parts.length - 2] &&
+          (/_/.test(parts[parts.length - 2]) ||
+            !/[a-zA-Z\d]/.test(parts[parts.length - 2]))
+      ) {
         return false;
       }
       return true;
@@ -7988,9 +9052,10 @@ var require_from_markdown = __commonJS({
     }
     function previous(match, email) {
       var code = match.input.charCodeAt(match.index - 1);
-      return (code !== code || unicodeWhitespace(code) || unicodePunctuation(code)) && (!email || code !== 47);
+      return (code !== code || unicodeWhitespace(code) ||
+        unicodePunctuation(code)) && (!email || code !== 47);
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm-strikethrough/from-markdown.js
@@ -8005,7 +9070,7 @@ var require_from_markdown2 = __commonJS({
     function exitStrikethrough(token) {
       this.exit(token);
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm-table/from-markdown.js
@@ -8015,14 +9080,14 @@ var require_from_markdown3 = __commonJS({
       table: enterTable,
       tableData: enterCell,
       tableHeader: enterCell,
-      tableRow: enterRow
+      tableRow: enterRow,
     };
     exports.exit = {
       codeText: exitCodeText,
       table: exitTable,
       tableData: exit,
       tableHeader: exit,
-      tableRow: exit
+      tableRow: exit,
     };
     function enterTable(token) {
       this.enter({ type: "table", align: token._align, children: [] }, token);
@@ -8052,7 +9117,7 @@ var require_from_markdown3 = __commonJS({
     function replace($0, $1) {
       return $1 === "|" ? $1 : $0;
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm-task-list-item/from-markdown.js
@@ -8061,10 +9126,11 @@ var require_from_markdown4 = __commonJS({
     exports.exit = {
       taskListCheckValueChecked: exitCheck,
       taskListCheckValueUnchecked: exitCheck,
-      paragraph: exitParagraphWithTaskListItem
+      paragraph: exitParagraphWithTaskListItem,
     };
     function exitCheck(token) {
-      this.stack[this.stack.length - 2].checked = token.type === "taskListCheckValueChecked";
+      this.stack[this.stack.length - 2].checked =
+        token.type === "taskListCheckValueChecked";
     }
     function exitParagraphWithTaskListItem(token) {
       var parent = this.stack[this.stack.length - 2];
@@ -8073,7 +9139,10 @@ var require_from_markdown4 = __commonJS({
       var head = node.children[0];
       var index = -1;
       var firstParaghraph;
-      if (parent && parent.type === "listItem" && typeof parent.checked === "boolean" && head && head.type === "text") {
+      if (
+        parent && parent.type === "listItem" &&
+        typeof parent.checked === "boolean" && head && head.type === "text"
+      ) {
         while (++index < siblings.length) {
           if (siblings[index].type === "paragraph") {
             firstParaghraph = siblings[index];
@@ -8093,7 +9162,7 @@ var require_from_markdown4 = __commonJS({
       }
       this.exit(token);
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm/from-markdown.js
@@ -8108,7 +9177,7 @@ var require_from_markdown5 = __commonJS({
       autolinkLiteral,
       strikethrough,
       table,
-      taskListItem
+      taskListItem,
     ]);
     function configure(extensions) {
       var config = { transforms: [], canContainEols: [] };
@@ -8133,7 +9202,7 @@ var require_from_markdown5 = __commonJS({
         }
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm-autolink-literal/to-markdown.js
@@ -8147,29 +9216,32 @@ var require_to_markdown = __commonJS({
         before: "[+\\-.\\w]",
         after: "[\\-.\\w]",
         inConstruct,
-        notInConstruct
+        notInConstruct,
       },
       {
         character: ".",
         before: "[Ww]",
         after: "[\\-.\\w]",
         inConstruct,
-        notInConstruct
+        notInConstruct,
       },
       {
         character: ":",
         before: "[ps]",
         after: "\\/",
         inConstruct,
-        notInConstruct
-      }
+        notInConstruct,
+      },
     ];
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/util/container-phrasing.js
 var require_container_phrasing = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/util/container-phrasing.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/util/container-phrasing.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = phrasing;
     function phrasing(parent, context, safeOptions) {
       var children = parent.children || [];
@@ -8183,28 +9255,37 @@ var require_container_phrasing = __commonJS({
         child = children[index];
         if (index + 1 < children.length) {
           handle = context.handle.handlers[children[index + 1].type];
-          if (handle && handle.peek)
+          if (handle && handle.peek) {
             handle = handle.peek;
-          after = handle ? handle(children[index + 1], parent, context, {
-            before: "",
-            after: ""
-          }).charAt(0) : "";
+          }
+          after = handle
+            ? handle(children[index + 1], parent, context, {
+              before: "",
+              after: "",
+            }).charAt(0)
+            : "";
         } else {
           after = safeOptions.after;
         }
-        if (results.length > 0 && (before === "\r" || before === "\n") && child.type === "html") {
-          results[results.length - 1] = results[results.length - 1].replace(/(\r?\n|\r)$/, " ");
+        if (
+          results.length > 0 && (before === "\r" || before === "\n") &&
+          child.type === "html"
+        ) {
+          results[results.length - 1] = results[results.length - 1].replace(
+            /(\r?\n|\r)$/,
+            " ",
+          );
           before = " ";
         }
         results.push(context.handle(child, parent, context, {
           before,
-          after
+          after,
         }));
         before = results[results.length - 1].slice(-1);
       }
       return results.join("");
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm-strikethrough/to-markdown.js
@@ -8223,12 +9304,15 @@ var require_to_markdown2 = __commonJS({
     function peekDelete() {
       return "~";
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/util/pattern-compile.js
 var require_pattern_compile = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/util/pattern-compile.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/util/pattern-compile.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = patternCompile;
     function patternCompile(pattern) {
       var before;
@@ -8239,16 +9323,24 @@ var require_pattern_compile = __commonJS({
         if (pattern.atBreak) {
           before = "[\\r\\n][\\t ]*" + before;
         }
-        pattern._compiled = new RegExp((before ? "(" + before + ")" : "") + (/[|\\{}()[\]^$+*?.-]/.test(pattern.character) ? "\\" : "") + pattern.character + (after || ""), "g");
+        pattern._compiled = new RegExp(
+          (before ? "(" + before + ")" : "") +
+            (/[|\\{}()[\]^$+*?.-]/.test(pattern.character) ? "\\" : "") +
+            pattern.character + (after || ""),
+          "g",
+        );
       }
       return pattern._compiled;
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/handle/inline-code.js
 var require_inline_code = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/handle/inline-code.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/handle/inline-code.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = inlineCode;
     inlineCode.peek = inlineCodePeek;
     var patternCompile = require_pattern_compile();
@@ -8263,17 +9355,25 @@ var require_inline_code = __commonJS({
       while (new RegExp("(^|[^`])" + sequence + "([^`]|$)").test(value)) {
         sequence += "`";
       }
-      if (/[^ \r\n]/.test(value) && (/[ \r\n`]/.test(value.charAt(0)) || /[ \r\n`]/.test(value.charAt(value.length - 1)))) {
+      if (
+        /[^ \r\n]/.test(value) &&
+        (/[ \r\n`]/.test(value.charAt(0)) ||
+          /[ \r\n`]/.test(value.charAt(value.length - 1)))
+      ) {
         value = " " + value + " ";
       }
       while (++index < context.unsafe.length) {
         pattern = context.unsafe[index];
-        if (!pattern.atBreak)
+        if (!pattern.atBreak) {
           continue;
+        }
         expression = patternCompile(pattern);
         while (match = expression.exec(value)) {
           position = match.index;
-          if (value.charCodeAt(position) === 10 && value.charCodeAt(position - 1) === 13) {
+          if (
+            value.charCodeAt(position) === 10 &&
+            value.charCodeAt(position - 1) === 13
+          ) {
             position--;
           }
           value = value.slice(0, position) + " " + value.slice(match.index + 1);
@@ -8284,7 +9384,7 @@ var require_inline_code = __commonJS({
     function inlineCodePeek() {
       return "`";
     }
-  }
+  },
 });
 
 // node_modules/repeat-string/index.js
@@ -8298,10 +9398,12 @@ var require_repeat_string = __commonJS({
       if (typeof str !== "string") {
         throw new TypeError("expected a string");
       }
-      if (num === 1)
+      if (num === 1) {
         return str;
-      if (num === 2)
+      }
+      if (num === 2) {
         return str + str;
+      }
       var max = str.length * num;
       if (cache !== str || typeof cache === "undefined") {
         cache = str;
@@ -8320,7 +9422,7 @@ var require_repeat_string = __commonJS({
       res = res.substr(0, max);
       return res;
     }
-  }
+  },
 });
 
 // node_modules/markdown-table/index.js
@@ -8422,7 +9524,12 @@ var require_markdown_table = __commonJS({
           before = colon;
           after = colon;
         }
-        size = alignDelimiters ? Math.max(1, longestCellByColumn[columnIndex] - before.length - after.length) : 1;
+        size = alignDelimiters
+          ? Math.max(
+            1,
+            longestCellByColumn[columnIndex] - before.length - after.length,
+          )
+          : 1;
         cell = before + repeat(dash, size) + after;
         if (alignDelimiters === true) {
           size = before.length + size + after.length;
@@ -8468,7 +9575,10 @@ var require_markdown_table = __commonJS({
           if (start === true && columnIndex === 0) {
             line.push(verticalBar);
           }
-          if (padding === true && !(alignDelimiters === false && cell === "") && (start === true || columnIndex !== 0)) {
+          if (
+            padding === true && !(alignDelimiters === false && cell === "") &&
+            (start === true || columnIndex !== 0)
+          ) {
             line.push(space);
           }
           if (alignDelimiters === true) {
@@ -8501,9 +9611,15 @@ var require_markdown_table = __commonJS({
     }
     function toAlignment(value) {
       var code = typeof value === "string" ? value.charCodeAt(0) : x;
-      return code === L || code === l ? l : code === R || code === r ? r : code === C || code === c ? c : x;
+      return code === L || code === l
+        ? l
+        : code === R || code === r
+        ? r
+        : code === C || code === c
+        ? c
+        : x;
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm-table/to-markdown.js
@@ -8526,14 +9642,14 @@ var require_to_markdown3 = __commonJS({
           { atBreak: true, character: "|", after: "[	 :-]" },
           { character: "|", inConstruct: "tableCell" },
           { atBreak: true, character: ":", after: "-" },
-          { atBreak: true, character: "-", after: "[:|-]" }
+          { atBreak: true, character: "-", after: "[:|-]" },
         ],
         handlers: {
           table: handleTable,
           tableRow: handleTableRow,
           tableCell: handleTableCell,
-          inlineCode: inlineCodeWithTable
-        }
+          inlineCode: inlineCodeWithTable,
+        },
       };
       function handleTable(node, _, context) {
         return serializeData(handleTableAsData(node, context), node.align);
@@ -8554,7 +9670,7 @@ var require_to_markdown3 = __commonJS({
           align,
           alignDelimiters,
           padding,
-          stringLength
+          stringLength,
         });
       }
       function handleTableAsData(node, context) {
@@ -8589,26 +9705,35 @@ var require_to_markdown3 = __commonJS({
         return value;
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/util/check-bullet.js
 var require_check_bullet = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/util/check-bullet.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/util/check-bullet.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = checkBullet;
     function checkBullet(context) {
       var marker = context.options.bullet || "*";
       if (marker !== "*" && marker !== "+" && marker !== "-") {
-        throw new Error("Cannot serialize items with `" + marker + "` for `options.bullet`, expected `*`, `+`, or `-`");
+        throw new Error(
+          "Cannot serialize items with `" + marker +
+            "` for `options.bullet`, expected `*`, `+`, or `-`",
+        );
       }
       return marker;
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/util/check-list-item-indent.js
 var require_check_list_item_indent = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/util/check-list-item-indent.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/util/check-list-item-indent.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = checkListItemIndent;
     function checkListItemIndent(context) {
       var style = context.options.listItemIndent || "tab";
@@ -8616,16 +9741,22 @@ var require_check_list_item_indent = __commonJS({
         return "one";
       }
       if (style !== "tab" && style !== "one" && style !== "mixed") {
-        throw new Error("Cannot serialize items with `" + style + "` for `options.listItemIndent`, expected `tab`, `one`, or `mixed`");
+        throw new Error(
+          "Cannot serialize items with `" + style +
+            "` for `options.listItemIndent`, expected `tab`, `one`, or `mixed`",
+        );
       }
       return style;
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/util/container-flow.js
 var require_container_flow = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/util/container-flow.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/util/container-flow.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = flow;
     var repeat = require_repeat_string();
     function flow(parent, context) {
@@ -8635,7 +9766,9 @@ var require_container_flow = __commonJS({
       var child;
       while (++index < children.length) {
         child = children[index];
-        results.push(context.handle(child, parent, context, { before: "\n", after: "\n" }));
+        results.push(
+          context.handle(child, parent, context, { before: "\n", after: "\n" }),
+        );
         if (index + 1 < children.length) {
           results.push(between(child, children[index + 1]));
         }
@@ -8659,12 +9792,15 @@ var require_container_flow = __commonJS({
         return "\n\n";
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/util/indent-lines.js
 var require_indent_lines = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/util/indent-lines.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/util/indent-lines.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = indentLines;
     var eol = /\r?\n|\r/g;
     function indentLines(value, map2) {
@@ -8684,12 +9820,15 @@ var require_indent_lines = __commonJS({
         result.push(map2(value2, line, !value2));
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/handle/list-item.js
 var require_list_item = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/handle/list-item.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/handle/list-item.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = listItem;
     var repeat = require_repeat_string();
     var checkBullet = require_check_bullet();
@@ -8703,10 +9842,17 @@ var require_list_item = __commonJS({
       var value;
       var exit;
       if (parent && parent.ordered) {
-        bullet = (parent.start > -1 ? parent.start : 1) + (context.options.incrementListMarker === false ? 0 : parent.children.indexOf(node)) + ".";
+        bullet = (parent.start > -1 ? parent.start : 1) +
+          (context.options.incrementListMarker === false
+            ? 0
+            : parent.children.indexOf(node)) +
+          ".";
       }
       size = bullet.length + 1;
-      if (listItemIndent === "tab" || listItemIndent === "mixed" && (parent && parent.spread || node.spread)) {
+      if (
+        listItemIndent === "tab" ||
+        listItemIndent === "mixed" && (parent && parent.spread || node.spread)
+      ) {
         size = Math.ceil(size / 4) * 4;
       }
       exit = context.enter("listItem");
@@ -8717,10 +9863,11 @@ var require_list_item = __commonJS({
         if (index) {
           return (blank ? "" : repeat(" ", size)) + line;
         }
-        return (blank ? bullet : bullet + repeat(" ", size - bullet.length)) + line;
+        return (blank ? bullet : bullet + repeat(" ", size - bullet.length)) +
+          line;
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm-task-list-item/to-markdown.js
@@ -8729,12 +9876,14 @@ var require_to_markdown4 = __commonJS({
     var defaultListItem = require_list_item();
     exports.unsafe = [{ atBreak: true, character: "-", after: "[:|-]" }];
     exports.handlers = {
-      listItem: listItemWithTaskListItem
+      listItem: listItemWithTaskListItem,
     };
     function listItemWithTaskListItem(node, parent, context) {
       var value = defaultListItem(node, parent, context);
       var head = node.children[0];
-      if (typeof node.checked === "boolean" && head && head.type === "paragraph") {
+      if (
+        typeof node.checked === "boolean" && head && head.type === "paragraph"
+      ) {
         value = value.replace(/^(?:[*+-]|\d+\.)([\r\n]| {1,3})/, check);
       }
       return value;
@@ -8742,7 +9891,7 @@ var require_to_markdown4 = __commonJS({
         return $0 + "[" + (node.checked ? "x" : " ") + "] ";
       }
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/configure.js
@@ -8769,7 +9918,7 @@ var require_configure = __commonJS({
       }
       return base;
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-gfm/to-markdown.js
@@ -8782,16 +9931,26 @@ var require_to_markdown5 = __commonJS({
     var configure = require_configure();
     module2.exports = toMarkdown;
     function toMarkdown(options) {
-      var config = configure({ handlers: {}, join: [], unsafe: [], options: {} }, {
-        extensions: [autolinkLiteral, strikethrough, table(options), taskListItem]
+      var config = configure({
+        handlers: {},
+        join: [],
+        unsafe: [],
+        options: {},
+      }, {
+        extensions: [
+          autolinkLiteral,
+          strikethrough,
+          table(options),
+          taskListItem,
+        ],
       });
       return Object.assign(config.options, {
         handlers: config.handlers,
         join: config.join,
-        unsafe: config.unsafe
+        unsafe: config.unsafe,
       });
     }
-  }
+  },
 });
 
 // node_modules/remark-gfm/index.js
@@ -8805,21 +9964,30 @@ var require_remark_gfm = __commonJS({
     module2.exports = gfm;
     function gfm(options) {
       var data = this.data();
-      if (!warningIssued && (this.Parser && this.Parser.prototype && this.Parser.prototype.blockTokenizers || this.Compiler && this.Compiler.prototype && this.Compiler.prototype.visitors)) {
+      if (
+        !warningIssued &&
+        (this.Parser && this.Parser.prototype &&
+            this.Parser.prototype.blockTokenizers ||
+          this.Compiler && this.Compiler.prototype &&
+            this.Compiler.prototype.visitors)
+      ) {
         warningIssued = true;
-        console.warn("[remark-gfm] Warning: please upgrade to remark 13 to use this plugin");
+        console.warn(
+          "[remark-gfm] Warning: please upgrade to remark 13 to use this plugin",
+        );
       }
       add("micromarkExtensions", syntax(options));
       add("fromMarkdownExtensions", fromMarkdown);
       add("toMarkdownExtensions", toMarkdown(options));
       function add(field, value) {
-        if (data[field])
+        if (data[field]) {
           data[field].push(value);
-        else
+        } else {
           data[field] = [value];
+        }
       }
     }
-  }
+  },
 });
 
 // node_modules/micromark-extension-math/lib/tokenize-math-flow.js
@@ -8836,8 +10004,9 @@ var require_tokenize_math_flow = __commonJS({
       var sizeOpen = 0;
       return start;
       function start(code) {
-        if (code !== 36)
+        if (code !== 36) {
           throw new Error("expected `$`");
+        }
         effects.enter("mathFlow");
         effects.enter("mathFlowFence");
         effects.enter("mathFlowFenceSequence");
@@ -8850,7 +10019,9 @@ var require_tokenize_math_flow = __commonJS({
           return sequenceOpen;
         }
         effects.exit("mathFlowFenceSequence");
-        return sizeOpen < 2 ? nok(code) : createSpace(effects, metaOpen, "whitespace")(code);
+        return sizeOpen < 2
+          ? nok(code)
+          : createSpace(effects, metaOpen, "whitespace")(code);
       }
       function metaOpen(code) {
         if (code === null || code === -5 || code === -4 || code === -3) {
@@ -8866,8 +10037,9 @@ var require_tokenize_math_flow = __commonJS({
           effects.exit("mathFlowFenceMeta");
           return openAfter(code);
         }
-        if (code === 36)
+        if (code === 36) {
           return nok(code);
+        }
         effects.consume(code);
         return meta;
       }
@@ -8883,7 +10055,13 @@ var require_tokenize_math_flow = __commonJS({
           effects.enter("lineEnding");
           effects.consume(code);
           effects.exit("lineEnding");
-          return effects.attempt({ tokenize: tokenizeClosingFence, partial: true }, after, initialPrefix ? createSpace(effects, content, "linePrefix", initialPrefix + 1) : content);
+          return effects.attempt(
+            { tokenize: tokenizeClosingFence, partial: true },
+            after,
+            initialPrefix
+              ? createSpace(effects, content, "linePrefix", initialPrefix + 1)
+              : content,
+          );
         }
         effects.enter("mathFlowValue");
         return contentContinue(code);
@@ -8914,8 +10092,9 @@ var require_tokenize_math_flow = __commonJS({
             size++;
             return closingSequence;
           }
-          if (size < sizeOpen)
+          if (size < sizeOpen) {
             return nok2(code);
+          }
           effects2.exit("mathFlowFenceSequence");
           return createSpace(effects2, closingSequenceEnd, "whitespace")(code);
         }
@@ -8928,7 +10107,7 @@ var require_tokenize_math_flow = __commonJS({
         }
       }
     }
-  }
+  },
 });
 
 // node_modules/micromark-extension-math/lib/tokenize-math-text.js
@@ -8943,7 +10122,12 @@ var require_tokenize_math_text = __commonJS({
       var headEnterIndex = 3;
       var index;
       var enter;
-      if ((events[headEnterIndex][1].type === "lineEnding" || events[headEnterIndex][1].type === "space") && (events[tailExitIndex][1].type === "lineEnding" || events[tailExitIndex][1].type === "space")) {
+      if (
+        (events[headEnterIndex][1].type === "lineEnding" ||
+          events[headEnterIndex][1].type === "space") &&
+        (events[tailExitIndex][1].type === "lineEnding" ||
+          events[tailExitIndex][1].type === "space")
+      ) {
         index = headEnterIndex;
         while (++index < tailExitIndex) {
           if (events[index][1].type === "mathTextData") {
@@ -8959,10 +10143,14 @@ var require_tokenize_math_text = __commonJS({
       tailExitIndex++;
       while (++index <= tailExitIndex) {
         if (enter === void 0) {
-          if (index !== tailExitIndex && events[index][1].type !== "lineEnding") {
+          if (
+            index !== tailExitIndex && events[index][1].type !== "lineEnding"
+          ) {
             enter = index;
           }
-        } else if (index === tailExitIndex || events[index][1].type === "lineEnding") {
+        } else if (
+          index === tailExitIndex || events[index][1].type === "lineEnding"
+        ) {
           events[enter][1].type = "mathTextData";
           if (index !== enter + 2) {
             events[enter][1].end = events[index - 1][1].end;
@@ -8976,7 +10164,8 @@ var require_tokenize_math_text = __commonJS({
       return events;
     }
     function previous(code) {
-      return code !== 36 || this.events[this.events.length - 1][1].type === "characterEscape";
+      return code !== 36 ||
+        this.events[this.events.length - 1][1].type === "characterEscape";
     }
     function tokenizeMathText(effects, ok, nok) {
       var self = this;
@@ -8985,8 +10174,9 @@ var require_tokenize_math_text = __commonJS({
       var token;
       return start;
       function start(code) {
-        if (code !== 36)
+        if (code !== 36) {
           throw new Error("expected `$`");
+        }
         if (!previous.call(self, self.previous)) {
           throw new Error("expected correct previous");
         }
@@ -9028,7 +10218,10 @@ var require_tokenize_math_text = __commonJS({
         return data(code);
       }
       function data(code) {
-        if (code === null || code === 32 || code === 36 || code === -5 || code === -4 || code === -3) {
+        if (
+          code === null || code === 32 || code === 36 || code === -5 ||
+          code === -4 || code === -3
+        ) {
           effects.exit("mathTextData");
           return gap(code);
         }
@@ -9050,7 +10243,7 @@ var require_tokenize_math_text = __commonJS({
         return data(code);
       }
     }
-  }
+  },
 });
 
 // node_modules/micromark-extension-math/lib/syntax.js
@@ -9059,14 +10252,14 @@ var require_syntax5 = __commonJS({
     "use strict";
     exports.flow = { 36: require_tokenize_math_flow() };
     exports.text = { 36: require_tokenize_math_text() };
-  }
+  },
 });
 
 // node_modules/micromark-extension-math/index.js
 var require_micromark_extension_math = __commonJS({
   "node_modules/micromark-extension-math/index.js"(exports, module2) {
     module2.exports = require_syntax5();
-  }
+  },
 });
 
 // node_modules/mdast-util-math/from-markdown.js
@@ -9076,7 +10269,7 @@ var require_from_markdown6 = __commonJS({
     exports.enter = {
       mathFlow: enterMathFlow,
       mathFlowFenceMeta: enterMathFlowMeta,
-      mathText: enterMathText
+      mathText: enterMathText,
     };
     exports.exit = {
       mathFlow: exitMathFlow,
@@ -9084,7 +10277,7 @@ var require_from_markdown6 = __commonJS({
       mathFlowFenceMeta: exitMathFlowMeta,
       mathFlowValue: exitMathData,
       mathText: exitMathText,
-      mathTextData: exitMathData
+      mathTextData: exitMathData,
     };
     function enterMathFlow(token) {
       this.enter({
@@ -9094,8 +10287,8 @@ var require_from_markdown6 = __commonJS({
         data: {
           hName: "div",
           hProperties: { className: ["math", "math-display"] },
-          hChildren: [{ type: "text", value: "" }]
-        }
+          hChildren: [{ type: "text", value: "" }],
+        },
       }, token);
     }
     function enterMathFlowMeta() {
@@ -9106,8 +10299,9 @@ var require_from_markdown6 = __commonJS({
       this.stack[this.stack.length - 1].meta = data;
     }
     function exitMathFlowFence() {
-      if (this.getData("mathFlowInside"))
+      if (this.getData("mathFlowInside")) {
         return;
+      }
       this.buffer();
       this.setData("mathFlowInside", true);
     }
@@ -9125,8 +10319,8 @@ var require_from_markdown6 = __commonJS({
         data: {
           hName: "span",
           hProperties: { className: ["math", "math-inline"] },
-          hChildren: [{ type: "text", value: "" }]
-        }
+          hChildren: [{ type: "text", value: "" }],
+        },
       }, token);
       this.buffer();
     }
@@ -9140,7 +10334,7 @@ var require_from_markdown6 = __commonJS({
       this.config.enter.data.call(this, token);
       this.config.exit.data.call(this, token);
     }
-  }
+  },
 });
 
 // node_modules/longest-streak/index.js
@@ -9173,15 +10367,19 @@ var require_longest_streak = __commonJS({
       }
       return maximum;
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/util/pattern-in-scope.js
 var require_pattern_in_scope = __commonJS({
-  "node_modules/mdast-util-to-markdown/lib/util/pattern-in-scope.js"(exports, module2) {
+  "node_modules/mdast-util-to-markdown/lib/util/pattern-in-scope.js"(
+    exports,
+    module2,
+  ) {
     module2.exports = patternInScope;
     function patternInScope(stack, pattern) {
-      return listInScope(stack, pattern.inConstruct, true) && !listInScope(stack, pattern.notInConstruct);
+      return listInScope(stack, pattern.inConstruct, true) &&
+        !listInScope(stack, pattern.notInConstruct);
     }
     function listInScope(stack, list, none) {
       var index;
@@ -9199,7 +10397,7 @@ var require_pattern_in_scope = __commonJS({
       }
       return false;
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-to-markdown/lib/util/safe.js
@@ -9254,17 +10452,27 @@ var require_safe = __commonJS({
         if (position < start || position >= end) {
           continue;
         }
-        if (position + 1 < end && positions[index + 1] === position + 1 && infos[position].after && !infos[position + 1].before && !infos[position + 1].after) {
+        if (
+          position + 1 < end && positions[index + 1] === position + 1 &&
+          infos[position].after && !infos[position + 1].before &&
+          !infos[position + 1].after
+        ) {
           continue;
         }
         if (start !== position) {
           result.push(escapeBackslashes(value.slice(start, position), "\\"));
         }
         start = position;
-        if (/[!-/:-@[-`{-~]/.test(value.charAt(position)) && (!config.encode || config.encode.indexOf(value.charAt(position)) === -1)) {
+        if (
+          /[!-/:-@[-`{-~]/.test(value.charAt(position)) &&
+          (!config.encode ||
+            config.encode.indexOf(value.charAt(position)) === -1)
+        ) {
           result.push("\\");
         } else {
-          result.push("&#x" + value.charCodeAt(position).toString(16).toUpperCase() + ";");
+          result.push(
+            "&#x" + value.charCodeAt(position).toString(16).toUpperCase() + ";",
+          );
           start++;
         }
       }
@@ -9295,7 +10503,7 @@ var require_safe = __commonJS({
       results.push(value.slice(start));
       return results.join("");
     }
-  }
+  },
 });
 
 // node_modules/mdast-util-math/to-markdown.js
@@ -9306,7 +10514,7 @@ var require_to_markdown6 = __commonJS({
       { character: "\r", inConstruct: ["mathFlowMeta"] },
       { character: "\r", inConstruct: ["mathFlowMeta"] },
       { character: "$", inConstruct: ["mathFlowMeta", "phrasing"] },
-      { atBreak: true, character: "$", after: "\\$" }
+      { atBreak: true, character: "$", after: "\\$" },
     ];
     exports.handlers = { math, inlineMath };
     inlineMath.peek = inlineMathPeek;
@@ -9321,7 +10529,11 @@ var require_to_markdown6 = __commonJS({
       var subexit;
       if (node.meta) {
         subexit = context.enter("mathFlowMeta");
-        value += safe(context, node.meta, { before: "$", after: " ", encode: ["$"] });
+        value += safe(context, node.meta, {
+          before: "$",
+          after: " ",
+          encode: ["$"],
+        });
         subexit();
       }
       value += "\n";
@@ -9337,10 +10549,16 @@ var require_to_markdown6 = __commonJS({
       var size = 1;
       var pad = "";
       var sequence;
-      while (new RegExp("(^|[^$])" + repeat("\\$", size) + "([^$]|$)").test(value)) {
+      while (
+        new RegExp("(^|[^$])" + repeat("\\$", size) + "([^$]|$)").test(value)
+      ) {
         size++;
       }
-      if (/[^ \r\n]/.test(value) && (/[ \r\n$]/.test(value.charAt(0)) || /[ \r\n$]/.test(value.charAt(value.length - 1)))) {
+      if (
+        /[^ \r\n]/.test(value) &&
+        (/[ \r\n$]/.test(value.charAt(0)) ||
+          /[ \r\n$]/.test(value.charAt(value.length - 1)))
+      ) {
         pad = " ";
       }
       sequence = repeat("$", size);
@@ -9349,7 +10567,7 @@ var require_to_markdown6 = __commonJS({
     function inlineMathPeek() {
       return "$";
     }
-  }
+  },
 });
 
 // node_modules/remark-math/index.js
@@ -9363,28 +10581,37 @@ var require_remark_math = __commonJS({
     module2.exports = math;
     function math() {
       var data = this.data();
-      if (!warningIssued && (this.Parser && this.Parser.prototype && this.Parser.prototype.blockTokenizers || this.Compiler && this.Compiler.prototype && this.Compiler.prototype.visitors)) {
+      if (
+        !warningIssued &&
+        (this.Parser && this.Parser.prototype &&
+            this.Parser.prototype.blockTokenizers ||
+          this.Compiler && this.Compiler.prototype &&
+            this.Compiler.prototype.visitors)
+      ) {
         warningIssued = true;
-        console.warn("[remark-math] Warning: please upgrade to remark 13 to use this plugin");
+        console.warn(
+          "[remark-math] Warning: please upgrade to remark 13 to use this plugin",
+        );
       }
       add("micromarkExtensions", syntax);
       add("fromMarkdownExtensions", fromMarkdown);
       add("toMarkdownExtensions", toMarkdown);
       function add(field, value) {
-        if (data[field])
+        if (data[field]) {
           data[field].push(value);
-        else
+        } else {
           data[field] = [value];
+        }
       }
     }
-  }
+  },
 });
 
 // node_modules/@tryfabric/martian/build/src/index.js
 var require_src = __commonJS({
   "node_modules/@tryfabric/martian/build/src/index.js"(exports) {
     "use strict";
-    var __importDefault = exports && exports.__importDefault || function(mod) {
+    var __importDefault = exports && exports.__importDefault || function (mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
     };
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -9395,16 +10622,20 @@ var require_src = __commonJS({
     var remark_gfm_1 = __importDefault(require_remark_gfm());
     var remark_math_1 = __importDefault(require_remark_math());
     function markdownToBlocks2(body, options) {
-      const root = (0, unified_1.default)().use(remark_parse_1.default).use(remark_gfm_1.default).use(remark_math_1.default).parse(body);
+      const root = (0, unified_1.default)().use(remark_parse_1.default).use(
+        remark_gfm_1.default,
+      ).use(remark_math_1.default).parse(body);
       return (0, internal_1.parseBlocks)(root, options);
     }
     exports.markdownToBlocks = markdownToBlocks2;
     function markdownToRichText(text, options) {
-      const root = (0, unified_1.default)().use(remark_parse_1.default).use(remark_gfm_1.default).parse(text);
+      const root = (0, unified_1.default)().use(remark_parse_1.default).use(
+        remark_gfm_1.default,
+      ).parse(text);
       return (0, internal_1.parseRichText)(root, options);
     }
     exports.markdownToRichText = markdownToRichText;
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/common.js
@@ -9418,17 +10649,22 @@ var require_common2 = __commonJS({
       return typeof subject === "object" && subject !== null;
     }
     function toArray(sequence) {
-      if (Array.isArray(sequence))
+      if (Array.isArray(sequence)) {
         return sequence;
-      else if (isNothing(sequence))
+      } else if (isNothing(sequence)) {
         return [];
+      }
       return [sequence];
     }
     function extend(target, source) {
       var index, length, key, sourceKeys;
       if (source) {
         sourceKeys = Object.keys(source);
-        for (index = 0, length = sourceKeys.length; index < length; index += 1) {
+        for (
+          index = 0, length = sourceKeys.length;
+          index < length;
+          index += 1
+        ) {
           key = sourceKeys[index];
           target[key] = source[key];
         }
@@ -9451,7 +10687,7 @@ var require_common2 = __commonJS({
     module2.exports.repeat = repeat;
     module2.exports.isNegativeZero = isNegativeZero;
     module2.exports.extend = extend;
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/exception.js
@@ -9463,7 +10699,8 @@ var require_exception = __commonJS({
       this.name = "YAMLException";
       this.reason = reason;
       this.mark = mark;
-      this.message = (this.reason || "(unknown reason)") + (this.mark ? " " + this.mark.toString() : "");
+      this.message = (this.reason || "(unknown reason)") +
+        (this.mark ? " " + this.mark.toString() : "");
       if (Error.captureStackTrace) {
         Error.captureStackTrace(this, this.constructor);
       } else {
@@ -9481,7 +10718,7 @@ var require_exception = __commonJS({
       return result;
     };
     module2.exports = YAMLException;
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/mark.js
@@ -9498,13 +10735,17 @@ var require_mark = __commonJS({
     }
     Mark.prototype.getSnippet = function getSnippet(indent, maxLength) {
       var head, start, tail, end, snippet;
-      if (!this.buffer)
+      if (!this.buffer) {
         return null;
+      }
       indent = indent || 4;
       maxLength = maxLength || 75;
       head = "";
       start = this.position;
-      while (start > 0 && "\0\r\n\x85\u2028\u2029".indexOf(this.buffer.charAt(start - 1)) === -1) {
+      while (
+        start > 0 &&
+        "\0\r\n\x85\u2028\u2029".indexOf(this.buffer.charAt(start - 1)) === -1
+      ) {
         start -= 1;
         if (this.position - start > maxLength / 2 - 1) {
           head = " ... ";
@@ -9514,7 +10755,10 @@ var require_mark = __commonJS({
       }
       tail = "";
       end = this.position;
-      while (end < this.buffer.length && "\0\r\n\x85\u2028\u2029".indexOf(this.buffer.charAt(end)) === -1) {
+      while (
+        end < this.buffer.length &&
+        "\0\r\n\x85\u2028\u2029".indexOf(this.buffer.charAt(end)) === -1
+      ) {
         end += 1;
         if (end - this.position > maxLength / 2 - 1) {
           tail = " ... ";
@@ -9523,7 +10767,8 @@ var require_mark = __commonJS({
         }
       }
       snippet = this.buffer.slice(start, end);
-      return common.repeat(" ", indent) + head + snippet + tail + "\n" + common.repeat(" ", indent + this.position - start + head.length) + "^";
+      return common.repeat(" ", indent) + head + snippet + tail + "\n" +
+        common.repeat(" ", indent + this.position - start + head.length) + "^";
     };
     Mark.prototype.toString = function toString(compact) {
       var snippet, where = "";
@@ -9540,7 +10785,7 @@ var require_mark = __commonJS({
       return where;
     };
     module2.exports = Mark;
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type.js
@@ -9556,18 +10801,18 @@ var require_type = __commonJS({
       "predicate",
       "represent",
       "defaultStyle",
-      "styleAliases"
+      "styleAliases",
     ];
     var YAML_NODE_KINDS = [
       "scalar",
       "sequence",
-      "mapping"
+      "mapping",
     ];
     function compileStyleAliases(map2) {
       var result = {};
       if (map2 !== null) {
-        Object.keys(map2).forEach(function(style) {
-          map2[style].forEach(function(alias) {
+        Object.keys(map2).forEach(function (style) {
+          map2[style].forEach(function (alias) {
             result[String(alias)] = style;
           });
         });
@@ -9576,17 +10821,20 @@ var require_type = __commonJS({
     }
     function Type(tag, options) {
       options = options || {};
-      Object.keys(options).forEach(function(name) {
+      Object.keys(options).forEach(function (name) {
         if (TYPE_CONSTRUCTOR_OPTIONS.indexOf(name) === -1) {
-          throw new YAMLException('Unknown option "' + name + '" is met in definition of "' + tag + '" YAML type.');
+          throw new YAMLException(
+            'Unknown option "' + name + '" is met in definition of "' + tag +
+              '" YAML type.',
+          );
         }
       });
       this.tag = tag;
       this.kind = options["kind"] || null;
-      this.resolve = options["resolve"] || function() {
+      this.resolve = options["resolve"] || function () {
         return true;
       };
-      this.construct = options["construct"] || function(data) {
+      this.construct = options["construct"] || function (data) {
         return data;
       };
       this.instanceOf = options["instanceOf"] || null;
@@ -9595,11 +10843,14 @@ var require_type = __commonJS({
       this.defaultStyle = options["defaultStyle"] || null;
       this.styleAliases = compileStyleAliases(options["styleAliases"] || null);
       if (YAML_NODE_KINDS.indexOf(this.kind) === -1) {
-        throw new YAMLException('Unknown kind "' + this.kind + '" is specified for "' + tag + '" YAML type.');
+        throw new YAMLException(
+          'Unknown kind "' + this.kind + '" is specified for "' + tag +
+            '" YAML type.',
+        );
       }
     }
     module2.exports = Type;
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/schema.js
@@ -9611,28 +10862,33 @@ var require_schema = __commonJS({
     var Type = require_type();
     function compileList(schema4, name, result) {
       var exclude = [];
-      schema4.include.forEach(function(includedSchema) {
+      schema4.include.forEach(function (includedSchema) {
         result = compileList(includedSchema, name, result);
       });
-      schema4[name].forEach(function(currentType) {
-        result.forEach(function(previousType, previousIndex) {
-          if (previousType.tag === currentType.tag && previousType.kind === currentType.kind) {
+      schema4[name].forEach(function (currentType) {
+        result.forEach(function (previousType, previousIndex) {
+          if (
+            previousType.tag === currentType.tag &&
+            previousType.kind === currentType.kind
+          ) {
             exclude.push(previousIndex);
           }
         });
         result.push(currentType);
       });
-      return result.filter(function(type, index) {
+      return result.filter(function (type, index) {
         return exclude.indexOf(index) === -1;
       });
     }
     function compileMap() {
       var result = {
-        scalar: {},
-        sequence: {},
-        mapping: {},
-        fallback: {}
-      }, index, length;
+          scalar: {},
+          sequence: {},
+          mapping: {},
+          fallback: {},
+        },
+        index,
+        length;
       function collectType(type) {
         result[type.kind][type.tag] = result["fallback"][type.tag] = type;
       }
@@ -9645,14 +10901,19 @@ var require_schema = __commonJS({
       this.include = definition.include || [];
       this.implicit = definition.implicit || [];
       this.explicit = definition.explicit || [];
-      this.implicit.forEach(function(type) {
+      this.implicit.forEach(function (type) {
         if (type.loadKind && type.loadKind !== "scalar") {
-          throw new YAMLException("There is a non-scalar type in the implicit list of a schema. Implicit resolving of such types is not supported.");
+          throw new YAMLException(
+            "There is a non-scalar type in the implicit list of a schema. Implicit resolving of such types is not supported.",
+          );
         }
       });
       this.compiledImplicit = compileList(this, "implicit", []);
       this.compiledExplicit = compileList(this, "explicit", []);
-      this.compiledTypeMap = compileMap(this.compiledImplicit, this.compiledExplicit);
+      this.compiledTypeMap = compileMap(
+        this.compiledImplicit,
+        this.compiledExplicit,
+      );
     }
     Schema2.DEFAULT = null;
     Schema2.create = function createSchema() {
@@ -9667,27 +10928,37 @@ var require_schema = __commonJS({
           types = arguments[1];
           break;
         default:
-          throw new YAMLException("Wrong number of arguments for Schema.create function");
+          throw new YAMLException(
+            "Wrong number of arguments for Schema.create function",
+          );
       }
       schemas2 = common.toArray(schemas2);
       types = common.toArray(types);
-      if (!schemas2.every(function(schema4) {
-        return schema4 instanceof Schema2;
-      })) {
-        throw new YAMLException("Specified list of super schemas (or a single Schema object) contains a non-Schema object.");
+      if (
+        !schemas2.every(function (schema4) {
+          return schema4 instanceof Schema2;
+        })
+      ) {
+        throw new YAMLException(
+          "Specified list of super schemas (or a single Schema object) contains a non-Schema object.",
+        );
       }
-      if (!types.every(function(type) {
-        return type instanceof Type;
-      })) {
-        throw new YAMLException("Specified list of YAML types (or a single Type object) contains a non-Type object.");
+      if (
+        !types.every(function (type) {
+          return type instanceof Type;
+        })
+      ) {
+        throw new YAMLException(
+          "Specified list of YAML types (or a single Type object) contains a non-Type object.",
+        );
       }
       return new Schema2({
         include: schemas2,
-        explicit: types
+        explicit: types,
       });
     };
     module2.exports = Schema2;
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/str.js
@@ -9697,11 +10968,11 @@ var require_str = __commonJS({
     var Type = require_type();
     module2.exports = new Type("tag:yaml.org,2002:str", {
       kind: "scalar",
-      construct: function(data) {
+      construct: function (data) {
         return data !== null ? data : "";
-      }
+      },
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/seq.js
@@ -9711,11 +10982,11 @@ var require_seq = __commonJS({
     var Type = require_type();
     module2.exports = new Type("tag:yaml.org,2002:seq", {
       kind: "sequence",
-      construct: function(data) {
+      construct: function (data) {
         return data !== null ? data : [];
-      }
+      },
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/map.js
@@ -9725,11 +10996,11 @@ var require_map = __commonJS({
     var Type = require_type();
     module2.exports = new Type("tag:yaml.org,2002:map", {
       kind: "mapping",
-      construct: function(data) {
+      construct: function (data) {
         return data !== null ? data : {};
-      }
+      },
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/schema/failsafe.js
@@ -9741,10 +11012,10 @@ var require_failsafe = __commonJS({
       explicit: [
         require_str(),
         require_seq(),
-        require_map()
-      ]
+        require_map(),
+      ],
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/null.js
@@ -9753,10 +11024,12 @@ var require_null = __commonJS({
     "use strict";
     var Type = require_type();
     function resolveYamlNull(data) {
-      if (data === null)
+      if (data === null) {
         return true;
+      }
       var max = data.length;
-      return max === 1 && data === "~" || max === 4 && (data === "null" || data === "Null" || data === "NULL");
+      return max === 1 && data === "~" ||
+        max === 4 && (data === "null" || data === "Null" || data === "NULL");
     }
     function constructYamlNull() {
       return null;
@@ -9770,22 +11043,22 @@ var require_null = __commonJS({
       construct: constructYamlNull,
       predicate: isNull,
       represent: {
-        canonical: function() {
+        canonical: function () {
           return "~";
         },
-        lowercase: function() {
+        lowercase: function () {
           return "null";
         },
-        uppercase: function() {
+        uppercase: function () {
           return "NULL";
         },
-        camelcase: function() {
+        camelcase: function () {
           return "Null";
-        }
+        },
       },
-      defaultStyle: "lowercase"
+      defaultStyle: "lowercase",
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/bool.js
@@ -9794,10 +11067,13 @@ var require_bool = __commonJS({
     "use strict";
     var Type = require_type();
     function resolveYamlBoolean(data) {
-      if (data === null)
+      if (data === null) {
         return false;
+      }
       var max = data.length;
-      return max === 4 && (data === "true" || data === "True" || data === "TRUE") || max === 5 && (data === "false" || data === "False" || data === "FALSE");
+      return max === 4 &&
+          (data === "true" || data === "True" || data === "TRUE") ||
+        max === 5 && (data === "false" || data === "False" || data === "FALSE");
     }
     function constructYamlBoolean(data) {
       return data === "true" || data === "True" || data === "TRUE";
@@ -9811,19 +11087,19 @@ var require_bool = __commonJS({
       construct: constructYamlBoolean,
       predicate: isBoolean,
       represent: {
-        lowercase: function(object) {
+        lowercase: function (object) {
           return object ? "true" : "false";
         },
-        uppercase: function(object) {
+        uppercase: function (object) {
           return object ? "TRUE" : "FALSE";
         },
-        camelcase: function(object) {
+        camelcase: function (object) {
           return object ? "True" : "False";
-        }
+        },
       },
-      defaultStyle: "lowercase"
+      defaultStyle: "lowercase",
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/int.js
@@ -9842,27 +11118,32 @@ var require_int = __commonJS({
       return 48 <= c && c <= 57;
     }
     function resolveYamlInteger(data) {
-      if (data === null)
+      if (data === null) {
         return false;
+      }
       var max = data.length, index = 0, hasDigits = false, ch;
-      if (!max)
+      if (!max) {
         return false;
+      }
       ch = data[index];
       if (ch === "-" || ch === "+") {
         ch = data[++index];
       }
       if (ch === "0") {
-        if (index + 1 === max)
+        if (index + 1 === max) {
           return true;
+        }
         ch = data[++index];
         if (ch === "b") {
           index++;
           for (; index < max; index++) {
             ch = data[index];
-            if (ch === "_")
+            if (ch === "_") {
               continue;
-            if (ch !== "0" && ch !== "1")
+            }
+            if (ch !== "0" && ch !== "1") {
               return false;
+            }
             hasDigits = true;
           }
           return hasDigits && ch !== "_";
@@ -9871,41 +11152,50 @@ var require_int = __commonJS({
           index++;
           for (; index < max; index++) {
             ch = data[index];
-            if (ch === "_")
+            if (ch === "_") {
               continue;
-            if (!isHexCode(data.charCodeAt(index)))
+            }
+            if (!isHexCode(data.charCodeAt(index))) {
               return false;
+            }
             hasDigits = true;
           }
           return hasDigits && ch !== "_";
         }
         for (; index < max; index++) {
           ch = data[index];
-          if (ch === "_")
+          if (ch === "_") {
             continue;
-          if (!isOctCode(data.charCodeAt(index)))
+          }
+          if (!isOctCode(data.charCodeAt(index))) {
             return false;
+          }
           hasDigits = true;
         }
         return hasDigits && ch !== "_";
       }
-      if (ch === "_")
+      if (ch === "_") {
         return false;
+      }
       for (; index < max; index++) {
         ch = data[index];
-        if (ch === "_")
+        if (ch === "_") {
           continue;
-        if (ch === ":")
+        }
+        if (ch === ":") {
           break;
+        }
         if (!isDecCode(data.charCodeAt(index))) {
           return false;
         }
         hasDigits = true;
       }
-      if (!hasDigits || ch === "_")
+      if (!hasDigits || ch === "_") {
         return false;
-      if (ch !== ":")
+      }
+      if (ch !== ":") {
         return true;
+      }
       return /^(:[0-5]?[0-9])+$/.test(data.slice(index));
     }
     function constructYamlInteger(data) {
@@ -9915,27 +11205,31 @@ var require_int = __commonJS({
       }
       ch = value[0];
       if (ch === "-" || ch === "+") {
-        if (ch === "-")
+        if (ch === "-") {
           sign = -1;
+        }
         value = value.slice(1);
         ch = value[0];
       }
-      if (value === "0")
+      if (value === "0") {
         return 0;
+      }
       if (ch === "0") {
-        if (value[1] === "b")
+        if (value[1] === "b") {
           return sign * parseInt(value.slice(2), 2);
-        if (value[1] === "x")
+        }
+        if (value[1] === "x") {
           return sign * parseInt(value, 16);
+        }
         return sign * parseInt(value, 8);
       }
       if (value.indexOf(":") !== -1) {
-        value.split(":").forEach(function(v) {
+        value.split(":").forEach(function (v) {
           digits.unshift(parseInt(v, 10));
         });
         value = 0;
         base = 1;
-        digits.forEach(function(d) {
+        digits.forEach(function (d) {
           value += d * base;
           base *= 60;
         });
@@ -9944,7 +11238,8 @@ var require_int = __commonJS({
       return sign * parseInt(value, 10);
     }
     function isInteger(object) {
-      return Object.prototype.toString.call(object) === "[object Number]" && (object % 1 === 0 && !common.isNegativeZero(object));
+      return Object.prototype.toString.call(object) === "[object Number]" &&
+        (object % 1 === 0 && !common.isNegativeZero(object));
     }
     module2.exports = new Type("tag:yaml.org,2002:int", {
       kind: "scalar",
@@ -9952,28 +11247,34 @@ var require_int = __commonJS({
       construct: constructYamlInteger,
       predicate: isInteger,
       represent: {
-        binary: function(obj) {
-          return obj >= 0 ? "0b" + obj.toString(2) : "-0b" + obj.toString(2).slice(1);
+        binary: function (obj) {
+          return obj >= 0
+            ? "0b" + obj.toString(2)
+            : "-0b" + obj.toString(2).slice(1);
         },
-        octal: function(obj) {
-          return obj >= 0 ? "0" + obj.toString(8) : "-0" + obj.toString(8).slice(1);
+        octal: function (obj) {
+          return obj >= 0
+            ? "0" + obj.toString(8)
+            : "-0" + obj.toString(8).slice(1);
         },
-        decimal: function(obj) {
+        decimal: function (obj) {
           return obj.toString(10);
         },
-        hexadecimal: function(obj) {
-          return obj >= 0 ? "0x" + obj.toString(16).toUpperCase() : "-0x" + obj.toString(16).toUpperCase().slice(1);
-        }
+        hexadecimal: function (obj) {
+          return obj >= 0
+            ? "0x" + obj.toString(16).toUpperCase()
+            : "-0x" + obj.toString(16).toUpperCase().slice(1);
+        },
       },
       defaultStyle: "decimal",
       styleAliases: {
         binary: [2, "bin"],
         octal: [8, "oct"],
         decimal: [10, "dec"],
-        hexadecimal: [16, "hex"]
-      }
+        hexadecimal: [16, "hex"],
+      },
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/float.js
@@ -9982,10 +11283,13 @@ var require_float = __commonJS({
     "use strict";
     var common = require_common2();
     var Type = require_type();
-    var YAML_FLOAT_PATTERN = new RegExp("^(?:[-+]?(?:0|[1-9][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9_]+(?:[eE][-+]?[0-9]+)?|[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+\\.[0-9_]*|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$");
+    var YAML_FLOAT_PATTERN = new RegExp(
+      "^(?:[-+]?(?:0|[1-9][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9_]+(?:[eE][-+]?[0-9]+)?|[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+\\.[0-9_]*|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$",
+    );
     function resolveYamlFloat(data) {
-      if (data === null)
+      if (data === null) {
         return false;
+      }
       if (!YAML_FLOAT_PATTERN.test(data) || data[data.length - 1] === "_") {
         return false;
       }
@@ -10004,12 +11308,12 @@ var require_float = __commonJS({
       } else if (value === ".nan") {
         return NaN;
       } else if (value.indexOf(":") >= 0) {
-        value.split(":").forEach(function(v) {
+        value.split(":").forEach(function (v) {
           digits.unshift(parseFloat(v, 10));
         });
         value = 0;
         base = 1;
-        digits.forEach(function(d) {
+        digits.forEach(function (d) {
           value += d * base;
           base *= 60;
         });
@@ -10054,7 +11358,8 @@ var require_float = __commonJS({
       return SCIENTIFIC_WITHOUT_DOT.test(res) ? res.replace("e", ".e") : res;
     }
     function isFloat(object) {
-      return Object.prototype.toString.call(object) === "[object Number]" && (object % 1 !== 0 || common.isNegativeZero(object));
+      return Object.prototype.toString.call(object) === "[object Number]" &&
+        (object % 1 !== 0 || common.isNegativeZero(object));
     }
     module2.exports = new Type("tag:yaml.org,2002:float", {
       kind: "scalar",
@@ -10062,9 +11367,9 @@ var require_float = __commonJS({
       construct: constructYamlFloat,
       predicate: isFloat,
       represent: representYamlFloat,
-      defaultStyle: "lowercase"
+      defaultStyle: "lowercase",
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/schema/json.js
@@ -10074,16 +11379,16 @@ var require_json = __commonJS({
     var Schema2 = require_schema();
     module2.exports = new Schema2({
       include: [
-        require_failsafe()
+        require_failsafe(),
       ],
       implicit: [
         require_null(),
         require_bool(),
         require_int(),
-        require_float()
-      ]
+        require_float(),
+      ],
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/schema/core.js
@@ -10093,10 +11398,10 @@ var require_core2 = __commonJS({
     var Schema2 = require_schema();
     module2.exports = new Schema2({
       include: [
-        require_json()
-      ]
+        require_json(),
+      ],
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/timestamp.js
@@ -10104,24 +11409,44 @@ var require_timestamp = __commonJS({
   "node_modules/js-yaml/lib/js-yaml/type/timestamp.js"(exports, module2) {
     "use strict";
     var Type = require_type();
-    var YAML_DATE_REGEXP = new RegExp("^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$");
-    var YAML_TIMESTAMP_REGEXP = new RegExp("^([0-9][0-9][0-9][0-9])-([0-9][0-9]?)-([0-9][0-9]?)(?:[Tt]|[ \\t]+)([0-9][0-9]?):([0-9][0-9]):([0-9][0-9])(?:\\.([0-9]*))?(?:[ \\t]*(Z|([-+])([0-9][0-9]?)(?::([0-9][0-9]))?))?$");
+    var YAML_DATE_REGEXP = new RegExp(
+      "^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$",
+    );
+    var YAML_TIMESTAMP_REGEXP = new RegExp(
+      "^([0-9][0-9][0-9][0-9])-([0-9][0-9]?)-([0-9][0-9]?)(?:[Tt]|[ \\t]+)([0-9][0-9]?):([0-9][0-9]):([0-9][0-9])(?:\\.([0-9]*))?(?:[ \\t]*(Z|([-+])([0-9][0-9]?)(?::([0-9][0-9]))?))?$",
+    );
     function resolveYamlTimestamp(data) {
-      if (data === null)
+      if (data === null) {
         return false;
-      if (YAML_DATE_REGEXP.exec(data) !== null)
+      }
+      if (YAML_DATE_REGEXP.exec(data) !== null) {
         return true;
-      if (YAML_TIMESTAMP_REGEXP.exec(data) !== null)
+      }
+      if (YAML_TIMESTAMP_REGEXP.exec(data) !== null) {
         return true;
+      }
       return false;
     }
     function constructYamlTimestamp(data) {
-      var match, year, month, day, hour, minute, second, fraction = 0, delta = null, tz_hour, tz_minute, date;
+      var match,
+        year,
+        month,
+        day,
+        hour,
+        minute,
+        second,
+        fraction = 0,
+        delta = null,
+        tz_hour,
+        tz_minute,
+        date;
       match = YAML_DATE_REGEXP.exec(data);
-      if (match === null)
+      if (match === null) {
         match = YAML_TIMESTAMP_REGEXP.exec(data);
-      if (match === null)
+      }
+      if (match === null) {
         throw new Error("Date resolve error");
+      }
       year = +match[1];
       month = +match[2] - 1;
       day = +match[3];
@@ -10142,12 +11467,16 @@ var require_timestamp = __commonJS({
         tz_hour = +match[10];
         tz_minute = +(match[11] || 0);
         delta = (tz_hour * 60 + tz_minute) * 6e4;
-        if (match[9] === "-")
+        if (match[9] === "-") {
           delta = -delta;
+        }
       }
-      date = new Date(Date.UTC(year, month, day, hour, minute, second, fraction));
-      if (delta)
+      date = new Date(
+        Date.UTC(year, month, day, hour, minute, second, fraction),
+      );
+      if (delta) {
         date.setTime(date.getTime() - delta);
+      }
       return date;
     }
     function representYamlTimestamp(object) {
@@ -10158,9 +11487,9 @@ var require_timestamp = __commonJS({
       resolve: resolveYamlTimestamp,
       construct: constructYamlTimestamp,
       instanceOf: Date,
-      represent: representYamlTimestamp
+      represent: representYamlTimestamp,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/merge.js
@@ -10173,9 +11502,9 @@ var require_merge = __commonJS({
     }
     module2.exports = new Type("tag:yaml.org,2002:merge", {
       kind: "scalar",
-      resolve: resolveYamlMerge
+      resolve: resolveYamlMerge,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/binary.js
@@ -10190,23 +11519,33 @@ var require_binary = __commonJS({
     }
     var _require;
     var Type = require_type();
-    var BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
+    var BASE64_MAP =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
     function resolveYamlBinary(data) {
-      if (data === null)
+      if (data === null) {
         return false;
+      }
       var code, idx, bitlen = 0, max = data.length, map2 = BASE64_MAP;
       for (idx = 0; idx < max; idx++) {
         code = map2.indexOf(data.charAt(idx));
-        if (code > 64)
+        if (code > 64) {
           continue;
-        if (code < 0)
+        }
+        if (code < 0) {
           return false;
+        }
         bitlen += 6;
       }
       return bitlen % 8 === 0;
     }
     function constructYamlBinary(data) {
-      var idx, tailbits, input = data.replace(/[\r\n=]/g, ""), max = input.length, map2 = BASE64_MAP, bits = 0, result = [];
+      var idx,
+        tailbits,
+        input = data.replace(/[\r\n=]/g, ""),
+        max = input.length,
+        map2 = BASE64_MAP,
+        bits = 0,
+        result = [];
       for (idx = 0; idx < max; idx++) {
         if (idx % 4 === 0 && idx) {
           result.push(bits >> 16 & 255);
@@ -10227,12 +11566,19 @@ var require_binary = __commonJS({
         result.push(bits >> 4 & 255);
       }
       if (NodeBuffer) {
-        return NodeBuffer.from ? NodeBuffer.from(result) : new NodeBuffer(result);
+        return NodeBuffer.from
+          ? NodeBuffer.from(result)
+          : new NodeBuffer(result);
       }
       return result;
     }
     function representYamlBinary(object) {
-      var result = "", bits = 0, idx, tail, max = object.length, map2 = BASE64_MAP;
+      var result = "",
+        bits = 0,
+        idx,
+        tail,
+        max = object.length,
+        map2 = BASE64_MAP;
       for (idx = 0; idx < max; idx++) {
         if (idx % 3 === 0 && idx) {
           result += map2[bits >> 18 & 63];
@@ -10269,9 +11615,9 @@ var require_binary = __commonJS({
       resolve: resolveYamlBinary,
       construct: constructYamlBinary,
       predicate: isBinary,
-      represent: representYamlBinary
+      represent: representYamlBinary,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/omap.js
@@ -10282,28 +11628,39 @@ var require_omap = __commonJS({
     var _hasOwnProperty = Object.prototype.hasOwnProperty;
     var _toString = Object.prototype.toString;
     function resolveYamlOmap(data) {
-      if (data === null)
+      if (data === null) {
         return true;
-      var objectKeys = [], index, length, pair, pairKey, pairHasKey, object = data;
+      }
+      var objectKeys = [],
+        index,
+        length,
+        pair,
+        pairKey,
+        pairHasKey,
+        object = data;
       for (index = 0, length = object.length; index < length; index += 1) {
         pair = object[index];
         pairHasKey = false;
-        if (_toString.call(pair) !== "[object Object]")
+        if (_toString.call(pair) !== "[object Object]") {
           return false;
+        }
         for (pairKey in pair) {
           if (_hasOwnProperty.call(pair, pairKey)) {
-            if (!pairHasKey)
+            if (!pairHasKey) {
               pairHasKey = true;
-            else
+            } else {
               return false;
+            }
           }
         }
-        if (!pairHasKey)
+        if (!pairHasKey) {
           return false;
-        if (objectKeys.indexOf(pairKey) === -1)
+        }
+        if (objectKeys.indexOf(pairKey) === -1) {
           objectKeys.push(pairKey);
-        else
+        } else {
           return false;
+        }
       }
       return true;
     }
@@ -10313,9 +11670,9 @@ var require_omap = __commonJS({
     module2.exports = new Type("tag:yaml.org,2002:omap", {
       kind: "sequence",
       resolve: resolveYamlOmap,
-      construct: constructYamlOmap
+      construct: constructYamlOmap,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/pairs.js
@@ -10325,24 +11682,28 @@ var require_pairs = __commonJS({
     var Type = require_type();
     var _toString = Object.prototype.toString;
     function resolveYamlPairs(data) {
-      if (data === null)
+      if (data === null) {
         return true;
+      }
       var index, length, pair, keys, result, object = data;
       result = new Array(object.length);
       for (index = 0, length = object.length; index < length; index += 1) {
         pair = object[index];
-        if (_toString.call(pair) !== "[object Object]")
+        if (_toString.call(pair) !== "[object Object]") {
           return false;
+        }
         keys = Object.keys(pair);
-        if (keys.length !== 1)
+        if (keys.length !== 1) {
           return false;
+        }
         result[index] = [keys[0], pair[keys[0]]];
       }
       return true;
     }
     function constructYamlPairs(data) {
-      if (data === null)
+      if (data === null) {
         return [];
+      }
       var index, length, pair, keys, result, object = data;
       result = new Array(object.length);
       for (index = 0, length = object.length; index < length; index += 1) {
@@ -10355,9 +11716,9 @@ var require_pairs = __commonJS({
     module2.exports = new Type("tag:yaml.org,2002:pairs", {
       kind: "sequence",
       resolve: resolveYamlPairs,
-      construct: constructYamlPairs
+      construct: constructYamlPairs,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/set.js
@@ -10367,13 +11728,15 @@ var require_set = __commonJS({
     var Type = require_type();
     var _hasOwnProperty = Object.prototype.hasOwnProperty;
     function resolveYamlSet(data) {
-      if (data === null)
+      if (data === null) {
         return true;
+      }
       var key, object = data;
       for (key in object) {
         if (_hasOwnProperty.call(object, key)) {
-          if (object[key] !== null)
+          if (object[key] !== null) {
             return false;
+          }
         }
       }
       return true;
@@ -10384,9 +11747,9 @@ var require_set = __commonJS({
     module2.exports = new Type("tag:yaml.org,2002:set", {
       kind: "mapping",
       resolve: resolveYamlSet,
-      construct: constructYamlSet
+      construct: constructYamlSet,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/schema/default_safe.js
@@ -10396,20 +11759,20 @@ var require_default_safe = __commonJS({
     var Schema2 = require_schema();
     module2.exports = new Schema2({
       include: [
-        require_core2()
+        require_core2(),
       ],
       implicit: [
         require_timestamp(),
-        require_merge()
+        require_merge(),
       ],
       explicit: [
         require_binary(),
         require_omap(),
         require_pairs(),
-        require_set()
-      ]
+        require_set(),
+      ],
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/js/undefined.js
@@ -10434,9 +11797,9 @@ var require_undefined = __commonJS({
       resolve: resolveJavascriptUndefined,
       construct: constructJavascriptUndefined,
       predicate: isUndefined,
-      represent: representJavascriptUndefined
+      represent: representJavascriptUndefined,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/js/regexp.js
@@ -10445,38 +11808,47 @@ var require_regexp = __commonJS({
     "use strict";
     var Type = require_type();
     function resolveJavascriptRegExp(data) {
-      if (data === null)
+      if (data === null) {
         return false;
-      if (data.length === 0)
+      }
+      if (data.length === 0) {
         return false;
+      }
       var regexp = data, tail = /\/([gim]*)$/.exec(data), modifiers = "";
       if (regexp[0] === "/") {
-        if (tail)
+        if (tail) {
           modifiers = tail[1];
-        if (modifiers.length > 3)
+        }
+        if (modifiers.length > 3) {
           return false;
-        if (regexp[regexp.length - modifiers.length - 1] !== "/")
+        }
+        if (regexp[regexp.length - modifiers.length - 1] !== "/") {
           return false;
+        }
       }
       return true;
     }
     function constructJavascriptRegExp(data) {
       var regexp = data, tail = /\/([gim]*)$/.exec(data), modifiers = "";
       if (regexp[0] === "/") {
-        if (tail)
+        if (tail) {
           modifiers = tail[1];
+        }
         regexp = regexp.slice(1, regexp.length - modifiers.length - 1);
       }
       return new RegExp(regexp, modifiers);
     }
     function representJavascriptRegExp(object) {
       var result = "/" + object.source + "/";
-      if (object.global)
+      if (object.global) {
         result += "g";
-      if (object.multiline)
+      }
+      if (object.multiline) {
         result += "m";
-      if (object.ignoreCase)
+      }
+      if (object.ignoreCase) {
         result += "i";
+      }
       return result;
     }
     function isRegExp(object) {
@@ -10487,9 +11859,9 @@ var require_regexp = __commonJS({
       resolve: resolveJavascriptRegExp,
       construct: constructJavascriptRegExp,
       predicate: isRegExp,
-      represent: representJavascriptRegExp
+      represent: representJavascriptRegExp,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/type/js/function.js
@@ -10501,17 +11873,25 @@ var require_function = __commonJS({
       _require = require;
       esprima = _require("esprima");
     } catch (_) {
-      if (typeof window !== "undefined")
+      if (typeof window !== "undefined") {
         esprima = window.esprima;
+      }
     }
     var _require;
     var Type = require_type();
     function resolveJavascriptFunction(data) {
-      if (data === null)
+      if (data === null) {
         return false;
+      }
       try {
-        var source = "(" + data + ")", ast = esprima.parse(source, { range: true });
-        if (ast.type !== "Program" || ast.body.length !== 1 || ast.body[0].type !== "ExpressionStatement" || ast.body[0].expression.type !== "ArrowFunctionExpression" && ast.body[0].expression.type !== "FunctionExpression") {
+        var source = "(" + data + ")",
+          ast = esprima.parse(source, { range: true });
+        if (
+          ast.type !== "Program" || ast.body.length !== 1 ||
+          ast.body[0].type !== "ExpressionStatement" ||
+          ast.body[0].expression.type !== "ArrowFunctionExpression" &&
+            ast.body[0].expression.type !== "FunctionExpression"
+        ) {
           return false;
         }
         return true;
@@ -10520,11 +11900,19 @@ var require_function = __commonJS({
       }
     }
     function constructJavascriptFunction(data) {
-      var source = "(" + data + ")", ast = esprima.parse(source, { range: true }), params = [], body;
-      if (ast.type !== "Program" || ast.body.length !== 1 || ast.body[0].type !== "ExpressionStatement" || ast.body[0].expression.type !== "ArrowFunctionExpression" && ast.body[0].expression.type !== "FunctionExpression") {
+      var source = "(" + data + ")",
+        ast = esprima.parse(source, { range: true }),
+        params = [],
+        body;
+      if (
+        ast.type !== "Program" || ast.body.length !== 1 ||
+        ast.body[0].type !== "ExpressionStatement" ||
+        ast.body[0].expression.type !== "ArrowFunctionExpression" &&
+          ast.body[0].expression.type !== "FunctionExpression"
+      ) {
         throw new Error("Failed to resolve function");
       }
-      ast.body[0].expression.params.forEach(function(param) {
+      ast.body[0].expression.params.forEach(function (param) {
         params.push(param.name);
       });
       body = ast.body[0].expression.body.range;
@@ -10544,9 +11932,9 @@ var require_function = __commonJS({
       resolve: resolveJavascriptFunction,
       construct: constructJavascriptFunction,
       predicate: isFunction,
-      represent: representJavascriptFunction
+      represent: representJavascriptFunction,
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/schema/default_full.js
@@ -10556,15 +11944,15 @@ var require_default_full = __commonJS({
     var Schema2 = require_schema();
     module2.exports = Schema2.DEFAULT = new Schema2({
       include: [
-        require_default_safe()
+        require_default_safe(),
       ],
       explicit: [
         require_undefined(),
         require_regexp(),
-        require_function()
-      ]
+        require_function(),
+      ],
     });
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/loader.js
@@ -10584,11 +11972,13 @@ var require_loader = __commonJS({
     var CHOMPING_CLIP = 1;
     var CHOMPING_STRIP = 2;
     var CHOMPING_KEEP = 3;
-    var PATTERN_NON_PRINTABLE = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+    var PATTERN_NON_PRINTABLE =
+      /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
     var PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
     var PATTERN_FLOW_INDICATORS = /[,\[\]\{\}]/;
     var PATTERN_TAG_HANDLE = /^(?:!|!!|![a-z\-]+!)$/i;
-    var PATTERN_TAG_URI = /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
+    var PATTERN_TAG_URI =
+      /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
     function _class(obj) {
       return Object.prototype.toString.call(obj);
     }
@@ -10634,13 +12024,52 @@ var require_loader = __commonJS({
       return -1;
     }
     function simpleEscapeSequence(c) {
-      return c === 48 ? "\0" : c === 97 ? "\x07" : c === 98 ? "\b" : c === 116 ? "	" : c === 9 ? "	" : c === 110 ? "\n" : c === 118 ? "\v" : c === 102 ? "\f" : c === 114 ? "\r" : c === 101 ? "" : c === 32 ? " " : c === 34 ? '"' : c === 47 ? "/" : c === 92 ? "\\" : c === 78 ? "\x85" : c === 95 ? "\xA0" : c === 76 ? "\u2028" : c === 80 ? "\u2029" : "";
+      return c === 48
+        ? "\0"
+        : c === 97
+        ? "\x07"
+        : c === 98
+        ? "\b"
+        : c === 116
+        ? "	"
+        : c === 9
+        ? "	"
+        : c === 110
+        ? "\n"
+        : c === 118
+        ? "\v"
+        : c === 102
+        ? "\f"
+        : c === 114
+        ? "\r"
+        : c === 101
+        ? ""
+        : c === 32
+        ? " "
+        : c === 34
+        ? '"'
+        : c === 47
+        ? "/"
+        : c === 92
+        ? "\\"
+        : c === 78
+        ? "\x85"
+        : c === 95
+        ? "\xA0"
+        : c === 76
+        ? "\u2028"
+        : c === 80
+        ? "\u2029"
+        : "";
     }
     function charFromCodepoint(c) {
       if (c <= 65535) {
         return String.fromCharCode(c);
       }
-      return String.fromCharCode((c - 65536 >> 10) + 55296, (c - 65536 & 1023) + 56320);
+      return String.fromCharCode(
+        (c - 65536 >> 10) + 55296,
+        (c - 65536 & 1023) + 56320,
+      );
     }
     var simpleEscapeCheck = new Array(256);
     var simpleEscapeMap = new Array(256);
@@ -10667,7 +12096,16 @@ var require_loader = __commonJS({
       this.documents = [];
     }
     function generateError(state, message) {
-      return new YAMLException(message, new Mark(state.filename, state.input, state.position, state.line, state.position - state.lineStart));
+      return new YAMLException(
+        message,
+        new Mark(
+          state.filename,
+          state.input,
+          state.position,
+          state.line,
+          state.position - state.lineStart,
+        ),
+      );
     }
     function throwError(state, message) {
       throw generateError(state, message);
@@ -10709,25 +12147,41 @@ var require_loader = __commonJS({
         handle = args[0];
         prefix = args[1];
         if (!PATTERN_TAG_HANDLE.test(handle)) {
-          throwError(state, "ill-formed tag handle (first argument) of the TAG directive");
+          throwError(
+            state,
+            "ill-formed tag handle (first argument) of the TAG directive",
+          );
         }
         if (_hasOwnProperty.call(state.tagMap, handle)) {
-          throwError(state, 'there is a previously declared suffix for "' + handle + '" tag handle');
+          throwError(
+            state,
+            'there is a previously declared suffix for "' + handle +
+              '" tag handle',
+          );
         }
         if (!PATTERN_TAG_URI.test(prefix)) {
-          throwError(state, "ill-formed tag prefix (second argument) of the TAG directive");
+          throwError(
+            state,
+            "ill-formed tag prefix (second argument) of the TAG directive",
+          );
         }
         state.tagMap[handle] = prefix;
-      }
+      },
     };
     function captureSegment(state, start, end, checkJson) {
       var _position, _length, _character, _result;
       if (start < end) {
         _result = state.input.slice(start, end);
         if (checkJson) {
-          for (_position = 0, _length = _result.length; _position < _length; _position += 1) {
+          for (
+            _position = 0, _length = _result.length;
+            _position < _length;
+            _position += 1
+          ) {
             _character = _result.charCodeAt(_position);
-            if (!(_character === 9 || 32 <= _character && _character <= 1114111)) {
+            if (
+              !(_character === 9 || 32 <= _character && _character <= 1114111)
+            ) {
               throwError(state, "expected valid JSON character");
             }
           }
@@ -10740,10 +12194,17 @@ var require_loader = __commonJS({
     function mergeMappings(state, destination, source, overridableKeys) {
       var sourceKeys, key, index, quantity;
       if (!common.isObject(source)) {
-        throwError(state, "cannot merge mappings; the provided source object is unacceptable");
+        throwError(
+          state,
+          "cannot merge mappings; the provided source object is unacceptable",
+        );
       }
       sourceKeys = Object.keys(source);
-      for (index = 0, quantity = sourceKeys.length; index < quantity; index += 1) {
+      for (
+        index = 0, quantity = sourceKeys.length;
+        index < quantity;
+        index += 1
+      ) {
         key = sourceKeys[index];
         if (!_hasOwnProperty.call(destination, key)) {
           destination[key] = source[key];
@@ -10751,20 +12212,38 @@ var require_loader = __commonJS({
         }
       }
     }
-    function storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode, startLine, startPos) {
+    function storeMappingPair(
+      state,
+      _result,
+      overridableKeys,
+      keyTag,
+      keyNode,
+      valueNode,
+      startLine,
+      startPos,
+    ) {
       var index, quantity;
       if (Array.isArray(keyNode)) {
         keyNode = Array.prototype.slice.call(keyNode);
-        for (index = 0, quantity = keyNode.length; index < quantity; index += 1) {
+        for (
+          index = 0, quantity = keyNode.length;
+          index < quantity;
+          index += 1
+        ) {
           if (Array.isArray(keyNode[index])) {
             throwError(state, "nested arrays are not supported inside keys");
           }
-          if (typeof keyNode === "object" && _class(keyNode[index]) === "[object Object]") {
+          if (
+            typeof keyNode === "object" &&
+            _class(keyNode[index]) === "[object Object]"
+          ) {
             keyNode[index] = "[object Object]";
           }
         }
       }
-      if (typeof keyNode === "object" && _class(keyNode) === "[object Object]") {
+      if (
+        typeof keyNode === "object" && _class(keyNode) === "[object Object]"
+      ) {
         keyNode = "[object Object]";
       }
       keyNode = String(keyNode);
@@ -10773,14 +12252,21 @@ var require_loader = __commonJS({
       }
       if (keyTag === "tag:yaml.org,2002:merge") {
         if (Array.isArray(valueNode)) {
-          for (index = 0, quantity = valueNode.length; index < quantity; index += 1) {
+          for (
+            index = 0, quantity = valueNode.length;
+            index < quantity;
+            index += 1
+          ) {
             mergeMappings(state, _result, valueNode[index], overridableKeys);
           }
         } else {
           mergeMappings(state, _result, valueNode, overridableKeys);
         }
       } else {
-        if (!state.json && !_hasOwnProperty.call(overridableKeys, keyNode) && _hasOwnProperty.call(_result, keyNode)) {
+        if (
+          !state.json && !_hasOwnProperty.call(overridableKeys, keyNode) &&
+          _hasOwnProperty.call(_result, keyNode)
+        ) {
           state.line = startLine || state.line;
           state.position = startPos || state.position;
           throwError(state, "duplicated mapping key");
@@ -10830,7 +12316,9 @@ var require_loader = __commonJS({
           break;
         }
       }
-      if (checkIndent !== -1 && lineBreaks !== 0 && state.lineIndent < checkIndent) {
+      if (
+        checkIndent !== -1 && lineBreaks !== 0 && state.lineIndent < checkIndent
+      ) {
         throwWarning(state, "deficient indentation");
       }
       return lineBreaks;
@@ -10838,7 +12326,11 @@ var require_loader = __commonJS({
     function testDocumentSeparator(state) {
       var _position = state.position, ch;
       ch = state.input.charCodeAt(_position);
-      if ((ch === 45 || ch === 46) && ch === state.input.charCodeAt(_position + 1) && ch === state.input.charCodeAt(_position + 2)) {
+      if (
+        (ch === 45 || ch === 46) &&
+        ch === state.input.charCodeAt(_position + 1) &&
+        ch === state.input.charCodeAt(_position + 2)
+      ) {
         _position += 3;
         ch = state.input.charCodeAt(_position);
         if (ch === 0 || is_WS_OR_EOL(ch)) {
@@ -10855,14 +12347,31 @@ var require_loader = __commonJS({
       }
     }
     function readPlainScalar(state, nodeIndent, withinFlowCollection) {
-      var preceding, following, captureStart, captureEnd, hasPendingContent, _line, _lineStart, _lineIndent, _kind = state.kind, _result = state.result, ch;
+      var preceding,
+        following,
+        captureStart,
+        captureEnd,
+        hasPendingContent,
+        _line,
+        _lineStart,
+        _lineIndent,
+        _kind = state.kind,
+        _result = state.result,
+        ch;
       ch = state.input.charCodeAt(state.position);
-      if (is_WS_OR_EOL(ch) || is_FLOW_INDICATOR(ch) || ch === 35 || ch === 38 || ch === 42 || ch === 33 || ch === 124 || ch === 62 || ch === 39 || ch === 34 || ch === 37 || ch === 64 || ch === 96) {
+      if (
+        is_WS_OR_EOL(ch) || is_FLOW_INDICATOR(ch) || ch === 35 || ch === 38 ||
+        ch === 42 || ch === 33 || ch === 124 || ch === 62 || ch === 39 ||
+        ch === 34 || ch === 37 || ch === 64 || ch === 96
+      ) {
         return false;
       }
       if (ch === 63 || ch === 45) {
         following = state.input.charCodeAt(state.position + 1);
-        if (is_WS_OR_EOL(following) || withinFlowCollection && is_FLOW_INDICATOR(following)) {
+        if (
+          is_WS_OR_EOL(following) ||
+          withinFlowCollection && is_FLOW_INDICATOR(following)
+        ) {
           return false;
         }
       }
@@ -10873,7 +12382,10 @@ var require_loader = __commonJS({
       while (ch !== 0) {
         if (ch === 58) {
           following = state.input.charCodeAt(state.position + 1);
-          if (is_WS_OR_EOL(following) || withinFlowCollection && is_FLOW_INDICATOR(following)) {
+          if (
+            is_WS_OR_EOL(following) ||
+            withinFlowCollection && is_FLOW_INDICATOR(following)
+          ) {
             break;
           }
         } else if (ch === 35) {
@@ -10881,7 +12393,10 @@ var require_loader = __commonJS({
           if (is_WS_OR_EOL(preceding)) {
             break;
           }
-        } else if (state.position === state.lineStart && testDocumentSeparator(state) || withinFlowCollection && is_FLOW_INDICATOR(ch)) {
+        } else if (
+          state.position === state.lineStart && testDocumentSeparator(state) ||
+          withinFlowCollection && is_FLOW_INDICATOR(ch)
+        ) {
           break;
         } else if (is_EOL(ch)) {
           _line = state.line;
@@ -10942,16 +12457,27 @@ var require_loader = __commonJS({
           }
         } else if (is_EOL(ch)) {
           captureSegment(state, captureStart, captureEnd, true);
-          writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
+          writeFoldedLines(
+            state,
+            skipSeparationSpace(state, false, nodeIndent),
+          );
           captureStart = captureEnd = state.position;
-        } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
-          throwError(state, "unexpected end of the document within a single quoted scalar");
+        } else if (
+          state.position === state.lineStart && testDocumentSeparator(state)
+        ) {
+          throwError(
+            state,
+            "unexpected end of the document within a single quoted scalar",
+          );
         } else {
           state.position++;
           captureEnd = state.position;
         }
       }
-      throwError(state, "unexpected end of the stream within a single quoted scalar");
+      throwError(
+        state,
+        "unexpected end of the stream within a single quoted scalar",
+      );
     }
     function readDoubleQuotedScalar(state, nodeIndent) {
       var captureStart, captureEnd, hexLength, hexResult, tmp, ch;
@@ -10995,19 +12521,44 @@ var require_loader = __commonJS({
           captureStart = captureEnd = state.position;
         } else if (is_EOL(ch)) {
           captureSegment(state, captureStart, captureEnd, true);
-          writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
+          writeFoldedLines(
+            state,
+            skipSeparationSpace(state, false, nodeIndent),
+          );
           captureStart = captureEnd = state.position;
-        } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
-          throwError(state, "unexpected end of the document within a double quoted scalar");
+        } else if (
+          state.position === state.lineStart && testDocumentSeparator(state)
+        ) {
+          throwError(
+            state,
+            "unexpected end of the document within a double quoted scalar",
+          );
         } else {
           state.position++;
           captureEnd = state.position;
         }
       }
-      throwError(state, "unexpected end of the stream within a double quoted scalar");
+      throwError(
+        state,
+        "unexpected end of the stream within a double quoted scalar",
+      );
     }
     function readFlowCollection(state, nodeIndent) {
-      var readNext = true, _line, _tag = state.tag, _result, _anchor = state.anchor, following, terminator, isPair2, isExplicitPair, isMapping, overridableKeys = {}, keyNode, keyTag, valueNode, ch;
+      var readNext = true,
+        _line,
+        _tag = state.tag,
+        _result,
+        _anchor = state.anchor,
+        following,
+        terminator,
+        isPair2,
+        isExplicitPair,
+        isMapping,
+        overridableKeys = {},
+        keyNode,
+        keyTag,
+        valueNode,
+        ch;
       ch = state.input.charCodeAt(state.position);
       if (ch === 91) {
         terminator = 93;
@@ -11061,9 +12612,25 @@ var require_loader = __commonJS({
           valueNode = state.result;
         }
         if (isMapping) {
-          storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode);
+          storeMappingPair(
+            state,
+            _result,
+            overridableKeys,
+            keyTag,
+            keyNode,
+            valueNode,
+          );
         } else if (isPair2) {
-          _result.push(storeMappingPair(state, null, overridableKeys, keyTag, keyNode, valueNode));
+          _result.push(
+            storeMappingPair(
+              state,
+              null,
+              overridableKeys,
+              keyTag,
+              keyNode,
+              valueNode,
+            ),
+          );
         } else {
           _result.push(keyNode);
         }
@@ -11076,10 +12643,22 @@ var require_loader = __commonJS({
           readNext = false;
         }
       }
-      throwError(state, "unexpected end of the stream within a flow collection");
+      throwError(
+        state,
+        "unexpected end of the stream within a flow collection",
+      );
     }
     function readBlockScalar(state, nodeIndent) {
-      var captureStart, folding, chomping = CHOMPING_CLIP, didReadContent = false, detectedIndent = false, textIndent = nodeIndent, emptyLines = 0, atMoreIndented = false, tmp, ch;
+      var captureStart,
+        folding,
+        chomping = CHOMPING_CLIP,
+        didReadContent = false,
+        detectedIndent = false,
+        textIndent = nodeIndent,
+        emptyLines = 0,
+        atMoreIndented = false,
+        tmp,
+        ch;
       ch = state.input.charCodeAt(state.position);
       if (ch === 124) {
         folding = false;
@@ -11100,7 +12679,10 @@ var require_loader = __commonJS({
           }
         } else if ((tmp = fromDecimalCode(ch)) >= 0) {
           if (tmp === 0) {
-            throwError(state, "bad explicit indentation width of a block scalar; it cannot be less than one");
+            throwError(
+              state,
+              "bad explicit indentation width of a block scalar; it cannot be less than one",
+            );
           } else if (!detectedIndent) {
             textIndent = nodeIndent + tmp - 1;
             detectedIndent = true;
@@ -11125,7 +12707,9 @@ var require_loader = __commonJS({
         readLineBreak(state);
         state.lineIndent = 0;
         ch = state.input.charCodeAt(state.position);
-        while ((!detectedIndent || state.lineIndent < textIndent) && ch === 32) {
+        while (
+          (!detectedIndent || state.lineIndent < textIndent) && ch === 32
+        ) {
           state.lineIndent++;
           ch = state.input.charCodeAt(++state.position);
         }
@@ -11138,7 +12722,10 @@ var require_loader = __commonJS({
         }
         if (state.lineIndent < textIndent) {
           if (chomping === CHOMPING_KEEP) {
-            state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+            state.result += common.repeat(
+              "\n",
+              didReadContent ? 1 + emptyLines : emptyLines,
+            );
           } else if (chomping === CHOMPING_CLIP) {
             if (didReadContent) {
               state.result += "\n";
@@ -11149,7 +12736,10 @@ var require_loader = __commonJS({
         if (folding) {
           if (is_WHITE_SPACE(ch)) {
             atMoreIndented = true;
-            state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+            state.result += common.repeat(
+              "\n",
+              didReadContent ? 1 + emptyLines : emptyLines,
+            );
           } else if (atMoreIndented) {
             atMoreIndented = false;
             state.result += common.repeat("\n", emptyLines + 1);
@@ -11161,7 +12751,10 @@ var require_loader = __commonJS({
             state.result += common.repeat("\n", emptyLines);
           }
         } else {
-          state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+          state.result += common.repeat(
+            "\n",
+            didReadContent ? 1 + emptyLines : emptyLines,
+          );
         }
         didReadContent = true;
         detectedIndent = true;
@@ -11175,7 +12768,13 @@ var require_loader = __commonJS({
       return true;
     }
     function readBlockSequence(state, nodeIndent) {
-      var _line, _tag = state.tag, _anchor = state.anchor, _result = [], following, detected = false, ch;
+      var _line,
+        _tag = state.tag,
+        _anchor = state.anchor,
+        _result = [],
+        following,
+        detected = false,
+        ch;
       if (state.anchor !== null) {
         state.anchorMap[state.anchor] = _result;
       }
@@ -11202,7 +12801,9 @@ var require_loader = __commonJS({
         _result.push(state.result);
         skipSeparationSpace(state, true, -1);
         ch = state.input.charCodeAt(state.position);
-        if ((state.line === _line || state.lineIndent > nodeIndent) && ch !== 0) {
+        if (
+          (state.line === _line || state.lineIndent > nodeIndent) && ch !== 0
+        ) {
           throwError(state, "bad indentation of a sequence entry");
         } else if (state.lineIndent < nodeIndent) {
           break;
@@ -11218,7 +12819,20 @@ var require_loader = __commonJS({
       return false;
     }
     function readBlockMapping(state, nodeIndent, flowIndent) {
-      var following, allowCompact, _line, _pos, _tag = state.tag, _anchor = state.anchor, _result = {}, overridableKeys = {}, keyTag = null, keyNode = null, valueNode = null, atExplicitKey = false, detected = false, ch;
+      var following,
+        allowCompact,
+        _line,
+        _pos,
+        _tag = state.tag,
+        _anchor = state.anchor,
+        _result = {},
+        overridableKeys = {},
+        keyTag = null,
+        keyNode = null,
+        valueNode = null,
+        atExplicitKey = false,
+        detected = false,
+        ch;
       if (state.anchor !== null) {
         state.anchorMap[state.anchor] = _result;
       }
@@ -11230,7 +12844,14 @@ var require_loader = __commonJS({
         if ((ch === 63 || ch === 58) && is_WS_OR_EOL(following)) {
           if (ch === 63) {
             if (atExplicitKey) {
-              storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
+              storeMappingPair(
+                state,
+                _result,
+                overridableKeys,
+                keyTag,
+                keyNode,
+                null,
+              );
               keyTag = keyNode = valueNode = null;
             }
             detected = true;
@@ -11240,11 +12861,16 @@ var require_loader = __commonJS({
             atExplicitKey = false;
             allowCompact = true;
           } else {
-            throwError(state, "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line");
+            throwError(
+              state,
+              "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line",
+            );
           }
           state.position += 1;
           ch = following;
-        } else if (composeNode2(state, flowIndent, CONTEXT_FLOW_OUT, false, true)) {
+        } else if (
+          composeNode2(state, flowIndent, CONTEXT_FLOW_OUT, false, true)
+        ) {
           if (state.line === _line) {
             ch = state.input.charCodeAt(state.position);
             while (is_WHITE_SPACE(ch)) {
@@ -11253,10 +12879,20 @@ var require_loader = __commonJS({
             if (ch === 58) {
               ch = state.input.charCodeAt(++state.position);
               if (!is_WS_OR_EOL(ch)) {
-                throwError(state, "a whitespace character is expected after the key-value separator within a block mapping");
+                throwError(
+                  state,
+                  "a whitespace character is expected after the key-value separator within a block mapping",
+                );
               }
               if (atExplicitKey) {
-                storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
+                storeMappingPair(
+                  state,
+                  _result,
+                  overridableKeys,
+                  keyTag,
+                  keyNode,
+                  null,
+                );
                 keyTag = keyNode = valueNode = null;
               }
               detected = true;
@@ -11265,14 +12901,20 @@ var require_loader = __commonJS({
               keyTag = state.tag;
               keyNode = state.result;
             } else if (detected) {
-              throwError(state, "can not read an implicit mapping pair; a colon is missed");
+              throwError(
+                state,
+                "can not read an implicit mapping pair; a colon is missed",
+              );
             } else {
               state.tag = _tag;
               state.anchor = _anchor;
               return true;
             }
           } else if (detected) {
-            throwError(state, "can not read a block mapping entry; a multiline key may not be an implicit key");
+            throwError(
+              state,
+              "can not read a block mapping entry; a multiline key may not be an implicit key",
+            );
           } else {
             state.tag = _tag;
             state.anchor = _anchor;
@@ -11282,7 +12924,15 @@ var require_loader = __commonJS({
           break;
         }
         if (state.line === _line || state.lineIndent > nodeIndent) {
-          if (composeNode2(state, nodeIndent, CONTEXT_BLOCK_OUT, true, allowCompact)) {
+          if (
+            composeNode2(
+              state,
+              nodeIndent,
+              CONTEXT_BLOCK_OUT,
+              true,
+              allowCompact,
+            )
+          ) {
             if (atExplicitKey) {
               keyNode = state.result;
             } else {
@@ -11290,7 +12940,16 @@ var require_loader = __commonJS({
             }
           }
           if (!atExplicitKey) {
-            storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode, _line, _pos);
+            storeMappingPair(
+              state,
+              _result,
+              overridableKeys,
+              keyTag,
+              keyNode,
+              valueNode,
+              _line,
+              _pos,
+            );
             keyTag = keyNode = valueNode = null;
           }
           skipSeparationSpace(state, true, -1);
@@ -11303,7 +12962,14 @@ var require_loader = __commonJS({
         }
       }
       if (atExplicitKey) {
-        storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
+        storeMappingPair(
+          state,
+          _result,
+          overridableKeys,
+          keyTag,
+          keyNode,
+          null,
+        );
       }
       if (detected) {
         state.tag = _tag;
@@ -11314,10 +12980,16 @@ var require_loader = __commonJS({
       return detected;
     }
     function readTagProperty(state) {
-      var _position, isVerbatim = false, isNamed = false, tagHandle, tagName, ch;
+      var _position,
+        isVerbatim = false,
+        isNamed = false,
+        tagHandle,
+        tagName,
+        ch;
       ch = state.input.charCodeAt(state.position);
-      if (ch !== 33)
+      if (ch !== 33) {
         return false;
+      }
       if (state.tag !== null) {
         throwError(state, "duplication of a tag property");
       }
@@ -11341,7 +13013,10 @@ var require_loader = __commonJS({
           tagName = state.input.slice(_position, state.position);
           ch = state.input.charCodeAt(++state.position);
         } else {
-          throwError(state, "unexpected end of the stream within a verbatim tag");
+          throwError(
+            state,
+            "unexpected end of the stream within a verbatim tag",
+          );
         }
       } else {
         while (ch !== 0 && !is_WS_OR_EOL(ch)) {
@@ -11349,7 +13024,10 @@ var require_loader = __commonJS({
             if (!isNamed) {
               tagHandle = state.input.slice(_position - 1, state.position + 1);
               if (!PATTERN_TAG_HANDLE.test(tagHandle)) {
-                throwError(state, "named tag handle cannot contain such characters");
+                throwError(
+                  state,
+                  "named tag handle cannot contain such characters",
+                );
               }
               isNamed = true;
               _position = state.position + 1;
@@ -11361,11 +13039,17 @@ var require_loader = __commonJS({
         }
         tagName = state.input.slice(_position, state.position);
         if (PATTERN_FLOW_INDICATORS.test(tagName)) {
-          throwError(state, "tag suffix cannot contain flow indicator characters");
+          throwError(
+            state,
+            "tag suffix cannot contain flow indicator characters",
+          );
         }
       }
       if (tagName && !PATTERN_TAG_URI.test(tagName)) {
-        throwError(state, "tag name cannot contain such characters: " + tagName);
+        throwError(
+          state,
+          "tag name cannot contain such characters: " + tagName,
+        );
       }
       if (isVerbatim) {
         state.tag = tagName;
@@ -11383,8 +13067,9 @@ var require_loader = __commonJS({
     function readAnchorProperty(state) {
       var _position, ch;
       ch = state.input.charCodeAt(state.position);
-      if (ch !== 38)
+      if (ch !== 38) {
         return false;
+      }
       if (state.anchor !== null) {
         throwError(state, "duplication of an anchor property");
       }
@@ -11394,7 +13079,10 @@ var require_loader = __commonJS({
         ch = state.input.charCodeAt(++state.position);
       }
       if (state.position === _position) {
-        throwError(state, "name of an anchor node must contain at least one character");
+        throwError(
+          state,
+          "name of an anchor node must contain at least one character",
+        );
       }
       state.anchor = state.input.slice(_position, state.position);
       return true;
@@ -11402,15 +13090,19 @@ var require_loader = __commonJS({
     function readAlias(state) {
       var _position, alias, ch;
       ch = state.input.charCodeAt(state.position);
-      if (ch !== 42)
+      if (ch !== 42) {
         return false;
+      }
       ch = state.input.charCodeAt(++state.position);
       _position = state.position;
       while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
         ch = state.input.charCodeAt(++state.position);
       }
       if (state.position === _position) {
-        throwError(state, "name of an alias node must contain at least one character");
+        throwError(
+          state,
+          "name of an alias node must contain at least one character",
+        );
       }
       alias = state.input.slice(_position, state.position);
       if (!_hasOwnProperty.call(state.anchorMap, alias)) {
@@ -11420,8 +13112,24 @@ var require_loader = __commonJS({
       skipSeparationSpace(state, true, -1);
       return true;
     }
-    function composeNode2(state, parentIndent, nodeContext, allowToSeek, allowCompact) {
-      var allowBlockStyles, allowBlockScalars, allowBlockCollections, indentStatus = 1, atNewLine = false, hasContent = false, typeIndex, typeQuantity, type, flowIndent, blockIndent;
+    function composeNode2(
+      state,
+      parentIndent,
+      nodeContext,
+      allowToSeek,
+      allowCompact,
+    ) {
+      var allowBlockStyles,
+        allowBlockScalars,
+        allowBlockCollections,
+        indentStatus = 1,
+        atNewLine = false,
+        hasContent = false,
+        typeIndex,
+        typeQuantity,
+        type,
+        flowIndent,
+        blockIndent;
       if (state.listener !== null) {
         state.listener("open", state);
       }
@@ -11429,7 +13137,10 @@ var require_loader = __commonJS({
       state.anchor = null;
       state.kind = null;
       state.result = null;
-      allowBlockStyles = allowBlockScalars = allowBlockCollections = CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext;
+      allowBlockStyles =
+        allowBlockScalars =
+        allowBlockCollections =
+          CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext;
       if (allowToSeek) {
         if (skipSeparationSpace(state, true, -1)) {
           atNewLine = true;
@@ -11463,24 +13174,41 @@ var require_loader = __commonJS({
         allowBlockCollections = atNewLine || allowCompact;
       }
       if (indentStatus === 1 || CONTEXT_BLOCK_OUT === nodeContext) {
-        if (CONTEXT_FLOW_IN === nodeContext || CONTEXT_FLOW_OUT === nodeContext) {
+        if (
+          CONTEXT_FLOW_IN === nodeContext || CONTEXT_FLOW_OUT === nodeContext
+        ) {
           flowIndent = parentIndent;
         } else {
           flowIndent = parentIndent + 1;
         }
         blockIndent = state.position - state.lineStart;
         if (indentStatus === 1) {
-          if (allowBlockCollections && (readBlockSequence(state, blockIndent) || readBlockMapping(state, blockIndent, flowIndent)) || readFlowCollection(state, flowIndent)) {
+          if (
+            allowBlockCollections &&
+              (readBlockSequence(state, blockIndent) ||
+                readBlockMapping(state, blockIndent, flowIndent)) ||
+            readFlowCollection(state, flowIndent)
+          ) {
             hasContent = true;
           } else {
-            if (allowBlockScalars && readBlockScalar(state, flowIndent) || readSingleQuotedScalar(state, flowIndent) || readDoubleQuotedScalar(state, flowIndent)) {
+            if (
+              allowBlockScalars && readBlockScalar(state, flowIndent) ||
+              readSingleQuotedScalar(state, flowIndent) ||
+              readDoubleQuotedScalar(state, flowIndent)
+            ) {
               hasContent = true;
             } else if (readAlias(state)) {
               hasContent = true;
               if (state.tag !== null || state.anchor !== null) {
                 throwError(state, "alias node should not have any properties");
               }
-            } else if (readPlainScalar(state, flowIndent, CONTEXT_FLOW_IN === nodeContext)) {
+            } else if (
+              readPlainScalar(
+                state,
+                flowIndent,
+                CONTEXT_FLOW_IN === nodeContext,
+              )
+            ) {
               hasContent = true;
               if (state.tag === null) {
                 state.tag = "?";
@@ -11491,15 +13219,24 @@ var require_loader = __commonJS({
             }
           }
         } else if (indentStatus === 0) {
-          hasContent = allowBlockCollections && readBlockSequence(state, blockIndent);
+          hasContent = allowBlockCollections &&
+            readBlockSequence(state, blockIndent);
         }
       }
       if (state.tag !== null && state.tag !== "!") {
         if (state.tag === "?") {
           if (state.result !== null && state.kind !== "scalar") {
-            throwError(state, 'unacceptable node kind for !<?> tag; it should be "scalar", not "' + state.kind + '"');
+            throwError(
+              state,
+              'unacceptable node kind for !<?> tag; it should be "scalar", not "' +
+                state.kind + '"',
+            );
           }
-          for (typeIndex = 0, typeQuantity = state.implicitTypes.length; typeIndex < typeQuantity; typeIndex += 1) {
+          for (
+            typeIndex = 0, typeQuantity = state.implicitTypes.length;
+            typeIndex < typeQuantity;
+            typeIndex += 1
+          ) {
             type = state.implicitTypes[typeIndex];
             if (type.resolve(state.result)) {
               state.result = type.construct(state.result);
@@ -11510,13 +13247,26 @@ var require_loader = __commonJS({
               break;
             }
           }
-        } else if (_hasOwnProperty.call(state.typeMap[state.kind || "fallback"], state.tag)) {
+        } else if (
+          _hasOwnProperty.call(
+            state.typeMap[state.kind || "fallback"],
+            state.tag,
+          )
+        ) {
           type = state.typeMap[state.kind || "fallback"][state.tag];
           if (state.result !== null && type.kind !== state.kind) {
-            throwError(state, "unacceptable node kind for !<" + state.tag + '> tag; it should be "' + type.kind + '", not "' + state.kind + '"');
+            throwError(
+              state,
+              "unacceptable node kind for !<" + state.tag +
+                '> tag; it should be "' + type.kind + '", not "' + state.kind +
+                '"',
+            );
           }
           if (!type.resolve(state.result)) {
-            throwError(state, "cannot resolve a node with !<" + state.tag + "> explicit tag");
+            throwError(
+              state,
+              "cannot resolve a node with !<" + state.tag + "> explicit tag",
+            );
           } else {
             state.result = type.construct(state.result);
             if (state.anchor !== null) {
@@ -11533,7 +13283,12 @@ var require_loader = __commonJS({
       return state.tag !== null || state.anchor !== null || hasContent;
     }
     function readDocument(state) {
-      var documentStart = state.position, _position, directiveName, directiveArgs, hasDirectives = false, ch;
+      var documentStart = state.position,
+        _position,
+        directiveName,
+        directiveArgs,
+        hasDirectives = false,
+        ch;
       state.version = null;
       state.checkLineBreaks = state.legacy;
       state.tagMap = {};
@@ -11553,7 +13308,10 @@ var require_loader = __commonJS({
         directiveName = state.input.slice(_position, state.position);
         directiveArgs = [];
         if (directiveName.length < 1) {
-          throwError(state, "directive name must not be less than one character in length");
+          throwError(
+            state,
+            "directive name must not be less than one character in length",
+          );
         }
         while (ch !== 0) {
           while (is_WHITE_SPACE(ch)) {
@@ -11565,24 +13323,34 @@ var require_loader = __commonJS({
             } while (ch !== 0 && !is_EOL(ch));
             break;
           }
-          if (is_EOL(ch))
+          if (is_EOL(ch)) {
             break;
+          }
           _position = state.position;
           while (ch !== 0 && !is_WS_OR_EOL(ch)) {
             ch = state.input.charCodeAt(++state.position);
           }
           directiveArgs.push(state.input.slice(_position, state.position));
         }
-        if (ch !== 0)
+        if (ch !== 0) {
           readLineBreak(state);
+        }
         if (_hasOwnProperty.call(directiveHandlers, directiveName)) {
           directiveHandlers[directiveName](state, directiveName, directiveArgs);
         } else {
-          throwWarning(state, 'unknown document directive "' + directiveName + '"');
+          throwWarning(
+            state,
+            'unknown document directive "' + directiveName + '"',
+          );
         }
       }
       skipSeparationSpace(state, true, -1);
-      if (state.lineIndent === 0 && state.input.charCodeAt(state.position) === 45 && state.input.charCodeAt(state.position + 1) === 45 && state.input.charCodeAt(state.position + 2) === 45) {
+      if (
+        state.lineIndent === 0 &&
+        state.input.charCodeAt(state.position) === 45 &&
+        state.input.charCodeAt(state.position + 1) === 45 &&
+        state.input.charCodeAt(state.position + 2) === 45
+      ) {
         state.position += 3;
         skipSeparationSpace(state, true, -1);
       } else if (hasDirectives) {
@@ -11590,7 +13358,12 @@ var require_loader = __commonJS({
       }
       composeNode2(state, state.lineIndent - 1, CONTEXT_BLOCK_OUT, false, true);
       skipSeparationSpace(state, true, -1);
-      if (state.checkLineBreaks && PATTERN_NON_ASCII_LINE_BREAKS.test(state.input.slice(documentStart, state.position))) {
+      if (
+        state.checkLineBreaks &&
+        PATTERN_NON_ASCII_LINE_BREAKS.test(
+          state.input.slice(documentStart, state.position),
+        )
+      ) {
         throwWarning(state, "non-ASCII line breaks are interpreted as content");
       }
       state.documents.push(state.result);
@@ -11602,7 +13375,10 @@ var require_loader = __commonJS({
         return;
       }
       if (state.position < state.length - 1) {
-        throwError(state, "end of the stream or a document separator is expected");
+        throwError(
+          state,
+          "end of the stream or a document separator is expected",
+        );
       } else {
         return;
       }
@@ -11611,7 +13387,10 @@ var require_loader = __commonJS({
       input = String(input);
       options = options || {};
       if (input.length !== 0) {
-        if (input.charCodeAt(input.length - 1) !== 10 && input.charCodeAt(input.length - 1) !== 13) {
+        if (
+          input.charCodeAt(input.length - 1) !== 10 &&
+          input.charCodeAt(input.length - 1) !== 13
+        ) {
           input += "\n";
         }
         if (input.charCodeAt(0) === 65279) {
@@ -11635,7 +13414,10 @@ var require_loader = __commonJS({
       return state.documents;
     }
     function loadAll(input, iterator, options) {
-      if (iterator !== null && typeof iterator === "object" && typeof options === "undefined") {
+      if (
+        iterator !== null && typeof iterator === "object" &&
+        typeof options === "undefined"
+      ) {
         options = iterator;
         iterator = null;
       }
@@ -11643,7 +13425,11 @@ var require_loader = __commonJS({
       if (typeof iterator !== "function") {
         return documents;
       }
-      for (var index = 0, length = documents.length; index < length; index += 1) {
+      for (
+        var index = 0, length = documents.length;
+        index < length;
+        index += 1
+      ) {
         iterator(documents[index]);
       }
     }
@@ -11654,23 +13440,35 @@ var require_loader = __commonJS({
       } else if (documents.length === 1) {
         return documents[0];
       }
-      throw new YAMLException("expected a single document in the stream, but found more");
+      throw new YAMLException(
+        "expected a single document in the stream, but found more",
+      );
     }
     function safeLoadAll(input, iterator, options) {
-      if (typeof iterator === "object" && iterator !== null && typeof options === "undefined") {
+      if (
+        typeof iterator === "object" && iterator !== null &&
+        typeof options === "undefined"
+      ) {
         options = iterator;
         iterator = null;
       }
-      return loadAll(input, iterator, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
+      return loadAll(
+        input,
+        iterator,
+        common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options),
+      );
     }
     function safeLoad(input, options) {
-      return load(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
+      return load(
+        input,
+        common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options),
+      );
     }
     module2.exports.loadAll = loadAll;
     module2.exports.load = load;
     module2.exports.safeLoadAll = safeLoadAll;
     module2.exports.safeLoad = safeLoad;
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml/dumper.js
@@ -11739,12 +13537,13 @@ var require_dumper = __commonJS({
       "NO",
       "off",
       "Off",
-      "OFF"
+      "OFF",
     ];
     function compileStyleMap(schema4, map2) {
       var result, keys, index, length, tag, style, type;
-      if (map2 === null)
+      if (map2 === null) {
         return {};
+      }
       result = {};
       keys = Object.keys(map2);
       for (index = 0, length = keys.length; index < length; index += 1) {
@@ -11774,16 +13573,21 @@ var require_dumper = __commonJS({
         handle = "U";
         length = 8;
       } else {
-        throw new YAMLException("code point within a string may not be greater than 0xFFFFFFFF");
+        throw new YAMLException(
+          "code point within a string may not be greater than 0xFFFFFFFF",
+        );
       }
-      return "\\" + handle + common.repeat("0", length - string2.length) + string2;
+      return "\\" + handle + common.repeat("0", length - string2.length) +
+        string2;
     }
     function State(options) {
       this.schema = options["schema"] || DEFAULT_FULL_SCHEMA;
       this.indent = Math.max(1, options["indent"] || 2);
       this.noArrayIndent = options["noArrayIndent"] || false;
       this.skipInvalid = options["skipInvalid"] || false;
-      this.flowLevel = common.isNothing(options["flowLevel"]) ? -1 : options["flowLevel"];
+      this.flowLevel = common.isNothing(options["flowLevel"])
+        ? -1
+        : options["flowLevel"];
       this.styleMap = compileStyleMap(this.schema, options["styles"] || null);
       this.sortKeys = options["sortKeys"] || false;
       this.lineWidth = options["lineWidth"] || 80;
@@ -11798,7 +13602,12 @@ var require_dumper = __commonJS({
       this.usedDuplicates = null;
     }
     function indentString(string2, spaces) {
-      var ind = common.repeat(" ", spaces), position = 0, next = -1, result = "", line, length = string2.length;
+      var ind = common.repeat(" ", spaces),
+        position = 0,
+        next = -1,
+        result = "",
+        line,
+        length = string2.length;
       while (position < length) {
         next = string2.indexOf("\n", position);
         if (next === -1) {
@@ -11808,8 +13617,9 @@ var require_dumper = __commonJS({
           line = string2.slice(position, next + 1);
           position = next + 1;
         }
-        if (line.length && line !== "\n")
+        if (line.length && line !== "\n") {
           result += ind;
+        }
         result += line;
       }
       return result;
@@ -11819,7 +13629,11 @@ var require_dumper = __commonJS({
     }
     function testImplicitResolving(state, str) {
       var index, length, type;
-      for (index = 0, length = state.implicitTypes.length; index < length; index += 1) {
+      for (
+        index = 0, length = state.implicitTypes.length;
+        index < length;
+        index += 1
+      ) {
         type = state.implicitTypes[index];
         if (type.resolve(str)) {
           return true;
@@ -11831,16 +13645,31 @@ var require_dumper = __commonJS({
       return c === CHAR_SPACE || c === CHAR_TAB;
     }
     function isPrintable(c) {
-      return 32 <= c && c <= 126 || 161 <= c && c <= 55295 && c !== 8232 && c !== 8233 || 57344 <= c && c <= 65533 && c !== 65279 || 65536 <= c && c <= 1114111;
+      return 32 <= c && c <= 126 ||
+        161 <= c && c <= 55295 && c !== 8232 && c !== 8233 ||
+        57344 <= c && c <= 65533 && c !== 65279 || 65536 <= c && c <= 1114111;
     }
     function isNsChar(c) {
-      return isPrintable(c) && !isWhitespace(c) && c !== 65279 && c !== CHAR_CARRIAGE_RETURN && c !== CHAR_LINE_FEED;
+      return isPrintable(c) && !isWhitespace(c) && c !== 65279 &&
+        c !== CHAR_CARRIAGE_RETURN && c !== CHAR_LINE_FEED;
     }
     function isPlainSafe(c, prev) {
-      return isPrintable(c) && c !== 65279 && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET && c !== CHAR_COLON && (c !== CHAR_SHARP || prev && isNsChar(prev));
+      return isPrintable(c) && c !== 65279 && c !== CHAR_COMMA &&
+        c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET &&
+        c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET &&
+        c !== CHAR_COLON && (c !== CHAR_SHARP || prev && isNsChar(prev));
     }
     function isPlainSafeFirst(c) {
-      return isPrintable(c) && c !== 65279 && !isWhitespace(c) && c !== CHAR_MINUS && c !== CHAR_QUESTION && c !== CHAR_COLON && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET && c !== CHAR_SHARP && c !== CHAR_AMPERSAND && c !== CHAR_ASTERISK && c !== CHAR_EXCLAMATION && c !== CHAR_VERTICAL_LINE && c !== CHAR_EQUALS && c !== CHAR_GREATER_THAN && c !== CHAR_SINGLE_QUOTE && c !== CHAR_DOUBLE_QUOTE && c !== CHAR_PERCENT && c !== CHAR_COMMERCIAL_AT && c !== CHAR_GRAVE_ACCENT;
+      return isPrintable(c) && c !== 65279 && !isWhitespace(c) &&
+        c !== CHAR_MINUS && c !== CHAR_QUESTION && c !== CHAR_COLON &&
+        c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET &&
+        c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET &&
+        c !== CHAR_RIGHT_CURLY_BRACKET && c !== CHAR_SHARP &&
+        c !== CHAR_AMPERSAND && c !== CHAR_ASTERISK && c !== CHAR_EXCLAMATION &&
+        c !== CHAR_VERTICAL_LINE && c !== CHAR_EQUALS &&
+        c !== CHAR_GREATER_THAN && c !== CHAR_SINGLE_QUOTE &&
+        c !== CHAR_DOUBLE_QUOTE && c !== CHAR_PERCENT &&
+        c !== CHAR_COMMERCIAL_AT && c !== CHAR_GRAVE_ACCENT;
     }
     function needIndentIndicator(string2) {
       var leadingSpaceRe = /^\n* /;
@@ -11851,14 +13680,21 @@ var require_dumper = __commonJS({
     var STYLE_LITERAL = 3;
     var STYLE_FOLDED = 4;
     var STYLE_DOUBLE = 5;
-    function chooseScalarStyle(string2, singleLineOnly, indentPerLevel, lineWidth, testAmbiguousType) {
+    function chooseScalarStyle(
+      string2,
+      singleLineOnly,
+      indentPerLevel,
+      lineWidth,
+      testAmbiguousType,
+    ) {
       var i;
       var char, prev_char;
       var hasLineBreak = false;
       var hasFoldableLine = false;
       var shouldTrackWidth = lineWidth !== -1;
       var previousLineBreak = -1;
-      var plain = isPlainSafeFirst(string2.charCodeAt(0)) && !isWhitespace(string2.charCodeAt(string2.length - 1));
+      var plain = isPlainSafeFirst(string2.charCodeAt(0)) &&
+        !isWhitespace(string2.charCodeAt(string2.length - 1));
       if (singleLineOnly) {
         for (i = 0; i < string2.length; i++) {
           char = string2.charCodeAt(i);
@@ -11874,7 +13710,9 @@ var require_dumper = __commonJS({
           if (char === CHAR_LINE_FEED) {
             hasLineBreak = true;
             if (shouldTrackWidth) {
-              hasFoldableLine = hasFoldableLine || i - previousLineBreak - 1 > lineWidth && string2[previousLineBreak + 1] !== " ";
+              hasFoldableLine = hasFoldableLine ||
+                i - previousLineBreak - 1 > lineWidth &&
+                  string2[previousLineBreak + 1] !== " ";
               previousLineBreak = i;
             }
           } else if (!isPrintable(char)) {
@@ -11883,10 +13721,15 @@ var require_dumper = __commonJS({
           prev_char = i > 0 ? string2.charCodeAt(i - 1) : null;
           plain = plain && isPlainSafe(char, prev_char);
         }
-        hasFoldableLine = hasFoldableLine || shouldTrackWidth && (i - previousLineBreak - 1 > lineWidth && string2[previousLineBreak + 1] !== " ");
+        hasFoldableLine = hasFoldableLine ||
+          shouldTrackWidth &&
+            (i - previousLineBreak - 1 > lineWidth &&
+              string2[previousLineBreak + 1] !== " ");
       }
       if (!hasLineBreak && !hasFoldableLine) {
-        return plain && !testAmbiguousType(string2) ? STYLE_PLAIN : STYLE_SINGLE;
+        return plain && !testAmbiguousType(string2)
+          ? STYLE_PLAIN
+          : STYLE_SINGLE;
       }
       if (indentPerLevel > 9 && needIndentIndicator(string2)) {
         return STYLE_DOUBLE;
@@ -11894,28 +13737,46 @@ var require_dumper = __commonJS({
       return hasFoldableLine ? STYLE_FOLDED : STYLE_LITERAL;
     }
     function writeScalar(state, string2, level, iskey) {
-      state.dump = function() {
+      state.dump = function () {
         if (string2.length === 0) {
           return "''";
         }
-        if (!state.noCompatMode && DEPRECATED_BOOLEANS_SYNTAX.indexOf(string2) !== -1) {
+        if (
+          !state.noCompatMode &&
+          DEPRECATED_BOOLEANS_SYNTAX.indexOf(string2) !== -1
+        ) {
           return "'" + string2 + "'";
         }
         var indent = state.indent * Math.max(1, level);
-        var lineWidth = state.lineWidth === -1 ? -1 : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
-        var singleLineOnly = iskey || state.flowLevel > -1 && level >= state.flowLevel;
+        var lineWidth = state.lineWidth === -1
+          ? -1
+          : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
+        var singleLineOnly = iskey ||
+          state.flowLevel > -1 && level >= state.flowLevel;
         function testAmbiguity(string3) {
           return testImplicitResolving(state, string3);
         }
-        switch (chooseScalarStyle(string2, singleLineOnly, state.indent, lineWidth, testAmbiguity)) {
+        switch (
+          chooseScalarStyle(
+            string2,
+            singleLineOnly,
+            state.indent,
+            lineWidth,
+            testAmbiguity,
+          )
+        ) {
           case STYLE_PLAIN:
             return string2;
           case STYLE_SINGLE:
             return "'" + string2.replace(/'/g, "''") + "'";
           case STYLE_LITERAL:
-            return "|" + blockHeader(string2, state.indent) + dropEndingNewline(indentString(string2, indent));
+            return "|" + blockHeader(string2, state.indent) +
+              dropEndingNewline(indentString(string2, indent));
           case STYLE_FOLDED:
-            return ">" + blockHeader(string2, state.indent) + dropEndingNewline(indentString(foldString(string2, lineWidth), indent));
+            return ">" + blockHeader(string2, state.indent) +
+              dropEndingNewline(
+                indentString(foldString(string2, lineWidth), indent),
+              );
           case STYLE_DOUBLE:
             return '"' + escapeString(string2, lineWidth) + '"';
           default:
@@ -11924,18 +13785,23 @@ var require_dumper = __commonJS({
       }();
     }
     function blockHeader(string2, indentPerLevel) {
-      var indentIndicator = needIndentIndicator(string2) ? String(indentPerLevel) : "";
+      var indentIndicator = needIndentIndicator(string2)
+        ? String(indentPerLevel)
+        : "";
       var clip = string2[string2.length - 1] === "\n";
-      var keep = clip && (string2[string2.length - 2] === "\n" || string2 === "\n");
+      var keep = clip &&
+        (string2[string2.length - 2] === "\n" || string2 === "\n");
       var chomp = keep ? "+" : clip ? "" : "-";
       return indentIndicator + chomp + "\n";
     }
     function dropEndingNewline(string2) {
-      return string2[string2.length - 1] === "\n" ? string2.slice(0, -1) : string2;
+      return string2[string2.length - 1] === "\n"
+        ? string2.slice(0, -1)
+        : string2;
     }
     function foldString(string2, width) {
       var lineRe = /(\n+)([^\n]*)/g;
-      var result = function() {
+      var result = function () {
         var nextLF = string2.indexOf("\n");
         nextLF = nextLF !== -1 ? nextLF : string2.length;
         lineRe.lastIndex = nextLF;
@@ -11947,14 +13813,17 @@ var require_dumper = __commonJS({
       while (match = lineRe.exec(string2)) {
         var prefix = match[1], line = match[2];
         moreIndented = line[0] === " ";
-        result += prefix + (!prevMoreIndented && !moreIndented && line !== "" ? "\n" : "") + foldLine(line, width);
+        result += prefix +
+          (!prevMoreIndented && !moreIndented && line !== "" ? "\n" : "") +
+          foldLine(line, width);
         prevMoreIndented = moreIndented;
       }
       return result;
     }
     function foldLine(line, width) {
-      if (line === "" || line[0] === " ")
+      if (line === "" || line[0] === " ") {
         return line;
+      }
       var breakRe = / [^ ]/g;
       var match;
       var start = 0, end, curr = 0, next = 0;
@@ -11985,13 +13854,17 @@ var require_dumper = __commonJS({
         if (char >= 55296 && char <= 56319) {
           nextChar = string2.charCodeAt(i + 1);
           if (nextChar >= 56320 && nextChar <= 57343) {
-            result += encodeHex((char - 55296) * 1024 + nextChar - 56320 + 65536);
+            result += encodeHex(
+              (char - 55296) * 1024 + nextChar - 56320 + 65536,
+            );
             i++;
             continue;
           }
         }
         escapeSeq = ESCAPE_SEQUENCES[char];
-        result += !escapeSeq && isPrintable(char) ? string2[i] : escapeSeq || encodeHex(char);
+        result += !escapeSeq && isPrintable(char)
+          ? string2[i]
+          : escapeSeq || encodeHex(char);
       }
       return result;
     }
@@ -11999,8 +13872,9 @@ var require_dumper = __commonJS({
       var _result = "", _tag = state.tag, index, length;
       for (index = 0, length = object.length; index < length; index += 1) {
         if (writeNode(state, level, object[index], false, false)) {
-          if (index !== 0)
+          if (index !== 0) {
             _result += "," + (!state.condenseFlow ? " " : "");
+          }
           _result += state.dump;
         }
       }
@@ -12026,21 +13900,36 @@ var require_dumper = __commonJS({
       state.dump = _result || "[]";
     }
     function writeFlowMapping(state, level, object) {
-      var _result = "", _tag = state.tag, objectKeyList = Object.keys(object), index, length, objectKey, objectValue, pairBuffer;
-      for (index = 0, length = objectKeyList.length; index < length; index += 1) {
+      var _result = "",
+        _tag = state.tag,
+        objectKeyList = Object.keys(object),
+        index,
+        length,
+        objectKey,
+        objectValue,
+        pairBuffer;
+      for (
+        index = 0, length = objectKeyList.length;
+        index < length;
+        index += 1
+      ) {
         pairBuffer = "";
-        if (index !== 0)
+        if (index !== 0) {
           pairBuffer += ", ";
-        if (state.condenseFlow)
+        }
+        if (state.condenseFlow) {
           pairBuffer += '"';
+        }
         objectKey = objectKeyList[index];
         objectValue = object[objectKey];
         if (!writeNode(state, level, objectKey, false, false)) {
           continue;
         }
-        if (state.dump.length > 1024)
+        if (state.dump.length > 1024) {
           pairBuffer += "? ";
-        pairBuffer += state.dump + (state.condenseFlow ? '"' : "") + ":" + (state.condenseFlow ? "" : " ");
+        }
+        pairBuffer += state.dump + (state.condenseFlow ? '"' : "") + ":" +
+          (state.condenseFlow ? "" : " ");
         if (!writeNode(state, level, objectValue, false, false)) {
           continue;
         }
@@ -12051,7 +13940,15 @@ var require_dumper = __commonJS({
       state.dump = "{" + _result + "}";
     }
     function writeBlockMapping(state, level, object, compact) {
-      var _result = "", _tag = state.tag, objectKeyList = Object.keys(object), index, length, objectKey, objectValue, explicitPair, pairBuffer;
+      var _result = "",
+        _tag = state.tag,
+        objectKeyList = Object.keys(object),
+        index,
+        length,
+        objectKey,
+        objectValue,
+        explicitPair,
+        pairBuffer;
       if (state.sortKeys === true) {
         objectKeyList.sort();
       } else if (typeof state.sortKeys === "function") {
@@ -12059,7 +13956,11 @@ var require_dumper = __commonJS({
       } else if (state.sortKeys) {
         throw new YAMLException("sortKeys must be a boolean or a function");
       }
-      for (index = 0, length = objectKeyList.length; index < length; index += 1) {
+      for (
+        index = 0, length = objectKeyList.length;
+        index < length;
+        index += 1
+      ) {
         pairBuffer = "";
         if (!compact || index !== 0) {
           pairBuffer += generateNextLine(state, level);
@@ -12069,7 +13970,8 @@ var require_dumper = __commonJS({
         if (!writeNode(state, level + 1, objectKey, true, true, true)) {
           continue;
         }
-        explicitPair = state.tag !== null && state.tag !== "?" || state.dump && state.dump.length > 1024;
+        explicitPair = state.tag !== null && state.tag !== "?" ||
+          state.dump && state.dump.length > 1024;
         if (explicitPair) {
           if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
             pairBuffer += "?";
@@ -12100,7 +14002,12 @@ var require_dumper = __commonJS({
       typeList = explicit ? state.explicitTypes : state.implicitTypes;
       for (index = 0, length = typeList.length; index < length; index += 1) {
         type = typeList[index];
-        if ((type.instanceOf || type.predicate) && (!type.instanceOf || typeof object === "object" && object instanceof type.instanceOf) && (!type.predicate || type.predicate(object))) {
+        if (
+          (type.instanceOf || type.predicate) &&
+          (!type.instanceOf ||
+            typeof object === "object" && object instanceof type.instanceOf) &&
+          (!type.predicate || type.predicate(object))
+        ) {
           state.tag = explicit ? type.tag : "?";
           if (type.represent) {
             style = state.styleMap[type.tag] || type.defaultStyle;
@@ -12109,7 +14016,10 @@ var require_dumper = __commonJS({
             } else if (_hasOwnProperty.call(type.represent, style)) {
               _result = type.represent[style](object, style);
             } else {
-              throw new YAMLException("!<" + type.tag + '> tag resolver accepts not "' + style + '" style');
+              throw new YAMLException(
+                "!<" + type.tag + '> tag resolver accepts not "' + style +
+                  '" style',
+              );
             }
             state.dump = _result;
           }
@@ -12128,18 +14038,26 @@ var require_dumper = __commonJS({
       if (block) {
         block = state.flowLevel < 0 || state.flowLevel > level;
       }
-      var objectOrArray = type === "[object Object]" || type === "[object Array]", duplicateIndex, duplicate;
+      var objectOrArray = type === "[object Object]" ||
+          type === "[object Array]",
+        duplicateIndex,
+        duplicate;
       if (objectOrArray) {
         duplicateIndex = state.duplicates.indexOf(object);
         duplicate = duplicateIndex !== -1;
       }
-      if (state.tag !== null && state.tag !== "?" || duplicate || state.indent !== 2 && level > 0) {
+      if (
+        state.tag !== null && state.tag !== "?" || duplicate ||
+        state.indent !== 2 && level > 0
+      ) {
         compact = false;
       }
       if (duplicate && state.usedDuplicates[duplicateIndex]) {
         state.dump = "*ref_" + duplicateIndex;
       } else {
-        if (objectOrArray && duplicate && !state.usedDuplicates[duplicateIndex]) {
+        if (
+          objectOrArray && duplicate && !state.usedDuplicates[duplicateIndex]
+        ) {
           state.usedDuplicates[duplicateIndex] = true;
         }
         if (type === "[object Object]") {
@@ -12172,9 +14090,12 @@ var require_dumper = __commonJS({
             writeScalar(state, state.dump, level, iskey);
           }
         } else {
-          if (state.skipInvalid)
+          if (state.skipInvalid) {
             return false;
-          throw new YAMLException("unacceptable kind of an object to dump " + type);
+          }
+          throw new YAMLException(
+            "unacceptable kind of an object to dump " + type,
+          );
         }
         if (state.tag !== null && state.tag !== "?") {
           state.dump = "!<" + state.tag + "> " + state.dump;
@@ -12185,7 +14106,11 @@ var require_dumper = __commonJS({
     function getDuplicateReferences(object, state) {
       var objects = [], duplicatesIndexes = [], index, length;
       inspectNode(object, objects, duplicatesIndexes);
-      for (index = 0, length = duplicatesIndexes.length; index < length; index += 1) {
+      for (
+        index = 0, length = duplicatesIndexes.length;
+        index < length;
+        index += 1
+      ) {
         state.duplicates.push(objects[duplicatesIndexes[index]]);
       }
       state.usedDuplicates = new Array(length);
@@ -12201,13 +14126,25 @@ var require_dumper = __commonJS({
         } else {
           objects.push(object);
           if (Array.isArray(object)) {
-            for (index = 0, length = object.length; index < length; index += 1) {
+            for (
+              index = 0, length = object.length;
+              index < length;
+              index += 1
+            ) {
               inspectNode(object[index], objects, duplicatesIndexes);
             }
           } else {
             objectKeyList = Object.keys(object);
-            for (index = 0, length = objectKeyList.length; index < length; index += 1) {
-              inspectNode(object[objectKeyList[index]], objects, duplicatesIndexes);
+            for (
+              index = 0, length = objectKeyList.length;
+              index < length;
+              index += 1
+            ) {
+              inspectNode(
+                object[objectKeyList[index]],
+                objects,
+                duplicatesIndexes,
+              );
             }
           }
         }
@@ -12216,18 +14153,23 @@ var require_dumper = __commonJS({
     function dump(input, options) {
       options = options || {};
       var state = new State(options);
-      if (!state.noRefs)
+      if (!state.noRefs) {
         getDuplicateReferences(input, state);
-      if (writeNode(state, 0, input, true, true))
+      }
+      if (writeNode(state, 0, input, true, true)) {
         return state.dump + "\n";
+      }
       return "";
     }
     function safeDump(input, options) {
-      return dump(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
+      return dump(
+        input,
+        common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options),
+      );
     }
     module2.exports.dump = dump;
     module2.exports.safeDump = safeDump;
-  }
+  },
 });
 
 // node_modules/js-yaml/lib/js-yaml.js
@@ -12237,8 +14179,10 @@ var require_js_yaml = __commonJS({
     var loader = require_loader();
     var dumper = require_dumper();
     function deprecated(name) {
-      return function() {
-        throw new Error("Function " + name + " is deprecated and cannot be used.");
+      return function () {
+        throw new Error(
+          "Function " + name + " is deprecated and cannot be used.",
+        );
       };
     }
     module2.exports.Type = require_type();
@@ -12262,7 +14206,7 @@ var require_js_yaml = __commonJS({
     module2.exports.parse = deprecated("parse");
     module2.exports.compose = deprecated("compose");
     module2.exports.addConstructor = deprecated("addConstructor");
-  }
+  },
 });
 
 // node_modules/js-yaml/index.js
@@ -12271,12 +14215,12 @@ var require_js_yaml2 = __commonJS({
     "use strict";
     var yaml2 = require_js_yaml();
     module2.exports = yaml2;
-  }
+  },
 });
 
 // main.ts
 __export(exports, {
-  default: () => ObsidianSyncNotionPlugin
+  default: () => ObsidianSyncNotionPlugin,
 });
 var import_obsidian3 = __toModule(require("obsidian"));
 
@@ -12289,7 +14233,7 @@ var icons = {
 <path style=" stroke:none;fill-rule:evenodd;fill:currentColor;fill-opacity:1;" d="M 18.738281 17.796875 C 21.832031 20.308594 22.996094 20.117188 28.804688 19.730469 L 83.582031 16.441406 C 84.746094 16.441406 83.78125 15.28125 83.390625 15.089844 L 74.292969 8.511719 C 72.550781 7.160156 70.230469 5.609375 65.777344 5.996094 L 12.734375 9.867188 C 10.800781 10.058594 10.414062 11.023438 11.183594 11.800781 Z M 22.027344 30.5625 L 22.027344 88.199219 C 22.027344 91.296875 23.574219 92.457031 27.058594 92.265625 L 87.261719 88.78125 C 90.746094 88.589844 91.136719 86.457031 91.136719 83.941406 L 91.136719 26.691406 C 91.136719 24.179688 90.167969 22.824219 88.035156 23.019531 L 25.125 26.691406 C 22.800781 26.886719 22.027344 28.046875 22.027344 30.5625 Z M 81.460938 33.652344 C 81.84375 35.398438 81.460938 37.136719 79.714844 37.332031 L 76.8125 37.910156 L 76.8125 80.460938 C 74.292969 81.816406 71.972656 82.589844 70.035156 82.589844 C 66.9375 82.589844 66.164062 81.621094 63.839844 78.722656 L 44.867188 48.9375 L 44.867188 77.753906 L 50.871094 79.109375 C 50.871094 79.109375 50.871094 82.589844 46.027344 82.589844 L 32.675781 83.363281 C 32.285156 82.589844 32.675781 80.65625 34.027344 80.269531 L 37.511719 79.304688 L 37.511719 41.199219 L 32.675781 40.8125 C 32.285156 39.070312 33.253906 36.558594 35.964844 36.363281 L 50.292969 35.398438 L 70.035156 65.570312 L 70.035156 38.878906 L 65.003906 38.300781 C 64.617188 36.171875 66.164062 34.625 68.097656 34.433594 Z M 8.28125 4.644531 L 63.453125 0.582031 C 70.230469 0 71.972656 0.390625 76.230469 3.484375 L 93.84375 15.859375 C 96.75 17.988281 97.71875 18.570312 97.71875 20.890625 L 97.71875 88.78125 C 97.71875 93.035156 96.167969 95.550781 90.75 95.9375 L 26.675781 99.804688 C 22.609375 100 20.671875 99.421875 18.542969 96.710938 L 5.574219 79.882812 C 3.25 76.785156 2.28125 74.46875 2.28125 71.757812 L 2.28125 11.410156 C 2.28125 7.933594 3.832031 5.03125 8.28125 4.644531 Z M 8.28125 4.644531 "/>
 </g>
 </svg>
-  `
+  `,
 };
 var addIcons = () => {
   Object.keys(icons).forEach((key) => {
@@ -12304,9 +14248,18 @@ var import_martian = __toModule(require_src());
 // node_modules/yaml-front-matter/src/index.js
 var jsYaml = require_js_yaml2();
 function parse(text, options, loadSafe) {
-  let contentKeyName = options && typeof options === "string" ? options : options && options.contentKeyName ? options.contentKeyName : "__content";
-  let passThroughOptions = options && typeof options === "object" ? options : void 0;
-  let re = /^(-{3}(?:\n|\r)([\w\W]+?)(?:\n|\r)-{3})?([\w\W]*)*/, results = re.exec(text), conf = {}, yamlOrJson;
+  let contentKeyName = options && typeof options === "string"
+    ? options
+    : options && options.contentKeyName
+    ? options.contentKeyName
+    : "__content";
+  let passThroughOptions = options && typeof options === "object"
+    ? options
+    : void 0;
+  let re = /^(-{3}(?:\n|\r)([\w\W]+?)(?:\n|\r)-{3})?([\w\W]*)*/,
+    results = re.exec(text),
+    conf = {},
+    yamlOrJson;
   if (yamlOrJson = results[2]) {
     if (yamlOrJson.charAt(0) === "{") {
       conf = JSON.parse(yamlOrJson);
@@ -12333,23 +14286,30 @@ var PAIR = Symbol.for("yaml.pair");
 var SCALAR = Symbol.for("yaml.scalar");
 var SEQ = Symbol.for("yaml.seq");
 var NODE_TYPE = Symbol.for("yaml.node.type");
-var isAlias = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === ALIAS;
-var isDocument = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === DOC;
-var isMap = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === MAP;
-var isPair = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === PAIR;
-var isScalar = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === SCALAR;
-var isSeq = (node) => !!node && typeof node === "object" && node[NODE_TYPE] === SEQ;
+var isAlias = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === ALIAS;
+var isDocument = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === DOC;
+var isMap = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === MAP;
+var isPair = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === PAIR;
+var isScalar = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === SCALAR;
+var isSeq = (node) =>
+  !!node && typeof node === "object" && node[NODE_TYPE] === SEQ;
 function isCollection(node) {
-  if (node && typeof node === "object")
+  if (node && typeof node === "object") {
     switch (node[NODE_TYPE]) {
       case MAP:
       case SEQ:
         return true;
     }
+  }
   return false;
 }
 function isNode(node) {
-  if (node && typeof node === "object")
+  if (node && typeof node === "object") {
     switch (node[NODE_TYPE]) {
       case ALIAS:
       case MAP:
@@ -12357,17 +14317,23 @@ function isNode(node) {
       case SEQ:
         return true;
     }
+  }
   return false;
 }
-var hasAnchor = (node) => (isScalar(node) || isCollection(node)) && !!node.anchor;
+var hasAnchor = (node) =>
+  (isScalar(node) || isCollection(node)) && !!node.anchor;
 var NodeBase = class {
   constructor(type) {
     Object.defineProperty(this, NODE_TYPE, { value: type });
   }
   clone() {
-    const copy = Object.create(Object.getPrototypeOf(this), Object.getOwnPropertyDescriptors(this));
-    if (this.range)
+    const copy = Object.create(
+      Object.getPrototypeOf(this),
+      Object.getOwnPropertyDescriptors(this),
+    );
+    if (this.range) {
       copy.range = this.range.slice();
+    }
     return copy;
   }
 };
@@ -12380,10 +14346,12 @@ function visit(node, visitor) {
   const visitor_ = initVisitor(visitor);
   if (isDocument(node)) {
     const cd = visit_(null, node.contents, visitor_, Object.freeze([node]));
-    if (cd === REMOVE)
+    if (cd === REMOVE) {
       node.contents = null;
-  } else
+    }
+  } else {
     visit_(null, node, visitor_, Object.freeze([]));
+  }
 }
 visit.BREAK = BREAK;
 visit.SKIP = SKIP;
@@ -12399,11 +14367,11 @@ function visit_(key, node, visitor, path) {
       path = Object.freeze(path.concat(node));
       for (let i = 0; i < node.items.length; ++i) {
         const ci = visit_(i, node.items[i], visitor, path);
-        if (typeof ci === "number")
+        if (typeof ci === "number") {
           i = ci - 1;
-        else if (ci === BREAK)
+        } else if (ci === BREAK) {
           return BREAK;
-        else if (ci === REMOVE) {
+        } else if (ci === REMOVE) {
           node.items.splice(i, 1);
           i -= 1;
         }
@@ -12411,15 +14379,17 @@ function visit_(key, node, visitor, path) {
     } else if (isPair(node)) {
       path = Object.freeze(path.concat(node));
       const ck = visit_("key", node.key, visitor, path);
-      if (ck === BREAK)
+      if (ck === BREAK) {
         return BREAK;
-      else if (ck === REMOVE)
+      } else if (ck === REMOVE) {
         node.key = null;
+      }
       const cv = visit_("value", node.value, visitor, path);
-      if (cv === BREAK)
+      if (cv === BREAK) {
         return BREAK;
-      else if (cv === REMOVE)
+      } else if (cv === REMOVE) {
         node.value = null;
+      }
     }
   }
   return ctrl;
@@ -12428,11 +14398,18 @@ function visitAsync(node, visitor) {
   return __async(this, null, function* () {
     const visitor_ = initVisitor(visitor);
     if (isDocument(node)) {
-      const cd = yield visitAsync_(null, node.contents, visitor_, Object.freeze([node]));
-      if (cd === REMOVE)
+      const cd = yield visitAsync_(
+        null,
+        node.contents,
+        visitor_,
+        Object.freeze([node]),
+      );
+      if (cd === REMOVE) {
         node.contents = null;
-    } else
+      }
+    } else {
       yield visitAsync_(null, node, visitor_, Object.freeze([]));
+    }
   });
 }
 visitAsync.BREAK = BREAK;
@@ -12450,11 +14427,11 @@ function visitAsync_(key, node, visitor, path) {
         path = Object.freeze(path.concat(node));
         for (let i = 0; i < node.items.length; ++i) {
           const ci = yield visitAsync_(i, node.items[i], visitor, path);
-          if (typeof ci === "number")
+          if (typeof ci === "number") {
             i = ci - 1;
-          else if (ci === BREAK)
+          } else if (ci === BREAK) {
             return BREAK;
-          else if (ci === REMOVE) {
+          } else if (ci === REMOVE) {
             node.items.splice(i, 1);
             i -= 1;
           }
@@ -12462,52 +14439,78 @@ function visitAsync_(key, node, visitor, path) {
       } else if (isPair(node)) {
         path = Object.freeze(path.concat(node));
         const ck = yield visitAsync_("key", node.key, visitor, path);
-        if (ck === BREAK)
+        if (ck === BREAK) {
           return BREAK;
-        else if (ck === REMOVE)
+        } else if (ck === REMOVE) {
           node.key = null;
+        }
         const cv = yield visitAsync_("value", node.value, visitor, path);
-        if (cv === BREAK)
+        if (cv === BREAK) {
           return BREAK;
-        else if (cv === REMOVE)
+        } else if (cv === REMOVE) {
           node.value = null;
+        }
       }
     }
     return ctrl;
   });
 }
 function initVisitor(visitor) {
-  if (typeof visitor === "object" && (visitor.Collection || visitor.Node || visitor.Value)) {
-    return Object.assign({
-      Alias: visitor.Node,
-      Map: visitor.Node,
-      Scalar: visitor.Node,
-      Seq: visitor.Node
-    }, visitor.Value && {
-      Map: visitor.Value,
-      Scalar: visitor.Value,
-      Seq: visitor.Value
-    }, visitor.Collection && {
-      Map: visitor.Collection,
-      Seq: visitor.Collection
-    }, visitor);
+  if (
+    typeof visitor === "object" &&
+    (visitor.Collection || visitor.Node || visitor.Value)
+  ) {
+    return Object.assign(
+      {
+        Alias: visitor.Node,
+        Map: visitor.Node,
+        Scalar: visitor.Node,
+        Seq: visitor.Node,
+      },
+      visitor.Value && {
+        Map: visitor.Value,
+        Scalar: visitor.Value,
+        Seq: visitor.Value,
+      },
+      visitor.Collection && {
+        Map: visitor.Collection,
+        Seq: visitor.Collection,
+      },
+      visitor,
+    );
   }
   return visitor;
 }
 function callVisitor(key, node, visitor, path) {
   var _a, _b, _c, _d, _e;
-  if (typeof visitor === "function")
+  if (typeof visitor === "function") {
     return visitor(key, node, path);
-  if (isMap(node))
-    return (_a = visitor.Map) == null ? void 0 : _a.call(visitor, key, node, path);
-  if (isSeq(node))
-    return (_b = visitor.Seq) == null ? void 0 : _b.call(visitor, key, node, path);
-  if (isPair(node))
-    return (_c = visitor.Pair) == null ? void 0 : _c.call(visitor, key, node, path);
-  if (isScalar(node))
-    return (_d = visitor.Scalar) == null ? void 0 : _d.call(visitor, key, node, path);
-  if (isAlias(node))
-    return (_e = visitor.Alias) == null ? void 0 : _e.call(visitor, key, node, path);
+  }
+  if (isMap(node)) {
+    return (_a = visitor.Map) == null
+      ? void 0
+      : _a.call(visitor, key, node, path);
+  }
+  if (isSeq(node)) {
+    return (_b = visitor.Seq) == null
+      ? void 0
+      : _b.call(visitor, key, node, path);
+  }
+  if (isPair(node)) {
+    return (_c = visitor.Pair) == null
+      ? void 0
+      : _c.call(visitor, key, node, path);
+  }
+  if (isScalar(node)) {
+    return (_d = visitor.Scalar) == null
+      ? void 0
+      : _d.call(visitor, key, node, path);
+  }
+  if (isAlias(node)) {
+    return (_e = visitor.Alias) == null
+      ? void 0
+      : _e.call(visitor, key, node, path);
+  }
   return void 0;
 }
 function replaceNode(key, path, node) {
@@ -12515,10 +14518,11 @@ function replaceNode(key, path, node) {
   if (isCollection(parent)) {
     parent.items[key] = node;
   } else if (isPair(parent)) {
-    if (key === "key")
+    if (key === "key") {
       parent.key = node;
-    else
+    } else {
       parent.value = node;
+    }
   } else if (isDocument(parent)) {
     parent.contents = node;
   } else {
@@ -12534,7 +14538,7 @@ var escapeChars = {
   "[": "%5B",
   "]": "%5D",
   "{": "%7B",
-  "}": "%7D"
+  "}": "%7D",
 };
 var escapeTagName = (tn) => tn.replace(/[!,[\]{}]/g, (ch) => escapeChars[ch]);
 var Directives = class {
@@ -12559,7 +14563,7 @@ var Directives = class {
         this.atNextDocument = false;
         this.yaml = {
           explicit: Directives.defaultYaml.explicit,
-          version: "1.2"
+          version: "1.2",
         };
         this.tags = Object.assign({}, Directives.defaultTags);
         break;
@@ -12578,8 +14582,9 @@ var Directives = class {
       case "%TAG": {
         if (parts.length !== 2) {
           onError(0, "%TAG directive should contain exactly two parts");
-          if (parts.length < 2)
+          if (parts.length < 2) {
             return false;
+          }
         }
         const [handle, prefix] = parts;
         this.tags[handle] = prefix;
@@ -12607,8 +14612,9 @@ var Directives = class {
     }
   }
   tagName(source, onError) {
-    if (source === "!")
+    if (source === "!") {
       return "!";
+    }
     if (source[0] !== "!") {
       onError(`Not a valid tag: ${source}`);
       return null;
@@ -12619,46 +14625,57 @@ var Directives = class {
         onError(`Verbatim tags aren't resolved, so ${source} is invalid.`);
         return null;
       }
-      if (source[source.length - 1] !== ">")
+      if (source[source.length - 1] !== ">") {
         onError("Verbatim tags must end with a >");
+      }
       return verbatim;
     }
     const [, handle, suffix] = source.match(/^(.*!)([^!]*)$/);
-    if (!suffix)
+    if (!suffix) {
       onError(`The ${source} tag has no suffix`);
+    }
     const prefix = this.tags[handle];
-    if (prefix)
+    if (prefix) {
       return prefix + decodeURIComponent(suffix);
-    if (handle === "!")
+    }
+    if (handle === "!") {
       return source;
+    }
     onError(`Could not resolve tag: ${source}`);
     return null;
   }
   tagString(tag) {
     for (const [handle, prefix] of Object.entries(this.tags)) {
-      if (tag.startsWith(prefix))
+      if (tag.startsWith(prefix)) {
         return handle + escapeTagName(tag.substring(prefix.length));
+      }
     }
     return tag[0] === "!" ? tag : `!<${tag}>`;
   }
   toString(doc) {
-    const lines = this.yaml.explicit ? [`%YAML ${this.yaml.version || "1.2"}`] : [];
+    const lines = this.yaml.explicit
+      ? [`%YAML ${this.yaml.version || "1.2"}`]
+      : [];
     const tagEntries = Object.entries(this.tags);
     let tagNames;
     if (doc && tagEntries.length > 0 && isNode(doc.contents)) {
       const tags = {};
       visit(doc.contents, (_key, node) => {
-        if (isNode(node) && node.tag)
+        if (isNode(node) && node.tag) {
           tags[node.tag] = true;
+        }
       });
       tagNames = Object.keys(tags);
-    } else
+    } else {
       tagNames = [];
+    }
     for (const [handle, prefix] of tagEntries) {
-      if (handle === "!!" && prefix === "tag:yaml.org,2002:")
+      if (handle === "!!" && prefix === "tag:yaml.org,2002:") {
         continue;
-      if (!doc || tagNames.some((tn) => tn.startsWith(prefix)))
+      }
+      if (!doc || tagNames.some((tn) => tn.startsWith(prefix))) {
         lines.push(`%TAG ${handle} ${prefix}`);
+      }
     }
     return lines.join("\n");
   }
@@ -12670,7 +14687,8 @@ Directives.defaultTags = { "!!": "tag:yaml.org,2002:" };
 function anchorIsValid(anchor) {
   if (/[\x00-\x19\s,[\]{}]/.test(anchor)) {
     const sa = JSON.stringify(anchor);
-    const msg = `Anchor must not contain whitespace or control characters: ${sa}`;
+    const msg =
+      `Anchor must not contain whitespace or control characters: ${sa}`;
     throw new Error(msg);
   }
   return true;
@@ -12679,17 +14697,19 @@ function anchorNames(root) {
   const anchors = new Set();
   visit(root, {
     Value(_key, node) {
-      if (node.anchor)
+      if (node.anchor) {
         anchors.add(node.anchor);
-    }
+      }
+    },
   });
   return anchors;
 }
 function findNewAnchor(prefix, exclude) {
   for (let i = 1; true; ++i) {
     const name = `${prefix}${i}`;
-    if (!exclude.has(name))
+    if (!exclude.has(name)) {
       return name;
+    }
   }
 }
 function createNodeAnchors(doc, prefix) {
@@ -12699,8 +14719,9 @@ function createNodeAnchors(doc, prefix) {
   return {
     onAnchor: (source) => {
       aliasObjects.push(source);
-      if (!prevAnchors)
+      if (!prevAnchors) {
         prevAnchors = anchorNames(doc);
+      }
       const anchor = findNewAnchor(prefix, prevAnchors);
       prevAnchors.add(anchor);
       return anchor;
@@ -12708,16 +14729,21 @@ function createNodeAnchors(doc, prefix) {
     setAnchors: () => {
       for (const source of aliasObjects) {
         const ref = sourceObjects.get(source);
-        if (typeof ref === "object" && ref.anchor && (isScalar(ref.node) || isCollection(ref.node))) {
+        if (
+          typeof ref === "object" && ref.anchor &&
+          (isScalar(ref.node) || isCollection(ref.node))
+        ) {
           ref.node.anchor = ref.anchor;
         } else {
-          const error = new Error("Failed to resolve repeated object (this should not happen)");
+          const error = new Error(
+            "Failed to resolve repeated object (this should not happen)",
+          );
           error.source = source;
           throw error;
         }
       }
     },
-    sourceObjects
+    sourceObjects,
   };
 }
 
@@ -12729,28 +14755,32 @@ var Alias = class extends NodeBase {
     Object.defineProperty(this, "tag", {
       set() {
         throw new Error("Alias nodes cannot have tags");
-      }
+      },
     });
   }
   resolve(doc) {
     let found = void 0;
     visit(doc, {
       Node: (_key, node) => {
-        if (node === this)
+        if (node === this) {
           return visit.BREAK;
-        if (node.anchor === this.source)
+        }
+        if (node.anchor === this.source) {
           found = node;
-      }
+        }
+      },
     });
     return found;
   }
   toJSON(_arg, ctx) {
-    if (!ctx)
+    if (!ctx) {
       return { source: this.source };
+    }
     const { anchors, doc, maxAliasCount } = ctx;
     const source = this.resolve(doc);
     if (!source) {
-      const msg = `Unresolved alias (the anchor must be set before the alias): ${this.source}`;
+      const msg =
+        `Unresolved alias (the anchor must be set before the alias): ${this.source}`;
       throw new ReferenceError(msg);
     }
     const data = anchors.get(source);
@@ -12760,10 +14790,12 @@ var Alias = class extends NodeBase {
     }
     if (maxAliasCount >= 0) {
       data.count += 1;
-      if (data.aliasCount === 0)
+      if (data.aliasCount === 0) {
         data.aliasCount = getAliasCount(doc, source, anchors);
+      }
       if (data.count * data.aliasCount > maxAliasCount) {
-        const msg = "Excessive alias count indicates a resource exhaustion attack";
+        const msg =
+          "Excessive alias count indicates a resource exhaustion attack";
         throw new ReferenceError(msg);
       }
     }
@@ -12774,11 +14806,13 @@ var Alias = class extends NodeBase {
     if (ctx) {
       anchorIsValid(this.source);
       if (ctx.options.verifyAliasOrder && !ctx.anchors.has(this.source)) {
-        const msg = `Unresolved alias (the anchor must be set before the alias): ${this.source}`;
+        const msg =
+          `Unresolved alias (the anchor must be set before the alias): ${this.source}`;
         throw new Error(msg);
       }
-      if (ctx.implicitKey)
+      if (ctx.implicitKey) {
         return `${src} `;
+      }
     }
     return src;
   }
@@ -12792,8 +14826,9 @@ function getAliasCount(doc, node, anchors) {
     let count = 0;
     for (const item of node.items) {
       const c = getAliasCount(doc, item, anchors);
-      if (c > count)
+      if (c > count) {
         count = c;
+      }
     }
     return count;
   } else if (isPair(node)) {
@@ -12806,11 +14841,13 @@ function getAliasCount(doc, node, anchors) {
 
 // node_modules/yaml/browser/dist/nodes/toJS.js
 function toJS(value, arg, ctx) {
-  if (Array.isArray(value))
+  if (Array.isArray(value)) {
     return value.map((v, i) => toJS(v, String(i), ctx));
+  }
   if (value && typeof value.toJSON === "function") {
-    if (!ctx || !hasAnchor(value))
+    if (!ctx || !hasAnchor(value)) {
       return value.toJSON(arg, ctx);
+    }
     const data = { aliasCount: 0, count: 1, res: void 0 };
     ctx.anchors.set(value, data);
     ctx.onCreate = (res2) => {
@@ -12818,24 +14855,29 @@ function toJS(value, arg, ctx) {
       delete ctx.onCreate;
     };
     const res = value.toJSON(arg, ctx);
-    if (ctx.onCreate)
+    if (ctx.onCreate) {
       ctx.onCreate(res);
+    }
     return res;
   }
-  if (typeof value === "bigint" && !(ctx == null ? void 0 : ctx.keep))
+  if (typeof value === "bigint" && !(ctx == null ? void 0 : ctx.keep)) {
     return Number(value);
+  }
   return value;
 }
 
 // node_modules/yaml/browser/dist/nodes/Scalar.js
-var isScalarValue = (value) => !value || typeof value !== "function" && typeof value !== "object";
+var isScalarValue = (value) =>
+  !value || typeof value !== "function" && typeof value !== "object";
 var Scalar = class extends NodeBase {
   constructor(value) {
     super(SCALAR);
     this.value = value;
   }
   toJSON(arg, ctx) {
-    return (ctx == null ? void 0 : ctx.keep) ? this.value : toJS(this.value, arg, ctx);
+    return (ctx == null ? void 0 : ctx.keep)
+      ? this.value
+      : toJS(this.value, arg, ctx);
   }
   toString() {
     return String(this.value);
@@ -12854,44 +14896,62 @@ function findTagObject(value, tagName, tags) {
   if (tagName) {
     const match = tags.filter((t) => t.tag === tagName);
     const tagObj = (_a = match.find((t) => !t.format)) != null ? _a : match[0];
-    if (!tagObj)
+    if (!tagObj) {
       throw new Error(`Tag ${tagName} not found`);
+    }
     return tagObj;
   }
   return tags.find((t) => {
     var _a2;
-    return ((_a2 = t.identify) == null ? void 0 : _a2.call(t, value)) && !t.format;
+    return ((_a2 = t.identify) == null ? void 0 : _a2.call(t, value)) &&
+      !t.format;
   });
 }
 function createNode(value, tagName, ctx) {
   var _a, _b;
-  if (isDocument(value))
+  if (isDocument(value)) {
     value = value.contents;
-  if (isNode(value))
+  }
+  if (isNode(value)) {
     return value;
+  }
   if (isPair(value)) {
-    const map2 = (_b = (_a = ctx.schema[MAP]).createNode) == null ? void 0 : _b.call(_a, ctx.schema, null, ctx);
+    const map2 = (_b = (_a = ctx.schema[MAP]).createNode) == null
+      ? void 0
+      : _b.call(_a, ctx.schema, null, ctx);
     map2.items.push(value);
     return map2;
   }
-  if (value instanceof String || value instanceof Number || value instanceof Boolean || typeof BigInt !== "undefined" && value instanceof BigInt) {
+  if (
+    value instanceof String || value instanceof Number ||
+    value instanceof Boolean ||
+    typeof BigInt !== "undefined" && value instanceof BigInt
+  ) {
     value = value.valueOf();
   }
-  const { aliasDuplicateObjects, onAnchor, onTagObj, schema: schema4, sourceObjects } = ctx;
+  const {
+    aliasDuplicateObjects,
+    onAnchor,
+    onTagObj,
+    schema: schema4,
+    sourceObjects,
+  } = ctx;
   let ref = void 0;
   if (aliasDuplicateObjects && value && typeof value === "object") {
     ref = sourceObjects.get(value);
     if (ref) {
-      if (!ref.anchor)
+      if (!ref.anchor) {
         ref.anchor = onAnchor(value);
+      }
       return new Alias(ref.anchor);
     } else {
       ref = { anchor: null, node: null };
       sourceObjects.set(value, ref);
     }
   }
-  if (tagName == null ? void 0 : tagName.startsWith("!!"))
+  if (tagName == null ? void 0 : tagName.startsWith("!!")) {
     tagName = defaultTagPrefix + tagName.slice(2);
+  }
   let tagObj = findTagObject(value, tagName, schema4.tags);
   if (!tagObj) {
     if (value && typeof value.toJSON === "function") {
@@ -12899,21 +14959,30 @@ function createNode(value, tagName, ctx) {
     }
     if (!value || typeof value !== "object") {
       const node2 = new Scalar(value);
-      if (ref)
+      if (ref) {
         ref.node = node2;
+      }
       return node2;
     }
-    tagObj = value instanceof Map ? schema4[MAP] : Symbol.iterator in Object(value) ? schema4[SEQ] : schema4[MAP];
+    tagObj = value instanceof Map
+      ? schema4[MAP]
+      : Symbol.iterator in Object(value)
+      ? schema4[SEQ]
+      : schema4[MAP];
   }
   if (onTagObj) {
     onTagObj(tagObj);
     delete ctx.onTagObj;
   }
-  const node = (tagObj == null ? void 0 : tagObj.createNode) ? tagObj.createNode(ctx.schema, value, ctx) : new Scalar(value);
-  if (tagName)
+  const node = (tagObj == null ? void 0 : tagObj.createNode)
+    ? tagObj.createNode(ctx.schema, value, ctx)
+    : new Scalar(value);
+  if (tagName) {
     node.tag = tagName;
-  if (ref)
+  }
+  if (ref) {
     ref.node = node;
+  }
   return node;
 }
 
@@ -12937,10 +15006,12 @@ function collectionFromPath(schema4, path, value) {
       throw new Error("This should not happen, please report a bug.");
     },
     schema: schema4,
-    sourceObjects: new Map()
+    sourceObjects: new Map(),
   });
 }
-var isEmptyPath = (path) => path == null || typeof path === "object" && !!path[Symbol.iterator]().next().done;
+var isEmptyPath = (path) =>
+  path == null ||
+  typeof path === "object" && !!path[Symbol.iterator]().next().done;
 var Collection = class extends NodeBase {
   constructor(type, schema4) {
     super(type);
@@ -12948,62 +15019,81 @@ var Collection = class extends NodeBase {
       value: schema4,
       configurable: true,
       enumerable: false,
-      writable: true
+      writable: true,
     });
   }
   clone(schema4) {
-    const copy = Object.create(Object.getPrototypeOf(this), Object.getOwnPropertyDescriptors(this));
-    if (schema4)
+    const copy = Object.create(
+      Object.getPrototypeOf(this),
+      Object.getOwnPropertyDescriptors(this),
+    );
+    if (schema4) {
       copy.schema = schema4;
-    copy.items = copy.items.map((it) => isNode(it) || isPair(it) ? it.clone(schema4) : it);
-    if (this.range)
+    }
+    copy.items = copy.items.map((it) =>
+      isNode(it) || isPair(it) ? it.clone(schema4) : it
+    );
+    if (this.range) {
       copy.range = this.range.slice();
+    }
     return copy;
   }
   addIn(path, value) {
-    if (isEmptyPath(path))
+    if (isEmptyPath(path)) {
       this.add(value);
-    else {
+    } else {
       const [key, ...rest] = path;
       const node = this.get(key, true);
-      if (isCollection(node))
+      if (isCollection(node)) {
         node.addIn(rest, value);
-      else if (node === void 0 && this.schema)
+      } else if (node === void 0 && this.schema) {
         this.set(key, collectionFromPath(this.schema, rest, value));
-      else
-        throw new Error(`Expected YAML collection at ${key}. Remaining path: ${rest}`);
+      } else {
+        throw new Error(
+          `Expected YAML collection at ${key}. Remaining path: ${rest}`,
+        );
+      }
     }
   }
   deleteIn(path) {
     const [key, ...rest] = path;
-    if (rest.length === 0)
+    if (rest.length === 0) {
       return this.delete(key);
+    }
     const node = this.get(key, true);
-    if (isCollection(node))
+    if (isCollection(node)) {
       return node.deleteIn(rest);
-    else
-      throw new Error(`Expected YAML collection at ${key}. Remaining path: ${rest}`);
+    } else {
+      throw new Error(
+        `Expected YAML collection at ${key}. Remaining path: ${rest}`,
+      );
+    }
   }
   getIn(path, keepScalar) {
     const [key, ...rest] = path;
     const node = this.get(key, true);
-    if (rest.length === 0)
+    if (rest.length === 0) {
       return !keepScalar && isScalar(node) ? node.value : node;
-    else
+    } else {
       return isCollection(node) ? node.getIn(rest, keepScalar) : void 0;
+    }
   }
   hasAllNullValues(allowScalar) {
     return this.items.every((node) => {
-      if (!isPair(node))
+      if (!isPair(node)) {
         return false;
+      }
       const n = node.value;
-      return n == null || allowScalar && isScalar(n) && n.value == null && !n.commentBefore && !n.comment && !n.tag;
+      return n == null ||
+        allowScalar && isScalar(n) && n.value == null && !n.commentBefore &&
+          !n.comment && !n.tag;
     });
   }
   hasIn(path) {
     const [key, ...rest] = path;
-    if (rest.length === 0)
+    if (rest.length === 0) {
       return this.has(key);
+    }
     const node = this.get(key, true);
     return isCollection(node) ? node.hasIn(rest) : false;
   }
@@ -13013,12 +15103,15 @@ var Collection = class extends NodeBase {
       this.set(key, value);
     } else {
       const node = this.get(key, true);
-      if (isCollection(node))
+      if (isCollection(node)) {
         node.setIn(rest, value);
-      else if (node === void 0 && this.schema)
+      } else if (node === void 0 && this.schema) {
         this.set(key, collectionFromPath(this.schema, rest, value));
-      else
-        throw new Error(`Expected YAML collection at ${key}. Remaining path: ${rest}`);
+      } else {
+        throw new Error(
+          `Expected YAML collection at ${key}. Remaining path: ${rest}`,
+        );
+      }
     }
   }
 };
@@ -13027,30 +15120,45 @@ Collection.maxFlowStringSingleLineLength = 60;
 // node_modules/yaml/browser/dist/stringify/stringifyComment.js
 var stringifyComment = (str) => str.replace(/^(?!$)(?: $)?/gm, "#");
 function indentComment(comment, indent) {
-  if (/^\n+$/.test(comment))
+  if (/^\n+$/.test(comment)) {
     return comment.substring(1);
+  }
   return indent ? comment.replace(/^(?! *$)/gm, indent) : comment;
 }
-var lineComment = (str, indent, comment) => str.endsWith("\n") ? indentComment(comment, indent) : comment.includes("\n") ? "\n" + indentComment(comment, indent) : (str.endsWith(" ") ? "" : " ") + comment;
+var lineComment = (str, indent, comment) =>
+  str.endsWith("\n")
+    ? indentComment(comment, indent)
+    : comment.includes("\n")
+    ? "\n" + indentComment(comment, indent)
+    : (str.endsWith(" ") ? "" : " ") + comment;
 
 // node_modules/yaml/browser/dist/stringify/foldFlowLines.js
 var FOLD_FLOW = "flow";
 var FOLD_BLOCK = "block";
 var FOLD_QUOTED = "quoted";
-function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth = 80, minContentWidth = 20, onFold, onOverflow } = {}) {
-  if (!lineWidth || lineWidth < 0)
+function foldFlowLines(
+  text,
+  indent,
+  mode = "flow",
+  { indentAtStart, lineWidth = 80, minContentWidth = 20, onFold, onOverflow } =
+    {},
+) {
+  if (!lineWidth || lineWidth < 0) {
     return text;
+  }
   const endStep = Math.max(1 + minContentWidth, 1 + lineWidth - indent.length);
-  if (text.length <= endStep)
+  if (text.length <= endStep) {
     return text;
+  }
   const folds = [];
   const escapedFolds = {};
   let end = lineWidth - indent.length;
   if (typeof indentAtStart === "number") {
-    if (indentAtStart > lineWidth - Math.max(2, minContentWidth))
+    if (indentAtStart > lineWidth - Math.max(2, minContentWidth)) {
       folds.push(0);
-    else
+    } else {
       end = lineWidth - indentAtStart;
+    }
   }
   let split = void 0;
   let prev = void 0;
@@ -13060,10 +15168,11 @@ function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth =
   let escEnd = -1;
   if (mode === FOLD_BLOCK) {
     i = consumeMoreIndentedLines(text, i);
-    if (i !== -1)
+    if (i !== -1) {
       end = i + endStep;
+    }
   }
-  for (let ch; ch = text[i += 1]; ) {
+  for (let ch; ch = text[i += 1];) {
     if (mode === FOLD_QUOTED && ch === "\\") {
       escStart = i;
       switch (text[i + 1]) {
@@ -13082,15 +15191,19 @@ function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth =
       escEnd = i;
     }
     if (ch === "\n") {
-      if (mode === FOLD_BLOCK)
+      if (mode === FOLD_BLOCK) {
         i = consumeMoreIndentedLines(text, i);
+      }
       end = i + endStep;
       split = void 0;
     } else {
-      if (ch === " " && prev && prev !== " " && prev !== "\n" && prev !== "	") {
+      if (
+        ch === " " && prev && prev !== " " && prev !== "\n" && prev !== "	"
+      ) {
         const next = text[i + 1];
-        if (next && next !== " " && next !== "\n" && next !== "	")
+        if (next && next !== " " && next !== "\n" && next !== "	") {
           split = i;
+        }
       }
       if (i >= end) {
         if (split) {
@@ -13104,8 +15217,9 @@ function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth =
             overflow = true;
           }
           const j = i > escEnd + 1 ? i - 2 : escStart - 1;
-          if (escapedFolds[j])
+          if (escapedFolds[j]) {
             return text;
+          }
           folds.push(j);
           escapedFolds[j] = true;
           end = j + endStep;
@@ -13117,22 +15231,26 @@ function foldFlowLines(text, indent, mode = "flow", { indentAtStart, lineWidth =
     }
     prev = ch;
   }
-  if (overflow && onOverflow)
+  if (overflow && onOverflow) {
     onOverflow();
-  if (folds.length === 0)
+  }
+  if (folds.length === 0) {
     return text;
-  if (onFold)
+  }
+  if (onFold) {
     onFold();
+  }
   let res = text.slice(0, folds[0]);
   for (let i2 = 0; i2 < folds.length; ++i2) {
     const fold = folds[i2];
     const end2 = folds[i2 + 1] || text.length;
-    if (fold === 0)
+    if (fold === 0) {
       res = `
 ${indent}${text.slice(0, end2)}`;
-    else {
-      if (mode === FOLD_QUOTED && escapedFolds[fold])
+    } else {
+      if (mode === FOLD_QUOTED && escapedFolds[fold]) {
         res += `${text[fold]}\\`;
+      }
       res += `
 ${indent}${text.slice(fold + 1, end2)}`;
     }
@@ -13154,31 +15272,36 @@ function consumeMoreIndentedLines(text, i) {
 var getFoldOptions = (ctx) => ({
   indentAtStart: ctx.indentAtStart,
   lineWidth: ctx.options.lineWidth,
-  minContentWidth: ctx.options.minContentWidth
+  minContentWidth: ctx.options.minContentWidth,
 });
 var containsDocumentMarker = (str) => /^(%|---|\.\.\.)/m.test(str);
 function lineLengthOverLimit(str, lineWidth, indentLength) {
-  if (!lineWidth || lineWidth < 0)
+  if (!lineWidth || lineWidth < 0) {
     return false;
+  }
   const limit = lineWidth - indentLength;
   const strLen = str.length;
-  if (strLen <= limit)
+  if (strLen <= limit) {
     return false;
+  }
   for (let i = 0, start = 0; i < strLen; ++i) {
     if (str[i] === "\n") {
-      if (i - start > limit)
+      if (i - start > limit) {
         return true;
+      }
       start = i + 1;
-      if (strLen - start <= limit)
+      if (strLen - start <= limit) {
         return false;
+      }
     }
   }
   return true;
 }
 function doubleQuotedString(value, ctx) {
   const json = JSON.stringify(value);
-  if (ctx.options.doubleQuotedAsJSON)
+  if (ctx.options.doubleQuotedAsJSON) {
     return json;
+  }
   const { implicitKey } = ctx;
   const minMultiLineLength = ctx.options.doubleQuotedMinMultiLineLength;
   const indent = ctx.indent || (containsDocumentMarker(value) ? "  " : "");
@@ -13191,7 +15314,7 @@ function doubleQuotedString(value, ctx) {
       start = i;
       ch = "\\";
     }
-    if (ch === "\\")
+    if (ch === "\\") {
       switch (json[i + 1]) {
         case "u":
           {
@@ -13223,27 +15346,34 @@ function doubleQuotedString(value, ctx) {
                 str += "\\P";
                 break;
               default:
-                if (code.substr(0, 2) === "00")
+                if (code.substr(0, 2) === "00") {
                   str += "\\x" + code.substr(2);
-                else
+                } else {
                   str += json.substr(i, 6);
+                }
             }
             i += 5;
             start = i + 1;
           }
           break;
         case "n":
-          if (implicitKey || json[i + 2] === '"' || json.length < minMultiLineLength) {
+          if (
+            implicitKey || json[i + 2] === '"' ||
+            json.length < minMultiLineLength
+          ) {
             i += 1;
           } else {
             str += json.slice(start, i) + "\n\n";
-            while (json[i + 2] === "\\" && json[i + 3] === "n" && json[i + 4] !== '"') {
+            while (
+              json[i + 2] === "\\" && json[i + 3] === "n" && json[i + 4] !== '"'
+            ) {
               str += "\n";
               i += 2;
             }
             str += indent;
-            if (json[i + 2] === " ")
+            if (json[i + 2] === " ") {
               str += "\\";
+            }
             i += 1;
             start = i + 1;
           }
@@ -13251,32 +15381,45 @@ function doubleQuotedString(value, ctx) {
         default:
           i += 1;
       }
+    }
   }
   str = start ? str + json.slice(start) : json;
-  return implicitKey ? str : foldFlowLines(str, indent, FOLD_QUOTED, getFoldOptions(ctx));
+  return implicitKey
+    ? str
+    : foldFlowLines(str, indent, FOLD_QUOTED, getFoldOptions(ctx));
 }
 function singleQuotedString(value, ctx) {
-  if (ctx.options.singleQuote === false || ctx.implicitKey && value.includes("\n") || /[ \t]\n|\n[ \t]/.test(value))
+  if (
+    ctx.options.singleQuote === false ||
+    ctx.implicitKey && value.includes("\n") || /[ \t]\n|\n[ \t]/.test(value)
+  ) {
     return doubleQuotedString(value, ctx);
+  }
   const indent = ctx.indent || (containsDocumentMarker(value) ? "  " : "");
-  const res = "'" + value.replace(/'/g, "''").replace(/\n+/g, `$&
-${indent}`) + "'";
-  return ctx.implicitKey ? res : foldFlowLines(res, indent, FOLD_FLOW, getFoldOptions(ctx));
+  const res = "'" + value.replace(/'/g, "''").replace(
+    /\n+/g,
+    `$&
+${indent}`,
+  ) + "'";
+  return ctx.implicitKey
+    ? res
+    : foldFlowLines(res, indent, FOLD_FLOW, getFoldOptions(ctx));
 }
 function quotedString(value, ctx) {
   const { singleQuote } = ctx.options;
   let qs;
-  if (singleQuote === false)
+  if (singleQuote === false) {
     qs = doubleQuotedString;
-  else {
+  } else {
     const hasDouble = value.includes('"');
     const hasSingle = value.includes("'");
-    if (hasDouble && !hasSingle)
+    if (hasDouble && !hasSingle) {
       qs = singleQuotedString;
-    else if (hasSingle && !hasDouble)
+    } else if (hasSingle && !hasDouble) {
       qs = doubleQuotedString;
-    else
+    } else {
       qs = singleQuote ? singleQuotedString : doubleQuotedString;
+    }
   }
   return qs(value, ctx);
 }
@@ -13285,16 +15428,25 @@ function blockString({ comment, type, value }, ctx, onComment, onChompKeep) {
   if (!blockQuote || /\n[\t ]+$/.test(value) || /^\s*$/.test(value)) {
     return quotedString(value, ctx);
   }
-  const indent = ctx.indent || (ctx.forceBlockIndent || containsDocumentMarker(value) ? "  " : "");
-  const literal = blockQuote === "literal" ? true : blockQuote === "folded" || type === Scalar.BLOCK_FOLDED ? false : type === Scalar.BLOCK_LITERAL ? true : !lineLengthOverLimit(value, lineWidth, indent.length);
-  if (!value)
+  const indent = ctx.indent ||
+    (ctx.forceBlockIndent || containsDocumentMarker(value) ? "  " : "");
+  const literal = blockQuote === "literal"
+    ? true
+    : blockQuote === "folded" || type === Scalar.BLOCK_FOLDED
+    ? false
+    : type === Scalar.BLOCK_LITERAL
+    ? true
+    : !lineLengthOverLimit(value, lineWidth, indent.length);
+  if (!value) {
     return literal ? "|\n" : ">\n";
+  }
   let chomp;
   let endStart;
   for (endStart = value.length; endStart > 0; --endStart) {
     const ch = value[endStart - 1];
-    if (ch !== "\n" && ch !== "	" && ch !== " ")
+    if (ch !== "\n" && ch !== "	" && ch !== " ") {
       break;
+    }
   }
   let end = value.substring(endStart);
   const endNlPos = end.indexOf("\n");
@@ -13302,15 +15454,17 @@ function blockString({ comment, type, value }, ctx, onComment, onChompKeep) {
     chomp = "-";
   } else if (value === end || endNlPos !== end.length - 1) {
     chomp = "+";
-    if (onChompKeep)
+    if (onChompKeep) {
       onChompKeep();
+    }
   } else {
     chomp = "";
   }
   if (end) {
     value = value.slice(0, -end.length);
-    if (end[end.length - 1] === "\n")
+    if (end[end.length - 1] === "\n") {
       end = end.slice(0, -1);
+    }
     end = end.replace(/\n+(?!\n|$)/g, `$&${indent}`);
   }
   let startWithSpace = false;
@@ -13318,45 +15472,69 @@ function blockString({ comment, type, value }, ctx, onComment, onChompKeep) {
   let startNlPos = -1;
   for (startEnd = 0; startEnd < value.length; ++startEnd) {
     const ch = value[startEnd];
-    if (ch === " ")
+    if (ch === " ") {
       startWithSpace = true;
-    else if (ch === "\n")
+    } else if (ch === "\n") {
       startNlPos = startEnd;
-    else
+    } else {
       break;
+    }
   }
-  let start = value.substring(0, startNlPos < startEnd ? startNlPos + 1 : startEnd);
+  let start = value.substring(
+    0,
+    startNlPos < startEnd ? startNlPos + 1 : startEnd,
+  );
   if (start) {
     value = value.substring(start.length);
     start = start.replace(/\n+/g, `$&${indent}`);
   }
   const indentSize = indent ? "2" : "1";
-  let header = (literal ? "|" : ">") + (startWithSpace ? indentSize : "") + chomp;
+  let header = (literal ? "|" : ">") + (startWithSpace ? indentSize : "") +
+    chomp;
   if (comment) {
     header += " " + commentString(comment.replace(/ ?[\r\n]+/g, " "));
-    if (onComment)
+    if (onComment) {
       onComment();
+    }
   }
   if (literal) {
     value = value.replace(/\n+/g, `$&${indent}`);
     return `${header}
 ${indent}${start}${value}${end}`;
   }
-  value = value.replace(/\n+/g, "\n$&").replace(/(?:^|\n)([\t ].*)(?:([\n\t ]*)\n(?![\n\t ]))?/g, "$1$2").replace(/\n+/g, `$&${indent}`);
-  const body = foldFlowLines(`${start}${value}${end}`, indent, FOLD_BLOCK, getFoldOptions(ctx));
+  value = value.replace(/\n+/g, "\n$&").replace(
+    /(?:^|\n)([\t ].*)(?:([\n\t ]*)\n(?![\n\t ]))?/g,
+    "$1$2",
+  ).replace(/\n+/g, `$&${indent}`);
+  const body = foldFlowLines(
+    `${start}${value}${end}`,
+    indent,
+    FOLD_BLOCK,
+    getFoldOptions(ctx),
+  );
   return `${header}
 ${indent}${body}`;
 }
 function plainString(item, ctx, onComment, onChompKeep) {
   const { type, value } = item;
   const { actualString, implicitKey, indent, indentStep, inFlow } = ctx;
-  if (implicitKey && /[\n[\]{},]/.test(value) || inFlow && /[[\]{},]/.test(value)) {
+  if (
+    implicitKey && /[\n[\]{},]/.test(value) || inFlow && /[[\]{},]/.test(value)
+  ) {
     return quotedString(value, ctx);
   }
-  if (!value || /^[\n\t ,[\]{}#&*!|>'"%@`]|^[?-]$|^[?-][ \t]|[\n:][ \t]|[ \t]\n|[\n\t ]#|[\n\t :]$/.test(value)) {
-    return implicitKey || inFlow || !value.includes("\n") ? quotedString(value, ctx) : blockString(item, ctx, onComment, onChompKeep);
+  if (
+    !value ||
+    /^[\n\t ,[\]{}#&*!|>'"%@`]|^[?-]$|^[?-][ \t]|[\n:][ \t]|[ \t]\n|[\n\t ]#|[\n\t :]$/
+      .test(value)
+  ) {
+    return implicitKey || inFlow || !value.includes("\n")
+      ? quotedString(value, ctx)
+      : blockString(item, ctx, onComment, onChompKeep);
   }
-  if (!implicitKey && !inFlow && type !== Scalar.PLAIN && value.includes("\n")) {
+  if (
+    !implicitKey && !inFlow && type !== Scalar.PLAIN && value.includes("\n")
+  ) {
     return blockString(item, ctx, onComment, onChompKeep);
   }
   if (containsDocumentMarker(value)) {
@@ -13367,32 +15545,44 @@ function plainString(item, ctx, onComment, onChompKeep) {
       return quotedString(value, ctx);
     }
   }
-  const str = value.replace(/\n+/g, `$&
-${indent}`);
+  const str = value.replace(
+    /\n+/g,
+    `$&
+${indent}`,
+  );
   if (actualString) {
     const test = (tag) => {
       var _a;
-      return tag.default && tag.tag !== "tag:yaml.org,2002:str" && ((_a = tag.test) == null ? void 0 : _a.test(str));
+      return tag.default && tag.tag !== "tag:yaml.org,2002:str" &&
+        ((_a = tag.test) == null ? void 0 : _a.test(str));
     };
     const { compat, tags } = ctx.doc.schema;
-    if (tags.some(test) || (compat == null ? void 0 : compat.some(test)))
+    if (tags.some(test) || (compat == null ? void 0 : compat.some(test))) {
       return quotedString(value, ctx);
+    }
   }
-  return implicitKey ? str : foldFlowLines(str, indent, FOLD_FLOW, getFoldOptions(ctx));
+  return implicitKey
+    ? str
+    : foldFlowLines(str, indent, FOLD_FLOW, getFoldOptions(ctx));
 }
 function stringifyString(item, ctx, onComment, onChompKeep) {
   const { implicitKey, inFlow } = ctx;
-  const ss = typeof item.value === "string" ? item : Object.assign({}, item, { value: String(item.value) });
+  const ss = typeof item.value === "string"
+    ? item
+    : Object.assign({}, item, { value: String(item.value) });
   let { type } = item;
   if (type !== Scalar.QUOTE_DOUBLE) {
-    if (/[\x00-\x08\x0b-\x1f\x7f-\x9f\u{D800}-\u{DFFF}]/u.test(ss.value))
+    if (/[\x00-\x08\x0b-\x1f\x7f-\x9f\u{D800}-\u{DFFF}]/u.test(ss.value)) {
       type = Scalar.QUOTE_DOUBLE;
+    }
   }
   const _stringify = (_type) => {
     switch (_type) {
       case Scalar.BLOCK_FOLDED:
       case Scalar.BLOCK_LITERAL:
-        return implicitKey || inFlow ? quotedString(ss.value, ctx) : blockString(ss, ctx, onComment, onChompKeep);
+        return implicitKey || inFlow
+          ? quotedString(ss.value, ctx)
+          : blockString(ss, ctx, onComment, onChompKeep);
       case Scalar.QUOTE_DOUBLE:
         return doubleQuotedString(ss.value, ctx);
       case Scalar.QUOTE_SINGLE:
@@ -13408,33 +15598,38 @@ function stringifyString(item, ctx, onComment, onChompKeep) {
     const { defaultKeyType, defaultStringType } = ctx.options;
     const t = implicitKey && defaultKeyType || defaultStringType;
     res = _stringify(t);
-    if (res === null)
+    if (res === null) {
       throw new Error(`Unsupported default string type ${t}`);
+    }
   }
   return res;
 }
 
 // node_modules/yaml/browser/dist/stringify/stringify.js
 function createStringifyContext(doc, options) {
-  const opt = Object.assign({
-    blockQuote: true,
-    commentString: stringifyComment,
-    defaultKeyType: null,
-    defaultStringType: "PLAIN",
-    directives: null,
-    doubleQuotedAsJSON: false,
-    doubleQuotedMinMultiLineLength: 40,
-    falseStr: "false",
-    flowCollectionPadding: true,
-    indentSeq: true,
-    lineWidth: 80,
-    minContentWidth: 20,
-    nullStr: "null",
-    simpleKeys: false,
-    singleQuote: null,
-    trueStr: "true",
-    verifyAliasOrder: true
-  }, doc.schema.toStringOptions, options);
+  const opt = Object.assign(
+    {
+      blockQuote: true,
+      commentString: stringifyComment,
+      defaultKeyType: null,
+      defaultStringType: "PLAIN",
+      directives: null,
+      doubleQuotedAsJSON: false,
+      doubleQuotedMinMultiLineLength: 40,
+      falseStr: "false",
+      flowCollectionPadding: true,
+      indentSeq: true,
+      lineWidth: 80,
+      minContentWidth: 20,
+      nullStr: "null",
+      simpleKeys: false,
+      singleQuote: null,
+      trueStr: "true",
+      verifyAliasOrder: true,
+    },
+    doc.schema.toStringOptions,
+    options,
+  );
   let inFlow;
   switch (opt.collectionStyle) {
     case "block":
@@ -13453,15 +15648,18 @@ function createStringifyContext(doc, options) {
     indent: "",
     indentStep: typeof opt.indent === "number" ? " ".repeat(opt.indent) : "  ",
     inFlow,
-    options: opt
+    options: opt,
   };
 }
 function getTagObject(tags, item) {
   var _a, _b, _c, _d;
   if (item.tag) {
     const match = tags.filter((t) => t.tag === item.tag);
-    if (match.length > 0)
-      return (_a = match.find((t) => t.format === item.format)) != null ? _a : match[0];
+    if (match.length > 0) {
+      return (_a = match.find((t) => t.format === item.format)) != null
+        ? _a
+        : match[0];
+    }
   }
   let tagObj = void 0;
   let obj;
@@ -13471,20 +15669,27 @@ function getTagObject(tags, item) {
       var _a2;
       return (_a2 = t.identify) == null ? void 0 : _a2.call(t, obj);
     });
-    tagObj = (_b = match.find((t) => t.format === item.format)) != null ? _b : match.find((t) => !t.format);
+    tagObj = (_b = match.find((t) => t.format === item.format)) != null
+      ? _b
+      : match.find((t) => !t.format);
   } else {
     obj = item;
     tagObj = tags.find((t) => t.nodeClass && obj instanceof t.nodeClass);
   }
   if (!tagObj) {
-    const name = (_d = (_c = obj == null ? void 0 : obj.constructor) == null ? void 0 : _c.name) != null ? _d : typeof obj;
+    const name = (_d = (_c = obj == null ? void 0 : obj.constructor) == null
+        ? void 0
+        : _c.name) != null
+      ? _d
+      : typeof obj;
     throw new Error(`Tag not resolved for ${name} value`);
   }
   return tagObj;
 }
 function stringifyProps(node, tagObj, { anchors, doc }) {
-  if (!doc.directives)
+  if (!doc.directives) {
     return "";
+  }
   const props = [];
   const anchor = (isScalar(node) || isCollection(node)) && node.anchor;
   if (anchor && anchorIsValid(anchor)) {
@@ -13492,45 +15697,69 @@ function stringifyProps(node, tagObj, { anchors, doc }) {
     props.push(`&${anchor}`);
   }
   const tag = node.tag ? node.tag : tagObj.default ? null : tagObj.tag;
-  if (tag)
+  if (tag) {
     props.push(doc.directives.tagString(tag));
+  }
   return props.join(" ");
 }
 function stringify(item, ctx, onComment, onChompKeep) {
   var _a, _b;
-  if (isPair(item))
+  if (isPair(item)) {
     return item.toString(ctx, onComment, onChompKeep);
+  }
   if (isAlias(item)) {
-    if (ctx.doc.directives)
+    if (ctx.doc.directives) {
       return item.toString(ctx);
+    }
     if ((_a = ctx.resolvedAliases) == null ? void 0 : _a.has(item)) {
-      throw new TypeError(`Cannot stringify circular structure without alias nodes`);
+      throw new TypeError(
+        `Cannot stringify circular structure without alias nodes`,
+      );
     } else {
-      if (ctx.resolvedAliases)
+      if (ctx.resolvedAliases) {
         ctx.resolvedAliases.add(item);
-      else
+      } else {
         ctx.resolvedAliases = new Set([item]);
+      }
       item = item.resolve(ctx.doc);
     }
   }
   let tagObj = void 0;
-  const node = isNode(item) ? item : ctx.doc.createNode(item, { onTagObj: (o) => tagObj = o });
-  if (!tagObj)
+  const node = isNode(item)
+    ? item
+    : ctx.doc.createNode(item, { onTagObj: (o) => tagObj = o });
+  if (!tagObj) {
     tagObj = getTagObject(ctx.doc.schema.tags, node);
+  }
   const props = stringifyProps(node, tagObj, ctx);
-  if (props.length > 0)
-    ctx.indentAtStart = ((_b = ctx.indentAtStart) != null ? _b : 0) + props.length + 1;
-  const str = typeof tagObj.stringify === "function" ? tagObj.stringify(node, ctx, onComment, onChompKeep) : isScalar(node) ? stringifyString(node, ctx, onComment, onChompKeep) : node.toString(ctx, onComment, onChompKeep);
-  if (!props)
+  if (props.length > 0) {
+    ctx.indentAtStart = ((_b = ctx.indentAtStart) != null ? _b : 0) +
+      props.length + 1;
+  }
+  const str = typeof tagObj.stringify === "function"
+    ? tagObj.stringify(node, ctx, onComment, onChompKeep)
+    : isScalar(node)
+    ? stringifyString(node, ctx, onComment, onChompKeep)
+    : node.toString(ctx, onComment, onChompKeep);
+  if (!props) {
     return str;
-  return isScalar(node) || str[0] === "{" || str[0] === "[" ? `${props} ${str}` : `${props}
+  }
+  return isScalar(node) || str[0] === "{" || str[0] === "["
+    ? `${props} ${str}`
+    : `${props}
 ${ctx.indent}${str}`;
 }
 
 // node_modules/yaml/browser/dist/stringify/stringifyPair.js
 function stringifyPair({ key, value }, ctx, onComment, onChompKeep) {
   var _a, _b;
-  const { allNullValues, doc, indent, indentStep, options: { commentString, indentSeq, simpleKeys } } = ctx;
+  const {
+    allNullValues,
+    doc,
+    indent,
+    indentStep,
+    options: { commentString, indentSeq, simpleKeys },
+  } = ctx;
   let keyComment = isNode(key) && key.comment || null;
   if (simpleKeys) {
     if (keyComment) {
@@ -13541,45 +15770,62 @@ function stringifyPair({ key, value }, ctx, onComment, onChompKeep) {
       throw new Error(msg);
     }
   }
-  let explicitKey = !simpleKeys && (!key || keyComment && value == null && !ctx.inFlow || isCollection(key) || (isScalar(key) ? key.type === Scalar.BLOCK_FOLDED || key.type === Scalar.BLOCK_LITERAL : typeof key === "object"));
+  let explicitKey = !simpleKeys &&
+    (!key || keyComment && value == null && !ctx.inFlow || isCollection(key) ||
+      (isScalar(key)
+        ? key.type === Scalar.BLOCK_FOLDED || key.type === Scalar.BLOCK_LITERAL
+        : typeof key === "object"));
   ctx = Object.assign({}, ctx, {
     allNullValues: false,
     implicitKey: !explicitKey && (simpleKeys || !allNullValues),
-    indent: indent + indentStep
+    indent: indent + indentStep,
   });
   let keyCommentDone = false;
   let chompKeep = false;
-  let str = stringify(key, ctx, () => keyCommentDone = true, () => chompKeep = true);
+  let str = stringify(
+    key,
+    ctx,
+    () => keyCommentDone = true,
+    () => chompKeep = true,
+  );
   if (!explicitKey && !ctx.inFlow && str.length > 1024) {
-    if (simpleKeys)
-      throw new Error("With simple keys, single line scalar must not span more than 1024 characters");
+    if (simpleKeys) {
+      throw new Error(
+        "With simple keys, single line scalar must not span more than 1024 characters",
+      );
+    }
     explicitKey = true;
   }
   if (ctx.inFlow) {
     if (allNullValues || value == null) {
-      if (keyCommentDone && onComment)
+      if (keyCommentDone && onComment) {
         onComment();
+      }
       return str === "" ? "?" : explicitKey ? `? ${str}` : str;
     }
   } else if (allNullValues && !simpleKeys || value == null && explicitKey) {
     str = `? ${str}`;
     if (keyComment && !keyCommentDone) {
       str += lineComment(str, ctx.indent, commentString(keyComment));
-    } else if (chompKeep && onChompKeep)
+    } else if (chompKeep && onChompKeep) {
       onChompKeep();
+    }
     return str;
   }
-  if (keyCommentDone)
+  if (keyCommentDone) {
     keyComment = null;
+  }
   if (explicitKey) {
-    if (keyComment)
+    if (keyComment) {
       str += lineComment(str, ctx.indent, commentString(keyComment));
+    }
     str = `? ${str}
 ${indent}:`;
   } else {
     str = `${str}:`;
-    if (keyComment)
+    if (keyComment) {
       str += lineComment(str, ctx.indent, commentString(keyComment));
+    }
   }
   let vsb, vcb, valueComment;
   if (isNode(value)) {
@@ -13590,18 +15836,28 @@ ${indent}:`;
     vsb = false;
     vcb = null;
     valueComment = null;
-    if (value && typeof value === "object")
+    if (value && typeof value === "object") {
       value = doc.createNode(value);
+    }
   }
   ctx.implicitKey = false;
-  if (!explicitKey && !keyComment && isScalar(value))
+  if (!explicitKey && !keyComment && isScalar(value)) {
     ctx.indentAtStart = str.length + 1;
+  }
   chompKeep = false;
-  if (!indentSeq && indentStep.length >= 2 && !ctx.inFlow && !explicitKey && isSeq(value) && !value.flow && !value.tag && !value.anchor) {
+  if (
+    !indentSeq && indentStep.length >= 2 && !ctx.inFlow && !explicitKey &&
+    isSeq(value) && !value.flow && !value.tag && !value.anchor
+  ) {
     ctx.indent = ctx.indent.substring(2);
   }
   let valueCommentDone = false;
-  const valueStr = stringify(value, ctx, () => valueCommentDone = true, () => chompKeep = true);
+  const valueStr = stringify(
+    value,
+    ctx,
+    () => valueCommentDone = true,
+    () => chompKeep = true,
+  );
   let ws = " ";
   if (keyComment || vsb || vcb) {
     ws = vsb ? "\n" : "";
@@ -13611,8 +15867,9 @@ ${indent}:`;
 ${indentComment(cs, ctx.indent)}`;
     }
     if (valueStr === "" && !ctx.inFlow) {
-      if (ws === "\n")
+      if (ws === "\n") {
         ws = "\n\n";
+      }
     } else {
       ws += `
 ${ctx.indent}`;
@@ -13621,28 +15878,35 @@ ${ctx.indent}`;
     const vs0 = valueStr[0];
     const nl0 = valueStr.indexOf("\n");
     const hasNewline = nl0 !== -1;
-    const flow = (_b = (_a = ctx.inFlow) != null ? _a : value.flow) != null ? _b : value.items.length === 0;
+    const flow = (_b = (_a = ctx.inFlow) != null ? _a : value.flow) != null
+      ? _b
+      : value.items.length === 0;
     if (hasNewline || !flow) {
       let hasPropsLine = false;
       if (hasNewline && (vs0 === "&" || vs0 === "!")) {
         let sp0 = valueStr.indexOf(" ");
-        if (vs0 === "&" && sp0 !== -1 && sp0 < nl0 && valueStr[sp0 + 1] === "!") {
+        if (
+          vs0 === "&" && sp0 !== -1 && sp0 < nl0 && valueStr[sp0 + 1] === "!"
+        ) {
           sp0 = valueStr.indexOf(" ", sp0 + 1);
         }
-        if (sp0 === -1 || nl0 < sp0)
+        if (sp0 === -1 || nl0 < sp0) {
           hasPropsLine = true;
+        }
       }
-      if (!hasPropsLine)
+      if (!hasPropsLine) {
         ws = `
 ${ctx.indent}`;
+      }
     }
   } else if (valueStr === "" || valueStr[0] === "\n") {
     ws = "";
   }
   str += ws + valueStr;
   if (ctx.inFlow) {
-    if (valueCommentDone && onComment)
+    if (valueCommentDone && onComment) {
       onComment();
+    }
   } else if (valueComment && !valueCommentDone) {
     str += lineComment(str, ctx.indent, commentString(valueComment));
   } else if (chompKeep && onChompKeep) {
@@ -13654,10 +15918,11 @@ ${ctx.indent}`;
 // node_modules/yaml/browser/dist/log.js
 function warn(logLevel, warning) {
   if (logLevel === "debug" || logLevel === "warn") {
-    if (typeof process !== "undefined" && process.emitWarning)
+    if (typeof process !== "undefined" && process.emitWarning) {
       process.emitWarning(warning);
-    else
+    } else {
       console.warn(warning);
+    }
   }
 }
 
@@ -13666,14 +15931,17 @@ var MERGE_KEY = "<<";
 function addPairToJSMap(ctx, map2, { key, value }) {
   if ((ctx == null ? void 0 : ctx.doc.schema.merge) && isMergeKey(key)) {
     value = isAlias(value) ? value.resolve(ctx.doc) : value;
-    if (isSeq(value))
-      for (const it of value.items)
+    if (isSeq(value)) {
+      for (const it of value.items) {
         mergeToJSMap(ctx, map2, it);
-    else if (Array.isArray(value))
-      for (const it of value)
+      }
+    } else if (Array.isArray(value)) {
+      for (const it of value) {
         mergeToJSMap(ctx, map2, it);
-    else
+      }
+    } else {
       mergeToJSMap(ctx, map2, value);
+    }
   } else {
     const jsKey = toJS(key, "", ctx);
     if (map2 instanceof Map) {
@@ -13683,29 +15951,35 @@ function addPairToJSMap(ctx, map2, { key, value }) {
     } else {
       const stringKey = stringifyKey(key, jsKey, ctx);
       const jsValue = toJS(value, stringKey, ctx);
-      if (stringKey in map2)
+      if (stringKey in map2) {
         Object.defineProperty(map2, stringKey, {
           value: jsValue,
           writable: true,
           enumerable: true,
-          configurable: true
+          configurable: true,
         });
-      else
+      } else {
         map2[stringKey] = jsValue;
+      }
     }
   }
   return map2;
 }
-var isMergeKey = (key) => key === MERGE_KEY || isScalar(key) && key.value === MERGE_KEY && (!key.type || key.type === Scalar.PLAIN);
+var isMergeKey = (key) =>
+  key === MERGE_KEY ||
+  isScalar(key) && key.value === MERGE_KEY &&
+    (!key.type || key.type === Scalar.PLAIN);
 function mergeToJSMap(ctx, map2, value) {
   const source = ctx && isAlias(value) ? value.resolve(ctx.doc) : value;
-  if (!isMap(source))
+  if (!isMap(source)) {
     throw new Error("Merge sources must be maps or map aliases");
+  }
   const srcMap = source.toJSON(null, ctx, Map);
   for (const [key, value2] of srcMap) {
     if (map2 instanceof Map) {
-      if (!map2.has(key))
+      if (!map2.has(key)) {
         map2.set(key, value2);
+      }
     } else if (map2 instanceof Set) {
       map2.add(key);
     } else if (!Object.prototype.hasOwnProperty.call(map2, key)) {
@@ -13713,30 +15987,37 @@ function mergeToJSMap(ctx, map2, value) {
         value: value2,
         writable: true,
         enumerable: true,
-        configurable: true
+        configurable: true,
       });
     }
   }
   return map2;
 }
 function stringifyKey(key, jsKey, ctx) {
-  if (jsKey === null)
+  if (jsKey === null) {
     return "";
-  if (typeof jsKey !== "object")
+  }
+  if (typeof jsKey !== "object") {
     return String(jsKey);
+  }
   if (isNode(key) && ctx && ctx.doc) {
     const strCtx = createStringifyContext(ctx.doc, {});
     strCtx.anchors = new Set();
-    for (const node of ctx.anchors.keys())
+    for (const node of ctx.anchors.keys()) {
       strCtx.anchors.add(node.anchor);
+    }
     strCtx.inFlow = true;
     strCtx.inStringifyKey = true;
     const strKey = key.toString(strCtx);
     if (!ctx.mapKeyWarned) {
       let jsonStr = JSON.stringify(strKey);
-      if (jsonStr.length > 40)
+      if (jsonStr.length > 40) {
         jsonStr = jsonStr.substring(0, 36) + '..."';
-      warn(ctx.doc.options.logLevel, `Keys with collection values will be stringified due to JS Object restrictions: ${jsonStr}. Set mapAsMap: true to use object keys.`);
+      }
+      warn(
+        ctx.doc.options.logLevel,
+        `Keys with collection values will be stringified due to JS Object restrictions: ${jsonStr}. Set mapAsMap: true to use object keys.`,
+      );
       ctx.mapKeyWarned = true;
     }
     return strKey;
@@ -13758,10 +16039,12 @@ var Pair = class {
   }
   clone(schema4) {
     let { key, value } = this;
-    if (isNode(key))
+    if (isNode(key)) {
       key = key.clone(schema4);
-    if (isNode(value))
+    }
+    if (isNode(value)) {
       value = value.clone(schema4);
+    }
     return new Pair(key, value);
   }
   toJSON(_, ctx) {
@@ -13769,7 +16052,9 @@ var Pair = class {
     return addPairToJSMap(ctx, pair, this);
   }
   toString(ctx, onComment, onChompKeep) {
-    return (ctx == null ? void 0 : ctx.doc) ? stringifyPair(this, ctx, onComment, onChompKeep) : JSON.stringify(this);
+    return (ctx == null ? void 0 : ctx.doc)
+      ? stringifyPair(this, ctx, onComment, onChompKeep)
+      : JSON.stringify(this);
   }
 };
 
@@ -13780,7 +16065,11 @@ function stringifyCollection(collection, ctx, options) {
   const stringify4 = flow ? stringifyFlowCollection : stringifyBlockCollection;
   return stringify4(collection, ctx, options);
 }
-function stringifyBlockCollection({ comment, items }, ctx, { blockItemPrefix, flowChars, itemIndent, onChompKeep, onComment }) {
+function stringifyBlockCollection(
+  { comment, items },
+  ctx,
+  { blockItemPrefix, flowChars, itemIndent, onChompKeep, onComment },
+) {
   const { indent, options: { commentString } } = ctx;
   const itemCtx = Object.assign({}, ctx, { indent: itemIndent, type: null });
   let chompKeep = false;
@@ -13789,25 +16078,35 @@ function stringifyBlockCollection({ comment, items }, ctx, { blockItemPrefix, fl
     const item = items[i];
     let comment2 = null;
     if (isNode(item)) {
-      if (!chompKeep && item.spaceBefore)
+      if (!chompKeep && item.spaceBefore) {
         lines.push("");
+      }
       addCommentBefore(ctx, lines, item.commentBefore, chompKeep);
-      if (item.comment)
+      if (item.comment) {
         comment2 = item.comment;
+      }
     } else if (isPair(item)) {
       const ik = isNode(item.key) ? item.key : null;
       if (ik) {
-        if (!chompKeep && ik.spaceBefore)
+        if (!chompKeep && ik.spaceBefore) {
           lines.push("");
+        }
         addCommentBefore(ctx, lines, ik.commentBefore, chompKeep);
       }
     }
     chompKeep = false;
-    let str2 = stringify(item, itemCtx, () => comment2 = null, () => chompKeep = true);
-    if (comment2)
+    let str2 = stringify(
+      item,
+      itemCtx,
+      () => comment2 = null,
+      () => chompKeep = true,
+    );
+    if (comment2) {
       str2 += lineComment(str2, itemIndent, commentString(comment2));
-    if (chompKeep && comment2)
+    }
+    if (chompKeep && comment2) {
       chompKeep = false;
+    }
     lines.push(blockItemPrefix + str2);
   }
   let str;
@@ -13817,25 +16116,38 @@ function stringifyBlockCollection({ comment, items }, ctx, { blockItemPrefix, fl
     str = lines[0];
     for (let i = 1; i < lines.length; ++i) {
       const line = lines[i];
-      str += line ? `
-${indent}${line}` : "\n";
+      str += line
+        ? `
+${indent}${line}`
+        : "\n";
     }
   }
   if (comment) {
     str += "\n" + indentComment(commentString(comment), indent);
-    if (onComment)
+    if (onComment) {
       onComment();
-  } else if (chompKeep && onChompKeep)
+    }
+  } else if (chompKeep && onChompKeep) {
     onChompKeep();
+  }
   return str;
 }
-function stringifyFlowCollection({ comment, items }, ctx, { flowChars, itemIndent, onComment }) {
-  const { indent, indentStep, flowCollectionPadding: fcPadding, options: { commentString } } = ctx;
+function stringifyFlowCollection(
+  { comment, items },
+  ctx,
+  { flowChars, itemIndent, onComment },
+) {
+  const {
+    indent,
+    indentStep,
+    flowCollectionPadding: fcPadding,
+    options: { commentString },
+  } = ctx;
   itemIndent += indentStep;
   const itemCtx = Object.assign({}, ctx, {
     indent: itemIndent,
     inFlow: true,
-    type: null
+    type: null,
   });
   let reqNewline = false;
   let linesAtValue = 0;
@@ -13844,39 +16156,49 @@ function stringifyFlowCollection({ comment, items }, ctx, { flowChars, itemInden
     const item = items[i];
     let comment2 = null;
     if (isNode(item)) {
-      if (item.spaceBefore)
+      if (item.spaceBefore) {
         lines.push("");
+      }
       addCommentBefore(ctx, lines, item.commentBefore, false);
-      if (item.comment)
+      if (item.comment) {
         comment2 = item.comment;
+      }
     } else if (isPair(item)) {
       const ik = isNode(item.key) ? item.key : null;
       if (ik) {
-        if (ik.spaceBefore)
+        if (ik.spaceBefore) {
           lines.push("");
+        }
         addCommentBefore(ctx, lines, ik.commentBefore, false);
-        if (ik.comment)
+        if (ik.comment) {
           reqNewline = true;
+        }
       }
       const iv = isNode(item.value) ? item.value : null;
       if (iv) {
-        if (iv.comment)
+        if (iv.comment) {
           comment2 = iv.comment;
-        if (iv.commentBefore)
+        }
+        if (iv.commentBefore) {
           reqNewline = true;
+        }
       } else if (item.value == null && ik && ik.comment) {
         comment2 = ik.comment;
       }
     }
-    if (comment2)
+    if (comment2) {
       reqNewline = true;
+    }
     let str2 = stringify(item, itemCtx, () => comment2 = null);
-    if (i < items.length - 1)
+    if (i < items.length - 1) {
       str2 += ",";
-    if (comment2)
+    }
+    if (comment2) {
       str2 += lineComment(str2, itemIndent, commentString(comment2));
-    if (!reqNewline && (lines.length > linesAtValue || str2.includes("\n")))
+    }
+    if (!reqNewline && (lines.length > linesAtValue || str2.includes("\n"))) {
       reqNewline = true;
+    }
     lines.push(str2);
     linesAtValue = lines.length;
   }
@@ -13891,9 +16213,12 @@ function stringifyFlowCollection({ comment, items }, ctx, { flowChars, itemInden
     }
     if (reqNewline) {
       str = start;
-      for (const line of lines)
-        str += line ? `
-${indentStep}${indent}${line}` : "\n";
+      for (const line of lines) {
+        str += line
+          ? `
+${indentStep}${indent}${line}`
+          : "\n";
+      }
       str += `
 ${indent}${end}`;
     } else {
@@ -13902,14 +16227,21 @@ ${indent}${end}`;
   }
   if (comment) {
     str += lineComment(str, commentString(comment), indent);
-    if (onComment)
+    if (onComment) {
       onComment();
+    }
   }
   return str;
 }
-function addCommentBefore({ indent, options: { commentString } }, lines, comment, chompKeep) {
-  if (comment && chompKeep)
+function addCommentBefore(
+  { indent, options: { commentString } },
+  lines,
+  comment,
+  chompKeep,
+) {
+  if (comment && chompKeep) {
     comment = comment.replace(/^\n+/, "");
+  }
   if (comment) {
     const ic = indentComment(commentString(comment), indent);
     lines.push(ic.trimStart());
@@ -13921,10 +16253,12 @@ function findPair(items, key) {
   const k = isScalar(key) ? key.value : key;
   for (const it of items) {
     if (isPair(it)) {
-      if (it.key === key || it.key === k)
+      if (it.key === key || it.key === k) {
         return it;
-      if (isScalar(it.key) && it.key.value === k)
+      }
+      if (isScalar(it.key) && it.key.value === k) {
         return it;
+      }
     }
   }
   return void 0;
@@ -13940,35 +16274,40 @@ var YAMLMap = class extends Collection {
   add(pair, overwrite) {
     var _a;
     let _pair;
-    if (isPair(pair))
+    if (isPair(pair)) {
       _pair = pair;
-    else if (!pair || typeof pair !== "object" || !("key" in pair)) {
+    } else if (!pair || typeof pair !== "object" || !("key" in pair)) {
       _pair = new Pair(pair, pair == null ? void 0 : pair.value);
-    } else
+    } else {
       _pair = new Pair(pair.key, pair.value);
+    }
     const prev = findPair(this.items, _pair.key);
     const sortEntries = (_a = this.schema) == null ? void 0 : _a.sortMapEntries;
     if (prev) {
-      if (!overwrite)
+      if (!overwrite) {
         throw new Error(`Key ${_pair.key} already set`);
-      if (isScalar(prev.value) && isScalarValue(_pair.value))
+      }
+      if (isScalar(prev.value) && isScalarValue(_pair.value)) {
         prev.value.value = _pair.value;
-      else
+      } else {
         prev.value = _pair.value;
+      }
     } else if (sortEntries) {
       const i = this.items.findIndex((item) => sortEntries(_pair, item) < 0);
-      if (i === -1)
+      if (i === -1) {
         this.items.push(_pair);
-      else
+      } else {
         this.items.splice(i, 0, _pair);
+      }
     } else {
       this.items.push(_pair);
     }
   }
   delete(key) {
     const it = findPair(this.items, key);
-    if (!it)
+    if (!it) {
       return false;
+    }
     const del = this.items.splice(this.items.indexOf(it), 1);
     return del.length > 0;
   }
@@ -13976,7 +16315,9 @@ var YAMLMap = class extends Collection {
     var _a;
     const it = findPair(this.items, key);
     const node = it == null ? void 0 : it.value;
-    return (_a = !keepScalar && isScalar(node) ? node.value : node) != null ? _a : void 0;
+    return (_a = !keepScalar && isScalar(node) ? node.value : node) != null
+      ? _a
+      : void 0;
   }
   has(key) {
     return !!findPair(this.items, key);
@@ -13985,28 +16326,39 @@ var YAMLMap = class extends Collection {
     this.add(new Pair(key, value), true);
   }
   toJSON(_, ctx, Type) {
-    const map2 = Type ? new Type() : (ctx == null ? void 0 : ctx.mapAsMap) ? new Map() : {};
-    if (ctx == null ? void 0 : ctx.onCreate)
+    const map2 = Type
+      ? new Type()
+      : (ctx == null ? void 0 : ctx.mapAsMap)
+      ? new Map()
+      : {};
+    if (ctx == null ? void 0 : ctx.onCreate) {
       ctx.onCreate(map2);
-    for (const item of this.items)
+    }
+    for (const item of this.items) {
       addPairToJSMap(ctx, map2, item);
+    }
     return map2;
   }
   toString(ctx, onComment, onChompKeep) {
-    if (!ctx)
+    if (!ctx) {
       return JSON.stringify(this);
-    for (const item of this.items) {
-      if (!isPair(item))
-        throw new Error(`Map items must all be pairs; found ${JSON.stringify(item)} instead`);
     }
-    if (!ctx.allNullValues && this.hasAllNullValues(false))
+    for (const item of this.items) {
+      if (!isPair(item)) {
+        throw new Error(
+          `Map items must all be pairs; found ${JSON.stringify(item)} instead`,
+        );
+      }
+    }
+    if (!ctx.allNullValues && this.hasAllNullValues(false)) {
       ctx = Object.assign({}, ctx, { allNullValues: true });
+    }
     return stringifyCollection(this, ctx, {
       blockItemPrefix: "",
       flowChars: { start: "{", end: "}" },
       itemIndent: ctx.indent || "",
       onChompKeep,
-      onComment
+      onComment,
     });
   }
 };
@@ -14016,19 +16368,23 @@ function createMap(schema4, obj, ctx) {
   const { keepUndefined, replacer } = ctx;
   const map2 = new YAMLMap(schema4);
   const add = (key, value) => {
-    if (typeof replacer === "function")
+    if (typeof replacer === "function") {
       value = replacer.call(obj, key, value);
-    else if (Array.isArray(replacer) && !replacer.includes(key))
+    } else if (Array.isArray(replacer) && !replacer.includes(key)) {
       return;
-    if (value !== void 0 || keepUndefined)
+    }
+    if (value !== void 0 || keepUndefined) {
       map2.items.push(createPair(key, value, ctx));
+    }
   };
   if (obj instanceof Map) {
-    for (const [key, value] of obj)
+    for (const [key, value] of obj) {
       add(key, value);
+    }
   } else if (obj && typeof obj === "object") {
-    for (const key of Object.keys(obj))
+    for (const key of Object.keys(obj)) {
       add(key, obj[key]);
+    }
   }
   if (typeof schema4.sortMapEntries === "function") {
     map2.items.sort(schema4.sortMapEntries);
@@ -14042,10 +16398,11 @@ var map = {
   nodeClass: YAMLMap,
   tag: "tag:yaml.org,2002:map",
   resolve(map2, onError) {
-    if (!isMap(map2))
+    if (!isMap(map2)) {
       onError("Expected a mapping for this tag");
+    }
     return map2;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/nodes/YAMLSeq.js
@@ -14062,15 +16419,17 @@ var YAMLSeq = class extends Collection {
   }
   delete(key) {
     const idx = asItemIndex(key);
-    if (typeof idx !== "number")
+    if (typeof idx !== "number") {
       return false;
+    }
     const del = this.items.splice(idx, 1);
     return del.length > 0;
   }
   get(key, keepScalar) {
     const idx = asItemIndex(key);
-    if (typeof idx !== "number")
+    if (typeof idx !== "number") {
       return void 0;
+    }
     const it = this.items[idx];
     return !keepScalar && isScalar(it) ? it.value : it;
   }
@@ -14080,40 +16439,48 @@ var YAMLSeq = class extends Collection {
   }
   set(key, value) {
     const idx = asItemIndex(key);
-    if (typeof idx !== "number")
+    if (typeof idx !== "number") {
       throw new Error(`Expected a valid index, not ${key}.`);
+    }
     const prev = this.items[idx];
-    if (isScalar(prev) && isScalarValue(value))
+    if (isScalar(prev) && isScalarValue(value)) {
       prev.value = value;
-    else
+    } else {
       this.items[idx] = value;
+    }
   }
   toJSON(_, ctx) {
     const seq2 = [];
-    if (ctx == null ? void 0 : ctx.onCreate)
+    if (ctx == null ? void 0 : ctx.onCreate) {
       ctx.onCreate(seq2);
+    }
     let i = 0;
-    for (const item of this.items)
+    for (const item of this.items) {
       seq2.push(toJS(item, String(i++), ctx));
+    }
     return seq2;
   }
   toString(ctx, onComment, onChompKeep) {
-    if (!ctx)
+    if (!ctx) {
       return JSON.stringify(this);
+    }
     return stringifyCollection(this, ctx, {
       blockItemPrefix: "- ",
       flowChars: { start: "[", end: "]" },
       itemIndent: (ctx.indent || "") + "  ",
       onChompKeep,
-      onComment
+      onComment,
     });
   }
 };
 function asItemIndex(key) {
   let idx = isScalar(key) ? key.value : key;
-  if (idx && typeof idx === "string")
+  if (idx && typeof idx === "string") {
     idx = Number(idx);
-  return typeof idx === "number" && Number.isInteger(idx) && idx >= 0 ? idx : null;
+  }
+  return typeof idx === "number" && Number.isInteger(idx) && idx >= 0
+    ? idx
+    : null;
 }
 
 // node_modules/yaml/browser/dist/schema/common/seq.js
@@ -14139,10 +16506,11 @@ var seq = {
   nodeClass: YAMLSeq,
   tag: "tag:yaml.org,2002:seq",
   resolve(seq2, onError) {
-    if (!isSeq(seq2))
+    if (!isSeq(seq2)) {
       onError("Expected a sequence for this tag");
+    }
     return seq2;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/common/string.js
@@ -14154,7 +16522,7 @@ var string = {
   stringify(item, ctx, onComment, onChompKeep) {
     ctx = Object.assign({ actualString: true }, ctx);
     return stringifyString(item, ctx, onComment, onChompKeep);
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/common/null.js
@@ -14165,7 +16533,10 @@ var nullTag = {
   tag: "tag:yaml.org,2002:null",
   test: /^(?:~|[Nn]ull|NULL)?$/,
   resolve: () => new Scalar(null),
-  stringify: ({ source }, ctx) => typeof source === "string" && nullTag.test.test(source) ? source : ctx.options.nullStr
+  stringify: ({ source }, ctx) =>
+    typeof source === "string" && nullTag.test.test(source)
+      ? source
+      : ctx.options.nullStr,
 };
 
 // node_modules/yaml/browser/dist/schema/core/bool.js
@@ -14178,30 +16549,37 @@ var boolTag = {
   stringify({ source, value }, ctx) {
     if (source && boolTag.test.test(source)) {
       const sv = source[0] === "t" || source[0] === "T";
-      if (value === sv)
+      if (value === sv) {
         return source;
+      }
     }
     return value ? ctx.options.trueStr : ctx.options.falseStr;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/stringify/stringifyNumber.js
 function stringifyNumber({ format, minFractionDigits, tag, value }) {
-  if (typeof value === "bigint")
+  if (typeof value === "bigint") {
     return String(value);
+  }
   const num = typeof value === "number" ? value : Number(value);
-  if (!isFinite(num))
+  if (!isFinite(num)) {
     return isNaN(num) ? ".nan" : num < 0 ? "-.inf" : ".inf";
+  }
   let n = JSON.stringify(value);
-  if (!format && minFractionDigits && (!tag || tag === "tag:yaml.org,2002:float") && /^\d/.test(n)) {
+  if (
+    !format && minFractionDigits &&
+    (!tag || tag === "tag:yaml.org,2002:float") && /^\d/.test(n)
+  ) {
     let i = n.indexOf(".");
     if (i < 0) {
       i = n.length;
       n += ".";
     }
     let d = minFractionDigits - (n.length - i - 1);
-    while (d-- > 0)
+    while (d-- > 0) {
       n += "0";
+    }
   }
   return n;
 }
@@ -14212,8 +16590,13 @@ var floatNaN = {
   default: true,
   tag: "tag:yaml.org,2002:float",
   test: /^(?:[-+]?\.(?:inf|Inf|INF|nan|NaN|NAN))$/,
-  resolve: (str) => str.slice(-3).toLowerCase() === "nan" ? NaN : str[0] === "-" ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY,
-  stringify: stringifyNumber
+  resolve: (str) =>
+    str.slice(-3).toLowerCase() === "nan"
+      ? NaN
+      : str[0] === "-"
+      ? Number.NEGATIVE_INFINITY
+      : Number.POSITIVE_INFINITY,
+  stringify: stringifyNumber,
 };
 var floatExp = {
   identify: (value) => typeof value === "number",
@@ -14225,7 +16608,7 @@ var floatExp = {
   stringify(node) {
     const num = Number(node.value);
     return isFinite(num) ? num.toExponential() : stringifyNumber(node);
-  }
+  },
 };
 var float = {
   identify: (value) => typeof value === "number",
@@ -14235,20 +16618,24 @@ var float = {
   resolve(str) {
     const node = new Scalar(parseFloat(str));
     const dot = str.indexOf(".");
-    if (dot !== -1 && str[str.length - 1] === "0")
+    if (dot !== -1 && str[str.length - 1] === "0") {
       node.minFractionDigits = str.length - dot - 1;
+    }
     return node;
   },
-  stringify: stringifyNumber
+  stringify: stringifyNumber,
 };
 
 // node_modules/yaml/browser/dist/schema/core/int.js
-var intIdentify = (value) => typeof value === "bigint" || Number.isInteger(value);
-var intResolve = (str, offset, radix, { intAsBigInt }) => intAsBigInt ? BigInt(str) : parseInt(str.substring(offset), radix);
+var intIdentify = (value) =>
+  typeof value === "bigint" || Number.isInteger(value);
+var intResolve = (str, offset, radix, { intAsBigInt }) =>
+  intAsBigInt ? BigInt(str) : parseInt(str.substring(offset), radix);
 function intStringify(node, radix, prefix) {
   const { value } = node;
-  if (intIdentify(value) && value >= 0)
+  if (intIdentify(value) && value >= 0) {
     return prefix + value.toString(radix);
+  }
   return stringifyNumber(node);
 }
 var intOct = {
@@ -14258,7 +16645,7 @@ var intOct = {
   format: "OCT",
   test: /^0o[0-7]+$/,
   resolve: (str, _onError, opt) => intResolve(str, 2, 8, opt),
-  stringify: (node) => intStringify(node, 8, "0o")
+  stringify: (node) => intStringify(node, 8, "0o"),
 };
 var int = {
   identify: intIdentify,
@@ -14266,7 +16653,7 @@ var int = {
   tag: "tag:yaml.org,2002:int",
   test: /^[-+]?[0-9]+$/,
   resolve: (str, _onError, opt) => intResolve(str, 0, 10, opt),
-  stringify: stringifyNumber
+  stringify: stringifyNumber,
 };
 var intHex = {
   identify: (value) => intIdentify(value) && value >= 0,
@@ -14275,7 +16662,7 @@ var intHex = {
   format: "HEX",
   test: /^0x[0-9a-fA-F]+$/,
   resolve: (str, _onError, opt) => intResolve(str, 2, 16, opt),
-  stringify: (node) => intStringify(node, 16, "0x")
+  stringify: (node) => intStringify(node, 16, "0x"),
 };
 
 // node_modules/yaml/browser/dist/schema/core/schema.js
@@ -14290,7 +16677,7 @@ var schema = [
   intHex,
   floatNaN,
   floatExp,
-  float
+  float,
 ];
 
 // node_modules/yaml/browser/dist/schema/json/schema.js
@@ -14304,7 +16691,7 @@ var jsonScalars = [
     default: true,
     tag: "tag:yaml.org,2002:str",
     resolve: (str) => str,
-    stringify: stringifyJSON
+    stringify: stringifyJSON,
   },
   {
     identify: (value) => value == null,
@@ -14313,7 +16700,7 @@ var jsonScalars = [
     tag: "tag:yaml.org,2002:null",
     test: /^null$/,
     resolve: () => null,
-    stringify: stringifyJSON
+    stringify: stringifyJSON,
   },
   {
     identify: (value) => typeof value === "boolean",
@@ -14321,15 +16708,17 @@ var jsonScalars = [
     tag: "tag:yaml.org,2002:bool",
     test: /^true|false$/,
     resolve: (str) => str === "true",
-    stringify: stringifyJSON
+    stringify: stringifyJSON,
   },
   {
     identify: intIdentify2,
     default: true,
     tag: "tag:yaml.org,2002:int",
     test: /^-?(?:0|[1-9][0-9]*)$/,
-    resolve: (str, _onError, { intAsBigInt }) => intAsBigInt ? BigInt(str) : parseInt(str, 10),
-    stringify: ({ value }) => intIdentify2(value) ? value.toString() : JSON.stringify(value)
+    resolve: (str, _onError, { intAsBigInt }) =>
+      intAsBigInt ? BigInt(str) : parseInt(str, 10),
+    stringify: ({ value }) =>
+      intIdentify2(value) ? value.toString() : JSON.stringify(value),
   },
   {
     identify: (value) => typeof value === "number",
@@ -14337,8 +16726,8 @@ var jsonScalars = [
     tag: "tag:yaml.org,2002:float",
     test: /^-?(?:0|[1-9][0-9]*)(?:\.[0-9]*)?(?:[eE][-+]?[0-9]+)?$/,
     resolve: (str) => parseFloat(str),
-    stringify: stringifyJSON
-  }
+    stringify: stringifyJSON,
+  },
 ];
 var jsonError = {
   default: true,
@@ -14347,7 +16736,7 @@ var jsonError = {
   resolve(str, onError) {
     onError(`Unresolved plain scalar ${JSON.stringify(str)}`);
     return str;
-  }
+  },
 };
 var schema2 = [map, seq].concat(jsonScalars, jsonError);
 
@@ -14362,11 +16751,14 @@ var binary = {
     } else if (typeof atob === "function") {
       const str = atob(src.replace(/[\n\r]/g, ""));
       const buffer = new Uint8Array(str.length);
-      for (let i = 0; i < str.length; ++i)
+      for (let i = 0; i < str.length; ++i) {
         buffer[i] = str.charCodeAt(i);
+      }
       return buffer;
     } else {
-      onError("This environment does not support reading binary tags; either Buffer or atob is required");
+      onError(
+        "This environment does not support reading binary tags; either Buffer or atob is required",
+      );
       return src;
     }
   },
@@ -14374,19 +16766,28 @@ var binary = {
     const buf = value;
     let str;
     if (typeof Buffer === "function") {
-      str = buf instanceof Buffer ? buf.toString("base64") : Buffer.from(buf.buffer).toString("base64");
+      str = buf instanceof Buffer
+        ? buf.toString("base64")
+        : Buffer.from(buf.buffer).toString("base64");
     } else if (typeof btoa === "function") {
       let s = "";
-      for (let i = 0; i < buf.length; ++i)
+      for (let i = 0; i < buf.length; ++i) {
         s += String.fromCharCode(buf[i]);
+      }
       str = btoa(s);
     } else {
-      throw new Error("This environment does not support writing binary tags; either Buffer or btoa is required");
+      throw new Error(
+        "This environment does not support writing binary tags; either Buffer or btoa is required",
+      );
     }
-    if (!type)
+    if (!type) {
       type = Scalar.BLOCK_LITERAL;
+    }
     if (type !== Scalar.QUOTE_DOUBLE) {
-      const lineWidth = Math.max(ctx.options.lineWidth - ctx.indent.length, ctx.options.minContentWidth);
+      const lineWidth = Math.max(
+        ctx.options.lineWidth - ctx.indent.length,
+        ctx.options.minContentWidth,
+      );
       const n = Math.ceil(str.length / lineWidth);
       const lines = new Array(n);
       for (let i = 0, o = 0; i < n; ++i, o += lineWidth) {
@@ -14394,8 +16795,13 @@ var binary = {
       }
       str = lines.join(type === Scalar.BLOCK_LITERAL ? "\n" : " ");
     }
-    return stringifyString({ comment, type, value: str }, ctx, onComment, onChompKeep);
-  }
+    return stringifyString(
+      { comment, type, value: str },
+      ctx,
+      onComment,
+      onChompKeep,
+    );
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/pairs.js
@@ -14404,26 +16810,33 @@ function resolvePairs(seq2, onError) {
   if (isSeq(seq2)) {
     for (let i = 0; i < seq2.items.length; ++i) {
       let item = seq2.items[i];
-      if (isPair(item))
+      if (isPair(item)) {
         continue;
-      else if (isMap(item)) {
-        if (item.items.length > 1)
+      } else if (isMap(item)) {
+        if (item.items.length > 1) {
           onError("Each pair must have its own sequence indicator");
+        }
         const pair = item.items[0] || new Pair(new Scalar(null));
-        if (item.commentBefore)
-          pair.key.commentBefore = pair.key.commentBefore ? `${item.commentBefore}
-${pair.key.commentBefore}` : item.commentBefore;
+        if (item.commentBefore) {
+          pair.key.commentBefore = pair.key.commentBefore
+            ? `${item.commentBefore}
+${pair.key.commentBefore}`
+            : item.commentBefore;
+        }
         if (item.comment) {
           const cn = (_a = pair.value) != null ? _a : pair.key;
-          cn.comment = cn.comment ? `${item.comment}
-${cn.comment}` : item.comment;
+          cn.comment = cn.comment
+            ? `${item.comment}
+${cn.comment}`
+            : item.comment;
         }
         item = pair;
       }
       seq2.items[i] = isPair(item) ? item : new Pair(item);
     }
-  } else
+  } else {
     onError("Expected a sequence for this tag");
+  }
   return seq2;
 }
 function createPairs(schema4, iterable, ctx) {
@@ -14431,29 +16844,33 @@ function createPairs(schema4, iterable, ctx) {
   const pairs2 = new YAMLSeq(schema4);
   pairs2.tag = "tag:yaml.org,2002:pairs";
   let i = 0;
-  if (iterable && Symbol.iterator in Object(iterable))
+  if (iterable && Symbol.iterator in Object(iterable)) {
     for (let it of iterable) {
-      if (typeof replacer === "function")
+      if (typeof replacer === "function") {
         it = replacer.call(iterable, String(i++), it);
+      }
       let key, value;
       if (Array.isArray(it)) {
         if (it.length === 2) {
           key = it[0];
           value = it[1];
-        } else
+        } else {
           throw new TypeError(`Expected [key, value] tuple: ${it}`);
+        }
       } else if (it && it instanceof Object) {
         const keys = Object.keys(it);
         if (keys.length === 1) {
           key = keys[0];
           value = it[key];
-        } else
+        } else {
           throw new TypeError(`Expected { key: value } tuple: ${it}`);
+        }
       } else {
         key = it;
       }
       pairs2.items.push(createPair(key, value, ctx));
     }
+  }
   return pairs2;
 }
 var pairs = {
@@ -14461,7 +16878,7 @@ var pairs = {
   default: false,
   tag: "tag:yaml.org,2002:pairs",
   resolve: resolvePairs,
-  createNode: createPairs
+  createNode: createPairs,
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/omap.js
@@ -14476,11 +16893,13 @@ var YAMLOMap = class extends YAMLSeq {
     this.tag = YAMLOMap.tag;
   }
   toJSON(_, ctx) {
-    if (!ctx)
+    if (!ctx) {
       return super.toJSON(_);
+    }
     const map2 = new Map();
-    if (ctx == null ? void 0 : ctx.onCreate)
+    if (ctx == null ? void 0 : ctx.onCreate) {
       ctx.onCreate(map2);
+    }
     for (const pair of this.items) {
       let key, value;
       if (isPair(pair)) {
@@ -14489,8 +16908,9 @@ var YAMLOMap = class extends YAMLSeq {
       } else {
         key = toJS(pair, "", ctx);
       }
-      if (map2.has(key))
+      if (map2.has(key)) {
         throw new Error("Ordered maps must not include duplicate keys");
+      }
       map2.set(key, value);
     }
     return map2;
@@ -14522,14 +16942,15 @@ var omap = {
     const omap2 = new YAMLOMap();
     omap2.items = pairs2.items;
     return omap2;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/bool.js
 function boolStringify({ value, source }, ctx) {
   const boolObj = value ? trueTag : falseTag;
-  if (source && boolObj.test.test(source))
+  if (source && boolObj.test.test(source)) {
     return source;
+  }
   return value ? ctx.options.trueStr : ctx.options.falseStr;
 }
 var trueTag = {
@@ -14538,7 +16959,7 @@ var trueTag = {
   tag: "tag:yaml.org,2002:bool",
   test: /^(?:Y|y|[Yy]es|YES|[Tt]rue|TRUE|[Oo]n|ON)$/,
   resolve: () => new Scalar(true),
-  stringify: boolStringify
+  stringify: boolStringify,
 };
 var falseTag = {
   identify: (value) => value === false,
@@ -14546,7 +16967,7 @@ var falseTag = {
   tag: "tag:yaml.org,2002:bool",
   test: /^(?:N|n|[Nn]o|NO|[Ff]alse|FALSE|[Oo]ff|OFF)$/i,
   resolve: () => new Scalar(false),
-  stringify: boolStringify
+  stringify: boolStringify,
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/float.js
@@ -14555,8 +16976,13 @@ var floatNaN2 = {
   default: true,
   tag: "tag:yaml.org,2002:float",
   test: /^[-+]?\.(?:inf|Inf|INF|nan|NaN|NAN)$/,
-  resolve: (str) => str.slice(-3).toLowerCase() === "nan" ? NaN : str[0] === "-" ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY,
-  stringify: stringifyNumber
+  resolve: (str) =>
+    str.slice(-3).toLowerCase() === "nan"
+      ? NaN
+      : str[0] === "-"
+      ? Number.NEGATIVE_INFINITY
+      : Number.POSITIVE_INFINITY,
+  stringify: stringifyNumber,
 };
 var floatExp2 = {
   identify: (value) => typeof value === "number",
@@ -14568,7 +16994,7 @@ var floatExp2 = {
   stringify(node) {
     const num = Number(node.value);
     return isFinite(num) ? num.toExponential() : stringifyNumber(node);
-  }
+  },
 };
 var float2 = {
   identify: (value) => typeof value === "number",
@@ -14580,20 +17006,23 @@ var float2 = {
     const dot = str.indexOf(".");
     if (dot !== -1) {
       const f = str.substring(dot + 1).replace(/_/g, "");
-      if (f[f.length - 1] === "0")
+      if (f[f.length - 1] === "0") {
         node.minFractionDigits = f.length;
+      }
     }
     return node;
   },
-  stringify: stringifyNumber
+  stringify: stringifyNumber,
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/int.js
-var intIdentify3 = (value) => typeof value === "bigint" || Number.isInteger(value);
+var intIdentify3 = (value) =>
+  typeof value === "bigint" || Number.isInteger(value);
 function intResolve2(str, offset, radix, { intAsBigInt }) {
   const sign = str[0];
-  if (sign === "-" || sign === "+")
+  if (sign === "-" || sign === "+") {
     offset += 1;
+  }
   str = str.substring(offset).replace(/_/g, "");
   if (intAsBigInt) {
     switch (radix) {
@@ -14628,7 +17057,7 @@ var intBin = {
   format: "BIN",
   test: /^[-+]?0b[0-1_]+$/,
   resolve: (str, _onError, opt) => intResolve2(str, 2, 2, opt),
-  stringify: (node) => intStringify2(node, 2, "0b")
+  stringify: (node) => intStringify2(node, 2, "0b"),
 };
 var intOct2 = {
   identify: intIdentify3,
@@ -14637,7 +17066,7 @@ var intOct2 = {
   format: "OCT",
   test: /^[-+]?0[0-7_]+$/,
   resolve: (str, _onError, opt) => intResolve2(str, 1, 8, opt),
-  stringify: (node) => intStringify2(node, 8, "0")
+  stringify: (node) => intStringify2(node, 8, "0"),
 };
 var int2 = {
   identify: intIdentify3,
@@ -14645,7 +17074,7 @@ var int2 = {
   tag: "tag:yaml.org,2002:int",
   test: /^[-+]?[0-9][0-9_]*$/,
   resolve: (str, _onError, opt) => intResolve2(str, 0, 10, opt),
-  stringify: stringifyNumber
+  stringify: stringifyNumber,
 };
 var intHex2 = {
   identify: intIdentify3,
@@ -14654,7 +17083,7 @@ var intHex2 = {
   format: "HEX",
   test: /^[-+]?0x[0-9a-fA-F_]+$/,
   resolve: (str, _onError, opt) => intResolve2(str, 2, 16, opt),
-  stringify: (node) => intStringify2(node, 16, "0x")
+  stringify: (node) => intStringify2(node, 16, "0x"),
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/set.js
@@ -14665,23 +17094,33 @@ var YAMLSet = class extends YAMLMap {
   }
   add(key) {
     let pair;
-    if (isPair(key))
+    if (isPair(key)) {
       pair = key;
-    else if (key && typeof key === "object" && "key" in key && "value" in key && key.value === null)
+    } else if (
+      key && typeof key === "object" && "key" in key && "value" in key &&
+      key.value === null
+    ) {
       pair = new Pair(key.key, null);
-    else
+    } else {
       pair = new Pair(key, null);
+    }
     const prev = findPair(this.items, pair.key);
-    if (!prev)
+    if (!prev) {
       this.items.push(pair);
+    }
   }
   get(key, keepPair) {
     const pair = findPair(this.items, key);
-    return !keepPair && isPair(pair) ? isScalar(pair.key) ? pair.key.value : pair.key : pair;
+    return !keepPair && isPair(pair)
+      ? isScalar(pair.key) ? pair.key.value : pair.key
+      : pair;
   }
   set(key, value) {
-    if (typeof value !== "boolean")
-      throw new Error(`Expected boolean value for set(key, value) in a YAML set, not ${typeof value}`);
+    if (typeof value !== "boolean") {
+      throw new Error(
+        `Expected boolean value for set(key, value) in a YAML set, not ${typeof value}`,
+      );
+    }
     const prev = findPair(this.items, key);
     if (prev && !value) {
       this.items.splice(this.items.indexOf(prev), 1);
@@ -14693,12 +17132,18 @@ var YAMLSet = class extends YAMLMap {
     return super.toJSON(_, ctx, Set);
   }
   toString(ctx, onComment, onChompKeep) {
-    if (!ctx)
+    if (!ctx) {
       return JSON.stringify(this);
-    if (this.hasAllNullValues(true))
-      return super.toString(Object.assign({}, ctx, { allNullValues: true }), onComment, onChompKeep);
-    else
+    }
+    if (this.hasAllNullValues(true)) {
+      return super.toString(
+        Object.assign({}, ctx, { allNullValues: true }),
+        onComment,
+        onChompKeep,
+      );
+    } else {
       throw new Error("Set items must all have null values");
+    }
   }
 };
 YAMLSet.tag = "tag:yaml.org,2002:set";
@@ -14710,25 +17155,29 @@ var set = {
   tag: "tag:yaml.org,2002:set",
   resolve(map2, onError) {
     if (isMap(map2)) {
-      if (map2.hasAllNullValues(true))
+      if (map2.hasAllNullValues(true)) {
         return Object.assign(new YAMLSet(), map2);
-      else
+      } else {
         onError("Set items must all have null values");
-    } else
+      }
+    } else {
       onError("Expected a mapping for this tag");
+    }
     return map2;
   },
   createNode(schema4, iterable, ctx) {
     const { replacer } = ctx;
     const set2 = new YAMLSet(schema4);
-    if (iterable && Symbol.iterator in Object(iterable))
+    if (iterable && Symbol.iterator in Object(iterable)) {
       for (let value of iterable) {
-        if (typeof replacer === "function")
+        if (typeof replacer === "function") {
           value = replacer.call(iterable, value, value);
+        }
         set2.items.push(createPair(value, null, ctx));
       }
+    }
     return set2;
-  }
+  },
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/timestamp.js
@@ -14736,16 +17185,20 @@ function parseSexagesimal(str, asBigInt) {
   const sign = str[0];
   const parts = sign === "-" || sign === "+" ? str.substring(1) : str;
   const num = (n) => asBigInt ? BigInt(n) : Number(n);
-  const res = parts.replace(/_/g, "").split(":").reduce((res2, p) => res2 * num(60) + num(p), num(0));
+  const res = parts.replace(/_/g, "").split(":").reduce(
+    (res2, p) => res2 * num(60) + num(p),
+    num(0),
+  );
   return sign === "-" ? num(-1) * res : res;
 }
 function stringifySexagesimal(node) {
   let { value } = node;
   let num = (n) => n;
-  if (typeof value === "bigint")
+  if (typeof value === "bigint") {
     num = (n) => BigInt(n);
-  else if (isNaN(value) || !isFinite(value))
+  } else if (isNaN(value) || !isFinite(value)) {
     return stringifyNumber(node);
+  }
   let sign = "";
   if (value < 0) {
     sign = "-";
@@ -14763,7 +17216,11 @@ function stringifySexagesimal(node) {
       parts.unshift(value);
     }
   }
-  return sign + parts.map((n) => n < 10 ? "0" + String(n) : String(n)).join(":").replace(/000000\d*$/, "");
+  return sign +
+    parts.map((n) => n < 10 ? "0" + String(n) : String(n)).join(":").replace(
+      /000000\d*$/,
+      "",
+    );
 }
 var intTime = {
   identify: (value) => typeof value === "bigint" || Number.isInteger(value),
@@ -14771,8 +17228,9 @@ var intTime = {
   tag: "tag:yaml.org,2002:int",
   format: "TIME",
   test: /^[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+$/,
-  resolve: (str, _onError, { intAsBigInt }) => parseSexagesimal(str, intAsBigInt),
-  stringify: stringifySexagesimal
+  resolve: (str, _onError, { intAsBigInt }) =>
+    parseSexagesimal(str, intAsBigInt),
+  stringify: stringifySexagesimal,
 };
 var floatTime = {
   identify: (value) => typeof value === "number",
@@ -14781,30 +17239,43 @@ var floatTime = {
   format: "TIME",
   test: /^[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+\.[0-9_]*$/,
   resolve: (str) => parseSexagesimal(str, false),
-  stringify: stringifySexagesimal
+  stringify: stringifySexagesimal,
 };
 var timestamp = {
   identify: (value) => value instanceof Date,
   default: true,
   tag: "tag:yaml.org,2002:timestamp",
-  test: RegExp("^([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})(?:(?:t|T|[ \\t]+)([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}(\\.[0-9]+)?)(?:[ \\t]*(Z|[-+][012]?[0-9](?::[0-9]{2})?))?)?$"),
+  test: RegExp(
+    "^([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})(?:(?:t|T|[ \\t]+)([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}(\\.[0-9]+)?)(?:[ \\t]*(Z|[-+][012]?[0-9](?::[0-9]{2})?))?)?$",
+  ),
   resolve(str) {
     const match = str.match(timestamp.test);
-    if (!match)
+    if (!match) {
       throw new Error("!!timestamp expects a date, starting with yyyy-mm-dd");
+    }
     const [, year, month, day, hour, minute, second] = match.map(Number);
     const millisec = match[7] ? Number((match[7] + "00").substr(1, 3)) : 0;
-    let date = Date.UTC(year, month - 1, day, hour || 0, minute || 0, second || 0, millisec);
+    let date = Date.UTC(
+      year,
+      month - 1,
+      day,
+      hour || 0,
+      minute || 0,
+      second || 0,
+      millisec,
+    );
     const tz = match[8];
     if (tz && tz !== "Z") {
       let d = parseSexagesimal(tz, false);
-      if (Math.abs(d) < 30)
+      if (Math.abs(d) < 30) {
         d *= 60;
+      }
       date -= 6e4 * d;
     }
     return new Date(date);
   },
-  stringify: ({ value }) => value.toISOString().replace(/((T00:00)?:00)?\.000Z$/, "")
+  stringify: ({ value }) =>
+    value.toISOString().replace(/((T00:00)?:00)?\.000Z$/, ""),
 };
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/schema.js
@@ -14828,7 +17299,7 @@ var schema3 = [
   set,
   intTime,
   floatTime,
-  timestamp
+  timestamp,
 ];
 
 // node_modules/yaml/browser/dist/schema/tags.js
@@ -14837,7 +17308,7 @@ var schemas = new Map([
   ["failsafe", [map, seq, string]],
   ["json", schema2],
   ["yaml11", schema3],
-  ["yaml-1.1", schema3]
+  ["yaml-1.1", schema3],
 ]);
 var tagsByName = {
   binary,
@@ -14856,38 +17327,46 @@ var tagsByName = {
   pairs,
   seq,
   set,
-  timestamp
+  timestamp,
 };
 var coreKnownTags = {
   "tag:yaml.org,2002:binary": binary,
   "tag:yaml.org,2002:omap": omap,
   "tag:yaml.org,2002:pairs": pairs,
   "tag:yaml.org,2002:set": set,
-  "tag:yaml.org,2002:timestamp": timestamp
+  "tag:yaml.org,2002:timestamp": timestamp,
 };
 function getTags(customTags, schemaName) {
   let tags = schemas.get(schemaName);
   if (!tags) {
-    if (Array.isArray(customTags))
+    if (Array.isArray(customTags)) {
       tags = [];
-    else {
-      const keys = Array.from(schemas.keys()).filter((key) => key !== "yaml11").map((key) => JSON.stringify(key)).join(", ");
-      throw new Error(`Unknown schema "${schemaName}"; use one of ${keys} or define customTags array`);
+    } else {
+      const keys = Array.from(schemas.keys()).filter((key) => key !== "yaml11")
+        .map((key) => JSON.stringify(key)).join(", ");
+      throw new Error(
+        `Unknown schema "${schemaName}"; use one of ${keys} or define customTags array`,
+      );
     }
   }
   if (Array.isArray(customTags)) {
-    for (const tag of customTags)
+    for (const tag of customTags) {
       tags = tags.concat(tag);
+    }
   } else if (typeof customTags === "function") {
     tags = customTags(tags.slice());
   }
   return tags.map((tag) => {
-    if (typeof tag !== "string")
+    if (typeof tag !== "string") {
       return tag;
+    }
     const tagObj = tagsByName[tag];
-    if (tagObj)
+    if (tagObj) {
       return tagObj;
-    const keys = Object.keys(tagsByName).map((key) => JSON.stringify(key)).join(", ");
+    }
+    const keys = Object.keys(tagsByName).map((key) => JSON.stringify(key)).join(
+      ", ",
+    );
     throw new Error(`Unknown custom tag "${tag}"; use one of ${keys}`);
   });
 }
@@ -14895,8 +17374,22 @@ function getTags(customTags, schemaName) {
 // node_modules/yaml/browser/dist/schema/Schema.js
 var sortMapEntriesByKey = (a, b) => a.key < b.key ? -1 : a.key > b.key ? 1 : 0;
 var Schema = class {
-  constructor({ compat, customTags, merge, resolveKnownTags, schema: schema4, sortMapEntries, toStringDefaults }) {
-    this.compat = Array.isArray(compat) ? getTags(compat, "compat") : compat ? getTags(null, compat) : null;
+  constructor(
+    {
+      compat,
+      customTags,
+      merge,
+      resolveKnownTags,
+      schema: schema4,
+      sortMapEntries,
+      toStringDefaults,
+    },
+  ) {
+    this.compat = Array.isArray(compat)
+      ? getTags(compat, "compat")
+      : compat
+      ? getTags(null, compat)
+      : null;
     this.merge = !!merge;
     this.name = typeof schema4 === "string" && schema4 || "core";
     this.knownTags = resolveKnownTags ? coreKnownTags : {};
@@ -14905,10 +17398,17 @@ var Schema = class {
     Object.defineProperty(this, MAP, { value: map });
     Object.defineProperty(this, SCALAR, { value: string });
     Object.defineProperty(this, SEQ, { value: seq });
-    this.sortMapEntries = typeof sortMapEntries === "function" ? sortMapEntries : sortMapEntries === true ? sortMapEntriesByKey : null;
+    this.sortMapEntries = typeof sortMapEntries === "function"
+      ? sortMapEntries
+      : sortMapEntries === true
+      ? sortMapEntriesByKey
+      : null;
   }
   clone() {
-    const copy = Object.create(Schema.prototype, Object.getOwnPropertyDescriptors(this));
+    const copy = Object.create(
+      Schema.prototype,
+      Object.getOwnPropertyDescriptors(this),
+    );
     copy.tags = this.tags.slice();
     return copy;
   }
@@ -14924,16 +17424,19 @@ function stringifyDocument(doc, options) {
     if (dir) {
       lines.push(dir);
       hasDirectives = true;
-    } else if (doc.directives.docStart)
+    } else if (doc.directives.docStart) {
       hasDirectives = true;
+    }
   }
-  if (hasDirectives)
+  if (hasDirectives) {
     lines.push("---");
+  }
   const ctx = createStringifyContext(doc, options);
   const { commentString } = ctx.options;
   if (doc.commentBefore) {
-    if (lines.length !== 1)
+    if (lines.length !== 1) {
       lines.unshift("");
+    }
     const cs = commentString(doc.commentBefore);
     lines.unshift(indentComment(cs, ""));
   }
@@ -14941,8 +17444,9 @@ function stringifyDocument(doc, options) {
   let contentComment = null;
   if (doc.contents) {
     if (isNode(doc.contents)) {
-      if (doc.contents.spaceBefore && hasDirectives)
+      if (doc.contents.spaceBefore && hasDirectives) {
         lines.push("");
+      }
       if (doc.contents.commentBefore) {
         const cs = commentString(doc.contents.commentBefore);
         lines.push(indentComment(cs, ""));
@@ -14951,13 +17455,22 @@ function stringifyDocument(doc, options) {
       contentComment = doc.contents.comment;
     }
     const onChompKeep = contentComment ? void 0 : () => chompKeep = true;
-    let body = stringify(doc.contents, ctx, () => contentComment = null, onChompKeep);
-    if (contentComment)
+    let body = stringify(
+      doc.contents,
+      ctx,
+      () => contentComment = null,
+      onChompKeep,
+    );
+    if (contentComment) {
       body += lineComment(body, "", commentString(contentComment));
-    if ((body[0] === "|" || body[0] === ">") && lines[lines.length - 1] === "---") {
+    }
+    if (
+      (body[0] === "|" || body[0] === ">") && lines[lines.length - 1] === "---"
+    ) {
       lines[lines.length - 1] = `--- ${body}`;
-    } else
+    } else {
       lines.push(body);
+    }
   } else {
     lines.push(stringify(doc.contents, ctx));
   }
@@ -14975,11 +17488,13 @@ function stringifyDocument(doc, options) {
     }
   } else {
     let dc = doc.comment;
-    if (dc && chompKeep)
+    if (dc && chompKeep) {
       dc = dc.replace(/^\n+/, "");
+    }
     if (dc) {
-      if ((!chompKeep || contentComment) && lines[lines.length - 1] !== "")
+      if ((!chompKeep || contentComment) && lines[lines.length - 1] !== "") {
         lines.push("");
+      }
       lines.push(indentComment(commentString(dc), ""));
     }
   }
@@ -14993,26 +17508,28 @@ function applyReviver(reviver, obj, key, val) {
       for (let i = 0, len = val.length; i < len; ++i) {
         const v0 = val[i];
         const v1 = applyReviver(reviver, val, String(i), v0);
-        if (v1 === void 0)
+        if (v1 === void 0) {
           delete val[i];
-        else if (v1 !== v0)
+        } else if (v1 !== v0) {
           val[i] = v1;
+        }
       }
     } else if (val instanceof Map) {
       for (const k of Array.from(val.keys())) {
         const v0 = val.get(k);
         const v1 = applyReviver(reviver, val, k, v0);
-        if (v1 === void 0)
+        if (v1 === void 0) {
           val.delete(k);
-        else if (v1 !== v0)
+        } else if (v1 !== v0) {
           val.set(k, v1);
+        }
       }
     } else if (val instanceof Set) {
       for (const v0 of Array.from(val)) {
         const v1 = applyReviver(reviver, val, v0, v0);
-        if (v1 === void 0)
+        if (v1 === void 0) {
           val.delete(v0);
-        else if (v1 !== v0) {
+        } else if (v1 !== v0) {
           val.delete(v0);
           val.add(v1);
         }
@@ -15020,10 +17537,11 @@ function applyReviver(reviver, obj, key, val) {
     } else {
       for (const [k, v0] of Object.entries(val)) {
         const v1 = applyReviver(reviver, val, k, v0);
-        if (v1 === void 0)
+        if (v1 === void 0) {
           delete val[k];
-        else if (v1 !== v0)
+        } else if (v1 !== v0) {
           val[k] = v1;
+        }
       }
     }
   }
@@ -15052,52 +17570,62 @@ var Document = class {
       prettyErrors: true,
       strict: true,
       uniqueKeys: true,
-      version: "1.2"
+      version: "1.2",
     }, options);
     this.options = opt;
     let { version } = opt;
     if (options == null ? void 0 : options._directives) {
       this.directives = options._directives.atDocument();
-      if (this.directives.yaml.explicit)
+      if (this.directives.yaml.explicit) {
         version = this.directives.yaml.version;
-    } else
+      }
+    } else {
       this.directives = new Directives({ version });
+    }
     this.setSchema(version, options);
-    if (value === void 0)
+    if (value === void 0) {
       this.contents = null;
-    else {
+    } else {
       this.contents = this.createNode(value, _replacer, options);
     }
   }
   clone() {
     const copy = Object.create(Document.prototype, {
-      [NODE_TYPE]: { value: DOC }
+      [NODE_TYPE]: { value: DOC },
     });
     copy.commentBefore = this.commentBefore;
     copy.comment = this.comment;
     copy.errors = this.errors.slice();
     copy.warnings = this.warnings.slice();
     copy.options = Object.assign({}, this.options);
-    if (this.directives)
+    if (this.directives) {
       copy.directives = this.directives.clone();
+    }
     copy.schema = this.schema.clone();
-    copy.contents = isNode(this.contents) ? this.contents.clone(copy.schema) : this.contents;
-    if (this.range)
+    copy.contents = isNode(this.contents)
+      ? this.contents.clone(copy.schema)
+      : this.contents;
+    if (this.range) {
       copy.range = this.range.slice();
+    }
     return copy;
   }
   add(value) {
-    if (assertCollection(this.contents))
+    if (assertCollection(this.contents)) {
       this.contents.add(value);
+    }
   }
   addIn(path, value) {
-    if (assertCollection(this.contents))
+    if (assertCollection(this.contents)) {
       this.contents.addIn(path, value);
+    }
   }
   createAlias(node, name) {
     if (!node.anchor) {
       const prev = anchorNames(this);
-      node.anchor = !name || prev.has(name) ? findNewAnchor(name || "a", prev) : name;
+      node.anchor = !name || prev.has(name)
+        ? findNewAnchor(name || "a", prev)
+        : name;
     }
     return new Alias(node.anchor);
   }
@@ -15107,29 +17635,44 @@ var Document = class {
       value = replacer.call({ "": value }, "", value);
       _replacer = replacer;
     } else if (Array.isArray(replacer)) {
-      const keyToStr = (v) => typeof v === "number" || v instanceof String || v instanceof Number;
+      const keyToStr = (v) =>
+        typeof v === "number" || v instanceof String || v instanceof Number;
       const asStr = replacer.filter(keyToStr).map(String);
-      if (asStr.length > 0)
+      if (asStr.length > 0) {
         replacer = replacer.concat(asStr);
+      }
       _replacer = replacer;
     } else if (options === void 0 && replacer) {
       options = replacer;
       replacer = void 0;
     }
-    const { aliasDuplicateObjects, anchorPrefix, flow, keepUndefined, onTagObj, tag } = options != null ? options : {};
-    const { onAnchor, setAnchors, sourceObjects } = createNodeAnchors(this, anchorPrefix || "a");
+    const {
+      aliasDuplicateObjects,
+      anchorPrefix,
+      flow,
+      keepUndefined,
+      onTagObj,
+      tag,
+    } = options != null ? options : {};
+    const { onAnchor, setAnchors, sourceObjects } = createNodeAnchors(
+      this,
+      anchorPrefix || "a",
+    );
     const ctx = {
-      aliasDuplicateObjects: aliasDuplicateObjects != null ? aliasDuplicateObjects : true,
+      aliasDuplicateObjects: aliasDuplicateObjects != null
+        ? aliasDuplicateObjects
+        : true,
       keepUndefined: keepUndefined != null ? keepUndefined : false,
       onAnchor,
       onTagObj,
       replacer: _replacer,
       schema: this.schema,
-      sourceObjects
+      sourceObjects,
     };
     const node = createNode(value, tag, ctx);
-    if (flow && isCollection(node))
+    if (flow && isCollection(node)) {
       node.flow = true;
+    }
     setAnchors();
     return node;
   }
@@ -15143,27 +17686,38 @@ var Document = class {
   }
   deleteIn(path) {
     if (isEmptyPath(path)) {
-      if (this.contents == null)
+      if (this.contents == null) {
         return false;
+      }
       this.contents = null;
       return true;
     }
-    return assertCollection(this.contents) ? this.contents.deleteIn(path) : false;
+    return assertCollection(this.contents)
+      ? this.contents.deleteIn(path)
+      : false;
   }
   get(key, keepScalar) {
-    return isCollection(this.contents) ? this.contents.get(key, keepScalar) : void 0;
+    return isCollection(this.contents)
+      ? this.contents.get(key, keepScalar)
+      : void 0;
   }
   getIn(path, keepScalar) {
-    if (isEmptyPath(path))
-      return !keepScalar && isScalar(this.contents) ? this.contents.value : this.contents;
-    return isCollection(this.contents) ? this.contents.getIn(path, keepScalar) : void 0;
+    if (isEmptyPath(path)) {
+      return !keepScalar && isScalar(this.contents)
+        ? this.contents.value
+        : this.contents;
+    }
+    return isCollection(this.contents)
+      ? this.contents.getIn(path, keepScalar)
+      : void 0;
   }
   has(key) {
     return isCollection(this.contents) ? this.contents.has(key) : false;
   }
   hasIn(path) {
-    if (isEmptyPath(path))
+    if (isEmptyPath(path)) {
       return this.contents !== void 0;
+    }
     return isCollection(this.contents) ? this.contents.hasIn(path) : false;
   }
   set(key, value) {
@@ -15174,50 +17728,59 @@ var Document = class {
     }
   }
   setIn(path, value) {
-    if (isEmptyPath(path))
+    if (isEmptyPath(path)) {
       this.contents = value;
-    else if (this.contents == null) {
+    } else if (this.contents == null) {
       this.contents = collectionFromPath(this.schema, Array.from(path), value);
     } else if (assertCollection(this.contents)) {
       this.contents.setIn(path, value);
     }
   }
   setSchema(version, options = {}) {
-    if (typeof version === "number")
+    if (typeof version === "number") {
       version = String(version);
+    }
     let opt;
     switch (version) {
       case "1.1":
-        if (this.directives)
+        if (this.directives) {
           this.directives.yaml.version = "1.1";
-        else
+        } else {
           this.directives = new Directives({ version: "1.1" });
+        }
         opt = { merge: true, resolveKnownTags: false, schema: "yaml-1.1" };
         break;
       case "1.2":
       case "next":
-        if (this.directives)
+        if (this.directives) {
           this.directives.yaml.version = version;
-        else
+        } else {
           this.directives = new Directives({ version });
+        }
         opt = { merge: false, resolveKnownTags: true, schema: "core" };
         break;
       case null:
-        if (this.directives)
+        if (this.directives) {
           delete this.directives;
+        }
         opt = null;
         break;
       default: {
         const sv = JSON.stringify(version);
-        throw new Error(`Expected '1.1', '1.2' or null as first argument, but found: ${sv}`);
+        throw new Error(
+          `Expected '1.1', '1.2' or null as first argument, but found: ${sv}`,
+        );
       }
     }
-    if (options.schema instanceof Object)
+    if (options.schema instanceof Object) {
       this.schema = options.schema;
-    else if (opt)
+    } else if (opt) {
       this.schema = new Schema(Object.assign(opt, options));
-    else
-      throw new Error(`With a null YAML version, the { schema: Schema } option is required`);
+    } else {
+      throw new Error(
+        `With a null YAML version, the { schema: Schema } option is required`,
+      );
+    }
   }
   toJS({ json, jsonArg, mapAsMap, maxAliasCount, onAnchor, reviver } = {}) {
     const ctx = {
@@ -15227,21 +17790,29 @@ var Document = class {
       mapAsMap: mapAsMap === true,
       mapKeyWarned: false,
       maxAliasCount: typeof maxAliasCount === "number" ? maxAliasCount : 100,
-      stringify
+      stringify,
     };
     const res = toJS(this.contents, jsonArg != null ? jsonArg : "", ctx);
-    if (typeof onAnchor === "function")
-      for (const { count, res: res2 } of ctx.anchors.values())
+    if (typeof onAnchor === "function") {
+      for (const { count, res: res2 } of ctx.anchors.values()) {
         onAnchor(res2, count);
-    return typeof reviver === "function" ? applyReviver(reviver, { "": res }, "", res) : res;
+      }
+    }
+    return typeof reviver === "function"
+      ? applyReviver(reviver, { "": res }, "", res)
+      : res;
   }
   toJSON(jsonArg, onAnchor) {
     return this.toJS({ json: true, jsonArg, mapAsMap: false, onAnchor });
   }
   toString(options = {}) {
-    if (this.errors.length > 0)
+    if (this.errors.length > 0) {
       throw new Error("Document with errors cannot be stringified");
-    if ("indent" in options && (!Number.isInteger(options.indent) || Number(options.indent) <= 0)) {
+    }
+    if (
+      "indent" in options &&
+      (!Number.isInteger(options.indent) || Number(options.indent) <= 0)
+    ) {
       const s = JSON.stringify(options.indent);
       throw new Error(`"indent" option must be a positive integer, not ${s}`);
     }
@@ -15249,8 +17820,9 @@ var Document = class {
   }
 };
 function assertCollection(contents) {
-  if (isCollection(contents))
+  if (isCollection(contents)) {
     return true;
+  }
   throw new Error("Expected a YAML collection as document contents");
 }
 
@@ -15259,8 +17831,9 @@ var BREAK2 = Symbol("break visit");
 var SKIP2 = Symbol("skip children");
 var REMOVE2 = Symbol("remove item");
 function visit2(cst, visitor) {
-  if ("type" in cst && cst.type === "document")
+  if ("type" in cst && cst.type === "document") {
     cst = { start: cst.start, value: cst.value };
+  }
   _visit(Object.freeze([]), cst, visitor);
 }
 visit2.BREAK = BREAK2;
@@ -15272,8 +17845,9 @@ visit2.itemAtPath = (cst, path) => {
     const tok = item == null ? void 0 : item[field];
     if (tok && "items" in tok) {
       item = tok.items[index];
-    } else
+    } else {
       return void 0;
+    }
   }
   return item;
 };
@@ -15281,30 +17855,37 @@ visit2.parentCollection = (cst, path) => {
   const parent = visit2.itemAtPath(cst, path.slice(0, -1));
   const field = path[path.length - 1][0];
   const coll = parent == null ? void 0 : parent[field];
-  if (coll && "items" in coll)
+  if (coll && "items" in coll) {
     return coll;
+  }
   throw new Error("Parent collection not found");
 };
 function _visit(path, item, visitor) {
   let ctrl = visitor(item, path);
-  if (typeof ctrl === "symbol")
+  if (typeof ctrl === "symbol") {
     return ctrl;
+  }
   for (const field of ["key", "value"]) {
     const token = item[field];
     if (token && "items" in token) {
       for (let i = 0; i < token.items.length; ++i) {
-        const ci = _visit(Object.freeze(path.concat([[field, i]])), token.items[i], visitor);
-        if (typeof ci === "number")
+        const ci = _visit(
+          Object.freeze(path.concat([[field, i]])),
+          token.items[i],
+          visitor,
+        );
+        if (typeof ci === "number") {
           i = ci - 1;
-        else if (ci === BREAK2)
+        } else if (ci === BREAK2) {
           return BREAK2;
-        else if (ci === REMOVE2) {
+        } else if (ci === REMOVE2) {
           token.items.splice(i, 1);
           i -= 1;
         }
       }
-      if (typeof ctrl === "function" && field === "key")
+      if (typeof ctrl === "function" && field === "key") {
         ctrl = ctrl(item, path);
+      }
     }
   }
   return typeof ctrl === "function" ? ctrl(item, path) : ctrl;
@@ -15312,7 +17893,9 @@ function _visit(path, item, visitor) {
 
 // node_modules/yaml/browser/dist/parse/lexer.js
 var hexDigits = "0123456789ABCDEFabcdef".split("");
-var tagChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-#;/?:@&=+$_.!~*'()".split("");
+var tagChars =
+  "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-#;/?:@&=+$_.!~*'()"
+    .split("");
 var invalidFlowScalarChars = ",[]{}".split("");
 var invalidAnchorChars = " ,[]{}\n\r	".split("");
 
@@ -15325,16 +17908,19 @@ function stringify3(value, replacer, options) {
   } else if (options === void 0 && replacer) {
     options = replacer;
   }
-  if (typeof options === "string")
+  if (typeof options === "string") {
     options = options.length;
+  }
   if (typeof options === "number") {
     const indent = Math.round(options);
     options = indent < 1 ? void 0 : indent > 8 ? { indent: 8 } : { indent };
   }
   if (value === void 0) {
-    const { keepUndefined } = (_a = options != null ? options : replacer) != null ? _a : {};
-    if (!keepUndefined)
+    const { keepUndefined } =
+      (_a = options != null ? options : replacer) != null ? _a : {};
+    if (!keepUndefined) {
       return void 0;
+    }
   }
   return new Document(value, _replacer, options).toString(options);
 }
@@ -15352,9 +17938,9 @@ var Upload2Notion = class {
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + this.app.settings.notionAPI,
-          "Notion-Version": "2022-02-22"
+          "Notion-Version": "2022-02-22",
         },
-        body: ""
+        body: "",
       });
       return response;
     });
@@ -15370,32 +17956,34 @@ var Upload2Notion = class {
     return __async(this, null, function* () {
       const bodyString = {
         parent: {
-          database_id: this.app.settings.databaseID
+          database_id: this.app.settings.databaseID,
         },
         properties: {
           Name: {
             title: [
               {
                 text: {
-                  content: title
-                }
-              }
-            ]
+                  content: title,
+                },
+              },
+            ],
           },
           Tags: {
-            multi_select: allowTags && tags !== void 0 ? tags.map((tag) => {
-              return { "name": tag };
-            }) : []
-          }
+            multi_select: allowTags && tags !== void 0
+              ? tags.map((tag) => {
+                return { "name": tag };
+              })
+              : [],
+          },
         },
-        children: childArr
+        children: childArr,
       };
       if (this.app.settings.bannerUrl) {
         bodyString.cover = {
           type: "external",
           external: {
-            url: this.app.settings.bannerUrl
-          }
+            url: this.app.settings.bannerUrl,
+          },
         };
       }
       try {
@@ -15405,9 +17993,9 @@ var Upload2Notion = class {
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + this.app.settings.notionAPI,
-            "Notion-Version": "2021-08-16"
+            "Notion-Version": "2021-08-16",
           },
-          body: JSON.stringify(bodyString)
+          body: JSON.stringify(bodyString),
         });
         return response;
       } catch (error) {
@@ -15415,17 +18003,34 @@ var Upload2Notion = class {
       }
     });
   }
-  syncMarkdownToNotion(title, allowTags, tags, markdown, nowFile, app, settings) {
+  syncMarkdownToNotion(
+    title,
+    allowTags,
+    tags,
+    markdown,
+    nowFile,
+    app,
+    settings,
+  ) {
     return __async(this, null, function* () {
       var _a;
       let res;
       const yamlObj = loadFront(markdown);
       const __content = yamlObj.__content;
       const file2Block = (0, import_martian.markdownToBlocks)(__content);
-      const frontmasster = yield (_a = app.metadataCache.getFileCache(nowFile)) == null ? void 0 : _a.frontmatter;
+      const frontmasster =
+        yield (_a = app.metadataCache.getFileCache(nowFile)) == null
+          ? void 0
+          : _a.frontmatter;
       const notionID = frontmasster ? frontmasster.notionID : null;
       if (notionID) {
-        res = yield this.updatePage(notionID, title, allowTags, tags, file2Block);
+        res = yield this.updatePage(
+          notionID,
+          title,
+          allowTags,
+          tags,
+          file2Block,
+        );
       } else {
         res = yield this.createPage(title, allowTags, tags, file2Block);
       }
@@ -15449,7 +18054,9 @@ var Upload2Notion = class {
       try {
         yield navigator.clipboard.writeText(url);
       } catch (error) {
-        new import_obsidian2.Notice(`\u590D\u5236\u94FE\u63A5\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u590D\u5236${error}`);
+        new import_obsidian2.Notice(
+          `\u590D\u5236\u94FE\u63A5\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u590D\u5236${error}`,
+        );
       }
       yamlObj.notionID = id;
       const __content = yamlObj.__content;
@@ -15457,7 +18064,8 @@ var Upload2Notion = class {
       const yamlhead = stringify3(yamlObj);
       const yamlhead_remove_n = yamlhead.replace(/\n$/, "");
       const __content_remove_n = __content.replace(/^\n/, "");
-      const content = "---\n" + yamlhead_remove_n + "\n---\n" + __content_remove_n;
+      const content = "---\n" + yamlhead_remove_n + "\n---\n" +
+        __content_remove_n;
       try {
         yield nowFile.vault.modify(nowFile, content);
       } catch (error) {
@@ -15474,17 +18082,21 @@ var NoticeMsg = {
     "sync-success": "Sync to notion success: \n",
     "sync-fail": "Sync to notion fail: \n",
     "open-notion": "Please open the file that needs to be synchronized",
-    "config-secrets-notion-api": "Please set up the notion API in the settings tab.",
-    "config-secrets-database-id": "Please set up the database id in the settings tab.",
-    "set-tags-fail": "Set tags fail,please check the frontmatter of the file or close the tag switch in the settings tab."
+    "config-secrets-notion-api":
+      "Please set up the notion API in the settings tab.",
+    "config-secrets-database-id":
+      "Please set up the database id in the settings tab.",
+    "set-tags-fail":
+      "Set tags fail,please check the frontmatter of the file or close the tag switch in the settings tab.",
   },
   "zh": {
     "notion-logo": "\u5206\u4EAB\u5230Notion",
     "sync-success": "\u540C\u6B65\u5230Notion\u6210\u529F:\n",
     "sync-fail": "\u540C\u6B65\u5230Notion\u5931\u8D25: \n",
     "open-file": "\u8BF7\u6253\u5F00\u9700\u8981\u540C\u6B65\u7684\u6587\u4EF6",
-    "set-tags-fail": "\u8BBE\u7F6E\u6807\u7B7E\u5931\u8D25,\u8BF7\u68C0\u67E5\u6587\u4EF6\u7684frontmatter,\u6216\u8005\u5728\u63D2\u4EF6\u8BBE\u7F6E\u4E2D\u5173\u95ED\u8BBE\u7F6Etags\u5F00\u5173"
-  }
+    "set-tags-fail":
+      "\u8BBE\u7F6E\u6807\u7B7E\u5931\u8D25,\u8BF7\u68C0\u67E5\u6587\u4EF6\u7684frontmatter,\u6216\u8005\u5728\u63D2\u4EF6\u8BBE\u7F6E\u4E2D\u5173\u95ED\u8BBE\u7F6Etags\u5F00\u5173",
+  },
 };
 var NoticeMConfig = (lang) => {
   return NoticeMsg[lang];
@@ -15498,23 +18110,29 @@ var DEFAULT_SETTINGS = {
   bannerUrl: "",
   notionID: "",
   proxy: "",
-  allowTags: false
+  allowTags: false,
 };
 var ObsidianSyncNotionPlugin = class extends import_obsidian3.Plugin {
   onload() {
     return __async(this, null, function* () {
       yield this.loadSettings();
       addIcons();
-      const ribbonIconEl = this.addRibbonIcon("notion-logo", "Share to notion", (evt) => __async(this, null, function* () {
-        this.upload();
-      }));
+      const ribbonIconEl = this.addRibbonIcon(
+        "notion-logo",
+        "Share to notion",
+        (evt) =>
+          __async(this, null, function* () {
+            this.upload();
+          }),
+      );
       const statusBarItemEl = this.addStatusBarItem();
       this.addCommand({
         id: "share-to-notion",
         name: "share to notion",
-        editorCallback: (editor, view) => __async(this, null, function* () {
-          this.upload();
-        })
+        editorCallback: (editor, view) =>
+          __async(this, null, function* () {
+            this.upload();
+          }),
       });
       this.addSettingTab(new SampleSettingTab(this.app, this));
     });
@@ -15525,18 +18143,34 @@ var ObsidianSyncNotionPlugin = class extends import_obsidian3.Plugin {
     return __async(this, null, function* () {
       const { notionAPI, databaseID, allowTags } = this.settings;
       if (notionAPI === "" || databaseID === "") {
-        new import_obsidian3.Notice("Please set up the notion API and database ID in the settings tab.");
+        new import_obsidian3.Notice(
+          "Please set up the notion API and database ID in the settings tab.",
+        );
         return;
       }
-      const { markDownData, nowFile, tags } = yield this.getNowFileMarkdownContent(this.app);
+      const { markDownData, nowFile, tags } = yield this
+        .getNowFileMarkdownContent(this.app);
       if (markDownData) {
         const { basename } = nowFile;
         const upload = new Upload2Notion(this);
-        const res = yield upload.syncMarkdownToNotion(basename, allowTags, tags, markDownData, nowFile, this.app, this.settings);
+        const res = yield upload.syncMarkdownToNotion(
+          basename,
+          allowTags,
+          tags,
+          markDownData,
+          nowFile,
+          this.app,
+          this.settings,
+        );
         if (res.status === 200) {
-          new import_obsidian3.Notice(`${langConfig["sync-success"]}${basename}`);
+          new import_obsidian3.Notice(
+            `${langConfig["sync-success"]}${basename}`,
+          );
         } else {
-          new import_obsidian3.Notice(`${langConfig["sync-fail"]}${basename}`, 5e3);
+          new import_obsidian3.Notice(
+            `${langConfig["sync-fail"]}${basename}`,
+            5e3,
+          );
         }
       }
     });
@@ -15558,7 +18192,7 @@ var ObsidianSyncNotionPlugin = class extends import_obsidian3.Plugin {
         return {
           markDownData,
           nowFile,
-          tags
+          tags,
         };
       } else {
         new import_obsidian3.Notice(langConfig["open-file"]);
@@ -15568,7 +18202,11 @@ var ObsidianSyncNotionPlugin = class extends import_obsidian3.Plugin {
   }
   loadSettings() {
     return __async(this, null, function* () {
-      this.settings = Object.assign({}, DEFAULT_SETTINGS, yield this.loadData());
+      this.settings = Object.assign(
+        {},
+        DEFAULT_SETTINGS,
+        yield this.loadData(),
+      );
     });
   }
   saveSettings() {
@@ -15586,34 +18224,70 @@ var SampleSettingTab = class extends import_obsidian3.PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
     containerEl.createEl("h2", {
-      text: "Settings for obsidian to notion plugin."
+      text: "Settings for obsidian to notion plugin.",
     });
-    new import_obsidian3.Setting(containerEl).setName("Notion API Token").setDesc("It's a secret").addText((text) => {
-      let t = text.setPlaceholder("Enter your Notion API Token").setValue(this.plugin.settings.notionAPI).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.notionAPI = value;
-        yield this.plugin.saveSettings();
-      }));
+    new import_obsidian3.Setting(containerEl).setName("Notion API Token")
+      .setDesc("It's a secret").addText((text) => {
+        let t = text.setPlaceholder("Enter your Notion API Token").setValue(
+          this.plugin.settings.notionAPI,
+        ).onChange((value) =>
+          __async(this, null, function* () {
+            this.plugin.settings.notionAPI = value;
+            yield this.plugin.saveSettings();
+          })
+        );
+        return t;
+      });
+    const notionDatabaseID = new import_obsidian3.Setting(containerEl).setName(
+      "Database ID",
+    ).setDesc("It's a secret").addText((text) => {
+      let t = text.setPlaceholder("Enter your Database ID").setValue(
+        this.plugin.settings.databaseID,
+      ).onChange((value) =>
+        __async(this, null, function* () {
+          this.plugin.settings.databaseID = value;
+          yield this.plugin.saveSettings();
+        })
+      );
       return t;
     });
-    const notionDatabaseID = new import_obsidian3.Setting(containerEl).setName("Database ID").setDesc("It's a secret").addText((text) => {
-      let t = text.setPlaceholder("Enter your Database ID").setValue(this.plugin.settings.databaseID).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.databaseID = value;
-        yield this.plugin.saveSettings();
-      }));
-      return t;
-    });
-    new import_obsidian3.Setting(containerEl).setName("Banner url(optional)").setDesc("page banner url(optional), default is empty, if you want to show a banner, please enter the url(like:https://raw.githubusercontent.com/EasyChris/obsidian-to-notion/ae7a9ac6cf427f3ca338a409ce6967ced9506f12/doc/2.png)").addText((text) => text.setPlaceholder("Enter banner pic url: ").setValue(this.plugin.settings.bannerUrl).onChange((value) => __async(this, null, function* () {
-      this.plugin.settings.bannerUrl = value;
-      yield this.plugin.saveSettings();
-    })));
-    new import_obsidian3.Setting(containerEl).setName("Notion ID(optional)").setDesc("Your notion ID(optional),share link likes:https://username.notion.site/,your notion id is [username]").addText((text) => text.setPlaceholder("Enter notion ID(options) ").setValue(this.plugin.settings.notionID).onChange((value) => __async(this, null, function* () {
-      this.plugin.settings.notionID = value;
-      yield this.plugin.saveSettings();
-    })));
-    new import_obsidian3.Setting(containerEl).setName("Convert tags(optional)").setDesc("Transfer the Obsidian tags to the Notion table. It requires the column with the name 'Tags'").addToggle((toggle) => toggle.setValue(this.plugin.settings.allowTags).onChange((value) => __async(this, null, function* () {
-      this.plugin.settings.allowTags = value;
-      yield this.plugin.saveSettings();
-    })));
+    new import_obsidian3.Setting(containerEl).setName("Banner url(optional)")
+      .setDesc(
+        "page banner url(optional), default is empty, if you want to show a banner, please enter the url(like:https://raw.githubusercontent.com/EasyChris/obsidian-to-notion/ae7a9ac6cf427f3ca338a409ce6967ced9506f12/doc/2.png)",
+      ).addText((text) =>
+        text.setPlaceholder("Enter banner pic url: ").setValue(
+          this.plugin.settings.bannerUrl,
+        ).onChange((value) =>
+          __async(this, null, function* () {
+            this.plugin.settings.bannerUrl = value;
+            yield this.plugin.saveSettings();
+          })
+        )
+      );
+    new import_obsidian3.Setting(containerEl).setName("Notion ID(optional)")
+      .setDesc(
+        "Your notion ID(optional),share link likes:https://username.notion.site/,your notion id is [username]",
+      ).addText((text) =>
+        text.setPlaceholder("Enter notion ID(options) ").setValue(
+          this.plugin.settings.notionID,
+        ).onChange((value) =>
+          __async(this, null, function* () {
+            this.plugin.settings.notionID = value;
+            yield this.plugin.saveSettings();
+          })
+        )
+      );
+    new import_obsidian3.Setting(containerEl).setName("Convert tags(optional)")
+      .setDesc(
+        "Transfer the Obsidian tags to the Notion table. It requires the column with the name 'Tags'",
+      ).addToggle((toggle) =>
+        toggle.setValue(this.plugin.settings.allowTags).onChange((value) =>
+          __async(this, null, function* () {
+            this.plugin.settings.allowTags = value;
+            yield this.plugin.saveSettings();
+          })
+        )
+      );
   }
 };
 /*!

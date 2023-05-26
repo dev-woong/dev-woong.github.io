@@ -9,25 +9,47 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
-var __commonJS = (cb, mod) => function __require() {
-  return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
-};
+var __markAsModule = (target) =>
+  __defProp(target, "__esModule", { value: true });
+var __commonJS = (cb, mod) =>
+  function __require() {
+    return mod ||
+      (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod),
+      mod.exports;
+  };
 var __export = (target, all) => {
   __markAsModule(target);
-  for (var name in all)
+  for (var name in all) {
     __defProp(target, name, { get: all[name], enumerable: true });
+  }
 };
 var __reExport = (target, module2, desc) => {
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== "default")
-        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
+    for (let key of __getOwnPropNames(module2)) {
+      if (!__hasOwnProp.call(target, key) && key !== "default") {
+        __defProp(target, key, {
+          get: () => module2[key],
+          enumerable: !(desc = __getOwnPropDesc(module2, key)) ||
+            desc.enumerable,
+        });
+      }
+    }
   }
   return target;
 };
 var __toModule = (module2) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
+  return __reExport(
+    __markAsModule(
+      __defProp(
+        module2 != null ? __create(__getProtoOf(module2)) : {},
+        "default",
+        module2 && module2.__esModule && "default" in module2
+          ? { get: () => module2.default, enumerable: true }
+          : { value: module2, enumerable: true },
+      ),
+    ),
+    module2,
+  );
 };
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve, reject) => {
@@ -45,7 +67,10 @@ var __async = (__this, __arguments, generator) => {
         reject(e);
       }
     };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    var step = (x) =>
+      x.done
+        ? resolve(x.value)
+        : Promise.resolve(x.value).then(fulfilled, rejected);
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
@@ -64,25 +89,40 @@ var require_main = __commonJS({
     function shouldUsePeriodicNotesSettings(periodicity) {
       var _a, _b;
       const periodicNotes = window.app.plugins.getPlugin("periodic-notes");
-      return periodicNotes && ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a[periodicity]) == null ? void 0 : _b.enabled);
+      return periodicNotes &&
+        ((_b = (_a = periodicNotes.settings) == null
+            ? void 0
+            : _a[periodicity]) == null
+          ? void 0
+          : _b.enabled);
     }
     function getDailyNoteSettings() {
       var _a, _b, _c, _d;
       try {
         const { internalPlugins, plugins } = window.app;
         if (shouldUsePeriodicNotesSettings("daily")) {
-          const { format: format2, folder: folder2, template: template2 } = ((_b = (_a = plugins.getPlugin("periodic-notes")) == null ? void 0 : _a.settings) == null ? void 0 : _b.daily) || {};
+          const { format: format2, folder: folder2, template: template2 } =
+            ((_b = (_a = plugins.getPlugin("periodic-notes")) == null
+                ? void 0
+                : _a.settings) == null
+              ? void 0
+              : _b.daily) || {};
           return {
             format: format2 || DEFAULT_DAILY_NOTE_FORMAT,
             folder: (folder2 == null ? void 0 : folder2.trim()) || "",
-            template: (template2 == null ? void 0 : template2.trim()) || ""
+            template: (template2 == null ? void 0 : template2.trim()) || "",
           };
         }
-        const { folder, format, template } = ((_d = (_c = internalPlugins.getPluginById("daily-notes")) == null ? void 0 : _c.instance) == null ? void 0 : _d.options) || {};
+        const { folder, format, template } =
+          ((_d = (_c = internalPlugins.getPluginById("daily-notes")) == null
+              ? void 0
+              : _c.instance) == null
+            ? void 0
+            : _d.options) || {};
         return {
           format: format || DEFAULT_DAILY_NOTE_FORMAT,
           folder: (folder == null ? void 0 : folder.trim()) || "",
-          template: (template == null ? void 0 : template.trim()) || ""
+          template: (template == null ? void 0 : template.trim()) || "",
         };
       } catch (err) {
         console.info("No custom daily note settings found!", err);
@@ -92,20 +132,36 @@ var require_main = __commonJS({
       var _a, _b, _c, _d, _e, _f, _g;
       try {
         const pluginManager = window.app.plugins;
-        const calendarSettings = (_a = pluginManager.getPlugin("calendar")) == null ? void 0 : _a.options;
-        const periodicNotesSettings = (_c = (_b = pluginManager.getPlugin("periodic-notes")) == null ? void 0 : _b.settings) == null ? void 0 : _c.weekly;
+        const calendarSettings =
+          (_a = pluginManager.getPlugin("calendar")) == null
+            ? void 0
+            : _a.options;
+        const periodicNotesSettings =
+          (_c = (_b = pluginManager.getPlugin("periodic-notes")) == null
+              ? void 0
+              : _b.settings) == null
+            ? void 0
+            : _c.weekly;
         if (shouldUsePeriodicNotesSettings("weekly")) {
           return {
             format: periodicNotesSettings.format || DEFAULT_WEEKLY_NOTE_FORMAT,
-            folder: ((_d = periodicNotesSettings.folder) == null ? void 0 : _d.trim()) || "",
-            template: ((_e = periodicNotesSettings.template) == null ? void 0 : _e.trim()) || ""
+            folder: ((_d = periodicNotesSettings.folder) == null
+              ? void 0
+              : _d.trim()) || "",
+            template: ((_e = periodicNotesSettings.template) == null
+              ? void 0
+              : _e.trim()) || "",
           };
         }
         const settings = calendarSettings || {};
         return {
           format: settings.weeklyNoteFormat || DEFAULT_WEEKLY_NOTE_FORMAT,
-          folder: ((_f = settings.weeklyNoteFolder) == null ? void 0 : _f.trim()) || "",
-          template: ((_g = settings.weeklyNoteTemplate) == null ? void 0 : _g.trim()) || ""
+          folder:
+            ((_f = settings.weeklyNoteFolder) == null ? void 0 : _f.trim()) ||
+            "",
+          template:
+            ((_g = settings.weeklyNoteTemplate) == null ? void 0 : _g.trim()) ||
+            "",
         };
       } catch (err) {
         console.info("No custom weekly note settings found!", err);
@@ -115,11 +171,17 @@ var require_main = __commonJS({
       var _a, _b, _c, _d;
       const pluginManager = window.app.plugins;
       try {
-        const settings = shouldUsePeriodicNotesSettings("monthly") && ((_b = (_a = pluginManager.getPlugin("periodic-notes")) == null ? void 0 : _a.settings) == null ? void 0 : _b.monthly) || {};
+        const settings = shouldUsePeriodicNotesSettings("monthly") &&
+            ((_b = (_a = pluginManager.getPlugin("periodic-notes")) == null
+                ? void 0
+                : _a.settings) == null
+              ? void 0
+              : _b.monthly) || {};
         return {
           format: settings.format || DEFAULT_MONTHLY_NOTE_FORMAT,
           folder: ((_c = settings.folder) == null ? void 0 : _c.trim()) || "",
-          template: ((_d = settings.template) == null ? void 0 : _d.trim()) || ""
+          template: ((_d = settings.template) == null ? void 0 : _d.trim()) ||
+            "",
         };
       } catch (err) {
         console.info("No custom monthly note settings found!", err);
@@ -129,11 +191,17 @@ var require_main = __commonJS({
       var _a, _b, _c, _d;
       const pluginManager = window.app.plugins;
       try {
-        const settings = shouldUsePeriodicNotesSettings("quarterly") && ((_b = (_a = pluginManager.getPlugin("periodic-notes")) == null ? void 0 : _a.settings) == null ? void 0 : _b.quarterly) || {};
+        const settings = shouldUsePeriodicNotesSettings("quarterly") &&
+            ((_b = (_a = pluginManager.getPlugin("periodic-notes")) == null
+                ? void 0
+                : _a.settings) == null
+              ? void 0
+              : _b.quarterly) || {};
         return {
           format: settings.format || DEFAULT_QUARTERLY_NOTE_FORMAT,
           folder: ((_c = settings.folder) == null ? void 0 : _c.trim()) || "",
-          template: ((_d = settings.template) == null ? void 0 : _d.trim()) || ""
+          template: ((_d = settings.template) == null ? void 0 : _d.trim()) ||
+            "",
         };
       } catch (err) {
         console.info("No custom quarterly note settings found!", err);
@@ -143,11 +211,17 @@ var require_main = __commonJS({
       var _a, _b, _c, _d;
       const pluginManager = window.app.plugins;
       try {
-        const settings = shouldUsePeriodicNotesSettings("yearly") && ((_b = (_a = pluginManager.getPlugin("periodic-notes")) == null ? void 0 : _a.settings) == null ? void 0 : _b.yearly) || {};
+        const settings = shouldUsePeriodicNotesSettings("yearly") &&
+            ((_b = (_a = pluginManager.getPlugin("periodic-notes")) == null
+                ? void 0
+                : _a.settings) == null
+              ? void 0
+              : _b.yearly) || {};
         return {
           format: settings.format || DEFAULT_YEARLY_NOTE_FORMAT,
           folder: ((_c = settings.folder) == null ? void 0 : _c.trim()) || "",
-          template: ((_d = settings.template) == null ? void 0 : _d.trim()) || ""
+          template: ((_d = settings.template) == null ? void 0 : _d.trim()) ||
+            "",
         };
       } catch (err) {
         console.info("No custom yearly note settings found!", err);
@@ -161,19 +235,22 @@ var require_main = __commonJS({
       const newParts = [];
       for (let i = 0, l = parts.length; i < l; i++) {
         const part = parts[i];
-        if (!part || part === ".")
+        if (!part || part === ".") {
           continue;
-        else
+        } else {
           newParts.push(part);
+        }
       }
-      if (parts[0] === "")
+      if (parts[0] === "") {
         newParts.unshift("");
+      }
       return newParts.join("/");
     }
     function basename(fullPath) {
       let base = fullPath.substring(fullPath.lastIndexOf("/") + 1);
-      if (base.lastIndexOf(".") != -1)
+      if (base.lastIndexOf(".") != -1) {
         base = base.substring(0, base.lastIndexOf("."));
+      }
       return base;
     }
     function ensureFolderExists(path) {
@@ -206,12 +283,18 @@ var require_main = __commonJS({
           return Promise.resolve(["", null]);
         }
         try {
-          const templateFile = metadataCache.getFirstLinkpathDest(templatePath, "");
+          const templateFile = metadataCache.getFirstLinkpathDest(
+            templatePath,
+            "",
+          );
           const contents = yield vault.cachedRead(templateFile);
           const IFoldInfo = window.app.foldManager.load(templateFile);
           return [contents, IFoldInfo];
         } catch (err) {
-          console.error(`Failed to read the daily note template '${templatePath}'`, err);
+          console.error(
+            `Failed to read the daily note template '${templatePath}'`,
+            err,
+          );
           new obsidian.Notice("Failed to read the daily note template");
           return ["", null];
         }
@@ -227,7 +310,8 @@ var require_main = __commonJS({
     function isFormatAmbiguous(format, granularity) {
       if (granularity === "week") {
         const cleanFormat = removeEscapedCharacters(format);
-        return /w{1,2}/i.test(cleanFormat) && (/M{1,4}/.test(cleanFormat) || /D{1,4}/.test(cleanFormat));
+        return /w{1,2}/i.test(cleanFormat) &&
+          (/M{1,4}/.test(cleanFormat) || /D{1,4}/.test(cleanFormat));
       }
       return false;
     }
@@ -243,7 +327,7 @@ var require_main = __commonJS({
         week: getWeeklyNoteSettings,
         month: getMonthlyNoteSettings,
         quarter: getQuarterlyNoteSettings,
-        year: getYearlyNoteSettings
+        year: getYearlyNoteSettings,
       };
       const format = getSettings[granularity]().format.split("/").pop();
       const noteDate = window.moment(filename, format, true);
@@ -254,7 +338,11 @@ var require_main = __commonJS({
         if (granularity === "week") {
           const cleanFormat = removeEscapedCharacters(format);
           if (/w{1,2}/i.test(cleanFormat)) {
-            return window.moment(filename, format.replace(/M{1,4}/g, "").replace(/D{1,4}/g, ""), false);
+            return window.moment(
+              filename,
+              format.replace(/M{1,4}/g, "").replace(/D{1,4}/g, ""),
+              false,
+            );
           }
         }
       }
@@ -272,21 +360,36 @@ var require_main = __commonJS({
         const filename = date.format(format);
         const normalizedPath = yield getNotePath(folder, filename);
         try {
-          const createdFile = yield vault.create(normalizedPath, templateContents.replace(/{{\s*date\s*}}/gi, filename).replace(/{{\s*time\s*}}/gi, moment3().format("HH:mm")).replace(/{{\s*title\s*}}/gi, filename).replace(/{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi, (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
-            const now = moment3();
-            const currentDate = date.clone().set({
-              hour: now.get("hour"),
-              minute: now.get("minute"),
-              second: now.get("second")
-            });
-            if (calc) {
-              currentDate.add(parseInt(timeDelta, 10), unit);
-            }
-            if (momentFormat) {
-              return currentDate.format(momentFormat.substring(1).trim());
-            }
-            return currentDate.format(format);
-          }).replace(/{{\s*yesterday\s*}}/gi, date.clone().subtract(1, "day").format(format)).replace(/{{\s*tomorrow\s*}}/gi, date.clone().add(1, "d").format(format)));
+          const createdFile = yield vault.create(
+            normalizedPath,
+            templateContents.replace(/{{\s*date\s*}}/gi, filename).replace(
+              /{{\s*time\s*}}/gi,
+              moment3().format("HH:mm"),
+            ).replace(/{{\s*title\s*}}/gi, filename).replace(
+              /{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi,
+              (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
+                const now = moment3();
+                const currentDate = date.clone().set({
+                  hour: now.get("hour"),
+                  minute: now.get("minute"),
+                  second: now.get("second"),
+                });
+                if (calc) {
+                  currentDate.add(parseInt(timeDelta, 10), unit);
+                }
+                if (momentFormat) {
+                  return currentDate.format(momentFormat.substring(1).trim());
+                }
+                return currentDate.format(format);
+              },
+            ).replace(
+              /{{\s*yesterday\s*}}/gi,
+              date.clone().subtract(1, "day").format(format),
+            ).replace(
+              /{{\s*tomorrow\s*}}/gi,
+              date.clone().add(1, "d").format(format),
+            ),
+          );
           app.foldManager.save(createdFile, IFoldInfo);
           return createdFile;
         } catch (err) {
@@ -302,9 +405,13 @@ var require_main = __commonJS({
     function getAllDailyNotes2() {
       const { vault } = window.app;
       const { folder } = getDailyNoteSettings();
-      const dailyNotesFolder = vault.getAbstractFileByPath(obsidian.normalizePath(folder));
+      const dailyNotesFolder = vault.getAbstractFileByPath(
+        obsidian.normalizePath(folder),
+      );
       if (!dailyNotesFolder) {
-        throw new DailyNotesFolderMissingError("Failed to find daily notes folder");
+        throw new DailyNotesFolderMissingError(
+          "Failed to find daily notes folder",
+        );
       }
       const dailyNotes = {};
       obsidian.Vault.recurseChildren(dailyNotesFolder, (note) => {
@@ -330,7 +437,7 @@ var require_main = __commonJS({
         "wednesday",
         "thursday",
         "friday",
-        "saturday"
+        "saturday",
       ];
       while (weekStart) {
         daysOfWeek.push(daysOfWeek.shift());
@@ -349,24 +456,36 @@ var require_main = __commonJS({
         const filename = date.format(format);
         const normalizedPath = yield getNotePath(folder, filename);
         try {
-          const createdFile = yield vault.create(normalizedPath, templateContents.replace(/{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi, (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
-            const now = window.moment();
-            const currentDate = date.clone().set({
-              hour: now.get("hour"),
-              minute: now.get("minute"),
-              second: now.get("second")
-            });
-            if (calc) {
-              currentDate.add(parseInt(timeDelta, 10), unit);
-            }
-            if (momentFormat) {
-              return currentDate.format(momentFormat.substring(1).trim());
-            }
-            return currentDate.format(format);
-          }).replace(/{{\s*title\s*}}/gi, filename).replace(/{{\s*time\s*}}/gi, window.moment().format("HH:mm")).replace(/{{\s*(sunday|monday|tuesday|wednesday|thursday|friday|saturday)\s*:(.*?)}}/gi, (_, dayOfWeek, momentFormat) => {
-            const day = getDayOfWeekNumericalValue(dayOfWeek);
-            return date.weekday(day).format(momentFormat.trim());
-          }));
+          const createdFile = yield vault.create(
+            normalizedPath,
+            templateContents.replace(
+              /{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi,
+              (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
+                const now = window.moment();
+                const currentDate = date.clone().set({
+                  hour: now.get("hour"),
+                  minute: now.get("minute"),
+                  second: now.get("second"),
+                });
+                if (calc) {
+                  currentDate.add(parseInt(timeDelta, 10), unit);
+                }
+                if (momentFormat) {
+                  return currentDate.format(momentFormat.substring(1).trim());
+                }
+                return currentDate.format(format);
+              },
+            ).replace(/{{\s*title\s*}}/gi, filename).replace(
+              /{{\s*time\s*}}/gi,
+              window.moment().format("HH:mm"),
+            ).replace(
+              /{{\s*(sunday|monday|tuesday|wednesday|thursday|friday|saturday)\s*:(.*?)}}/gi,
+              (_, dayOfWeek, momentFormat) => {
+                const day = getDayOfWeekNumericalValue(dayOfWeek);
+                return date.weekday(day).format(momentFormat.trim());
+              },
+            ),
+          );
           window.app.foldManager.save(createdFile, IFoldInfo);
           return createdFile;
         } catch (err) {
@@ -386,9 +505,13 @@ var require_main = __commonJS({
       }
       const { vault } = window.app;
       const { folder } = getWeeklyNoteSettings();
-      const weeklyNotesFolder = vault.getAbstractFileByPath(obsidian.normalizePath(folder));
+      const weeklyNotesFolder = vault.getAbstractFileByPath(
+        obsidian.normalizePath(folder),
+      );
       if (!weeklyNotesFolder) {
-        throw new WeeklyNotesFolderMissingError("Failed to find weekly notes folder");
+        throw new WeeklyNotesFolderMissingError(
+          "Failed to find weekly notes folder",
+        );
       }
       obsidian.Vault.recurseChildren(weeklyNotesFolder, (note) => {
         if (note instanceof obsidian.TFile) {
@@ -411,21 +534,30 @@ var require_main = __commonJS({
         const filename = date.format(format);
         const normalizedPath = yield getNotePath(folder, filename);
         try {
-          const createdFile = yield vault.create(normalizedPath, templateContents.replace(/{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi, (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
-            const now = window.moment();
-            const currentDate = date.clone().set({
-              hour: now.get("hour"),
-              minute: now.get("minute"),
-              second: now.get("second")
-            });
-            if (calc) {
-              currentDate.add(parseInt(timeDelta, 10), unit);
-            }
-            if (momentFormat) {
-              return currentDate.format(momentFormat.substring(1).trim());
-            }
-            return currentDate.format(format);
-          }).replace(/{{\s*date\s*}}/gi, filename).replace(/{{\s*time\s*}}/gi, window.moment().format("HH:mm")).replace(/{{\s*title\s*}}/gi, filename));
+          const createdFile = yield vault.create(
+            normalizedPath,
+            templateContents.replace(
+              /{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi,
+              (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
+                const now = window.moment();
+                const currentDate = date.clone().set({
+                  hour: now.get("hour"),
+                  minute: now.get("minute"),
+                  second: now.get("second"),
+                });
+                if (calc) {
+                  currentDate.add(parseInt(timeDelta, 10), unit);
+                }
+                if (momentFormat) {
+                  return currentDate.format(momentFormat.substring(1).trim());
+                }
+                return currentDate.format(format);
+              },
+            ).replace(/{{\s*date\s*}}/gi, filename).replace(
+              /{{\s*time\s*}}/gi,
+              window.moment().format("HH:mm"),
+            ).replace(/{{\s*title\s*}}/gi, filename),
+          );
           window.app.foldManager.save(createdFile, IFoldInfo);
           return createdFile;
         } catch (err) {
@@ -436,7 +568,9 @@ var require_main = __commonJS({
     }
     function getMonthlyNote(date, monthlyNotes) {
       var _a;
-      return (_a = monthlyNotes[getDateUID2(date, "month")]) != null ? _a : null;
+      return (_a = monthlyNotes[getDateUID2(date, "month")]) != null
+        ? _a
+        : null;
     }
     function getAllMonthlyNotes() {
       const monthlyNotes = {};
@@ -445,9 +579,13 @@ var require_main = __commonJS({
       }
       const { vault } = window.app;
       const { folder } = getMonthlyNoteSettings();
-      const monthlyNotesFolder = vault.getAbstractFileByPath(obsidian.normalizePath(folder));
+      const monthlyNotesFolder = vault.getAbstractFileByPath(
+        obsidian.normalizePath(folder),
+      );
       if (!monthlyNotesFolder) {
-        throw new MonthlyNotesFolderMissingError("Failed to find monthly notes folder");
+        throw new MonthlyNotesFolderMissingError(
+          "Failed to find monthly notes folder",
+        );
       }
       obsidian.Vault.recurseChildren(monthlyNotesFolder, (note) => {
         if (note instanceof obsidian.TFile) {
@@ -470,21 +608,30 @@ var require_main = __commonJS({
         const filename = date.format(format);
         const normalizedPath = yield getNotePath(folder, filename);
         try {
-          const createdFile = yield vault.create(normalizedPath, templateContents.replace(/{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi, (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
-            const now = window.moment();
-            const currentDate = date.clone().set({
-              hour: now.get("hour"),
-              minute: now.get("minute"),
-              second: now.get("second")
-            });
-            if (calc) {
-              currentDate.add(parseInt(timeDelta, 10), unit);
-            }
-            if (momentFormat) {
-              return currentDate.format(momentFormat.substring(1).trim());
-            }
-            return currentDate.format(format);
-          }).replace(/{{\s*date\s*}}/gi, filename).replace(/{{\s*time\s*}}/gi, window.moment().format("HH:mm")).replace(/{{\s*title\s*}}/gi, filename));
+          const createdFile = yield vault.create(
+            normalizedPath,
+            templateContents.replace(
+              /{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi,
+              (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
+                const now = window.moment();
+                const currentDate = date.clone().set({
+                  hour: now.get("hour"),
+                  minute: now.get("minute"),
+                  second: now.get("second"),
+                });
+                if (calc) {
+                  currentDate.add(parseInt(timeDelta, 10), unit);
+                }
+                if (momentFormat) {
+                  return currentDate.format(momentFormat.substring(1).trim());
+                }
+                return currentDate.format(format);
+              },
+            ).replace(/{{\s*date\s*}}/gi, filename).replace(
+              /{{\s*time\s*}}/gi,
+              window.moment().format("HH:mm"),
+            ).replace(/{{\s*title\s*}}/gi, filename),
+          );
           window.app.foldManager.save(createdFile, IFoldInfo);
           return createdFile;
         } catch (err) {
@@ -504,9 +651,13 @@ var require_main = __commonJS({
       }
       const { vault } = window.app;
       const { folder } = getQuarterlyNoteSettings();
-      const quarterlyFolder = vault.getAbstractFileByPath(obsidian.normalizePath(folder));
+      const quarterlyFolder = vault.getAbstractFileByPath(
+        obsidian.normalizePath(folder),
+      );
       if (!quarterlyFolder) {
-        throw new QuarterlyNotesFolderMissingError("Failed to find quarterly notes folder");
+        throw new QuarterlyNotesFolderMissingError(
+          "Failed to find quarterly notes folder",
+        );
       }
       obsidian.Vault.recurseChildren(quarterlyFolder, (note) => {
         if (note instanceof obsidian.TFile) {
@@ -529,21 +680,30 @@ var require_main = __commonJS({
         const filename = date.format(format);
         const normalizedPath = yield getNotePath(folder, filename);
         try {
-          const createdFile = yield vault.create(normalizedPath, templateContents.replace(/{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi, (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
-            const now = window.moment();
-            const currentDate = date.clone().set({
-              hour: now.get("hour"),
-              minute: now.get("minute"),
-              second: now.get("second")
-            });
-            if (calc) {
-              currentDate.add(parseInt(timeDelta, 10), unit);
-            }
-            if (momentFormat) {
-              return currentDate.format(momentFormat.substring(1).trim());
-            }
-            return currentDate.format(format);
-          }).replace(/{{\s*date\s*}}/gi, filename).replace(/{{\s*time\s*}}/gi, window.moment().format("HH:mm")).replace(/{{\s*title\s*}}/gi, filename));
+          const createdFile = yield vault.create(
+            normalizedPath,
+            templateContents.replace(
+              /{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi,
+              (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
+                const now = window.moment();
+                const currentDate = date.clone().set({
+                  hour: now.get("hour"),
+                  minute: now.get("minute"),
+                  second: now.get("second"),
+                });
+                if (calc) {
+                  currentDate.add(parseInt(timeDelta, 10), unit);
+                }
+                if (momentFormat) {
+                  return currentDate.format(momentFormat.substring(1).trim());
+                }
+                return currentDate.format(format);
+              },
+            ).replace(/{{\s*date\s*}}/gi, filename).replace(
+              /{{\s*time\s*}}/gi,
+              window.moment().format("HH:mm"),
+            ).replace(/{{\s*title\s*}}/gi, filename),
+          );
           window.app.foldManager.save(createdFile, IFoldInfo);
           return createdFile;
         } catch (err) {
@@ -563,9 +723,13 @@ var require_main = __commonJS({
       }
       const { vault } = window.app;
       const { folder } = getYearlyNoteSettings();
-      const yearlyNotesFolder = vault.getAbstractFileByPath(obsidian.normalizePath(folder));
+      const yearlyNotesFolder = vault.getAbstractFileByPath(
+        obsidian.normalizePath(folder),
+      );
       if (!yearlyNotesFolder) {
-        throw new YearlyNotesFolderMissingError("Failed to find yearly notes folder");
+        throw new YearlyNotesFolderMissingError(
+          "Failed to find yearly notes folder",
+        );
       }
       obsidian.Vault.recurseChildren(yearlyNotesFolder, (note) => {
         if (note instanceof obsidian.TFile) {
@@ -586,7 +750,11 @@ var require_main = __commonJS({
         return true;
       }
       const periodicNotes = app.plugins.getPlugin("periodic-notes");
-      return periodicNotes && ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.daily) == null ? void 0 : _b.enabled);
+      return periodicNotes &&
+        ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.daily) ==
+            null
+          ? void 0
+          : _b.enabled);
     }
     function appHasWeeklyNotesPluginLoaded() {
       var _a, _b;
@@ -595,25 +763,41 @@ var require_main = __commonJS({
         return true;
       }
       const periodicNotes = app.plugins.getPlugin("periodic-notes");
-      return periodicNotes && ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.weekly) == null ? void 0 : _b.enabled);
+      return periodicNotes &&
+        ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.weekly) ==
+            null
+          ? void 0
+          : _b.enabled);
     }
     function appHasMonthlyNotesPluginLoaded() {
       var _a, _b;
       const { app } = window;
       const periodicNotes = app.plugins.getPlugin("periodic-notes");
-      return periodicNotes && ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.monthly) == null ? void 0 : _b.enabled);
+      return periodicNotes &&
+        ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.monthly) ==
+            null
+          ? void 0
+          : _b.enabled);
     }
     function appHasQuarterlyNotesPluginLoaded() {
       var _a, _b;
       const { app } = window;
       const periodicNotes = app.plugins.getPlugin("periodic-notes");
-      return periodicNotes && ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.quarterly) == null ? void 0 : _b.enabled);
+      return periodicNotes &&
+        ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.quarterly) ==
+            null
+          ? void 0
+          : _b.enabled);
     }
     function appHasYearlyNotesPluginLoaded() {
       var _a, _b;
       const { app } = window;
       const periodicNotes = app.plugins.getPlugin("periodic-notes");
-      return periodicNotes && ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.yearly) == null ? void 0 : _b.enabled);
+      return periodicNotes &&
+        ((_b = (_a = periodicNotes.settings) == null ? void 0 : _a.yearly) ==
+            null
+          ? void 0
+          : _b.enabled);
     }
     function getPeriodicNoteSettings(granularity) {
       const getSettings = {
@@ -621,7 +805,7 @@ var require_main = __commonJS({
         week: getWeeklyNoteSettings,
         month: getMonthlyNoteSettings,
         quarter: getQuarterlyNoteSettings,
-        year: getYearlyNoteSettings
+        year: getYearlyNoteSettings,
       }[granularity];
       return getSettings();
     }
@@ -629,7 +813,7 @@ var require_main = __commonJS({
       const createFn = {
         day: createDailyNote,
         month: createMonthlyNote,
-        week: createWeeklyNote
+        week: createWeeklyNote,
       };
       return createFn[granularity](date);
     }
@@ -669,15 +853,19 @@ var require_main = __commonJS({
     exports.getWeeklyNoteSettings = getWeeklyNoteSettings;
     exports.getYearlyNote = getYearlyNote;
     exports.getYearlyNoteSettings = getYearlyNoteSettings;
-  }
+  },
 });
 
 // node_modules/moment/moment.js
 var require_moment = __commonJS({
   "node_modules/moment/moment.js"(exports, module2) {
-    (function(global, factory) {
-      typeof exports === "object" && typeof module2 !== "undefined" ? module2.exports = factory() : typeof define === "function" && define.amd ? define(factory) : global.moment = factory();
-    })(exports, function() {
+    (function (global, factory) {
+      typeof exports === "object" && typeof module2 !== "undefined"
+        ? module2.exports = factory()
+        : typeof define === "function" && define.amd
+        ? define(factory)
+        : global.moment = factory();
+    })(exports, function () {
       "use strict";
       var hookCallback;
       function hooks() {
@@ -687,10 +875,12 @@ var require_moment = __commonJS({
         hookCallback = callback;
       }
       function isArray(input) {
-        return input instanceof Array || Object.prototype.toString.call(input) === "[object Array]";
+        return input instanceof Array ||
+          Object.prototype.toString.call(input) === "[object Array]";
       }
       function isObject(input) {
-        return input != null && Object.prototype.toString.call(input) === "[object Object]";
+        return input != null &&
+          Object.prototype.toString.call(input) === "[object Object]";
       }
       function hasOwnProp(a, b) {
         return Object.prototype.hasOwnProperty.call(a, b);
@@ -712,10 +902,12 @@ var require_moment = __commonJS({
         return input === void 0;
       }
       function isNumber(input) {
-        return typeof input === "number" || Object.prototype.toString.call(input) === "[object Number]";
+        return typeof input === "number" ||
+          Object.prototype.toString.call(input) === "[object Number]";
       }
       function isDate(input) {
-        return input instanceof Date || Object.prototype.toString.call(input) === "[object Date]";
+        return input instanceof Date ||
+          Object.prototype.toString.call(input) === "[object Date]";
       }
       function map(arr, fn) {
         var res = [], i;
@@ -758,7 +950,7 @@ var require_moment = __commonJS({
           era: null,
           meridiem: null,
           rfc2822: false,
-          weekdayMismatch: false
+          weekdayMismatch: false,
         };
       }
       function getParsingFlags(m) {
@@ -771,7 +963,7 @@ var require_moment = __commonJS({
       if (Array.prototype.some) {
         some = Array.prototype.some;
       } else {
-        some = function(fun) {
+        some = function (fun) {
           var t2 = Object(this), len = t2.length >>> 0, i;
           for (i = 0; i < len; i++) {
             if (i in t2 && fun.call(this, t2[i], i, t2)) {
@@ -783,11 +975,19 @@ var require_moment = __commonJS({
       }
       function isValid(m) {
         if (m._isValid == null) {
-          var flags = getParsingFlags(m), parsedParts = some.call(flags.parsedDateParts, function(i) {
-            return i != null;
-          }), isNowValid = !isNaN(m._d.getTime()) && flags.overflow < 0 && !flags.empty && !flags.invalidEra && !flags.invalidMonth && !flags.invalidWeekday && !flags.weekdayMismatch && !flags.nullInput && !flags.invalidFormat && !flags.userInvalidated && (!flags.meridiem || flags.meridiem && parsedParts);
+          var flags = getParsingFlags(m),
+            parsedParts = some.call(flags.parsedDateParts, function (i) {
+              return i != null;
+            }),
+            isNowValid = !isNaN(m._d.getTime()) && flags.overflow < 0 &&
+              !flags.empty && !flags.invalidEra && !flags.invalidMonth &&
+              !flags.invalidWeekday && !flags.weekdayMismatch &&
+              !flags.nullInput && !flags.invalidFormat &&
+              !flags.userInvalidated &&
+              (!flags.meridiem || flags.meridiem && parsedParts);
           if (m._strict) {
-            isNowValid = isNowValid && flags.charsLeftOver === 0 && flags.unusedTokens.length === 0 && flags.bigHour === void 0;
+            isNowValid = isNowValid && flags.charsLeftOver === 0 &&
+              flags.unusedTokens.length === 0 && flags.bigHour === void 0;
           }
           if (Object.isFrozen == null || !Object.isFrozen(m)) {
             m._isValid = isNowValid;
@@ -806,7 +1006,8 @@ var require_moment = __commonJS({
         }
         return m;
       }
-      var momentProperties = hooks.momentProperties = [], updateInProgress = false;
+      var momentProperties = hooks.momentProperties = [],
+        updateInProgress = false;
       function copyConfig(to2, from2) {
         var i, prop, val;
         if (!isUndefined(from2._isAMomentObject)) {
@@ -863,16 +1064,20 @@ var require_moment = __commonJS({
         }
       }
       function isMoment(obj) {
-        return obj instanceof Moment || obj != null && obj._isAMomentObject != null;
+        return obj instanceof Moment ||
+          obj != null && obj._isAMomentObject != null;
       }
       function warn(msg) {
-        if (hooks.suppressDeprecationWarnings === false && typeof console !== "undefined" && console.warn) {
+        if (
+          hooks.suppressDeprecationWarnings === false &&
+          typeof console !== "undefined" && console.warn
+        ) {
           console.warn("Deprecation warning: " + msg);
         }
       }
       function deprecate(msg, fn) {
         var firstTime = true;
-        return extend(function() {
+        return extend(function () {
           if (hooks.deprecationHandler != null) {
             hooks.deprecationHandler(null, msg);
           }
@@ -893,7 +1098,11 @@ var require_moment = __commonJS({
               }
               args.push(arg);
             }
-            warn(msg + "\nArguments: " + Array.prototype.slice.call(args).join("") + "\n" + new Error().stack);
+            warn(
+              msg + "\nArguments: " +
+                Array.prototype.slice.call(args).join("") + "\n" +
+                new Error().stack,
+            );
             firstTime = false;
           }
           return fn.apply(this, arguments);
@@ -912,7 +1121,8 @@ var require_moment = __commonJS({
       hooks.suppressDeprecationWarnings = false;
       hooks.deprecationHandler = null;
       function isFunction(input) {
-        return typeof Function !== "undefined" && input instanceof Function || Object.prototype.toString.call(input) === "[object Function]";
+        return typeof Function !== "undefined" && input instanceof Function ||
+          Object.prototype.toString.call(input) === "[object Function]";
       }
       function set(config) {
         var prop, i;
@@ -927,7 +1137,10 @@ var require_moment = __commonJS({
           }
         }
         this._config = config;
-        this._dayOfMonthOrdinalParseLenient = new RegExp((this._dayOfMonthOrdinalParse.source || this._ordinalParse.source) + "|" + /\d{1,2}/.source);
+        this._dayOfMonthOrdinalParseLenient = new RegExp(
+          (this._dayOfMonthOrdinalParse.source || this._ordinalParse.source) +
+            "|" + /\d{1,2}/.source,
+        );
       }
       function mergeConfigs(parentConfig, childConfig) {
         var res = extend({}, parentConfig), prop;
@@ -945,7 +1158,10 @@ var require_moment = __commonJS({
           }
         }
         for (prop in parentConfig) {
-          if (hasOwnProp(parentConfig, prop) && !hasOwnProp(childConfig, prop) && isObject(parentConfig[prop])) {
+          if (
+            hasOwnProp(parentConfig, prop) && !hasOwnProp(childConfig, prop) &&
+            isObject(parentConfig[prop])
+          ) {
             res[prop] = extend({}, res[prop]);
           }
         }
@@ -960,7 +1176,7 @@ var require_moment = __commonJS({
       if (Object.keys) {
         keys = Object.keys;
       } else {
-        keys = function(obj) {
+        keys = function (obj) {
           var i, res = [];
           for (i in obj) {
             if (hasOwnProp(obj, i)) {
@@ -976,21 +1192,29 @@ var require_moment = __commonJS({
         nextWeek: "dddd [at] LT",
         lastDay: "[Yesterday at] LT",
         lastWeek: "[Last] dddd [at] LT",
-        sameElse: "L"
+        sameElse: "L",
       };
       function calendar(key, mom, now2) {
         var output = this._calendar[key] || this._calendar["sameElse"];
         return isFunction(output) ? output.call(mom, now2) : output;
       }
       function zeroFill(number, targetLength, forceSign) {
-        var absNumber = "" + Math.abs(number), zerosToFill = targetLength - absNumber.length, sign2 = number >= 0;
-        return (sign2 ? forceSign ? "+" : "" : "-") + Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
+        var absNumber = "" + Math.abs(number),
+          zerosToFill = targetLength - absNumber.length,
+          sign2 = number >= 0;
+        return (sign2 ? forceSign ? "+" : "" : "-") +
+          Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) +
+          absNumber;
       }
-      var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|N{1,5}|YYYYYY|YYYYY|YYYY|YY|y{2,4}|yo?|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g, localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g, formatFunctions = {}, formatTokenFunctions = {};
+      var formattingTokens =
+          /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|N{1,5}|YYYYYY|YYYYY|YYYY|YY|y{2,4}|yo?|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g,
+        localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,
+        formatFunctions = {},
+        formatTokenFunctions = {};
       function addFormatToken(token2, padded, ordinal2, callback) {
         var func = callback;
         if (typeof callback === "string") {
-          func = function() {
+          func = function () {
             return this[callback]();
           };
         }
@@ -998,13 +1222,16 @@ var require_moment = __commonJS({
           formatTokenFunctions[token2] = func;
         }
         if (padded) {
-          formatTokenFunctions[padded[0]] = function() {
+          formatTokenFunctions[padded[0]] = function () {
             return zeroFill(func.apply(this, arguments), padded[1], padded[2]);
           };
         }
         if (ordinal2) {
-          formatTokenFunctions[ordinal2] = function() {
-            return this.localeData().ordinal(func.apply(this, arguments), token2);
+          formatTokenFunctions[ordinal2] = function () {
+            return this.localeData().ordinal(
+              func.apply(this, arguments),
+              token2,
+            );
           };
         }
       }
@@ -1023,10 +1250,12 @@ var require_moment = __commonJS({
             array[i] = removeFormattingTokens(array[i]);
           }
         }
-        return function(mom) {
+        return function (mom) {
           var output = "", i2;
           for (i2 = 0; i2 < length; i2++) {
-            output += isFunction(array[i2]) ? array[i2].call(mom, format2) : array[i2];
+            output += isFunction(array[i2])
+              ? array[i2].call(mom, format2)
+              : array[i2];
           }
           return output;
         };
@@ -1036,7 +1265,8 @@ var require_moment = __commonJS({
           return m.localeData().invalidDate();
         }
         format2 = expandFormat(format2, m.localeData());
-        formatFunctions[format2] = formatFunctions[format2] || makeFormatFunction(format2);
+        formatFunctions[format2] = formatFunctions[format2] ||
+          makeFormatFunction(format2);
         return formatFunctions[format2](m);
       }
       function expandFormat(format2, locale3) {
@@ -1046,7 +1276,10 @@ var require_moment = __commonJS({
         }
         localFormattingTokens.lastIndex = 0;
         while (i >= 0 && localFormattingTokens.test(format2)) {
-          format2 = format2.replace(localFormattingTokens, replaceLongDateFormatTokens);
+          format2 = format2.replace(
+            localFormattingTokens,
+            replaceLongDateFormatTokens,
+          );
           localFormattingTokens.lastIndex = 0;
           i -= 1;
         }
@@ -1058,19 +1291,24 @@ var require_moment = __commonJS({
         L: "MM/DD/YYYY",
         LL: "MMMM D, YYYY",
         LLL: "MMMM D, YYYY h:mm A",
-        LLLL: "dddd, MMMM D, YYYY h:mm A"
+        LLLL: "dddd, MMMM D, YYYY h:mm A",
       };
       function longDateFormat(key) {
-        var format2 = this._longDateFormat[key], formatUpper = this._longDateFormat[key.toUpperCase()];
+        var format2 = this._longDateFormat[key],
+          formatUpper = this._longDateFormat[key.toUpperCase()];
         if (format2 || !formatUpper) {
           return format2;
         }
-        this._longDateFormat[key] = formatUpper.match(formattingTokens).map(function(tok) {
-          if (tok === "MMMM" || tok === "MM" || tok === "DD" || tok === "dddd") {
-            return tok.slice(1);
-          }
-          return tok;
-        }).join("");
+        this._longDateFormat[key] = formatUpper.match(formattingTokens).map(
+          function (tok) {
+            if (
+              tok === "MMMM" || tok === "MM" || tok === "DD" || tok === "dddd"
+            ) {
+              return tok.slice(1);
+            }
+            return tok;
+          },
+        ).join("");
         return this._longDateFormat[key];
       }
       var defaultInvalidDate = "Invalid date";
@@ -1097,23 +1335,32 @@ var require_moment = __commonJS({
         M: "a month",
         MM: "%d months",
         y: "a year",
-        yy: "%d years"
+        yy: "%d years",
       };
       function relativeTime(number, withoutSuffix, string, isFuture) {
         var output = this._relativeTime[string];
-        return isFunction(output) ? output(number, withoutSuffix, string, isFuture) : output.replace(/%d/i, number);
+        return isFunction(output)
+          ? output(number, withoutSuffix, string, isFuture)
+          : output.replace(/%d/i, number);
       }
       function pastFuture(diff2, output) {
         var format2 = this._relativeTime[diff2 > 0 ? "future" : "past"];
-        return isFunction(format2) ? format2(output) : format2.replace(/%s/i, output);
+        return isFunction(format2)
+          ? format2(output)
+          : format2.replace(/%s/i, output);
       }
       var aliases = {};
       function addUnitAlias(unit, shorthand) {
         var lowerCase = unit.toLowerCase();
-        aliases[lowerCase] = aliases[lowerCase + "s"] = aliases[shorthand] = unit;
+        aliases[lowerCase] =
+          aliases[lowerCase + "s"] =
+          aliases[shorthand] =
+            unit;
       }
       function normalizeUnits(units) {
-        return typeof units === "string" ? aliases[units] || aliases[units.toLowerCase()] : void 0;
+        return typeof units === "string"
+          ? aliases[units] || aliases[units.toLowerCase()]
+          : void 0;
       }
       function normalizeObjectUnits(inputObject) {
         var normalizedInput = {}, normalizedProp, prop;
@@ -1138,7 +1385,7 @@ var require_moment = __commonJS({
             units.push({ unit: u, priority: priorities[u] });
           }
         }
-        units.sort(function(a, b) {
+        units.sort(function (a, b) {
           return a.priority - b.priority;
         });
         return units;
@@ -1161,7 +1408,7 @@ var require_moment = __commonJS({
         return value;
       }
       function makeGetSet(unit, keepTime) {
-        return function(value) {
+        return function (value) {
           if (value != null) {
             set$1(this, unit, value);
             hooks.updateOffset(this, keepTime);
@@ -1172,13 +1419,22 @@ var require_moment = __commonJS({
         };
       }
       function get(mom, unit) {
-        return mom.isValid() ? mom._d["get" + (mom._isUTC ? "UTC" : "") + unit]() : NaN;
+        return mom.isValid()
+          ? mom._d["get" + (mom._isUTC ? "UTC" : "") + unit]()
+          : NaN;
       }
       function set$1(mom, unit, value) {
         if (mom.isValid() && !isNaN(value)) {
-          if (unit === "FullYear" && isLeapYear(mom.year()) && mom.month() === 1 && mom.date() === 29) {
+          if (
+            unit === "FullYear" && isLeapYear(mom.year()) &&
+            mom.month() === 1 && mom.date() === 29
+          ) {
             value = toInt(value);
-            mom._d["set" + (mom._isUTC ? "UTC" : "") + unit](value, mom.month(), daysInMonth(value, mom.month()));
+            mom._d["set" + (mom._isUTC ? "UTC" : "") + unit](
+              value,
+              mom.month(),
+              daysInMonth(value, mom.month()),
+            );
           } else {
             mom._d["set" + (mom._isUTC ? "UTC" : "") + unit](value);
           }
@@ -1206,12 +1462,32 @@ var require_moment = __commonJS({
         }
         return this;
       }
-      var match1 = /\d/, match2 = /\d\d/, match3 = /\d{3}/, match4 = /\d{4}/, match6 = /[+-]?\d{6}/, match1to2 = /\d\d?/, match3to4 = /\d\d\d\d?/, match5to6 = /\d\d\d\d\d\d?/, match1to3 = /\d{1,3}/, match1to4 = /\d{1,4}/, match1to6 = /[+-]?\d{1,6}/, matchUnsigned = /\d+/, matchSigned = /[+-]?\d+/, matchOffset = /Z|[+-]\d\d:?\d\d/gi, matchShortOffset = /Z|[+-]\d\d(?::?\d\d)?/gi, matchTimestamp = /[+-]?\d+(\.\d{1,3})?/, matchWord = /[0-9]{0,256}['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFF07\uFF10-\uFFEF]{1,256}|[\u0600-\u06FF\/]{1,256}(\s*?[\u0600-\u06FF]{1,256}){1,2}/i, regexes;
+      var match1 = /\d/,
+        match2 = /\d\d/,
+        match3 = /\d{3}/,
+        match4 = /\d{4}/,
+        match6 = /[+-]?\d{6}/,
+        match1to2 = /\d\d?/,
+        match3to4 = /\d\d\d\d?/,
+        match5to6 = /\d\d\d\d\d\d?/,
+        match1to3 = /\d{1,3}/,
+        match1to4 = /\d{1,4}/,
+        match1to6 = /[+-]?\d{1,6}/,
+        matchUnsigned = /\d+/,
+        matchSigned = /[+-]?\d+/,
+        matchOffset = /Z|[+-]\d\d:?\d\d/gi,
+        matchShortOffset = /Z|[+-]\d\d(?::?\d\d)?/gi,
+        matchTimestamp = /[+-]?\d+(\.\d{1,3})?/,
+        matchWord =
+          /[0-9]{0,256}['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFF07\uFF10-\uFFEF]{1,256}|[\u0600-\u06FF\/]{1,256}(\s*?[\u0600-\u06FF]{1,256}){1,2}/i,
+        regexes;
       regexes = {};
       function addRegexToken(token2, regex, strictRegex) {
-        regexes[token2] = isFunction(regex) ? regex : function(isStrict, localeData2) {
-          return isStrict && strictRegex ? strictRegex : regex;
-        };
+        regexes[token2] = isFunction(regex)
+          ? regex
+          : function (isStrict, localeData2) {
+            return isStrict && strictRegex ? strictRegex : regex;
+          };
       }
       function getParseRegexForToken(token2, config) {
         if (!hasOwnProp(regexes, token2)) {
@@ -1220,9 +1496,14 @@ var require_moment = __commonJS({
         return regexes[token2](config._strict, config._locale);
       }
       function unescapeFormat(s) {
-        return regexEscape(s.replace("\\", "").replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function(matched, p1, p2, p3, p4) {
-          return p1 || p2 || p3 || p4;
-        }));
+        return regexEscape(
+          s.replace("\\", "").replace(
+            /\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,
+            function (matched, p1, p2, p3, p4) {
+              return p1 || p2 || p3 || p4;
+            },
+          ),
+        );
       }
       function regexEscape(s) {
         return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
@@ -1234,7 +1515,7 @@ var require_moment = __commonJS({
           token2 = [token2];
         }
         if (isNumber(callback)) {
-          func = function(input, array) {
+          func = function (input, array) {
             array[callback] = toInt(input);
           };
         }
@@ -1243,7 +1524,7 @@ var require_moment = __commonJS({
         }
       }
       function addWeekParseToken(token2, callback) {
-        addParseToken(token2, function(input, array, config, token3) {
+        addParseToken(token2, function (input, array, config, token3) {
           config._w = config._w || {};
           callback(input, config._w, config, token3);
         });
@@ -1253,7 +1534,15 @@ var require_moment = __commonJS({
           tokens[token2](input, config._a, config, token2);
         }
       }
-      var YEAR = 0, MONTH = 1, DATE = 2, HOUR = 3, MINUTE = 4, SECOND = 5, MILLISECOND = 6, WEEK = 7, WEEKDAY = 8;
+      var YEAR = 0,
+        MONTH = 1,
+        DATE = 2,
+        HOUR = 3,
+        MINUTE = 4,
+        SECOND = 5,
+        MILLISECOND = 6,
+        WEEK = 7,
+        WEEKDAY = 8;
       function mod(n, x) {
         return (n % x + x) % x;
       }
@@ -1261,7 +1550,7 @@ var require_moment = __commonJS({
       if (Array.prototype.indexOf) {
         indexOf = Array.prototype.indexOf;
       } else {
-        indexOf = function(o) {
+        indexOf = function (o) {
           var i;
           for (i = 0; i < this.length; ++i) {
             if (this[i] === o) {
@@ -1277,31 +1566,33 @@ var require_moment = __commonJS({
         }
         var modMonth = mod(month, 12);
         year += (month - modMonth) / 12;
-        return modMonth === 1 ? isLeapYear(year) ? 29 : 28 : 31 - modMonth % 7 % 2;
+        return modMonth === 1
+          ? isLeapYear(year) ? 29 : 28
+          : 31 - modMonth % 7 % 2;
       }
-      addFormatToken("M", ["MM", 2], "Mo", function() {
+      addFormatToken("M", ["MM", 2], "Mo", function () {
         return this.month() + 1;
       });
-      addFormatToken("MMM", 0, 0, function(format2) {
+      addFormatToken("MMM", 0, 0, function (format2) {
         return this.localeData().monthsShort(this, format2);
       });
-      addFormatToken("MMMM", 0, 0, function(format2) {
+      addFormatToken("MMMM", 0, 0, function (format2) {
         return this.localeData().months(this, format2);
       });
       addUnitAlias("month", "M");
       addUnitPriority("month", 8);
       addRegexToken("M", match1to2);
       addRegexToken("MM", match1to2, match2);
-      addRegexToken("MMM", function(isStrict, locale3) {
+      addRegexToken("MMM", function (isStrict, locale3) {
         return locale3.monthsShortRegex(isStrict);
       });
-      addRegexToken("MMMM", function(isStrict, locale3) {
+      addRegexToken("MMMM", function (isStrict, locale3) {
         return locale3.monthsRegex(isStrict);
       });
-      addParseToken(["M", "MM"], function(input, array) {
+      addParseToken(["M", "MM"], function (input, array) {
         array[MONTH] = toInt(input) - 1;
       });
-      addParseToken(["MMM", "MMMM"], function(input, array, config, token2) {
+      addParseToken(["MMM", "MMMM"], function (input, array, config, token2) {
         var month = config._locale.monthsParse(input, token2, config._strict);
         if (month != null) {
           array[MONTH] = month;
@@ -1309,18 +1600,38 @@ var require_moment = __commonJS({
           getParsingFlags(config).invalidMonth = input;
         }
       });
-      var defaultLocaleMonths = "January_February_March_April_May_June_July_August_September_October_November_December".split("_"), defaultLocaleMonthsShort = "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"), MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/, defaultMonthsShortRegex = matchWord, defaultMonthsRegex = matchWord;
+      var defaultLocaleMonths =
+          "January_February_March_April_May_June_July_August_September_October_November_December"
+            .split("_"),
+        defaultLocaleMonthsShort =
+          "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),
+        MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
+        defaultMonthsShortRegex = matchWord,
+        defaultMonthsRegex = matchWord;
       function localeMonths(m, format2) {
         if (!m) {
-          return isArray(this._months) ? this._months : this._months["standalone"];
+          return isArray(this._months)
+            ? this._months
+            : this._months["standalone"];
         }
-        return isArray(this._months) ? this._months[m.month()] : this._months[(this._months.isFormat || MONTHS_IN_FORMAT).test(format2) ? "format" : "standalone"][m.month()];
+        return isArray(this._months) ? this._months[m.month()] : this
+          ._months[
+            (this._months.isFormat || MONTHS_IN_FORMAT).test(format2)
+              ? "format"
+              : "standalone"
+          ][m.month()];
       }
       function localeMonthsShort(m, format2) {
         if (!m) {
-          return isArray(this._monthsShort) ? this._monthsShort : this._monthsShort["standalone"];
+          return isArray(this._monthsShort)
+            ? this._monthsShort
+            : this._monthsShort["standalone"];
         }
-        return isArray(this._monthsShort) ? this._monthsShort[m.month()] : this._monthsShort[MONTHS_IN_FORMAT.test(format2) ? "format" : "standalone"][m.month()];
+        return isArray(this._monthsShort)
+          ? this._monthsShort[m.month()]
+          : this._monthsShort[
+            MONTHS_IN_FORMAT.test(format2) ? "format" : "standalone"
+          ][m.month()];
       }
       function handleStrictParse(monthName, format2, strict) {
         var i, ii, mom, llc = monthName.toLocaleLowerCase();
@@ -1330,7 +1641,8 @@ var require_moment = __commonJS({
           this._shortMonthsParse = [];
           for (i = 0; i < 12; ++i) {
             mom = createUTC([2e3, i]);
-            this._shortMonthsParse[i] = this.monthsShort(mom, "").toLocaleLowerCase();
+            this._shortMonthsParse[i] = this.monthsShort(mom, "")
+              .toLocaleLowerCase();
             this._longMonthsParse[i] = this.months(mom, "").toLocaleLowerCase();
           }
         }
@@ -1373,16 +1685,29 @@ var require_moment = __commonJS({
         for (i = 0; i < 12; i++) {
           mom = createUTC([2e3, i]);
           if (strict && !this._longMonthsParse[i]) {
-            this._longMonthsParse[i] = new RegExp("^" + this.months(mom, "").replace(".", "") + "$", "i");
-            this._shortMonthsParse[i] = new RegExp("^" + this.monthsShort(mom, "").replace(".", "") + "$", "i");
+            this._longMonthsParse[i] = new RegExp(
+              "^" + this.months(mom, "").replace(".", "") + "$",
+              "i",
+            );
+            this._shortMonthsParse[i] = new RegExp(
+              "^" + this.monthsShort(mom, "").replace(".", "") + "$",
+              "i",
+            );
           }
           if (!strict && !this._monthsParse[i]) {
-            regex = "^" + this.months(mom, "") + "|^" + this.monthsShort(mom, "");
+            regex = "^" + this.months(mom, "") + "|^" +
+              this.monthsShort(mom, "");
             this._monthsParse[i] = new RegExp(regex.replace(".", ""), "i");
           }
-          if (strict && format2 === "MMMM" && this._longMonthsParse[i].test(monthName)) {
+          if (
+            strict && format2 === "MMMM" &&
+            this._longMonthsParse[i].test(monthName)
+          ) {
             return i;
-          } else if (strict && format2 === "MMM" && this._shortMonthsParse[i].test(monthName)) {
+          } else if (
+            strict && format2 === "MMM" &&
+            this._shortMonthsParse[i].test(monthName)
+          ) {
             return i;
           } else if (!strict && this._monthsParse[i].test(monthName)) {
             return i;
@@ -1434,7 +1759,9 @@ var require_moment = __commonJS({
           if (!hasOwnProp(this, "_monthsShortRegex")) {
             this._monthsShortRegex = defaultMonthsShortRegex;
           }
-          return this._monthsShortStrictRegex && isStrict ? this._monthsShortStrictRegex : this._monthsShortRegex;
+          return this._monthsShortStrictRegex && isStrict
+            ? this._monthsShortStrictRegex
+            : this._monthsShortRegex;
         }
       }
       function monthsRegex(isStrict) {
@@ -1451,7 +1778,9 @@ var require_moment = __commonJS({
           if (!hasOwnProp(this, "_monthsRegex")) {
             this._monthsRegex = defaultMonthsRegex;
           }
-          return this._monthsStrictRegex && isStrict ? this._monthsStrictRegex : this._monthsRegex;
+          return this._monthsStrictRegex && isStrict
+            ? this._monthsStrictRegex
+            : this._monthsRegex;
         }
       }
       function computeMonthsParse() {
@@ -1478,14 +1807,20 @@ var require_moment = __commonJS({
         }
         this._monthsRegex = new RegExp("^(" + mixedPieces.join("|") + ")", "i");
         this._monthsShortRegex = this._monthsRegex;
-        this._monthsStrictRegex = new RegExp("^(" + longPieces.join("|") + ")", "i");
-        this._monthsShortStrictRegex = new RegExp("^(" + shortPieces.join("|") + ")", "i");
+        this._monthsStrictRegex = new RegExp(
+          "^(" + longPieces.join("|") + ")",
+          "i",
+        );
+        this._monthsShortStrictRegex = new RegExp(
+          "^(" + shortPieces.join("|") + ")",
+          "i",
+        );
       }
-      addFormatToken("Y", 0, 0, function() {
+      addFormatToken("Y", 0, 0, function () {
         var y = this.year();
         return y <= 9999 ? zeroFill(y, 4) : "+" + y;
       });
-      addFormatToken(0, ["YY", 2], 0, function() {
+      addFormatToken(0, ["YY", 2], 0, function () {
         return this.year() % 100;
       });
       addFormatToken(0, ["YYYY", 4], 0, "year");
@@ -1499,19 +1834,21 @@ var require_moment = __commonJS({
       addRegexToken("YYYYY", match1to6, match6);
       addRegexToken("YYYYYY", match1to6, match6);
       addParseToken(["YYYYY", "YYYYYY"], YEAR);
-      addParseToken("YYYY", function(input, array) {
-        array[YEAR] = input.length === 2 ? hooks.parseTwoDigitYear(input) : toInt(input);
+      addParseToken("YYYY", function (input, array) {
+        array[YEAR] = input.length === 2
+          ? hooks.parseTwoDigitYear(input)
+          : toInt(input);
       });
-      addParseToken("YY", function(input, array) {
+      addParseToken("YY", function (input, array) {
         array[YEAR] = hooks.parseTwoDigitYear(input);
       });
-      addParseToken("Y", function(input, array) {
+      addParseToken("Y", function (input, array) {
         array[YEAR] = parseInt(input, 10);
       });
       function daysInYear(year) {
         return isLeapYear(year) ? 366 : 365;
       }
-      hooks.parseTwoDigitYear = function(input) {
+      hooks.parseTwoDigitYear = function (input) {
         return toInt(input) + (toInt(input) > 68 ? 1900 : 2e3);
       };
       var getSetYear = makeGetSet("FullYear", true);
@@ -1545,11 +1882,16 @@ var require_moment = __commonJS({
         return date;
       }
       function firstWeekOffset(year, dow, doy) {
-        var fwd = 7 + dow - doy, fwdlw = (7 + createUTCDate(year, 0, fwd).getUTCDay() - dow) % 7;
+        var fwd = 7 + dow - doy,
+          fwdlw = (7 + createUTCDate(year, 0, fwd).getUTCDay() - dow) % 7;
         return -fwdlw + fwd - 1;
       }
       function dayOfYearFromWeeks(year, week, weekday, dow, doy) {
-        var localWeekday = (7 + weekday - dow) % 7, weekOffset = firstWeekOffset(year, dow, doy), dayOfYear = 1 + 7 * (week - 1) + localWeekday + weekOffset, resYear, resDayOfYear;
+        var localWeekday = (7 + weekday - dow) % 7,
+          weekOffset = firstWeekOffset(year, dow, doy),
+          dayOfYear = 1 + 7 * (week - 1) + localWeekday + weekOffset,
+          resYear,
+          resDayOfYear;
         if (dayOfYear <= 0) {
           resYear = year - 1;
           resDayOfYear = daysInYear(resYear) + dayOfYear;
@@ -1562,11 +1904,14 @@ var require_moment = __commonJS({
         }
         return {
           year: resYear,
-          dayOfYear: resDayOfYear
+          dayOfYear: resDayOfYear,
         };
       }
       function weekOfYear(mom, dow, doy) {
-        var weekOffset = firstWeekOffset(mom.year(), dow, doy), week = Math.floor((mom.dayOfYear() - weekOffset - 1) / 7) + 1, resWeek, resYear;
+        var weekOffset = firstWeekOffset(mom.year(), dow, doy),
+          week = Math.floor((mom.dayOfYear() - weekOffset - 1) / 7) + 1,
+          resWeek,
+          resYear;
         if (week < 1) {
           resYear = mom.year() - 1;
           resWeek = week + weeksInYear(resYear, dow, doy);
@@ -1579,11 +1924,12 @@ var require_moment = __commonJS({
         }
         return {
           week: resWeek,
-          year: resYear
+          year: resYear,
         };
       }
       function weeksInYear(year, dow, doy) {
-        var weekOffset = firstWeekOffset(year, dow, doy), weekOffsetNext = firstWeekOffset(year + 1, dow, doy);
+        var weekOffset = firstWeekOffset(year, dow, doy),
+          weekOffsetNext = firstWeekOffset(year + 1, dow, doy);
         return (daysInYear(year) - weekOffset + weekOffsetNext) / 7;
       }
       addFormatToken("w", ["ww", 2], "wo", "week");
@@ -1596,15 +1942,18 @@ var require_moment = __commonJS({
       addRegexToken("ww", match1to2, match2);
       addRegexToken("W", match1to2);
       addRegexToken("WW", match1to2, match2);
-      addWeekParseToken(["w", "ww", "W", "WW"], function(input, week, config, token2) {
-        week[token2.substr(0, 1)] = toInt(input);
-      });
+      addWeekParseToken(
+        ["w", "ww", "W", "WW"],
+        function (input, week, config, token2) {
+          week[token2.substr(0, 1)] = toInt(input);
+        },
+      );
       function localeWeek(mom) {
         return weekOfYear(mom, this._week.dow, this._week.doy).week;
       }
       var defaultLocaleWeek = {
         dow: 0,
-        doy: 6
+        doy: 6,
       };
       function localeFirstDayOfWeek() {
         return this._week.dow;
@@ -1621,13 +1970,13 @@ var require_moment = __commonJS({
         return input == null ? week : this.add((input - week) * 7, "d");
       }
       addFormatToken("d", 0, "do", "day");
-      addFormatToken("dd", 0, 0, function(format2) {
+      addFormatToken("dd", 0, 0, function (format2) {
         return this.localeData().weekdaysMin(this, format2);
       });
-      addFormatToken("ddd", 0, 0, function(format2) {
+      addFormatToken("ddd", 0, 0, function (format2) {
         return this.localeData().weekdaysShort(this, format2);
       });
-      addFormatToken("dddd", 0, 0, function(format2) {
+      addFormatToken("dddd", 0, 0, function (format2) {
         return this.localeData().weekdays(this, format2);
       });
       addFormatToken("e", 0, 0, "weekday");
@@ -1641,26 +1990,36 @@ var require_moment = __commonJS({
       addRegexToken("d", match1to2);
       addRegexToken("e", match1to2);
       addRegexToken("E", match1to2);
-      addRegexToken("dd", function(isStrict, locale3) {
+      addRegexToken("dd", function (isStrict, locale3) {
         return locale3.weekdaysMinRegex(isStrict);
       });
-      addRegexToken("ddd", function(isStrict, locale3) {
+      addRegexToken("ddd", function (isStrict, locale3) {
         return locale3.weekdaysShortRegex(isStrict);
       });
-      addRegexToken("dddd", function(isStrict, locale3) {
+      addRegexToken("dddd", function (isStrict, locale3) {
         return locale3.weekdaysRegex(isStrict);
       });
-      addWeekParseToken(["dd", "ddd", "dddd"], function(input, week, config, token2) {
-        var weekday = config._locale.weekdaysParse(input, token2, config._strict);
-        if (weekday != null) {
-          week.d = weekday;
-        } else {
-          getParsingFlags(config).invalidWeekday = input;
-        }
-      });
-      addWeekParseToken(["d", "e", "E"], function(input, week, config, token2) {
-        week[token2] = toInt(input);
-      });
+      addWeekParseToken(
+        ["dd", "ddd", "dddd"],
+        function (input, week, config, token2) {
+          var weekday = config._locale.weekdaysParse(
+            input,
+            token2,
+            config._strict,
+          );
+          if (weekday != null) {
+            week.d = weekday;
+          } else {
+            getParsingFlags(config).invalidWeekday = input;
+          }
+        },
+      );
+      addWeekParseToken(
+        ["d", "e", "E"],
+        function (input, week, config, token2) {
+          week[token2] = toInt(input);
+        },
+      );
       function parseWeekday(input, locale3) {
         if (typeof input !== "string") {
           return input;
@@ -1683,16 +2042,39 @@ var require_moment = __commonJS({
       function shiftWeekdays(ws, n) {
         return ws.slice(n, 7).concat(ws.slice(0, n));
       }
-      var defaultLocaleWeekdays = "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), defaultLocaleWeekdaysShort = "Sun_Mon_Tue_Wed_Thu_Fri_Sat".split("_"), defaultLocaleWeekdaysMin = "Su_Mo_Tu_We_Th_Fr_Sa".split("_"), defaultWeekdaysRegex = matchWord, defaultWeekdaysShortRegex = matchWord, defaultWeekdaysMinRegex = matchWord;
+      var defaultLocaleWeekdays =
+          "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),
+        defaultLocaleWeekdaysShort = "Sun_Mon_Tue_Wed_Thu_Fri_Sat".split("_"),
+        defaultLocaleWeekdaysMin = "Su_Mo_Tu_We_Th_Fr_Sa".split("_"),
+        defaultWeekdaysRegex = matchWord,
+        defaultWeekdaysShortRegex = matchWord,
+        defaultWeekdaysMinRegex = matchWord;
       function localeWeekdays(m, format2) {
-        var weekdays = isArray(this._weekdays) ? this._weekdays : this._weekdays[m && m !== true && this._weekdays.isFormat.test(format2) ? "format" : "standalone"];
-        return m === true ? shiftWeekdays(weekdays, this._week.dow) : m ? weekdays[m.day()] : weekdays;
+        var weekdays = isArray(this._weekdays) ? this._weekdays : this
+          ._weekdays[
+            m && m !== true && this._weekdays.isFormat.test(format2)
+              ? "format"
+              : "standalone"
+          ];
+        return m === true
+          ? shiftWeekdays(weekdays, this._week.dow)
+          : m
+          ? weekdays[m.day()]
+          : weekdays;
       }
       function localeWeekdaysShort(m) {
-        return m === true ? shiftWeekdays(this._weekdaysShort, this._week.dow) : m ? this._weekdaysShort[m.day()] : this._weekdaysShort;
+        return m === true
+          ? shiftWeekdays(this._weekdaysShort, this._week.dow)
+          : m
+          ? this._weekdaysShort[m.day()]
+          : this._weekdaysShort;
       }
       function localeWeekdaysMin(m) {
-        return m === true ? shiftWeekdays(this._weekdaysMin, this._week.dow) : m ? this._weekdaysMin[m.day()] : this._weekdaysMin;
+        return m === true
+          ? shiftWeekdays(this._weekdaysMin, this._week.dow)
+          : m
+          ? this._weekdaysMin[m.day()]
+          : this._weekdaysMin;
       }
       function handleStrictParse$1(weekdayName, format2, strict) {
         var i, ii, mom, llc = weekdayName.toLocaleLowerCase();
@@ -1702,8 +2084,10 @@ var require_moment = __commonJS({
           this._minWeekdaysParse = [];
           for (i = 0; i < 7; ++i) {
             mom = createUTC([2e3, 1]).day(i);
-            this._minWeekdaysParse[i] = this.weekdaysMin(mom, "").toLocaleLowerCase();
-            this._shortWeekdaysParse[i] = this.weekdaysShort(mom, "").toLocaleLowerCase();
+            this._minWeekdaysParse[i] = this.weekdaysMin(mom, "")
+              .toLocaleLowerCase();
+            this._shortWeekdaysParse[i] = this.weekdaysShort(mom, "")
+              .toLocaleLowerCase();
             this._weekdaysParse[i] = this.weekdays(mom, "").toLocaleLowerCase();
           }
         }
@@ -1769,19 +2153,38 @@ var require_moment = __commonJS({
         for (i = 0; i < 7; i++) {
           mom = createUTC([2e3, 1]).day(i);
           if (strict && !this._fullWeekdaysParse[i]) {
-            this._fullWeekdaysParse[i] = new RegExp("^" + this.weekdays(mom, "").replace(".", "\\.?") + "$", "i");
-            this._shortWeekdaysParse[i] = new RegExp("^" + this.weekdaysShort(mom, "").replace(".", "\\.?") + "$", "i");
-            this._minWeekdaysParse[i] = new RegExp("^" + this.weekdaysMin(mom, "").replace(".", "\\.?") + "$", "i");
+            this._fullWeekdaysParse[i] = new RegExp(
+              "^" + this.weekdays(mom, "").replace(".", "\\.?") + "$",
+              "i",
+            );
+            this._shortWeekdaysParse[i] = new RegExp(
+              "^" + this.weekdaysShort(mom, "").replace(".", "\\.?") + "$",
+              "i",
+            );
+            this._minWeekdaysParse[i] = new RegExp(
+              "^" + this.weekdaysMin(mom, "").replace(".", "\\.?") + "$",
+              "i",
+            );
           }
           if (!this._weekdaysParse[i]) {
-            regex = "^" + this.weekdays(mom, "") + "|^" + this.weekdaysShort(mom, "") + "|^" + this.weekdaysMin(mom, "");
+            regex = "^" + this.weekdays(mom, "") + "|^" +
+              this.weekdaysShort(mom, "") + "|^" + this.weekdaysMin(mom, "");
             this._weekdaysParse[i] = new RegExp(regex.replace(".", ""), "i");
           }
-          if (strict && format2 === "dddd" && this._fullWeekdaysParse[i].test(weekdayName)) {
+          if (
+            strict && format2 === "dddd" &&
+            this._fullWeekdaysParse[i].test(weekdayName)
+          ) {
             return i;
-          } else if (strict && format2 === "ddd" && this._shortWeekdaysParse[i].test(weekdayName)) {
+          } else if (
+            strict && format2 === "ddd" &&
+            this._shortWeekdaysParse[i].test(weekdayName)
+          ) {
             return i;
-          } else if (strict && format2 === "dd" && this._minWeekdaysParse[i].test(weekdayName)) {
+          } else if (
+            strict && format2 === "dd" &&
+            this._minWeekdaysParse[i].test(weekdayName)
+          ) {
             return i;
           } else if (!strict && this._weekdaysParse[i].test(weekdayName)) {
             return i;
@@ -1832,7 +2235,9 @@ var require_moment = __commonJS({
           if (!hasOwnProp(this, "_weekdaysRegex")) {
             this._weekdaysRegex = defaultWeekdaysRegex;
           }
-          return this._weekdaysStrictRegex && isStrict ? this._weekdaysStrictRegex : this._weekdaysRegex;
+          return this._weekdaysStrictRegex && isStrict
+            ? this._weekdaysStrictRegex
+            : this._weekdaysRegex;
         }
       }
       function weekdaysShortRegex(isStrict) {
@@ -1849,7 +2254,9 @@ var require_moment = __commonJS({
           if (!hasOwnProp(this, "_weekdaysShortRegex")) {
             this._weekdaysShortRegex = defaultWeekdaysShortRegex;
           }
-          return this._weekdaysShortStrictRegex && isStrict ? this._weekdaysShortStrictRegex : this._weekdaysShortRegex;
+          return this._weekdaysShortStrictRegex && isStrict
+            ? this._weekdaysShortStrictRegex
+            : this._weekdaysShortRegex;
         }
       }
       function weekdaysMinRegex(isStrict) {
@@ -1866,14 +2273,24 @@ var require_moment = __commonJS({
           if (!hasOwnProp(this, "_weekdaysMinRegex")) {
             this._weekdaysMinRegex = defaultWeekdaysMinRegex;
           }
-          return this._weekdaysMinStrictRegex && isStrict ? this._weekdaysMinStrictRegex : this._weekdaysMinRegex;
+          return this._weekdaysMinStrictRegex && isStrict
+            ? this._weekdaysMinStrictRegex
+            : this._weekdaysMinRegex;
         }
       }
       function computeWeekdaysParse() {
         function cmpLenRev(a, b) {
           return b.length - a.length;
         }
-        var minPieces = [], shortPieces = [], longPieces = [], mixedPieces = [], i, mom, minp, shortp, longp;
+        var minPieces = [],
+          shortPieces = [],
+          longPieces = [],
+          mixedPieces = [],
+          i,
+          mom,
+          minp,
+          shortp,
+          longp;
         for (i = 0; i < 7; i++) {
           mom = createUTC([2e3, 1]).day(i);
           minp = regexEscape(this.weekdaysMin(mom, ""));
@@ -1890,12 +2307,24 @@ var require_moment = __commonJS({
         shortPieces.sort(cmpLenRev);
         longPieces.sort(cmpLenRev);
         mixedPieces.sort(cmpLenRev);
-        this._weekdaysRegex = new RegExp("^(" + mixedPieces.join("|") + ")", "i");
+        this._weekdaysRegex = new RegExp(
+          "^(" + mixedPieces.join("|") + ")",
+          "i",
+        );
         this._weekdaysShortRegex = this._weekdaysRegex;
         this._weekdaysMinRegex = this._weekdaysRegex;
-        this._weekdaysStrictRegex = new RegExp("^(" + longPieces.join("|") + ")", "i");
-        this._weekdaysShortStrictRegex = new RegExp("^(" + shortPieces.join("|") + ")", "i");
-        this._weekdaysMinStrictRegex = new RegExp("^(" + minPieces.join("|") + ")", "i");
+        this._weekdaysStrictRegex = new RegExp(
+          "^(" + longPieces.join("|") + ")",
+          "i",
+        );
+        this._weekdaysShortStrictRegex = new RegExp(
+          "^(" + shortPieces.join("|") + ")",
+          "i",
+        );
+        this._weekdaysMinStrictRegex = new RegExp(
+          "^(" + minPieces.join("|") + ")",
+          "i",
+        );
       }
       function hFormat() {
         return this.hours() % 12 || 12;
@@ -1906,21 +2335,27 @@ var require_moment = __commonJS({
       addFormatToken("H", ["HH", 2], 0, "hour");
       addFormatToken("h", ["hh", 2], 0, hFormat);
       addFormatToken("k", ["kk", 2], 0, kFormat);
-      addFormatToken("hmm", 0, 0, function() {
+      addFormatToken("hmm", 0, 0, function () {
         return "" + hFormat.apply(this) + zeroFill(this.minutes(), 2);
       });
-      addFormatToken("hmmss", 0, 0, function() {
-        return "" + hFormat.apply(this) + zeroFill(this.minutes(), 2) + zeroFill(this.seconds(), 2);
+      addFormatToken("hmmss", 0, 0, function () {
+        return "" + hFormat.apply(this) + zeroFill(this.minutes(), 2) +
+          zeroFill(this.seconds(), 2);
       });
-      addFormatToken("Hmm", 0, 0, function() {
+      addFormatToken("Hmm", 0, 0, function () {
         return "" + this.hours() + zeroFill(this.minutes(), 2);
       });
-      addFormatToken("Hmmss", 0, 0, function() {
-        return "" + this.hours() + zeroFill(this.minutes(), 2) + zeroFill(this.seconds(), 2);
+      addFormatToken("Hmmss", 0, 0, function () {
+        return "" + this.hours() + zeroFill(this.minutes(), 2) +
+          zeroFill(this.seconds(), 2);
       });
       function meridiem(token2, lowercase) {
-        addFormatToken(token2, 0, 0, function() {
-          return this.localeData().meridiem(this.hours(), this.minutes(), lowercase);
+        addFormatToken(token2, 0, 0, function () {
+          return this.localeData().meridiem(
+            this.hours(),
+            this.minutes(),
+            lowercase,
+          );
         });
       }
       meridiem("a", true);
@@ -1943,37 +2378,37 @@ var require_moment = __commonJS({
       addRegexToken("Hmm", match3to4);
       addRegexToken("Hmmss", match5to6);
       addParseToken(["H", "HH"], HOUR);
-      addParseToken(["k", "kk"], function(input, array, config) {
+      addParseToken(["k", "kk"], function (input, array, config) {
         var kInput = toInt(input);
         array[HOUR] = kInput === 24 ? 0 : kInput;
       });
-      addParseToken(["a", "A"], function(input, array, config) {
+      addParseToken(["a", "A"], function (input, array, config) {
         config._isPm = config._locale.isPM(input);
         config._meridiem = input;
       });
-      addParseToken(["h", "hh"], function(input, array, config) {
+      addParseToken(["h", "hh"], function (input, array, config) {
         array[HOUR] = toInt(input);
         getParsingFlags(config).bigHour = true;
       });
-      addParseToken("hmm", function(input, array, config) {
+      addParseToken("hmm", function (input, array, config) {
         var pos = input.length - 2;
         array[HOUR] = toInt(input.substr(0, pos));
         array[MINUTE] = toInt(input.substr(pos));
         getParsingFlags(config).bigHour = true;
       });
-      addParseToken("hmmss", function(input, array, config) {
+      addParseToken("hmmss", function (input, array, config) {
         var pos1 = input.length - 4, pos2 = input.length - 2;
         array[HOUR] = toInt(input.substr(0, pos1));
         array[MINUTE] = toInt(input.substr(pos1, 2));
         array[SECOND] = toInt(input.substr(pos2));
         getParsingFlags(config).bigHour = true;
       });
-      addParseToken("Hmm", function(input, array, config) {
+      addParseToken("Hmm", function (input, array, config) {
         var pos = input.length - 2;
         array[HOUR] = toInt(input.substr(0, pos));
         array[MINUTE] = toInt(input.substr(pos));
       });
-      addParseToken("Hmmss", function(input, array, config) {
+      addParseToken("Hmmss", function (input, array, config) {
         var pos1 = input.length - 4, pos2 = input.length - 2;
         array[HOUR] = toInt(input.substr(0, pos1));
         array[MINUTE] = toInt(input.substr(pos1, 2));
@@ -1982,7 +2417,8 @@ var require_moment = __commonJS({
       function localeIsPM(input) {
         return (input + "").toLowerCase().charAt(0) === "p";
       }
-      var defaultLocaleMeridiemParse = /[ap]\.?m?\.?/i, getSetHour = makeGetSet("Hours", true);
+      var defaultLocaleMeridiemParse = /[ap]\.?m?\.?/i,
+        getSetHour = makeGetSet("Hours", true);
       function localeMeridiem(hours2, minutes2, isLower) {
         if (hours2 > 11) {
           return isLower ? "pm" : "PM";
@@ -2003,7 +2439,7 @@ var require_moment = __commonJS({
         weekdays: defaultLocaleWeekdays,
         weekdaysMin: defaultLocaleWeekdaysMin,
         weekdaysShort: defaultLocaleWeekdaysShort,
-        meridiemParse: defaultLocaleMeridiemParse
+        meridiemParse: defaultLocaleMeridiemParse,
       };
       var locales = {}, localeFamilies = {}, globalLocale;
       function commonPrefix(arr1, arr2) {
@@ -2030,7 +2466,9 @@ var require_moment = __commonJS({
             if (locale3) {
               return locale3;
             }
-            if (next && next.length >= j && commonPrefix(split, next) >= j - 1) {
+            if (
+              next && next.length >= j && commonPrefix(split, next) >= j - 1
+            ) {
               break;
             }
             j--;
@@ -2041,7 +2479,10 @@ var require_moment = __commonJS({
       }
       function loadLocale(name) {
         var oldLocale = null, aliasedRequire;
-        if (locales[name] === void 0 && typeof module2 !== "undefined" && module2 && module2.exports) {
+        if (
+          locales[name] === void 0 && typeof module2 !== "undefined" &&
+          module2 && module2.exports
+        ) {
           try {
             oldLocale = globalLocale._abbr;
             aliasedRequire = require;
@@ -2065,7 +2506,9 @@ var require_moment = __commonJS({
             globalLocale = data;
           } else {
             if (typeof console !== "undefined" && console.warn) {
-              console.warn("Locale " + key + " not found. Did you forget to load it?");
+              console.warn(
+                "Locale " + key + " not found. Did you forget to load it?",
+              );
             }
           }
         }
@@ -2076,7 +2519,10 @@ var require_moment = __commonJS({
           var locale3, parentConfig = baseConfig;
           config.abbr = name;
           if (locales[name] != null) {
-            deprecateSimple("defineLocaleOverride", "use moment.updateLocale(localeName, config) to change an existing locale. moment.defineLocale(localeName, config) should only be used for creating a new locale See http://momentjs.com/guides/#/warnings/define-locale/ for more info.");
+            deprecateSimple(
+              "defineLocaleOverride",
+              "use moment.updateLocale(localeName, config) to change an existing locale. moment.defineLocale(localeName, config) should only be used for creating a new locale See http://momentjs.com/guides/#/warnings/define-locale/ for more info.",
+            );
             parentConfig = locales[name]._config;
           } else if (config.parentLocale != null) {
             if (locales[config.parentLocale] != null) {
@@ -2091,7 +2537,7 @@ var require_moment = __commonJS({
                 }
                 localeFamilies[config.parentLocale].push({
                   name,
-                  config
+                  config,
                 });
                 return null;
               }
@@ -2099,7 +2545,7 @@ var require_moment = __commonJS({
           }
           locales[name] = new Locale(mergeConfigs(parentConfig, config));
           if (localeFamilies[name]) {
-            localeFamilies[name].forEach(function(x) {
+            localeFamilies[name].forEach(function (x) {
               defineLocale(x.name, x.config);
             });
           }
@@ -2166,8 +2612,25 @@ var require_moment = __commonJS({
       function checkOverflow(m) {
         var overflow, a = m._a;
         if (a && getParsingFlags(m).overflow === -2) {
-          overflow = a[MONTH] < 0 || a[MONTH] > 11 ? MONTH : a[DATE] < 1 || a[DATE] > daysInMonth(a[YEAR], a[MONTH]) ? DATE : a[HOUR] < 0 || a[HOUR] > 24 || a[HOUR] === 24 && (a[MINUTE] !== 0 || a[SECOND] !== 0 || a[MILLISECOND] !== 0) ? HOUR : a[MINUTE] < 0 || a[MINUTE] > 59 ? MINUTE : a[SECOND] < 0 || a[SECOND] > 59 ? SECOND : a[MILLISECOND] < 0 || a[MILLISECOND] > 999 ? MILLISECOND : -1;
-          if (getParsingFlags(m)._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
+          overflow = a[MONTH] < 0 || a[MONTH] > 11
+            ? MONTH
+            : a[DATE] < 1 || a[DATE] > daysInMonth(a[YEAR], a[MONTH])
+            ? DATE
+            : a[HOUR] < 0 || a[HOUR] > 24 ||
+                a[HOUR] === 24 &&
+                  (a[MINUTE] !== 0 || a[SECOND] !== 0 || a[MILLISECOND] !== 0)
+            ? HOUR
+            : a[MINUTE] < 0 || a[MINUTE] > 59
+            ? MINUTE
+            : a[SECOND] < 0 || a[SECOND] > 59
+            ? SECOND
+            : a[MILLISECOND] < 0 || a[MILLISECOND] > 999
+            ? MILLISECOND
+            : -1;
+          if (
+            getParsingFlags(m)._overflowDayOfYear &&
+            (overflow < YEAR || overflow > DATE)
+          ) {
             overflow = DATE;
           }
           if (getParsingFlags(m)._overflowWeeks && overflow === -1) {
@@ -2180,44 +2643,61 @@ var require_moment = __commonJS({
         }
         return m;
       }
-      var extendedIsoRegex = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/, basicIsoRegex = /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d|))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/, tzRegex = /Z|[+-]\d\d(?::?\d\d)?/, isoDates = [
-        ["YYYYYY-MM-DD", /[+-]\d{6}-\d\d-\d\d/],
-        ["YYYY-MM-DD", /\d{4}-\d\d-\d\d/],
-        ["GGGG-[W]WW-E", /\d{4}-W\d\d-\d/],
-        ["GGGG-[W]WW", /\d{4}-W\d\d/, false],
-        ["YYYY-DDD", /\d{4}-\d{3}/],
-        ["YYYY-MM", /\d{4}-\d\d/, false],
-        ["YYYYYYMMDD", /[+-]\d{10}/],
-        ["YYYYMMDD", /\d{8}/],
-        ["GGGG[W]WWE", /\d{4}W\d{3}/],
-        ["GGGG[W]WW", /\d{4}W\d{2}/, false],
-        ["YYYYDDD", /\d{7}/],
-        ["YYYYMM", /\d{6}/, false],
-        ["YYYY", /\d{4}/, false]
-      ], isoTimes = [
-        ["HH:mm:ss.SSSS", /\d\d:\d\d:\d\d\.\d+/],
-        ["HH:mm:ss,SSSS", /\d\d:\d\d:\d\d,\d+/],
-        ["HH:mm:ss", /\d\d:\d\d:\d\d/],
-        ["HH:mm", /\d\d:\d\d/],
-        ["HHmmss.SSSS", /\d\d\d\d\d\d\.\d+/],
-        ["HHmmss,SSSS", /\d\d\d\d\d\d,\d+/],
-        ["HHmmss", /\d\d\d\d\d\d/],
-        ["HHmm", /\d\d\d\d/],
-        ["HH", /\d\d/]
-      ], aspNetJsonRegex = /^\/?Date\((-?\d+)/i, rfc2822 = /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|([+-]\d{4}))$/, obsOffsets = {
-        UT: 0,
-        GMT: 0,
-        EDT: -4 * 60,
-        EST: -5 * 60,
-        CDT: -5 * 60,
-        CST: -6 * 60,
-        MDT: -6 * 60,
-        MST: -7 * 60,
-        PDT: -7 * 60,
-        PST: -8 * 60
-      };
+      var extendedIsoRegex =
+          /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
+        basicIsoRegex =
+          /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d|))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
+        tzRegex = /Z|[+-]\d\d(?::?\d\d)?/,
+        isoDates = [
+          ["YYYYYY-MM-DD", /[+-]\d{6}-\d\d-\d\d/],
+          ["YYYY-MM-DD", /\d{4}-\d\d-\d\d/],
+          ["GGGG-[W]WW-E", /\d{4}-W\d\d-\d/],
+          ["GGGG-[W]WW", /\d{4}-W\d\d/, false],
+          ["YYYY-DDD", /\d{4}-\d{3}/],
+          ["YYYY-MM", /\d{4}-\d\d/, false],
+          ["YYYYYYMMDD", /[+-]\d{10}/],
+          ["YYYYMMDD", /\d{8}/],
+          ["GGGG[W]WWE", /\d{4}W\d{3}/],
+          ["GGGG[W]WW", /\d{4}W\d{2}/, false],
+          ["YYYYDDD", /\d{7}/],
+          ["YYYYMM", /\d{6}/, false],
+          ["YYYY", /\d{4}/, false],
+        ],
+        isoTimes = [
+          ["HH:mm:ss.SSSS", /\d\d:\d\d:\d\d\.\d+/],
+          ["HH:mm:ss,SSSS", /\d\d:\d\d:\d\d,\d+/],
+          ["HH:mm:ss", /\d\d:\d\d:\d\d/],
+          ["HH:mm", /\d\d:\d\d/],
+          ["HHmmss.SSSS", /\d\d\d\d\d\d\.\d+/],
+          ["HHmmss,SSSS", /\d\d\d\d\d\d,\d+/],
+          ["HHmmss", /\d\d\d\d\d\d/],
+          ["HHmm", /\d\d\d\d/],
+          ["HH", /\d\d/],
+        ],
+        aspNetJsonRegex = /^\/?Date\((-?\d+)/i,
+        rfc2822 =
+          /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|([+-]\d{4}))$/,
+        obsOffsets = {
+          UT: 0,
+          GMT: 0,
+          EDT: -4 * 60,
+          EST: -5 * 60,
+          CDT: -5 * 60,
+          CST: -6 * 60,
+          MDT: -6 * 60,
+          MST: -7 * 60,
+          PDT: -7 * 60,
+          PST: -8 * 60,
+        };
       function configFromISO(config) {
-        var i, l, string = config._i, match = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string), allowTime, dateFormat, timeFormat, tzFormat;
+        var i,
+          l,
+          string = config._i,
+          match = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string),
+          allowTime,
+          dateFormat,
+          timeFormat,
+          tzFormat;
         if (match) {
           getParsingFlags(config).iso = true;
           for (i = 0, l = isoDates.length; i < l; i++) {
@@ -2261,13 +2741,20 @@ var require_moment = __commonJS({
           config._isValid = false;
         }
       }
-      function extractFromRFC2822Strings(yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr) {
+      function extractFromRFC2822Strings(
+        yearStr,
+        monthStr,
+        dayStr,
+        hourStr,
+        minuteStr,
+        secondStr,
+      ) {
         var result = [
           untruncateYear(yearStr),
           defaultLocaleMonthsShort.indexOf(monthStr),
           parseInt(dayStr, 10),
           parseInt(hourStr, 10),
-          parseInt(minuteStr, 10)
+          parseInt(minuteStr, 10),
         ];
         if (secondStr) {
           result.push(parseInt(secondStr, 10));
@@ -2284,11 +2771,17 @@ var require_moment = __commonJS({
         return year;
       }
       function preprocessRFC2822(s) {
-        return s.replace(/\([^)]*\)|[\n\t]/g, " ").replace(/(\s\s+)/g, " ").replace(/^\s\s*/, "").replace(/\s\s*$/, "");
+        return s.replace(/\([^)]*\)|[\n\t]/g, " ").replace(/(\s\s+)/g, " ")
+          .replace(/^\s\s*/, "").replace(/\s\s*$/, "");
       }
       function checkWeekday(weekdayStr, parsedInput, config) {
         if (weekdayStr) {
-          var weekdayProvided = defaultLocaleWeekdaysShort.indexOf(weekdayStr), weekdayActual = new Date(parsedInput[0], parsedInput[1], parsedInput[2]).getDay();
+          var weekdayProvided = defaultLocaleWeekdaysShort.indexOf(weekdayStr),
+            weekdayActual = new Date(
+              parsedInput[0],
+              parsedInput[1],
+              parsedInput[2],
+            ).getDay();
           if (weekdayProvided !== weekdayActual) {
             getParsingFlags(config).weekdayMismatch = true;
             config._isValid = false;
@@ -2310,7 +2803,14 @@ var require_moment = __commonJS({
       function configFromRFC2822(config) {
         var match = rfc2822.exec(preprocessRFC2822(config._i)), parsedArray;
         if (match) {
-          parsedArray = extractFromRFC2822Strings(match[4], match[3], match[2], match[5], match[6], match[7]);
+          parsedArray = extractFromRFC2822Strings(
+            match[4],
+            match[3],
+            match[2],
+            match[5],
+            match[6],
+            match[7],
+          );
           if (!checkWeekday(match[1], parsedArray, config)) {
             return;
           }
@@ -2347,9 +2847,12 @@ var require_moment = __commonJS({
           hooks.createFromInputFallback(config);
         }
       }
-      hooks.createFromInputFallback = deprecate("value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.", function(config) {
-        config._d = new Date(config._i + (config._useUTC ? " UTC" : ""));
-      });
+      hooks.createFromInputFallback = deprecate(
+        "value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.",
+        function (config) {
+          config._d = new Date(config._i + (config._useUTC ? " UTC" : ""));
+        },
+      );
       function defaults(a, b, c) {
         if (a != null) {
           return a;
@@ -2365,10 +2868,14 @@ var require_moment = __commonJS({
           return [
             nowValue.getUTCFullYear(),
             nowValue.getUTCMonth(),
-            nowValue.getUTCDate()
+            nowValue.getUTCDate(),
           ];
         }
-        return [nowValue.getFullYear(), nowValue.getMonth(), nowValue.getDate()];
+        return [
+          nowValue.getFullYear(),
+          nowValue.getMonth(),
+          nowValue.getDate(),
+        ];
       }
       function configFromArray(config) {
         var i, date, input = [], currentDate, expectedWeekday, yearToUse;
@@ -2381,7 +2888,9 @@ var require_moment = __commonJS({
         }
         if (config._dayOfYear != null) {
           yearToUse = defaults(config._a[YEAR], currentDate[YEAR]);
-          if (config._dayOfYear > daysInYear(yearToUse) || config._dayOfYear === 0) {
+          if (
+            config._dayOfYear > daysInYear(yearToUse) || config._dayOfYear === 0
+          ) {
             getParsingFlags(config)._overflowDayOfYear = true;
           }
           date = createUTCDate(yearToUse, 0, config._dayOfYear);
@@ -2392,31 +2901,56 @@ var require_moment = __commonJS({
           config._a[i] = input[i] = currentDate[i];
         }
         for (; i < 7; i++) {
-          config._a[i] = input[i] = config._a[i] == null ? i === 2 ? 1 : 0 : config._a[i];
+          config._a[i] = input[i] = config._a[i] == null
+            ? i === 2 ? 1 : 0
+            : config._a[i];
         }
-        if (config._a[HOUR] === 24 && config._a[MINUTE] === 0 && config._a[SECOND] === 0 && config._a[MILLISECOND] === 0) {
+        if (
+          config._a[HOUR] === 24 && config._a[MINUTE] === 0 &&
+          config._a[SECOND] === 0 && config._a[MILLISECOND] === 0
+        ) {
           config._nextDay = true;
           config._a[HOUR] = 0;
         }
-        config._d = (config._useUTC ? createUTCDate : createDate).apply(null, input);
-        expectedWeekday = config._useUTC ? config._d.getUTCDay() : config._d.getDay();
+        config._d = (config._useUTC ? createUTCDate : createDate).apply(
+          null,
+          input,
+        );
+        expectedWeekday = config._useUTC
+          ? config._d.getUTCDay()
+          : config._d.getDay();
         if (config._tzm != null) {
           config._d.setUTCMinutes(config._d.getUTCMinutes() - config._tzm);
         }
         if (config._nextDay) {
           config._a[HOUR] = 24;
         }
-        if (config._w && typeof config._w.d !== "undefined" && config._w.d !== expectedWeekday) {
+        if (
+          config._w && typeof config._w.d !== "undefined" &&
+          config._w.d !== expectedWeekday
+        ) {
           getParsingFlags(config).weekdayMismatch = true;
         }
       }
       function dayOfYearFromWeekInfo(config) {
-        var w, weekYear, week, weekday, dow, doy, temp, weekdayOverflow, curWeek;
+        var w,
+          weekYear,
+          week,
+          weekday,
+          dow,
+          doy,
+          temp,
+          weekdayOverflow,
+          curWeek;
         w = config._w;
         if (w.GG != null || w.W != null || w.E != null) {
           dow = 1;
           doy = 4;
-          weekYear = defaults(w.GG, config._a[YEAR], weekOfYear(createLocal(), 1, 4).year);
+          weekYear = defaults(
+            w.GG,
+            config._a[YEAR],
+            weekOfYear(createLocal(), 1, 4).year,
+          );
           week = defaults(w.W, 1);
           weekday = defaults(w.E, 1);
           if (weekday < 1 || weekday > 7) {
@@ -2452,9 +2986,9 @@ var require_moment = __commonJS({
           config._dayOfYear = temp.dayOfYear;
         }
       }
-      hooks.ISO_8601 = function() {
+      hooks.ISO_8601 = function () {
       };
-      hooks.RFC_2822 = function() {
+      hooks.RFC_2822 = function () {
       };
       function configFromStringAndFormat(config) {
         if (config._f === hooks.ISO_8601) {
@@ -2467,17 +3001,29 @@ var require_moment = __commonJS({
         }
         config._a = [];
         getParsingFlags(config).empty = true;
-        var string = "" + config._i, i, parsedInput, tokens2, token2, skipped, stringLength = string.length, totalParsedInputLength = 0, era;
-        tokens2 = expandFormat(config._f, config._locale).match(formattingTokens) || [];
+        var string = "" + config._i,
+          i,
+          parsedInput,
+          tokens2,
+          token2,
+          skipped,
+          stringLength = string.length,
+          totalParsedInputLength = 0,
+          era;
+        tokens2 =
+          expandFormat(config._f, config._locale).match(formattingTokens) || [];
         for (i = 0; i < tokens2.length; i++) {
           token2 = tokens2[i];
-          parsedInput = (string.match(getParseRegexForToken(token2, config)) || [])[0];
+          parsedInput =
+            (string.match(getParseRegexForToken(token2, config)) || [])[0];
           if (parsedInput) {
             skipped = string.substr(0, string.indexOf(parsedInput));
             if (skipped.length > 0) {
               getParsingFlags(config).unusedInput.push(skipped);
             }
-            string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
+            string = string.slice(
+              string.indexOf(parsedInput) + parsedInput.length,
+            );
             totalParsedInputLength += parsedInput.length;
           }
           if (formatTokenFunctions[token2]) {
@@ -2491,19 +3037,30 @@ var require_moment = __commonJS({
             getParsingFlags(config).unusedTokens.push(token2);
           }
         }
-        getParsingFlags(config).charsLeftOver = stringLength - totalParsedInputLength;
+        getParsingFlags(config).charsLeftOver = stringLength -
+          totalParsedInputLength;
         if (string.length > 0) {
           getParsingFlags(config).unusedInput.push(string);
         }
-        if (config._a[HOUR] <= 12 && getParsingFlags(config).bigHour === true && config._a[HOUR] > 0) {
+        if (
+          config._a[HOUR] <= 12 && getParsingFlags(config).bigHour === true &&
+          config._a[HOUR] > 0
+        ) {
           getParsingFlags(config).bigHour = void 0;
         }
         getParsingFlags(config).parsedDateParts = config._a.slice(0);
         getParsingFlags(config).meridiem = config._meridiem;
-        config._a[HOUR] = meridiemFixWrap(config._locale, config._a[HOUR], config._meridiem);
+        config._a[HOUR] = meridiemFixWrap(
+          config._locale,
+          config._a[HOUR],
+          config._meridiem,
+        );
         era = getParsingFlags(config).era;
         if (era !== null) {
-          config._a[YEAR] = config._locale.erasConvertYear(era, config._a[YEAR]);
+          config._a[YEAR] = config._locale.erasConvertYear(
+            era,
+            config._a[YEAR],
+          );
         }
         configFromArray(config);
         checkOverflow(config);
@@ -2529,7 +3086,13 @@ var require_moment = __commonJS({
         }
       }
       function configFromStringAndArray(config) {
-        var tempConfig, bestMoment, scoreToBeat, i, currentScore, validFormatFound, bestFormatIsValid = false;
+        var tempConfig,
+          bestMoment,
+          scoreToBeat,
+          i,
+          currentScore,
+          validFormatFound,
+          bestFormatIsValid = false;
         if (config._f.length === 0) {
           getParsingFlags(config).invalidFormat = true;
           config._d = new Date(NaN);
@@ -2551,7 +3114,10 @@ var require_moment = __commonJS({
           currentScore += getParsingFlags(tempConfig).unusedTokens.length * 10;
           getParsingFlags(tempConfig).score = currentScore;
           if (!bestFormatIsValid) {
-            if (scoreToBeat == null || currentScore < scoreToBeat || validFormatFound) {
+            if (
+              scoreToBeat == null || currentScore < scoreToBeat ||
+              validFormatFound
+            ) {
               scoreToBeat = currentScore;
               bestMoment = tempConfig;
               if (validFormatFound) {
@@ -2571,8 +3137,17 @@ var require_moment = __commonJS({
         if (config._d) {
           return;
         }
-        var i = normalizeObjectUnits(config._i), dayOrDate = i.day === void 0 ? i.date : i.day;
-        config._a = map([i.year, i.month, dayOrDate, i.hour, i.minute, i.second, i.millisecond], function(obj) {
+        var i = normalizeObjectUnits(config._i),
+          dayOrDate = i.day === void 0 ? i.date : i.day;
+        config._a = map([
+          i.year,
+          i.month,
+          dayOrDate,
+          i.hour,
+          i.minute,
+          i.second,
+          i.millisecond,
+        ], function (obj) {
           return obj && parseInt(obj, 10);
         });
         configFromArray(config);
@@ -2619,7 +3194,7 @@ var require_moment = __commonJS({
         } else if (typeof input === "string") {
           configFromString(config);
         } else if (isArray(input)) {
-          config._a = map(input.slice(0), function(obj) {
+          config._a = map(input.slice(0), function (obj) {
             return parseInt(obj, 10);
           });
           configFromArray(config);
@@ -2641,7 +3216,10 @@ var require_moment = __commonJS({
           strict = locale3;
           locale3 = void 0;
         }
-        if (isObject(input) && isObjectEmpty(input) || isArray(input) && input.length === 0) {
+        if (
+          isObject(input) && isObjectEmpty(input) ||
+          isArray(input) && input.length === 0
+        ) {
           input = void 0;
         }
         c._isAMomentObject = true;
@@ -2655,21 +3233,28 @@ var require_moment = __commonJS({
       function createLocal(input, format2, locale3, strict) {
         return createLocalOrUTC(input, format2, locale3, strict, false);
       }
-      var prototypeMin = deprecate("moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/", function() {
-        var other = createLocal.apply(null, arguments);
-        if (this.isValid() && other.isValid()) {
-          return other < this ? this : other;
-        } else {
-          return createInvalid();
-        }
-      }), prototypeMax = deprecate("moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/", function() {
-        var other = createLocal.apply(null, arguments);
-        if (this.isValid() && other.isValid()) {
-          return other > this ? this : other;
-        } else {
-          return createInvalid();
-        }
-      });
+      var prototypeMin = deprecate(
+          "moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/",
+          function () {
+            var other = createLocal.apply(null, arguments);
+            if (this.isValid() && other.isValid()) {
+              return other < this ? this : other;
+            } else {
+              return createInvalid();
+            }
+          },
+        ),
+        prototypeMax = deprecate(
+          "moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/",
+          function () {
+            var other = createLocal.apply(null, arguments);
+            if (this.isValid() && other.isValid()) {
+              return other > this ? this : other;
+            } else {
+              return createInvalid();
+            }
+          },
+        );
       function pickBy(fn, moments) {
         var res, i;
         if (moments.length === 1 && isArray(moments[0])) {
@@ -2694,7 +3279,7 @@ var require_moment = __commonJS({
         var args = [].slice.call(arguments, 0);
         return pickBy("isAfter", args);
       }
-      var now = function() {
+      var now = function () {
         return Date.now ? Date.now() : +new Date();
       };
       var ordering = [
@@ -2706,12 +3291,16 @@ var require_moment = __commonJS({
         "hour",
         "minute",
         "second",
-        "millisecond"
+        "millisecond",
       ];
       function isDurationValid(m) {
         var key, unitHasDecimal = false, i;
         for (key in m) {
-          if (hasOwnProp(m, key) && !(indexOf.call(ordering, key) !== -1 && (m[key] == null || !isNaN(m[key])))) {
+          if (
+            hasOwnProp(m, key) &&
+            !(indexOf.call(ordering, key) !== -1 &&
+              (m[key] == null || !isNaN(m[key])))
+          ) {
             return false;
           }
         }
@@ -2734,9 +3323,19 @@ var require_moment = __commonJS({
         return createDuration(NaN);
       }
       function Duration(duration) {
-        var normalizedInput = normalizeObjectUnits(duration), years2 = normalizedInput.year || 0, quarters = normalizedInput.quarter || 0, months2 = normalizedInput.month || 0, weeks2 = normalizedInput.week || normalizedInput.isoWeek || 0, days2 = normalizedInput.day || 0, hours2 = normalizedInput.hour || 0, minutes2 = normalizedInput.minute || 0, seconds2 = normalizedInput.second || 0, milliseconds2 = normalizedInput.millisecond || 0;
+        var normalizedInput = normalizeObjectUnits(duration),
+          years2 = normalizedInput.year || 0,
+          quarters = normalizedInput.quarter || 0,
+          months2 = normalizedInput.month || 0,
+          weeks2 = normalizedInput.week || normalizedInput.isoWeek || 0,
+          days2 = normalizedInput.day || 0,
+          hours2 = normalizedInput.hour || 0,
+          minutes2 = normalizedInput.minute || 0,
+          seconds2 = normalizedInput.second || 0,
+          milliseconds2 = normalizedInput.millisecond || 0;
         this._isValid = isDurationValid(normalizedInput);
-        this._milliseconds = +milliseconds2 + seconds2 * 1e3 + minutes2 * 6e4 + hours2 * 1e3 * 60 * 60;
+        this._milliseconds = +milliseconds2 + seconds2 * 1e3 + minutes2 * 6e4 +
+          hours2 * 1e3 * 60 * 60;
         this._days = +days2 + weeks2 * 7;
         this._months = +months2 + quarters * 3 + years2 * 12;
         this._data = {};
@@ -2754,29 +3353,36 @@ var require_moment = __commonJS({
         }
       }
       function compareArrays(array1, array2, dontConvert) {
-        var len = Math.min(array1.length, array2.length), lengthDiff = Math.abs(array1.length - array2.length), diffs = 0, i;
+        var len = Math.min(array1.length, array2.length),
+          lengthDiff = Math.abs(array1.length - array2.length),
+          diffs = 0,
+          i;
         for (i = 0; i < len; i++) {
-          if (dontConvert && array1[i] !== array2[i] || !dontConvert && toInt(array1[i]) !== toInt(array2[i])) {
+          if (
+            dontConvert && array1[i] !== array2[i] ||
+            !dontConvert && toInt(array1[i]) !== toInt(array2[i])
+          ) {
             diffs++;
           }
         }
         return diffs + lengthDiff;
       }
       function offset(token2, separator) {
-        addFormatToken(token2, 0, 0, function() {
+        addFormatToken(token2, 0, 0, function () {
           var offset2 = this.utcOffset(), sign2 = "+";
           if (offset2 < 0) {
             offset2 = -offset2;
             sign2 = "-";
           }
-          return sign2 + zeroFill(~~(offset2 / 60), 2) + separator + zeroFill(~~offset2 % 60, 2);
+          return sign2 + zeroFill(~~(offset2 / 60), 2) + separator +
+            zeroFill(~~offset2 % 60, 2);
         });
       }
       offset("Z", ":");
       offset("ZZ", "");
       addRegexToken("Z", matchShortOffset);
       addRegexToken("ZZ", matchShortOffset);
-      addParseToken(["Z", "ZZ"], function(input, array, config) {
+      addParseToken(["Z", "ZZ"], function (input, array, config) {
         config._useUTC = true;
         config._tzm = offsetFromString(matchShortOffset, input);
       });
@@ -2795,7 +3401,9 @@ var require_moment = __commonJS({
         var res, diff2;
         if (model._isUTC) {
           res = model.clone();
-          diff2 = (isMoment(input) || isDate(input) ? input.valueOf() : createLocal(input).valueOf()) - res.valueOf();
+          diff2 = (isMoment(input) || isDate(input)
+            ? input.valueOf()
+            : createLocal(input).valueOf()) - res.valueOf();
           res._d.setTime(res._d.valueOf() + diff2);
           hooks.updateOffset(res, false);
           return res;
@@ -2806,7 +3414,7 @@ var require_moment = __commonJS({
       function getDateOffset(m) {
         return -Math.round(m._d.getTimezoneOffset());
       }
-      hooks.updateOffset = function() {
+      hooks.updateOffset = function () {
       };
       function getSetOffset(input, keepLocalTime, keepMinutes) {
         var offset2 = this._offset || 0, localAdjust;
@@ -2889,7 +3497,8 @@ var require_moment = __commonJS({
         return (this.utcOffset() - input) % 60 === 0;
       }
       function isDaylightSavingTime() {
-        return this.utcOffset() > this.clone().month(0).utcOffset() || this.utcOffset() > this.clone().month(5).utcOffset();
+        return this.utcOffset() > this.clone().month(0).utcOffset() ||
+          this.utcOffset() > this.clone().month(5).utcOffset();
       }
       function isDaylightSavingTimeShifted() {
         if (!isUndefined(this._isDSTShifted)) {
@@ -2900,7 +3509,8 @@ var require_moment = __commonJS({
         c = prepareConfig(c);
         if (c._a) {
           other = c._isUTC ? createUTC(c._a) : createLocal(c._a);
-          this._isDSTShifted = this.isValid() && compareArrays(c._a, other.toArray()) > 0;
+          this._isDSTShifted = this.isValid() &&
+            compareArrays(c._a, other.toArray()) > 0;
         } else {
           this._isDSTShifted = false;
         }
@@ -2915,14 +3525,16 @@ var require_moment = __commonJS({
       function isUtc() {
         return this.isValid() ? this._isUTC && this._offset === 0 : false;
       }
-      var aspNetRegex = /^(-|\+)?(?:(\d*)[. ])?(\d+):(\d+)(?::(\d+)(\.\d*)?)?$/, isoRegex = /^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/;
+      var aspNetRegex = /^(-|\+)?(?:(\d*)[. ])?(\d+):(\d+)(?::(\d+)(\.\d*)?)?$/,
+        isoRegex =
+          /^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/;
       function createDuration(input, key) {
         var duration = input, match = null, sign2, ret, diffRes;
         if (isDuration(input)) {
           duration = {
             ms: input._milliseconds,
             d: input._days,
-            M: input._months
+            M: input._months,
           };
         } else if (isNumber(input) || !isNaN(+input)) {
           duration = {};
@@ -2939,7 +3551,7 @@ var require_moment = __commonJS({
             h: toInt(match[HOUR]) * sign2,
             m: toInt(match[MINUTE]) * sign2,
             s: toInt(match[SECOND]) * sign2,
-            ms: toInt(absRound(match[MILLISECOND] * 1e3)) * sign2
+            ms: toInt(absRound(match[MILLISECOND] * 1e3)) * sign2,
           };
         } else if (match = isoRegex.exec(input)) {
           sign2 = match[1] === "-" ? -1 : 1;
@@ -2950,12 +3562,18 @@ var require_moment = __commonJS({
             d: parseIso(match[5], sign2),
             h: parseIso(match[6], sign2),
             m: parseIso(match[7], sign2),
-            s: parseIso(match[8], sign2)
+            s: parseIso(match[8], sign2),
           };
         } else if (duration == null) {
           duration = {};
-        } else if (typeof duration === "object" && ("from" in duration || "to" in duration)) {
-          diffRes = momentsDifference(createLocal(duration.from), createLocal(duration.to));
+        } else if (
+          typeof duration === "object" &&
+          ("from" in duration || "to" in duration)
+        ) {
+          diffRes = momentsDifference(
+            createLocal(duration.from),
+            createLocal(duration.to),
+          );
           duration = {};
           duration.ms = diffRes.milliseconds;
           duration.M = diffRes.months;
@@ -2977,7 +3595,8 @@ var require_moment = __commonJS({
       }
       function positiveMomentsDifference(base, other) {
         var res = {};
-        res.months = other.month() - base.month() + (other.year() - base.year()) * 12;
+        res.months = other.month() - base.month() +
+          (other.year() - base.year()) * 12;
         if (base.clone().add(res.months, "M").isAfter(other)) {
           --res.months;
         }
@@ -3000,10 +3619,15 @@ var require_moment = __commonJS({
         return res;
       }
       function createAdder(direction, name) {
-        return function(val, period) {
+        return function (val, period) {
           var dur, tmp;
           if (period !== null && !isNaN(+period)) {
-            deprecateSimple(name, "moment()." + name + "(period, number) is deprecated. Please use moment()." + name + "(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info.");
+            deprecateSimple(
+              name,
+              "moment()." + name +
+                "(period, number) is deprecated. Please use moment()." + name +
+                "(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info.",
+            );
             tmp = val;
             val = period;
             period = tmp;
@@ -3014,7 +3638,9 @@ var require_moment = __commonJS({
         };
       }
       function addSubtract(mom, duration, isAdding, updateOffset) {
-        var milliseconds2 = duration._milliseconds, days2 = absRound(duration._days), months2 = absRound(duration._months);
+        var milliseconds2 = duration._milliseconds,
+          days2 = absRound(duration._days),
+          months2 = absRound(duration._months);
         if (!mom.isValid()) {
           return;
         }
@@ -3037,35 +3663,41 @@ var require_moment = __commonJS({
         return typeof input === "string" || input instanceof String;
       }
       function isMomentInput(input) {
-        return isMoment(input) || isDate(input) || isString(input) || isNumber(input) || isNumberOrStringArray(input) || isMomentInputObject(input) || input === null || input === void 0;
+        return isMoment(input) || isDate(input) || isString(input) ||
+          isNumber(input) || isNumberOrStringArray(input) ||
+          isMomentInputObject(input) || input === null || input === void 0;
       }
       function isMomentInputObject(input) {
-        var objectTest = isObject(input) && !isObjectEmpty(input), propertyTest = false, properties = [
-          "years",
-          "year",
-          "y",
-          "months",
-          "month",
-          "M",
-          "days",
-          "day",
-          "d",
-          "dates",
-          "date",
-          "D",
-          "hours",
-          "hour",
-          "h",
-          "minutes",
-          "minute",
-          "m",
-          "seconds",
-          "second",
-          "s",
-          "milliseconds",
-          "millisecond",
-          "ms"
-        ], i, property;
+        var objectTest = isObject(input) && !isObjectEmpty(input),
+          propertyTest = false,
+          properties = [
+            "years",
+            "year",
+            "y",
+            "months",
+            "month",
+            "M",
+            "days",
+            "day",
+            "d",
+            "dates",
+            "date",
+            "D",
+            "hours",
+            "hour",
+            "h",
+            "minutes",
+            "minute",
+            "m",
+            "seconds",
+            "second",
+            "s",
+            "milliseconds",
+            "millisecond",
+            "ms",
+          ],
+          i,
+          property;
         for (i = 0; i < properties.length; i += 1) {
           property = properties[i];
           propertyTest = propertyTest || hasOwnProp(input, property);
@@ -3075,21 +3707,25 @@ var require_moment = __commonJS({
       function isNumberOrStringArray(input) {
         var arrayTest = isArray(input), dataTypeTest = false;
         if (arrayTest) {
-          dataTypeTest = input.filter(function(item) {
+          dataTypeTest = input.filter(function (item) {
             return !isNumber(item) && isString(input);
           }).length === 0;
         }
         return arrayTest && dataTypeTest;
       }
       function isCalendarSpec(input) {
-        var objectTest = isObject(input) && !isObjectEmpty(input), propertyTest = false, properties = [
-          "sameDay",
-          "nextDay",
-          "lastDay",
-          "nextWeek",
-          "lastWeek",
-          "sameElse"
-        ], i, property;
+        var objectTest = isObject(input) && !isObjectEmpty(input),
+          propertyTest = false,
+          properties = [
+            "sameDay",
+            "nextDay",
+            "lastDay",
+            "nextWeek",
+            "lastWeek",
+            "sameElse",
+          ],
+          i,
+          property;
         for (i = 0; i < properties.length; i += 1) {
           property = properties[i];
           propertyTest = propertyTest || hasOwnProp(input, property);
@@ -3098,7 +3734,19 @@ var require_moment = __commonJS({
       }
       function getCalendarFormat(myMoment, now2) {
         var diff2 = myMoment.diff(now2, "days", true);
-        return diff2 < -6 ? "sameElse" : diff2 < -1 ? "lastWeek" : diff2 < 0 ? "lastDay" : diff2 < 1 ? "sameDay" : diff2 < 2 ? "nextDay" : diff2 < 7 ? "nextWeek" : "sameElse";
+        return diff2 < -6
+          ? "sameElse"
+          : diff2 < -1
+          ? "lastWeek"
+          : diff2 < 0
+          ? "lastDay"
+          : diff2 < 1
+          ? "sameDay"
+          : diff2 < 2
+          ? "nextDay"
+          : diff2 < 7
+          ? "nextWeek"
+          : "sameElse";
       }
       function calendar$1(time, formats) {
         if (arguments.length === 1) {
@@ -3113,8 +3761,17 @@ var require_moment = __commonJS({
             time = void 0;
           }
         }
-        var now2 = time || createLocal(), sod = cloneWithOffset(now2, this).startOf("day"), format2 = hooks.calendarFormat(this, sod) || "sameElse", output = formats && (isFunction(formats[format2]) ? formats[format2].call(this, now2) : formats[format2]);
-        return this.format(output || this.localeData().calendar(format2, this, createLocal(now2)));
+        var now2 = time || createLocal(),
+          sod = cloneWithOffset(now2, this).startOf("day"),
+          format2 = hooks.calendarFormat(this, sod) || "sameElse",
+          output = formats &&
+            (isFunction(formats[format2])
+              ? formats[format2].call(this, now2)
+              : formats[format2]);
+        return this.format(
+          output ||
+            this.localeData().calendar(format2, this, createLocal(now2)),
+        );
       }
       function clone() {
         return new Moment(this);
@@ -3144,12 +3801,18 @@ var require_moment = __commonJS({
         }
       }
       function isBetween(from2, to2, units, inclusivity) {
-        var localFrom = isMoment(from2) ? from2 : createLocal(from2), localTo = isMoment(to2) ? to2 : createLocal(to2);
+        var localFrom = isMoment(from2) ? from2 : createLocal(from2),
+          localTo = isMoment(to2) ? to2 : createLocal(to2);
         if (!(this.isValid() && localFrom.isValid() && localTo.isValid())) {
           return false;
         }
         inclusivity = inclusivity || "()";
-        return (inclusivity[0] === "(" ? this.isAfter(localFrom, units) : !this.isBefore(localFrom, units)) && (inclusivity[1] === ")" ? this.isBefore(localTo, units) : !this.isAfter(localTo, units));
+        return (inclusivity[0] === "("
+          ? this.isAfter(localFrom, units)
+          : !this.isBefore(localFrom, units)) &&
+          (inclusivity[1] === ")"
+            ? this.isBefore(localTo, units)
+            : !this.isAfter(localTo, units));
       }
       function isSame(input, units) {
         var localInput = isMoment(input) ? input : createLocal(input), inputMs;
@@ -3161,7 +3824,8 @@ var require_moment = __commonJS({
           return this.valueOf() === localInput.valueOf();
         } else {
           inputMs = localInput.valueOf();
-          return this.clone().startOf(units).valueOf() <= inputMs && inputMs <= this.clone().endOf(units).valueOf();
+          return this.clone().startOf(units).valueOf() <= inputMs &&
+            inputMs <= this.clone().endOf(units).valueOf();
         }
       }
       function isSameOrAfter(input, units) {
@@ -3215,7 +3879,11 @@ var require_moment = __commonJS({
         if (a.date() < b.date()) {
           return -monthDiff(b, a);
         }
-        var wholeMonthDiff = (b.year() - a.year()) * 12 + (b.month() - a.month()), anchor = a.clone().add(wholeMonthDiff, "months"), anchor2, adjust;
+        var wholeMonthDiff = (b.year() - a.year()) * 12 +
+            (b.month() - a.month()),
+          anchor = a.clone().add(wholeMonthDiff, "months"),
+          anchor2,
+          adjust;
         if (b - anchor < 0) {
           anchor2 = a.clone().add(wholeMonthDiff - 1, "months");
           adjust = (b - anchor) / (anchor - anchor2);
@@ -3228,7 +3896,9 @@ var require_moment = __commonJS({
       hooks.defaultFormat = "YYYY-MM-DDTHH:mm:ssZ";
       hooks.defaultFormatUtc = "YYYY-MM-DDTHH:mm:ss[Z]";
       function toString() {
-        return this.clone().locale("en").format("ddd MMM DD YYYY HH:mm:ss [GMT]ZZ");
+        return this.clone().locale("en").format(
+          "ddd MMM DD YYYY HH:mm:ss [GMT]ZZ",
+        );
       }
       function toISOString(keepOffset) {
         if (!this.isValid()) {
@@ -3236,16 +3906,25 @@ var require_moment = __commonJS({
         }
         var utc = keepOffset !== true, m = utc ? this.clone().utc() : this;
         if (m.year() < 0 || m.year() > 9999) {
-          return formatMoment(m, utc ? "YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]" : "YYYYYY-MM-DD[T]HH:mm:ss.SSSZ");
+          return formatMoment(
+            m,
+            utc
+              ? "YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]"
+              : "YYYYYY-MM-DD[T]HH:mm:ss.SSSZ",
+          );
         }
         if (isFunction(Date.prototype.toISOString)) {
           if (utc) {
             return this.toDate().toISOString();
           } else {
-            return new Date(this.valueOf() + this.utcOffset() * 60 * 1e3).toISOString().replace("Z", formatMoment(m, "Z"));
+            return new Date(this.valueOf() + this.utcOffset() * 60 * 1e3)
+              .toISOString().replace("Z", formatMoment(m, "Z"));
           }
         }
-        return formatMoment(m, utc ? "YYYY-MM-DD[T]HH:mm:ss.SSS[Z]" : "YYYY-MM-DD[T]HH:mm:ss.SSSZ");
+        return formatMoment(
+          m,
+          utc ? "YYYY-MM-DD[T]HH:mm:ss.SSS[Z]" : "YYYY-MM-DD[T]HH:mm:ss.SSSZ",
+        );
       }
       function inspect() {
         if (!this.isValid()) {
@@ -3264,14 +3943,20 @@ var require_moment = __commonJS({
       }
       function format(inputString) {
         if (!inputString) {
-          inputString = this.isUtc() ? hooks.defaultFormatUtc : hooks.defaultFormat;
+          inputString = this.isUtc()
+            ? hooks.defaultFormatUtc
+            : hooks.defaultFormat;
         }
         var output = formatMoment(this, inputString);
         return this.localeData().postformat(output);
       }
       function from(time, withoutSuffix) {
-        if (this.isValid() && (isMoment(time) && time.isValid() || createLocal(time).isValid())) {
-          return createDuration({ to: this, from: time }).locale(this.locale()).humanize(!withoutSuffix);
+        if (
+          this.isValid() &&
+          (isMoment(time) && time.isValid() || createLocal(time).isValid())
+        ) {
+          return createDuration({ to: this, from: time }).locale(this.locale())
+            .humanize(!withoutSuffix);
         } else {
           return this.localeData().invalidDate();
         }
@@ -3280,8 +3965,12 @@ var require_moment = __commonJS({
         return this.from(createLocal(), withoutSuffix);
       }
       function to(time, withoutSuffix) {
-        if (this.isValid() && (isMoment(time) && time.isValid() || createLocal(time).isValid())) {
-          return createDuration({ from: this, to: time }).locale(this.locale()).humanize(!withoutSuffix);
+        if (
+          this.isValid() &&
+          (isMoment(time) && time.isValid() || createLocal(time).isValid())
+        ) {
+          return createDuration({ from: this, to: time }).locale(this.locale())
+            .humanize(!withoutSuffix);
         } else {
           return this.localeData().invalidDate();
         }
@@ -3301,17 +3990,23 @@ var require_moment = __commonJS({
           return this;
         }
       }
-      var lang = deprecate("moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.", function(key) {
-        if (key === void 0) {
-          return this.localeData();
-        } else {
-          return this.locale(key);
-        }
-      });
+      var lang = deprecate(
+        "moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.",
+        function (key) {
+          if (key === void 0) {
+            return this.localeData();
+          } else {
+            return this.locale(key);
+          }
+        },
+      );
       function localeData() {
         return this._locale;
       }
-      var MS_PER_SECOND = 1e3, MS_PER_MINUTE = 60 * MS_PER_SECOND, MS_PER_HOUR = 60 * MS_PER_MINUTE, MS_PER_400_YEARS = (365 * 400 + 97) * 24 * MS_PER_HOUR;
+      var MS_PER_SECOND = 1e3,
+        MS_PER_MINUTE = 60 * MS_PER_SECOND,
+        MS_PER_HOUR = 60 * MS_PER_MINUTE,
+        MS_PER_400_YEARS = (365 * 400 + 97) * 24 * MS_PER_HOUR;
       function mod$1(dividend, divisor) {
         return (dividend % divisor + divisor) % divisor;
       }
@@ -3347,10 +4042,18 @@ var require_moment = __commonJS({
             time = startOfDate(this.year(), this.month(), 1);
             break;
           case "week":
-            time = startOfDate(this.year(), this.month(), this.date() - this.weekday());
+            time = startOfDate(
+              this.year(),
+              this.month(),
+              this.date() - this.weekday(),
+            );
             break;
           case "isoWeek":
-            time = startOfDate(this.year(), this.month(), this.date() - (this.isoWeekday() - 1));
+            time = startOfDate(
+              this.year(),
+              this.month(),
+              this.date() - (this.isoWeekday() - 1),
+            );
             break;
           case "day":
           case "date":
@@ -3358,7 +4061,10 @@ var require_moment = __commonJS({
             break;
           case "hour":
             time = this._d.valueOf();
-            time -= mod$1(time + (this._isUTC ? 0 : this.utcOffset() * MS_PER_MINUTE), MS_PER_HOUR);
+            time -= mod$1(
+              time + (this._isUTC ? 0 : this.utcOffset() * MS_PER_MINUTE),
+              MS_PER_HOUR,
+            );
             break;
           case "minute":
             time = this._d.valueOf();
@@ -3385,16 +4091,26 @@ var require_moment = __commonJS({
             time = startOfDate(this.year() + 1, 0, 1) - 1;
             break;
           case "quarter":
-            time = startOfDate(this.year(), this.month() - this.month() % 3 + 3, 1) - 1;
+            time =
+              startOfDate(this.year(), this.month() - this.month() % 3 + 3, 1) -
+              1;
             break;
           case "month":
             time = startOfDate(this.year(), this.month() + 1, 1) - 1;
             break;
           case "week":
-            time = startOfDate(this.year(), this.month(), this.date() - this.weekday() + 7) - 1;
+            time = startOfDate(
+              this.year(),
+              this.month(),
+              this.date() - this.weekday() + 7,
+            ) - 1;
             break;
           case "isoWeek":
-            time = startOfDate(this.year(), this.month(), this.date() - (this.isoWeekday() - 1) + 7) - 1;
+            time = startOfDate(
+              this.year(),
+              this.month(),
+              this.date() - (this.isoWeekday() - 1) + 7,
+            ) - 1;
             break;
           case "day":
           case "date":
@@ -3402,7 +4118,11 @@ var require_moment = __commonJS({
             break;
           case "hour":
             time = this._d.valueOf();
-            time += MS_PER_HOUR - mod$1(time + (this._isUTC ? 0 : this.utcOffset() * MS_PER_MINUTE), MS_PER_HOUR) - 1;
+            time += MS_PER_HOUR -
+              mod$1(
+                time + (this._isUTC ? 0 : this.utcOffset() * MS_PER_MINUTE),
+                MS_PER_HOUR,
+              ) - 1;
             break;
           case "minute":
             time = this._d.valueOf();
@@ -3435,7 +4155,7 @@ var require_moment = __commonJS({
           m.hour(),
           m.minute(),
           m.second(),
-          m.millisecond()
+          m.millisecond(),
         ];
       }
       function toObject() {
@@ -3447,7 +4167,7 @@ var require_moment = __commonJS({
           hours: m.hours(),
           minutes: m.minutes(),
           seconds: m.seconds(),
-          milliseconds: m.milliseconds()
+          milliseconds: m.milliseconds(),
         };
       }
       function toJSON() {
@@ -3468,7 +4188,7 @@ var require_moment = __commonJS({
           format: this._f,
           locale: this._locale,
           isUTC: this._isUTC,
-          strict: this._strict
+          strict: this._strict,
         };
       }
       addFormatToken("N", 0, 0, "eraAbbr");
@@ -3485,21 +4205,24 @@ var require_moment = __commonJS({
       addRegexToken("NNN", matchEraAbbr);
       addRegexToken("NNNN", matchEraName);
       addRegexToken("NNNNN", matchEraNarrow);
-      addParseToken(["N", "NN", "NNN", "NNNN", "NNNNN"], function(input, array, config, token2) {
-        var era = config._locale.erasParse(input, token2, config._strict);
-        if (era) {
-          getParsingFlags(config).era = era;
-        } else {
-          getParsingFlags(config).invalidEra = input;
-        }
-      });
+      addParseToken(
+        ["N", "NN", "NNN", "NNNN", "NNNNN"],
+        function (input, array, config, token2) {
+          var era = config._locale.erasParse(input, token2, config._strict);
+          if (era) {
+            getParsingFlags(config).era = era;
+          } else {
+            getParsingFlags(config).invalidEra = input;
+          }
+        },
+      );
       addRegexToken("y", matchUnsigned);
       addRegexToken("yy", matchUnsigned);
       addRegexToken("yyy", matchUnsigned);
       addRegexToken("yyyy", matchUnsigned);
       addRegexToken("yo", matchEraYearOrdinal);
       addParseToken(["y", "yy", "yyy", "yyyy"], YEAR);
-      addParseToken(["yo"], function(input, array, config, token2) {
+      addParseToken(["yo"], function (input, array, config, token2) {
         var match;
         if (config._locale._eraYearOrdinalRegex) {
           match = input.match(config._locale._eraYearOrdinalRegex);
@@ -3615,8 +4338,12 @@ var require_moment = __commonJS({
         for (i = 0, l = eras.length; i < l; ++i) {
           dir = eras[i].since <= eras[i].until ? 1 : -1;
           val = this.clone().startOf("day").valueOf();
-          if (eras[i].since <= val && val <= eras[i].until || eras[i].until <= val && val <= eras[i].since) {
-            return (this.year() - hooks(eras[i].since).year()) * dir + eras[i].offset;
+          if (
+            eras[i].since <= val && val <= eras[i].until ||
+            eras[i].until <= val && val <= eras[i].since
+          ) {
+            return (this.year() - hooks(eras[i].since).year()) * dir +
+              eras[i].offset;
           }
         }
         return this.year();
@@ -3652,7 +4379,13 @@ var require_moment = __commonJS({
         return locale3._eraYearOrdinalRegex || matchUnsigned;
       }
       function computeErasParse() {
-        var abbrPieces = [], namePieces = [], narrowPieces = [], mixedPieces = [], i, l, eras = this.eras();
+        var abbrPieces = [],
+          namePieces = [],
+          narrowPieces = [],
+          mixedPieces = [],
+          i,
+          l,
+          eras = this.eras();
         for (i = 0, l = eras.length; i < l; ++i) {
           namePieces.push(regexEscape(eras[i].name));
           abbrPieces.push(regexEscape(eras[i].abbr));
@@ -3662,14 +4395,23 @@ var require_moment = __commonJS({
           mixedPieces.push(regexEscape(eras[i].narrow));
         }
         this._erasRegex = new RegExp("^(" + mixedPieces.join("|") + ")", "i");
-        this._erasNameRegex = new RegExp("^(" + namePieces.join("|") + ")", "i");
-        this._erasAbbrRegex = new RegExp("^(" + abbrPieces.join("|") + ")", "i");
-        this._erasNarrowRegex = new RegExp("^(" + narrowPieces.join("|") + ")", "i");
+        this._erasNameRegex = new RegExp(
+          "^(" + namePieces.join("|") + ")",
+          "i",
+        );
+        this._erasAbbrRegex = new RegExp(
+          "^(" + abbrPieces.join("|") + ")",
+          "i",
+        );
+        this._erasNarrowRegex = new RegExp(
+          "^(" + narrowPieces.join("|") + ")",
+          "i",
+        );
       }
-      addFormatToken(0, ["gg", 2], 0, function() {
+      addFormatToken(0, ["gg", 2], 0, function () {
         return this.weekYear() % 100;
       });
-      addFormatToken(0, ["GG", 2], 0, function() {
+      addFormatToken(0, ["GG", 2], 0, function () {
         return this.isoWeekYear() % 100;
       });
       function addWeekYearFormatToken(token2, getter) {
@@ -3691,17 +4433,34 @@ var require_moment = __commonJS({
       addRegexToken("gggg", match1to4, match4);
       addRegexToken("GGGGG", match1to6, match6);
       addRegexToken("ggggg", match1to6, match6);
-      addWeekParseToken(["gggg", "ggggg", "GGGG", "GGGGG"], function(input, week, config, token2) {
-        week[token2.substr(0, 2)] = toInt(input);
-      });
-      addWeekParseToken(["gg", "GG"], function(input, week, config, token2) {
+      addWeekParseToken(
+        ["gggg", "ggggg", "GGGG", "GGGGG"],
+        function (input, week, config, token2) {
+          week[token2.substr(0, 2)] = toInt(input);
+        },
+      );
+      addWeekParseToken(["gg", "GG"], function (input, week, config, token2) {
         week[token2] = hooks.parseTwoDigitYear(input);
       });
       function getSetWeekYear(input) {
-        return getSetWeekYearHelper.call(this, input, this.week(), this.weekday(), this.localeData()._week.dow, this.localeData()._week.doy);
+        return getSetWeekYearHelper.call(
+          this,
+          input,
+          this.week(),
+          this.weekday(),
+          this.localeData()._week.dow,
+          this.localeData()._week.doy,
+        );
       }
       function getSetISOWeekYear(input) {
-        return getSetWeekYearHelper.call(this, input, this.isoWeek(), this.isoWeekday(), 1, 4);
+        return getSetWeekYearHelper.call(
+          this,
+          input,
+          this.isoWeek(),
+          this.isoWeekday(),
+          1,
+          4,
+        );
       }
       function getISOWeeksInYear() {
         return weeksInYear(this.year(), 1, 4);
@@ -3730,7 +4489,14 @@ var require_moment = __commonJS({
         }
       }
       function setWeekAll(weekYear, week, weekday, dow, doy) {
-        var dayOfYearData = dayOfYearFromWeeks(weekYear, week, weekday, dow, doy), date = createUTCDate(dayOfYearData.year, 0, dayOfYearData.dayOfYear);
+        var dayOfYearData = dayOfYearFromWeeks(
+            weekYear,
+            week,
+            weekday,
+            dow,
+            doy,
+          ),
+          date = createUTCDate(dayOfYearData.year, 0, dayOfYearData.dayOfYear);
         this.year(date.getUTCFullYear());
         this.month(date.getUTCMonth());
         this.date(date.getUTCDate());
@@ -3740,22 +4506,26 @@ var require_moment = __commonJS({
       addUnitAlias("quarter", "Q");
       addUnitPriority("quarter", 7);
       addRegexToken("Q", match1);
-      addParseToken("Q", function(input, array) {
+      addParseToken("Q", function (input, array) {
         array[MONTH] = (toInt(input) - 1) * 3;
       });
       function getSetQuarter(input) {
-        return input == null ? Math.ceil((this.month() + 1) / 3) : this.month((input - 1) * 3 + this.month() % 3);
+        return input == null
+          ? Math.ceil((this.month() + 1) / 3)
+          : this.month((input - 1) * 3 + this.month() % 3);
       }
       addFormatToken("D", ["DD", 2], "Do", "date");
       addUnitAlias("date", "D");
       addUnitPriority("date", 9);
       addRegexToken("D", match1to2);
       addRegexToken("DD", match1to2, match2);
-      addRegexToken("Do", function(isStrict, locale3) {
-        return isStrict ? locale3._dayOfMonthOrdinalParse || locale3._ordinalParse : locale3._dayOfMonthOrdinalParseLenient;
+      addRegexToken("Do", function (isStrict, locale3) {
+        return isStrict
+          ? locale3._dayOfMonthOrdinalParse || locale3._ordinalParse
+          : locale3._dayOfMonthOrdinalParseLenient;
       });
       addParseToken(["D", "DD"], DATE);
-      addParseToken("Do", function(input, array) {
+      addParseToken("Do", function (input, array) {
         array[DATE] = toInt(input.match(match1to2)[0]);
       });
       var getSetDayOfMonth = makeGetSet("Date", true);
@@ -3764,11 +4534,14 @@ var require_moment = __commonJS({
       addUnitPriority("dayOfYear", 4);
       addRegexToken("DDD", match1to3);
       addRegexToken("DDDD", match3);
-      addParseToken(["DDD", "DDDD"], function(input, array, config) {
+      addParseToken(["DDD", "DDDD"], function (input, array, config) {
         config._dayOfYear = toInt(input);
       });
       function getSetDayOfYear(input) {
-        var dayOfYear = Math.round((this.clone().startOf("day") - this.clone().startOf("year")) / 864e5) + 1;
+        var dayOfYear = Math.round(
+          (this.clone().startOf("day") - this.clone().startOf("year")) /
+            864e5,
+        ) + 1;
         return input == null ? dayOfYear : this.add(input - dayOfYear, "d");
       }
       addFormatToken("m", ["mm", 2], 0, "minute");
@@ -3785,29 +4558,29 @@ var require_moment = __commonJS({
       addRegexToken("ss", match1to2, match2);
       addParseToken(["s", "ss"], SECOND);
       var getSetSecond = makeGetSet("Seconds", false);
-      addFormatToken("S", 0, 0, function() {
+      addFormatToken("S", 0, 0, function () {
         return ~~(this.millisecond() / 100);
       });
-      addFormatToken(0, ["SS", 2], 0, function() {
+      addFormatToken(0, ["SS", 2], 0, function () {
         return ~~(this.millisecond() / 10);
       });
       addFormatToken(0, ["SSS", 3], 0, "millisecond");
-      addFormatToken(0, ["SSSS", 4], 0, function() {
+      addFormatToken(0, ["SSSS", 4], 0, function () {
         return this.millisecond() * 10;
       });
-      addFormatToken(0, ["SSSSS", 5], 0, function() {
+      addFormatToken(0, ["SSSSS", 5], 0, function () {
         return this.millisecond() * 100;
       });
-      addFormatToken(0, ["SSSSSS", 6], 0, function() {
+      addFormatToken(0, ["SSSSSS", 6], 0, function () {
         return this.millisecond() * 1e3;
       });
-      addFormatToken(0, ["SSSSSSS", 7], 0, function() {
+      addFormatToken(0, ["SSSSSSS", 7], 0, function () {
         return this.millisecond() * 1e4;
       });
-      addFormatToken(0, ["SSSSSSSS", 8], 0, function() {
+      addFormatToken(0, ["SSSSSSSS", 8], 0, function () {
         return this.millisecond() * 1e5;
       });
-      addFormatToken(0, ["SSSSSSSSS", 9], 0, function() {
+      addFormatToken(0, ["SSSSSSSSS", 9], 0, function () {
         return this.millisecond() * 1e6;
       });
       addUnitAlias("millisecond", "ms");
@@ -3869,7 +4642,7 @@ var require_moment = __commonJS({
       proto.toISOString = toISOString;
       proto.inspect = inspect;
       if (typeof Symbol !== "undefined" && Symbol.for != null) {
-        proto[Symbol.for("nodejs.util.inspect.custom")] = function() {
+        proto[Symbol.for("nodejs.util.inspect.custom")] = function () {
           return "Moment<" + this.format() + ">";
         };
       }
@@ -3916,11 +4689,26 @@ var require_moment = __commonJS({
       proto.isUTC = isUtc;
       proto.zoneAbbr = getZoneAbbr;
       proto.zoneName = getZoneName;
-      proto.dates = deprecate("dates accessor is deprecated. Use date instead.", getSetDayOfMonth);
-      proto.months = deprecate("months accessor is deprecated. Use month instead", getSetMonth);
-      proto.years = deprecate("years accessor is deprecated. Use year instead", getSetYear);
-      proto.zone = deprecate("moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/", getSetZone);
-      proto.isDSTShifted = deprecate("isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information", isDaylightSavingTimeShifted);
+      proto.dates = deprecate(
+        "dates accessor is deprecated. Use date instead.",
+        getSetDayOfMonth,
+      );
+      proto.months = deprecate(
+        "months accessor is deprecated. Use month instead",
+        getSetMonth,
+      );
+      proto.years = deprecate(
+        "years accessor is deprecated. Use year instead",
+        getSetYear,
+      );
+      proto.zone = deprecate(
+        "moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/",
+        getSetZone,
+      );
+      proto.isDSTShifted = deprecate(
+        "isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information",
+        isDaylightSavingTimeShifted,
+      );
       function createUnix(input) {
         return createLocal(input * 1e3);
       }
@@ -3999,7 +4787,10 @@ var require_moment = __commonJS({
           }
           format2 = format2 || "";
         }
-        var locale3 = getLocale(), shift = localeSorted ? locale3._week.dow : 0, i, out = [];
+        var locale3 = getLocale(),
+          shift = localeSorted ? locale3._week.dow : 0,
+          i,
+          out = [];
         if (index != null) {
           return get$1(format2, (index + shift) % 7, field, "day");
         }
@@ -4031,7 +4822,7 @@ var require_moment = __commonJS({
             offset: 1,
             name: "Anno Domini",
             narrow: "AD",
-            abbr: "AD"
+            abbr: "AD",
           },
           {
             since: "0000-12-31",
@@ -4039,17 +4830,32 @@ var require_moment = __commonJS({
             offset: 1,
             name: "Before Christ",
             narrow: "BC",
-            abbr: "BC"
-          }
+            abbr: "BC",
+          },
         ],
         dayOfMonthOrdinalParse: /\d{1,2}(th|st|nd|rd)/,
-        ordinal: function(number) {
-          var b = number % 10, output = toInt(number % 100 / 10) === 1 ? "th" : b === 1 ? "st" : b === 2 ? "nd" : b === 3 ? "rd" : "th";
+        ordinal: function (number) {
+          var b = number % 10,
+            output = toInt(number % 100 / 10) === 1
+              ? "th"
+              : b === 1
+              ? "st"
+              : b === 2
+              ? "nd"
+              : b === 3
+              ? "rd"
+              : "th";
           return number + output;
-        }
+        },
       });
-      hooks.lang = deprecate("moment.lang is deprecated. Use moment.locale instead.", getSetGlobalLocale);
-      hooks.langData = deprecate("moment.langData is deprecated. Use moment.localeData instead.", getLocale);
+      hooks.lang = deprecate(
+        "moment.lang is deprecated. Use moment.locale instead.",
+        getSetGlobalLocale,
+      );
+      hooks.langData = deprecate(
+        "moment.langData is deprecated. Use moment.localeData instead.",
+        getLocale,
+      );
       var mathAbs = Math.abs;
       function abs() {
         var data = this._data;
@@ -4085,8 +4891,19 @@ var require_moment = __commonJS({
         }
       }
       function bubble() {
-        var milliseconds2 = this._milliseconds, days2 = this._days, months2 = this._months, data = this._data, seconds2, minutes2, hours2, years2, monthsFromDays;
-        if (!(milliseconds2 >= 0 && days2 >= 0 && months2 >= 0 || milliseconds2 <= 0 && days2 <= 0 && months2 <= 0)) {
+        var milliseconds2 = this._milliseconds,
+          days2 = this._days,
+          months2 = this._months,
+          data = this._data,
+          seconds2,
+          minutes2,
+          hours2,
+          years2,
+          monthsFromDays;
+        if (
+          !(milliseconds2 >= 0 && days2 >= 0 && months2 >= 0 ||
+            milliseconds2 <= 0 && days2 <= 0 && months2 <= 0)
+        ) {
           milliseconds2 += absCeil(monthsToDays(months2) + days2) * 864e5;
           days2 = 0;
           months2 = 0;
@@ -4156,14 +4973,23 @@ var require_moment = __commonJS({
         if (!this.isValid()) {
           return NaN;
         }
-        return this._milliseconds + this._days * 864e5 + this._months % 12 * 2592e6 + toInt(this._months / 12) * 31536e6;
+        return this._milliseconds + this._days * 864e5 +
+          this._months % 12 * 2592e6 + toInt(this._months / 12) * 31536e6;
       }
       function makeAs(alias) {
-        return function() {
+        return function () {
           return this.as(alias);
         };
       }
-      var asMilliseconds = makeAs("ms"), asSeconds = makeAs("s"), asMinutes = makeAs("m"), asHours = makeAs("h"), asDays = makeAs("d"), asWeeks = makeAs("w"), asMonths = makeAs("M"), asQuarters = makeAs("Q"), asYears = makeAs("y");
+      var asMilliseconds = makeAs("ms"),
+        asSeconds = makeAs("s"),
+        asMinutes = makeAs("m"),
+        asHours = makeAs("h"),
+        asDays = makeAs("d"),
+        asWeeks = makeAs("w"),
+        asMonths = makeAs("M"),
+        asQuarters = makeAs("Q"),
+        asYears = makeAs("y");
       function clone$1() {
         return createDuration(this);
       }
@@ -4172,32 +4998,71 @@ var require_moment = __commonJS({
         return this.isValid() ? this[units + "s"]() : NaN;
       }
       function makeGetter(name) {
-        return function() {
+        return function () {
           return this.isValid() ? this._data[name] : NaN;
         };
       }
-      var milliseconds = makeGetter("milliseconds"), seconds = makeGetter("seconds"), minutes = makeGetter("minutes"), hours = makeGetter("hours"), days = makeGetter("days"), months = makeGetter("months"), years = makeGetter("years");
+      var milliseconds = makeGetter("milliseconds"),
+        seconds = makeGetter("seconds"),
+        minutes = makeGetter("minutes"),
+        hours = makeGetter("hours"),
+        days = makeGetter("days"),
+        months = makeGetter("months"),
+        years = makeGetter("years");
       function weeks() {
         return absFloor(this.days() / 7);
       }
-      var round = Math.round, thresholds = {
-        ss: 44,
-        s: 45,
-        m: 45,
-        h: 22,
-        d: 26,
-        w: null,
-        M: 11
-      };
-      function substituteTimeAgo(string, number, withoutSuffix, isFuture, locale3) {
-        return locale3.relativeTime(number || 1, !!withoutSuffix, string, isFuture);
+      var round = Math.round,
+        thresholds = {
+          ss: 44,
+          s: 45,
+          m: 45,
+          h: 22,
+          d: 26,
+          w: null,
+          M: 11,
+        };
+      function substituteTimeAgo(
+        string,
+        number,
+        withoutSuffix,
+        isFuture,
+        locale3,
+      ) {
+        return locale3.relativeTime(
+          number || 1,
+          !!withoutSuffix,
+          string,
+          isFuture,
+        );
       }
-      function relativeTime$1(posNegDuration, withoutSuffix, thresholds2, locale3) {
-        var duration = createDuration(posNegDuration).abs(), seconds2 = round(duration.as("s")), minutes2 = round(duration.as("m")), hours2 = round(duration.as("h")), days2 = round(duration.as("d")), months2 = round(duration.as("M")), weeks2 = round(duration.as("w")), years2 = round(duration.as("y")), a = seconds2 <= thresholds2.ss && ["s", seconds2] || seconds2 < thresholds2.s && ["ss", seconds2] || minutes2 <= 1 && ["m"] || minutes2 < thresholds2.m && ["mm", minutes2] || hours2 <= 1 && ["h"] || hours2 < thresholds2.h && ["hh", hours2] || days2 <= 1 && ["d"] || days2 < thresholds2.d && ["dd", days2];
+      function relativeTime$1(
+        posNegDuration,
+        withoutSuffix,
+        thresholds2,
+        locale3,
+      ) {
+        var duration = createDuration(posNegDuration).abs(),
+          seconds2 = round(duration.as("s")),
+          minutes2 = round(duration.as("m")),
+          hours2 = round(duration.as("h")),
+          days2 = round(duration.as("d")),
+          months2 = round(duration.as("M")),
+          weeks2 = round(duration.as("w")),
+          years2 = round(duration.as("y")),
+          a = seconds2 <= thresholds2.ss && ["s", seconds2] ||
+            seconds2 < thresholds2.s && ["ss", seconds2] ||
+            minutes2 <= 1 && ["m"] ||
+            minutes2 < thresholds2.m && ["mm", minutes2] ||
+            hours2 <= 1 && ["h"] || hours2 < thresholds2.h && ["hh", hours2] ||
+            days2 <= 1 && ["d"] || days2 < thresholds2.d && ["dd", days2];
         if (thresholds2.w != null) {
-          a = a || weeks2 <= 1 && ["w"] || weeks2 < thresholds2.w && ["ww", weeks2];
+          a = a || weeks2 <= 1 && ["w"] ||
+            weeks2 < thresholds2.w && ["ww", weeks2];
         }
-        a = a || months2 <= 1 && ["M"] || months2 < thresholds2.M && ["MM", months2] || years2 <= 1 && ["y"] || ["yy", years2];
+        a = a || months2 <= 1 && ["M"] ||
+          months2 < thresholds2.M && ["MM", months2] || years2 <= 1 && ["y"] ||
+          ["yy", years2];
         a[2] = withoutSuffix;
         a[3] = +posNegDuration > 0;
         a[4] = locale3;
@@ -4259,7 +5124,18 @@ var require_moment = __commonJS({
         if (!this.isValid()) {
           return this.localeData().invalidDate();
         }
-        var seconds2 = abs$1(this._milliseconds) / 1e3, days2 = abs$1(this._days), months2 = abs$1(this._months), minutes2, hours2, years2, s, total = this.asSeconds(), totalSign, ymSign, daysSign, hmsSign;
+        var seconds2 = abs$1(this._milliseconds) / 1e3,
+          days2 = abs$1(this._days),
+          months2 = abs$1(this._months),
+          minutes2,
+          hours2,
+          years2,
+          s,
+          total = this.asSeconds(),
+          totalSign,
+          ymSign,
+          daysSign,
+          hmsSign;
         if (!total) {
           return "P0D";
         }
@@ -4274,7 +5150,13 @@ var require_moment = __commonJS({
         ymSign = sign(this._months) !== sign(total) ? "-" : "";
         daysSign = sign(this._days) !== sign(total) ? "-" : "";
         hmsSign = sign(this._milliseconds) !== sign(total) ? "-" : "";
-        return totalSign + "P" + (years2 ? ymSign + years2 + "Y" : "") + (months2 ? ymSign + months2 + "M" : "") + (days2 ? daysSign + days2 + "D" : "") + (hours2 || minutes2 || seconds2 ? "T" : "") + (hours2 ? hmsSign + hours2 + "H" : "") + (minutes2 ? hmsSign + minutes2 + "M" : "") + (seconds2 ? hmsSign + s + "S" : "");
+        return totalSign + "P" + (years2 ? ymSign + years2 + "Y" : "") +
+          (months2 ? ymSign + months2 + "M" : "") +
+          (days2 ? daysSign + days2 + "D" : "") +
+          (hours2 || minutes2 || seconds2 ? "T" : "") +
+          (hours2 ? hmsSign + hours2 + "H" : "") +
+          (minutes2 ? hmsSign + minutes2 + "M" : "") +
+          (seconds2 ? hmsSign + s + "S" : "");
       }
       var proto$2 = Duration.prototype;
       proto$2.isValid = isValid$1;
@@ -4309,16 +5191,19 @@ var require_moment = __commonJS({
       proto$2.toJSON = toISOString$1;
       proto$2.locale = locale2;
       proto$2.localeData = localeData;
-      proto$2.toIsoString = deprecate("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)", toISOString$1);
+      proto$2.toIsoString = deprecate(
+        "toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)",
+        toISOString$1,
+      );
       proto$2.lang = lang;
       addFormatToken("X", 0, 0, "unix");
       addFormatToken("x", 0, 0, "valueOf");
       addRegexToken("x", matchSigned);
       addRegexToken("X", matchTimestamp);
-      addParseToken("X", function(input, array, config) {
+      addParseToken("X", function (input, array, config) {
         config._d = new Date(parseFloat(input) * 1e3);
       });
-      addParseToken("x", function(input, array, config) {
+      addParseToken("x", function (input, array, config) {
         config._d = new Date(toInt(input));
       });
       hooks.version = "2.29.1";
@@ -4359,16 +5244,16 @@ var require_moment = __commonJS({
         TIME_SECONDS: "HH:mm:ss",
         TIME_MS: "HH:mm:ss.SSS",
         WEEK: "GGGG-[W]WW",
-        MONTH: "YYYY-MM"
+        MONTH: "YYYY-MM",
       };
       return hooks;
     });
-  }
+  },
 });
 
 // src/index.ts
 __export(exports, {
-  default: () => ViewerPlugin
+  default: () => ViewerPlugin,
 });
 var import_obsidian3 = __toModule(require("obsidian"));
 
@@ -4395,32 +5280,42 @@ var en_default = {
   "Open Viewer": "Open Viewer",
   "Regular Options": "Regular Options",
   "Viewer Filename": "Viewer Filename",
-  "The filename of Viewer. If empty, Viewer will not be created.": "The filename of Viewer. If empty, Viewer will not be created.",
+  "The filename of Viewer. If empty, Viewer will not be created.":
+    "The filename of Viewer. If empty, Viewer will not be created.",
   "Viewer Folder": "Viewer Folder",
-  "The location of Viewer. If empty, Viewer will be placed in the Vault root.": "The location of Viewer. If empty, Viewer will be placed in the Vault root.",
-  "Notice: If you change the filename or folder of Viewer, you need to click the ribbon icon to create a new Viewer. The old Viewer will no longer work, you can delete it.": "Notice: If you change the filename or folder of Viewer, you need to click the ribbon icon to create a new Viewer. The old Viewer will no longer work, you can delete it.",
+  "The location of Viewer. If empty, Viewer will be placed in the Vault root.":
+    "The location of Viewer. If empty, Viewer will be placed in the Vault root.",
+  "Notice: If you change the filename or folder of Viewer, you need to click the ribbon icon to create a new Viewer. The old Viewer will no longer work, you can delete it.":
+    "Notice: If you change the filename or folder of Viewer, you need to click the ribbon icon to create a new Viewer. The old Viewer will no longer work, you can delete it.",
   "Advanced Options": "Advanced Options",
   "Open in New Pane": "Open in New Pane",
-  "Open Viewer in a new pane. (Default: OFF)": "Open Viewer in a new pane. (Default: OFF)",
+  "Open Viewer in a new pane. (Default: OFF)":
+    "Open Viewer in a new pane. (Default: OFF)",
   "Content at Beginning": "Content at Beginning",
-  "The content to display at the beginning of Viewer.": "The content to display at the beginning of Viewer.",
+  "The content to display at the beginning of Viewer.":
+    "The content to display at the beginning of Viewer.",
   "Content under Specified Heading": "Content under Specified Heading",
-  "The content under the specified heading to display in Viewer.": "The content under the specified heading to display in Viewer.",
+  "The content under the specified heading to display in Viewer.":
+    "The content under the specified heading to display in Viewer.",
   "Size of Spacing": "Size of Spacing",
-  "The size of spacing to display. (Default: 0)": "The size of spacing to display. (Default: 0)",
+  "The size of spacing to display. (Default: 0)":
+    "The size of spacing to display. (Default: 0)",
   "Daily Notes Filter": "Daily Notes Filter",
-  "Recent: Displaying recent daily notes. Range: Displaying daily notes from a start date to a end date.": "Recent: Displaying recent daily notes. Range: Displaying daily notes from a start date to a end date.",
+  "Recent: Displaying recent daily notes. Range: Displaying daily notes from a start date to a end date.":
+    "Recent: Displaying recent daily notes. Range: Displaying daily notes from a start date to a end date.",
   Recent: "Recent",
   Range: "Range",
   "Filter Options:": "Filter Options:",
   "Display Future Daily Notes": "Display Future Daily Notes",
-  "Display Future Daily Notes. (Default: OFF)": "Display Future Daily Notes. (Default: OFF)",
+  "Display Future Daily Notes. (Default: OFF)":
+    "Display Future Daily Notes. (Default: OFF)",
   "Quantity to Display": "Quantity to Display",
-  "The quantity of daily notes to display. (Default: 30)": "The quantity of daily notes to display. (Default: 30)",
+  "The quantity of daily notes to display. (Default: 30)":
+    "The quantity of daily notes to display. (Default: 30)",
   "Start Date": "Start Date",
   "Start Date.": "Start Date.",
   "End Date": "End Date",
-  "End Date.": "End Date."
+  "End Date.": "End Date.",
 };
 
 // src/translations/locale/en-gb.ts
@@ -4476,32 +5371,43 @@ var zh_cn_default = {
   "Open Viewer": "\u6253\u5F00 Viewer",
   "Regular Options": "\u5E38\u89C4\u9009\u9879",
   "Viewer Filename": "Viewer \u6587\u4EF6\u540D",
-  "The filename of Viewer. If empty, Viewer will not be created.": "Viewer \u7684\u6587\u4EF6\u540D\u3002\u5982\u679C\u4E3A\u7A7A\uFF0CViewer \u5C06\u4E0D\u4F1A\u88AB\u521B\u5EFA\u3002",
+  "The filename of Viewer. If empty, Viewer will not be created.":
+    "Viewer \u7684\u6587\u4EF6\u540D\u3002\u5982\u679C\u4E3A\u7A7A\uFF0CViewer \u5C06\u4E0D\u4F1A\u88AB\u521B\u5EFA\u3002",
   "Viewer Folder": "Viewer \u6587\u4EF6\u5939",
-  "The location of Viewer. If empty, Viewer will be placed in the Vault root.": "Viewer \u7684\u4F4D\u7F6E\u3002\u5982\u679C\u4E3A\u7A7A\uFF0CViewer \u5C06\u88AB\u5B58\u653E\u5728\u6839\u76EE\u5F55\u4E2D\u3002",
-  "Notice: If you change the filename or folder of Viewer, you need to click the ribbon icon to create a new Viewer. The old Viewer will no longer work, you can delete it.": "\u6CE8\u610F\uFF1A\u5982\u679C\u60A8\u4FEE\u6539\u4E86 Viewer \u7684\u6587\u4EF6\u540D\u6216\u6587\u4EF6\u5939\uFF0C\u60A8\u9700\u8981\u70B9\u51FB\u529F\u80FD\u533A\u56FE\u6807\u4EE5\u521B\u5EFA\u65B0\u7684 Viewer\u3002\u65E7\u7684 Viewer \u5C06\u4E0D\u518D\u8D77\u4F5C\u7528\uFF0C\u60A8\u53EF\u4EE5\u5C06\u5176\u5220\u9664\u3002",
+  "The location of Viewer. If empty, Viewer will be placed in the Vault root.":
+    "Viewer \u7684\u4F4D\u7F6E\u3002\u5982\u679C\u4E3A\u7A7A\uFF0CViewer \u5C06\u88AB\u5B58\u653E\u5728\u6839\u76EE\u5F55\u4E2D\u3002",
+  "Notice: If you change the filename or folder of Viewer, you need to click the ribbon icon to create a new Viewer. The old Viewer will no longer work, you can delete it.":
+    "\u6CE8\u610F\uFF1A\u5982\u679C\u60A8\u4FEE\u6539\u4E86 Viewer \u7684\u6587\u4EF6\u540D\u6216\u6587\u4EF6\u5939\uFF0C\u60A8\u9700\u8981\u70B9\u51FB\u529F\u80FD\u533A\u56FE\u6807\u4EE5\u521B\u5EFA\u65B0\u7684 Viewer\u3002\u65E7\u7684 Viewer \u5C06\u4E0D\u518D\u8D77\u4F5C\u7528\uFF0C\u60A8\u53EF\u4EE5\u5C06\u5176\u5220\u9664\u3002",
   "Advanced Options": "\u9AD8\u7EA7\u9009\u9879",
   "Open in New Pane": "\u5728\u65B0\u7A97\u683C\u4E2D\u6253\u5F00",
-  "Open Viewer in a new pane. (Default: OFF)": "\u5728\u65B0\u7A97\u683C\u4E2D\u6253\u5F00 Viewer\u3002\uFF08\u9ED8\u8BA4\uFF1A\u5173\u95ED\uFF09",
+  "Open Viewer in a new pane. (Default: OFF)":
+    "\u5728\u65B0\u7A97\u683C\u4E2D\u6253\u5F00 Viewer\u3002\uFF08\u9ED8\u8BA4\uFF1A\u5173\u95ED\uFF09",
   "Content at Beginning": "\u663E\u793A\u5728\u5F00\u5934\u7684\u5185\u5BB9",
-  "The content to display at the beginning of Viewer.": "\u663E\u793A\u5728\u5F00\u5934\u7684\u5185\u5BB9\u3002",
-  "Content under Specified Heading": "\u663E\u793A\u6307\u5B9A\u6807\u9898\u4E0B\u7684\u5185\u5BB9",
-  "The content under the specified heading to display in Viewer.": "\u663E\u793A\u6307\u5B9A\u6807\u9898\u4E0B\u7684\u5185\u5BB9\u3002",
+  "The content to display at the beginning of Viewer.":
+    "\u663E\u793A\u5728\u5F00\u5934\u7684\u5185\u5BB9\u3002",
+  "Content under Specified Heading":
+    "\u663E\u793A\u6307\u5B9A\u6807\u9898\u4E0B\u7684\u5185\u5BB9",
+  "The content under the specified heading to display in Viewer.":
+    "\u663E\u793A\u6307\u5B9A\u6807\u9898\u4E0B\u7684\u5185\u5BB9\u3002",
   "Size of Spacing": "\u663E\u793A\u7684\u95F4\u8DDD\u5927\u5C0F",
-  "The size of spacing to display. (Default: 0)": "\u663E\u793A\u7684\u95F4\u8DDD\u5927\u5C0F\u3002\uFF08\u9ED8\u8BA4\uFF1A0\uFF09",
+  "The size of spacing to display. (Default: 0)":
+    "\u663E\u793A\u7684\u95F4\u8DDD\u5927\u5C0F\u3002\uFF08\u9ED8\u8BA4\uFF1A0\uFF09",
   "Daily Notes Filter": "\u65E5\u8BB0\u8FC7\u6EE4\u5668",
-  "Recent: Displaying recent daily notes. Range: Displaying daily notes from a start date to a end date.": "\u6700\u8FD1\uFF1A\u663E\u793A\u6700\u8FD1\u7684\u65E5\u8BB0\u3002\u65F6\u671F\uFF1A\u663E\u793A\u4ECE\u5F00\u59CB\u65E5\u671F\u5230\u7ED3\u675F\u65E5\u671F\u7684\u65E5\u8BB0\u3002",
+  "Recent: Displaying recent daily notes. Range: Displaying daily notes from a start date to a end date.":
+    "\u6700\u8FD1\uFF1A\u663E\u793A\u6700\u8FD1\u7684\u65E5\u8BB0\u3002\u65F6\u671F\uFF1A\u663E\u793A\u4ECE\u5F00\u59CB\u65E5\u671F\u5230\u7ED3\u675F\u65E5\u671F\u7684\u65E5\u8BB0\u3002",
   Recent: "\u6700\u8FD1",
   Range: "\u8303\u56F4",
   "Filter Options:": "\u8FC7\u6EE4\u5668\u9009\u9879\uFF1A",
   "Display Future Daily Notes": "\u663E\u793A\u672A\u6765\u7684\u65E5\u8BB0",
-  "Display Future Daily Notes. (Default: OFF)": "\u663E\u793A\u672A\u6765\u7684\u65E5\u8BB0\u3002\uFF08\u9ED8\u8BA4\uFF1A\u5173\u95ED\uFF09",
+  "Display Future Daily Notes. (Default: OFF)":
+    "\u663E\u793A\u672A\u6765\u7684\u65E5\u8BB0\u3002\uFF08\u9ED8\u8BA4\uFF1A\u5173\u95ED\uFF09",
   "Quantity to Display": "\u663E\u793A\u7684\u65E5\u8BB0\u6570\u91CF",
-  "The quantity of daily notes to display. (Default: 30)": "\u663E\u793A\u7684\u65E5\u8BB0\u6570\u91CF\u3002\uFF08\u9ED8\u8BA4\uFF1A30\uFF09",
+  "The quantity of daily notes to display. (Default: 30)":
+    "\u663E\u793A\u7684\u65E5\u8BB0\u6570\u91CF\u3002\uFF08\u9ED8\u8BA4\uFF1A30\uFF09",
   "Start Date": "\u5F00\u59CB\u65E5\u671F",
   "Start Date.": "\u7ED3\u675F\u65E5\u671F\u3002",
   "End Date": "\u7ED3\u675F\u65E5\u671F",
-  "End Date.": "\u7ED3\u675F\u65E5\u671F\u3002"
+  "End Date.": "\u7ED3\u675F\u65E5\u671F\u3002",
 };
 
 // src/translations/locale/zh-tw.ts
@@ -4531,7 +5437,7 @@ var localeMap = {
   ru: ru_default,
   tr: tr_default,
   "zh-cn": zh_cn_default,
-  "zh-tw": zh_tw_default
+  "zh-tw": zh_tw_default,
 };
 var locale = localeMap[import_obsidian.moment.locale()];
 function t(str) {
@@ -4550,7 +5456,7 @@ var DEFAULT_SETTINGS = {
   Future: false,
   Quantity: 30,
   Start: "",
-  End: ""
+  End: "",
 };
 var ViewerSettingTab = class extends import_obsidian2.PluginSettingTab {
   constructor(app, plugin) {
@@ -4568,67 +5474,160 @@ var ViewerSettingTab = class extends import_obsidian2.PluginSettingTab {
       const { containerEl } = this;
       this.containerEl.empty();
       this.containerEl.createEl("h1", { text: t("Regular Options") });
-      new import_obsidian2.Setting(containerEl).setName(t("Viewer Filename")).setDesc(t("The filename of Viewer. If empty, Viewer will not be created.")).addText((text) => text.setValue(this.plugin.settings.Filename).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.Filename = value;
-        this.plugin.saveSettings();
-      })));
-      new import_obsidian2.Setting(containerEl).setName(t("Viewer Folder")).setDesc(t("The location of Viewer. If empty, Viewer will be placed in the Vault root.")).addText((text) => text.setValue(this.plugin.settings.Folder).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.Folder = value;
-        this.plugin.saveSettings();
-      })));
-      new import_obsidian2.Setting(containerEl).setDesc(t("Notice: If you change the filename or folder of Viewer, you need to click the ribbon icon to create a new Viewer. The old Viewer will no longer work, you can delete it."));
+      new import_obsidian2.Setting(containerEl).setName(t("Viewer Filename"))
+        .setDesc(
+          t("The filename of Viewer. If empty, Viewer will not be created."),
+        ).addText((text) =>
+          text.setValue(this.plugin.settings.Filename).onChange((value) =>
+            __async(this, null, function* () {
+              this.plugin.settings.Filename = value;
+              this.plugin.saveSettings();
+            })
+          )
+        );
+      new import_obsidian2.Setting(containerEl).setName(t("Viewer Folder"))
+        .setDesc(
+          t("The location of Viewer. If empty, Viewer will be placed in the Vault root."),
+        ).addText((text) =>
+          text.setValue(this.plugin.settings.Folder).onChange((value) =>
+            __async(this, null, function* () {
+              this.plugin.settings.Folder = value;
+              this.plugin.saveSettings();
+            })
+          )
+        );
+      new import_obsidian2.Setting(containerEl).setDesc(
+        t("Notice: If you change the filename or folder of Viewer, you need to click the ribbon icon to create a new Viewer. The old Viewer will no longer work, you can delete it."),
+      );
       this.containerEl.createEl("h1", { text: t("Advanced Options") });
-      new import_obsidian2.Setting(containerEl).setName(t("Open in New Pane")).setDesc(t("Open Viewer in a new pane. (Default: OFF)")).addToggle((toggle) => toggle.setValue(this.plugin.settings.NewPane).onChange((value) => {
-        this.plugin.settings.NewPane = value;
-        this.plugin.saveSettings();
-      }));
-      new import_obsidian2.Setting(containerEl).setName(t("Content at Beginning")).setDesc(t("The content to display at the beginning of Viewer.")).addTextArea((text) => text.setPlaceholder("content").setValue(this.plugin.settings.Beginning).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.Beginning = value;
-        this.plugin.saveSettings();
-        this.plugin.updateFileOnSettingChange();
-      })));
-      new import_obsidian2.Setting(containerEl).setName(t("Content under Specified Heading")).setDesc(t("The content under the specified heading to display in Viewer.")).addText((text) => text.setPlaceholder("heading").setValue(this.plugin.settings.Heading).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.Heading = value;
-        this.plugin.saveSettings();
-        this.plugin.updateFileOnSettingChange();
-      })));
-      new import_obsidian2.Setting(containerEl).setName(t("Size of Spacing")).setDesc(t("The size of spacing to display. (Default: 0)")).addText((text) => text.setPlaceholder("0").setValue((this.plugin.settings.Spacing || 0) + "").onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.Spacing = parseInt(value);
-        this.plugin.saveSettings();
-        this.plugin.updateFileOnSettingChange();
-      })));
-      new import_obsidian2.Setting(containerEl).setName(t("Daily Notes Filter")).setDesc(t("Recent: Displaying recent daily notes. Range: Displaying daily notes from a start date to a end date.")).addDropdown((dropdown) => dropdown.addOption("recent", t("Recent")).addOption("range", t("Range")).setValue(this.plugin.settings.Filter).onChange((value) => {
-        this.plugin.settings.Filter = value;
-        recent.toggleClass("recent-hide", this.plugin.settings.Filter !== "recent");
-        range.toggleClass("range-hide", this.plugin.settings.Filter !== "range");
-        this.plugin.saveSettings();
-        this.plugin.updateFileOnSettingChange();
-      }));
+      new import_obsidian2.Setting(containerEl).setName(t("Open in New Pane"))
+        .setDesc(t("Open Viewer in a new pane. (Default: OFF)")).addToggle((
+          toggle,
+        ) =>
+          toggle.setValue(this.plugin.settings.NewPane).onChange((value) => {
+            this.plugin.settings.NewPane = value;
+            this.plugin.saveSettings();
+          })
+        );
+      new import_obsidian2.Setting(containerEl).setName(
+        t("Content at Beginning"),
+      ).setDesc(t("The content to display at the beginning of Viewer."))
+        .addTextArea((text) =>
+          text.setPlaceholder("content").setValue(
+            this.plugin.settings.Beginning,
+          ).onChange((value) =>
+            __async(this, null, function* () {
+              this.plugin.settings.Beginning = value;
+              this.plugin.saveSettings();
+              this.plugin.updateFileOnSettingChange();
+            })
+          )
+        );
+      new import_obsidian2.Setting(containerEl).setName(
+        t("Content under Specified Heading"),
+      ).setDesc(
+        t("The content under the specified heading to display in Viewer."),
+      ).addText((text) =>
+        text.setPlaceholder("heading").setValue(this.plugin.settings.Heading)
+          .onChange((value) =>
+            __async(this, null, function* () {
+              this.plugin.settings.Heading = value;
+              this.plugin.saveSettings();
+              this.plugin.updateFileOnSettingChange();
+            })
+          )
+      );
+      new import_obsidian2.Setting(containerEl).setName(t("Size of Spacing"))
+        .setDesc(t("The size of spacing to display. (Default: 0)")).addText((
+          text,
+        ) =>
+          text.setPlaceholder("0").setValue(
+            (this.plugin.settings.Spacing || 0) + "",
+          ).onChange((value) =>
+            __async(this, null, function* () {
+              this.plugin.settings.Spacing = parseInt(value);
+              this.plugin.saveSettings();
+              this.plugin.updateFileOnSettingChange();
+            })
+          )
+        );
+      new import_obsidian2.Setting(containerEl).setName(t("Daily Notes Filter"))
+        .setDesc(
+          t("Recent: Displaying recent daily notes. Range: Displaying daily notes from a start date to a end date."),
+        ).addDropdown((dropdown) =>
+          dropdown.addOption("recent", t("Recent")).addOption(
+            "range",
+            t("Range"),
+          ).setValue(this.plugin.settings.Filter).onChange((value) => {
+            this.plugin.settings.Filter = value;
+            recent.toggleClass(
+              "recent-hide",
+              this.plugin.settings.Filter !== "recent",
+            );
+            range.toggleClass(
+              "range-hide",
+              this.plugin.settings.Filter !== "range",
+            );
+            this.plugin.saveSettings();
+            this.plugin.updateFileOnSettingChange();
+          })
+        );
       this.containerEl.createEl("p", { text: t("Filter Options:") });
       const recent = containerEl.createEl("div", { cls: "recent-hide" });
-      recent.toggleClass("recent-hide", this.plugin.settings.Filter !== "recent");
-      new import_obsidian2.Setting(recent).setName(t("Display Future Daily Notes")).setDesc(t("Display Future Daily Notes. (Default: OFF)")).addToggle((toggle) => toggle.setValue(this.plugin.settings.Future).onChange((value) => {
-        this.plugin.settings.Future = value;
-        this.plugin.saveSettings();
-        this.plugin.updateFileOnSettingChange();
-      }));
-      new import_obsidian2.Setting(recent).setName(t("Quantity to Display")).setDesc(t("The quantity of daily notes to display. (Default: 30)")).addText((text) => text.setPlaceholder("0").setValue((this.plugin.settings.Quantity || 0) + "").onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.Quantity = parseInt(value);
-        this.plugin.saveSettings();
-        this.plugin.updateFileOnSettingChange();
-      })));
+      recent.toggleClass(
+        "recent-hide",
+        this.plugin.settings.Filter !== "recent",
+      );
+      new import_obsidian2.Setting(recent).setName(
+        t("Display Future Daily Notes"),
+      ).setDesc(t("Display Future Daily Notes. (Default: OFF)")).addToggle((
+        toggle,
+      ) =>
+        toggle.setValue(this.plugin.settings.Future).onChange((value) => {
+          this.plugin.settings.Future = value;
+          this.plugin.saveSettings();
+          this.plugin.updateFileOnSettingChange();
+        })
+      );
+      new import_obsidian2.Setting(recent).setName(t("Quantity to Display"))
+        .setDesc(t("The quantity of daily notes to display. (Default: 30)"))
+        .addText((text) =>
+          text.setPlaceholder("0").setValue(
+            (this.plugin.settings.Quantity || 0) + "",
+          ).onChange((value) =>
+            __async(this, null, function* () {
+              this.plugin.settings.Quantity = parseInt(value);
+              this.plugin.saveSettings();
+              this.plugin.updateFileOnSettingChange();
+            })
+          )
+        );
       const range = containerEl.createEl("div", { cls: "range-hide" });
       range.toggleClass("range-hide", this.plugin.settings.Filter !== "range");
-      new import_obsidian2.Setting(range).setName(t("Start Date")).setDesc(t("Start Date.")).addText((text) => text.setPlaceholder("YYYY-MM-DD").setValue(this.plugin.settings.Start).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.Start = value;
-        this.plugin.saveSettings();
-        this.plugin.updateFileOnSettingChange();
-      })));
-      new import_obsidian2.Setting(range).setName(t("End Date")).setDesc(t("End Date.")).addText((text) => text.setPlaceholder("YYYY-MM-DD").setValue(this.plugin.settings.End).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.End = value;
-        this.plugin.saveSettings();
-        this.plugin.updateFileOnSettingChange();
-      })));
+      new import_obsidian2.Setting(range).setName(t("Start Date")).setDesc(
+        t("Start Date."),
+      ).addText((text) =>
+        text.setPlaceholder("YYYY-MM-DD").setValue(this.plugin.settings.Start)
+          .onChange((value) =>
+            __async(this, null, function* () {
+              this.plugin.settings.Start = value;
+              this.plugin.saveSettings();
+              this.plugin.updateFileOnSettingChange();
+            })
+          )
+      );
+      new import_obsidian2.Setting(range).setName(t("End Date")).setDesc(
+        t("End Date."),
+      ).addText((text) =>
+        text.setPlaceholder("YYYY-MM-DD").setValue(this.plugin.settings.End)
+          .onChange((value) =>
+            __async(this, null, function* () {
+              this.plugin.settings.End = value;
+              this.plugin.saveSettings();
+              this.plugin.updateFileOnSettingChange();
+            })
+          )
+      );
     });
   }
 };
@@ -4636,64 +5635,70 @@ var ViewerSettingTab = class extends import_obsidian2.PluginSettingTab {
 // src/util.ts
 var import_obsidian_daily_notes_interface = __toModule(require_main());
 var import_moment = __toModule(require_moment());
-var createOrUpdateViewer = (app, setting) => __async(void 0, null, function* () {
-  var _a;
-  let allDailyNotesBasename;
-  if (setting.Filter === "recent") {
-    allDailyNotesBasename = getRecent(setting);
-  } else if (setting.Filter === "range") {
-    allDailyNotesBasename = getRange(setting);
-  }
-  let links = [];
-  for (let dailyNote of allDailyNotesBasename) {
-    let linkText;
-    linkText = ((_a = setting.Heading) == null ? void 0 : _a.length) > 0 ? `${dailyNote}#^` + setting.Heading : `${dailyNote}`;
-    links.push(`![[${linkText}]]`);
-  }
-  let fileText = "";
-  let spacing = setting.Spacing;
-  for (let link of links) {
-    fileText += `${link}
-`;
-    for (let i = 0; i < spacing; i++) {
-      fileText += `
-`;
+var createOrUpdateViewer = (app, setting) =>
+  __async(void 0, null, function* () {
+    var _a;
+    let allDailyNotesBasename;
+    if (setting.Filter === "recent") {
+      allDailyNotesBasename = getRecent(setting);
+    } else if (setting.Filter === "range") {
+      allDailyNotesBasename = getRange(setting);
     }
-  }
-  let beginning = setting.Beginning;
-  let pathRegex = /^\s*$/;
-  let path = getPath(setting);
-  let filename = setting.Filename;
-  let file = app.vault.getAbstractFileByPath(path);
-  if (!pathRegex.test(filename)) {
-    let contentNew = `${beginning}
-${fileText}`;
-    if (file === null) {
-      yield app.vault.create(path, contentNew);
-      return;
-    } else {
-      let contentOld = yield app.vault.cachedRead(file);
-      if (contentNew !== contentOld) {
-        yield app.vault.modify(file, contentNew);
+    let links = [];
+    for (let dailyNote of allDailyNotesBasename) {
+      let linkText;
+      linkText = ((_a = setting.Heading) == null ? void 0 : _a.length) > 0
+        ? `${dailyNote}#^` + setting.Heading
+        : `${dailyNote}`;
+      links.push(`![[${linkText}]]`);
+    }
+    let fileText = "";
+    let spacing = setting.Spacing;
+    for (let link of links) {
+      fileText += `${link}
+`;
+      for (let i = 0; i < spacing; i++) {
+        fileText += `
+`;
       }
-      return;
     }
-  }
-});
+    let beginning = setting.Beginning;
+    let pathRegex = /^\s*$/;
+    let path = getPath(setting);
+    let filename = setting.Filename;
+    let file = app.vault.getAbstractFileByPath(path);
+    if (!pathRegex.test(filename)) {
+      let contentNew = `${beginning}
+${fileText}`;
+      if (file === null) {
+        yield app.vault.create(path, contentNew);
+        return;
+      } else {
+        let contentOld = yield app.vault.cachedRead(file);
+        if (contentNew !== contentOld) {
+          yield app.vault.modify(file, contentNew);
+        }
+        return;
+      }
+    }
+  });
 var getRecent = (setting) => {
   let now = (0, import_moment.default)();
   let today = (0, import_obsidian_daily_notes_interface.getDateUID)(now, "day");
-  let allDailyNotes = (0, import_obsidian_daily_notes_interface.getAllDailyNotes)();
+  let allDailyNotes =
+    (0, import_obsidian_daily_notes_interface.getAllDailyNotes)();
   let allDailyNotesUID = Object.keys(allDailyNotes).sort().reverse();
   let allDailyNotesRecent = {};
   if (setting.Future) {
     for (let i = 0; i < allDailyNotesUID.length; i++) {
-      allDailyNotesRecent[allDailyNotesUID[i]] = allDailyNotes[allDailyNotesUID[i]];
+      allDailyNotesRecent[allDailyNotesUID[i]] =
+        allDailyNotes[allDailyNotesUID[i]];
     }
   } else {
     for (let i = 0; i < allDailyNotesUID.length; i++) {
       if (allDailyNotesUID[i] <= today) {
-        allDailyNotesRecent[allDailyNotesUID[i]] = allDailyNotes[allDailyNotesUID[i]];
+        allDailyNotesRecent[allDailyNotesUID[i]] =
+          allDailyNotes[allDailyNotesUID[i]];
       }
     }
   }
@@ -4707,16 +5712,26 @@ var getRecent = (setting) => {
 var getRange = (setting) => {
   let startDate = (0, import_moment.default)(setting.Start);
   let endDate = (0, import_moment.default)(setting.End);
-  let startDateUID = (0, import_obsidian_daily_notes_interface.getDateUID)(startDate, "day");
-  let endDateUID = (0, import_obsidian_daily_notes_interface.getDateUID)(endDate, "day");
-  let allDailyNotes = (0, import_obsidian_daily_notes_interface.getAllDailyNotes)();
+  let startDateUID = (0, import_obsidian_daily_notes_interface.getDateUID)(
+    startDate,
+    "day",
+  );
+  let endDateUID = (0, import_obsidian_daily_notes_interface.getDateUID)(
+    endDate,
+    "day",
+  );
+  let allDailyNotes =
+    (0, import_obsidian_daily_notes_interface.getAllDailyNotes)();
   let allDailyNotesUID = Object.keys(allDailyNotes).sort();
   let allDailyNotesRange = {};
   let dateRegex = /^\d{4}\-\d{2}\-\d{2}$/;
   if (dateRegex.test(setting.Start) && dateRegex.test(setting.End)) {
     for (let i = 0; i < allDailyNotesUID.length; i++) {
-      if (allDailyNotesUID[i] >= startDateUID && allDailyNotesUID[i] <= endDateUID) {
-        allDailyNotesRange[allDailyNotesUID[i]] = allDailyNotes[allDailyNotesUID[i]];
+      if (
+        allDailyNotesUID[i] >= startDateUID && allDailyNotesUID[i] <= endDateUID
+      ) {
+        allDailyNotesRange[allDailyNotesUID[i]] =
+          allDailyNotes[allDailyNotesUID[i]];
       }
     }
   }
@@ -4744,23 +5759,31 @@ var import_obsidian_daily_notes_interface2 = __toModule(require_main());
 var ViewerPlugin = class extends import_obsidian3.Plugin {
   constructor() {
     super(...arguments);
-    this.delayCreateOrUpdateViewer = (0, import_obsidian3.debounce)(() => createOrUpdateViewer(this.app, this.settings), 1e3, true);
-    this.openViewer = () => __async(this, null, function* () {
-      let leaf;
-      yield createOrUpdateViewer(this.app, this.settings);
-      if (this.settings.NewPane === true) {
-        if (this.app.workspace.activeLeaf.view instanceof import_obsidian3.MarkdownView) {
-          leaf = this.app.workspace.getLeaf(true);
+    this.delayCreateOrUpdateViewer = (0, import_obsidian3.debounce)(
+      () => createOrUpdateViewer(this.app, this.settings),
+      1e3,
+      true,
+    );
+    this.openViewer = () =>
+      __async(this, null, function* () {
+        let leaf;
+        yield createOrUpdateViewer(this.app, this.settings);
+        if (this.settings.NewPane === true) {
+          if (
+            this.app.workspace.activeLeaf.view instanceof
+              import_obsidian3.MarkdownView
+          ) {
+            leaf = this.app.workspace.getLeaf(true);
+          } else {
+            leaf = this.app.workspace.getLeaf(false);
+          }
         } else {
           leaf = this.app.workspace.getLeaf(false);
         }
-      } else {
-        leaf = this.app.workspace.getLeaf(false);
-      }
-      let path = getPath(this.settings);
-      let viewer = this.app.vault.getAbstractFileByPath(path);
-      leaf.openFile(viewer);
-    });
+        let path = getPath(this.settings);
+        let viewer = this.app.vault.getAbstractFileByPath(path);
+        leaf.openFile(viewer);
+      });
   }
   onload() {
     return __async(this, null, function* () {
@@ -4768,21 +5791,30 @@ var ViewerPlugin = class extends import_obsidian3.Plugin {
       this.addSettingTab(new ViewerSettingTab(this.app, this));
       this.registerFileMonitor();
       this.createFileOnLoad();
-      this.addRibbonIcon("calendar-glyph", t("Open Viewer"), (evt) => __async(this, null, function* () {
-        this.openViewer();
-      }));
+      this.addRibbonIcon(
+        "calendar-glyph",
+        t("Open Viewer"),
+        (evt) =>
+          __async(this, null, function* () {
+            this.openViewer();
+          }),
+      );
       this.addCommand({
         id: "open-viewer",
         name: t("Open Viewer"),
         callback: () => {
           this.openViewer();
-        }
+        },
       });
     });
   }
   loadSettings() {
     return __async(this, null, function* () {
-      this.settings = Object.assign({}, DEFAULT_SETTINGS, yield this.loadData());
+      this.settings = Object.assign(
+        {},
+        DEFAULT_SETTINGS,
+        yield this.loadData(),
+      );
     });
   }
   saveSettings() {
@@ -4792,21 +5824,27 @@ var ViewerPlugin = class extends import_obsidian3.Plugin {
   }
   onFileCreated(file) {
     if (this.app.workspace.layoutReady) {
-      if ((0, import_obsidian_daily_notes_interface2.getDateFromFile)(file, "day")) {
+      if (
+        (0, import_obsidian_daily_notes_interface2.getDateFromFile)(file, "day")
+      ) {
         this.delayCreateOrUpdateViewer();
       }
     }
   }
   onFileDeleted(file) {
     if (this.app.workspace.layoutReady) {
-      if ((0, import_obsidian_daily_notes_interface2.getDateFromFile)(file, "day")) {
+      if (
+        (0, import_obsidian_daily_notes_interface2.getDateFromFile)(file, "day")
+      ) {
         this.delayCreateOrUpdateViewer();
       }
     }
   }
   onFileRenamed(file) {
     if (this.app.workspace.layoutReady) {
-      if ((0, import_obsidian_daily_notes_interface2.getDateFromFile)(file, "day")) {
+      if (
+        (0, import_obsidian_daily_notes_interface2.getDateFromFile)(file, "day")
+      ) {
         this.delayCreateOrUpdateViewer();
       }
     }

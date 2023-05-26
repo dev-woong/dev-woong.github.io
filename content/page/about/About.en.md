@@ -20,16 +20,17 @@ menu:
 ## Intro
 
 1996.12.05 / Seoul Seocho-gu
-#
-**E-Mail** : intajon@gmail.com
 
+# 
+
+**E-Mail** : intajon@gmail.com
 
 ## Education
 
-- `2015` Kyungmin IT High School Graduated from Information and Communication Department
+- `2015` Kyungmin IT High School Graduated from Information and Communication
+  Department
 - `2016` Korea IT Vocational School Entered Computer Security Department
 - `2021` Bachelor of Science in Information Protection Technology Stack
-
 
 ## Tech Stack
 
@@ -50,7 +51,6 @@ menu:
 ![](https://img.shields.io/badge/Visual%20Studio-5C2D91?style=flat-square&logo=VisualStudio&logoColor=white)
 ![](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=VisualStudioCode&logoColor=white)
 
-
 ## License
 
 - `2021` Engineer Information Processing
@@ -60,26 +60,32 @@ menu:
 - `2014` Craftsman Computer
 - `2012` Word Processor User, Level-I
 
-
 ## Experience
 
-###  [`EluonINS`](http://www.eluonins.com) System Engineer
-2020.06 to 2022.01 (1 year and 6 months)
-> - Storage Data Transfer, Transition (approximately 500 million+ data)
-> - Maintenance of integrated systems such as parliamentary broadcasting and daily economy (storage and server)
-> - Participate in server, storage improvement or new equipment introduction projects
+### [`EluonINS`](http://www.eluonins.com) System Engineer
 
+2020.06 to 2022.01 (1 year and 6 months)
+
+> - Storage Data Transfer, Transition (approximately 500 million+ data)
+> - Maintenance of integrated systems such as parliamentary broadcasting and
+  > daily economy (storage and server)
+> - Participate in server, storage improvement or new equipment introduction
+  > projects
 
 ### `the Republic of Korea Army` information protection soldier
+
 2018.07 to 2020.03 (1 year and 8 months)
+
 > - Regular Inspection Script (C#) Code Refactoring
-> - Control of information protection system, establishment and application of protection policies
+> - Control of information protection system, establishment and application of
+  > protection policies
 > - Manage Army Intranet Accounts and Manage Home Page
 
-
 ### `Leantech` AR Application Develop
+
 2018.02 to 2018.07 (6 months)
 
 > - Unity - Drawing Target AR Modeling with Vuforia Engine
-> - Responsive design for UI creation and variable resolution response through UGUI
+> - Responsive design for UI creation and variable resolution response through
+  > UGUI
 > - Replace image text for home page readability and translation compatibility

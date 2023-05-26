@@ -6,18 +6,21 @@ date: 2022-12-21
 tags: [ Spectre, Console ]
 draft: true
 ---
+
 ### Build
+
 - Command A
-	- Option 1
-	- Option 2
+  - Option 1
+  - Option 2
 
 ### Deploy
+
 - SFTP
-	- -p, --p \<path\>
-	- Option 2
+  - -p, --p \<path\>
+  - Option 2
 
-yw-tools build ***\*.csproj***  --configuration Unity --configuration Release --deploy nuget --deploy npm
-
+yw-tools build _**\*.csproj**_ --configuration Unity --configuration Release
+--deploy nuget --deploy npm
 
 ```csharp
 [CommandArgument(0, "<firstName>")]
@@ -27,4 +30,5 @@ public string FirstName { get; set; }
 public string? LastName { get; set; }
 ```
 
-CommandArgument에서 '<>' 로 감싸면 필수 입력 항목이 되고 '[]' 로 감싸면 선택적 입력 항목이 된다
+CommandArgument에서 '<>' 로 감싸면 필수 입력 항목이 되고 '[]' 로 감싸면 선택적
+입력 항목이 된다

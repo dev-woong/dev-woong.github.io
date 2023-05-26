@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-var obsidian = require('obsidian');
-var view = require('@codemirror/view');
-var state = require('@codemirror/state');
-var language = require('@codemirror/language');
+var obsidian = require("obsidian");
+var view = require("@codemirror/view");
+var state = require("@codemirror/state");
+var language = require("@codemirror/language");
 
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -21,2200 +21,2373 @@ PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
 function __awaiter(thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
+  function adopt(value) {
+    return value instanceof P ? value : new P(function (resolve) {
+      resolve(value);
     });
+  }
+  return new (P || (P = Promise))(function (resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function step(result) {
+      result.done
+        ? resolve(result.value)
+        : adopt(result.value).then(fulfilled, rejected);
+    }
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
 }
 
 function recalculateNumericBullets(root) {
-    function visit(parent) {
-        let index = 1;
-        for (const child of parent.getChildren()) {
-            if (/\d+\./.test(child.getBullet())) {
-                child.replateBullet(`${index++}.`);
-            }
-            visit(child);
-        }
+  function visit(parent) {
+    let index = 1;
+    for (const child of parent.getChildren()) {
+      if (/\d+\./.test(child.getBullet())) {
+        child.replateBullet(`${index++}.`);
+      }
+      visit(child);
     }
-    visit(root);
+  }
+  visit(root);
 }
 
 class DeleteAndMergeWithPreviousLineOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    const list = root.getListUnderCursor();
+    const cursor = root.getCursor();
+    const lines = list.getLinesInfo();
+    const lineNo = lines.findIndex((l) =>
+      cursor.ch === l.from.ch && cursor.line === l.from.line
+    );
+    if (lineNo === 0) {
+      this.mergeWithPreviousItem(root, cursor, list);
+    } else if (lineNo > 0) {
+      this.mergeNotes(root, cursor, list, lines, lineNo);
     }
-    shouldUpdate() {
-        return this.updated;
+  }
+  mergeNotes(root, cursor, list, lines, lineNo) {
+    this.stopPropagation = true;
+    this.updated = true;
+    const prevLineNo = lineNo - 1;
+    root.replaceCursor({
+      line: cursor.line - 1,
+      ch: lines[prevLineNo].text.length + lines[prevLineNo].from.ch,
+    });
+    lines[prevLineNo].text += lines[lineNo].text;
+    lines.splice(lineNo, 1);
+    list.replaceLines(lines.map((l) => l.text));
+  }
+  mergeWithPreviousItem(root, cursor, list) {
+    if (root.getChildren()[0] === list && list.getChildren().length === 0) {
+      return;
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        const list = root.getListUnderCursor();
-        const cursor = root.getCursor();
-        const lines = list.getLinesInfo();
-        const lineNo = lines.findIndex((l) => cursor.ch === l.from.ch && cursor.line === l.from.line);
-        if (lineNo === 0) {
-            this.mergeWithPreviousItem(root, cursor, list);
-        }
-        else if (lineNo > 0) {
-            this.mergeNotes(root, cursor, list, lines, lineNo);
-        }
+    this.stopPropagation = true;
+    const prev = root.getListUnderLine(cursor.line - 1);
+    if (!prev) {
+      return;
     }
-    mergeNotes(root, cursor, list, lines, lineNo) {
-        this.stopPropagation = true;
-        this.updated = true;
-        const prevLineNo = lineNo - 1;
-        root.replaceCursor({
-            line: cursor.line - 1,
-            ch: lines[prevLineNo].text.length + lines[prevLineNo].from.ch,
-        });
-        lines[prevLineNo].text += lines[lineNo].text;
-        lines.splice(lineNo, 1);
-        list.replaceLines(lines.map((l) => l.text));
+    const bothAreEmpty = prev.isEmpty() && list.isEmpty();
+    const prevIsEmptyAndSameLevel = prev.isEmpty() && !list.isEmpty() &&
+      prev.getLevel() == list.getLevel();
+    const listIsEmptyAndPrevIsParent = list.isEmpty() &&
+      prev.getLevel() == list.getLevel() - 1;
+    if (bothAreEmpty || prevIsEmptyAndSameLevel || listIsEmptyAndPrevIsParent) {
+      this.updated = true;
+      const parent = list.getParent();
+      const prevEnd = prev.getLastLineContentEnd();
+      if (!prev.getNotesIndent() && list.getNotesIndent()) {
+        prev.setNotesIndent(
+          prev.getFirstLineIndent() +
+            list.getNotesIndent().slice(list.getFirstLineIndent().length),
+        );
+      }
+      const oldLines = prev.getLines();
+      const newLines = list.getLines();
+      oldLines[oldLines.length - 1] += newLines[0];
+      const resultLines = oldLines.concat(newLines.slice(1));
+      prev.replaceLines(resultLines);
+      parent.removeChild(list);
+      for (const c of list.getChildren()) {
+        list.removeChild(c);
+        prev.addAfterAll(c);
+      }
+      root.replaceCursor(prevEnd);
+      recalculateNumericBullets(root);
     }
-    mergeWithPreviousItem(root, cursor, list) {
-        if (root.getChildren()[0] === list && list.getChildren().length === 0) {
-            return;
-        }
-        this.stopPropagation = true;
-        const prev = root.getListUnderLine(cursor.line - 1);
-        if (!prev) {
-            return;
-        }
-        const bothAreEmpty = prev.isEmpty() && list.isEmpty();
-        const prevIsEmptyAndSameLevel = prev.isEmpty() && !list.isEmpty() && prev.getLevel() == list.getLevel();
-        const listIsEmptyAndPrevIsParent = list.isEmpty() && prev.getLevel() == list.getLevel() - 1;
-        if (bothAreEmpty || prevIsEmptyAndSameLevel || listIsEmptyAndPrevIsParent) {
-            this.updated = true;
-            const parent = list.getParent();
-            const prevEnd = prev.getLastLineContentEnd();
-            if (!prev.getNotesIndent() && list.getNotesIndent()) {
-                prev.setNotesIndent(prev.getFirstLineIndent() +
-                    list.getNotesIndent().slice(list.getFirstLineIndent().length));
-            }
-            const oldLines = prev.getLines();
-            const newLines = list.getLines();
-            oldLines[oldLines.length - 1] += newLines[0];
-            const resultLines = oldLines.concat(newLines.slice(1));
-            prev.replaceLines(resultLines);
-            parent.removeChild(list);
-            for (const c of list.getChildren()) {
-                list.removeChild(c);
-                prev.addAfterAll(c);
-            }
-            root.replaceCursor(prevEnd);
-            recalculateNumericBullets(root);
-        }
-    }
+  }
 }
 
 class DeleteAndMergeWithNextLineOperation {
-    constructor(root) {
-        this.root = root;
-        this.deleteAndMergeWithPrevious =
-            new DeleteAndMergeWithPreviousLineOperation(root);
+  constructor(root) {
+    this.root = root;
+    this.deleteAndMergeWithPrevious =
+      new DeleteAndMergeWithPreviousLineOperation(root);
+  }
+  shouldStopPropagation() {
+    return this.deleteAndMergeWithPrevious.shouldStopPropagation();
+  }
+  shouldUpdate() {
+    return this.deleteAndMergeWithPrevious.shouldUpdate();
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.deleteAndMergeWithPrevious.shouldStopPropagation();
+    const list = root.getListUnderCursor();
+    const cursor = root.getCursor();
+    const lines = list.getLinesInfo();
+    const lineNo = lines.findIndex((l) =>
+      cursor.ch === l.to.ch && cursor.line === l.to.line
+    );
+    if (lineNo === lines.length - 1) {
+      const nextLine = lines[lineNo].to.line + 1;
+      const nextList = root.getListUnderLine(nextLine);
+      if (!nextList) {
+        return;
+      }
+      root.replaceCursor(nextList.getFirstLineContentStart());
+      this.deleteAndMergeWithPrevious.perform();
+    } else if (lineNo >= 0) {
+      root.replaceCursor(lines[lineNo + 1].from);
+      this.deleteAndMergeWithPrevious.perform();
     }
-    shouldUpdate() {
-        return this.deleteAndMergeWithPrevious.shouldUpdate();
-    }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        const list = root.getListUnderCursor();
-        const cursor = root.getCursor();
-        const lines = list.getLinesInfo();
-        const lineNo = lines.findIndex((l) => cursor.ch === l.to.ch && cursor.line === l.to.line);
-        if (lineNo === lines.length - 1) {
-            const nextLine = lines[lineNo].to.line + 1;
-            const nextList = root.getListUnderLine(nextLine);
-            if (!nextList) {
-                return;
-            }
-            root.replaceCursor(nextList.getFirstLineContentStart());
-            this.deleteAndMergeWithPrevious.perform();
-        }
-        else if (lineNo >= 0) {
-            root.replaceCursor(lines[lineNo + 1].from);
-            this.deleteAndMergeWithPrevious.perform();
-        }
-    }
+  }
 }
 
 class DeleteTillLineStartOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
-    }
-    shouldUpdate() {
-        return this.updated;
-    }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        this.stopPropagation = true;
-        this.updated = true;
-        const cursor = root.getCursor();
-        const list = root.getListUnderCursor();
-        const lines = list.getLinesInfo();
-        const lineNo = lines.findIndex((l) => l.from.line === cursor.line);
-        lines[lineNo].text = lines[lineNo].text.slice(cursor.ch - lines[lineNo].from.ch);
-        list.replaceLines(lines.map((l) => l.text));
-        root.replaceCursor(lines[lineNo].from);
-    }
+    this.stopPropagation = true;
+    this.updated = true;
+    const cursor = root.getCursor();
+    const list = root.getListUnderCursor();
+    const lines = list.getLinesInfo();
+    const lineNo = lines.findIndex((l) => l.from.line === cursor.line);
+    lines[lineNo].text = lines[lineNo].text.slice(
+      cursor.ch - lines[lineNo].from.ch,
+    );
+    list.replaceLines(lines.map((l) => l.text));
+    root.replaceCursor(lines[lineNo].from);
+  }
 }
 
 class DeleteShouldIgnoreBulletsFeature {
-    constructor(plugin, settings, ime, obsidian, performOperation) {
-        this.plugin = plugin;
-        this.settings = settings;
-        this.ime = ime;
-        this.obsidian = obsidian;
-        this.performOperation = performOperation;
-        this.check = () => {
-            return this.settings.stickCursor && !this.ime.isIMEOpened();
-        };
-        this.deleteAndMergeWithPreviousLine = (editor) => {
-            return this.performOperation.performOperation((root) => new DeleteAndMergeWithPreviousLineOperation(root), editor);
-        };
-        this.deleteTillLineStart = (editor) => {
-            return this.performOperation.performOperation((root) => new DeleteTillLineStartOperation(root), editor);
-        };
-        this.deleteAndMergeWithNextLine = (editor) => {
-            return this.performOperation.performOperation((root) => new DeleteAndMergeWithNextLineOperation(root), editor);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(view.keymap.of([
-                {
-                    key: "Backspace",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.deleteAndMergeWithPreviousLine,
-                    }),
-                },
-                {
-                    key: "Delete",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.deleteAndMergeWithNextLine,
-                    }),
-                },
-                {
-                    mac: "m-Backspace",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.deleteTillLineStart,
-                    }),
-                },
-            ]));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings, ime, obsidian, performOperation) {
+    this.plugin = plugin;
+    this.settings = settings;
+    this.ime = ime;
+    this.obsidian = obsidian;
+    this.performOperation = performOperation;
+    this.check = () => {
+      return this.settings.stickCursor && !this.ime.isIMEOpened();
+    };
+    this.deleteAndMergeWithPreviousLine = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new DeleteAndMergeWithPreviousLineOperation(root),
+        editor,
+      );
+    };
+    this.deleteTillLineStart = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new DeleteTillLineStartOperation(root),
+        editor,
+      );
+    };
+    this.deleteAndMergeWithNextLine = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new DeleteAndMergeWithNextLineOperation(root),
+        editor,
+      );
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(view.keymap.of([
+        {
+          key: "Backspace",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.deleteAndMergeWithPreviousLine,
+          }),
+        },
+        {
+          key: "Delete",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.deleteAndMergeWithNextLine,
+          }),
+        },
+        {
+          mac: "m-Backspace",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.deleteTillLineStart,
+          }),
+        },
+      ]));
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class EnsureCursorInListContentOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    this.stopPropagation = true;
+    const cursor = root.getCursor();
+    const list = root.getListUnderCursor();
+    const contentStart = list.getFirstLineContentStart();
+    const linePrefix = contentStart.line === cursor.line
+      ? contentStart.ch + list.getCheckboxLength()
+      : list.getNotesIndent().length;
+    if (cursor.ch < linePrefix) {
+      this.updated = true;
+      root.replaceCursor({
+        line: cursor.line,
+        ch: linePrefix,
+      });
     }
-    shouldUpdate() {
-        return this.updated;
-    }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        this.stopPropagation = true;
-        const cursor = root.getCursor();
-        const list = root.getListUnderCursor();
-        const contentStart = list.getFirstLineContentStart();
-        const linePrefix = contentStart.line === cursor.line
-            ? contentStart.ch + list.getCheckboxLength()
-            : list.getNotesIndent().length;
-        if (cursor.ch < linePrefix) {
-            this.updated = true;
-            root.replaceCursor({
-                line: cursor.line,
-                ch: linePrefix,
-            });
-        }
-    }
+  }
 }
 
 class EnsureCursorIsInUnfoldedLineOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    this.stopPropagation = true;
+    const cursor = root.getCursor();
+    const list = root.getListUnderCursor();
+    if (!list.isFolded()) {
+      return;
     }
-    shouldUpdate() {
-        return this.updated;
+    const foldRoot = list.getTopFoldRoot();
+    const firstLineEnd = foldRoot.getLinesInfo()[0].to;
+    if (cursor.line > firstLineEnd.line) {
+      this.updated = true;
+      root.replaceCursor(firstLineEnd);
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        this.stopPropagation = true;
-        const cursor = root.getCursor();
-        const list = root.getListUnderCursor();
-        if (!list.isFolded()) {
-            return;
-        }
-        const foldRoot = list.getTopFoldRoot();
-        const firstLineEnd = foldRoot.getLinesInfo()[0].to;
-        if (cursor.line > firstLineEnd.line) {
-            this.updated = true;
-            root.replaceCursor(firstLineEnd);
-        }
-    }
+  }
 }
 
 class EnsureCursorInListContentFeature {
-    constructor(plugin, settings, obsidian, performOperation) {
-        this.plugin = plugin;
-        this.settings = settings;
-        this.obsidian = obsidian;
-        this.performOperation = performOperation;
-        this.transactionExtender = (tr) => {
-            if (!this.settings.stickCursor || !tr.selection) {
-                return null;
-            }
-            const editor = this.obsidian.getEditorFromState(tr.startState);
-            setTimeout(() => {
-                this.handleCursorActivity(editor);
-            }, 0);
-            return null;
-        };
-        this.handleCursorActivity = (editor) => {
-            this.performOperation.performOperation((root) => new EnsureCursorIsInUnfoldedLineOperation(root), editor);
-            this.performOperation.performOperation((root) => new EnsureCursorInListContentOperation(root), editor);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(state.EditorState.transactionExtender.of(this.transactionExtender));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings, obsidian, performOperation) {
+    this.plugin = plugin;
+    this.settings = settings;
+    this.obsidian = obsidian;
+    this.performOperation = performOperation;
+    this.transactionExtender = (tr) => {
+      if (!this.settings.stickCursor || !tr.selection) {
+        return null;
+      }
+      const editor = this.obsidian.getEditorFromState(tr.startState);
+      setTimeout(() => {
+        this.handleCursorActivity(editor);
+      }, 0);
+      return null;
+    };
+    this.handleCursorActivity = (editor) => {
+      this.performOperation.performOperation(
+        (root) => new EnsureCursorIsInUnfoldedLineOperation(root),
+        editor,
+      );
+      this.performOperation.performOperation(
+        (root) => new EnsureCursorInListContentOperation(root),
+        editor,
+      );
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(
+        state.EditorState.transactionExtender.of(this.transactionExtender),
+      );
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class MoveLeftOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    this.stopPropagation = true;
+    const list = root.getListUnderCursor();
+    const parent = list.getParent();
+    const grandParent = parent.getParent();
+    if (!grandParent) {
+      return;
     }
-    shouldUpdate() {
-        return this.updated;
-    }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        this.stopPropagation = true;
-        const list = root.getListUnderCursor();
-        const parent = list.getParent();
-        const grandParent = parent.getParent();
-        if (!grandParent) {
-            return;
-        }
-        this.updated = true;
-        const listStartLineBefore = root.getContentLinesRangeOf(list)[0];
-        const indentRmFrom = parent.getFirstLineIndent().length;
-        const indentRmTill = list.getFirstLineIndent().length;
-        parent.removeChild(list);
-        grandParent.addAfter(parent, list);
-        list.unindentContent(indentRmFrom, indentRmTill);
-        const listStartLineAfter = root.getContentLinesRangeOf(list)[0];
-        const lineDiff = listStartLineAfter - listStartLineBefore;
-        const chDiff = indentRmTill - indentRmFrom;
-        const cursor = root.getCursor();
-        root.replaceCursor({
-            line: cursor.line + lineDiff,
-            ch: cursor.ch - chDiff,
-        });
-        recalculateNumericBullets(root);
-    }
+    this.updated = true;
+    const listStartLineBefore = root.getContentLinesRangeOf(list)[0];
+    const indentRmFrom = parent.getFirstLineIndent().length;
+    const indentRmTill = list.getFirstLineIndent().length;
+    parent.removeChild(list);
+    grandParent.addAfter(parent, list);
+    list.unindentContent(indentRmFrom, indentRmTill);
+    const listStartLineAfter = root.getContentLinesRangeOf(list)[0];
+    const lineDiff = listStartLineAfter - listStartLineBefore;
+    const chDiff = indentRmTill - indentRmFrom;
+    const cursor = root.getCursor();
+    root.replaceCursor({
+      line: cursor.line + lineDiff,
+      ch: cursor.ch - chDiff,
+    });
+    recalculateNumericBullets(root);
+  }
 }
 
 function isEmptyLineOrEmptyCheckbox(line) {
-    return line === "" || line === "[ ] ";
+  return line === "" || line === "[ ] ";
 }
 
 class OutdentIfLineIsEmptyOperation {
-    constructor(root) {
-        this.root = root;
-        this.moveLeftOp = new MoveLeftOperation(root);
+  constructor(root) {
+    this.root = root;
+    this.moveLeftOp = new MoveLeftOperation(root);
+  }
+  shouldStopPropagation() {
+    return this.moveLeftOp.shouldStopPropagation();
+  }
+  shouldUpdate() {
+    return this.moveLeftOp.shouldUpdate();
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.moveLeftOp.shouldStopPropagation();
+    const list = root.getListUnderCursor();
+    const lines = list.getLines();
+    if (
+      lines.length > 1 ||
+      !isEmptyLineOrEmptyCheckbox(lines[0]) ||
+      list.getLevel() === 1
+    ) {
+      return;
     }
-    shouldUpdate() {
-        return this.moveLeftOp.shouldUpdate();
-    }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        const list = root.getListUnderCursor();
-        const lines = list.getLines();
-        if (lines.length > 1 ||
-            !isEmptyLineOrEmptyCheckbox(lines[0]) ||
-            list.getLevel() === 1) {
-            return;
-        }
-        this.moveLeftOp.perform();
-    }
+    this.moveLeftOp.perform();
+  }
 }
 
 class EnterOutdentIfLineIsEmptyFeature {
-    constructor(plugin, settings, ime, obsidian, performOperation) {
-        this.plugin = plugin;
-        this.settings = settings;
-        this.ime = ime;
-        this.obsidian = obsidian;
-        this.performOperation = performOperation;
-        this.check = () => {
-            return this.settings.betterEnter && !this.ime.isIMEOpened();
-        };
-        this.run = (editor) => {
-            return this.performOperation.performOperation((root) => new OutdentIfLineIsEmptyOperation(root), editor);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(state.Prec.highest(view.keymap.of([
-                {
-                    key: "Enter",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.run,
-                    }),
-                },
-            ])));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings, ime, obsidian, performOperation) {
+    this.plugin = plugin;
+    this.settings = settings;
+    this.ime = ime;
+    this.obsidian = obsidian;
+    this.performOperation = performOperation;
+    this.check = () => {
+      return this.settings.betterEnter && !this.ime.isIMEOpened();
+    };
+    this.run = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new OutdentIfLineIsEmptyOperation(root),
+        editor,
+      );
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(state.Prec.highest(view.keymap.of([
+        {
+          key: "Enter",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.run,
+          }),
+        },
+      ])));
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 function cmpPos(a, b) {
-    return a.line - b.line || a.ch - b.ch;
+  return a.line - b.line || a.ch - b.ch;
 }
 function maxPos(a, b) {
-    return cmpPos(a, b) < 0 ? b : a;
+  return cmpPos(a, b) < 0 ? b : a;
 }
 function minPos(a, b) {
-    return cmpPos(a, b) < 0 ? a : b;
+  return cmpPos(a, b) < 0 ? a : b;
 }
 class List {
-    constructor(root, indent, bullet, checkboxLength, spaceAfterBullet, firstLine, foldRoot) {
-        this.root = root;
-        this.indent = indent;
-        this.bullet = bullet;
-        this.checkboxLength = checkboxLength;
-        this.spaceAfterBullet = spaceAfterBullet;
-        this.foldRoot = foldRoot;
-        this.parent = null;
-        this.children = [];
-        this.notesIndent = null;
-        this.lines = [];
-        this.lines.push(firstLine);
+  constructor(
+    root,
+    indent,
+    bullet,
+    checkboxLength,
+    spaceAfterBullet,
+    firstLine,
+    foldRoot,
+  ) {
+    this.root = root;
+    this.indent = indent;
+    this.bullet = bullet;
+    this.checkboxLength = checkboxLength;
+    this.spaceAfterBullet = spaceAfterBullet;
+    this.foldRoot = foldRoot;
+    this.parent = null;
+    this.children = [];
+    this.notesIndent = null;
+    this.lines = [];
+    this.lines.push(firstLine);
+  }
+  getNotesIndent() {
+    return this.notesIndent;
+  }
+  setNotesIndent(notesIndent) {
+    if (this.notesIndent !== null) {
+      throw new Error(`Notes indent already provided`);
     }
-    getNotesIndent() {
-        return this.notesIndent;
+    this.notesIndent = notesIndent;
+  }
+  addLine(text) {
+    if (this.notesIndent === null) {
+      throw new Error(
+        `Unable to add line, notes indent should be provided first`,
+      );
     }
-    setNotesIndent(notesIndent) {
-        if (this.notesIndent !== null) {
-            throw new Error(`Notes indent already provided`);
-        }
-        this.notesIndent = notesIndent;
+    this.lines.push(text);
+  }
+  replaceLines(lines) {
+    if (lines.length > 1 && this.notesIndent === null) {
+      throw new Error(
+        `Unable to add line, notes indent should be provided first`,
+      );
     }
-    addLine(text) {
-        if (this.notesIndent === null) {
-            throw new Error(`Unable to add line, notes indent should be provided first`);
-        }
-        this.lines.push(text);
+    this.lines = lines;
+  }
+  getLineCount() {
+    return this.lines.length;
+  }
+  getRoot() {
+    return this.root;
+  }
+  getChildren() {
+    return this.children.concat();
+  }
+  getLinesInfo() {
+    const startLine = this.root.getContentLinesRangeOf(this)[0];
+    return this.lines.map((row, i) => {
+      const line = startLine + i;
+      const startCh = i === 0
+        ? this.getContentStartCh()
+        : this.notesIndent.length;
+      const endCh = startCh + row.length;
+      return {
+        text: row,
+        from: { line, ch: startCh },
+        to: { line, ch: endCh },
+      };
+    });
+  }
+  getLines() {
+    return this.lines.concat();
+  }
+  getFirstLineContentStart() {
+    const startLine = this.root.getContentLinesRangeOf(this)[0];
+    return {
+      line: startLine,
+      ch: this.getContentStartCh(),
+    };
+  }
+  getLastLineContentEnd() {
+    const endLine = this.root.getContentLinesRangeOf(this)[1];
+    const endCh = this.lines.length === 1
+      ? this.getContentStartCh() + this.lines[0].length
+      : this.notesIndent.length + this.lines[this.lines.length - 1].length;
+    return {
+      line: endLine,
+      ch: endCh,
+    };
+  }
+  getContentStartCh() {
+    return this.indent.length + this.bullet.length + 1;
+  }
+  isFolded() {
+    if (this.foldRoot) {
+      return true;
     }
-    replaceLines(lines) {
-        if (lines.length > 1 && this.notesIndent === null) {
-            throw new Error(`Unable to add line, notes indent should be provided first`);
-        }
-        this.lines = lines;
+    if (this.parent) {
+      return this.parent.isFolded();
     }
-    getLineCount() {
-        return this.lines.length;
+    return false;
+  }
+  isFoldRoot() {
+    return this.foldRoot;
+  }
+  getTopFoldRoot() {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    let tmp = this;
+    let foldRoot = null;
+    while (tmp) {
+      if (tmp.isFoldRoot()) {
+        foldRoot = tmp;
+      }
+      tmp = tmp.parent;
     }
-    getRoot() {
-        return this.root;
+    return foldRoot;
+  }
+  getLevel() {
+    if (!this.parent) {
+      return 0;
     }
-    getChildren() {
-        return this.children.concat();
+    return this.parent.getLevel() + 1;
+  }
+  unindentContent(from, till) {
+    this.indent = this.indent.slice(0, from) + this.indent.slice(till);
+    if (this.notesIndent !== null) {
+      this.notesIndent = this.notesIndent.slice(0, from) +
+        this.notesIndent.slice(till);
     }
-    getLinesInfo() {
-        const startLine = this.root.getContentLinesRangeOf(this)[0];
-        return this.lines.map((row, i) => {
-            const line = startLine + i;
-            const startCh = i === 0 ? this.getContentStartCh() : this.notesIndent.length;
-            const endCh = startCh + row.length;
-            return {
-                text: row,
-                from: { line, ch: startCh },
-                to: { line, ch: endCh },
-            };
-        });
+    for (const child of this.children) {
+      child.unindentContent(from, till);
     }
-    getLines() {
-        return this.lines.concat();
+  }
+  indentContent(indentPos, indentChars) {
+    this.indent = this.indent.slice(0, indentPos) +
+      indentChars +
+      this.indent.slice(indentPos);
+    if (this.notesIndent !== null) {
+      this.notesIndent = this.notesIndent.slice(0, indentPos) +
+        indentChars +
+        this.notesIndent.slice(indentPos);
     }
-    getFirstLineContentStart() {
-        const startLine = this.root.getContentLinesRangeOf(this)[0];
-        return {
-            line: startLine,
-            ch: this.getContentStartCh(),
-        };
+    for (const child of this.children) {
+      child.indentContent(indentPos, indentChars);
     }
-    getLastLineContentEnd() {
-        const endLine = this.root.getContentLinesRangeOf(this)[1];
-        const endCh = this.lines.length === 1
-            ? this.getContentStartCh() + this.lines[0].length
-            : this.notesIndent.length + this.lines[this.lines.length - 1].length;
-        return {
-            line: endLine,
-            ch: endCh,
-        };
+  }
+  getFirstLineIndent() {
+    return this.indent;
+  }
+  getBullet() {
+    return this.bullet;
+  }
+  getSpaceAfterBullet() {
+    return this.spaceAfterBullet;
+  }
+  getCheckboxLength() {
+    return this.checkboxLength;
+  }
+  replateBullet(bullet) {
+    this.bullet = bullet;
+  }
+  getParent() {
+    return this.parent;
+  }
+  addBeforeAll(list) {
+    this.children.unshift(list);
+    list.parent = this;
+  }
+  addAfterAll(list) {
+    this.children.push(list);
+    list.parent = this;
+  }
+  removeChild(list) {
+    const i = this.children.indexOf(list);
+    this.children.splice(i, 1);
+    list.parent = null;
+  }
+  addBefore(before, list) {
+    const i = this.children.indexOf(before);
+    this.children.splice(i, 0, list);
+    list.parent = this;
+  }
+  addAfter(before, list) {
+    const i = this.children.indexOf(before);
+    this.children.splice(i + 1, 0, list);
+    list.parent = this;
+  }
+  getPrevSiblingOf(list) {
+    const i = this.children.indexOf(list);
+    return i > 0 ? this.children[i - 1] : null;
+  }
+  getNextSiblingOf(list) {
+    const i = this.children.indexOf(list);
+    return i >= 0 && i < this.children.length ? this.children[i + 1] : null;
+  }
+  isEmpty() {
+    return this.children.length === 0;
+  }
+  print() {
+    let res = "";
+    for (let i = 0; i < this.lines.length; i++) {
+      res += i === 0
+        ? this.indent + this.bullet + this.spaceAfterBullet
+        : this.notesIndent;
+      res += this.lines[i];
+      res += "\n";
     }
-    getContentStartCh() {
-        return this.indent.length + this.bullet.length + 1;
+    for (const child of this.children) {
+      res += child.print();
     }
-    isFolded() {
-        if (this.foldRoot) {
-            return true;
-        }
-        if (this.parent) {
-            return this.parent.isFolded();
-        }
-        return false;
-    }
-    isFoldRoot() {
-        return this.foldRoot;
-    }
-    getTopFoldRoot() {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        let tmp = this;
-        let foldRoot = null;
-        while (tmp) {
-            if (tmp.isFoldRoot()) {
-                foldRoot = tmp;
-            }
-            tmp = tmp.parent;
-        }
-        return foldRoot;
-    }
-    getLevel() {
-        if (!this.parent) {
-            return 0;
-        }
-        return this.parent.getLevel() + 1;
-    }
-    unindentContent(from, till) {
-        this.indent = this.indent.slice(0, from) + this.indent.slice(till);
-        if (this.notesIndent !== null) {
-            this.notesIndent =
-                this.notesIndent.slice(0, from) + this.notesIndent.slice(till);
-        }
-        for (const child of this.children) {
-            child.unindentContent(from, till);
-        }
-    }
-    indentContent(indentPos, indentChars) {
-        this.indent =
-            this.indent.slice(0, indentPos) +
-                indentChars +
-                this.indent.slice(indentPos);
-        if (this.notesIndent !== null) {
-            this.notesIndent =
-                this.notesIndent.slice(0, indentPos) +
-                    indentChars +
-                    this.notesIndent.slice(indentPos);
-        }
-        for (const child of this.children) {
-            child.indentContent(indentPos, indentChars);
-        }
-    }
-    getFirstLineIndent() {
-        return this.indent;
-    }
-    getBullet() {
-        return this.bullet;
-    }
-    getSpaceAfterBullet() {
-        return this.spaceAfterBullet;
-    }
-    getCheckboxLength() {
-        return this.checkboxLength;
-    }
-    replateBullet(bullet) {
-        this.bullet = bullet;
-    }
-    getParent() {
-        return this.parent;
-    }
-    addBeforeAll(list) {
-        this.children.unshift(list);
-        list.parent = this;
-    }
-    addAfterAll(list) {
-        this.children.push(list);
-        list.parent = this;
-    }
-    removeChild(list) {
-        const i = this.children.indexOf(list);
-        this.children.splice(i, 1);
-        list.parent = null;
-    }
-    addBefore(before, list) {
-        const i = this.children.indexOf(before);
-        this.children.splice(i, 0, list);
-        list.parent = this;
-    }
-    addAfter(before, list) {
-        const i = this.children.indexOf(before);
-        this.children.splice(i + 1, 0, list);
-        list.parent = this;
-    }
-    getPrevSiblingOf(list) {
-        const i = this.children.indexOf(list);
-        return i > 0 ? this.children[i - 1] : null;
-    }
-    getNextSiblingOf(list) {
-        const i = this.children.indexOf(list);
-        return i >= 0 && i < this.children.length ? this.children[i + 1] : null;
-    }
-    isEmpty() {
-        return this.children.length === 0;
-    }
-    print() {
-        let res = "";
-        for (let i = 0; i < this.lines.length; i++) {
-            res +=
-                i === 0
-                    ? this.indent + this.bullet + this.spaceAfterBullet
-                    : this.notesIndent;
-            res += this.lines[i];
-            res += "\n";
-        }
-        for (const child of this.children) {
-            res += child.print();
-        }
-        return res;
-    }
+    return res;
+  }
 }
 class Root {
-    constructor(start, end, selections) {
-        this.start = start;
-        this.end = end;
-        this.rootList = new List(this, "", "", 0, "", "", false);
-        this.selections = [];
-        this.replaceSelections(selections);
+  constructor(start, end, selections) {
+    this.start = start;
+    this.end = end;
+    this.rootList = new List(this, "", "", 0, "", "", false);
+    this.selections = [];
+    this.replaceSelections(selections);
+  }
+  getRootList() {
+    return this.rootList;
+  }
+  getRange() {
+    return [Object.assign({}, this.start), Object.assign({}, this.end)];
+  }
+  getSelections() {
+    return this.selections.map((s) => ({
+      anchor: Object.assign({}, s.anchor),
+      head: Object.assign({}, s.head),
+    }));
+  }
+  hasSingleCursor() {
+    if (!this.hasSingleSelection()) {
+      return false;
     }
-    getRootList() {
-        return this.rootList;
+    const selection = this.selections[0];
+    return (selection.anchor.line === selection.head.line &&
+      selection.anchor.ch === selection.head.ch);
+  }
+  hasSingleSelection() {
+    return this.selections.length === 1;
+  }
+  getSelection() {
+    const selection = this.selections[this.selections.length - 1];
+    const from = selection.anchor.ch > selection.head.ch
+      ? selection.head.ch
+      : selection.anchor.ch;
+    const to = selection.anchor.ch > selection.head.ch
+      ? selection.anchor.ch
+      : selection.head.ch;
+    return Object.assign(Object.assign({}, selection), { from, to });
+  }
+  getCursor() {
+    return Object.assign({}, this.selections[this.selections.length - 1].head);
+  }
+  replaceCursor(cursor) {
+    this.selections = [{ anchor: cursor, head: cursor }];
+  }
+  replaceSelections(selections) {
+    if (selections.length < 1) {
+      throw new Error(`Unable to create Root without selections`);
     }
-    getRange() {
-        return [Object.assign({}, this.start), Object.assign({}, this.end)];
+    this.selections = selections;
+  }
+  getListUnderCursor() {
+    return this.getListUnderLine(this.getCursor().line);
+  }
+  getListUnderLine(line) {
+    if (line < this.start.line || line > this.end.line) {
+      return;
     }
-    getSelections() {
-        return this.selections.map((s) => ({
-            anchor: Object.assign({}, s.anchor),
-            head: Object.assign({}, s.head),
-        }));
-    }
-    hasSingleCursor() {
-        if (!this.hasSingleSelection()) {
-            return false;
+    let result = null;
+    let index = this.start.line;
+    const visitArr = (ll) => {
+      for (const l of ll) {
+        const listFromLine = index;
+        const listTillLine = listFromLine + l.getLineCount() - 1;
+        if (line >= listFromLine && line <= listTillLine) {
+          result = l;
+        } else {
+          index = listTillLine + 1;
+          visitArr(l.getChildren());
         }
-        const selection = this.selections[0];
-        return (selection.anchor.line === selection.head.line &&
-            selection.anchor.ch === selection.head.ch);
-    }
-    hasSingleSelection() {
-        return this.selections.length === 1;
-    }
-    getSelection() {
-        const selection = this.selections[this.selections.length - 1];
-        const from = selection.anchor.ch > selection.head.ch
-            ? selection.head.ch
-            : selection.anchor.ch;
-        const to = selection.anchor.ch > selection.head.ch
-            ? selection.anchor.ch
-            : selection.head.ch;
-        return Object.assign(Object.assign({}, selection), { from,
-            to });
-    }
-    getCursor() {
-        return Object.assign({}, this.selections[this.selections.length - 1].head);
-    }
-    replaceCursor(cursor) {
-        this.selections = [{ anchor: cursor, head: cursor }];
-    }
-    replaceSelections(selections) {
-        if (selections.length < 1) {
-            throw new Error(`Unable to create Root without selections`);
+        if (result !== null) {
+          return;
         }
-        this.selections = selections;
-    }
-    getListUnderCursor() {
-        return this.getListUnderLine(this.getCursor().line);
-    }
-    getListUnderLine(line) {
-        if (line < this.start.line || line > this.end.line) {
-            return;
+      }
+    };
+    visitArr(this.rootList.getChildren());
+    return result;
+  }
+  getContentLinesRangeOf(list) {
+    let result = null;
+    let line = this.start.line;
+    const visitArr = (ll) => {
+      for (const l of ll) {
+        const listFromLine = line;
+        const listTillLine = listFromLine + l.getLineCount() - 1;
+        if (l === list) {
+          result = [listFromLine, listTillLine];
+        } else {
+          line = listTillLine + 1;
+          visitArr(l.getChildren());
         }
-        let result = null;
-        let index = this.start.line;
-        const visitArr = (ll) => {
-            for (const l of ll) {
-                const listFromLine = index;
-                const listTillLine = listFromLine + l.getLineCount() - 1;
-                if (line >= listFromLine && line <= listTillLine) {
-                    result = l;
-                }
-                else {
-                    index = listTillLine + 1;
-                    visitArr(l.getChildren());
-                }
-                if (result !== null) {
-                    return;
-                }
-            }
-        };
-        visitArr(this.rootList.getChildren());
-        return result;
-    }
-    getContentLinesRangeOf(list) {
-        let result = null;
-        let line = this.start.line;
-        const visitArr = (ll) => {
-            for (const l of ll) {
-                const listFromLine = line;
-                const listTillLine = listFromLine + l.getLineCount() - 1;
-                if (l === list) {
-                    result = [listFromLine, listTillLine];
-                }
-                else {
-                    line = listTillLine + 1;
-                    visitArr(l.getChildren());
-                }
-                if (result !== null) {
-                    return;
-                }
-            }
-        };
-        visitArr(this.rootList.getChildren());
-        return result;
-    }
-    getChildren() {
-        return this.rootList.getChildren();
-    }
-    print() {
-        let res = "";
-        for (const child of this.rootList.getChildren()) {
-            res += child.print();
+        if (result !== null) {
+          return;
         }
-        return res.replace(/\n$/, "");
+      }
+    };
+    visitArr(this.rootList.getChildren());
+    return result;
+  }
+  getChildren() {
+    return this.rootList.getChildren();
+  }
+  print() {
+    let res = "";
+    for (const child of this.rootList.getChildren()) {
+      res += child.print();
     }
+    return res.replace(/\n$/, "");
+  }
 }
 
 class CreateNewItemOperation {
-    constructor(root, defaultIndentChars, getZoomRange) {
-        this.root = root;
-        this.defaultIndentChars = defaultIndentChars;
-        this.getZoomRange = getZoomRange;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root, defaultIndentChars, getZoomRange) {
+    this.root = root;
+    this.defaultIndentChars = defaultIndentChars;
+    this.getZoomRange = getZoomRange;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleSelection()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    const selection = root.getSelection();
+    if (!selection || selection.anchor.line !== selection.head.line) {
+      return;
     }
-    shouldUpdate() {
-        return this.updated;
+    const list = root.getListUnderCursor();
+    const lines = list.getLinesInfo();
+    if (lines.length === 1 && isEmptyLineOrEmptyCheckbox(lines[0].text)) {
+      return;
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleSelection()) {
-            return;
-        }
-        const selection = root.getSelection();
-        if (!selection || selection.anchor.line !== selection.head.line) {
-            return;
-        }
-        const list = root.getListUnderCursor();
-        const lines = list.getLinesInfo();
-        if (lines.length === 1 && isEmptyLineOrEmptyCheckbox(lines[0].text)) {
-            return;
-        }
-        const cursor = root.getCursor();
-        const lineUnderCursor = lines.find((l) => l.from.line === cursor.line);
-        if (cursor.ch < lineUnderCursor.from.ch) {
-            return;
-        }
-        const { oldLines, newLines } = lines.reduce((acc, line) => {
-            if (cursor.line > line.from.line) {
-                acc.oldLines.push(line.text);
-            }
-            else if (cursor.line === line.from.line) {
-                const left = line.text.slice(0, selection.from - line.from.ch);
-                const right = line.text.slice(selection.to - line.from.ch);
-                acc.oldLines.push(left);
-                acc.newLines.push(right);
-            }
-            else if (cursor.line < line.from.line) {
-                acc.newLines.push(line.text);
-            }
-            return acc;
-        }, {
-            oldLines: [],
-            newLines: [],
-        });
-        const codeBlockBacticks = oldLines.join("\n").split("```").length - 1;
-        const isInsideCodeblock = codeBlockBacticks > 0 && codeBlockBacticks % 2 !== 0;
-        if (isInsideCodeblock) {
-            return;
-        }
-        this.stopPropagation = true;
-        this.updated = true;
-        const zoomRange = this.getZoomRange.getZoomRange();
-        const listIsZoomingRoot = Boolean(zoomRange &&
-            list.getFirstLineContentStart().line >= zoomRange.from.line &&
-            list.getLastLineContentEnd().line <= zoomRange.from.line);
-        const hasChildren = !list.isEmpty();
-        const childIsFolded = list.isFoldRoot();
-        const endPos = list.getLastLineContentEnd();
-        const endOfLine = cursor.line === endPos.line && cursor.ch === endPos.ch;
-        const onChildLevel = listIsZoomingRoot || (hasChildren && !childIsFolded && endOfLine);
-        const indent = onChildLevel
-            ? hasChildren
-                ? list.getChildren()[0].getFirstLineIndent()
-                : list.getFirstLineIndent() + this.defaultIndentChars
-            : list.getFirstLineIndent();
-        const bullet = onChildLevel && hasChildren
-            ? list.getChildren()[0].getBullet()
-            : list.getBullet();
-        const spaceAfterBullet = onChildLevel && hasChildren
-            ? list.getChildren()[0].getSpaceAfterBullet()
-            : list.getSpaceAfterBullet();
-        const prefix = oldLines[0].match(/^\[.\]/) ? "[ ] " : "";
-        const newList = new List(list.getRoot(), indent, bullet, prefix.length, spaceAfterBullet, prefix + newLines.shift(), false);
-        if (newLines.length > 0) {
-            newList.setNotesIndent(list.getNotesIndent());
-            for (const line of newLines) {
-                newList.addLine(line);
-            }
-        }
-        if (onChildLevel) {
-            list.addBeforeAll(newList);
-        }
-        else {
-            if (!childIsFolded || !endOfLine) {
-                const children = list.getChildren();
-                for (const child of children) {
-                    list.removeChild(child);
-                    newList.addAfterAll(child);
-                }
-            }
-            list.getParent().addAfter(list, newList);
-        }
-        list.replaceLines(oldLines);
-        const newListStart = newList.getFirstLineContentStart();
-        root.replaceCursor({
-            line: newListStart.line,
-            ch: newListStart.ch + prefix.length,
-        });
-        recalculateNumericBullets(root);
+    const cursor = root.getCursor();
+    const lineUnderCursor = lines.find((l) => l.from.line === cursor.line);
+    if (cursor.ch < lineUnderCursor.from.ch) {
+      return;
     }
+    const { oldLines, newLines } = lines.reduce((acc, line) => {
+      if (cursor.line > line.from.line) {
+        acc.oldLines.push(line.text);
+      } else if (cursor.line === line.from.line) {
+        const left = line.text.slice(0, selection.from - line.from.ch);
+        const right = line.text.slice(selection.to - line.from.ch);
+        acc.oldLines.push(left);
+        acc.newLines.push(right);
+      } else if (cursor.line < line.from.line) {
+        acc.newLines.push(line.text);
+      }
+      return acc;
+    }, {
+      oldLines: [],
+      newLines: [],
+    });
+    const codeBlockBacticks = oldLines.join("\n").split("```").length - 1;
+    const isInsideCodeblock = codeBlockBacticks > 0 &&
+      codeBlockBacticks % 2 !== 0;
+    if (isInsideCodeblock) {
+      return;
+    }
+    this.stopPropagation = true;
+    this.updated = true;
+    const zoomRange = this.getZoomRange.getZoomRange();
+    const listIsZoomingRoot = Boolean(
+      zoomRange &&
+        list.getFirstLineContentStart().line >= zoomRange.from.line &&
+        list.getLastLineContentEnd().line <= zoomRange.from.line,
+    );
+    const hasChildren = !list.isEmpty();
+    const childIsFolded = list.isFoldRoot();
+    const endPos = list.getLastLineContentEnd();
+    const endOfLine = cursor.line === endPos.line && cursor.ch === endPos.ch;
+    const onChildLevel = listIsZoomingRoot ||
+      (hasChildren && !childIsFolded && endOfLine);
+    const indent = onChildLevel
+      ? hasChildren
+        ? list.getChildren()[0].getFirstLineIndent()
+        : list.getFirstLineIndent() + this.defaultIndentChars
+      : list.getFirstLineIndent();
+    const bullet = onChildLevel && hasChildren
+      ? list.getChildren()[0].getBullet()
+      : list.getBullet();
+    const spaceAfterBullet = onChildLevel && hasChildren
+      ? list.getChildren()[0].getSpaceAfterBullet()
+      : list.getSpaceAfterBullet();
+    const prefix = oldLines[0].match(/^\[.\]/) ? "[ ] " : "";
+    const newList = new List(
+      list.getRoot(),
+      indent,
+      bullet,
+      prefix.length,
+      spaceAfterBullet,
+      prefix + newLines.shift(),
+      false,
+    );
+    if (newLines.length > 0) {
+      newList.setNotesIndent(list.getNotesIndent());
+      for (const line of newLines) {
+        newList.addLine(line);
+      }
+    }
+    if (onChildLevel) {
+      list.addBeforeAll(newList);
+    } else {
+      if (!childIsFolded || !endOfLine) {
+        const children = list.getChildren();
+        for (const child of children) {
+          list.removeChild(child);
+          newList.addAfterAll(child);
+        }
+      }
+      list.getParent().addAfter(list, newList);
+    }
+    list.replaceLines(oldLines);
+    const newListStart = newList.getFirstLineContentStart();
+    root.replaceCursor({
+      line: newListStart.line,
+      ch: newListStart.ch + prefix.length,
+    });
+    recalculateNumericBullets(root);
+  }
 }
 
 class EnterShouldCreateNewItemFeature {
-    constructor(plugin, settings, ime, obsidian, performOperation) {
-        this.plugin = plugin;
-        this.settings = settings;
-        this.ime = ime;
-        this.obsidian = obsidian;
-        this.performOperation = performOperation;
-        this.check = () => {
-            return this.settings.betterEnter && !this.ime.isIMEOpened();
-        };
-        this.run = (editor) => {
-            const zoomRange = editor.getZoomRange();
-            const res = this.performOperation.performOperation((root) => new CreateNewItemOperation(root, this.obsidian.getDefaultIndentChars(), {
-                getZoomRange: () => zoomRange,
-            }), editor);
-            if (res.shouldUpdate && zoomRange) {
-                editor.zoomIn(zoomRange.from.line);
-            }
-            return res;
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(state.Prec.highest(view.keymap.of([
-                {
-                    key: "Enter",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.run,
-                    }),
-                },
-            ])));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings, ime, obsidian, performOperation) {
+    this.plugin = plugin;
+    this.settings = settings;
+    this.ime = ime;
+    this.obsidian = obsidian;
+    this.performOperation = performOperation;
+    this.check = () => {
+      return this.settings.betterEnter && !this.ime.isIMEOpened();
+    };
+    this.run = (editor) => {
+      const zoomRange = editor.getZoomRange();
+      const res = this.performOperation.performOperation(
+        (root) =>
+          new CreateNewItemOperation(
+            root,
+            this.obsidian.getDefaultIndentChars(),
+            {
+              getZoomRange: () => zoomRange,
+            },
+          ),
+        editor,
+      );
+      if (res.shouldUpdate && zoomRange) {
+        editor.zoomIn(zoomRange.from.line);
+      }
+      return res;
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(state.Prec.highest(view.keymap.of([
+        {
+          key: "Enter",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.run,
+          }),
+        },
+      ])));
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class FoldFeature {
-    constructor(plugin, obsidian) {
-        this.plugin = plugin;
-        this.obsidian = obsidian;
-        this.fold = (editor) => {
-            return this.setFold(editor, "fold");
-        };
-        this.unfold = (editor) => {
-            return this.setFold(editor, "unfold");
-        };
+  constructor(plugin, obsidian) {
+    this.plugin = plugin;
+    this.obsidian = obsidian;
+    this.fold = (editor) => {
+      return this.setFold(editor, "fold");
+    };
+    this.unfold = (editor) => {
+      return this.setFold(editor, "unfold");
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.addCommand({
+        id: "fold",
+        icon: "chevrons-down-up",
+        name: "Fold the list",
+        editorCallback: this.obsidian.createEditorCallback(this.fold),
+        hotkeys: [
+          {
+            modifiers: ["Mod"],
+            key: "ArrowUp",
+          },
+        ],
+      });
+      this.plugin.addCommand({
+        id: "unfold",
+        icon: "chevrons-up-down",
+        name: "Unfold the list",
+        editorCallback: this.obsidian.createEditorCallback(this.unfold),
+        hotkeys: [
+          {
+            modifiers: ["Mod"],
+            key: "ArrowDown",
+          },
+        ],
+      });
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
+  setFold(editor, type) {
+    if (!this.obsidian.getObsidianFoldSettings().foldIndent) {
+      new obsidian.Notice(
+        `Unable to ${type} because folding is disabled. Please enable "Fold indent" in Obsidian settings.`,
+        5000,
+      );
+      return true;
     }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.addCommand({
-                id: "fold",
-                icon: "chevrons-down-up",
-                name: "Fold the list",
-                editorCallback: this.obsidian.createEditorCallback(this.fold),
-                hotkeys: [
-                    {
-                        modifiers: ["Mod"],
-                        key: "ArrowUp",
-                    },
-                ],
-            });
-            this.plugin.addCommand({
-                id: "unfold",
-                icon: "chevrons-up-down",
-                name: "Unfold the list",
-                editorCallback: this.obsidian.createEditorCallback(this.unfold),
-                hotkeys: [
-                    {
-                        modifiers: ["Mod"],
-                        key: "ArrowDown",
-                    },
-                ],
-            });
-        });
+    const cursor = editor.getCursor();
+    if (type === "fold") {
+      editor.fold(cursor.line);
+    } else {
+      editor.unfold(cursor.line);
     }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
-    setFold(editor, type) {
-        if (!this.obsidian.getObsidianFoldSettings().foldIndent) {
-            new obsidian.Notice(`Unable to ${type} because folding is disabled. Please enable "Fold indent" in Obsidian settings.`, 5000);
-            return true;
-        }
-        const cursor = editor.getCursor();
-        if (type === "fold") {
-            editor.fold(cursor.line);
-        }
-        else {
-            editor.unfold(cursor.line);
-        }
-        return true;
-    }
+    return true;
+  }
 }
 
 function foldInside(view, from, to) {
-    let found = null;
-    language.foldedRanges(view.state).between(from, to, (from, to) => {
-        if (!found || found.from > from)
-            found = { from, to };
-    });
-    return found;
+  let found = null;
+  language.foldedRanges(view.state).between(from, to, (from, to) => {
+    if (!found || found.from > from) {
+      found = { from, to };
+    }
+  });
+  return found;
 }
 class MyEditor {
-    constructor(e) {
-        this.e = e;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        this.view = this.e.cm;
+  constructor(e) {
+    this.e = e;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this.view = this.e.cm;
+  }
+  getCursor() {
+    return this.e.getCursor();
+  }
+  getLine(n) {
+    return this.e.getLine(n);
+  }
+  lastLine() {
+    return this.e.lastLine();
+  }
+  listSelections() {
+    return this.e.listSelections();
+  }
+  getRange(from, to) {
+    return this.e.getRange(from, to);
+  }
+  replaceRange(replacement, from, to) {
+    return this.e.replaceRange(replacement, from, to);
+  }
+  setSelections(selections) {
+    this.e.setSelections(selections);
+  }
+  setValue(text) {
+    this.e.setValue(text);
+  }
+  getValue() {
+    return this.e.getValue();
+  }
+  offsetToPos(offset) {
+    return this.e.offsetToPos(offset);
+  }
+  posToOffset(pos) {
+    return this.e.posToOffset(pos);
+  }
+  fold(n) {
+    const { view } = this;
+    const l = view.lineBlockAt(view.state.doc.line(n + 1).from);
+    const range = language.foldable(view.state, l.from, l.to);
+    if (!range || range.from === range.to) {
+      return;
     }
-    getCursor() {
-        return this.e.getCursor();
+    view.dispatch({ effects: [language.foldEffect.of(range)] });
+  }
+  unfold(n) {
+    const { view } = this;
+    const l = view.lineBlockAt(view.state.doc.line(n + 1).from);
+    const range = foldInside(view, l.from, l.to);
+    if (!range) {
+      return;
     }
-    getLine(n) {
-        return this.e.getLine(n);
+    view.dispatch({ effects: [language.unfoldEffect.of(range)] });
+  }
+  getAllFoldedLines() {
+    const c = language.foldedRanges(this.view.state).iter();
+    const res = [];
+    while (c.value) {
+      res.push(this.offsetToPos(c.from).line);
+      c.next();
     }
-    lastLine() {
-        return this.e.lastLine();
+    return res;
+  }
+  triggerOnKeyDown(e) {
+    view.runScopeHandlers(this.view, e, "editor");
+  }
+  getZoomRange() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const api = window.ObsidianZoomPlugin;
+    if (!api || !api.getZoomRange) {
+      return null;
     }
-    listSelections() {
-        return this.e.listSelections();
+    return api.getZoomRange(this.e);
+  }
+  zoomOut() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const api = window.ObsidianZoomPlugin;
+    if (!api || !api.zoomOut) {
+      return;
     }
-    getRange(from, to) {
-        return this.e.getRange(from, to);
+    api.zoomOut(this.e);
+  }
+  zoomIn(line) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const api = window.ObsidianZoomPlugin;
+    if (!api || !api.zoomIn) {
+      return;
     }
-    replaceRange(replacement, from, to) {
-        return this.e.replaceRange(replacement, from, to);
-    }
-    setSelections(selections) {
-        this.e.setSelections(selections);
-    }
-    setValue(text) {
-        this.e.setValue(text);
-    }
-    getValue() {
-        return this.e.getValue();
-    }
-    offsetToPos(offset) {
-        return this.e.offsetToPos(offset);
-    }
-    posToOffset(pos) {
-        return this.e.posToOffset(pos);
-    }
-    fold(n) {
-        const { view } = this;
-        const l = view.lineBlockAt(view.state.doc.line(n + 1).from);
-        const range = language.foldable(view.state, l.from, l.to);
-        if (!range || range.from === range.to) {
-            return;
-        }
-        view.dispatch({ effects: [language.foldEffect.of(range)] });
-    }
-    unfold(n) {
-        const { view } = this;
-        const l = view.lineBlockAt(view.state.doc.line(n + 1).from);
-        const range = foldInside(view, l.from, l.to);
-        if (!range) {
-            return;
-        }
-        view.dispatch({ effects: [language.unfoldEffect.of(range)] });
-    }
-    getAllFoldedLines() {
-        const c = language.foldedRanges(this.view.state).iter();
-        const res = [];
-        while (c.value) {
-            res.push(this.offsetToPos(c.from).line);
-            c.next();
-        }
-        return res;
-    }
-    triggerOnKeyDown(e) {
-        view.runScopeHandlers(this.view, e, "editor");
-    }
-    getZoomRange() {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const api = window.ObsidianZoomPlugin;
-        if (!api || !api.getZoomRange) {
-            return null;
-        }
-        return api.getZoomRange(this.e);
-    }
-    zoomOut() {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const api = window.ObsidianZoomPlugin;
-        if (!api || !api.zoomOut) {
-            return;
-        }
-        api.zoomOut(this.e);
-    }
-    zoomIn(line) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const api = window.ObsidianZoomPlugin;
-        if (!api || !api.zoomIn) {
-            return;
-        }
-        api.zoomIn(this.e, line);
-    }
+    api.zoomIn(this.e, line);
+  }
 }
 
 class ListLinesViewPluginValue {
-    constructor(settings, obsidian$1, parser, view) {
-        this.settings = settings;
-        this.obsidian = obsidian$1;
-        this.parser = parser;
-        this.view = view;
-        this.lineElements = [];
-        this.waitForEditor = () => {
-            const oe = this.view.state.field(obsidian.editorInfoField).editor;
-            if (!oe) {
-                setTimeout(this.waitForEditor, 0);
-                return;
-            }
-            this.editor = new MyEditor(oe);
-            this.scheduleRecalculate();
-        };
-        this.onScroll = (e) => {
-            const { scrollLeft, scrollTop } = e.target;
-            this.scroller.scrollTo(scrollLeft, scrollTop);
-        };
-        this.scheduleRecalculate = () => {
-            clearTimeout(this.scheduled);
-            this.scheduled = setTimeout(this.calculate, 0);
-        };
-        this.calculate = () => {
-            this.lines = [];
-            if (this.settings.listLines &&
-                this.obsidian.isDefaultThemeEnabled() &&
-                this.view.viewportLineBlocks.length > 0 &&
-                this.view.visibleRanges.length > 0) {
-                const fromLine = this.editor.offsetToPos(this.view.viewport.from).line;
-                const toLine = this.editor.offsetToPos(this.view.viewport.to).line;
-                const lists = this.parser.parseRange(this.editor, fromLine, toLine);
-                for (const list of lists) {
-                    this.lastLine = list.getRange()[1].line;
-                    for (const c of list.getChildren()) {
-                        this.recursive(c);
-                    }
-                }
-                this.lines.sort((a, b) => a.top === b.top ? a.left - b.left : a.top - b.top);
-            }
-            this.updateDom();
-        };
-        this.onClick = (e) => {
-            e.preventDefault();
-            const line = this.lines[Number(e.target.dataset.index)];
-            switch (this.settings.listLineAction) {
-                case "zoom-in":
-                    this.zoomIn(line);
-                    break;
-                case "toggle-folding":
-                    this.toggleFolding(line);
-                    break;
-            }
-        };
-        this.view.scrollDOM.addEventListener("scroll", this.onScroll);
-        this.settings.onChange("listLines", this.scheduleRecalculate);
-        this.prepareDom();
-        this.waitForEditor();
+  constructor(settings, obsidian$1, parser, view) {
+    this.settings = settings;
+    this.obsidian = obsidian$1;
+    this.parser = parser;
+    this.view = view;
+    this.lineElements = [];
+    this.waitForEditor = () => {
+      const oe = this.view.state.field(obsidian.editorInfoField).editor;
+      if (!oe) {
+        setTimeout(this.waitForEditor, 0);
+        return;
+      }
+      this.editor = new MyEditor(oe);
+      this.scheduleRecalculate();
+    };
+    this.onScroll = (e) => {
+      const { scrollLeft, scrollTop } = e.target;
+      this.scroller.scrollTo(scrollLeft, scrollTop);
+    };
+    this.scheduleRecalculate = () => {
+      clearTimeout(this.scheduled);
+      this.scheduled = setTimeout(this.calculate, 0);
+    };
+    this.calculate = () => {
+      this.lines = [];
+      if (
+        this.settings.listLines &&
+        this.obsidian.isDefaultThemeEnabled() &&
+        this.view.viewportLineBlocks.length > 0 &&
+        this.view.visibleRanges.length > 0
+      ) {
+        const fromLine = this.editor.offsetToPos(this.view.viewport.from).line;
+        const toLine = this.editor.offsetToPos(this.view.viewport.to).line;
+        const lists = this.parser.parseRange(this.editor, fromLine, toLine);
+        for (const list of lists) {
+          this.lastLine = list.getRange()[1].line;
+          for (const c of list.getChildren()) {
+            this.recursive(c);
+          }
+        }
+        this.lines.sort((a, b) =>
+          a.top === b.top ? a.left - b.left : a.top - b.top
+        );
+      }
+      this.updateDom();
+    };
+    this.onClick = (e) => {
+      e.preventDefault();
+      const line = this.lines[Number(e.target.dataset.index)];
+      switch (this.settings.listLineAction) {
+        case "zoom-in":
+          this.zoomIn(line);
+          break;
+        case "toggle-folding":
+          this.toggleFolding(line);
+          break;
+      }
+    };
+    this.view.scrollDOM.addEventListener("scroll", this.onScroll);
+    this.settings.onChange("listLines", this.scheduleRecalculate);
+    this.prepareDom();
+    this.waitForEditor();
+  }
+  prepareDom() {
+    this.contentContainer = document.createElement("div");
+    this.contentContainer.classList.add(
+      "outliner-plugin-list-lines-content-container",
+    );
+    this.scroller = document.createElement("div");
+    this.scroller.classList.add("outliner-plugin-list-lines-scroller");
+    this.scroller.appendChild(this.contentContainer);
+    this.view.dom.appendChild(this.scroller);
+  }
+  update(update) {
+    if (
+      update.docChanged ||
+      update.viewportChanged ||
+      update.geometryChanged ||
+      update.transactions.some((tr) => tr.reconfigured)
+    ) {
+      this.scheduleRecalculate();
     }
-    prepareDom() {
-        this.contentContainer = document.createElement("div");
-        this.contentContainer.classList.add("outliner-plugin-list-lines-content-container");
-        this.scroller = document.createElement("div");
-        this.scroller.classList.add("outliner-plugin-list-lines-scroller");
-        this.scroller.appendChild(this.contentContainer);
-        this.view.dom.appendChild(this.scroller);
+  }
+  getNextSibling(list) {
+    let listTmp = list;
+    let p = listTmp.getParent();
+    while (p) {
+      const nextSibling = p.getNextSiblingOf(listTmp);
+      if (nextSibling) {
+        return nextSibling;
+      }
+      listTmp = p;
+      p = listTmp.getParent();
     }
-    update(update) {
-        if (update.docChanged ||
-            update.viewportChanged ||
-            update.geometryChanged ||
-            update.transactions.some((tr) => tr.reconfigured)) {
-            this.scheduleRecalculate();
-        }
+    return null;
+  }
+  recursive(list, parentCtx = {}) {
+    const children = list.getChildren();
+    if (children.length === 0) {
+      return;
     }
-    getNextSibling(list) {
-        let listTmp = list;
-        let p = listTmp.getParent();
-        while (p) {
-            const nextSibling = p.getNextSiblingOf(listTmp);
-            if (nextSibling) {
-                return nextSibling;
-            }
-            listTmp = p;
-            p = listTmp.getParent();
-        }
-        return null;
+    const fromOffset = this.editor.posToOffset({
+      line: list.getFirstLineContentStart().line,
+      ch: list.getFirstLineIndent().length,
+    });
+    const nextSibling = this.getNextSibling(list);
+    const tillOffset = this.editor.posToOffset({
+      line: nextSibling
+        ? nextSibling.getFirstLineContentStart().line - 1
+        : this.lastLine,
+      ch: 0,
+    });
+    let visibleFrom = this.view.visibleRanges[0].from;
+    let visibleTo =
+      this.view.visibleRanges[this.view.visibleRanges.length - 1].to;
+    const zoomRange = this.editor.getZoomRange();
+    if (zoomRange) {
+      visibleFrom = Math.max(
+        visibleFrom,
+        this.editor.posToOffset(zoomRange.from),
+      );
+      visibleTo = Math.min(visibleTo, this.editor.posToOffset(zoomRange.to));
     }
-    recursive(list, parentCtx = {}) {
-        const children = list.getChildren();
-        if (children.length === 0) {
-            return;
-        }
-        const fromOffset = this.editor.posToOffset({
-            line: list.getFirstLineContentStart().line,
-            ch: list.getFirstLineIndent().length,
-        });
-        const nextSibling = this.getNextSibling(list);
-        const tillOffset = this.editor.posToOffset({
-            line: nextSibling
-                ? nextSibling.getFirstLineContentStart().line - 1
-                : this.lastLine,
-            ch: 0,
-        });
-        let visibleFrom = this.view.visibleRanges[0].from;
-        let visibleTo = this.view.visibleRanges[this.view.visibleRanges.length - 1].to;
-        const zoomRange = this.editor.getZoomRange();
-        if (zoomRange) {
-            visibleFrom = Math.max(visibleFrom, this.editor.posToOffset(zoomRange.from));
-            visibleTo = Math.min(visibleTo, this.editor.posToOffset(zoomRange.to));
-        }
-        if (fromOffset > visibleTo || tillOffset < visibleFrom) {
-            return;
-        }
-        const coords = this.view.coordsAtPos(fromOffset, 1);
-        if (parentCtx.rootLeft === undefined) {
-            parentCtx.rootLeft = coords.left;
-        }
-        const left = Math.floor(coords.right - parentCtx.rootLeft);
-        const top = visibleFrom > 0 && fromOffset < visibleFrom
-            ? -20
-            : this.view.lineBlockAt(fromOffset).top;
-        const bottom = tillOffset > visibleTo
-            ? this.view.lineBlockAt(visibleTo - 1).bottom
-            : this.view.lineBlockAt(tillOffset).bottom;
-        const height = bottom - top;
-        if (height > 0 && !list.isFolded()) {
-            const nextSibling = list.getParent().getNextSiblingOf(list);
-            const hasNextSibling = !!nextSibling &&
-                this.editor.posToOffset(nextSibling.getFirstLineContentStart()) <=
-                    visibleTo;
-            this.lines.push({
-                top,
-                left,
-                height: `calc(${height}px ${hasNextSibling ? "- 1.5em" : "- 2em"})`,
-                list,
-            });
-        }
-        for (const child of children) {
-            if (!child.isEmpty()) {
-                this.recursive(child, parentCtx);
-            }
-        }
+    if (fromOffset > visibleTo || tillOffset < visibleFrom) {
+      return;
     }
-    zoomIn(line) {
-        const editor = new MyEditor(this.view.state.field(obsidian.editorInfoField).editor);
-        editor.zoomIn(line.list.getFirstLineContentStart().line);
+    const coords = this.view.coordsAtPos(fromOffset, 1);
+    if (parentCtx.rootLeft === undefined) {
+      parentCtx.rootLeft = coords.left;
     }
-    toggleFolding(line) {
-        const { list } = line;
-        if (list.isEmpty()) {
-            return;
-        }
-        let needToUnfold = true;
-        const linesToToggle = [];
-        for (const c of list.getChildren()) {
-            if (c.isEmpty()) {
-                continue;
-            }
-            if (!c.isFolded()) {
-                needToUnfold = false;
-            }
-            linesToToggle.push(c.getFirstLineContentStart().line);
-        }
-        const editor = new MyEditor(this.view.state.field(obsidian.editorInfoField).editor);
-        for (const l of linesToToggle) {
-            if (needToUnfold) {
-                editor.unfold(l);
-            }
-            else {
-                editor.fold(l);
-            }
-        }
+    const left = Math.floor(coords.right - parentCtx.rootLeft);
+    const top = visibleFrom > 0 && fromOffset < visibleFrom
+      ? -20
+      : this.view.lineBlockAt(fromOffset).top;
+    const bottom = tillOffset > visibleTo
+      ? this.view.lineBlockAt(visibleTo - 1).bottom
+      : this.view.lineBlockAt(tillOffset).bottom;
+    const height = bottom - top;
+    if (height > 0 && !list.isFolded()) {
+      const nextSibling = list.getParent().getNextSiblingOf(list);
+      const hasNextSibling = !!nextSibling &&
+        this.editor.posToOffset(nextSibling.getFirstLineContentStart()) <=
+          visibleTo;
+      this.lines.push({
+        top,
+        left,
+        height: `calc(${height}px ${hasNextSibling ? "- 1.5em" : "- 2em"})`,
+        list,
+      });
     }
-    updateDom() {
-        const cmScroll = this.view.scrollDOM;
-        const cmContent = this.view.contentDOM;
-        const cmContentContainer = cmContent.parentElement;
-        const cmSizer = cmContentContainer.parentElement;
-        /**
-         * Obsidian can add additional elements into Content Manager.
-         * The most obvious case is the 'embedded-backlinks' core plugin that adds a menu inside a Content Manager.
-         * We must take heights of all of these elements into account
-         * to be able to calculate the correct size of lines' container.
-         */
-        let cmSizerChildrenSumHeight = 0;
-        for (let i = 0; i < cmSizer.children.length; i++) {
-            cmSizerChildrenSumHeight += cmSizer.children[i].clientHeight;
-        }
-        this.scroller.style.top = cmScroll.offsetTop + "px";
-        this.contentContainer.style.height = cmSizerChildrenSumHeight + "px";
-        this.contentContainer.style.marginLeft =
-            cmContentContainer.offsetLeft + "px";
-        this.contentContainer.style.marginTop =
-            cmContent.firstElementChild.offsetTop - 24 + "px";
-        for (let i = 0; i < this.lines.length; i++) {
-            if (this.lineElements.length === i) {
-                const e = document.createElement("div");
-                e.classList.add("outliner-plugin-list-line");
-                e.dataset.index = String(i);
-                e.addEventListener("mousedown", this.onClick);
-                this.contentContainer.appendChild(e);
-                this.lineElements.push(e);
-            }
-            const l = this.lines[i];
-            const e = this.lineElements[i];
-            e.style.top = l.top + "px";
-            e.style.left = l.left + "px";
-            e.style.height = l.height;
-            e.style.display = "block";
-        }
-        for (let i = this.lines.length; i < this.lineElements.length; i++) {
-            const e = this.lineElements[i];
-            e.style.top = "0px";
-            e.style.left = "0px";
-            e.style.height = "0px";
-            e.style.display = "none";
-        }
+    for (const child of children) {
+      if (!child.isEmpty()) {
+        this.recursive(child, parentCtx);
+      }
     }
-    destroy() {
-        this.settings.removeCallback("listLines", this.scheduleRecalculate);
-        this.view.scrollDOM.removeEventListener("scroll", this.onScroll);
-        this.view.dom.removeChild(this.scroller);
-        clearTimeout(this.scheduled);
+  }
+  zoomIn(line) {
+    const editor = new MyEditor(
+      this.view.state.field(obsidian.editorInfoField).editor,
+    );
+    editor.zoomIn(line.list.getFirstLineContentStart().line);
+  }
+  toggleFolding(line) {
+    const { list } = line;
+    if (list.isEmpty()) {
+      return;
     }
+    let needToUnfold = true;
+    const linesToToggle = [];
+    for (const c of list.getChildren()) {
+      if (c.isEmpty()) {
+        continue;
+      }
+      if (!c.isFolded()) {
+        needToUnfold = false;
+      }
+      linesToToggle.push(c.getFirstLineContentStart().line);
+    }
+    const editor = new MyEditor(
+      this.view.state.field(obsidian.editorInfoField).editor,
+    );
+    for (const l of linesToToggle) {
+      if (needToUnfold) {
+        editor.unfold(l);
+      } else {
+        editor.fold(l);
+      }
+    }
+  }
+  updateDom() {
+    const cmScroll = this.view.scrollDOM;
+    const cmContent = this.view.contentDOM;
+    const cmContentContainer = cmContent.parentElement;
+    const cmSizer = cmContentContainer.parentElement;
+    /**
+     * Obsidian can add additional elements into Content Manager.
+     * The most obvious case is the 'embedded-backlinks' core plugin that adds a menu inside a Content Manager.
+     * We must take heights of all of these elements into account
+     * to be able to calculate the correct size of lines' container.
+     */
+    let cmSizerChildrenSumHeight = 0;
+    for (let i = 0; i < cmSizer.children.length; i++) {
+      cmSizerChildrenSumHeight += cmSizer.children[i].clientHeight;
+    }
+    this.scroller.style.top = cmScroll.offsetTop + "px";
+    this.contentContainer.style.height = cmSizerChildrenSumHeight + "px";
+    this.contentContainer.style.marginLeft = cmContentContainer.offsetLeft +
+      "px";
+    this.contentContainer.style.marginTop =
+      cmContent.firstElementChild.offsetTop - 24 + "px";
+    for (let i = 0; i < this.lines.length; i++) {
+      if (this.lineElements.length === i) {
+        const e = document.createElement("div");
+        e.classList.add("outliner-plugin-list-line");
+        e.dataset.index = String(i);
+        e.addEventListener("mousedown", this.onClick);
+        this.contentContainer.appendChild(e);
+        this.lineElements.push(e);
+      }
+      const l = this.lines[i];
+      const e = this.lineElements[i];
+      e.style.top = l.top + "px";
+      e.style.left = l.left + "px";
+      e.style.height = l.height;
+      e.style.display = "block";
+    }
+    for (let i = this.lines.length; i < this.lineElements.length; i++) {
+      const e = this.lineElements[i];
+      e.style.top = "0px";
+      e.style.left = "0px";
+      e.style.height = "0px";
+      e.style.display = "none";
+    }
+  }
+  destroy() {
+    this.settings.removeCallback("listLines", this.scheduleRecalculate);
+    this.view.scrollDOM.removeEventListener("scroll", this.onScroll);
+    this.view.dom.removeChild(this.scroller);
+    clearTimeout(this.scheduled);
+  }
 }
 class LinesFeature {
-    constructor(plugin, settings, obsidian, parser) {
-        this.plugin = plugin;
-        this.settings = settings;
-        this.obsidian = obsidian;
-        this.parser = parser;
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(view.ViewPlugin.define((view) => new ListLinesViewPluginValue(this.settings, this.obsidian, this.parser, view)));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings, obsidian, parser) {
+    this.plugin = plugin;
+    this.settings = settings;
+    this.obsidian = obsidian;
+    this.parser = parser;
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(
+        view.ViewPlugin.define((view) =>
+          new ListLinesViewPluginValue(
+            this.settings,
+            this.obsidian,
+            this.parser,
+            view,
+          )
+        ),
+      );
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 const BETTER_LISTS_CLASS = "outliner-plugin-better-lists";
 const BETTER_BULLETS_CLASS = "outliner-plugin-better-bullets";
 const VERTICAL_LINES = "outliner-plugin-vertical-lines";
 const KNOWN_CLASSES = [
-    BETTER_LISTS_CLASS,
-    BETTER_BULLETS_CLASS,
-    VERTICAL_LINES,
+  BETTER_LISTS_CLASS,
+  BETTER_BULLETS_CLASS,
+  VERTICAL_LINES,
 ];
 class ListsStylesFeature {
-    constructor(settings, obsidian) {
-        this.settings = settings;
-        this.obsidian = obsidian;
-        this.syncListsStyles = () => {
-            const classes = [];
-            if (this.obsidian.isDefaultThemeEnabled()) {
-                if (this.settings.styleLists) {
-                    classes.push(BETTER_LISTS_CLASS);
-                    classes.push(BETTER_BULLETS_CLASS);
-                }
-                if (this.settings.listLines) {
-                    classes.push(VERTICAL_LINES);
-                }
-            }
-            this.applyListsStyles(classes);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.syncListsStyles();
-            this.interval = window.setInterval(() => {
-                this.syncListsStyles();
-            }, 1000);
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () {
-            clearInterval(this.interval);
-            this.applyListsStyles([]);
-        });
-    }
-    applyListsStyles(classes) {
-        const toKeep = classes.filter((c) => KNOWN_CLASSES.contains(c));
-        const toRemove = KNOWN_CLASSES.filter((c) => !toKeep.contains(c));
-        for (const c of toKeep) {
-            if (!document.body.classList.contains(c)) {
-                document.body.classList.add(c);
-            }
+  constructor(settings, obsidian) {
+    this.settings = settings;
+    this.obsidian = obsidian;
+    this.syncListsStyles = () => {
+      const classes = [];
+      if (this.obsidian.isDefaultThemeEnabled()) {
+        if (this.settings.styleLists) {
+          classes.push(BETTER_LISTS_CLASS);
+          classes.push(BETTER_BULLETS_CLASS);
         }
-        for (const c of toRemove) {
-            if (document.body.classList.contains(c)) {
-                document.body.classList.remove(c);
-            }
+        if (this.settings.listLines) {
+          classes.push(VERTICAL_LINES);
         }
+      }
+      this.applyListsStyles(classes);
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.syncListsStyles();
+      this.interval = window.setInterval(() => {
+        this.syncListsStyles();
+      }, 1000);
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {
+      clearInterval(this.interval);
+      this.applyListsStyles([]);
+    });
+  }
+  applyListsStyles(classes) {
+    const toKeep = classes.filter((c) => KNOWN_CLASSES.contains(c));
+    const toRemove = KNOWN_CLASSES.filter((c) => !toKeep.contains(c));
+    for (const c of toKeep) {
+      if (!document.body.classList.contains(c)) {
+        document.body.classList.add(c);
+      }
     }
+    for (const c of toRemove) {
+      if (document.body.classList.contains(c)) {
+        document.body.classList.remove(c);
+      }
+    }
+  }
 }
 
 class MoveCursorToPreviousUnfoldedLineOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    const list = this.root.getListUnderCursor();
+    const cursor = this.root.getCursor();
+    const lines = list.getLinesInfo();
+    const lineNo = lines.findIndex((l) =>
+      cursor.ch === l.from.ch + list.getCheckboxLength() &&
+      cursor.line === l.from.line
+    );
+    if (lineNo === 0) {
+      this.moveCursorToPreviousUnfoldedItem(root, cursor);
+    } else if (lineNo > 0) {
+      this.moveCursorToPreviousNoteLine(root, lines, lineNo);
     }
-    shouldUpdate() {
-        return this.updated;
+  }
+  moveCursorToPreviousNoteLine(root, lines, lineNo) {
+    this.stopPropagation = true;
+    this.updated = true;
+    root.replaceCursor(lines[lineNo - 1].to);
+  }
+  moveCursorToPreviousUnfoldedItem(root, cursor) {
+    const prev = root.getListUnderLine(cursor.line - 1);
+    if (!prev) {
+      return;
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        const list = this.root.getListUnderCursor();
-        const cursor = this.root.getCursor();
-        const lines = list.getLinesInfo();
-        const lineNo = lines.findIndex((l) => cursor.ch === l.from.ch + list.getCheckboxLength() &&
-            cursor.line === l.from.line);
-        if (lineNo === 0) {
-            this.moveCursorToPreviousUnfoldedItem(root, cursor);
-        }
-        else if (lineNo > 0) {
-            this.moveCursorToPreviousNoteLine(root, lines, lineNo);
-        }
+    this.stopPropagation = true;
+    this.updated = true;
+    if (prev.isFolded()) {
+      const foldRoot = prev.getTopFoldRoot();
+      const firstLineEnd = foldRoot.getLinesInfo()[0].to;
+      root.replaceCursor(firstLineEnd);
+    } else {
+      root.replaceCursor(prev.getLastLineContentEnd());
     }
-    moveCursorToPreviousNoteLine(root, lines, lineNo) {
-        this.stopPropagation = true;
-        this.updated = true;
-        root.replaceCursor(lines[lineNo - 1].to);
-    }
-    moveCursorToPreviousUnfoldedItem(root, cursor) {
-        const prev = root.getListUnderLine(cursor.line - 1);
-        if (!prev) {
-            return;
-        }
-        this.stopPropagation = true;
-        this.updated = true;
-        if (prev.isFolded()) {
-            const foldRoot = prev.getTopFoldRoot();
-            const firstLineEnd = foldRoot.getLinesInfo()[0].to;
-            root.replaceCursor(firstLineEnd);
-        }
-        else {
-            root.replaceCursor(prev.getLastLineContentEnd());
-        }
-    }
+  }
 }
 
 class MoveCursorToPreviousUnfoldedLineFeature {
-    constructor(plugin, settings, ime, obsidian, performOperation) {
-        this.plugin = plugin;
-        this.settings = settings;
-        this.ime = ime;
-        this.obsidian = obsidian;
-        this.performOperation = performOperation;
-        this.check = () => {
-            return this.settings.stickCursor && !this.ime.isIMEOpened();
-        };
-        this.run = (editor) => {
-            return this.performOperation.performOperation((root) => new MoveCursorToPreviousUnfoldedLineOperation(root), editor);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(view.keymap.of([
-                {
-                    key: "ArrowLeft",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.run,
-                    }),
-                },
-                {
-                    win: "c-ArrowLeft",
-                    linux: "c-ArrowLeft",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.run,
-                    }),
-                },
-            ]));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings, ime, obsidian, performOperation) {
+    this.plugin = plugin;
+    this.settings = settings;
+    this.ime = ime;
+    this.obsidian = obsidian;
+    this.performOperation = performOperation;
+    this.check = () => {
+      return this.settings.stickCursor && !this.ime.isIMEOpened();
+    };
+    this.run = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new MoveCursorToPreviousUnfoldedLineOperation(root),
+        editor,
+      );
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(view.keymap.of([
+        {
+          key: "ArrowLeft",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.run,
+          }),
+        },
+        {
+          win: "c-ArrowLeft",
+          linux: "c-ArrowLeft",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.run,
+          }),
+        },
+      ]));
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class MoveDownOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    this.stopPropagation = true;
+    const list = root.getListUnderCursor();
+    const parent = list.getParent();
+    const grandParent = parent.getParent();
+    const next = parent.getNextSiblingOf(list);
+    const listStartLineBefore = root.getContentLinesRangeOf(list)[0];
+    if (!next && grandParent) {
+      const newParent = grandParent.getNextSiblingOf(parent);
+      if (newParent) {
+        this.updated = true;
+        parent.removeChild(list);
+        newParent.addBeforeAll(list);
+      }
+    } else if (next) {
+      this.updated = true;
+      parent.removeChild(list);
+      parent.addAfter(next, list);
     }
-    shouldUpdate() {
-        return this.updated;
+    if (!this.updated) {
+      return;
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        this.stopPropagation = true;
-        const list = root.getListUnderCursor();
-        const parent = list.getParent();
-        const grandParent = parent.getParent();
-        const next = parent.getNextSiblingOf(list);
-        const listStartLineBefore = root.getContentLinesRangeOf(list)[0];
-        if (!next && grandParent) {
-            const newParent = grandParent.getNextSiblingOf(parent);
-            if (newParent) {
-                this.updated = true;
-                parent.removeChild(list);
-                newParent.addBeforeAll(list);
-            }
-        }
-        else if (next) {
-            this.updated = true;
-            parent.removeChild(list);
-            parent.addAfter(next, list);
-        }
-        if (!this.updated) {
-            return;
-        }
-        const listStartLineAfter = root.getContentLinesRangeOf(list)[0];
-        const lineDiff = listStartLineAfter - listStartLineBefore;
-        const cursor = root.getCursor();
-        root.replaceCursor({
-            line: cursor.line + lineDiff,
-            ch: cursor.ch,
-        });
-        recalculateNumericBullets(root);
-    }
+    const listStartLineAfter = root.getContentLinesRangeOf(list)[0];
+    const lineDiff = listStartLineAfter - listStartLineBefore;
+    const cursor = root.getCursor();
+    root.replaceCursor({
+      line: cursor.line + lineDiff,
+      ch: cursor.ch,
+    });
+    recalculateNumericBullets(root);
+  }
 }
 
 class MoveRightOperation {
-    constructor(root, defaultIndentChars) {
-        this.root = root;
-        this.defaultIndentChars = defaultIndentChars;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root, defaultIndentChars) {
+    this.root = root;
+    this.defaultIndentChars = defaultIndentChars;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    this.stopPropagation = true;
+    const list = root.getListUnderCursor();
+    const parent = list.getParent();
+    const prev = parent.getPrevSiblingOf(list);
+    if (!prev) {
+      return;
     }
-    shouldUpdate() {
-        return this.updated;
+    this.updated = true;
+    const listStartLineBefore = root.getContentLinesRangeOf(list)[0];
+    const indentPos = list.getFirstLineIndent().length;
+    let indentChars = "";
+    if (indentChars === "" && !prev.isEmpty()) {
+      indentChars = prev
+        .getChildren()[0]
+        .getFirstLineIndent()
+        .slice(prev.getFirstLineIndent().length);
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        this.stopPropagation = true;
-        const list = root.getListUnderCursor();
-        const parent = list.getParent();
-        const prev = parent.getPrevSiblingOf(list);
-        if (!prev) {
-            return;
-        }
-        this.updated = true;
-        const listStartLineBefore = root.getContentLinesRangeOf(list)[0];
-        const indentPos = list.getFirstLineIndent().length;
-        let indentChars = "";
-        if (indentChars === "" && !prev.isEmpty()) {
-            indentChars = prev
-                .getChildren()[0]
-                .getFirstLineIndent()
-                .slice(prev.getFirstLineIndent().length);
-        }
-        if (indentChars === "") {
-            indentChars = list
-                .getFirstLineIndent()
-                .slice(parent.getFirstLineIndent().length);
-        }
-        if (indentChars === "" && !list.isEmpty()) {
-            indentChars = list.getChildren()[0].getFirstLineIndent();
-        }
-        if (indentChars === "") {
-            indentChars = this.defaultIndentChars;
-        }
-        parent.removeChild(list);
-        prev.addAfterAll(list);
-        list.indentContent(indentPos, indentChars);
-        const listStartLineAfter = root.getContentLinesRangeOf(list)[0];
-        const lineDiff = listStartLineAfter - listStartLineBefore;
-        const cursor = root.getCursor();
-        root.replaceCursor({
-            line: cursor.line + lineDiff,
-            ch: cursor.ch + indentChars.length,
-        });
-        recalculateNumericBullets(root);
+    if (indentChars === "") {
+      indentChars = list
+        .getFirstLineIndent()
+        .slice(parent.getFirstLineIndent().length);
     }
+    if (indentChars === "" && !list.isEmpty()) {
+      indentChars = list.getChildren()[0].getFirstLineIndent();
+    }
+    if (indentChars === "") {
+      indentChars = this.defaultIndentChars;
+    }
+    parent.removeChild(list);
+    prev.addAfterAll(list);
+    list.indentContent(indentPos, indentChars);
+    const listStartLineAfter = root.getContentLinesRangeOf(list)[0];
+    const lineDiff = listStartLineAfter - listStartLineBefore;
+    const cursor = root.getCursor();
+    root.replaceCursor({
+      line: cursor.line + lineDiff,
+      ch: cursor.ch + indentChars.length,
+    });
+    recalculateNumericBullets(root);
+  }
 }
 
 class MoveUpOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    this.stopPropagation = true;
+    const list = root.getListUnderCursor();
+    const parent = list.getParent();
+    const grandParent = parent.getParent();
+    const prev = parent.getPrevSiblingOf(list);
+    const listStartLineBefore = root.getContentLinesRangeOf(list)[0];
+    if (!prev && grandParent) {
+      const newParent = grandParent.getPrevSiblingOf(parent);
+      if (newParent) {
+        this.updated = true;
+        parent.removeChild(list);
+        newParent.addAfterAll(list);
+      }
+    } else if (prev) {
+      this.updated = true;
+      parent.removeChild(list);
+      parent.addBefore(prev, list);
     }
-    shouldUpdate() {
-        return this.updated;
+    if (!this.updated) {
+      return;
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        this.stopPropagation = true;
-        const list = root.getListUnderCursor();
-        const parent = list.getParent();
-        const grandParent = parent.getParent();
-        const prev = parent.getPrevSiblingOf(list);
-        const listStartLineBefore = root.getContentLinesRangeOf(list)[0];
-        if (!prev && grandParent) {
-            const newParent = grandParent.getPrevSiblingOf(parent);
-            if (newParent) {
-                this.updated = true;
-                parent.removeChild(list);
-                newParent.addAfterAll(list);
-            }
-        }
-        else if (prev) {
-            this.updated = true;
-            parent.removeChild(list);
-            parent.addBefore(prev, list);
-        }
-        if (!this.updated) {
-            return;
-        }
-        const listStartLineAfter = root.getContentLinesRangeOf(list)[0];
-        const lineDiff = listStartLineAfter - listStartLineBefore;
-        const cursor = root.getCursor();
-        root.replaceCursor({
-            line: cursor.line + lineDiff,
-            ch: cursor.ch,
-        });
-        recalculateNumericBullets(root);
-    }
+    const listStartLineAfter = root.getContentLinesRangeOf(list)[0];
+    const lineDiff = listStartLineAfter - listStartLineBefore;
+    const cursor = root.getCursor();
+    root.replaceCursor({
+      line: cursor.line + lineDiff,
+      ch: cursor.ch,
+    });
+    recalculateNumericBullets(root);
+  }
 }
 
 class MoveItemsFeature {
-    constructor(plugin, ime, obsidian, settings, performOperation) {
-        this.plugin = plugin;
-        this.ime = ime;
-        this.obsidian = obsidian;
-        this.settings = settings;
-        this.performOperation = performOperation;
-        this.check = () => {
-            return this.settings.betterTab && !this.ime.isIMEOpened();
-        };
-        this.moveListElementDownCommand = (editor) => {
-            const { shouldStopPropagation } = this.performOperation.performOperation((root) => new MoveDownOperation(root), editor);
-            return shouldStopPropagation;
-        };
-        this.moveListElementUpCommand = (editor) => {
-            const { shouldStopPropagation } = this.performOperation.performOperation((root) => new MoveUpOperation(root), editor);
-            return shouldStopPropagation;
-        };
-        this.moveListElementRightCommand = (editor) => {
-            if (this.ime.isIMEOpened()) {
-                return true;
-            }
-            return this.moveListElementRight(editor).shouldStopPropagation;
-        };
-        this.moveListElementRight = (editor) => {
-            return this.performOperation.performOperation((root) => new MoveRightOperation(root, this.obsidian.getDefaultIndentChars()), editor);
-        };
-        this.moveListElementLeftCommand = (editor) => {
-            if (this.ime.isIMEOpened()) {
-                return true;
-            }
-            return this.moveListElementLeft(editor).shouldStopPropagation;
-        };
-        this.moveListElementLeft = (editor) => {
-            return this.performOperation.performOperation((root) => new MoveLeftOperation(root), editor);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.addCommand({
-                id: "move-list-item-up",
-                icon: "arrow-up",
-                name: "Move list and sublists up",
-                editorCallback: this.obsidian.createEditorCallback(this.moveListElementUpCommand),
-                hotkeys: [
-                    {
-                        modifiers: ["Mod", "Shift"],
-                        key: "ArrowUp",
-                    },
-                ],
-            });
-            this.plugin.addCommand({
-                id: "move-list-item-down",
-                icon: "arrow-down",
-                name: "Move list and sublists down",
-                editorCallback: this.obsidian.createEditorCallback(this.moveListElementDownCommand),
-                hotkeys: [
-                    {
-                        modifiers: ["Mod", "Shift"],
-                        key: "ArrowDown",
-                    },
-                ],
-            });
-            this.plugin.addCommand({
-                id: "indent-list",
-                icon: "indent",
-                name: "Indent the list and sublists",
-                editorCallback: this.obsidian.createEditorCallback(this.moveListElementRightCommand),
-                hotkeys: [],
-            });
-            this.plugin.addCommand({
-                id: "outdent-list",
-                icon: "outdent",
-                name: "Outdent the list and sublists",
-                editorCallback: this.obsidian.createEditorCallback(this.moveListElementLeftCommand),
-                hotkeys: [],
-            });
-            this.plugin.registerEditorExtension(state.Prec.highest(view.keymap.of([
-                {
-                    key: "Tab",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.moveListElementRight,
-                    }),
-                },
-                {
-                    key: "s-Tab",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.moveListElementLeft,
-                    }),
-                },
-            ])));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, ime, obsidian, settings, performOperation) {
+    this.plugin = plugin;
+    this.ime = ime;
+    this.obsidian = obsidian;
+    this.settings = settings;
+    this.performOperation = performOperation;
+    this.check = () => {
+      return this.settings.betterTab && !this.ime.isIMEOpened();
+    };
+    this.moveListElementDownCommand = (editor) => {
+      const { shouldStopPropagation } = this.performOperation.performOperation(
+        (root) => new MoveDownOperation(root),
+        editor,
+      );
+      return shouldStopPropagation;
+    };
+    this.moveListElementUpCommand = (editor) => {
+      const { shouldStopPropagation } = this.performOperation.performOperation(
+        (root) => new MoveUpOperation(root),
+        editor,
+      );
+      return shouldStopPropagation;
+    };
+    this.moveListElementRightCommand = (editor) => {
+      if (this.ime.isIMEOpened()) {
+        return true;
+      }
+      return this.moveListElementRight(editor).shouldStopPropagation;
+    };
+    this.moveListElementRight = (editor) => {
+      return this.performOperation.performOperation(
+        (root) =>
+          new MoveRightOperation(root, this.obsidian.getDefaultIndentChars()),
+        editor,
+      );
+    };
+    this.moveListElementLeftCommand = (editor) => {
+      if (this.ime.isIMEOpened()) {
+        return true;
+      }
+      return this.moveListElementLeft(editor).shouldStopPropagation;
+    };
+    this.moveListElementLeft = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new MoveLeftOperation(root),
+        editor,
+      );
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.addCommand({
+        id: "move-list-item-up",
+        icon: "arrow-up",
+        name: "Move list and sublists up",
+        editorCallback: this.obsidian.createEditorCallback(
+          this.moveListElementUpCommand,
+        ),
+        hotkeys: [
+          {
+            modifiers: ["Mod", "Shift"],
+            key: "ArrowUp",
+          },
+        ],
+      });
+      this.plugin.addCommand({
+        id: "move-list-item-down",
+        icon: "arrow-down",
+        name: "Move list and sublists down",
+        editorCallback: this.obsidian.createEditorCallback(
+          this.moveListElementDownCommand,
+        ),
+        hotkeys: [
+          {
+            modifiers: ["Mod", "Shift"],
+            key: "ArrowDown",
+          },
+        ],
+      });
+      this.plugin.addCommand({
+        id: "indent-list",
+        icon: "indent",
+        name: "Indent the list and sublists",
+        editorCallback: this.obsidian.createEditorCallback(
+          this.moveListElementRightCommand,
+        ),
+        hotkeys: [],
+      });
+      this.plugin.addCommand({
+        id: "outdent-list",
+        icon: "outdent",
+        name: "Outdent the list and sublists",
+        editorCallback: this.obsidian.createEditorCallback(
+          this.moveListElementLeftCommand,
+        ),
+        hotkeys: [],
+      });
+      this.plugin.registerEditorExtension(state.Prec.highest(view.keymap.of([
+        {
+          key: "Tab",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.moveListElementRight,
+          }),
+        },
+        {
+          key: "s-Tab",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.moveListElementLeft,
+          }),
+        },
+      ])));
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class SelectAllOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleSelection()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    const selection = root.getSelections()[0];
+    const [rootStart, rootEnd] = root.getRange();
+    const selectionFrom = minPos(selection.anchor, selection.head);
+    const selectionTo = maxPos(selection.anchor, selection.head);
+    if (
+      selectionFrom.line < rootStart.line ||
+      selectionTo.line > rootEnd.line
+    ) {
+      return false;
     }
-    shouldUpdate() {
-        return this.updated;
+    if (
+      selectionFrom.line === rootStart.line &&
+      selectionFrom.ch === rootStart.ch &&
+      selectionTo.line === rootEnd.line &&
+      selectionTo.ch === rootEnd.ch
+    ) {
+      return false;
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleSelection()) {
-            return;
-        }
-        const selection = root.getSelections()[0];
-        const [rootStart, rootEnd] = root.getRange();
-        const selectionFrom = minPos(selection.anchor, selection.head);
-        const selectionTo = maxPos(selection.anchor, selection.head);
-        if (selectionFrom.line < rootStart.line ||
-            selectionTo.line > rootEnd.line) {
-            return false;
-        }
-        if (selectionFrom.line === rootStart.line &&
-            selectionFrom.ch === rootStart.ch &&
-            selectionTo.line === rootEnd.line &&
-            selectionTo.ch === rootEnd.ch) {
-            return false;
-        }
-        const list = root.getListUnderCursor();
-        const contentStart = list.getFirstLineContentStart();
-        const contentEnd = list.getLastLineContentEnd();
-        if (selectionFrom.line < contentStart.line ||
-            selectionTo.line > contentEnd.line) {
-            return false;
-        }
-        this.stopPropagation = true;
-        this.updated = true;
-        if (selectionFrom.line === contentStart.line &&
-            selectionFrom.ch === contentStart.ch &&
-            selectionTo.line === contentEnd.line &&
-            selectionTo.ch === contentEnd.ch) {
-            // select all list
-            root.replaceSelections([{ anchor: rootStart, head: rootEnd }]);
-        }
-        else {
-            // select all line
-            root.replaceSelections([{ anchor: contentStart, head: contentEnd }]);
-        }
-        return true;
+    const list = root.getListUnderCursor();
+    const contentStart = list.getFirstLineContentStart();
+    const contentEnd = list.getLastLineContentEnd();
+    if (
+      selectionFrom.line < contentStart.line ||
+      selectionTo.line > contentEnd.line
+    ) {
+      return false;
     }
+    this.stopPropagation = true;
+    this.updated = true;
+    if (
+      selectionFrom.line === contentStart.line &&
+      selectionFrom.ch === contentStart.ch &&
+      selectionTo.line === contentEnd.line &&
+      selectionTo.ch === contentEnd.ch
+    ) {
+      // select all list
+      root.replaceSelections([{ anchor: rootStart, head: rootEnd }]);
+    } else {
+      // select all line
+      root.replaceSelections([{ anchor: contentStart, head: contentEnd }]);
+    }
+    return true;
+  }
 }
 
 class SelectAllFeature {
-    constructor(plugin, settings, ime, obsidian, performOperation) {
-        this.plugin = plugin;
-        this.settings = settings;
-        this.ime = ime;
-        this.obsidian = obsidian;
-        this.performOperation = performOperation;
-        this.check = () => {
-            return this.settings.selectAll && !this.ime.isIMEOpened();
-        };
-        this.run = (editor) => {
-            return this.performOperation.performOperation((root) => new SelectAllOperation(root), editor);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(view.keymap.of([
-                {
-                    key: "c-a",
-                    mac: "m-a",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.run,
-                    }),
-                },
-            ]));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings, ime, obsidian, performOperation) {
+    this.plugin = plugin;
+    this.settings = settings;
+    this.ime = ime;
+    this.obsidian = obsidian;
+    this.performOperation = performOperation;
+    this.check = () => {
+      return this.settings.selectAll && !this.ime.isIMEOpened();
+    };
+    this.run = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new SelectAllOperation(root),
+        editor,
+      );
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(view.keymap.of([
+        {
+          key: "c-a",
+          mac: "m-a",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.run,
+          }),
+        },
+      ]));
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class SelectTillLineStartOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
-    }
-    shouldUpdate() {
-        return this.updated;
-    }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        this.stopPropagation = true;
-        this.updated = true;
-        const cursor = root.getCursor();
-        const list = root.getListUnderCursor();
-        const lines = list.getLinesInfo();
-        const lineNo = lines.findIndex((l) => l.from.line === cursor.line);
-        root.replaceSelections([{ head: lines[lineNo].from, anchor: cursor }]);
-    }
+    this.stopPropagation = true;
+    this.updated = true;
+    const cursor = root.getCursor();
+    const list = root.getListUnderCursor();
+    const lines = list.getLinesInfo();
+    const lineNo = lines.findIndex((l) => l.from.line === cursor.line);
+    root.replaceSelections([{ head: lines[lineNo].from, anchor: cursor }]);
+  }
 }
 
 class SelectionShouldIgnoreBulletsFeature {
-    constructor(plugin, settings, ime, obsidian, performOperation) {
-        this.plugin = plugin;
-        this.settings = settings;
-        this.ime = ime;
-        this.obsidian = obsidian;
-        this.performOperation = performOperation;
-        this.check = () => {
-            return this.settings.stickCursor && !this.ime.isIMEOpened();
-        };
-        this.run = (editor) => {
-            return this.performOperation.performOperation((root) => new SelectTillLineStartOperation(root), editor);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(view.keymap.of([
-                {
-                    key: "m-s-ArrowLeft",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.run,
-                    }),
-                },
-            ]));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings, ime, obsidian, performOperation) {
+    this.plugin = plugin;
+    this.settings = settings;
+    this.ime = ime;
+    this.obsidian = obsidian;
+    this.performOperation = performOperation;
+    this.check = () => {
+      return this.settings.stickCursor && !this.ime.isIMEOpened();
+    };
+    this.run = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new SelectTillLineStartOperation(root),
+        editor,
+      );
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(view.keymap.of([
+        {
+          key: "m-s-ArrowLeft",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.run,
+          }),
+        },
+      ]));
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class ObsidianOutlinerPluginSettingTab extends obsidian.PluginSettingTab {
-    constructor(app, plugin, settings) {
-        super(app, plugin);
-        this.settings = settings;
-    }
-    display() {
-        const { containerEl } = this;
-        containerEl.empty();
-        new obsidian.Setting(containerEl)
-            .setName("Improve the style of your lists")
-            .setDesc("Styles are only compatible with built-in Obsidian themes and may not be compatible with other themes.")
-            .addToggle((toggle) => {
-            toggle.setValue(this.settings.styleLists).onChange((value) => __awaiter(this, void 0, void 0, function* () {
-                this.settings.styleLists = value;
-                yield this.settings.save();
-            }));
-        });
-        new obsidian.Setting(containerEl)
-            .setName("Draw vertical indentation lines")
-            .addToggle((toggle) => {
-            toggle.setValue(this.settings.listLines).onChange((value) => __awaiter(this, void 0, void 0, function* () {
-                this.settings.listLines = value;
-                yield this.settings.save();
-            }));
-        });
-        new obsidian.Setting(containerEl)
-            .setName("Vertical indentation line click action")
-            .addDropdown((dropdown) => {
-            dropdown
-                .addOptions({
-                none: "None",
-                "zoom-in": "Zoom In",
-                "toggle-folding": "Toggle Folding",
+  constructor(app, plugin, settings) {
+    super(app, plugin);
+    this.settings = settings;
+  }
+  display() {
+    const { containerEl } = this;
+    containerEl.empty();
+    new obsidian.Setting(containerEl)
+      .setName("Improve the style of your lists")
+      .setDesc(
+        "Styles are only compatible with built-in Obsidian themes and may not be compatible with other themes.",
+      )
+      .addToggle((toggle) => {
+        toggle.setValue(this.settings.styleLists).onChange((value) =>
+          __awaiter(this, void 0, void 0, function* () {
+            this.settings.styleLists = value;
+            yield this.settings.save();
+          })
+        );
+      });
+    new obsidian.Setting(containerEl)
+      .setName("Draw vertical indentation lines")
+      .addToggle((toggle) => {
+        toggle.setValue(this.settings.listLines).onChange((value) =>
+          __awaiter(this, void 0, void 0, function* () {
+            this.settings.listLines = value;
+            yield this.settings.save();
+          })
+        );
+      });
+    new obsidian.Setting(containerEl)
+      .setName("Vertical indentation line click action")
+      .addDropdown((dropdown) => {
+        dropdown
+          .addOptions({
+            none: "None",
+            "zoom-in": "Zoom In",
+            "toggle-folding": "Toggle Folding",
+          })
+          .setValue(this.settings.listLineAction)
+          .onChange((value) =>
+            __awaiter(this, void 0, void 0, function* () {
+              this.settings.listLineAction = value;
+              yield this.settings.save();
             })
-                .setValue(this.settings.listLineAction)
-                .onChange((value) => __awaiter(this, void 0, void 0, function* () {
-                this.settings.listLineAction = value;
-                yield this.settings.save();
-            }));
-        });
-        new obsidian.Setting(containerEl)
-            .setName("Stick the cursor to the content")
-            .setDesc("Don't let the cursor move to the bullet position.")
-            .addToggle((toggle) => {
-            toggle.setValue(this.settings.stickCursor).onChange((value) => __awaiter(this, void 0, void 0, function* () {
-                this.settings.stickCursor = value;
-                yield this.settings.save();
-            }));
-        });
-        new obsidian.Setting(containerEl)
-            .setName("Enhance the Enter key")
-            .setDesc("Make the Enter key behave the same as other outliners.")
-            .addToggle((toggle) => {
-            toggle.setValue(this.settings.betterEnter).onChange((value) => __awaiter(this, void 0, void 0, function* () {
-                this.settings.betterEnter = value;
-                yield this.settings.save();
-            }));
-        });
-        new obsidian.Setting(containerEl)
-            .setName("Enhance the Tab key")
-            .setDesc("Make Tab and Shift-Tab behave the same as other outliners.")
-            .addToggle((toggle) => {
-            toggle.setValue(this.settings.betterTab).onChange((value) => __awaiter(this, void 0, void 0, function* () {
-                this.settings.betterTab = value;
-                yield this.settings.save();
-            }));
-        });
-        new obsidian.Setting(containerEl)
-            .setName("Enhance the Ctrl+A or Cmd+A behavior")
-            .setDesc("Press the hotkey once to select the current list item. Press the hotkey twice to select the entire list.")
-            .addToggle((toggle) => {
-            toggle.setValue(this.settings.selectAll).onChange((value) => __awaiter(this, void 0, void 0, function* () {
-                this.settings.selectAll = value;
-                yield this.settings.save();
-            }));
-        });
-        new obsidian.Setting(containerEl)
-            .setName("Debug mode")
-            .setDesc("Open DevTools (Command+Option+I or Control+Shift+I) to copy the debug logs.")
-            .addToggle((toggle) => {
-            toggle.setValue(this.settings.debug).onChange((value) => __awaiter(this, void 0, void 0, function* () {
-                this.settings.debug = value;
-                yield this.settings.save();
-            }));
-        });
-    }
+          );
+      });
+    new obsidian.Setting(containerEl)
+      .setName("Stick the cursor to the content")
+      .setDesc("Don't let the cursor move to the bullet position.")
+      .addToggle((toggle) => {
+        toggle.setValue(this.settings.stickCursor).onChange((value) =>
+          __awaiter(this, void 0, void 0, function* () {
+            this.settings.stickCursor = value;
+            yield this.settings.save();
+          })
+        );
+      });
+    new obsidian.Setting(containerEl)
+      .setName("Enhance the Enter key")
+      .setDesc("Make the Enter key behave the same as other outliners.")
+      .addToggle((toggle) => {
+        toggle.setValue(this.settings.betterEnter).onChange((value) =>
+          __awaiter(this, void 0, void 0, function* () {
+            this.settings.betterEnter = value;
+            yield this.settings.save();
+          })
+        );
+      });
+    new obsidian.Setting(containerEl)
+      .setName("Enhance the Tab key")
+      .setDesc("Make Tab and Shift-Tab behave the same as other outliners.")
+      .addToggle((toggle) => {
+        toggle.setValue(this.settings.betterTab).onChange((value) =>
+          __awaiter(this, void 0, void 0, function* () {
+            this.settings.betterTab = value;
+            yield this.settings.save();
+          })
+        );
+      });
+    new obsidian.Setting(containerEl)
+      .setName("Enhance the Ctrl+A or Cmd+A behavior")
+      .setDesc(
+        "Press the hotkey once to select the current list item. Press the hotkey twice to select the entire list.",
+      )
+      .addToggle((toggle) => {
+        toggle.setValue(this.settings.selectAll).onChange((value) =>
+          __awaiter(this, void 0, void 0, function* () {
+            this.settings.selectAll = value;
+            yield this.settings.save();
+          })
+        );
+      });
+    new obsidian.Setting(containerEl)
+      .setName("Debug mode")
+      .setDesc(
+        "Open DevTools (Command+Option+I or Control+Shift+I) to copy the debug logs.",
+      )
+      .addToggle((toggle) => {
+        toggle.setValue(this.settings.debug).onChange((value) =>
+          __awaiter(this, void 0, void 0, function* () {
+            this.settings.debug = value;
+            yield this.settings.save();
+          })
+        );
+      });
+  }
 }
 class SettingsTabFeature {
-    constructor(plugin, settings) {
-        this.plugin = plugin;
-        this.settings = settings;
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.addSettingTab(new ObsidianOutlinerPluginSettingTab(this.plugin.app, this.plugin, this.settings));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, settings) {
+    this.plugin = plugin;
+    this.settings = settings;
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.addSettingTab(
+        new ObsidianOutlinerPluginSettingTab(
+          this.plugin.app,
+          this.plugin,
+          this.settings,
+        ),
+      );
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class CreateNoteLineOperation {
-    constructor(root) {
-        this.root = root;
-        this.stopPropagation = false;
-        this.updated = false;
+  constructor(root) {
+    this.root = root;
+    this.stopPropagation = false;
+    this.updated = false;
+  }
+  shouldStopPropagation() {
+    return this.stopPropagation;
+  }
+  shouldUpdate() {
+    return this.updated;
+  }
+  perform() {
+    const { root } = this;
+    if (!root.hasSingleCursor()) {
+      return;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    const cursor = root.getCursor();
+    const list = root.getListUnderCursor();
+    const lineUnderCursor = list
+      .getLinesInfo()
+      .find((l) => l.from.line === cursor.line);
+    if (cursor.ch < lineUnderCursor.from.ch) {
+      return;
     }
-    shouldUpdate() {
-        return this.updated;
+    this.stopPropagation = true;
+    this.updated = true;
+    if (!list.getNotesIndent()) {
+      list.setNotesIndent(list.getFirstLineIndent() + "  ");
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
-            return;
-        }
-        const cursor = root.getCursor();
-        const list = root.getListUnderCursor();
-        const lineUnderCursor = list
-            .getLinesInfo()
-            .find((l) => l.from.line === cursor.line);
-        if (cursor.ch < lineUnderCursor.from.ch) {
-            return;
-        }
-        this.stopPropagation = true;
-        this.updated = true;
-        if (!list.getNotesIndent()) {
-            list.setNotesIndent(list.getFirstLineIndent() + "  ");
-        }
-        const lines = list.getLinesInfo().reduce((acc, line) => {
-            if (cursor.line === line.from.line) {
-                acc.push(line.text.slice(0, cursor.ch - line.from.ch));
-                acc.push(line.text.slice(cursor.ch - line.from.ch));
-            }
-            else {
-                acc.push(line.text);
-            }
-            return acc;
-        }, []);
-        list.replaceLines(lines);
-        root.replaceCursor({
-            line: cursor.line + 1,
-            ch: list.getNotesIndent().length,
-        });
-    }
+    const lines = list.getLinesInfo().reduce((acc, line) => {
+      if (cursor.line === line.from.line) {
+        acc.push(line.text.slice(0, cursor.ch - line.from.ch));
+        acc.push(line.text.slice(cursor.ch - line.from.ch));
+      } else {
+        acc.push(line.text);
+      }
+      return acc;
+    }, []);
+    list.replaceLines(lines);
+    root.replaceCursor({
+      line: cursor.line + 1,
+      ch: list.getNotesIndent().length,
+    });
+  }
 }
 
 class ShiftEnterShouldCreateNoteFeature {
-    constructor(plugin, obsidian, settings, ime, performOperation) {
-        this.plugin = plugin;
-        this.obsidian = obsidian;
-        this.settings = settings;
-        this.ime = ime;
-        this.performOperation = performOperation;
-        this.check = () => {
-            return this.settings.betterEnter && !this.ime.isIMEOpened();
-        };
-        this.run = (editor) => {
-            return this.performOperation.performOperation((root) => new CreateNoteLineOperation(root), editor);
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.plugin.registerEditorExtension(view.keymap.of([
-                {
-                    key: "s-Enter",
-                    run: this.obsidian.createKeymapRunCallback({
-                        check: this.check,
-                        run: this.run,
-                    }),
-                },
-            ]));
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () { });
-    }
+  constructor(plugin, obsidian, settings, ime, performOperation) {
+    this.plugin = plugin;
+    this.obsidian = obsidian;
+    this.settings = settings;
+    this.ime = ime;
+    this.performOperation = performOperation;
+    this.check = () => {
+      return this.settings.betterEnter && !this.ime.isIMEOpened();
+    };
+    this.run = (editor) => {
+      return this.performOperation.performOperation(
+        (root) => new CreateNoteLineOperation(root),
+        editor,
+      );
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.plugin.registerEditorExtension(view.keymap.of([
+        {
+          key: "s-Enter",
+          run: this.obsidian.createKeymapRunCallback({
+            check: this.check,
+            run: this.run,
+          }),
+        },
+      ]));
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {});
+  }
 }
 
 class ApplyChangesService {
-    applyChanges(editor, root) {
-        const rootRange = root.getRange();
-        const oldString = editor.getRange(rootRange[0], rootRange[1]);
-        const newString = root.print();
-        const fromLine = rootRange[0].line;
-        const toLine = rootRange[1].line;
-        for (let l = fromLine; l <= toLine; l++) {
-            editor.unfold(l);
-        }
-        const changeFrom = Object.assign({}, rootRange[0]);
-        const changeTo = Object.assign({}, rootRange[1]);
-        let oldTmp = oldString;
-        let newTmp = newString;
-        // eslint-disable-next-line no-constant-condition
-        while (true) {
-            const nlIndex = oldTmp.lastIndexOf("\n");
-            if (nlIndex < 0) {
-                break;
-            }
-            const oldLine = oldTmp.slice(nlIndex);
-            const newLine = newTmp.slice(-oldLine.length);
-            if (oldLine !== newLine) {
-                break;
-            }
-            oldTmp = oldTmp.slice(0, -oldLine.length);
-            newTmp = newTmp.slice(0, -oldLine.length);
-            const nlIndex2 = oldTmp.lastIndexOf("\n");
-            changeTo.ch =
-                nlIndex2 >= 0 ? oldTmp.length - nlIndex2 - 1 : oldTmp.length;
-            changeTo.line--;
-        }
-        // eslint-disable-next-line no-constant-condition
-        while (true) {
-            const nlIndex = oldTmp.indexOf("\n");
-            if (nlIndex < 0) {
-                break;
-            }
-            const oldLine = oldTmp.slice(0, nlIndex + 1);
-            const newLine = newTmp.slice(0, oldLine.length);
-            if (oldLine !== newLine) {
-                break;
-            }
-            changeFrom.line++;
-            oldTmp = oldTmp.slice(oldLine.length);
-            newTmp = newTmp.slice(oldLine.length);
-        }
-        if (oldTmp !== newTmp) {
-            editor.replaceRange(newTmp, changeFrom, changeTo);
-        }
-        editor.setSelections(root.getSelections());
-        function recursive(list) {
-            for (const c of list.getChildren()) {
-                recursive(c);
-            }
-            if (list.isFoldRoot()) {
-                editor.fold(list.getFirstLineContentStart().line);
-            }
-        }
-        for (const c of root.getChildren()) {
-            recursive(c);
-        }
+  applyChanges(editor, root) {
+    const rootRange = root.getRange();
+    const oldString = editor.getRange(rootRange[0], rootRange[1]);
+    const newString = root.print();
+    const fromLine = rootRange[0].line;
+    const toLine = rootRange[1].line;
+    for (let l = fromLine; l <= toLine; l++) {
+      editor.unfold(l);
     }
+    const changeFrom = Object.assign({}, rootRange[0]);
+    const changeTo = Object.assign({}, rootRange[1]);
+    let oldTmp = oldString;
+    let newTmp = newString;
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      const nlIndex = oldTmp.lastIndexOf("\n");
+      if (nlIndex < 0) {
+        break;
+      }
+      const oldLine = oldTmp.slice(nlIndex);
+      const newLine = newTmp.slice(-oldLine.length);
+      if (oldLine !== newLine) {
+        break;
+      }
+      oldTmp = oldTmp.slice(0, -oldLine.length);
+      newTmp = newTmp.slice(0, -oldLine.length);
+      const nlIndex2 = oldTmp.lastIndexOf("\n");
+      changeTo.ch = nlIndex2 >= 0
+        ? oldTmp.length - nlIndex2 - 1
+        : oldTmp.length;
+      changeTo.line--;
+    }
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      const nlIndex = oldTmp.indexOf("\n");
+      if (nlIndex < 0) {
+        break;
+      }
+      const oldLine = oldTmp.slice(0, nlIndex + 1);
+      const newLine = newTmp.slice(0, oldLine.length);
+      if (oldLine !== newLine) {
+        break;
+      }
+      changeFrom.line++;
+      oldTmp = oldTmp.slice(oldLine.length);
+      newTmp = newTmp.slice(oldLine.length);
+    }
+    if (oldTmp !== newTmp) {
+      editor.replaceRange(newTmp, changeFrom, changeTo);
+    }
+    editor.setSelections(root.getSelections());
+    function recursive(list) {
+      for (const c of list.getChildren()) {
+        recursive(c);
+      }
+      if (list.isFoldRoot()) {
+        editor.fold(list.getFirstLineContentStart().line);
+      }
+    }
+    for (const c of root.getChildren()) {
+      recursive(c);
+    }
+  }
 }
 
 class IMEService {
-    constructor() {
-        this.composition = false;
-        this.onCompositionStart = () => {
-            this.composition = true;
-        };
-        this.onCompositionEnd = () => {
-            this.composition = false;
-        };
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            document.addEventListener("compositionstart", this.onCompositionStart);
-            document.addEventListener("compositionend", this.onCompositionEnd);
-        });
-    }
-    unload() {
-        return __awaiter(this, void 0, void 0, function* () {
-            document.removeEventListener("compositionend", this.onCompositionEnd);
-            document.removeEventListener("compositionstart", this.onCompositionStart);
-        });
-    }
-    isIMEOpened() {
-        return this.composition && obsidian.Platform.isDesktop;
-    }
+  constructor() {
+    this.composition = false;
+    this.onCompositionStart = () => {
+      this.composition = true;
+    };
+    this.onCompositionEnd = () => {
+      this.composition = false;
+    };
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      document.addEventListener("compositionstart", this.onCompositionStart);
+      document.addEventListener("compositionend", this.onCompositionEnd);
+    });
+  }
+  unload() {
+    return __awaiter(this, void 0, void 0, function* () {
+      document.removeEventListener("compositionend", this.onCompositionEnd);
+      document.removeEventListener("compositionstart", this.onCompositionStart);
+    });
+  }
+  isIMEOpened() {
+    return this.composition && obsidian.Platform.isDesktop;
+  }
 }
 
 class LoggerService {
-    constructor(settings) {
-        this.settings = settings;
+  constructor(settings) {
+    this.settings = settings;
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  log(method, ...args) {
+    if (!this.settings.debug) {
+      return;
     }
+    console.info(method, ...args);
+  }
+  bind(method) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    log(method, ...args) {
-        if (!this.settings.debug) {
-            return;
-        }
-        console.info(method, ...args);
-    }
-    bind(method) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return (...args) => this.log(method, ...args);
-    }
+    return (...args) => this.log(method, ...args);
+  }
 }
 
 class ObsidianService {
-    constructor(app) {
-        this.app = app;
-    }
-    isLegacyEditorEnabled() {
-        const config = Object.assign({ legacyEditor: false }, this.app.vault.config);
-        return config.legacyEditor;
-    }
-    isDefaultThemeEnabled() {
-        const config = Object.assign({ cssTheme: "" }, this.app.vault.config);
-        return config.cssTheme === "";
-    }
-    getObsidianTabsSettings() {
-        return Object.assign({ useTab: true, tabSize: 4 }, this.app.vault.config);
-    }
-    getObsidianFoldSettings() {
-        return Object.assign({ foldIndent: true }, this.app.vault.config);
-    }
-    getDefaultIndentChars() {
-        const { useTab, tabSize } = this.getObsidianTabsSettings();
-        return useTab ? "\t" : new Array(tabSize).fill(" ").join("");
-    }
-    getEditorFromState(state) {
-        return new MyEditor(state.field(obsidian.editorInfoField).editor);
-    }
-    createKeymapRunCallback(config) {
-        const check = config.check || (() => true);
-        const { run } = config;
-        return (view) => {
-            const editor = this.getEditorFromState(view.state);
-            if (!check(editor)) {
-                return false;
-            }
-            const { shouldUpdate, shouldStopPropagation } = run(editor);
-            return shouldUpdate || shouldStopPropagation;
-        };
-    }
-    createEditorCallback(cb) {
-        return (editor) => {
-            const myEditor = new MyEditor(editor);
-            const shouldStopPropagation = cb(myEditor);
-            if (!shouldStopPropagation &&
-                window.event &&
-                window.event.type === "keydown") {
-                myEditor.triggerOnKeyDown(window.event);
-            }
-        };
-    }
+  constructor(app) {
+    this.app = app;
+  }
+  isLegacyEditorEnabled() {
+    const config = Object.assign(
+      { legacyEditor: false },
+      this.app.vault.config,
+    );
+    return config.legacyEditor;
+  }
+  isDefaultThemeEnabled() {
+    const config = Object.assign({ cssTheme: "" }, this.app.vault.config);
+    return config.cssTheme === "";
+  }
+  getObsidianTabsSettings() {
+    return Object.assign({ useTab: true, tabSize: 4 }, this.app.vault.config);
+  }
+  getObsidianFoldSettings() {
+    return Object.assign({ foldIndent: true }, this.app.vault.config);
+  }
+  getDefaultIndentChars() {
+    const { useTab, tabSize } = this.getObsidianTabsSettings();
+    return useTab ? "\t" : new Array(tabSize).fill(" ").join("");
+  }
+  getEditorFromState(state) {
+    return new MyEditor(state.field(obsidian.editorInfoField).editor);
+  }
+  createKeymapRunCallback(config) {
+    const check = config.check || (() => true);
+    const { run } = config;
+    return (view) => {
+      const editor = this.getEditorFromState(view.state);
+      if (!check(editor)) {
+        return false;
+      }
+      const { shouldUpdate, shouldStopPropagation } = run(editor);
+      return shouldUpdate || shouldStopPropagation;
+    };
+  }
+  createEditorCallback(cb) {
+    return (editor) => {
+      const myEditor = new MyEditor(editor);
+      const shouldStopPropagation = cb(myEditor);
+      if (
+        !shouldStopPropagation &&
+        window.event &&
+        window.event.type === "keydown"
+      ) {
+        myEditor.triggerOnKeyDown(window.event);
+      }
+    };
+  }
 }
 
 const bulletSign = `(?:[-*+]|\\d+\\.)`;
@@ -2222,347 +2395,428 @@ const optionalCheckbox = `(?:\\[[ xX]\\]( |\t))?`;
 const listItemWithoutSpacesRe = new RegExp(`^${bulletSign}( |\t)`);
 const listItemRe = new RegExp(`^[ \t]*${bulletSign}( |\t)`);
 const stringWithSpacesRe = new RegExp(`^[ \t]+`);
-const parseListItemRe = new RegExp(`^([ \t]*)(${bulletSign})( |\t)((${optionalCheckbox}).*)$`);
+const parseListItemRe = new RegExp(
+  `^([ \t]*)(${bulletSign})( |\t)((${optionalCheckbox}).*)$`,
+);
 class ParserService {
-    constructor(logger) {
-        this.logger = logger;
-    }
-    parseRange(editor, fromLine = 0, toLine = editor.lastLine()) {
-        const lists = [];
-        for (let i = fromLine; i <= toLine; i++) {
-            const line = editor.getLine(i);
-            if (i === fromLine || this.isListItem(line)) {
-                const list = this.parseWithLimits(editor, i, fromLine, toLine);
-                if (list) {
-                    lists.push(list);
-                    i = list.getRange()[1].line;
-                }
-            }
+  constructor(logger) {
+    this.logger = logger;
+  }
+  parseRange(editor, fromLine = 0, toLine = editor.lastLine()) {
+    const lists = [];
+    for (let i = fromLine; i <= toLine; i++) {
+      const line = editor.getLine(i);
+      if (i === fromLine || this.isListItem(line)) {
+        const list = this.parseWithLimits(editor, i, fromLine, toLine);
+        if (list) {
+          lists.push(list);
+          i = list.getRange()[1].line;
         }
-        return lists;
+      }
     }
-    parse(editor, cursor = editor.getCursor()) {
-        return this.parseWithLimits(editor, cursor.line, 0, editor.lastLine());
-    }
-    parseWithLimits(editor, parsingStartLine, limitFrom, limitTo) {
-        const d = this.logger.bind("parseList");
-        const error = (msg) => {
-            d(msg);
-            return null;
-        };
-        const line = editor.getLine(parsingStartLine);
-        let listLookingPos = null;
+    return lists;
+  }
+  parse(editor, cursor = editor.getCursor()) {
+    return this.parseWithLimits(editor, cursor.line, 0, editor.lastLine());
+  }
+  parseWithLimits(editor, parsingStartLine, limitFrom, limitTo) {
+    const d = this.logger.bind("parseList");
+    const error = (msg) => {
+      d(msg);
+      return null;
+    };
+    const line = editor.getLine(parsingStartLine);
+    let listLookingPos = null;
+    if (this.isListItem(line)) {
+      listLookingPos = parsingStartLine;
+    } else if (this.isLineWithIndent(line)) {
+      let listLookingPosSearch = parsingStartLine - 1;
+      while (listLookingPosSearch >= 0) {
+        const line = editor.getLine(listLookingPosSearch);
         if (this.isListItem(line)) {
-            listLookingPos = parsingStartLine;
+          listLookingPos = listLookingPosSearch;
+          break;
+        } else if (this.isLineWithIndent(line)) {
+          listLookingPosSearch--;
+        } else {
+          break;
         }
-        else if (this.isLineWithIndent(line)) {
-            let listLookingPosSearch = parsingStartLine - 1;
-            while (listLookingPosSearch >= 0) {
-                const line = editor.getLine(listLookingPosSearch);
-                if (this.isListItem(line)) {
-                    listLookingPos = listLookingPosSearch;
-                    break;
-                }
-                else if (this.isLineWithIndent(line)) {
-                    listLookingPosSearch--;
-                }
-                else {
-                    break;
-                }
-            }
-        }
-        if (listLookingPos == null) {
-            return null;
-        }
-        let listStartLine = null;
-        let listStartLineLookup = listLookingPos;
-        while (listStartLineLookup >= 0) {
-            const line = editor.getLine(listStartLineLookup);
-            if (!this.isListItem(line) && !this.isLineWithIndent(line)) {
-                break;
-            }
-            if (this.isListItemWithoutSpaces(line)) {
-                listStartLine = listStartLineLookup;
-                if (listStartLineLookup <= limitFrom) {
-                    break;
-                }
-            }
-            listStartLineLookup--;
-        }
-        if (listStartLine === null) {
-            return null;
-        }
-        let listEndLine = listLookingPos;
-        let listEndLineLookup = listLookingPos;
-        while (listEndLineLookup <= editor.lastLine()) {
-            const line = editor.getLine(listEndLineLookup);
-            if (!this.isListItem(line) && !this.isLineWithIndent(line)) {
-                break;
-            }
-            if (!this.isEmptyLine(line)) {
-                listEndLine = listEndLineLookup;
-            }
-            if (listEndLineLookup >= limitTo) {
-                listEndLine = limitTo;
-                break;
-            }
-            listEndLineLookup++;
-        }
-        if (listStartLine > parsingStartLine || listEndLine < parsingStartLine) {
-            return null;
-        }
-        const root = new Root({ line: listStartLine, ch: 0 }, { line: listEndLine, ch: editor.getLine(listEndLine).length }, editor.listSelections().map((r) => ({
-            anchor: { line: r.anchor.line, ch: r.anchor.ch },
-            head: { line: r.head.line, ch: r.head.ch },
-        })));
-        let currentParent = root.getRootList();
-        let currentList = null;
-        let currentIndent = "";
-        const foldedLines = editor.getAllFoldedLines();
-        for (let l = listStartLine; l <= listEndLine; l++) {
-            const line = editor.getLine(l);
-            const matches = parseListItemRe.exec(line);
-            if (matches) {
-                const [, indent, bullet, spaceAfterBullet, content, optionalCheckbox] = matches;
-                const compareLength = Math.min(currentIndent.length, indent.length);
-                const indentSlice = indent.slice(0, compareLength);
-                const currentIndentSlice = currentIndent.slice(0, compareLength);
-                if (indentSlice !== currentIndentSlice) {
-                    const expected = currentIndentSlice
-                        .replace(/ /g, "S")
-                        .replace(/\t/g, "T");
-                    const got = indentSlice.replace(/ /g, "S").replace(/\t/g, "T");
-                    return error(`Unable to parse list: expected indent "${expected}", got "${got}"`);
-                }
-                if (indent.length > currentIndent.length) {
-                    currentParent = currentList;
-                    currentIndent = indent;
-                }
-                else if (indent.length < currentIndent.length) {
-                    while (currentParent.getFirstLineIndent().length >= indent.length &&
-                        currentParent.getParent()) {
-                        currentParent = currentParent.getParent();
-                    }
-                    currentIndent = indent;
-                }
-                const foldRoot = foldedLines.includes(l);
-                currentList = new List(root, indent, bullet, optionalCheckbox.length, spaceAfterBullet, content, foldRoot);
-                currentParent.addAfterAll(currentList);
-            }
-            else if (this.isLineWithIndent(line)) {
-                if (!currentList) {
-                    return error(`Unable to parse list: expected list item, got empty line`);
-                }
-                const indentToCheck = currentList.getNotesIndent() || currentIndent;
-                if (line.indexOf(indentToCheck) !== 0) {
-                    const expected = indentToCheck.replace(/ /g, "S").replace(/\t/g, "T");
-                    const got = line
-                        .match(/^[ \t]*/)[0]
-                        .replace(/ /g, "S")
-                        .replace(/\t/g, "T");
-                    return error(`Unable to parse list: expected indent "${expected}", got "${got}"`);
-                }
-                if (!currentList.getNotesIndent()) {
-                    const matches = line.match(/^[ \t]+/);
-                    if (!matches || matches[0].length <= currentIndent.length) {
-                        if (/^\s+$/.test(line)) {
-                            continue;
-                        }
-                        return error(`Unable to parse list: expected some indent, got no indent`);
-                    }
-                    currentList.setNotesIndent(matches[0]);
-                }
-                currentList.addLine(line.slice(currentList.getNotesIndent().length));
-            }
-            else {
-                return error(`Unable to parse list: expected list item or note, got "${line}"`);
-            }
-        }
-        return root;
+      }
     }
-    isEmptyLine(line) {
-        return line.length === 0;
+    if (listLookingPos == null) {
+      return null;
     }
-    isLineWithIndent(line) {
-        return stringWithSpacesRe.test(line);
+    let listStartLine = null;
+    let listStartLineLookup = listLookingPos;
+    while (listStartLineLookup >= 0) {
+      const line = editor.getLine(listStartLineLookup);
+      if (!this.isListItem(line) && !this.isLineWithIndent(line)) {
+        break;
+      }
+      if (this.isListItemWithoutSpaces(line)) {
+        listStartLine = listStartLineLookup;
+        if (listStartLineLookup <= limitFrom) {
+          break;
+        }
+      }
+      listStartLineLookup--;
     }
-    isListItem(line) {
-        return listItemRe.test(line);
+    if (listStartLine === null) {
+      return null;
     }
-    isListItemWithoutSpaces(line) {
-        return listItemWithoutSpacesRe.test(line);
+    let listEndLine = listLookingPos;
+    let listEndLineLookup = listLookingPos;
+    while (listEndLineLookup <= editor.lastLine()) {
+      const line = editor.getLine(listEndLineLookup);
+      if (!this.isListItem(line) && !this.isLineWithIndent(line)) {
+        break;
+      }
+      if (!this.isEmptyLine(line)) {
+        listEndLine = listEndLineLookup;
+      }
+      if (listEndLineLookup >= limitTo) {
+        listEndLine = limitTo;
+        break;
+      }
+      listEndLineLookup++;
     }
+    if (listStartLine > parsingStartLine || listEndLine < parsingStartLine) {
+      return null;
+    }
+    const root = new Root(
+      { line: listStartLine, ch: 0 },
+      { line: listEndLine, ch: editor.getLine(listEndLine).length },
+      editor.listSelections().map((r) => ({
+        anchor: { line: r.anchor.line, ch: r.anchor.ch },
+        head: { line: r.head.line, ch: r.head.ch },
+      })),
+    );
+    let currentParent = root.getRootList();
+    let currentList = null;
+    let currentIndent = "";
+    const foldedLines = editor.getAllFoldedLines();
+    for (let l = listStartLine; l <= listEndLine; l++) {
+      const line = editor.getLine(l);
+      const matches = parseListItemRe.exec(line);
+      if (matches) {
+        const [, indent, bullet, spaceAfterBullet, content, optionalCheckbox] =
+          matches;
+        const compareLength = Math.min(currentIndent.length, indent.length);
+        const indentSlice = indent.slice(0, compareLength);
+        const currentIndentSlice = currentIndent.slice(0, compareLength);
+        if (indentSlice !== currentIndentSlice) {
+          const expected = currentIndentSlice
+            .replace(/ /g, "S")
+            .replace(/\t/g, "T");
+          const got = indentSlice.replace(/ /g, "S").replace(/\t/g, "T");
+          return error(
+            `Unable to parse list: expected indent "${expected}", got "${got}"`,
+          );
+        }
+        if (indent.length > currentIndent.length) {
+          currentParent = currentList;
+          currentIndent = indent;
+        } else if (indent.length < currentIndent.length) {
+          while (
+            currentParent.getFirstLineIndent().length >= indent.length &&
+            currentParent.getParent()
+          ) {
+            currentParent = currentParent.getParent();
+          }
+          currentIndent = indent;
+        }
+        const foldRoot = foldedLines.includes(l);
+        currentList = new List(
+          root,
+          indent,
+          bullet,
+          optionalCheckbox.length,
+          spaceAfterBullet,
+          content,
+          foldRoot,
+        );
+        currentParent.addAfterAll(currentList);
+      } else if (this.isLineWithIndent(line)) {
+        if (!currentList) {
+          return error(
+            `Unable to parse list: expected list item, got empty line`,
+          );
+        }
+        const indentToCheck = currentList.getNotesIndent() || currentIndent;
+        if (line.indexOf(indentToCheck) !== 0) {
+          const expected = indentToCheck.replace(/ /g, "S").replace(/\t/g, "T");
+          const got = line
+            .match(/^[ \t]*/)[0]
+            .replace(/ /g, "S")
+            .replace(/\t/g, "T");
+          return error(
+            `Unable to parse list: expected indent "${expected}", got "${got}"`,
+          );
+        }
+        if (!currentList.getNotesIndent()) {
+          const matches = line.match(/^[ \t]+/);
+          if (!matches || matches[0].length <= currentIndent.length) {
+            if (/^\s+$/.test(line)) {
+              continue;
+            }
+            return error(
+              `Unable to parse list: expected some indent, got no indent`,
+            );
+          }
+          currentList.setNotesIndent(matches[0]);
+        }
+        currentList.addLine(line.slice(currentList.getNotesIndent().length));
+      } else {
+        return error(
+          `Unable to parse list: expected list item or note, got "${line}"`,
+        );
+      }
+    }
+    return root;
+  }
+  isEmptyLine(line) {
+    return line.length === 0;
+  }
+  isLineWithIndent(line) {
+    return stringWithSpacesRe.test(line);
+  }
+  isListItem(line) {
+    return listItemRe.test(line);
+  }
+  isListItemWithoutSpaces(line) {
+    return listItemWithoutSpacesRe.test(line);
+  }
 }
 
 class PerformOperationService {
-    constructor(parser, applyChanges) {
-        this.parser = parser;
-        this.applyChanges = applyChanges;
+  constructor(parser, applyChanges) {
+    this.parser = parser;
+    this.applyChanges = applyChanges;
+  }
+  evalOperation(root, op, editor) {
+    op.perform();
+    if (op.shouldUpdate()) {
+      this.applyChanges.applyChanges(editor, root);
     }
-    evalOperation(root, op, editor) {
-        op.perform();
-        if (op.shouldUpdate()) {
-            this.applyChanges.applyChanges(editor, root);
-        }
-        return {
-            shouldUpdate: op.shouldUpdate(),
-            shouldStopPropagation: op.shouldStopPropagation(),
-        };
+    return {
+      shouldUpdate: op.shouldUpdate(),
+      shouldStopPropagation: op.shouldStopPropagation(),
+    };
+  }
+  performOperation(cb, editor, cursor = editor.getCursor()) {
+    const root = this.parser.parse(editor, cursor);
+    if (!root) {
+      return { shouldUpdate: false, shouldStopPropagation: false };
     }
-    performOperation(cb, editor, cursor = editor.getCursor()) {
-        const root = this.parser.parse(editor, cursor);
-        if (!root) {
-            return { shouldUpdate: false, shouldStopPropagation: false };
-        }
-        const op = cb(root);
-        return this.evalOperation(root, op, editor);
-    }
+    const op = cb(root);
+    return this.evalOperation(root, op, editor);
+  }
 }
 
 const DEFAULT_SETTINGS = {
-    styleLists: true,
-    debug: false,
-    stickCursor: true,
-    betterEnter: true,
-    betterTab: true,
-    selectAll: true,
-    listLines: false,
-    listLineAction: "toggle-folding",
+  styleLists: true,
+  debug: false,
+  stickCursor: true,
+  betterEnter: true,
+  betterTab: true,
+  selectAll: true,
+  listLines: false,
+  listLineAction: "toggle-folding",
 };
 class SettingsService {
-    constructor(storage) {
-        this.storage = storage;
-        this.handlers = new Map();
+  constructor(storage) {
+    this.storage = storage;
+    this.handlers = new Map();
+  }
+  get styleLists() {
+    return this.values.styleLists;
+  }
+  set styleLists(value) {
+    this.set("styleLists", value);
+  }
+  get debug() {
+    return this.values.debug;
+  }
+  set debug(value) {
+    this.set("debug", value);
+  }
+  get stickCursor() {
+    return this.values.stickCursor;
+  }
+  set stickCursor(value) {
+    this.set("stickCursor", value);
+  }
+  get betterEnter() {
+    return this.values.betterEnter;
+  }
+  set betterEnter(value) {
+    this.set("betterEnter", value);
+  }
+  get betterTab() {
+    return this.values.betterTab;
+  }
+  set betterTab(value) {
+    this.set("betterTab", value);
+  }
+  get selectAll() {
+    return this.values.selectAll;
+  }
+  set selectAll(value) {
+    this.set("selectAll", value);
+  }
+  get listLines() {
+    return this.values.listLines;
+  }
+  set listLines(value) {
+    this.set("listLines", value);
+  }
+  get listLineAction() {
+    return this.values.listLineAction;
+  }
+  set listLineAction(value) {
+    this.set("listLineAction", value);
+  }
+  onChange(key, cb) {
+    if (!this.handlers.has(key)) {
+      this.handlers.set(key, new Set());
     }
-    get styleLists() {
-        return this.values.styleLists;
+    this.handlers.get(key).add(cb);
+  }
+  removeCallback(key, cb) {
+    const handlers = this.handlers.get(key);
+    if (handlers) {
+      handlers.delete(cb);
     }
-    set styleLists(value) {
-        this.set("styleLists", value);
+  }
+  reset() {
+    for (const [k, v] of Object.entries(DEFAULT_SETTINGS)) {
+      this.set(k, v);
     }
-    get debug() {
-        return this.values.debug;
+  }
+  load() {
+    return __awaiter(this, void 0, void 0, function* () {
+      this.values = Object.assign(
+        {},
+        DEFAULT_SETTINGS,
+        yield this.storage.loadData(),
+      );
+    });
+  }
+  save() {
+    return __awaiter(this, void 0, void 0, function* () {
+      yield this.storage.saveData(this.values);
+    });
+  }
+  set(key, value) {
+    this.values[key] = value;
+    const callbacks = this.handlers.get(key);
+    if (!callbacks) {
+      return;
     }
-    set debug(value) {
-        this.set("debug", value);
+    for (const cb of callbacks.values()) {
+      cb(value);
     }
-    get stickCursor() {
-        return this.values.stickCursor;
-    }
-    set stickCursor(value) {
-        this.set("stickCursor", value);
-    }
-    get betterEnter() {
-        return this.values.betterEnter;
-    }
-    set betterEnter(value) {
-        this.set("betterEnter", value);
-    }
-    get betterTab() {
-        return this.values.betterTab;
-    }
-    set betterTab(value) {
-        this.set("betterTab", value);
-    }
-    get selectAll() {
-        return this.values.selectAll;
-    }
-    set selectAll(value) {
-        this.set("selectAll", value);
-    }
-    get listLines() {
-        return this.values.listLines;
-    }
-    set listLines(value) {
-        this.set("listLines", value);
-    }
-    get listLineAction() {
-        return this.values.listLineAction;
-    }
-    set listLineAction(value) {
-        this.set("listLineAction", value);
-    }
-    onChange(key, cb) {
-        if (!this.handlers.has(key)) {
-            this.handlers.set(key, new Set());
-        }
-        this.handlers.get(key).add(cb);
-    }
-    removeCallback(key, cb) {
-        const handlers = this.handlers.get(key);
-        if (handlers) {
-            handlers.delete(cb);
-        }
-    }
-    reset() {
-        for (const [k, v] of Object.entries(DEFAULT_SETTINGS)) {
-            this.set(k, v);
-        }
-    }
-    load() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.values = Object.assign({}, DEFAULT_SETTINGS, yield this.storage.loadData());
-        });
-    }
-    save() {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield this.storage.saveData(this.values);
-        });
-    }
-    set(key, value) {
-        this.values[key] = value;
-        const callbacks = this.handlers.get(key);
-        if (!callbacks) {
-            return;
-        }
-        for (const cb of callbacks.values()) {
-            cb(value);
-        }
-    }
+  }
 }
 
 class ObsidianOutlinerPlugin extends obsidian.Plugin {
-    onload() {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log(`Loading obsidian-outliner`);
-            this.obsidian = new ObsidianService(this.app);
-            this.settings = new SettingsService(this);
-            yield this.settings.load();
-            this.logger = new LoggerService(this.settings);
-            this.parser = new ParserService(this.logger);
-            this.applyChanges = new ApplyChangesService();
-            this.performOperation = new PerformOperationService(this.parser, this.applyChanges);
-            this.ime = new IMEService();
-            yield this.ime.load();
-            this.features = [
-                new SettingsTabFeature(this, this.settings),
-                new ListsStylesFeature(this.settings, this.obsidian),
-                new EnterOutdentIfLineIsEmptyFeature(this, this.settings, this.ime, this.obsidian, this.performOperation),
-                new EnterShouldCreateNewItemFeature(this, this.settings, this.ime, this.obsidian, this.performOperation),
-                new EnsureCursorInListContentFeature(this, this.settings, this.obsidian, this.performOperation),
-                new MoveCursorToPreviousUnfoldedLineFeature(this, this.settings, this.ime, this.obsidian, this.performOperation),
-                new DeleteShouldIgnoreBulletsFeature(this, this.settings, this.ime, this.obsidian, this.performOperation),
-                new SelectionShouldIgnoreBulletsFeature(this, this.settings, this.ime, this.obsidian, this.performOperation),
-                new FoldFeature(this, this.obsidian),
-                new SelectAllFeature(this, this.settings, this.ime, this.obsidian, this.performOperation),
-                new MoveItemsFeature(this, this.ime, this.obsidian, this.settings, this.performOperation),
-                new ShiftEnterShouldCreateNoteFeature(this, this.obsidian, this.settings, this.ime, this.performOperation),
-                new LinesFeature(this, this.settings, this.obsidian, this.parser),
-            ];
-            for (const feature of this.features) {
-                yield feature.load();
-            }
-        });
-    }
-    onunload() {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log(`Unloading obsidian-outliner`);
-            yield this.ime.unload();
-            for (const feature of this.features) {
-                yield feature.unload();
-            }
-        });
-    }
+  onload() {
+    return __awaiter(this, void 0, void 0, function* () {
+      console.log(`Loading obsidian-outliner`);
+      this.obsidian = new ObsidianService(this.app);
+      this.settings = new SettingsService(this);
+      yield this.settings.load();
+      this.logger = new LoggerService(this.settings);
+      this.parser = new ParserService(this.logger);
+      this.applyChanges = new ApplyChangesService();
+      this.performOperation = new PerformOperationService(
+        this.parser,
+        this.applyChanges,
+      );
+      this.ime = new IMEService();
+      yield this.ime.load();
+      this.features = [
+        new SettingsTabFeature(this, this.settings),
+        new ListsStylesFeature(this.settings, this.obsidian),
+        new EnterOutdentIfLineIsEmptyFeature(
+          this,
+          this.settings,
+          this.ime,
+          this.obsidian,
+          this.performOperation,
+        ),
+        new EnterShouldCreateNewItemFeature(
+          this,
+          this.settings,
+          this.ime,
+          this.obsidian,
+          this.performOperation,
+        ),
+        new EnsureCursorInListContentFeature(
+          this,
+          this.settings,
+          this.obsidian,
+          this.performOperation,
+        ),
+        new MoveCursorToPreviousUnfoldedLineFeature(
+          this,
+          this.settings,
+          this.ime,
+          this.obsidian,
+          this.performOperation,
+        ),
+        new DeleteShouldIgnoreBulletsFeature(
+          this,
+          this.settings,
+          this.ime,
+          this.obsidian,
+          this.performOperation,
+        ),
+        new SelectionShouldIgnoreBulletsFeature(
+          this,
+          this.settings,
+          this.ime,
+          this.obsidian,
+          this.performOperation,
+        ),
+        new FoldFeature(this, this.obsidian),
+        new SelectAllFeature(
+          this,
+          this.settings,
+          this.ime,
+          this.obsidian,
+          this.performOperation,
+        ),
+        new MoveItemsFeature(
+          this,
+          this.ime,
+          this.obsidian,
+          this.settings,
+          this.performOperation,
+        ),
+        new ShiftEnterShouldCreateNoteFeature(
+          this,
+          this.obsidian,
+          this.settings,
+          this.ime,
+          this.performOperation,
+        ),
+        new LinesFeature(this, this.settings, this.obsidian, this.parser),
+      ];
+      for (const feature of this.features) {
+        yield feature.load();
+      }
+    });
+  }
+  onunload() {
+    return __awaiter(this, void 0, void 0, function* () {
+      console.log(`Unloading obsidian-outliner`);
+      yield this.ime.unload();
+      for (const feature of this.features) {
+        yield feature.unload();
+      }
+    });
+  }
 }
 
 module.exports = ObsidianOutlinerPlugin;

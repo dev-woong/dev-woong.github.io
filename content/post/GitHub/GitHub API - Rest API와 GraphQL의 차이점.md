@@ -10,8 +10,11 @@ draft: true
 ---
 
 # Summary
+
 ### Rest API
+
 #### RestSharp를 이용한 코드 구현
+
 ```CSharp
 	var client = new RestClient("url");
 	client.Timeout = -1;
@@ -22,14 +25,15 @@ draft: true
 	var jObject = JObject.Parse(response.Content);
 ```
 
-읽고, 수정하고, 삭제하는 기능들에 대해 Method를 이용한다. (GET, PUT, POST, DELETE 등)
-
-
+읽고, 수정하고, 삭제하는 기능들에 대해 Method를 이용한다. (GET, PUT, POST,
+DELETE 등)
 
 ### GraphQL API
+
 #### QUERY (Read)
+
 단순히 정보를 읽어올 때에만 사용
 
 #### Mutation (Create, Update, Delete)
-읽어들인 정보를 변형하고자 할 때에 사용
 
+읽어들인 정보를 변형하고자 할 때에 사용

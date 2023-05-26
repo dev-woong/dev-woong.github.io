@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "NAS 기기 변경 시 HDD Migration 방법",
+      "path": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md"
+    },
+    {
       "basename": "2023-05-26",
       "path": "일간 노트/2023-05-26.md"
+    },
+    {
+      "basename": "daily_note",
+      "path": "templates/daily_note.md"
     },
     {
       "basename": "2022-12-14",
@@ -87,10 +95,6 @@
     {
       "basename": "2023-02-23",
       "path": "일간 노트/2023-02-23.md"
-    },
-    {
-      "basename": "daily_note",
-      "path": "templates/daily_note.md"
     },
     {
       "basename": "could not load file or assembly system.runtime 오류 해결 방법",

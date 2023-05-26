@@ -66,6 +66,7 @@ Network
 Npm
 Nuke의
 Nuke와
+NAS
 Today
 Task
 TeamCity
@@ -200,6 +201,7 @@ Status
 Space
 Slack을
 SonarQube
+Synology
 Console을
 CI
 Command
@@ -1038,6 +1040,7 @@ UPM
 기준
 기둥
 기법을
+기기
 적용해보기
 적용하기
 적용
@@ -1416,6 +1419,7 @@ Memory
 Mester
 Memory를
 Manager
+Migration
 if
 index
 image

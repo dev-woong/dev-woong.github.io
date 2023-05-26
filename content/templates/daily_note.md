@@ -5,20 +5,10 @@ draft: true
 tags: [ daily_note ]
 ---
 
-> [!Roadmap]
+%%> [!Roadmap]
 >
 > - 빅데이터분석기사 [3.6~10/4.8/4.28 | 5.22~26/6.24/7.14]
-> - 건설안전기사 [4.17~20/5.13 | 6.27~30/11.04]
-
-> [!important]
->
-> ```tasks
-> not done
-> path includes Important
-> short mode
-> ```
-
-%%
+> - 건설안전기사 [4.17~20/5.13 | 6.27~30/11.04]%%
 
 ## Note
 

@@ -9,7 +9,7 @@
   "folderEmoji": ":card_index_dividers:",
   "fileEmoji": ":page_facing_up:",
   "enableEmojis": false,
-  "foldersExcluded": "categories/*\npage/*\n./*\nViewer",
+  "foldersExcluded": "categories/*\npage/*\n*/*\nViewer",
   "foldersIncluded": "post/*",
   "sortOrder": "asc",
   "addSquareBrackets": true,

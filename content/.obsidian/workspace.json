@@ -19,17 +19,25 @@
                     "id": "db47e52450d2827b",
                     "type": "leaf",
                     "state": {
-                      "type": "empty",
-                      "state": {}
+                      "type": "markdown",
+                      "state": {
+                        "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+                        "mode": "source",
+                        "source": true
+                      }
                     },
-                    "group": "efc7fd77f1b0cc18"
+                    "group": "fb190bcb5c901adb"
                   },
                   {
                     "id": "ba1d2e32b9f5d979",
                     "type": "leaf",
                     "state": {
-                      "type": "empty",
-                      "state": {}
+                      "type": "markdown",
+                      "state": {
+                        "file": "문서 관리/문서 발행 여부.md",
+                        "mode": "preview",
+                        "source": true
+                      }
                     }
                   }
                 ]
@@ -42,12 +50,8 @@
                     "id": "fb3fb3863764475c",
                     "type": "leaf",
                     "state": {
-                      "type": "markdown",
-                      "state": {
-                        "file": "content/일간 노트/2023-05-26.md",
-                        "mode": "source",
-                        "source": true
-                      }
+                      "type": "graph",
+                      "state": {}
                     }
                   }
                 ]
@@ -63,8 +67,12 @@
                 "id": "7896007f822fc0f8",
                 "type": "leaf",
                 "state": {
-                  "type": "empty",
-                  "state": {}
+                  "type": "markdown",
+                  "state": {
+                    "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+                    "mode": "preview",
+                    "source": true
+                  }
                 },
                 "group": "7de1dbd4d91575a7"
               }
@@ -78,8 +86,12 @@
                 "id": "9ee1b85a1d6cee18",
                 "type": "leaf",
                 "state": {
-                  "type": "empty",
-                  "state": {}
+                  "type": "markdown",
+                  "state": {
+                    "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+                    "mode": "source",
+                    "source": true
+                  }
                 },
                 "group": "7de1dbd4d91575a7"
               }
@@ -131,14 +143,6 @@
               "type": "starred",
               "state": {}
             }
-          },
-          {
-            "id": "44d449b54439d5e5",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {}
-            }
           }
         ]
       },
@@ -166,7 +170,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/일간 노트/2023-05-26.md",
+                "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -226,21 +230,17 @@
         "dimension": 43.62214199759326,
         "children": [
           {
-            "id": "4d62c74610c20cd2",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            },
-            "group": "efc7fd77f1b0cc18"
-          },
-          {
             "id": "2293539e437c7b84",
             "type": "leaf",
             "state": {
-              "type": "git-view",
-              "state": {}
-            }
+              "type": "markdown",
+              "state": {
+                "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+                "mode": "preview",
+                "source": true
+              }
+            },
+            "group": "fb190bcb5c901adb"
           }
         ]
       },
@@ -255,7 +255,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/일간 노트/2023-05-26.md"
+                "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md"
               }
             }
           },
@@ -276,7 +276,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/일간 노트/2023-05-26.md",
+                "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -293,7 +293,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/일간 노트/2023-05-26.md",
+                "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -323,39 +323,38 @@
       "workspaces:작업 공간 레이아웃 관리": false
     }
   },
-  "active": "fb3fb3863764475c",
+  "active": "9ee1b85a1d6cee18",
   "lastOpenFiles": [
-    "content/post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
-    "content/post/Synology NAS/NAS 기기 변경 시 Migration 방법.md",
-    "content/post/Synology NAS/_Synology NAS.md",
-    "content/post/Synology NAS/무제 파일.md",
-    "content/post/Synology NAS",
-    "content/post/무제 폴더",
-    "content/_content.md",
-    "content/content/_content.md",
-    "content/content/일간 노트/2023-05-26.md",
-    "content/content/일간 노트",
-    "content/content",
-    "content/post/_post.md",
-    "content/post/Unity/_Unity.md",
-    "content/post/Windows/_Windows.md",
-    "content/post/Server/_Server.md",
-    "content/post/TeamCity/_TeamCity.md",
-    "content/post/Obsidian/_Obsidian.md",
-    "content/post/Nuke/_Nuke.md",
-    "content/post/Docker/_Docker.md",
-    "content/post/GitHub/Actions/_Actions.md",
-    "content/post/GitHub/_GitHub.md",
-    "content/post/MacOS/_MacOS.md",
-    "content/post/MAUI/_MAUI.md",
-    "content/post/Microsoft .Net/_Microsoft .Net.md",
+    "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+    "일간 노트/2023-05-26.md",
+    "templates/daily_note.md",
+    "일간 노트/2022-12-14.md",
+    "일간 노트/Important.md",
     "content/일간 노트/2023-05-26.md",
+    "post/Synology NAS/_Synology NAS.md",
+    "post/Synology NAS",
+    "무제 파일.canvas",
+    "Overload.md",
+    "_content.md",
+    "content/_content.md",
     "post/TeamCity/Parameter 관리 유형.md",
+    "content/일간 노트",
+    "content",
+    "post/_post.md",
+    "post/Unity/_Unity.md",
+    "post/Windows/_Windows.md",
+    "post/Server/_Server.md",
+    "post/TeamCity/_TeamCity.md",
+    "post/Obsidian/_Obsidian.md",
+    "post/Nuke/_Nuke.md",
+    "post/Docker/_Docker.md",
+    "post/GitHub/Actions/_Actions.md",
+    "post/GitHub/_GitHub.md",
+    "post/MacOS/_MacOS.md",
+    "post/MAUI/_MAUI.md",
+    "post/Microsoft .Net/_Microsoft .Net.md",
+    "categories/_categories.md",
     "일간 노트/2023-04-18.md",
-    "_blog.md",
-    "일간 노트",
-    "문서 관리/문서 발행 여부.md",
-    "일간 노트/2023-03-02.md",
-    "무제 파일.canvas"
+    "일간 노트"
   ]
 }

@@ -52,7 +52,7 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "_content.md",
+                        "file": "_index.md",
                         "mode": "source",
                         "source": true
                       }
@@ -71,12 +71,8 @@
                 "id": "7896007f822fc0f8",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "_content.md",
-                    "mode": "source",
-                    "source": true
-                  }
+                  "type": "empty",
+                  "state": {}
                 },
                 "group": "7de1dbd4d91575a7"
               }
@@ -90,12 +86,8 @@
                 "id": "9ee1b85a1d6cee18",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "_content.md",
-                    "mode": "source",
-                    "source": true
-                  }
+                  "type": "empty",
+                  "state": {}
                 },
                 "group": "7de1dbd4d91575a7"
               }
@@ -131,7 +123,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "_",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -174,7 +166,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "_content.md",
+                "file": "_index.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -259,7 +251,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_content.md"
+                "file": "_index.md"
               }
             }
           },
@@ -280,7 +272,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_content.md",
+                "file": "_index.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -297,7 +289,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_content.md",
+                "file": "_index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -329,36 +321,36 @@
   },
   "active": "fb3fb3863764475c",
   "lastOpenFiles": [
-    "_index.md",
-    "content/_content.md",
-    "_content.md",
-    "templates/zoottel_template.md",
-    "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
-    "content/일간 노트/2023-05-26.md",
-    "categories/_categories.md",
-    "page/_page.md",
-    "post/Tekla Structures API/_Tekla Structures API.md",
-    "일간 노트/2023-05-26.md",
-    "templates/daily_note.md",
-    "일간 노트/2022-12-14.md",
-    "일간 노트/Important.md",
-    "post/Synology NAS/_Synology NAS.md",
-    "post/Synology NAS",
-    "무제 파일.canvas",
-    "Overload.md",
-    "post/TeamCity/Parameter 관리 유형.md",
-    "content/일간 노트",
-    "content",
-    "post/_post.md",
-    "post/Unity/_Unity.md",
-    "post/Windows/_Windows.md",
-    "post/Server/_Server.md",
-    "post/TeamCity/_TeamCity.md",
-    "post/Obsidian/_Obsidian.md",
-    "post/Nuke/_Nuke.md",
     "post/Docker/_Docker.md",
     "post/GitHub/Actions/_Actions.md",
     "post/GitHub/_GitHub.md",
+    "post/MAUI/_MAUI.md",
+    "post/MacOS/_MacOS.md",
+    "post/Microsoft .Net/_Microsoft .Net.md",
+    "post/Server/_Server.md",
+    "post/TeamCity/_TeamCity.md",
+    "post/Tekla Structures API/_Tekla Structures API.md",
+    "post/Unity/_Unity.md",
+    "post/Nuke/_Nuke.md",
+    "post/Windows/_Windows.md",
+    "post/Obsidian/_Obsidian.md",
+    "post/_post.md",
+    "post/Synology NAS/_Synology NAS.md",
+    "_content.md",
+    "templates/zoottel_template.md",
+    "categories/_categories.md",
+    "_index.md",
+    "content/_content.md",
+    "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+    "content/일간 노트/2023-05-26.md",
+    "page/_page.md",
+    "일간 노트/2023-05-26.md",
+    "templates/daily_note.md",
+    "일간 노트/2022-12-14.md",
+    "post/Synology NAS",
+    "무제 파일.canvas",
+    "content/일간 노트",
+    "content",
     "일간 노트"
   ]
 }

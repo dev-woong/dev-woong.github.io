@@ -71,8 +71,12 @@
                 "id": "7896007f822fc0f8",
                 "type": "leaf",
                 "state": {
-                  "type": "empty",
-                  "state": {}
+                  "type": "markdown",
+                  "state": {
+                    "file": "content/일간 노트/2023-06-05.md",
+                    "mode": "source",
+                    "source": true
+                  }
                 },
                 "group": "7de1dbd4d91575a7"
               }
@@ -86,8 +90,12 @@
                 "id": "9ee1b85a1d6cee18",
                 "type": "leaf",
                 "state": {
-                  "type": "empty",
-                  "state": {}
+                  "type": "markdown",
+                  "state": {
+                    "file": "content/일간 노트/2023-06-05.md",
+                    "mode": "source",
+                    "source": true
+                  }
                 },
                 "group": "7de1dbd4d91575a7"
               }
@@ -139,6 +147,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "8930e5efb31f2b5c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       },
@@ -166,7 +182,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "_index.md",
+                "file": "content/일간 노트/2023-06-05.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -251,7 +267,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_index.md"
+                "file": "content/일간 노트/2023-06-05.md"
               }
             }
           },
@@ -272,7 +288,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_index.md",
+                "file": "content/일간 노트/2023-06-05.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -289,7 +305,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_index.md",
+                "file": "content/일간 노트/2023-06-05.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -319,8 +335,10 @@
       "workspaces:작업 공간 레이아웃 관리": false
     }
   },
-  "active": "fb3fb3863764475c",
+  "active": "7896007f822fc0f8",
   "lastOpenFiles": [
+    "content/일간 노트/2023-06-05.md",
+    "_index.md",
     "post/Docker/_Docker.md",
     "post/GitHub/Actions/_Actions.md",
     "post/GitHub/_GitHub.md",
@@ -339,14 +357,12 @@
     "_content.md",
     "templates/zoottel_template.md",
     "categories/_categories.md",
-    "_index.md",
     "content/_content.md",
     "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
     "content/일간 노트/2023-05-26.md",
     "page/_page.md",
     "일간 노트/2023-05-26.md",
     "templates/daily_note.md",
-    "일간 노트/2022-12-14.md",
     "post/Synology NAS",
     "무제 파일.canvas",
     "content/일간 노트",

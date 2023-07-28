@@ -2,11 +2,11 @@
 title: Tekla Structures - API 사용 형태
 image: resource/thisisengineering-raeng-nyAzMQ6Ejgs-unsplash.jpg
 categories: .NET/CSharp
-date: 9999-01-02
+date: 2020-01-02
 tags:
-- 비동기
-- Async
-- Await
+  - 비동기
+  - Async
+  - Await
 draft: true
 ---
 

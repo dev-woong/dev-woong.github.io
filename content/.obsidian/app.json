@@ -9,5 +9,6 @@
   "promptDelete": false,
   "showUnsupportedFiles": false,
   "showLineNumber": false,
-  "rightToLeft": false
+  "rightToLeft": false,
+  "spellcheck": false
 }

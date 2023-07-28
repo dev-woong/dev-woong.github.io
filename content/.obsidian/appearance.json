@@ -1,10 +1,11 @@
 {
   "accentColor": "",
-  "cssTheme": "GitHub theme",
+  "cssTheme": "Obsidianite",
   "interfaceFontFamily": "Pretendard",
   "textFontFamily": "Pretendard",
   "baseFontSize": 16,
   "monospaceFontFamily": "Pretendard",
   "translucency": false,
-  "baseFontSizeAction": true
+  "baseFontSizeAction": true,
+  "showViewHeader": true
 }

@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "2023-07-28",
-      "path": "content/일간 노트/2023-07-28.md"
+      "basename": "(GitLab-CI) Cache",
+      "path": "post/GitLab/(GitLab-CI) Cache.md"
     },
     {
-      "basename": "2023-06-05",
-      "path": "content/일간 노트/2023-06-05.md"
+      "basename": "문서 발행 여부",
+      "path": "문서 관리/문서 발행 여부.md"
+    },
+    {
+      "basename": "2023-07-28",
+      "path": "일간 노트/2023-07-28.md"
+    },
+    {
+      "basename": "2023-05-26",
+      "path": "일간 노트/2023-05-26.md"
+    },
+    {
+      "basename": "_content",
+      "path": "_content.md"
+    },
+    {
+      "basename": "API 사용 형태",
+      "path": "post/Tekla Structures API/API 사용 형태.md"
     },
     {
       "basename": "무제 파일",
@@ -33,18 +49,6 @@
       "path": "templates/zoottel_template.md"
     },
     {
-      "basename": "2023-06-20",
-      "path": "content/일간 노트/2023-06-20.md"
-    },
-    {
-      "basename": "2023-05-26",
-      "path": "content/일간 노트/2023-05-26.md"
-    },
-    {
-      "basename": "2023-05-26",
-      "path": "일간 노트/2023-05-26.md"
-    },
-    {
       "basename": "daily_note",
       "path": "templates/daily_note.md"
     },
@@ -63,10 +67,6 @@
     {
       "basename": "2023-03-02",
       "path": "일간 노트/2023-03-02.md"
-    },
-    {
-      "basename": "문서 발행 여부",
-      "path": "문서 관리/문서 발행 여부.md"
     },
     {
       "basename": "2023-04-07",

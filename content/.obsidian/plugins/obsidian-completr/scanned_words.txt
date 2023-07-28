@@ -70,6 +70,7 @@ NAS
 NAS의
 NAS에서의
 NAS에
+None
 Today
 Task
 TeamCity
@@ -205,6 +206,7 @@ Space
 Slack을
 SonarQube
 Synology
+Success
 Console을
 CI
 Command
@@ -644,6 +646,7 @@ DB의
 Dependencies
 DependsOn을
 Dotnet
+Draft
 Open
 On
 Object가
@@ -1280,6 +1283,7 @@ both
 broadcasting
 background
 before
+br
 해당
 해줄
 해도

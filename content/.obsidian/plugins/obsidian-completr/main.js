@@ -9,43 +9,26 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJS = (cb, mod) =>
-  function __require() {
-    return mod ||
-      (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod),
-      mod.exports;
-  };
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
 var __export = (target, all) => {
-  for (var name in all) {
+  for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
-  }
 };
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from)) {
-      if (!__hasOwnProp.call(to, key) && key !== except) {
-        __defProp(to, key, {
-          get: () => from[key],
-          enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable,
-        });
-      }
-    }
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
   return to;
 };
-var __toESM = (
-  mod,
-  isNodeMode,
-  target,
-) => (target = mod != null ? __create(__getProtoOf(mod)) : {},
-  __copyProps(
-    isNodeMode || !mod || !mod.__esModule
-      ? __defProp(target, "default", { value: mod, enumerable: true })
-      : target,
-    mod,
-  ));
-var __toCommonJS = (mod) =>
-  __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // node_modules/jschardet/src/constants.js
 var require_constants = __commonJS({
@@ -57,9 +40,9 @@ var require_constants = __commonJS({
       start: 0,
       error: 1,
       itsMe: 2,
-      SHORTCUT_THRESHOLD: 0.95,
+      SHORTCUT_THRESHOLD: 0.95
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/charsetprober.js
@@ -67,29 +50,29 @@ var require_charsetprober = __commonJS({
   "node_modules/jschardet/src/charsetprober.js"(exports, module2) {
     var constants = require_constants();
     function CharSetProber() {
-      this.reset = function () {
+      this.reset = function() {
         this._mState = constants.detecting;
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return null;
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
       };
-      this.getState = function () {
+      this.getState = function() {
         return this._mState;
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         return 0;
       };
-      this.filterHighBitOnly = function (aBuf) {
+      this.filterHighBitOnly = function(aBuf) {
         aBuf = aBuf.replace(/[\x00-\x7F]+/g, " ");
         return aBuf;
       };
-      this.filterWithoutEnglishLetters = function (aBuf) {
+      this.filterWithoutEnglishLetters = function(aBuf) {
         aBuf = aBuf.replace(/[A-Za-z]+/g, " ");
         return aBuf;
       };
-      this.filterWithEnglishLetters = function (aBuf) {
+      this.filterWithEnglishLetters = function(aBuf) {
         var result = "";
         var inTag = false;
         var prev = 0;
@@ -116,19 +99,19 @@ var require_charsetprober = __commonJS({
       };
     }
     module2.exports = CharSetProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/logger.js
 var require_logger = __commonJS({
   "node_modules/jschardet/src/logger.js"(exports) {
-    exports.log = function () {
+    exports.log = function() {
     };
     exports.setLogger = function setLogger(loggerFunction) {
       exports.enabled = true;
       exports.log = loggerFunction;
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/charsetgroupprober.js
@@ -145,7 +128,7 @@ var require_charsetgroupprober = __commonJS({
         self._mProbers = [];
         self._mBestGuessProber = null;
       }
-      this.reset = function () {
+      this.reset = function() {
         CharSetGroupProber.prototype.reset.apply(this);
         this._mActiveNum = 0;
         for (var i = 0, prober; prober = this._mProbers[i]; i++) {
@@ -157,24 +140,21 @@ var require_charsetgroupprober = __commonJS({
         }
         this._mBestGuessProber = null;
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         if (!this._mBestGuessProber) {
           this.getConfidence();
-          if (!this._mBestGuessProber) {
+          if (!this._mBestGuessProber)
             return null;
-          }
         }
         return this._mBestGuessProber.getCharsetName();
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         for (var i = 0, prober; prober = this._mProbers[i]; i++) {
-          if (!prober || !prober.active) {
+          if (!prober || !prober.active)
             continue;
-          }
           var st = prober.feed(aBuf);
-          if (!st) {
+          if (!st)
             continue;
-          }
           if (st == constants.foundIt) {
             this._mBestGuessProber = prober;
             return this.getState();
@@ -189,7 +169,7 @@ var require_charsetgroupprober = __commonJS({
         }
         return this.getState();
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         var st = this.getState();
         if (st == constants.foundIt) {
           return 0.99;
@@ -199,9 +179,8 @@ var require_charsetgroupprober = __commonJS({
         var bestConf = 0;
         this._mBestGuessProber = null;
         for (var i = 0, prober; prober = this._mProbers[i]; i++) {
-          if (!prober) {
+          if (!prober)
             continue;
-          }
           if (!prober.active) {
             logger.log(prober.getCharsetName() + " not active\n");
             continue;
@@ -213,16 +192,15 @@ var require_charsetgroupprober = __commonJS({
             this._mBestGuessProber = prober;
           }
         }
-        if (!this._mBestGuessProber) {
+        if (!this._mBestGuessProber)
           return 0;
-        }
         return bestConf;
       };
       init();
     }
     CharSetGroupProber.prototype = new CharSetProber();
     module2.exports = CharSetGroupProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/codingstatemachine.js
@@ -237,32 +215,29 @@ var require_codingstatemachine = __commonJS({
         self._mCurrentCharLen = 0;
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         this._mCurrentState = constants.start;
       };
-      this.nextState = function (c) {
+      this.nextState = function(c) {
         var byteCls = this._mModel.classTable[c.charCodeAt(0)];
         if (this._mCurrentState == constants.start) {
           this._mCurrentBytePos = 0;
           this._mCurrentCharLen = this._mModel.charLenTable[byteCls];
         }
-        this._mCurrentState = this._mModel
-          .stateTable[
-            this._mCurrentState * this._mModel.classFactor + byteCls
-          ];
+        this._mCurrentState = this._mModel.stateTable[this._mCurrentState * this._mModel.classFactor + byteCls];
         this._mCurrentBytePos++;
         return this._mCurrentState;
       };
-      this.getCurrentCharLen = function () {
+      this.getCurrentCharLen = function() {
         return this._mCurrentCharLen;
       };
-      this.getCodingStateMachine = function () {
+      this.getCodingStateMachine = function() {
         return this._mModel.name;
       };
       init(sm);
     }
     module2.exports = CodingStateMachine;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcharsetprober.js
@@ -279,7 +254,7 @@ var require_mbcharsetprober = __commonJS({
         self._mCodingSM = null;
         self._mLastChar = "\0\0";
       }
-      this.reset = function () {
+      this.reset = function() {
         MultiByteCharSetProber.prototype.reset.apply(this);
         if (this._mCodingSM) {
           this._mCodingSM.reset();
@@ -289,16 +264,14 @@ var require_mbcharsetprober = __commonJS({
         }
         this._mLastChar = "\0\0";
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         var aLen = aBuf.length;
         for (var i = 0; i < aLen; i++) {
           var codingState = this._mCodingSM.nextState(aBuf[i]);
           if (codingState == constants.error) {
-            logger.log(
-              this.getCharsetName() + " prober hit error at byte " + i + "\n",
-            );
+            logger.log(this.getCharsetName() + " prober hit error at byte " + i + "\n");
             this._mState = constants.notMe;
             break;
           } else if (codingState == constants.itsMe) {
@@ -310,31 +283,25 @@ var require_mbcharsetprober = __commonJS({
               this._mLastChar[1] = aBuf[0];
               this._mDistributionAnalyzer.feed(this._mLastChar, charLen);
             } else {
-              this._mDistributionAnalyzer.feed(
-                aBuf.slice(i - 1, i + 1),
-                charLen,
-              );
+              this._mDistributionAnalyzer.feed(aBuf.slice(i - 1, i + 1), charLen);
             }
           }
         }
         this._mLastChar[0] = aBuf[aLen - 1];
         if (this.getState() == constants.detecting) {
-          if (
-            this._mDistributionAnalyzer.gotEnoughData() &&
-            this.getConfidence() > constants.SHORTCUT_THRESHOLD
-          ) {
+          if (this._mDistributionAnalyzer.gotEnoughData() && this.getConfidence() > constants.SHORTCUT_THRESHOLD) {
             this._mState = constants.foundIt;
           }
         }
         return this.getState();
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         return this._mDistributionAnalyzer.getConfidence();
       };
     }
     MultiByteCharSetProber.prototype = new CharSetProber();
     module2.exports = MultiByteCharSetProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcssm/big5.js
@@ -597,7 +564,7 @@ var require_big5 = __commonJS({
       3,
       3,
       3,
-      0,
+      0
     ];
     var BIG5_st = [
       consts.error,
@@ -623,7 +590,7 @@ var require_big5 = __commonJS({
       consts.start,
       consts.start,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var Big5CharLenTable = [0, 1, 1, 2, 0];
     module2.exports = {
@@ -631,9 +598,9 @@ var require_big5 = __commonJS({
       "classFactor": 5,
       "stateTable": BIG5_st,
       "charLenTable": Big5CharLenTable,
-      "name": "Big5",
+      "name": "Big5"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/jisfreq.js
@@ -8913,9 +8880,9 @@ var require_jisfreq = __commonJS({
       8268,
       8269,
       8270,
-      8271,
+      8271
     ];
-  },
+  }
 });
 
 // node_modules/jschardet/src/euctwfreq.js
@@ -14939,9 +14906,9 @@ var require_euctwfreq = __commonJS({
       8738,
       8739,
       8740,
-      8741,
+      8741
     ];
-  },
+  }
 });
 
 // node_modules/jschardet/src/euckrfreq.js
@@ -23691,9 +23658,9 @@ var require_euckrfreq = __commonJS({
       8738,
       8739,
       8740,
-      8741,
+      8741
     ];
-  },
+  }
 });
 
 // node_modules/jschardet/src/gb2312freq.js
@@ -30469,9 +30436,9 @@ var require_gb2312freq = __commonJS({
       6275,
       6766,
       4527,
-      6767,
+      6767
     ];
-  },
+  }
 });
 
 // node_modules/jschardet/src/big5freq.js
@@ -44452,9 +44419,9 @@ var require_big5freq = __commonJS({
       13969,
       13970,
       13971,
-      13972,
+      13972
     ];
-  },
+  }
 });
 
 // node_modules/jschardet/src/chardistribution.js
@@ -44477,12 +44444,12 @@ var require_chardistribution = __commonJS({
         self._mTypicalDistributionRatio = null;
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         this._mDone = false;
         this._mTotalChars = 0;
         this._mFreqChars = 0;
       };
-      this.feed = function (aStr, aCharLen) {
+      this.feed = function(aStr, aCharLen) {
         if (aCharLen == 2) {
           var order = this.getOrder(aStr);
         } else {
@@ -44497,26 +44464,22 @@ var require_chardistribution = __commonJS({
           }
         }
       };
-      this.getConfidence = function () {
-        if (
-          this._mTotalChars <= 0 || this._mFreqChars <= MINIMUM_DATA_THRESHOLD
-        ) {
+      this.getConfidence = function() {
+        if (this._mTotalChars <= 0 || this._mFreqChars <= MINIMUM_DATA_THRESHOLD) {
           return SURE_NO;
         }
         if (this._mTotalChars != this._mFreqChars) {
-          var r = this._mFreqChars /
-            ((this._mTotalChars - this._mFreqChars) *
-              this._mTypicalDistributionRatio);
+          var r = this._mFreqChars / ((this._mTotalChars - this._mFreqChars) * this._mTypicalDistributionRatio);
           if (r < SURE_YES) {
             return r;
           }
         }
         return SURE_YES;
       };
-      this.gotEnoughData = function () {
+      this.gotEnoughData = function() {
         return this._mTotalChars > ENOUGH_DATA_THRESHOLD;
       };
-      this.getOrder = function (aStr) {
+      this.getOrder = function(aStr) {
         return -1;
       };
       init();
@@ -44528,10 +44491,9 @@ var require_chardistribution = __commonJS({
       function init() {
         self._mCharToFreqOrder = euctwfreq.EUCTWCharToFreqOrder;
         self._mTableSize = euctwfreq.EUCTW_TABLE_SIZE;
-        self._mTypicalDistributionRatio =
-          euctwfreq.EUCTW_TYPICAL_DISTRIBUTION_RATIO;
+        self._mTypicalDistributionRatio = euctwfreq.EUCTW_TYPICAL_DISTRIBUTION_RATIO;
       }
-      this.getOrder = function (aStr) {
+      this.getOrder = function(aStr) {
         if (aStr.charCodeAt(0) >= 196) {
           return 94 * (aStr.charCodeAt(0) - 196) + aStr.charCodeAt(1) - 161;
         } else {
@@ -44548,10 +44510,9 @@ var require_chardistribution = __commonJS({
       function init() {
         self._mCharToFreqOrder = euckrfreq.EUCKRCharToFreqOrder;
         self._mTableSize = euckrfreq.EUCKR_TABLE_SIZE;
-        self._mTypicalDistributionRatio =
-          euckrfreq.EUCKR_TYPICAL_DISTRIBUTION_RATIO;
+        self._mTypicalDistributionRatio = euckrfreq.EUCKR_TYPICAL_DISTRIBUTION_RATIO;
       }
-      this.getOrder = function (aStr) {
+      this.getOrder = function(aStr) {
         if (aStr.charCodeAt(0) >= 176) {
           return 94 * (aStr.charCodeAt(0) - 176) + aStr.charCodeAt(1) - 161;
         } else {
@@ -44568,10 +44529,9 @@ var require_chardistribution = __commonJS({
       function init() {
         self._mCharToFreqOrder = gb2312freq.GB2312CharToFreqOrder;
         self._mTableSize = gb2312freq.GB2312_TABLE_SIZE;
-        self._mTypicalDistributionRatio =
-          gb2312freq.GB2312_TYPICAL_DISTRIBUTION_RATIO;
+        self._mTypicalDistributionRatio = gb2312freq.GB2312_TYPICAL_DISTRIBUTION_RATIO;
       }
-      this.getOrder = function (aStr) {
+      this.getOrder = function(aStr) {
         if (aStr.charCodeAt(0) >= 176 && aStr.charCodeAt(1) >= 161) {
           return 94 * (aStr.charCodeAt(0) - 176) + aStr.charCodeAt(1) - 161;
         } else {
@@ -44588,14 +44548,12 @@ var require_chardistribution = __commonJS({
       function init() {
         self._mCharToFreqOrder = big5freq.Big5CharToFreqOrder;
         self._mTableSize = big5freq.BIG5_TABLE_SIZE;
-        self._mTypicalDistributionRatio =
-          big5freq.BIG5_TYPICAL_DISTRIBUTION_RATIO;
+        self._mTypicalDistributionRatio = big5freq.BIG5_TYPICAL_DISTRIBUTION_RATIO;
       }
-      this.getOrder = function (aStr) {
+      this.getOrder = function(aStr) {
         if (aStr.charCodeAt(0) >= 164) {
           if (aStr.charCodeAt(1) >= 161) {
-            return 157 * (aStr.charCodeAt(0) - 164) + aStr.charCodeAt(1) - 161 +
-              63;
+            return 157 * (aStr.charCodeAt(0) - 164) + aStr.charCodeAt(1) - 161 + 63;
           } else {
             return 157 * (aStr.charCodeAt(0) - 164) + aStr.charCodeAt(1) - 64;
           }
@@ -44613,10 +44571,9 @@ var require_chardistribution = __commonJS({
       function init() {
         self._mCharToFreqOrder = jisfreq.JISCharToFreqOrder;
         self._mTableSize = jisfreq.JIS_TABLE_SIZE;
-        self._mTypicalDistributionRatio =
-          jisfreq.JIS_TYPICAL_DISTRIBUTION_RATIO;
+        self._mTypicalDistributionRatio = jisfreq.JIS_TYPICAL_DISTRIBUTION_RATIO;
       }
-      this.getOrder = function (aStr) {
+      this.getOrder = function(aStr) {
         if (aStr.charCodeAt(0) >= 129 && aStr.charCodeAt(0) <= 159) {
           var order = 188 * (aStr.charCodeAt(0) - 129);
         } else if (aStr.charCodeAt(0) >= 224 && aStr.charCodeAt(0) <= 239) {
@@ -44625,10 +44582,7 @@ var require_chardistribution = __commonJS({
           return -1;
         }
         order += aStr.charCodeAt(1) - 64;
-        if (
-          aStr.charCodeAt(1) < 64 || aStr.charCodeAt(1) === 127 ||
-          aStr.charCodeAt(1) > 252
-        ) {
+        if (aStr.charCodeAt(1) < 64 || aStr.charCodeAt(1) === 127 || aStr.charCodeAt(1) > 252) {
           order = -1;
         }
         return order;
@@ -44643,10 +44597,9 @@ var require_chardistribution = __commonJS({
       function init() {
         self._mCharToFreqOrder = jisfreq.JISCharToFreqOrder;
         self._mTableSize = jisfreq.JIS_TABLE_SIZE;
-        self._mTypicalDistributionRatio =
-          jisfreq.JIS_TYPICAL_DISTRIBUTION_RATIO;
+        self._mTypicalDistributionRatio = jisfreq.JIS_TYPICAL_DISTRIBUTION_RATIO;
       }
-      this.getOrder = function (aStr) {
+      this.getOrder = function(aStr) {
         if (aStr[0] >= "\xA0") {
           return 94 * (aStr.charCodeAt(0) - 161) + aStr.charCodeAt(1) - 161;
         } else {
@@ -44657,7 +44610,7 @@ var require_chardistribution = __commonJS({
     }
     EUCJPDistributionAnalysis.prototype = new CharDistributionAnalysis();
     exports.EUCJPDistributionAnalysis = EUCJPDistributionAnalysis;
-  },
+  }
 });
 
 // node_modules/jschardet/src/big5prober.js
@@ -44666,8 +44619,7 @@ var require_big5prober = __commonJS({
     var CodingStateMachine = require_codingstatemachine();
     var MultiByteCharSetProber = require_mbcharsetprober();
     var Big5SMModel = require_big5();
-    var Big5DistributionAnalysis =
-      require_chardistribution().Big5DistributionAnalysis;
+    var Big5DistributionAnalysis = require_chardistribution().Big5DistributionAnalysis;
     function Big5Prober() {
       MultiByteCharSetProber.apply(this);
       var self = this;
@@ -44676,14 +44628,14 @@ var require_big5prober = __commonJS({
         self._mDistributionAnalyzer = new Big5DistributionAnalysis();
         self.reset();
       }
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return "Big5";
       };
       init();
     }
     Big5Prober.prototype = new MultiByteCharSetProber();
     module2.exports = Big5Prober;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcssm/utf8.js
@@ -44946,7 +44898,7 @@ var require_utf8 = __commonJS({
       14,
       15,
       0,
-      0,
+      0
     ];
     var UTF8_st = [
       consts.error,
@@ -45156,7 +45108,7 @@ var require_utf8 = __commonJS({
       consts.error,
       consts.error,
       consts.error,
-      consts.error,
+      consts.error
     ];
     var UTF8CharLenTable = [0, 1, 0, 0, 0, 0, 2, 3, 3, 3, 4, 4, 5, 5, 6, 6];
     module2.exports = {
@@ -45164,9 +45116,9 @@ var require_utf8 = __commonJS({
       "classFactor": 16,
       "stateTable": UTF8_st,
       "charLenTable": UTF8CharLenTable,
-      "name": "UTF-8",
+      "name": "UTF-8"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/utf8prober.js
@@ -45184,7 +45136,7 @@ var require_utf8prober = __commonJS({
         self._mCodingSM = new CodingStateMachine(UTF8SMModel);
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         UTF8Prober.prototype.reset.apply(this);
         this._mCodingSM.reset();
         this._mNumOfMBChar = 0;
@@ -45192,10 +45144,10 @@ var require_utf8prober = __commonJS({
         this._mFullLen = 0;
         this._mBasicAsciiLen = 0;
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return "UTF-8";
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         this._mFullLen += aBuf.length;
         for (var i = 0, c; i < aBuf.length; i++) {
           c = aBuf[i];
@@ -45222,7 +45174,7 @@ var require_utf8prober = __commonJS({
         }
         return this.getState();
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         var unlike = 0.99;
         var mbCharRatio = 0;
         var nonBasciAsciiLen = this._mFullLen - this._mBasicAsciiLen;
@@ -45240,7 +45192,7 @@ var require_utf8prober = __commonJS({
     }
     UTF8Prober.prototype = new CharSetProber();
     module2.exports = UTF8Prober;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcssm/sjis.js
@@ -45503,7 +45455,7 @@ var require_sjis = __commonJS({
       3,
       0,
       0,
-      0,
+      0
     ];
     var SJIS_st = [
       consts.error,
@@ -45529,7 +45481,7 @@ var require_sjis = __commonJS({
       consts.start,
       consts.start,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var SJISCharLenTable = [0, 1, 1, 2, 0, 0];
     module2.exports = {
@@ -45537,7070 +45489,98 @@ var require_sjis = __commonJS({
       "classFactor": 6,
       "stateTable": SJIS_st,
       "charLenTable": SJISCharLenTable,
-      "name": "Shift_JIS",
+      "name": "Shift_JIS"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/jpcntx.js
 var require_jpcntx = __commonJS({
   "node_modules/jschardet/src/jpcntx.js"(exports) {
     exports.jp2CharContext = [
-      [
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-      ],
-      [
-        2,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        0,
-        3,
-        4,
-        4,
-        4,
-        2,
-        4,
-        3,
-        3,
-        4,
-        3,
-        2,
-        3,
-        3,
-        4,
-        2,
-        3,
-        3,
-        3,
-        2,
-        4,
-        1,
-        4,
-        3,
-        3,
-        1,
-        5,
-        4,
-        3,
-        4,
-        3,
-        4,
-        3,
-        5,
-        3,
-        0,
-        3,
-        5,
-        4,
-        2,
-        0,
-        3,
-        1,
-        0,
-        3,
-        3,
-        0,
-        3,
-        3,
-        0,
-        1,
-        1,
-        0,
-        4,
-        3,
-        0,
-        3,
-        3,
-        0,
-        4,
-        0,
-        2,
-        0,
-        3,
-        5,
-        5,
-        5,
-        5,
-        4,
-        0,
-        4,
-        1,
-        0,
-        3,
-        4,
-      ],
-      [
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-      ],
-      [
-        0,
-        4,
-        0,
-        5,
-        0,
-        5,
-        0,
-        4,
-        0,
-        4,
-        5,
-        4,
-        4,
-        3,
-        5,
-        3,
-        5,
-        1,
-        5,
-        3,
-        4,
-        3,
-        4,
-        4,
-        3,
-        4,
-        3,
-        3,
-        4,
-        3,
-        5,
-        4,
-        4,
-        3,
-        5,
-        5,
-        3,
-        5,
-        5,
-        5,
-        3,
-        5,
-        5,
-        3,
-        4,
-        5,
-        5,
-        3,
-        1,
-        3,
-        2,
-        0,
-        3,
-        4,
-        0,
-        4,
-        2,
-        0,
-        4,
-        2,
-        1,
-        5,
-        3,
-        2,
-        3,
-        5,
-        0,
-        4,
-        0,
-        2,
-        0,
-        5,
-        4,
-        4,
-        5,
-        4,
-        5,
-        0,
-        4,
-        0,
-        0,
-        4,
-        4,
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-      ],
-      [
-        0,
-        3,
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        0,
-        4,
-        5,
-        4,
-        3,
-        3,
-        3,
-        3,
-        4,
-        3,
-        5,
-        4,
-        4,
-        3,
-        5,
-        4,
-        4,
-        3,
-        4,
-        3,
-        4,
-        4,
-        4,
-        4,
-        5,
-        3,
-        4,
-        4,
-        3,
-        4,
-        5,
-        5,
-        4,
-        5,
-        5,
-        1,
-        4,
-        5,
-        4,
-        3,
-        0,
-        3,
-        3,
-        1,
-        3,
-        3,
-        0,
-        4,
-        4,
-        0,
-        3,
-        3,
-        1,
-        5,
-        3,
-        3,
-        3,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        4,
-        3,
-        4,
-        3,
-        3,
-        0,
-        4,
-        1,
-        1,
-        3,
-        4,
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-      ],
-      [
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        0,
-        4,
-        0,
-        3,
-        4,
-        4,
-        3,
-        2,
-        2,
-        1,
-        2,
-        1,
-        3,
-        1,
-        3,
-        3,
-        3,
-        3,
-        3,
-        4,
-        3,
-        1,
-        3,
-        3,
-        5,
-        3,
-        3,
-        0,
-        4,
-        3,
-        0,
-        5,
-        4,
-        3,
-        3,
-        5,
-        4,
-        4,
-        3,
-        4,
-        4,
-        5,
-        0,
-        1,
-        2,
-        0,
-        1,
-        2,
-        0,
-        2,
-        2,
-        0,
-        1,
-        0,
-        0,
-        5,
-        2,
-        2,
-        1,
-        4,
-        0,
-        3,
-        0,
-        1,
-        0,
-        4,
-        4,
-        3,
-        5,
-        4,
-        3,
-        0,
-        2,
-        1,
-        0,
-        4,
-        3,
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-      ],
-      [
-        0,
-        3,
-        0,
-        5,
-        0,
-        4,
-        0,
-        2,
-        1,
-        4,
-        4,
-        2,
-        4,
-        1,
-        4,
-        2,
-        4,
-        2,
-        4,
-        3,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        3,
-        1,
-        4,
-        2,
-        3,
-        3,
-        3,
-        1,
-        4,
-        4,
-        1,
-        1,
-        1,
-        4,
-        3,
-        3,
-        2,
-        0,
-        2,
-        4,
-        3,
-        2,
-        0,
-        3,
-        3,
-        0,
-        3,
-        1,
-        1,
-        0,
-        0,
-        0,
-        3,
-        3,
-        0,
-        4,
-        2,
-        2,
-        3,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        4,
-        5,
-        3,
-        4,
-        4,
-        0,
-        3,
-        0,
-        0,
-        1,
-        4,
-      ],
-      [
-        1,
-        4,
-        0,
-        4,
-        0,
-        4,
-        0,
-        4,
-        0,
-        3,
-        5,
-        4,
-        4,
-        3,
-        4,
-        3,
-        5,
-        4,
-        3,
-        3,
-        4,
-        3,
-        5,
-        4,
-        4,
-        4,
-        4,
-        3,
-        4,
-        2,
-        4,
-        3,
-        3,
-        1,
-        5,
-        4,
-        3,
-        2,
-        4,
-        5,
-        4,
-        5,
-        5,
-        4,
-        4,
-        5,
-        4,
-        4,
-        0,
-        3,
-        2,
-        2,
-        3,
-        3,
-        0,
-        4,
-        3,
-        1,
-        3,
-        2,
-        1,
-        4,
-        3,
-        3,
-        4,
-        5,
-        0,
-        3,
-        0,
-        2,
-        0,
-        4,
-        5,
-        5,
-        4,
-        5,
-        4,
-        0,
-        4,
-        0,
-        0,
-        5,
-        4,
-      ],
-      [
-        0,
-        5,
-        0,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        4,
-        3,
-        4,
-        3,
-        3,
-        3,
-        4,
-        0,
-        4,
-        4,
-        4,
-        3,
-        4,
-        3,
-        4,
-        3,
-        3,
-        1,
-        4,
-        2,
-        4,
-        3,
-        4,
-        0,
-        5,
-        4,
-        1,
-        4,
-        5,
-        4,
-        4,
-        5,
-        3,
-        2,
-        4,
-        3,
-        4,
-        3,
-        2,
-        4,
-        1,
-        3,
-        3,
-        3,
-        2,
-        3,
-        2,
-        0,
-        4,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        5,
-        4,
-        4,
-        4,
-        3,
-        0,
-        4,
-        1,
-        0,
-        1,
-        3,
-      ],
-      [
-        0,
-        3,
-        1,
-        4,
-        0,
-        3,
-        0,
-        2,
-        0,
-        3,
-        4,
-        4,
-        3,
-        1,
-        4,
-        2,
-        3,
-        3,
-        4,
-        3,
-        4,
-        3,
-        4,
-        3,
-        4,
-        4,
-        3,
-        2,
-        3,
-        1,
-        5,
-        4,
-        4,
-        1,
-        4,
-        4,
-        3,
-        5,
-        4,
-        4,
-        3,
-        5,
-        5,
-        4,
-        3,
-        4,
-        4,
-        3,
-        1,
-        2,
-        3,
-        1,
-        2,
-        2,
-        0,
-        3,
-        2,
-        0,
-        3,
-        1,
-        0,
-        5,
-        3,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        3,
-        4,
-        4,
-        4,
-        4,
-        5,
-        4,
-        2,
-        0,
-        3,
-        3,
-        2,
-        4,
-        3,
-      ],
-      [
-        0,
-        2,
-        0,
-        3,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        3,
-        2,
-        0,
-        0,
-        2,
-        0,
-        1,
-        0,
-        2,
-        1,
-        3,
-        3,
-        3,
-        1,
-        2,
-        3,
-        1,
-        0,
-        1,
-        0,
-        4,
-        2,
-        1,
-        1,
-        3,
-        3,
-        0,
-        4,
-        3,
-        3,
-        1,
-        4,
-        3,
-        3,
-        0,
-        3,
-        3,
-        2,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        4,
-        1,
-        0,
-        2,
-        3,
-        2,
-        2,
-        2,
-        1,
-        3,
-        3,
-        3,
-        4,
-        4,
-        3,
-        2,
-        0,
-        3,
-        1,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        0,
-        4,
-        4,
-        4,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        4,
-        3,
-        4,
-        2,
-        4,
-        3,
-        4,
-        3,
-        3,
-        2,
-        4,
-        3,
-        4,
-        5,
-        4,
-        1,
-        4,
-        5,
-        3,
-        5,
-        4,
-        5,
-        3,
-        5,
-        4,
-        0,
-        3,
-        5,
-        5,
-        3,
-        1,
-        3,
-        3,
-        2,
-        2,
-        3,
-        0,
-        3,
-        4,
-        1,
-        3,
-        3,
-        2,
-        4,
-        3,
-        3,
-        3,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        5,
-        4,
-        4,
-        5,
-        3,
-        0,
-        4,
-        1,
-        0,
-        3,
-        4,
-      ],
-      [
-        0,
-        2,
-        0,
-        3,
-        0,
-        3,
-        0,
-        0,
-        0,
-        2,
-        2,
-        2,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        0,
-        1,
-        3,
-        1,
-        0,
-        3,
-        1,
-        3,
-        3,
-        3,
-        1,
-        3,
-        3,
-        3,
-        0,
-        1,
-        3,
-        1,
-        3,
-        4,
-        0,
-        0,
-        3,
-        1,
-        1,
-        0,
-        3,
-        2,
-        0,
-        0,
-        0,
-        0,
-        1,
-        3,
-        0,
-        1,
-        0,
-        0,
-        3,
-        3,
-        2,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        4,
-        3,
-        4,
-        3,
-        3,
-        0,
-        3,
-        0,
-        0,
-        2,
-        3,
-      ],
-      [
-        2,
-        3,
-        0,
-        3,
-        0,
-        2,
-        0,
-        1,
-        0,
-        3,
-        3,
-        4,
-        3,
-        1,
-        3,
-        1,
-        1,
-        1,
-        3,
-        1,
-        4,
-        3,
-        4,
-        3,
-        3,
-        3,
-        0,
-        0,
-        3,
-        1,
-        5,
-        4,
-        3,
-        1,
-        4,
-        3,
-        2,
-        5,
-        5,
-        4,
-        4,
-        4,
-        4,
-        3,
-        3,
-        4,
-        4,
-        4,
-        0,
-        2,
-        1,
-        1,
-        3,
-        2,
-        0,
-        1,
-        2,
-        0,
-        0,
-        1,
-        0,
-        4,
-        1,
-        3,
-        3,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        4,
-        4,
-        4,
-        5,
-        5,
-        3,
-        0,
-        2,
-        0,
-        0,
-        4,
-        4,
-      ],
-      [
-        0,
-        2,
-        0,
-        1,
-        0,
-        3,
-        1,
-        3,
-        0,
-        2,
-        3,
-        3,
-        3,
-        0,
-        3,
-        1,
-        0,
-        0,
-        3,
-        0,
-        3,
-        2,
-        3,
-        1,
-        3,
-        2,
-        1,
-        1,
-        0,
-        0,
-        4,
-        2,
-        1,
-        0,
-        2,
-        3,
-        1,
-        4,
-        3,
-        2,
-        0,
-        4,
-        4,
-        3,
-        1,
-        3,
-        1,
-        3,
-        0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        4,
-        1,
-        1,
-        1,
-        2,
-        0,
-        3,
-        0,
-        0,
-        0,
-        3,
-        4,
-        2,
-        4,
-        3,
-        2,
-        0,
-        1,
-        0,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        1,
-        0,
-        4,
-        0,
-        5,
-        0,
-        4,
-        0,
-        2,
-        4,
-        4,
-        2,
-        3,
-        3,
-        2,
-        3,
-        3,
-        5,
-        3,
-        3,
-        3,
-        4,
-        3,
-        4,
-        2,
-        3,
-        0,
-        4,
-        3,
-        3,
-        3,
-        4,
-        1,
-        4,
-        3,
-        2,
-        1,
-        5,
-        5,
-        3,
-        4,
-        5,
-        1,
-        3,
-        5,
-        4,
-        2,
-        0,
-        3,
-        3,
-        0,
-        1,
-        3,
-        0,
-        4,
-        2,
-        0,
-        1,
-        3,
-        1,
-        4,
-        3,
-        3,
-        3,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        4,
-        4,
-        4,
-        5,
-        5,
-        0,
-        3,
-        0,
-        1,
-        4,
-        5,
-      ],
-      [
-        0,
-        2,
-        0,
-        3,
-        0,
-        3,
-        0,
-        0,
-        0,
-        2,
-        3,
-        1,
-        3,
-        0,
-        4,
-        0,
-        1,
-        1,
-        3,
-        0,
-        3,
-        4,
-        3,
-        2,
-        3,
-        1,
-        0,
-        3,
-        3,
-        2,
-        3,
-        1,
-        3,
-        0,
-        2,
-        3,
-        0,
-        2,
-        1,
-        4,
-        1,
-        2,
-        2,
-        0,
-        0,
-        3,
-        3,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        2,
-        2,
-        0,
-        3,
-        2,
-        1,
-        3,
-        3,
-        0,
-        2,
-        0,
-        2,
-        0,
-        0,
-        3,
-        3,
-        1,
-        2,
-        4,
-        0,
-        3,
-        0,
-        2,
-        2,
-        3,
-      ],
-      [
-        2,
-        4,
-        0,
-        5,
-        0,
-        4,
-        0,
-        4,
-        0,
-        2,
-        4,
-        4,
-        4,
-        3,
-        4,
-        3,
-        3,
-        3,
-        1,
-        2,
-        4,
-        3,
-        4,
-        3,
-        4,
-        4,
-        5,
-        0,
-        3,
-        3,
-        3,
-        3,
-        2,
-        0,
-        4,
-        3,
-        1,
-        4,
-        3,
-        4,
-        1,
-        4,
-        4,
-        3,
-        3,
-        4,
-        4,
-        3,
-        1,
-        2,
-        3,
-        0,
-        4,
-        2,
-        0,
-        4,
-        1,
-        0,
-        3,
-        3,
-        0,
-        4,
-        3,
-        3,
-        3,
-        4,
-        0,
-        4,
-        0,
-        2,
-        0,
-        3,
-        5,
-        3,
-        4,
-        5,
-        2,
-        0,
-        3,
-        0,
-        0,
-        4,
-        5,
-      ],
-      [
-        0,
-        3,
-        0,
-        4,
-        0,
-        1,
-        0,
-        1,
-        0,
-        1,
-        3,
-        2,
-        2,
-        1,
-        3,
-        0,
-        3,
-        0,
-        2,
-        0,
-        2,
-        0,
-        3,
-        0,
-        2,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        1,
-        0,
-        0,
-        3,
-        1,
-        0,
-        0,
-        0,
-        4,
-        0,
-        3,
-        1,
-        0,
-        2,
-        1,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        4,
-        2,
-        2,
-        3,
-        1,
-        0,
-        3,
-        0,
-        0,
-        0,
-        1,
-        4,
-        4,
-        4,
-        3,
-        0,
-        0,
-        4,
-        0,
-        0,
-        1,
-        4,
-      ],
-      [
-        1,
-        4,
-        1,
-        5,
-        0,
-        3,
-        0,
-        3,
-        0,
-        4,
-        5,
-        4,
-        4,
-        3,
-        5,
-        3,
-        3,
-        4,
-        4,
-        3,
-        4,
-        1,
-        3,
-        3,
-        3,
-        3,
-        2,
-        1,
-        4,
-        1,
-        5,
-        4,
-        3,
-        1,
-        4,
-        4,
-        3,
-        5,
-        4,
-        4,
-        3,
-        5,
-        4,
-        3,
-        3,
-        4,
-        4,
-        4,
-        0,
-        3,
-        3,
-        1,
-        2,
-        3,
-        0,
-        3,
-        1,
-        0,
-        3,
-        3,
-        0,
-        5,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        3,
-        3,
-        5,
-        4,
-        4,
-        3,
-        3,
-        5,
-        4,
-        0,
-        3,
-        2,
-        0,
-        4,
-        4,
-      ],
-      [
-        0,
-        2,
-        0,
-        3,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        3,
-        3,
-        3,
-        2,
-        4,
-        1,
-        3,
-        0,
-        3,
-        1,
-        3,
-        0,
-        2,
-        2,
-        1,
-        1,
-        0,
-        0,
-        2,
-        0,
-        4,
-        3,
-        1,
-        0,
-        4,
-        3,
-        0,
-        4,
-        4,
-        4,
-        1,
-        4,
-        3,
-        1,
-        1,
-        3,
-        3,
-        1,
-        0,
-        2,
-        0,
-        0,
-        1,
-        3,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        4,
-        3,
-        2,
-        4,
-        3,
-        5,
-        4,
-        3,
-        3,
-        3,
-        4,
-        3,
-        3,
-        4,
-        3,
-        3,
-        0,
-        2,
-        1,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        2,
-        0,
-        4,
-        0,
-        3,
-        0,
-        2,
-        0,
-        2,
-        5,
-        5,
-        3,
-        4,
-        4,
-        4,
-        4,
-        1,
-        4,
-        3,
-        3,
-        0,
-        4,
-        3,
-        4,
-        3,
-        1,
-        3,
-        3,
-        2,
-        4,
-        3,
-        0,
-        3,
-        4,
-        3,
-        0,
-        3,
-        4,
-        4,
-        2,
-        4,
-        4,
-        0,
-        4,
-        5,
-        3,
-        3,
-        2,
-        2,
-        1,
-        1,
-        1,
-        2,
-        0,
-        1,
-        5,
-        0,
-        3,
-        3,
-        2,
-        4,
-        3,
-        3,
-        3,
-        4,
-        0,
-        3,
-        0,
-        2,
-        0,
-        4,
-        4,
-        3,
-        5,
-        5,
-        0,
-        0,
-        3,
-        0,
-        2,
-        3,
-        3,
-      ],
-      [
-        0,
-        3,
-        0,
-        4,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        4,
-        3,
-        3,
-        1,
-        3,
-        3,
-        3,
-        0,
-        3,
-        1,
-        3,
-        0,
-        4,
-        3,
-        3,
-        1,
-        1,
-        0,
-        3,
-        0,
-        3,
-        3,
-        0,
-        0,
-        4,
-        4,
-        0,
-        1,
-        5,
-        4,
-        3,
-        3,
-        5,
-        0,
-        3,
-        3,
-        4,
-        3,
-        0,
-        2,
-        0,
-        1,
-        1,
-        1,
-        0,
-        1,
-        3,
-        0,
-        1,
-        2,
-        1,
-        3,
-        3,
-        2,
-        3,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        1,
-        3,
-        3,
-        4,
-        4,
-        1,
-        0,
-        1,
-        2,
-        2,
-        1,
-        3,
-      ],
-      [
-        0,
-        1,
-        0,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        1,
-        3,
-        3,
-        3,
-        2,
-        3,
-        1,
-        1,
-        0,
-        3,
-        0,
-        3,
-        3,
-        4,
-        3,
-        2,
-        4,
-        2,
-        0,
-        1,
-        0,
-        4,
-        3,
-        2,
-        0,
-        4,
-        3,
-        0,
-        5,
-        3,
-        3,
-        2,
-        4,
-        4,
-        4,
-        3,
-        3,
-        3,
-        4,
-        0,
-        1,
-        3,
-        0,
-        0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        4,
-        2,
-        3,
-        3,
-        3,
-        0,
-        3,
-        0,
-        0,
-        0,
-        4,
-        4,
-        4,
-        5,
-        3,
-        2,
-        0,
-        3,
-        3,
-        0,
-        3,
-        5,
-      ],
-      [
-        0,
-        2,
-        0,
-        3,
-        0,
-        0,
-        0,
-        3,
-        0,
-        1,
-        3,
-        0,
-        2,
-        0,
-        0,
-        0,
-        1,
-        0,
-        3,
-        1,
-        1,
-        3,
-        3,
-        0,
-        0,
-        3,
-        0,
-        0,
-        3,
-        0,
-        2,
-        3,
-        1,
-        0,
-        3,
-        1,
-        0,
-        3,
-        3,
-        2,
-        0,
-        4,
-        2,
-        2,
-        0,
-        2,
-        0,
-        0,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        1,
-        2,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        3,
-        1,
-        2,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        1,
-        4,
-      ],
-      [
-        0,
-        3,
-        0,
-        3,
-        0,
-        5,
-        0,
-        1,
-        0,
-        2,
-        4,
-        3,
-        1,
-        3,
-        3,
-        2,
-        1,
-        1,
-        5,
-        2,
-        1,
-        0,
-        5,
-        1,
-        2,
-        0,
-        0,
-        0,
-        3,
-        3,
-        2,
-        2,
-        3,
-        2,
-        4,
-        3,
-        0,
-        0,
-        3,
-        3,
-        1,
-        3,
-        3,
-        0,
-        2,
-        5,
-        3,
-        4,
-        0,
-        3,
-        3,
-        0,
-        1,
-        2,
-        0,
-        2,
-        2,
-        0,
-        3,
-        2,
-        0,
-        2,
-        2,
-        3,
-        3,
-        3,
-        0,
-        2,
-        0,
-        1,
-        0,
-        3,
-        4,
-        4,
-        2,
-        5,
-        4,
-        0,
-        3,
-        0,
-        0,
-        3,
-        5,
-      ],
-      [
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        3,
-        3,
-        3,
-        0,
-        3,
-        0,
-        2,
-        0,
-        2,
-        1,
-        1,
-        0,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        2,
-        1,
-        0,
-        0,
-        1,
-        0,
-        3,
-        2,
-        0,
-        0,
-        3,
-        3,
-        1,
-        2,
-        3,
-        1,
-        0,
-        3,
-        3,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        3,
-        1,
-        2,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        2,
-        1,
-        0,
-        4,
-        3,
-        0,
-        1,
-        1,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        4,
-        0,
-        5,
-        0,
-        3,
-        0,
-        3,
-        0,
-        4,
-        5,
-        5,
-        4,
-        3,
-        5,
-        3,
-        4,
-        3,
-        5,
-        3,
-        3,
-        2,
-        5,
-        3,
-        4,
-        4,
-        4,
-        3,
-        4,
-        3,
-        4,
-        5,
-        5,
-        3,
-        4,
-        4,
-        3,
-        4,
-        4,
-        5,
-        4,
-        4,
-        4,
-        3,
-        4,
-        5,
-        5,
-        4,
-        2,
-        3,
-        4,
-        2,
-        3,
-        4,
-        0,
-        3,
-        3,
-        1,
-        4,
-        3,
-        2,
-        4,
-        3,
-        3,
-        5,
-        5,
-        0,
-        3,
-        0,
-        3,
-        0,
-        5,
-        5,
-        5,
-        5,
-        4,
-        4,
-        0,
-        4,
-        0,
-        1,
-        4,
-        4,
-      ],
-      [
-        0,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        5,
-        4,
-        4,
-        2,
-        3,
-        2,
-        5,
-        1,
-        3,
-        2,
-        5,
-        1,
-        4,
-        2,
-        3,
-        2,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        3,
-        2,
-        5,
-        4,
-        1,
-        3,
-        3,
-        5,
-        3,
-        4,
-        4,
-        0,
-        4,
-        4,
-        3,
-        1,
-        1,
-        3,
-        1,
-        0,
-        2,
-        3,
-        0,
-        2,
-        3,
-        0,
-        3,
-        0,
-        0,
-        4,
-        3,
-        1,
-        3,
-        4,
-        0,
-        3,
-        0,
-        2,
-        0,
-        4,
-        4,
-        4,
-        3,
-        4,
-        5,
-        0,
-        4,
-        0,
-        0,
-        3,
-        4,
-      ],
-      [
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        1,
-        2,
-        0,
-        3,
-        4,
-        4,
-        3,
-        3,
-        3,
-        0,
-        2,
-        2,
-        4,
-        3,
-        3,
-        1,
-        3,
-        3,
-        3,
-        1,
-        1,
-        0,
-        3,
-        1,
-        4,
-        3,
-        2,
-        3,
-        4,
-        4,
-        2,
-        4,
-        4,
-        4,
-        3,
-        4,
-        4,
-        3,
-        2,
-        4,
-        4,
-        3,
-        1,
-        3,
-        3,
-        1,
-        3,
-        3,
-        0,
-        4,
-        1,
-        0,
-        2,
-        2,
-        1,
-        4,
-        3,
-        2,
-        3,
-        3,
-        5,
-        4,
-        3,
-        3,
-        5,
-        4,
-        4,
-        3,
-        3,
-        0,
-        4,
-        0,
-        3,
-        2,
-        2,
-        4,
-        4,
-      ],
-      [
-        0,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        2,
-        1,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        1,
-        2,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        0,
-        1,
-        0,
-        1,
-        1,
-        3,
-        1,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        2,
-        2,
-        0,
-        3,
-        4,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-      ],
-      [
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        4,
-        1,
-        4,
-        0,
-        3,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        0,
-        4,
-        1,
-        5,
-        1,
-        4,
-        0,
-        0,
-        3,
-        0,
-        5,
-        0,
-        5,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        2,
-        1,
-        4,
-        0,
-        1,
-        3,
-        0,
-        0,
-        3,
-        0,
-        0,
-        3,
-        1,
-        1,
-        4,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-      ],
-      [
-        1,
-        4,
-        0,
-        5,
-        0,
-        3,
-        0,
-        2,
-        0,
-        3,
-        5,
-        4,
-        4,
-        3,
-        4,
-        3,
-        5,
-        3,
-        4,
-        3,
-        3,
-        0,
-        4,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        2,
-        4,
-        4,
-        3,
-        1,
-        3,
-        4,
-        4,
-        5,
-        4,
-        4,
-        3,
-        4,
-        4,
-        1,
-        3,
-        5,
-        4,
-        3,
-        3,
-        3,
-        1,
-        2,
-        2,
-        3,
-        3,
-        1,
-        3,
-        1,
-        3,
-        3,
-        3,
-        5,
-        3,
-        3,
-        4,
-        5,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        4,
-        3,
-        4,
-        4,
-        3,
-        0,
-        3,
-        0,
-        2,
-        4,
-        3,
-      ],
-      [
-        0,
-        1,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        4,
-        0,
-        4,
-        1,
-        4,
-        2,
-        4,
-        0,
-        3,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        3,
-        1,
-        1,
-        1,
-        0,
-        3,
-        0,
-        0,
-        0,
-        1,
-        2,
-        1,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        3,
-        2,
-        0,
-        2,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        2,
-        3,
-        2,
-        3,
-        3,
-        0,
-        0,
-        0,
-        0,
-        2,
-        1,
-        0,
-      ],
-      [
-        0,
-        5,
-        1,
-        5,
-        0,
-        3,
-        0,
-        3,
-        0,
-        5,
-        4,
-        4,
-        5,
-        1,
-        5,
-        3,
-        3,
-        0,
-        4,
-        3,
-        4,
-        3,
-        5,
-        3,
-        4,
-        3,
-        3,
-        2,
-        4,
-        3,
-        4,
-        3,
-        3,
-        0,
-        3,
-        3,
-        1,
-        4,
-        4,
-        3,
-        4,
-        4,
-        4,
-        3,
-        4,
-        5,
-        5,
-        3,
-        2,
-        3,
-        1,
-        1,
-        3,
-        3,
-        1,
-        3,
-        1,
-        1,
-        3,
-        3,
-        2,
-        4,
-        5,
-        3,
-        3,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        4,
-        3,
-        5,
-        3,
-        3,
-        0,
-        3,
-        4,
-        0,
-        4,
-        3,
-      ],
-      [
-        0,
-        5,
-        0,
-        5,
-        0,
-        3,
-        0,
-        2,
-        0,
-        4,
-        4,
-        3,
-        5,
-        2,
-        4,
-        3,
-        3,
-        3,
-        4,
-        4,
-        4,
-        3,
-        5,
-        3,
-        5,
-        3,
-        3,
-        1,
-        4,
-        0,
-        4,
-        3,
-        3,
-        0,
-        3,
-        3,
-        0,
-        4,
-        4,
-        4,
-        4,
-        5,
-        4,
-        3,
-        3,
-        5,
-        5,
-        3,
-        2,
-        3,
-        1,
-        2,
-        3,
-        2,
-        0,
-        1,
-        0,
-        0,
-        3,
-        2,
-        2,
-        4,
-        4,
-        3,
-        1,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        3,
-        1,
-        3,
-        2,
-        1,
-        0,
-        3,
-        3,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        4,
-        0,
-        5,
-        0,
-        5,
-        0,
-        4,
-        0,
-        4,
-        5,
-        5,
-        5,
-        3,
-        4,
-        3,
-        3,
-        2,
-        5,
-        4,
-        4,
-        3,
-        5,
-        3,
-        5,
-        3,
-        4,
-        0,
-        4,
-        3,
-        4,
-        4,
-        3,
-        2,
-        4,
-        4,
-        3,
-        4,
-        5,
-        4,
-        4,
-        5,
-        5,
-        0,
-        3,
-        5,
-        5,
-        4,
-        1,
-        3,
-        3,
-        2,
-        3,
-        3,
-        1,
-        3,
-        1,
-        0,
-        4,
-        3,
-        1,
-        4,
-        4,
-        3,
-        4,
-        5,
-        0,
-        4,
-        0,
-        2,
-        0,
-        4,
-        3,
-        4,
-        4,
-        3,
-        3,
-        0,
-        4,
-        0,
-        0,
-        5,
-        5,
-      ],
-      [
-        0,
-        4,
-        0,
-        4,
-        0,
-        5,
-        0,
-        1,
-        1,
-        3,
-        3,
-        4,
-        4,
-        3,
-        4,
-        1,
-        3,
-        0,
-        5,
-        1,
-        3,
-        0,
-        3,
-        1,
-        3,
-        1,
-        1,
-        0,
-        3,
-        0,
-        3,
-        3,
-        4,
-        0,
-        4,
-        3,
-        0,
-        4,
-        4,
-        4,
-        3,
-        4,
-        4,
-        0,
-        3,
-        5,
-        4,
-        1,
-        0,
-        3,
-        0,
-        0,
-        2,
-        3,
-        0,
-        3,
-        1,
-        0,
-        3,
-        1,
-        0,
-        3,
-        2,
-        1,
-        3,
-        5,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        2,
-        3,
-        3,
-        4,
-        4,
-        0,
-        2,
-        2,
-        0,
-        4,
-        4,
-      ],
-      [
-        2,
-        4,
-        0,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        5,
-        5,
-        4,
-        3,
-        5,
-        3,
-        5,
-        3,
-        5,
-        3,
-        5,
-        2,
-        5,
-        3,
-        4,
-        3,
-        3,
-        4,
-        3,
-        4,
-        5,
-        3,
-        2,
-        1,
-        5,
-        4,
-        3,
-        2,
-        3,
-        4,
-        5,
-        3,
-        4,
-        1,
-        2,
-        5,
-        4,
-        3,
-        0,
-        3,
-        3,
-        0,
-        3,
-        2,
-        0,
-        2,
-        3,
-        0,
-        4,
-        1,
-        0,
-        3,
-        4,
-        3,
-        3,
-        5,
-        0,
-        3,
-        0,
-        1,
-        0,
-        4,
-        5,
-        5,
-        5,
-        4,
-        3,
-        0,
-        4,
-        2,
-        0,
-        3,
-        5,
-      ],
-      [
-        0,
-        5,
-        0,
-        4,
-        0,
-        4,
-        0,
-        2,
-        0,
-        5,
-        4,
-        3,
-        4,
-        3,
-        4,
-        3,
-        3,
-        3,
-        4,
-        3,
-        4,
-        2,
-        5,
-        3,
-        5,
-        3,
-        4,
-        1,
-        4,
-        3,
-        4,
-        4,
-        4,
-        0,
-        3,
-        5,
-        0,
-        4,
-        4,
-        4,
-        4,
-        5,
-        3,
-        1,
-        3,
-        4,
-        5,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        0,
-        2,
-        2,
-        0,
-        3,
-        3,
-        2,
-        4,
-        3,
-        3,
-        3,
-        5,
-        3,
-        4,
-        1,
-        3,
-        3,
-        5,
-        3,
-        2,
-        0,
-        0,
-        0,
-        0,
-        4,
-        3,
-        1,
-        3,
-        3,
-      ],
-      [
-        0,
-        1,
-        0,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        1,
-        3,
-        3,
-        3,
-        2,
-        3,
-        3,
-        3,
-        0,
-        3,
-        0,
-        0,
-        0,
-        3,
-        1,
-        3,
-        0,
-        0,
-        0,
-        2,
-        2,
-        2,
-        3,
-        0,
-        0,
-        3,
-        2,
-        0,
-        1,
-        2,
-        4,
-        1,
-        3,
-        3,
-        0,
-        0,
-        3,
-        3,
-        3,
-        0,
-        1,
-        0,
-        0,
-        2,
-        1,
-        0,
-        0,
-        3,
-        0,
-        3,
-        1,
-        0,
-        3,
-        0,
-        0,
-        1,
-        3,
-        0,
-        2,
-        0,
-        1,
-        0,
-        3,
-        3,
-        1,
-        3,
-        3,
-        0,
-        0,
-        1,
-        1,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        2,
-        0,
-        3,
-        0,
-        2,
-        1,
-        4,
-        0,
-        2,
-        2,
-        3,
-        1,
-        1,
-        3,
-        1,
-        1,
-        0,
-        2,
-        0,
-        3,
-        1,
-        2,
-        3,
-        1,
-        3,
-        0,
-        0,
-        1,
-        0,
-        4,
-        3,
-        2,
-        3,
-        3,
-        3,
-        1,
-        4,
-        2,
-        3,
-        3,
-        3,
-        3,
-        1,
-        0,
-        3,
-        1,
-        4,
-        0,
-        1,
-        1,
-        0,
-        1,
-        2,
-        0,
-        1,
-        1,
-        0,
-        1,
-        1,
-        0,
-        3,
-        1,
-        3,
-        2,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        2,
-        3,
-        3,
-        3,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        3,
-      ],
-      [
-        0,
-        5,
-        0,
-        4,
-        0,
-        5,
-        0,
-        2,
-        0,
-        4,
-        5,
-        5,
-        3,
-        3,
-        4,
-        3,
-        3,
-        1,
-        5,
-        4,
-        4,
-        2,
-        4,
-        4,
-        4,
-        3,
-        4,
-        2,
-        4,
-        3,
-        5,
-        5,
-        4,
-        3,
-        3,
-        4,
-        3,
-        3,
-        5,
-        5,
-        4,
-        5,
-        5,
-        1,
-        3,
-        4,
-        5,
-        3,
-        1,
-        4,
-        3,
-        1,
-        3,
-        3,
-        0,
-        3,
-        3,
-        1,
-        4,
-        3,
-        1,
-        4,
-        5,
-        3,
-        3,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        5,
-        3,
-        3,
-        1,
-        4,
-        3,
-        0,
-        4,
-        0,
-        1,
-        5,
-        3,
-      ],
-      [
-        0,
-        5,
-        0,
-        5,
-        0,
-        4,
-        0,
-        2,
-        0,
-        4,
-        4,
-        3,
-        4,
-        3,
-        3,
-        3,
-        3,
-        3,
-        5,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        5,
-        3,
-        3,
-        5,
-        2,
-        4,
-        4,
-        4,
-        3,
-        4,
-        4,
-        3,
-        3,
-        4,
-        4,
-        5,
-        5,
-        3,
-        3,
-        4,
-        3,
-        4,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        3,
-        1,
-        2,
-        2,
-        1,
-        4,
-        3,
-        3,
-        5,
-        4,
-        4,
-        3,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        4,
-        4,
-        4,
-        4,
-        1,
-        0,
-        4,
-        2,
-        0,
-        2,
-        4,
-      ],
-      [
-        0,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        5,
-        2,
-        3,
-        0,
-        3,
-        0,
-        2,
-        1,
-        4,
-        2,
-        3,
-        3,
-        4,
-        1,
-        4,
-        3,
-        3,
-        2,
-        4,
-        1,
-        3,
-        3,
-        3,
-        0,
-        3,
-        3,
-        0,
-        0,
-        3,
-        3,
-        3,
-        5,
-        3,
-        3,
-        3,
-        3,
-        3,
-        2,
-        0,
-        2,
-        0,
-        0,
-        2,
-        0,
-        0,
-        2,
-        0,
-        0,
-        1,
-        0,
-        0,
-        3,
-        1,
-        2,
-        2,
-        3,
-        0,
-        3,
-        0,
-        2,
-        0,
-        4,
-        4,
-        3,
-        3,
-        4,
-        1,
-        0,
-        3,
-        0,
-        0,
-        2,
-        4,
-      ],
-      [
-        0,
-        0,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        1,
-        3,
-        0,
-        3,
-        2,
-        0,
-        0,
-        0,
-        1,
-        0,
-        3,
-        2,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        4,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-      ],
-      [
-        0,
-        2,
-        1,
-        3,
-        0,
-        2,
-        0,
-        2,
-        0,
-        3,
-        3,
-        3,
-        3,
-        1,
-        3,
-        1,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        4,
-        2,
-        2,
-        1,
-        2,
-        1,
-        4,
-        0,
-        4,
-        3,
-        1,
-        3,
-        3,
-        3,
-        2,
-        4,
-        3,
-        5,
-        4,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        0,
-        1,
-        3,
-        0,
-        2,
-        0,
-        0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        4,
-        2,
-        0,
-        2,
-        3,
-        0,
-        3,
-        3,
-        0,
-        3,
-        3,
-        4,
-        2,
-        3,
-        1,
-        4,
-        0,
-        1,
-        2,
-        0,
-        2,
-        3,
-      ],
-      [
-        0,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        0,
-        2,
-        3,
-        3,
-        3,
-        0,
-        3,
-        1,
-        2,
-        0,
-        3,
-        3,
-        2,
-        3,
-        3,
-        2,
-        3,
-        2,
-        3,
-        1,
-        3,
-        0,
-        4,
-        3,
-        2,
-        0,
-        3,
-        3,
-        1,
-        4,
-        3,
-        3,
-        2,
-        3,
-        4,
-        3,
-        1,
-        3,
-        3,
-        1,
-        1,
-        0,
-        1,
-        1,
-        0,
-        1,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        4,
-        1,
-        1,
-        0,
-        3,
-        0,
-        3,
-        1,
-        0,
-        2,
-        3,
-        3,
-        3,
-        3,
-        3,
-        1,
-        0,
-        0,
-        2,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        2,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        1,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        2,
-        0,
-        2,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-      ],
-      [
-        0,
-        2,
-        0,
-        3,
-        1,
-        3,
-        0,
-        3,
-        0,
-        2,
-        3,
-        3,
-        3,
-        1,
-        3,
-        1,
-        3,
-        1,
-        3,
-        1,
-        3,
-        3,
-        3,
-        1,
-        3,
-        0,
-        2,
-        3,
-        1,
-        1,
-        4,
-        3,
-        3,
-        2,
-        3,
-        3,
-        1,
-        2,
-        2,
-        4,
-        1,
-        3,
-        3,
-        0,
-        1,
-        4,
-        2,
-        3,
-        0,
-        1,
-        3,
-        0,
-        3,
-        0,
-        0,
-        1,
-        3,
-        0,
-        2,
-        0,
-        0,
-        3,
-        3,
-        2,
-        1,
-        3,
-        0,
-        3,
-        0,
-        2,
-        0,
-        3,
-        4,
-        4,
-        4,
-        3,
-        1,
-        0,
-        3,
-        0,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        2,
-        0,
-        1,
-        0,
-        2,
-        0,
-        0,
-        0,
-        1,
-        3,
-        2,
-        2,
-        1,
-        3,
-        0,
-        1,
-        1,
-        3,
-        0,
-        3,
-        2,
-        3,
-        1,
-        2,
-        0,
-        2,
-        0,
-        1,
-        1,
-        3,
-        3,
-        3,
-        0,
-        3,
-        3,
-        1,
-        1,
-        2,
-        3,
-        2,
-        3,
-        3,
-        1,
-        2,
-        3,
-        2,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        1,
-        0,
-        0,
-        2,
-        1,
-        2,
-        1,
-        3,
-        0,
-        3,
-        0,
-        0,
-        0,
-        3,
-        4,
-        4,
-        4,
-        3,
-        2,
-        0,
-        2,
-        0,
-        0,
-        2,
-        4,
-      ],
-      [
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        2,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        3,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-      ],
-      [
-        0,
-        3,
-        0,
-        3,
-        0,
-        2,
-        0,
-        3,
-        0,
-        3,
-        3,
-        3,
-        2,
-        3,
-        2,
-        2,
-        2,
-        0,
-        3,
-        1,
-        3,
-        3,
-        3,
-        2,
-        3,
-        3,
-        0,
-        0,
-        3,
-        0,
-        3,
-        2,
-        2,
-        0,
-        2,
-        3,
-        1,
-        4,
-        3,
-        4,
-        3,
-        3,
-        2,
-        3,
-        1,
-        5,
-        4,
-        4,
-        0,
-        3,
-        1,
-        2,
-        1,
-        3,
-        0,
-        3,
-        1,
-        1,
-        2,
-        0,
-        2,
-        3,
-        1,
-        3,
-        1,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        3,
-        4,
-        4,
-        2,
-        1,
-        0,
-        2,
-        1,
-        0,
-        2,
-        4,
-      ],
-      [
-        0,
-        1,
-        0,
-        3,
-        0,
-        1,
-        0,
-        2,
-        0,
-        1,
-        4,
-        2,
-        5,
-        1,
-        4,
-        0,
-        2,
-        0,
-        2,
-        1,
-        3,
-        1,
-        4,
-        0,
-        2,
-        1,
-        0,
-        0,
-        2,
-        1,
-        4,
-        1,
-        1,
-        0,
-        3,
-        3,
-        0,
-        5,
-        1,
-        3,
-        2,
-        3,
-        3,
-        1,
-        0,
-        3,
-        2,
-        3,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        4,
-        0,
-        1,
-        0,
-        3,
-        0,
-        2,
-        0,
-        1,
-        0,
-        3,
-        3,
-        3,
-        4,
-        3,
-        3,
-        0,
-        0,
-        0,
-        0,
-        2,
-        3,
-      ],
-      [
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-      ],
-      [
-        0,
-        1,
-        0,
-        3,
-        0,
-        4,
-        0,
-        3,
-        0,
-        2,
-        4,
-        3,
-        1,
-        0,
-        3,
-        2,
-        2,
-        1,
-        3,
-        1,
-        2,
-        2,
-        3,
-        1,
-        1,
-        1,
-        2,
-        1,
-        3,
-        0,
-        1,
-        2,
-        0,
-        1,
-        3,
-        2,
-        1,
-        3,
-        0,
-        5,
-        5,
-        1,
-        0,
-        0,
-        1,
-        3,
-        2,
-        1,
-        0,
-        3,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        4,
-        0,
-        1,
-        1,
-        1,
-        3,
-        2,
-        0,
-        2,
-        0,
-        1,
-        0,
-        2,
-        3,
-        3,
-        1,
-        2,
-        3,
-        0,
-        1,
-        0,
-        1,
-        0,
-        4,
-      ],
-      [
-        0,
-        0,
-        0,
-        1,
-        0,
-        3,
-        0,
-        3,
-        0,
-        2,
-        2,
-        1,
-        0,
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        1,
-        3,
-        0,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        0,
-        3,
-        1,
-        3,
-        0,
-        3,
-        3,
-        0,
-        0,
-        1,
-        2,
-        1,
-        1,
-        1,
-        0,
-        1,
-        2,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        2,
-        1,
-        2,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        2,
-        3,
-        3,
-        3,
-        3,
-        0,
-        0,
-        0,
-        0,
-        1,
-        4,
-      ],
-      [
-        0,
-        0,
-        0,
-        3,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        3,
-        1,
-        1,
-        0,
-        3,
-        0,
-        1,
-        0,
-        2,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        3,
-        0,
-        2,
-        0,
-        2,
-        3,
-        0,
-        0,
-        2,
-        2,
-        3,
-        1,
-        2,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        2,
-        3,
-      ],
-      [
-        2,
-        4,
-        0,
-        5,
-        0,
-        5,
-        0,
-        4,
-        0,
-        3,
-        4,
-        3,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        4,
-        3,
-        4,
-        4,
-        5,
-        4,
-        5,
-        5,
-        5,
-        2,
-        3,
-        0,
-        5,
-        5,
-        4,
-        1,
-        5,
-        4,
-        3,
-        1,
-        5,
-        4,
-        3,
-        4,
-        4,
-        3,
-        3,
-        4,
-        3,
-        3,
-        0,
-        3,
-        2,
-        0,
-        2,
-        3,
-        0,
-        3,
-        0,
-        0,
-        3,
-        3,
-        0,
-        5,
-        3,
-        2,
-        3,
-        3,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        4,
-        5,
-        4,
-        5,
-        3,
-        0,
-        4,
-        3,
-        0,
-        3,
-        4,
-      ],
-      [
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        3,
-        4,
-        3,
-        2,
-        3,
-        2,
-        3,
-        0,
-        4,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        0,
-        3,
-        2,
-        4,
-        3,
-        3,
-        1,
-        3,
-        4,
-        3,
-        4,
-        4,
-        4,
-        3,
-        4,
-        4,
-        3,
-        2,
-        4,
-        4,
-        1,
-        0,
-        2,
-        0,
-        0,
-        1,
-        1,
-        0,
-        2,
-        0,
-        0,
-        3,
-        1,
-        0,
-        5,
-        3,
-        2,
-        1,
-        3,
-        0,
-        3,
-        0,
-        1,
-        2,
-        4,
-        3,
-        2,
-        4,
-        3,
-        3,
-        0,
-        3,
-        2,
-        0,
-        4,
-        4,
-      ],
-      [
-        0,
-        3,
-        0,
-        3,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        4,
-        3,
-        3,
-        2,
-        3,
-        1,
-        3,
-        1,
-        4,
-        2,
-        3,
-        2,
-        4,
-        2,
-        3,
-        4,
-        3,
-        0,
-        2,
-        2,
-        3,
-        3,
-        3,
-        0,
-        3,
-        3,
-        3,
-        0,
-        3,
-        4,
-        1,
-        3,
-        3,
-        0,
-        3,
-        4,
-        3,
-        3,
-        0,
-        1,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        4,
-        0,
-        3,
-        0,
-        0,
-        3,
-        1,
-        2,
-        1,
-        3,
-        0,
-        4,
-        0,
-        1,
-        0,
-        4,
-        3,
-        3,
-        4,
-        3,
-        3,
-        0,
-        2,
-        0,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        3,
-        0,
-        4,
-        0,
-        1,
-        0,
-        3,
-        0,
-        3,
-        4,
-        3,
-        3,
-        0,
-        3,
-        3,
-        3,
-        1,
-        3,
-        1,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        0,
-        0,
-        3,
-        1,
-        5,
-        3,
-        3,
-        1,
-        3,
-        3,
-        2,
-        5,
-        4,
-        3,
-        3,
-        4,
-        5,
-        3,
-        2,
-        5,
-        3,
-        4,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        1,
-        1,
-        0,
-        4,
-        2,
-        2,
-        1,
-        3,
-        0,
-        3,
-        0,
-        2,
-        0,
-        4,
-        4,
-        3,
-        5,
-        3,
-        2,
-        0,
-        1,
-        1,
-        0,
-        3,
-        4,
-      ],
-      [
-        0,
-        5,
-        0,
-        4,
-        0,
-        5,
-        0,
-        2,
-        0,
-        4,
-        4,
-        3,
-        3,
-        2,
-        3,
-        3,
-        3,
-        1,
-        4,
-        3,
-        4,
-        1,
-        5,
-        3,
-        4,
-        3,
-        4,
-        0,
-        4,
-        2,
-        4,
-        3,
-        4,
-        1,
-        5,
-        4,
-        0,
-        4,
-        4,
-        4,
-        4,
-        5,
-        4,
-        1,
-        3,
-        5,
-        4,
-        2,
-        1,
-        4,
-        1,
-        1,
-        3,
-        2,
-        0,
-        3,
-        1,
-        0,
-        3,
-        2,
-        1,
-        4,
-        3,
-        3,
-        3,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        4,
-        4,
-        3,
-        3,
-        3,
-        0,
-        4,
-        2,
-        0,
-        3,
-        4,
-      ],
-      [
-        1,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        3,
-        3,
-        1,
-        1,
-        3,
-        3,
-        2,
-        2,
-        3,
-        3,
-        1,
-        0,
-        3,
-        2,
-        2,
-        1,
-        2,
-        0,
-        3,
-        1,
-        2,
-        1,
-        2,
-        0,
-        3,
-        2,
-        0,
-        2,
-        2,
-        3,
-        3,
-        4,
-        3,
-        0,
-        3,
-        3,
-        1,
-        2,
-        0,
-        1,
-        1,
-        3,
-        1,
-        2,
-        0,
-        0,
-        3,
-        0,
-        1,
-        1,
-        0,
-        3,
-        2,
-        2,
-        3,
-        3,
-        0,
-        3,
-        0,
-        0,
-        0,
-        2,
-        3,
-        3,
-        4,
-        3,
-        3,
-        0,
-        1,
-        0,
-        0,
-        1,
-        4,
-      ],
-      [
-        0,
-        4,
-        0,
-        4,
-        0,
-        4,
-        0,
-        0,
-        0,
-        3,
-        4,
-        4,
-        3,
-        1,
-        4,
-        2,
-        3,
-        2,
-        3,
-        3,
-        3,
-        1,
-        4,
-        3,
-        4,
-        0,
-        3,
-        0,
-        4,
-        2,
-        3,
-        3,
-        2,
-        2,
-        5,
-        4,
-        2,
-        1,
-        3,
-        4,
-        3,
-        4,
-        3,
-        1,
-        3,
-        3,
-        4,
-        2,
-        0,
-        2,
-        1,
-        0,
-        3,
-        3,
-        0,
-        0,
-        2,
-        0,
-        3,
-        1,
-        0,
-        4,
-        4,
-        3,
-        4,
-        3,
-        0,
-        4,
-        0,
-        1,
-        0,
-        2,
-        4,
-        4,
-        4,
-        4,
-        4,
-        0,
-        3,
-        2,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        0,
-        0,
-        1,
-        0,
-        4,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        3,
-        2,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-      ],
-      [
-        0,
-        2,
-        0,
-        3,
-        0,
-        4,
-        0,
-        4,
-        0,
-        1,
-        3,
-        3,
-        3,
-        0,
-        4,
-        0,
-        2,
-        1,
-        2,
-        1,
-        1,
-        1,
-        2,
-        0,
-        3,
-        1,
-        1,
-        0,
-        1,
-        0,
-        3,
-        1,
-        0,
-        0,
-        3,
-        3,
-        2,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2,
-        0,
-        2,
-        2,
-        0,
-        3,
-        1,
-        0,
-        0,
-        1,
-        0,
-        1,
-        1,
-        0,
-        1,
-        2,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        3,
-        3,
-        4,
-        3,
-        1,
-        0,
-        1,
-        0,
-        3,
-        0,
-        2,
-      ],
-      [
-        0,
-        0,
-        0,
-        3,
-        0,
-        5,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        2,
-        0,
-        3,
-        1,
-        0,
-        1,
-        3,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        4,
-        0,
-        0,
-        0,
-        2,
-        3,
-        0,
-        1,
-        4,
-        1,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-      ],
-      [
-        0,
-        2,
-        0,
-        5,
-        0,
-        5,
-        0,
-        1,
-        0,
-        2,
-        4,
-        3,
-        3,
-        2,
-        5,
-        1,
-        3,
-        2,
-        3,
-        3,
-        3,
-        0,
-        4,
-        1,
-        2,
-        0,
-        3,
-        0,
-        4,
-        0,
-        2,
-        2,
-        1,
-        1,
-        5,
-        3,
-        0,
-        0,
-        1,
-        4,
-        2,
-        3,
-        2,
-        0,
-        3,
-        3,
-        3,
-        2,
-        0,
-        2,
-        4,
-        1,
-        1,
-        2,
-        0,
-        1,
-        1,
-        0,
-        3,
-        1,
-        0,
-        1,
-        3,
-        1,
-        2,
-        3,
-        0,
-        2,
-        0,
-        0,
-        0,
-        1,
-        3,
-        5,
-        4,
-        4,
-        4,
-        0,
-        3,
-        0,
-        0,
-        1,
-        3,
-      ],
-      [
-        0,
-        4,
-        0,
-        5,
-        0,
-        4,
-        0,
-        4,
-        0,
-        4,
-        5,
-        4,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        4,
-        3,
-        4,
-        4,
-        5,
-        3,
-        4,
-        5,
-        4,
-        2,
-        4,
-        2,
-        3,
-        4,
-        3,
-        1,
-        4,
-        4,
-        1,
-        3,
-        5,
-        4,
-        4,
-        5,
-        5,
-        4,
-        4,
-        5,
-        5,
-        5,
-        2,
-        3,
-        3,
-        1,
-        4,
-        3,
-        1,
-        3,
-        3,
-        0,
-        3,
-        3,
-        1,
-        4,
-        3,
-        4,
-        4,
-        4,
-        0,
-        3,
-        0,
-        4,
-        0,
-        3,
-        3,
-        4,
-        4,
-        5,
-        0,
-        0,
-        4,
-        3,
-        0,
-        4,
-        5,
-      ],
-      [
-        0,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        4,
-        4,
-        4,
-        3,
-        3,
-        2,
-        4,
-        3,
-        4,
-        3,
-        4,
-        3,
-        5,
-        3,
-        4,
-        3,
-        2,
-        1,
-        4,
-        2,
-        4,
-        4,
-        3,
-        1,
-        3,
-        4,
-        2,
-        4,
-        5,
-        5,
-        3,
-        4,
-        5,
-        4,
-        1,
-        5,
-        4,
-        3,
-        0,
-        3,
-        2,
-        2,
-        3,
-        2,
-        1,
-        3,
-        1,
-        0,
-        3,
-        3,
-        3,
-        5,
-        3,
-        3,
-        3,
-        5,
-        4,
-        4,
-        2,
-        3,
-        3,
-        4,
-        3,
-        3,
-        3,
-        2,
-        1,
-        0,
-        3,
-        2,
-        1,
-        4,
-        3,
-      ],
-      [
-        0,
-        4,
-        0,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        5,
-        5,
-        3,
-        2,
-        4,
-        3,
-        4,
-        0,
-        5,
-        4,
-        4,
-        1,
-        4,
-        4,
-        4,
-        3,
-        3,
-        3,
-        4,
-        3,
-        5,
-        5,
-        2,
-        3,
-        3,
-        4,
-        1,
-        2,
-        5,
-        5,
-        3,
-        5,
-        5,
-        2,
-        3,
-        5,
-        5,
-        4,
-        0,
-        3,
-        2,
-        0,
-        3,
-        3,
-        1,
-        1,
-        5,
-        1,
-        4,
-        1,
-        0,
-        4,
-        3,
-        2,
-        3,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        5,
-        4,
-        3,
-        4,
-        3,
-        0,
-        0,
-        4,
-        1,
-        0,
-        4,
-        4,
-      ],
-      [
-        1,
-        3,
-        0,
-        4,
-        0,
-        2,
-        0,
-        2,
-        0,
-        2,
-        5,
-        5,
-        3,
-        3,
-        3,
-        3,
-        3,
-        0,
-        4,
-        2,
-        3,
-        4,
-        4,
-        4,
-        3,
-        4,
-        0,
-        0,
-        3,
-        4,
-        5,
-        4,
-        3,
-        3,
-        3,
-        3,
-        2,
-        5,
-        5,
-        4,
-        5,
-        5,
-        5,
-        4,
-        3,
-        5,
-        5,
-        5,
-        1,
-        3,
-        1,
-        0,
-        1,
-        0,
-        0,
-        3,
-        2,
-        0,
-        4,
-        2,
-        0,
-        5,
-        2,
-        3,
-        2,
-        4,
-        1,
-        3,
-        0,
-        3,
-        0,
-        4,
-        5,
-        4,
-        5,
-        4,
-        3,
-        0,
-        4,
-        2,
-        0,
-        5,
-        4,
-      ],
-      [
-        0,
-        3,
-        0,
-        4,
-        0,
-        5,
-        0,
-        3,
-        0,
-        3,
-        4,
-        4,
-        3,
-        2,
-        3,
-        2,
-        3,
-        3,
-        3,
-        3,
-        3,
-        2,
-        4,
-        3,
-        3,
-        2,
-        2,
-        0,
-        3,
-        3,
-        3,
-        3,
-        3,
-        1,
-        3,
-        3,
-        3,
-        0,
-        4,
-        4,
-        3,
-        4,
-        4,
-        1,
-        1,
-        4,
-        4,
-        2,
-        0,
-        3,
-        1,
-        0,
-        1,
-        1,
-        0,
-        4,
-        1,
-        0,
-        2,
-        3,
-        1,
-        3,
-        3,
-        1,
-        3,
-        4,
-        0,
-        3,
-        0,
-        1,
-        0,
-        3,
-        1,
-        3,
-        0,
-        0,
-        1,
-        0,
-        2,
-        0,
-        0,
-        4,
-        4,
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-      ],
-      [
-        0,
-        3,
-        0,
-        3,
-        0,
-        2,
-        0,
-        3,
-        0,
-        1,
-        5,
-        4,
-        3,
-        3,
-        3,
-        1,
-        4,
-        2,
-        1,
-        2,
-        3,
-        4,
-        4,
-        2,
-        4,
-        4,
-        5,
-        0,
-        3,
-        1,
-        4,
-        3,
-        4,
-        0,
-        4,
-        3,
-        3,
-        3,
-        2,
-        3,
-        2,
-        5,
-        3,
-        4,
-        3,
-        2,
-        2,
-        3,
-        0,
-        0,
-        3,
-        0,
-        2,
-        1,
-        0,
-        1,
-        2,
-        0,
-        0,
-        0,
-        0,
-        2,
-        1,
-        1,
-        3,
-        1,
-        0,
-        2,
-        0,
-        4,
-        0,
-        3,
-        4,
-        4,
-        4,
-        5,
-        2,
-        0,
-        2,
-        0,
-        0,
-        1,
-        3,
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        4,
-        2,
-        1,
-        1,
-        0,
-        1,
-        0,
-        3,
-        2,
-        0,
-        0,
-        3,
-        1,
-        1,
-        1,
-        2,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        1,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        1,
-        4,
-        0,
-        4,
-        2,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        3,
-        1,
-        0,
-        0,
-        0,
-        2,
-        0,
-        2,
-        1,
-        0,
-        0,
-        1,
-        2,
-        1,
-        0,
-        1,
-        1,
-        0,
-        0,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        3,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        2,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-      ],
-      [
-        0,
-        4,
-        0,
-        4,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        4,
-        3,
-        4,
-        2,
-        4,
-        3,
-        2,
-        0,
-        4,
-        4,
-        4,
-        3,
-        5,
-        3,
-        5,
-        3,
-        3,
-        2,
-        4,
-        2,
-        4,
-        3,
-        4,
-        3,
-        1,
-        4,
-        0,
-        2,
-        3,
-        4,
-        4,
-        4,
-        3,
-        3,
-        3,
-        4,
-        4,
-        4,
-        3,
-        4,
-        1,
-        3,
-        4,
-        3,
-        2,
-        1,
-        2,
-        1,
-        3,
-        3,
-        3,
-        4,
-        4,
-        3,
-        3,
-        5,
-        0,
-        4,
-        0,
-        3,
-        0,
-        4,
-        3,
-        3,
-        3,
-        2,
-        1,
-        0,
-        3,
-        0,
-        0,
-        3,
-        3,
-      ],
-      [
-        0,
-        4,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        0,
-        3,
-        5,
-        5,
-        3,
-        3,
-        3,
-        3,
-        4,
-        3,
-        4,
-        3,
-        3,
-        3,
-        4,
-        4,
-        4,
-        3,
-        3,
-        3,
-        3,
-        4,
-        3,
-        5,
-        3,
-        3,
-        1,
-        3,
-        2,
-        4,
-        5,
-        5,
-        5,
-        5,
-        4,
-        3,
-        4,
-        5,
-        5,
-        3,
-        2,
-        2,
-        3,
-        3,
-        3,
-        3,
-        2,
-        3,
-        3,
-        1,
-        2,
-        3,
-        2,
-        4,
-        3,
-        3,
-        3,
-        4,
-        0,
-        4,
-        0,
-        2,
-        0,
-        4,
-        3,
-        2,
-        2,
-        1,
-        2,
-        0,
-        3,
-        0,
-        0,
-        4,
-        1,
-      ],
+      [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+      [2, 4, 0, 4, 0, 3, 0, 4, 0, 3, 4, 4, 4, 2, 4, 3, 3, 4, 3, 2, 3, 3, 4, 2, 3, 3, 3, 2, 4, 1, 4, 3, 3, 1, 5, 4, 3, 4, 3, 4, 3, 5, 3, 0, 3, 5, 4, 2, 0, 3, 1, 0, 3, 3, 0, 3, 3, 0, 1, 1, 0, 4, 3, 0, 3, 3, 0, 4, 0, 2, 0, 3, 5, 5, 5, 5, 4, 0, 4, 1, 0, 3, 4],
+      [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+      [0, 4, 0, 5, 0, 5, 0, 4, 0, 4, 5, 4, 4, 3, 5, 3, 5, 1, 5, 3, 4, 3, 4, 4, 3, 4, 3, 3, 4, 3, 5, 4, 4, 3, 5, 5, 3, 5, 5, 5, 3, 5, 5, 3, 4, 5, 5, 3, 1, 3, 2, 0, 3, 4, 0, 4, 2, 0, 4, 2, 1, 5, 3, 2, 3, 5, 0, 4, 0, 2, 0, 5, 4, 4, 5, 4, 5, 0, 4, 0, 0, 4, 4],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 3, 0, 4, 0, 3, 0, 3, 0, 4, 5, 4, 3, 3, 3, 3, 4, 3, 5, 4, 4, 3, 5, 4, 4, 3, 4, 3, 4, 4, 4, 4, 5, 3, 4, 4, 3, 4, 5, 5, 4, 5, 5, 1, 4, 5, 4, 3, 0, 3, 3, 1, 3, 3, 0, 4, 4, 0, 3, 3, 1, 5, 3, 3, 3, 5, 0, 4, 0, 3, 0, 4, 4, 3, 4, 3, 3, 0, 4, 1, 1, 3, 4],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 4, 0, 3, 0, 3, 0, 4, 0, 3, 4, 4, 3, 2, 2, 1, 2, 1, 3, 1, 3, 3, 3, 3, 3, 4, 3, 1, 3, 3, 5, 3, 3, 0, 4, 3, 0, 5, 4, 3, 3, 5, 4, 4, 3, 4, 4, 5, 0, 1, 2, 0, 1, 2, 0, 2, 2, 0, 1, 0, 0, 5, 2, 2, 1, 4, 0, 3, 0, 1, 0, 4, 4, 3, 5, 4, 3, 0, 2, 1, 0, 4, 3],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 3, 0, 5, 0, 4, 0, 2, 1, 4, 4, 2, 4, 1, 4, 2, 4, 2, 4, 3, 3, 3, 4, 3, 3, 3, 3, 1, 4, 2, 3, 3, 3, 1, 4, 4, 1, 1, 1, 4, 3, 3, 2, 0, 2, 4, 3, 2, 0, 3, 3, 0, 3, 1, 1, 0, 0, 0, 3, 3, 0, 4, 2, 2, 3, 4, 0, 4, 0, 3, 0, 4, 4, 5, 3, 4, 4, 0, 3, 0, 0, 1, 4],
+      [1, 4, 0, 4, 0, 4, 0, 4, 0, 3, 5, 4, 4, 3, 4, 3, 5, 4, 3, 3, 4, 3, 5, 4, 4, 4, 4, 3, 4, 2, 4, 3, 3, 1, 5, 4, 3, 2, 4, 5, 4, 5, 5, 4, 4, 5, 4, 4, 0, 3, 2, 2, 3, 3, 0, 4, 3, 1, 3, 2, 1, 4, 3, 3, 4, 5, 0, 3, 0, 2, 0, 4, 5, 5, 4, 5, 4, 0, 4, 0, 0, 5, 4],
+      [0, 5, 0, 5, 0, 4, 0, 3, 0, 4, 4, 3, 4, 3, 3, 3, 4, 0, 4, 4, 4, 3, 4, 3, 4, 3, 3, 1, 4, 2, 4, 3, 4, 0, 5, 4, 1, 4, 5, 4, 4, 5, 3, 2, 4, 3, 4, 3, 2, 4, 1, 3, 3, 3, 2, 3, 2, 0, 4, 3, 3, 4, 3, 3, 3, 4, 0, 4, 0, 3, 0, 4, 5, 4, 4, 4, 3, 0, 4, 1, 0, 1, 3],
+      [0, 3, 1, 4, 0, 3, 0, 2, 0, 3, 4, 4, 3, 1, 4, 2, 3, 3, 4, 3, 4, 3, 4, 3, 4, 4, 3, 2, 3, 1, 5, 4, 4, 1, 4, 4, 3, 5, 4, 4, 3, 5, 5, 4, 3, 4, 4, 3, 1, 2, 3, 1, 2, 2, 0, 3, 2, 0, 3, 1, 0, 5, 3, 3, 3, 4, 3, 3, 3, 3, 4, 4, 4, 4, 5, 4, 2, 0, 3, 3, 2, 4, 3],
+      [0, 2, 0, 3, 0, 1, 0, 1, 0, 0, 3, 2, 0, 0, 2, 0, 1, 0, 2, 1, 3, 3, 3, 1, 2, 3, 1, 0, 1, 0, 4, 2, 1, 1, 3, 3, 0, 4, 3, 3, 1, 4, 3, 3, 0, 3, 3, 2, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 4, 1, 0, 2, 3, 2, 2, 2, 1, 3, 3, 3, 4, 4, 3, 2, 0, 3, 1, 0, 3, 3],
+      [0, 4, 0, 4, 0, 3, 0, 3, 0, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 3, 4, 2, 4, 3, 4, 3, 3, 2, 4, 3, 4, 5, 4, 1, 4, 5, 3, 5, 4, 5, 3, 5, 4, 0, 3, 5, 5, 3, 1, 3, 3, 2, 2, 3, 0, 3, 4, 1, 3, 3, 2, 4, 3, 3, 3, 4, 0, 4, 0, 3, 0, 4, 5, 4, 4, 5, 3, 0, 4, 1, 0, 3, 4],
+      [0, 2, 0, 3, 0, 3, 0, 0, 0, 2, 2, 2, 1, 0, 1, 0, 0, 0, 3, 0, 3, 0, 3, 0, 1, 3, 1, 0, 3, 1, 3, 3, 3, 1, 3, 3, 3, 0, 1, 3, 1, 3, 4, 0, 0, 3, 1, 1, 0, 3, 2, 0, 0, 0, 0, 1, 3, 0, 1, 0, 0, 3, 3, 2, 0, 3, 0, 0, 0, 0, 0, 3, 4, 3, 4, 3, 3, 0, 3, 0, 0, 2, 3],
+      [2, 3, 0, 3, 0, 2, 0, 1, 0, 3, 3, 4, 3, 1, 3, 1, 1, 1, 3, 1, 4, 3, 4, 3, 3, 3, 0, 0, 3, 1, 5, 4, 3, 1, 4, 3, 2, 5, 5, 4, 4, 4, 4, 3, 3, 4, 4, 4, 0, 2, 1, 1, 3, 2, 0, 1, 2, 0, 0, 1, 0, 4, 1, 3, 3, 3, 0, 3, 0, 1, 0, 4, 4, 4, 5, 5, 3, 0, 2, 0, 0, 4, 4],
+      [0, 2, 0, 1, 0, 3, 1, 3, 0, 2, 3, 3, 3, 0, 3, 1, 0, 0, 3, 0, 3, 2, 3, 1, 3, 2, 1, 1, 0, 0, 4, 2, 1, 0, 2, 3, 1, 4, 3, 2, 0, 4, 4, 3, 1, 3, 1, 3, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 4, 1, 1, 1, 2, 0, 3, 0, 0, 0, 3, 4, 2, 4, 3, 2, 0, 1, 0, 0, 3, 3],
+      [0, 1, 0, 4, 0, 5, 0, 4, 0, 2, 4, 4, 2, 3, 3, 2, 3, 3, 5, 3, 3, 3, 4, 3, 4, 2, 3, 0, 4, 3, 3, 3, 4, 1, 4, 3, 2, 1, 5, 5, 3, 4, 5, 1, 3, 5, 4, 2, 0, 3, 3, 0, 1, 3, 0, 4, 2, 0, 1, 3, 1, 4, 3, 3, 3, 3, 0, 3, 0, 1, 0, 3, 4, 4, 4, 5, 5, 0, 3, 0, 1, 4, 5],
+      [0, 2, 0, 3, 0, 3, 0, 0, 0, 2, 3, 1, 3, 0, 4, 0, 1, 1, 3, 0, 3, 4, 3, 2, 3, 1, 0, 3, 3, 2, 3, 1, 3, 0, 2, 3, 0, 2, 1, 4, 1, 2, 2, 0, 0, 3, 3, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 2, 2, 0, 3, 2, 1, 3, 3, 0, 2, 0, 2, 0, 0, 3, 3, 1, 2, 4, 0, 3, 0, 2, 2, 3],
+      [2, 4, 0, 5, 0, 4, 0, 4, 0, 2, 4, 4, 4, 3, 4, 3, 3, 3, 1, 2, 4, 3, 4, 3, 4, 4, 5, 0, 3, 3, 3, 3, 2, 0, 4, 3, 1, 4, 3, 4, 1, 4, 4, 3, 3, 4, 4, 3, 1, 2, 3, 0, 4, 2, 0, 4, 1, 0, 3, 3, 0, 4, 3, 3, 3, 4, 0, 4, 0, 2, 0, 3, 5, 3, 4, 5, 2, 0, 3, 0, 0, 4, 5],
+      [0, 3, 0, 4, 0, 1, 0, 1, 0, 1, 3, 2, 2, 1, 3, 0, 3, 0, 2, 0, 2, 0, 3, 0, 2, 0, 0, 0, 1, 0, 1, 1, 0, 0, 3, 1, 0, 0, 0, 4, 0, 3, 1, 0, 2, 1, 3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4, 2, 2, 3, 1, 0, 3, 0, 0, 0, 1, 4, 4, 4, 3, 0, 0, 4, 0, 0, 1, 4],
+      [1, 4, 1, 5, 0, 3, 0, 3, 0, 4, 5, 4, 4, 3, 5, 3, 3, 4, 4, 3, 4, 1, 3, 3, 3, 3, 2, 1, 4, 1, 5, 4, 3, 1, 4, 4, 3, 5, 4, 4, 3, 5, 4, 3, 3, 4, 4, 4, 0, 3, 3, 1, 2, 3, 0, 3, 1, 0, 3, 3, 0, 5, 4, 4, 4, 4, 4, 4, 3, 3, 5, 4, 4, 3, 3, 5, 4, 0, 3, 2, 0, 4, 4],
+      [0, 2, 0, 3, 0, 1, 0, 0, 0, 1, 3, 3, 3, 2, 4, 1, 3, 0, 3, 1, 3, 0, 2, 2, 1, 1, 0, 0, 2, 0, 4, 3, 1, 0, 4, 3, 0, 4, 4, 4, 1, 4, 3, 1, 1, 3, 3, 1, 0, 2, 0, 0, 1, 3, 0, 0, 0, 0, 2, 0, 0, 4, 3, 2, 4, 3, 5, 4, 3, 3, 3, 4, 3, 3, 4, 3, 3, 0, 2, 1, 0, 3, 3],
+      [0, 2, 0, 4, 0, 3, 0, 2, 0, 2, 5, 5, 3, 4, 4, 4, 4, 1, 4, 3, 3, 0, 4, 3, 4, 3, 1, 3, 3, 2, 4, 3, 0, 3, 4, 3, 0, 3, 4, 4, 2, 4, 4, 0, 4, 5, 3, 3, 2, 2, 1, 1, 1, 2, 0, 1, 5, 0, 3, 3, 2, 4, 3, 3, 3, 4, 0, 3, 0, 2, 0, 4, 4, 3, 5, 5, 0, 0, 3, 0, 2, 3, 3],
+      [0, 3, 0, 4, 0, 3, 0, 1, 0, 3, 4, 3, 3, 1, 3, 3, 3, 0, 3, 1, 3, 0, 4, 3, 3, 1, 1, 0, 3, 0, 3, 3, 0, 0, 4, 4, 0, 1, 5, 4, 3, 3, 5, 0, 3, 3, 4, 3, 0, 2, 0, 1, 1, 1, 0, 1, 3, 0, 1, 2, 1, 3, 3, 2, 3, 3, 0, 3, 0, 1, 0, 1, 3, 3, 4, 4, 1, 0, 1, 2, 2, 1, 3],
+      [0, 1, 0, 4, 0, 4, 0, 3, 0, 1, 3, 3, 3, 2, 3, 1, 1, 0, 3, 0, 3, 3, 4, 3, 2, 4, 2, 0, 1, 0, 4, 3, 2, 0, 4, 3, 0, 5, 3, 3, 2, 4, 4, 4, 3, 3, 3, 4, 0, 1, 3, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 4, 2, 3, 3, 3, 0, 3, 0, 0, 0, 4, 4, 4, 5, 3, 2, 0, 3, 3, 0, 3, 5],
+      [0, 2, 0, 3, 0, 0, 0, 3, 0, 1, 3, 0, 2, 0, 0, 0, 1, 0, 3, 1, 1, 3, 3, 0, 0, 3, 0, 0, 3, 0, 2, 3, 1, 0, 3, 1, 0, 3, 3, 2, 0, 4, 2, 2, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 2, 0, 1, 0, 1, 0, 0, 0, 1, 3, 1, 2, 0, 0, 0, 1, 0, 0, 1, 4],
+      [0, 3, 0, 3, 0, 5, 0, 1, 0, 2, 4, 3, 1, 3, 3, 2, 1, 1, 5, 2, 1, 0, 5, 1, 2, 0, 0, 0, 3, 3, 2, 2, 3, 2, 4, 3, 0, 0, 3, 3, 1, 3, 3, 0, 2, 5, 3, 4, 0, 3, 3, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 2, 2, 3, 3, 3, 0, 2, 0, 1, 0, 3, 4, 4, 2, 5, 4, 0, 3, 0, 0, 3, 5],
+      [0, 3, 0, 3, 0, 3, 0, 1, 0, 3, 3, 3, 3, 0, 3, 0, 2, 0, 2, 1, 1, 0, 2, 0, 1, 0, 0, 0, 2, 1, 0, 0, 1, 0, 3, 2, 0, 0, 3, 3, 1, 2, 3, 1, 0, 3, 3, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 3, 1, 2, 3, 0, 3, 0, 1, 0, 3, 2, 1, 0, 4, 3, 0, 1, 1, 0, 3, 3],
+      [0, 4, 0, 5, 0, 3, 0, 3, 0, 4, 5, 5, 4, 3, 5, 3, 4, 3, 5, 3, 3, 2, 5, 3, 4, 4, 4, 3, 4, 3, 4, 5, 5, 3, 4, 4, 3, 4, 4, 5, 4, 4, 4, 3, 4, 5, 5, 4, 2, 3, 4, 2, 3, 4, 0, 3, 3, 1, 4, 3, 2, 4, 3, 3, 5, 5, 0, 3, 0, 3, 0, 5, 5, 5, 5, 4, 4, 0, 4, 0, 1, 4, 4],
+      [0, 4, 0, 4, 0, 3, 0, 3, 0, 3, 5, 4, 4, 2, 3, 2, 5, 1, 3, 2, 5, 1, 4, 2, 3, 2, 3, 3, 4, 3, 3, 3, 3, 2, 5, 4, 1, 3, 3, 5, 3, 4, 4, 0, 4, 4, 3, 1, 1, 3, 1, 0, 2, 3, 0, 2, 3, 0, 3, 0, 0, 4, 3, 1, 3, 4, 0, 3, 0, 2, 0, 4, 4, 4, 3, 4, 5, 0, 4, 0, 0, 3, 4],
+      [0, 3, 0, 3, 0, 3, 1, 2, 0, 3, 4, 4, 3, 3, 3, 0, 2, 2, 4, 3, 3, 1, 3, 3, 3, 1, 1, 0, 3, 1, 4, 3, 2, 3, 4, 4, 2, 4, 4, 4, 3, 4, 4, 3, 2, 4, 4, 3, 1, 3, 3, 1, 3, 3, 0, 4, 1, 0, 2, 2, 1, 4, 3, 2, 3, 3, 5, 4, 3, 3, 5, 4, 4, 3, 3, 0, 4, 0, 3, 2, 2, 4, 4],
+      [0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 2, 1, 3, 0, 0, 0, 0, 0, 2, 0, 1, 2, 1, 0, 0, 1, 0, 0, 0, 0, 3, 0, 0, 1, 0, 1, 1, 3, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 0, 3, 4, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1],
+      [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 4, 1, 4, 0, 3, 0, 4, 0, 3, 0, 4, 0, 3, 0, 3, 0, 4, 1, 5, 1, 4, 0, 0, 3, 0, 5, 0, 5, 2, 0, 1, 0, 0, 0, 2, 1, 4, 0, 1, 3, 0, 0, 3, 0, 0, 3, 1, 1, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+      [1, 4, 0, 5, 0, 3, 0, 2, 0, 3, 5, 4, 4, 3, 4, 3, 5, 3, 4, 3, 3, 0, 4, 3, 3, 3, 3, 3, 3, 2, 4, 4, 3, 1, 3, 4, 4, 5, 4, 4, 3, 4, 4, 1, 3, 5, 4, 3, 3, 3, 1, 2, 2, 3, 3, 1, 3, 1, 3, 3, 3, 5, 3, 3, 4, 5, 0, 3, 0, 3, 0, 3, 4, 3, 4, 4, 3, 0, 3, 0, 2, 4, 3],
+      [0, 1, 0, 4, 0, 0, 0, 0, 0, 1, 4, 0, 4, 1, 4, 2, 4, 0, 3, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0, 3, 1, 1, 1, 0, 3, 0, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 3, 0, 0, 0, 0, 3, 2, 0, 2, 2, 0, 1, 0, 0, 0, 2, 3, 2, 3, 3, 0, 0, 0, 0, 2, 1, 0],
+      [0, 5, 1, 5, 0, 3, 0, 3, 0, 5, 4, 4, 5, 1, 5, 3, 3, 0, 4, 3, 4, 3, 5, 3, 4, 3, 3, 2, 4, 3, 4, 3, 3, 0, 3, 3, 1, 4, 4, 3, 4, 4, 4, 3, 4, 5, 5, 3, 2, 3, 1, 1, 3, 3, 1, 3, 1, 1, 3, 3, 2, 4, 5, 3, 3, 5, 0, 4, 0, 3, 0, 4, 4, 3, 5, 3, 3, 0, 3, 4, 0, 4, 3],
+      [0, 5, 0, 5, 0, 3, 0, 2, 0, 4, 4, 3, 5, 2, 4, 3, 3, 3, 4, 4, 4, 3, 5, 3, 5, 3, 3, 1, 4, 0, 4, 3, 3, 0, 3, 3, 0, 4, 4, 4, 4, 5, 4, 3, 3, 5, 5, 3, 2, 3, 1, 2, 3, 2, 0, 1, 0, 0, 3, 2, 2, 4, 4, 3, 1, 5, 0, 4, 0, 3, 0, 4, 3, 1, 3, 2, 1, 0, 3, 3, 0, 3, 3],
+      [0, 4, 0, 5, 0, 5, 0, 4, 0, 4, 5, 5, 5, 3, 4, 3, 3, 2, 5, 4, 4, 3, 5, 3, 5, 3, 4, 0, 4, 3, 4, 4, 3, 2, 4, 4, 3, 4, 5, 4, 4, 5, 5, 0, 3, 5, 5, 4, 1, 3, 3, 2, 3, 3, 1, 3, 1, 0, 4, 3, 1, 4, 4, 3, 4, 5, 0, 4, 0, 2, 0, 4, 3, 4, 4, 3, 3, 0, 4, 0, 0, 5, 5],
+      [0, 4, 0, 4, 0, 5, 0, 1, 1, 3, 3, 4, 4, 3, 4, 1, 3, 0, 5, 1, 3, 0, 3, 1, 3, 1, 1, 0, 3, 0, 3, 3, 4, 0, 4, 3, 0, 4, 4, 4, 3, 4, 4, 0, 3, 5, 4, 1, 0, 3, 0, 0, 2, 3, 0, 3, 1, 0, 3, 1, 0, 3, 2, 1, 3, 5, 0, 3, 0, 1, 0, 3, 2, 3, 3, 4, 4, 0, 2, 2, 0, 4, 4],
+      [2, 4, 0, 5, 0, 4, 0, 3, 0, 4, 5, 5, 4, 3, 5, 3, 5, 3, 5, 3, 5, 2, 5, 3, 4, 3, 3, 4, 3, 4, 5, 3, 2, 1, 5, 4, 3, 2, 3, 4, 5, 3, 4, 1, 2, 5, 4, 3, 0, 3, 3, 0, 3, 2, 0, 2, 3, 0, 4, 1, 0, 3, 4, 3, 3, 5, 0, 3, 0, 1, 0, 4, 5, 5, 5, 4, 3, 0, 4, 2, 0, 3, 5],
+      [0, 5, 0, 4, 0, 4, 0, 2, 0, 5, 4, 3, 4, 3, 4, 3, 3, 3, 4, 3, 4, 2, 5, 3, 5, 3, 4, 1, 4, 3, 4, 4, 4, 0, 3, 5, 0, 4, 4, 4, 4, 5, 3, 1, 3, 4, 5, 3, 3, 3, 3, 3, 3, 3, 0, 2, 2, 0, 3, 3, 2, 4, 3, 3, 3, 5, 3, 4, 1, 3, 3, 5, 3, 2, 0, 0, 0, 0, 4, 3, 1, 3, 3],
+      [0, 1, 0, 3, 0, 3, 0, 1, 0, 1, 3, 3, 3, 2, 3, 3, 3, 0, 3, 0, 0, 0, 3, 1, 3, 0, 0, 0, 2, 2, 2, 3, 0, 0, 3, 2, 0, 1, 2, 4, 1, 3, 3, 0, 0, 3, 3, 3, 0, 1, 0, 0, 2, 1, 0, 0, 3, 0, 3, 1, 0, 3, 0, 0, 1, 3, 0, 2, 0, 1, 0, 3, 3, 1, 3, 3, 0, 0, 1, 1, 0, 3, 3],
+      [0, 2, 0, 3, 0, 2, 1, 4, 0, 2, 2, 3, 1, 1, 3, 1, 1, 0, 2, 0, 3, 1, 2, 3, 1, 3, 0, 0, 1, 0, 4, 3, 2, 3, 3, 3, 1, 4, 2, 3, 3, 3, 3, 1, 0, 3, 1, 4, 0, 1, 1, 0, 1, 2, 0, 1, 1, 0, 1, 1, 0, 3, 1, 3, 2, 2, 0, 1, 0, 0, 0, 2, 3, 3, 3, 1, 0, 0, 0, 0, 0, 2, 3],
+      [0, 5, 0, 4, 0, 5, 0, 2, 0, 4, 5, 5, 3, 3, 4, 3, 3, 1, 5, 4, 4, 2, 4, 4, 4, 3, 4, 2, 4, 3, 5, 5, 4, 3, 3, 4, 3, 3, 5, 5, 4, 5, 5, 1, 3, 4, 5, 3, 1, 4, 3, 1, 3, 3, 0, 3, 3, 1, 4, 3, 1, 4, 5, 3, 3, 5, 0, 4, 0, 3, 0, 5, 3, 3, 1, 4, 3, 0, 4, 0, 1, 5, 3],
+      [0, 5, 0, 5, 0, 4, 0, 2, 0, 4, 4, 3, 4, 3, 3, 3, 3, 3, 5, 4, 4, 4, 4, 4, 4, 5, 3, 3, 5, 2, 4, 4, 4, 3, 4, 4, 3, 3, 4, 4, 5, 5, 3, 3, 4, 3, 4, 3, 3, 4, 3, 3, 3, 3, 1, 2, 2, 1, 4, 3, 3, 5, 4, 4, 3, 4, 0, 4, 0, 3, 0, 4, 4, 4, 4, 4, 1, 0, 4, 2, 0, 2, 4],
+      [0, 4, 0, 4, 0, 3, 0, 1, 0, 3, 5, 2, 3, 0, 3, 0, 2, 1, 4, 2, 3, 3, 4, 1, 4, 3, 3, 2, 4, 1, 3, 3, 3, 0, 3, 3, 0, 0, 3, 3, 3, 5, 3, 3, 3, 3, 3, 2, 0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 1, 0, 0, 3, 1, 2, 2, 3, 0, 3, 0, 2, 0, 4, 4, 3, 3, 4, 1, 0, 3, 0, 0, 2, 4],
+      [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0, 3, 1, 3, 0, 3, 2, 0, 0, 0, 1, 0, 3, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 2, 0, 0, 0, 0, 0, 0, 2],
+      [0, 2, 1, 3, 0, 2, 0, 2, 0, 3, 3, 3, 3, 1, 3, 1, 3, 3, 3, 3, 3, 3, 4, 2, 2, 1, 2, 1, 4, 0, 4, 3, 1, 3, 3, 3, 2, 4, 3, 5, 4, 3, 3, 3, 3, 3, 3, 3, 0, 1, 3, 0, 2, 0, 0, 1, 0, 0, 1, 0, 0, 4, 2, 0, 2, 3, 0, 3, 3, 0, 3, 3, 4, 2, 3, 1, 4, 0, 1, 2, 0, 2, 3],
+      [0, 3, 0, 3, 0, 1, 0, 3, 0, 2, 3, 3, 3, 0, 3, 1, 2, 0, 3, 3, 2, 3, 3, 2, 3, 2, 3, 1, 3, 0, 4, 3, 2, 0, 3, 3, 1, 4, 3, 3, 2, 3, 4, 3, 1, 3, 3, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 4, 1, 1, 0, 3, 0, 3, 1, 0, 2, 3, 3, 3, 3, 3, 1, 0, 0, 2, 0, 3, 3],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 3, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3],
+      [0, 2, 0, 3, 1, 3, 0, 3, 0, 2, 3, 3, 3, 1, 3, 1, 3, 1, 3, 1, 3, 3, 3, 1, 3, 0, 2, 3, 1, 1, 4, 3, 3, 2, 3, 3, 1, 2, 2, 4, 1, 3, 3, 0, 1, 4, 2, 3, 0, 1, 3, 0, 3, 0, 0, 1, 3, 0, 2, 0, 0, 3, 3, 2, 1, 3, 0, 3, 0, 2, 0, 3, 4, 4, 4, 3, 1, 0, 3, 0, 0, 3, 3],
+      [0, 2, 0, 1, 0, 2, 0, 0, 0, 1, 3, 2, 2, 1, 3, 0, 1, 1, 3, 0, 3, 2, 3, 1, 2, 0, 2, 0, 1, 1, 3, 3, 3, 0, 3, 3, 1, 1, 2, 3, 2, 3, 3, 1, 2, 3, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 2, 1, 2, 1, 3, 0, 3, 0, 0, 0, 3, 4, 4, 4, 3, 2, 0, 2, 0, 0, 2, 4],
+      [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 3, 1, 0, 0, 0, 0, 0, 0, 0, 3],
+      [0, 3, 0, 3, 0, 2, 0, 3, 0, 3, 3, 3, 2, 3, 2, 2, 2, 0, 3, 1, 3, 3, 3, 2, 3, 3, 0, 0, 3, 0, 3, 2, 2, 0, 2, 3, 1, 4, 3, 4, 3, 3, 2, 3, 1, 5, 4, 4, 0, 3, 1, 2, 1, 3, 0, 3, 1, 1, 2, 0, 2, 3, 1, 3, 1, 3, 0, 3, 0, 1, 0, 3, 3, 4, 4, 2, 1, 0, 2, 1, 0, 2, 4],
+      [0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 4, 2, 5, 1, 4, 0, 2, 0, 2, 1, 3, 1, 4, 0, 2, 1, 0, 0, 2, 1, 4, 1, 1, 0, 3, 3, 0, 5, 1, 3, 2, 3, 3, 1, 0, 3, 2, 3, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 1, 0, 3, 0, 2, 0, 1, 0, 3, 3, 3, 4, 3, 3, 0, 0, 0, 0, 2, 3],
+      [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 3],
+      [0, 1, 0, 3, 0, 4, 0, 3, 0, 2, 4, 3, 1, 0, 3, 2, 2, 1, 3, 1, 2, 2, 3, 1, 1, 1, 2, 1, 3, 0, 1, 2, 0, 1, 3, 2, 1, 3, 0, 5, 5, 1, 0, 0, 1, 3, 2, 1, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 3, 4, 0, 1, 1, 1, 3, 2, 0, 2, 0, 1, 0, 2, 3, 3, 1, 2, 3, 0, 1, 0, 1, 0, 4],
+      [0, 0, 0, 1, 0, 3, 0, 3, 0, 2, 2, 1, 0, 0, 4, 0, 3, 0, 3, 1, 3, 0, 3, 0, 3, 0, 1, 0, 3, 0, 3, 1, 3, 0, 3, 3, 0, 0, 1, 2, 1, 1, 1, 0, 1, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 2, 0, 0, 2, 0, 0, 0, 0, 2, 3, 3, 3, 3, 0, 0, 0, 0, 1, 4],
+      [0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 3, 1, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 2, 0, 2, 3, 0, 0, 2, 2, 3, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 2, 0, 0, 0, 0, 2, 3],
+      [2, 4, 0, 5, 0, 5, 0, 4, 0, 3, 4, 3, 3, 3, 4, 3, 3, 3, 4, 3, 4, 4, 5, 4, 5, 5, 5, 2, 3, 0, 5, 5, 4, 1, 5, 4, 3, 1, 5, 4, 3, 4, 4, 3, 3, 4, 3, 3, 0, 3, 2, 0, 2, 3, 0, 3, 0, 0, 3, 3, 0, 5, 3, 2, 3, 3, 0, 3, 0, 3, 0, 3, 4, 5, 4, 5, 3, 0, 4, 3, 0, 3, 4],
+      [0, 3, 0, 3, 0, 3, 0, 3, 0, 3, 3, 4, 3, 2, 3, 2, 3, 0, 4, 3, 3, 3, 3, 3, 3, 3, 3, 0, 3, 2, 4, 3, 3, 1, 3, 4, 3, 4, 4, 4, 3, 4, 4, 3, 2, 4, 4, 1, 0, 2, 0, 0, 1, 1, 0, 2, 0, 0, 3, 1, 0, 5, 3, 2, 1, 3, 0, 3, 0, 1, 2, 4, 3, 2, 4, 3, 3, 0, 3, 2, 0, 4, 4],
+      [0, 3, 0, 3, 0, 1, 0, 0, 0, 1, 4, 3, 3, 2, 3, 1, 3, 1, 4, 2, 3, 2, 4, 2, 3, 4, 3, 0, 2, 2, 3, 3, 3, 0, 3, 3, 3, 0, 3, 4, 1, 3, 3, 0, 3, 4, 3, 3, 0, 1, 1, 0, 1, 0, 0, 0, 4, 0, 3, 0, 0, 3, 1, 2, 1, 3, 0, 4, 0, 1, 0, 4, 3, 3, 4, 3, 3, 0, 2, 0, 0, 3, 3],
+      [0, 3, 0, 4, 0, 1, 0, 3, 0, 3, 4, 3, 3, 0, 3, 3, 3, 1, 3, 1, 3, 3, 4, 3, 3, 3, 0, 0, 3, 1, 5, 3, 3, 1, 3, 3, 2, 5, 4, 3, 3, 4, 5, 3, 2, 5, 3, 4, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 1, 1, 0, 4, 2, 2, 1, 3, 0, 3, 0, 2, 0, 4, 4, 3, 5, 3, 2, 0, 1, 1, 0, 3, 4],
+      [0, 5, 0, 4, 0, 5, 0, 2, 0, 4, 4, 3, 3, 2, 3, 3, 3, 1, 4, 3, 4, 1, 5, 3, 4, 3, 4, 0, 4, 2, 4, 3, 4, 1, 5, 4, 0, 4, 4, 4, 4, 5, 4, 1, 3, 5, 4, 2, 1, 4, 1, 1, 3, 2, 0, 3, 1, 0, 3, 2, 1, 4, 3, 3, 3, 4, 0, 4, 0, 3, 0, 4, 4, 4, 3, 3, 3, 0, 4, 2, 0, 3, 4],
+      [1, 4, 0, 4, 0, 3, 0, 1, 0, 3, 3, 3, 1, 1, 3, 3, 2, 2, 3, 3, 1, 0, 3, 2, 2, 1, 2, 0, 3, 1, 2, 1, 2, 0, 3, 2, 0, 2, 2, 3, 3, 4, 3, 0, 3, 3, 1, 2, 0, 1, 1, 3, 1, 2, 0, 0, 3, 0, 1, 1, 0, 3, 2, 2, 3, 3, 0, 3, 0, 0, 0, 2, 3, 3, 4, 3, 3, 0, 1, 0, 0, 1, 4],
+      [0, 4, 0, 4, 0, 4, 0, 0, 0, 3, 4, 4, 3, 1, 4, 2, 3, 2, 3, 3, 3, 1, 4, 3, 4, 0, 3, 0, 4, 2, 3, 3, 2, 2, 5, 4, 2, 1, 3, 4, 3, 4, 3, 1, 3, 3, 4, 2, 0, 2, 1, 0, 3, 3, 0, 0, 2, 0, 3, 1, 0, 4, 4, 3, 4, 3, 0, 4, 0, 1, 0, 2, 4, 4, 4, 4, 4, 0, 3, 2, 0, 3, 3],
+      [0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 2, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2],
+      [0, 2, 0, 3, 0, 4, 0, 4, 0, 1, 3, 3, 3, 0, 4, 0, 2, 1, 2, 1, 1, 1, 2, 0, 3, 1, 1, 0, 1, 0, 3, 1, 0, 0, 3, 3, 2, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 2, 2, 0, 3, 1, 0, 0, 1, 0, 1, 1, 0, 1, 2, 0, 3, 0, 0, 0, 0, 1, 0, 0, 3, 3, 4, 3, 1, 0, 1, 0, 3, 0, 2],
+      [0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 1, 0, 2, 0, 3, 1, 0, 1, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 4, 0, 0, 0, 2, 3, 0, 1, 4, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 3, 0, 0, 0, 0, 0, 3],
+      [0, 2, 0, 5, 0, 5, 0, 1, 0, 2, 4, 3, 3, 2, 5, 1, 3, 2, 3, 3, 3, 0, 4, 1, 2, 0, 3, 0, 4, 0, 2, 2, 1, 1, 5, 3, 0, 0, 1, 4, 2, 3, 2, 0, 3, 3, 3, 2, 0, 2, 4, 1, 1, 2, 0, 1, 1, 0, 3, 1, 0, 1, 3, 1, 2, 3, 0, 2, 0, 0, 0, 1, 3, 5, 4, 4, 4, 0, 3, 0, 0, 1, 3],
+      [0, 4, 0, 5, 0, 4, 0, 4, 0, 4, 5, 4, 3, 3, 4, 3, 3, 3, 4, 3, 4, 4, 5, 3, 4, 5, 4, 2, 4, 2, 3, 4, 3, 1, 4, 4, 1, 3, 5, 4, 4, 5, 5, 4, 4, 5, 5, 5, 2, 3, 3, 1, 4, 3, 1, 3, 3, 0, 3, 3, 1, 4, 3, 4, 4, 4, 0, 3, 0, 4, 0, 3, 3, 4, 4, 5, 0, 0, 4, 3, 0, 4, 5],
+      [0, 4, 0, 4, 0, 3, 0, 3, 0, 3, 4, 4, 4, 3, 3, 2, 4, 3, 4, 3, 4, 3, 5, 3, 4, 3, 2, 1, 4, 2, 4, 4, 3, 1, 3, 4, 2, 4, 5, 5, 3, 4, 5, 4, 1, 5, 4, 3, 0, 3, 2, 2, 3, 2, 1, 3, 1, 0, 3, 3, 3, 5, 3, 3, 3, 5, 4, 4, 2, 3, 3, 4, 3, 3, 3, 2, 1, 0, 3, 2, 1, 4, 3],
+      [0, 4, 0, 5, 0, 4, 0, 3, 0, 3, 5, 5, 3, 2, 4, 3, 4, 0, 5, 4, 4, 1, 4, 4, 4, 3, 3, 3, 4, 3, 5, 5, 2, 3, 3, 4, 1, 2, 5, 5, 3, 5, 5, 2, 3, 5, 5, 4, 0, 3, 2, 0, 3, 3, 1, 1, 5, 1, 4, 1, 0, 4, 3, 2, 3, 5, 0, 4, 0, 3, 0, 5, 4, 3, 4, 3, 0, 0, 4, 1, 0, 4, 4],
+      [1, 3, 0, 4, 0, 2, 0, 2, 0, 2, 5, 5, 3, 3, 3, 3, 3, 0, 4, 2, 3, 4, 4, 4, 3, 4, 0, 0, 3, 4, 5, 4, 3, 3, 3, 3, 2, 5, 5, 4, 5, 5, 5, 4, 3, 5, 5, 5, 1, 3, 1, 0, 1, 0, 0, 3, 2, 0, 4, 2, 0, 5, 2, 3, 2, 4, 1, 3, 0, 3, 0, 4, 5, 4, 5, 4, 3, 0, 4, 2, 0, 5, 4],
+      [0, 3, 0, 4, 0, 5, 0, 3, 0, 3, 4, 4, 3, 2, 3, 2, 3, 3, 3, 3, 3, 2, 4, 3, 3, 2, 2, 0, 3, 3, 3, 3, 3, 1, 3, 3, 3, 0, 4, 4, 3, 4, 4, 1, 1, 4, 4, 2, 0, 3, 1, 0, 1, 1, 0, 4, 1, 0, 2, 3, 1, 3, 3, 1, 3, 4, 0, 3, 0, 1, 0, 3, 1, 3, 0, 0, 1, 0, 2, 0, 0, 4, 4],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 3, 0, 3, 0, 2, 0, 3, 0, 1, 5, 4, 3, 3, 3, 1, 4, 2, 1, 2, 3, 4, 4, 2, 4, 4, 5, 0, 3, 1, 4, 3, 4, 0, 4, 3, 3, 3, 2, 3, 2, 5, 3, 4, 3, 2, 2, 3, 0, 0, 3, 0, 2, 1, 0, 1, 2, 0, 0, 0, 0, 2, 1, 1, 3, 1, 0, 2, 0, 4, 0, 3, 4, 4, 4, 5, 2, 0, 2, 0, 0, 1, 3],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 4, 2, 1, 1, 0, 1, 0, 3, 2, 0, 0, 3, 1, 1, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 4, 0, 4, 2, 1, 0, 0, 0, 0, 0, 1],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 3, 1, 0, 0, 0, 2, 0, 2, 1, 0, 0, 1, 2, 1, 0, 1, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 1, 0, 0, 0, 0, 0, 1, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+      [0, 4, 0, 4, 0, 4, 0, 3, 0, 4, 4, 3, 4, 2, 4, 3, 2, 0, 4, 4, 4, 3, 5, 3, 5, 3, 3, 2, 4, 2, 4, 3, 4, 3, 1, 4, 0, 2, 3, 4, 4, 4, 3, 3, 3, 4, 4, 4, 3, 4, 1, 3, 4, 3, 2, 1, 2, 1, 3, 3, 3, 4, 4, 3, 3, 5, 0, 4, 0, 3, 0, 4, 3, 3, 3, 2, 1, 0, 3, 0, 0, 3, 3],
+      [0, 4, 0, 3, 0, 3, 0, 3, 0, 3, 5, 5, 3, 3, 3, 3, 4, 3, 4, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 4, 3, 5, 3, 3, 1, 3, 2, 4, 5, 5, 5, 5, 4, 3, 4, 5, 5, 3, 2, 2, 3, 3, 3, 3, 2, 3, 3, 1, 2, 3, 2, 4, 3, 3, 3, 4, 0, 4, 0, 2, 0, 4, 3, 2, 2, 1, 2, 0, 3, 0, 0, 4, 1]
     ];
     function JapaneseContextAnalysis() {
       var NUM_OF_CATEGORY = 6;
@@ -52612,18 +45592,18 @@ var require_jpcntx = __commonJS({
       function init() {
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         this._mTotalRel = 0;
         this._mRelSample = [];
-        for (var i = 0; i < NUM_OF_CATEGORY; this._mRelSample[i++] = 0);
+        for (var i = 0; i < NUM_OF_CATEGORY; this._mRelSample[i++] = 0)
+          ;
         this._mNeedToSkipCharNum = 0;
         this._mLastCharOrder = -1;
         this._mDone = false;
       };
-      this.feed = function (aBuf, aLen) {
-        if (this._mDone) {
+      this.feed = function(aBuf, aLen) {
+        if (this._mDone)
           return;
-        }
         var i = this._mNeedToSkipCharNum;
         while (i < aLen) {
           var rets = this.getOrder(aBuf.slice(i, i + 2));
@@ -52640,48 +45620,38 @@ var require_jpcntx = __commonJS({
                 this._mDone = true;
                 break;
               }
-              this
-                ._mRelSample[
-                  exports.jp2CharContext[this._mLastCharOrder][order]
-                ] += 1;
+              this._mRelSample[exports.jp2CharContext[this._mLastCharOrder][order]] += 1;
             }
             this._mLastCharOrder = order;
           }
         }
       };
-      this.gotEnoughData = function () {
+      this.gotEnoughData = function() {
         return this._mTotalRel > ENOUGH_REL_THRESHOLD;
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         if (this._mTotalRel > MINIMUM_DATA_THRESHOLD) {
           return (this._mTotalRel - this._mRelSample[0]) / this._mTotalRel;
         } else {
           return DONT_KNOW;
         }
       };
-      this.getOrder = function (aStr) {
+      this.getOrder = function(aStr) {
         return [-1, 1];
       };
       init();
     }
     function SJISContextAnalysis() {
-      this.getOrder = function (aStr) {
-        if (!aStr) {
+      this.getOrder = function(aStr) {
+        if (!aStr)
           return [-1, 1];
-        }
-        if (
-          aStr.charCodeAt(0) >= 129 && aStr.charCodeAt(0) <= 159 ||
-          aStr.charCodeAt(0) >= 224 && aStr.charCodeAt(0) <= 252
-        ) {
+        if (aStr.charCodeAt(0) >= 129 && aStr.charCodeAt(0) <= 159 || aStr.charCodeAt(0) >= 224 && aStr.charCodeAt(0) <= 252) {
           var charLen = 2;
         } else {
           charLen = 1;
         }
         if (aStr.length > 1) {
-          if (
-            aStr.charCodeAt(0) == 130 && aStr.charCodeAt(1) >= 159 &&
-            aStr.charCodeAt(0) <= 241
-          ) {
+          if (aStr.charCodeAt(0) == 130 && aStr.charCodeAt(1) >= 159 && aStr.charCodeAt(0) <= 241) {
             return [aStr.charCodeAt(1) - 159, charLen];
           }
         }
@@ -52691,14 +45661,10 @@ var require_jpcntx = __commonJS({
     SJISContextAnalysis.prototype = new JapaneseContextAnalysis();
     exports.SJISContextAnalysis = SJISContextAnalysis;
     function EUCJPContextAnalysis() {
-      this.getOrder = function (aStr) {
-        if (!aStr) {
+      this.getOrder = function(aStr) {
+        if (!aStr)
           return [-1, 1];
-        }
-        if (
-          aStr.charCodeAt(0) >= 142 ||
-          aStr.charCodeAt(0) >= 161 && aStr.charCodeAt(0) <= 254
-        ) {
+        if (aStr.charCodeAt(0) >= 142 || aStr.charCodeAt(0) >= 161 && aStr.charCodeAt(0) <= 254) {
           var charLen = 2;
         } else if (aStr.charCodeAt(0) == 143) {
           charLen = 3;
@@ -52706,10 +45672,7 @@ var require_jpcntx = __commonJS({
           charLen = 1;
         }
         if (aStr.length > 1) {
-          if (
-            aStr.charCodeAt(0) == 164 && aStr.charCodeAt(1) >= 161 &&
-            aStr.charCodeAt(1) <= 243
-          ) {
+          if (aStr.charCodeAt(0) == 164 && aStr.charCodeAt(1) >= 161 && aStr.charCodeAt(1) <= 243) {
             return [aStr.charCodeAt(1) - 161, charLen];
           }
         }
@@ -52718,7 +45681,7 @@ var require_jpcntx = __commonJS({
     }
     EUCJPContextAnalysis.prototype = new JapaneseContextAnalysis();
     exports.EUCJPContextAnalysis = EUCJPContextAnalysis;
-  },
+  }
 });
 
 // node_modules/jschardet/src/sjisprober.js
@@ -52727,8 +45690,7 @@ var require_sjisprober = __commonJS({
     var CodingStateMachine = require_codingstatemachine();
     var MultiByteCharSetProber = require_mbcharsetprober();
     var SJISSMModel = require_sjis();
-    var SJISDistributionAnalysis =
-      require_chardistribution().SJISDistributionAnalysis;
+    var SJISDistributionAnalysis = require_chardistribution().SJISDistributionAnalysis;
     var SJISContextAnalysis = require_jpcntx().SJISContextAnalysis;
     var constants = require_constants();
     var logger = require_logger();
@@ -52741,21 +45703,19 @@ var require_sjisprober = __commonJS({
         self._mContextAnalyzer = new SJISContextAnalysis();
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         SJISProber.prototype.reset.apply(this);
         this._mContextAnalyzer.reset();
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return "SHIFT_JIS";
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         var aLen = aBuf.length;
         for (var i = 0; i < aLen; i++) {
           var codingState = this._mCodingSM.nextState(aBuf[i]);
           if (codingState == constants.error) {
-            logger.log(
-              this.getCharsetName() + " prober hit error at byte " + i + "\n",
-            );
+            logger.log(this.getCharsetName() + " prober hit error at byte " + i + "\n");
             this._mState = constants.notMe;
             break;
           } else if (codingState == constants.itsMe) {
@@ -52765,35 +45725,23 @@ var require_sjisprober = __commonJS({
             var charLen = this._mCodingSM.getCurrentCharLen();
             if (i == 0) {
               this._mLastChar[1] = aBuf[0];
-              this._mContextAnalyzer.feed(
-                this._mLastChar.slice(2 - charLen),
-                charLen,
-              );
+              this._mContextAnalyzer.feed(this._mLastChar.slice(2 - charLen), charLen);
               this._mDistributionAnalyzer.feed(this._mLastChar, charLen);
             } else {
-              this._mContextAnalyzer.feed(
-                aBuf.slice(i + 1 - charLen, i + 3 - charLen),
-                charLen,
-              );
-              this._mDistributionAnalyzer.feed(
-                aBuf.slice(i - 1, i + 1),
-                charLen,
-              );
+              this._mContextAnalyzer.feed(aBuf.slice(i + 1 - charLen, i + 3 - charLen), charLen);
+              this._mDistributionAnalyzer.feed(aBuf.slice(i - 1, i + 1), charLen);
             }
           }
         }
         this._mLastChar[0] = aBuf[aLen - 1];
         if (this.getState() == constants.detecting) {
-          if (
-            this._mContextAnalyzer.gotEnoughData() &&
-            this.getConfidence() > constants.SHORTCUT_THRESHOLD
-          ) {
+          if (this._mContextAnalyzer.gotEnoughData() && this.getConfidence() > constants.SHORTCUT_THRESHOLD) {
             this._mState = constants.foundIt;
           }
         }
         return this.getState();
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         var contxtCf = this._mContextAnalyzer.getConfidence();
         var distribCf = this._mDistributionAnalyzer.getConfidence();
         return Math.max(contxtCf, distribCf);
@@ -52802,7 +45750,7 @@ var require_sjisprober = __commonJS({
     }
     SJISProber.prototype = new MultiByteCharSetProber();
     module2.exports = SJISProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcssm/eucjp.js
@@ -53065,7 +46013,7 @@ var require_eucjp = __commonJS({
       0,
       0,
       0,
-      5,
+      5
     ];
     var EUCJP_st = [
       3,
@@ -53107,7 +46055,7 @@ var require_eucjp = __commonJS({
       consts.start,
       consts.start,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var EUCJPCharLenTable = [2, 2, 2, 3, 1, 0];
     module2.exports = {
@@ -53115,9 +46063,9 @@ var require_eucjp = __commonJS({
       "classFactor": 6,
       "stateTable": EUCJP_st,
       "charLenTable": EUCJPCharLenTable,
-      "name": "EUC-JP",
+      "name": "EUC-JP"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/eucjpprober.js
@@ -53125,8 +46073,7 @@ var require_eucjpprober = __commonJS({
   "node_modules/jschardet/src/eucjpprober.js"(exports, module2) {
     var CodingStateMachine = require_codingstatemachine();
     var MultiByteCharSetProber = require_mbcharsetprober();
-    var EUCJPDistributionAnalysis =
-      require_chardistribution().EUCJPDistributionAnalysis;
+    var EUCJPDistributionAnalysis = require_chardistribution().EUCJPDistributionAnalysis;
     var EUCJPContextAnalysis = require_jpcntx().EUCJPContextAnalysis;
     var EUCJPSMModel = require_eucjp();
     var constants = require_constants();
@@ -53140,21 +46087,19 @@ var require_eucjpprober = __commonJS({
         self._mContextAnalyzer = new EUCJPContextAnalysis();
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         EUCJPProber.prototype.reset.apply(this);
         this._mContextAnalyzer.reset();
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return "EUC-JP";
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         var aLen = aBuf.length;
         for (var i = 0; i < aLen; i++) {
           var codingState = this._mCodingSM.nextState(aBuf[i]);
           if (codingState == constants.error) {
-            logger.log(
-              this.getCharsetName() + " prober hit error at byte " + i + "\n",
-            );
+            logger.log(this.getCharsetName() + " prober hit error at byte " + i + "\n");
             this._mState = constants.notMe;
             break;
           } else if (codingState == constants.itsMe) {
@@ -53168,25 +46113,19 @@ var require_eucjpprober = __commonJS({
               this._mDistributionAnalyzer.feed(this._mLastChar, charLen);
             } else {
               this._mContextAnalyzer.feed(aBuf.slice(i - 1, i + 1), charLen);
-              this._mDistributionAnalyzer.feed(
-                aBuf.slice(i - 1, i + 1),
-                charLen,
-              );
+              this._mDistributionAnalyzer.feed(aBuf.slice(i - 1, i + 1), charLen);
             }
           }
         }
         this._mLastChar[0] = aBuf[aLen - 1];
         if (this.getState() == constants.detecting) {
-          if (
-            this._mContextAnalyzer.gotEnoughData() &&
-            this.getConfidence() > constants.SHORTCUT_THRESHOLD
-          ) {
+          if (this._mContextAnalyzer.gotEnoughData() && this.getConfidence() > constants.SHORTCUT_THRESHOLD) {
             this._mState = constants.foundIt;
           }
         }
         return this.getState();
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         var contxtCf = this._mContextAnalyzer.getConfidence();
         var distribCf = this._mDistributionAnalyzer.getConfidence();
         return Math.max(contxtCf, distribCf);
@@ -53195,7 +46134,7 @@ var require_eucjpprober = __commonJS({
     }
     EUCJPProber.prototype = new MultiByteCharSetProber();
     module2.exports = EUCJPProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcssm/gb2312.js
@@ -53458,7 +46397,7 @@ var require_gb2312 = __commonJS({
       6,
       6,
       6,
-      0,
+      0
     ];
     var GB2312_st = [
       consts.error,
@@ -53508,7 +46447,7 @@ var require_gb2312 = __commonJS({
       consts.start,
       consts.start,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var GB2312CharLenTable = [0, 1, 1, 1, 1, 1, 2];
     module2.exports = {
@@ -53516,9 +46455,9 @@ var require_gb2312 = __commonJS({
       "classFactor": 7,
       "stateTable": GB2312_st,
       "charLenTable": GB2312CharLenTable,
-      "name": "GB2312",
+      "name": "GB2312"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/gb2312prober.js
@@ -53527,8 +46466,7 @@ var require_gb2312prober = __commonJS({
     var MultiByteCharSetProber = require_mbcharsetprober();
     var CodingStateMachine = require_codingstatemachine();
     var GB2312SMModel = require_gb2312();
-    var GB2312DistributionAnalysis =
-      require_chardistribution().GB2312DistributionAnalysis;
+    var GB2312DistributionAnalysis = require_chardistribution().GB2312DistributionAnalysis;
     function GB2312Prober() {
       MultiByteCharSetProber.apply(this);
       var self = this;
@@ -53537,14 +46475,14 @@ var require_gb2312prober = __commonJS({
         self._mDistributionAnalyzer = new GB2312DistributionAnalysis();
         self.reset();
       }
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return "GB2312";
       };
       init();
     }
     GB2312Prober.prototype = new MultiByteCharSetProber();
     module2.exports = GB2312Prober;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcssm/euckr.js
@@ -53807,7 +46745,7 @@ var require_euckr = __commonJS({
       2,
       2,
       2,
-      0,
+      0
     ];
     var EUCKR_st = [
       consts.error,
@@ -53825,7 +46763,7 @@ var require_euckr = __commonJS({
       consts.error,
       consts.error,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var EUCKRCharLenTable = [0, 1, 2, 0];
     module2.exports = {
@@ -53833,9 +46771,9 @@ var require_euckr = __commonJS({
       "classFactor": 4,
       "stateTable": EUCKR_st,
       "charLenTable": EUCKRCharLenTable,
-      "name": "EUC-KR",
+      "name": "EUC-KR"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/euckrprober.js
@@ -53843,8 +46781,7 @@ var require_euckrprober = __commonJS({
   "node_modules/jschardet/src/euckrprober.js"(exports, module2) {
     var CodingStateMachine = require_codingstatemachine();
     var MultiByteCharSetProber = require_mbcharsetprober();
-    var EUCKRDistributionAnalysis =
-      require_chardistribution().EUCKRDistributionAnalysis;
+    var EUCKRDistributionAnalysis = require_chardistribution().EUCKRDistributionAnalysis;
     var EUCKRSMModel = require_euckr();
     function EUCKRProber() {
       MultiByteCharSetProber.apply(this);
@@ -53854,14 +46791,14 @@ var require_euckrprober = __commonJS({
         self._mDistributionAnalyzer = new EUCKRDistributionAnalysis();
         self.reset();
       }
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return "EUC-KR";
       };
       init();
     }
     EUCKRProber.prototype = new MultiByteCharSetProber();
     module2.exports = EUCKRProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcssm/euctw.js
@@ -54124,7 +47061,7 @@ var require_euctw = __commonJS({
       3,
       3,
       3,
-      0,
+      0
     ];
     var EUCTW_st = [
       consts.error,
@@ -54174,7 +47111,7 @@ var require_euctw = __commonJS({
       consts.start,
       consts.start,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var EUCTWCharLenTable = [0, 0, 1, 2, 2, 2, 3];
     module2.exports = {
@@ -54182,9 +47119,9 @@ var require_euctw = __commonJS({
       "classFactor": 7,
       "stateTable": EUCTW_st,
       "charLenTable": EUCTWCharLenTable,
-      "name": "x-euc-tw",
+      "name": "x-euc-tw"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/euctwprober.js
@@ -54192,8 +47129,7 @@ var require_euctwprober = __commonJS({
   "node_modules/jschardet/src/euctwprober.js"(exports, module2) {
     var CodingStateMachine = require_codingstatemachine();
     var MultiByteCharSetProber = require_mbcharsetprober();
-    var EUCTWDistributionAnalysis =
-      require_chardistribution().EUCTWDistributionAnalysis;
+    var EUCTWDistributionAnalysis = require_chardistribution().EUCTWDistributionAnalysis;
     var EUCTWSMModel = require_euctw();
     function EUCTWProber() {
       MultiByteCharSetProber.apply(this);
@@ -54203,14 +47139,14 @@ var require_euctwprober = __commonJS({
         self._mDistributionAnalyzer = new EUCTWDistributionAnalysis();
         self.reset();
       }
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return "EUC-TW";
       };
       init();
     }
     EUCTWProber.prototype = new MultiByteCharSetProber();
     module2.exports = EUCTWProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/mbcsgroupprober.js
@@ -54233,13 +47169,13 @@ var require_mbcsgroupprober = __commonJS({
         new GB2312Prober(),
         new EUCKRProber(),
         new Big5Prober(),
-        new EUCTWProber(),
+        new EUCTWProber()
       ];
       this.reset();
     }
     MBCSGroupProber.prototype = new CharSetGroupProber();
     module2.exports = MBCSGroupProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/sbcharsetprober.js
@@ -54264,23 +47200,24 @@ var require_sbcharsetprober = __commonJS({
         self._mNameProber = nameProber2;
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         SingleByteCharSetProber.prototype.reset.apply(this);
         this._mLastOrder = 255;
         this._mSeqCounters = [];
-        for (var i = 0; i < NUMBER_OF_SEQ_CAT; this._mSeqCounters[i++] = 0);
+        for (var i = 0; i < NUMBER_OF_SEQ_CAT; this._mSeqCounters[i++] = 0)
+          ;
         this._mTotalSeqs = 0;
         this._mTotalChar = 0;
         this._mFreqChar = 0;
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         if (this._mNameProber) {
           return this._mNameProber.getCharsetName();
         } else {
           return this._mModel.charsetName;
         }
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         if (!this._mModel.keepEnglishLetter) {
           aBuf = this.filterWithoutEnglishLetters(aBuf);
         }
@@ -54299,17 +47236,9 @@ var require_sbcharsetprober = __commonJS({
             if (this._mLastOrder < SAMPLE_SIZE) {
               this._mTotalSeqs++;
               if (!this._mReversed) {
-                this
-                  ._mSeqCounters[
-                    this._mModel
-                      .precedenceMatrix[this._mLastOrder * SAMPLE_SIZE + order]
-                  ]++;
+                this._mSeqCounters[this._mModel.precedenceMatrix[this._mLastOrder * SAMPLE_SIZE + order]]++;
               } else {
-                this
-                  ._mSeqCounters[
-                    this._mModel
-                      .precedenceMatrix[order * SAMPLE_SIZE + this._mLastOrder]
-                  ]++;
+                this._mSeqCounters[this._mModel.precedenceMatrix[order * SAMPLE_SIZE + this._mLastOrder]]++;
               }
             }
           }
@@ -54319,27 +47248,19 @@ var require_sbcharsetprober = __commonJS({
           if (self._mTotalSeqs > SB_ENOUGH_REL_THRESHOLD) {
             var cf = this.getConfidence();
             if (cf > POSITIVE_SHORTCUT_THRESHOLD) {
-              logger.log(
-                this._mModel.charsetName + " confidence = " + cf +
-                  ", we have a winner\n",
-              );
+              logger.log(this._mModel.charsetName + " confidence = " + cf + ", we have a winner\n");
             } else if (cf < NEGATIVE_SHORTCUT_THRESHOLD) {
-              logger.log(
-                this._mModel.charsetName + " confidence = " + cf +
-                  ", below negative shortcut threshhold " +
-                  NEGATIVE_SHORTCUT_THRESHOLD + "\n",
-              );
+              logger.log(this._mModel.charsetName + " confidence = " + cf + ", below negative shortcut threshhold " + NEGATIVE_SHORTCUT_THRESHOLD + "\n");
               this._mState = constants.notMe;
             }
           }
         }
         return this.getState();
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         var r = 0.01;
         if (this._mTotalSeqs > 0) {
-          r = 1 * this._mSeqCounters[POSITIVE_CAT] / this._mTotalSeqs /
-            this._mModel.mTypicalPositiveRatio;
+          r = 1 * this._mSeqCounters[POSITIVE_CAT] / this._mTotalSeqs / this._mModel.mTypicalPositiveRatio;
           r *= this._mFreqChar / this._mTotalChar;
           if (r >= 1) {
             r = 0.99;
@@ -54353,7 +47274,7 @@ var require_sbcharsetprober = __commonJS({
     }
     SingleByteCharSetProber.prototype = new CharSetProber();
     module2.exports = SingleByteCharSetProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/langhebrewmodel.js
@@ -54615,7 +47536,7 @@ var require_langhebrewmodel = __commonJS({
       252,
       128,
       96,
-      253,
+      253
     ];
     exports.HebrewLangModel = [
       0,
@@ -58713,16 +51634,16 @@ var require_langhebrewmodel = __commonJS({
       1,
       1,
       0,
-      0,
+      0
     ];
     exports.Win1255HebrewModel = {
       "charToOrderMap": exports.win1255_CharToOrderMap,
       "precedenceMatrix": exports.HebrewLangModel,
       "mTypicalPositiveRatio": 0.984004,
       "keepEnglishLetter": false,
-      "charsetName": "windows-1255",
+      "charsetName": "windows-1255"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/hebrewprober.js
@@ -58731,17 +51652,15 @@ var require_hebrewprober = __commonJS({
     var CharSetProber = require_charsetprober();
     var constants = require_constants();
     if (!Array.prototype.indexOf) {
-      Array.prototype.indexOf = function (elt) {
+      Array.prototype.indexOf = function(elt) {
         var len = this.length >>> 0;
         var from = Number(arguments[1]) || 0;
         from = from < 0 ? Math.ceil(from) : Math.floor(from);
-        if (from < 0) {
+        if (from < 0)
           from += len;
-        }
         for (; from < len; from++) {
-          if (from in this && this[from] === elt) {
+          if (from in this && this[from] === elt)
             return from;
-          }
         }
         return -1;
       };
@@ -58768,25 +51687,23 @@ var require_hebrewprober = __commonJS({
         self._mVisualProber = null;
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         this._mFinalCharLogicalScore = 0;
         this._mFinalCharVisualScore = 0;
         this._mPrev = " ";
         this._mBeforePrev = " ";
       };
-      this.setModelProbers = function (logicalProber, visualProber) {
+      this.setModelProbers = function(logicalProber, visualProber) {
         this._mLogicalProber = logicalProber;
         this._mVisualProber = visualProber;
       };
-      this.isFinal = function (c) {
-        return [FINAL_KAF, FINAL_MEM, FINAL_NUN, FINAL_PE, FINAL_TSADI].indexOf(
-          c,
-        ) != -1;
+      this.isFinal = function(c) {
+        return [FINAL_KAF, FINAL_MEM, FINAL_NUN, FINAL_PE, FINAL_TSADI].indexOf(c) != -1;
       };
-      this.isNonFinal = function (c) {
+      this.isNonFinal = function(c) {
         return [NORMAL_KAF, NORMAL_MEM, NORMAL_NUN, NORMAL_PE].indexOf(c) != -1;
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         if (this.getState() == constants.notMe) {
           return constants.notMe;
         }
@@ -58802,10 +51719,7 @@ var require_hebrewprober = __commonJS({
               }
             }
           } else {
-            if (
-              this._mBeforePrev == " " && this.isFinal(this._mPrev) &&
-              cur != " "
-            ) {
+            if (this._mBeforePrev == " " && this.isFinal(this._mPrev) && cur != " ") {
               this._mFinalCharVisualScore++;
             }
           }
@@ -58814,17 +51728,15 @@ var require_hebrewprober = __commonJS({
         }
         return constants.detecting;
       };
-      this.getCharsetName = function () {
-        var finalsub = this._mFinalCharLogicalScore -
-          this._mFinalCharVisualScore;
+      this.getCharsetName = function() {
+        var finalsub = this._mFinalCharLogicalScore - this._mFinalCharVisualScore;
         if (finalsub >= MIN_FINAL_CHAR_DISTANCE) {
           return LOGICAL_HEBREW_NAME;
         }
         if (finalsub <= -MIN_FINAL_CHAR_DISTANCE) {
           return VISUAL_HEBREW_NAME;
         }
-        var modelsub = this._mLogicalProber.getConfidence() -
-          this._mVisualProber.getConfidence();
+        var modelsub = this._mLogicalProber.getConfidence() - this._mVisualProber.getConfidence();
         if (modelsub > MIN_MODEL_DISTANCE) {
           return LOGICAL_HEBREW_NAME;
         }
@@ -58836,11 +51748,8 @@ var require_hebrewprober = __commonJS({
         }
         return LOGICAL_HEBREW_NAME;
       };
-      this.getState = function () {
-        if (
-          this._mLogicalProber.getState() == constants.notMe &&
-          this._mVisualProber.getState() == constants.notMe
-        ) {
+      this.getState = function() {
+        if (this._mLogicalProber.getState() == constants.notMe && this._mVisualProber.getState() == constants.notMe) {
           return constants.notMe;
         }
         return constants.detecting;
@@ -58849,7 +51758,7 @@ var require_hebrewprober = __commonJS({
     }
     HebrewProber.prototype = new CharSetProber();
     module2.exports = HebrewProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/langcyrillicmodel.js
@@ -59111,7 +52020,7 @@ var require_langcyrillicmodel = __commonJS({
       47,
       63,
       50,
-      70,
+      70
     ];
     exports.win1251_CharToOrderMap = [
       255,
@@ -59369,7 +52278,7 @@ var require_langcyrillicmodel = __commonJS({
       17,
       30,
       27,
-      16,
+      16
     ];
     exports.latin5_CharToOrderMap = [
       255,
@@ -59627,7 +52536,7 @@ var require_langcyrillicmodel = __commonJS({
       250,
       251,
       252,
-      255,
+      255
     ];
     exports.macCyrillic_CharToOrderMap = [
       255,
@@ -59885,7 +52794,7 @@ var require_langcyrillicmodel = __commonJS({
       17,
       30,
       27,
-      255,
+      255
     ];
     exports.IBM855_CharToOrderMap = [
       255,
@@ -60143,7 +53052,7 @@ var require_langcyrillicmodel = __commonJS({
       50,
       251,
       252,
-      255,
+      255
     ];
     exports.IBM866_CharToOrderMap = [
       255,
@@ -60401,7 +53310,7 @@ var require_langcyrillicmodel = __commonJS({
       250,
       251,
       252,
-      255,
+      255
     ];
     exports.RussianLangModel = [
       0,
@@ -64499,51 +57408,51 @@ var require_langcyrillicmodel = __commonJS({
       0,
       1,
       0,
-      0,
+      0
     ];
     exports.Koi8rModel = {
       "charToOrderMap": exports.KOI8R_CharToOrderMap,
       "precedenceMatrix": exports.RussianLangModel,
       "mTypicalPositiveRatio": 0.976601,
       "keepEnglishLetter": false,
-      "charsetName": "KOI8-R",
+      "charsetName": "KOI8-R"
     };
     exports.Win1251CyrillicModel = {
       "charToOrderMap": exports.win1251_CharToOrderMap,
       "precedenceMatrix": exports.RussianLangModel,
       "mTypicalPositiveRatio": 0.976601,
       "keepEnglishLetter": false,
-      "charsetName": "windows-1251",
+      "charsetName": "windows-1251"
     };
     exports.Latin5CyrillicModel = {
       "charToOrderMap": exports.latin5_CharToOrderMap,
       "precedenceMatrix": exports.RussianLangModel,
       "mTypicalPositiveRatio": 0.976601,
       "keepEnglishLetter": false,
-      "charsetName": "ISO-8859-5",
+      "charsetName": "ISO-8859-5"
     };
     exports.MacCyrillicModel = {
       "charToOrderMap": exports.macCyrillic_CharToOrderMap,
       "precedenceMatrix": exports.RussianLangModel,
       "mTypicalPositiveRatio": 0.976601,
       "keepEnglishLetter": false,
-      "charsetName": "x-mac-cyrillic",
+      "charsetName": "x-mac-cyrillic"
     };
     exports.Ibm866Model = {
       "charToOrderMap": exports.IBM866_CharToOrderMap,
       "precedenceMatrix": exports.RussianLangModel,
       "mTypicalPositiveRatio": 0.976601,
       "keepEnglishLetter": false,
-      "charsetName": "IBM866",
+      "charsetName": "IBM866"
     };
     exports.Ibm855Model = {
       "charToOrderMap": exports.IBM855_CharToOrderMap,
       "precedenceMatrix": exports.RussianLangModel,
       "mTypicalPositiveRatio": 0.976601,
       "keepEnglishLetter": false,
-      "charsetName": "IBM855",
+      "charsetName": "IBM855"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/langgreekmodel.js
@@ -64805,7 +57714,7 @@ var require_langgreekmodel = __commonJS({
       19,
       26,
       27,
-      253,
+      253
     ];
     exports.win1253_CharToOrderMap = [
       255,
@@ -65063,7 +57972,7 @@ var require_langgreekmodel = __commonJS({
       19,
       26,
       27,
-      253,
+      253
     ];
     exports.GreekLangModel = [
       0,
@@ -69161,23 +62070,23 @@ var require_langgreekmodel = __commonJS({
       0,
       0,
       0,
-      0,
+      0
     ];
     exports.Latin7GreekModel = {
       "charToOrderMap": exports.Latin7_CharToOrderMap,
       "precedenceMatrix": exports.GreekLangModel,
       "mTypicalPositiveRatio": 0.982851,
       "keepEnglishLetter": false,
-      "charsetName": "ISO-8859-7",
+      "charsetName": "ISO-8859-7"
     };
     exports.Win1253GreekModel = {
       "charToOrderMap": exports.win1253_CharToOrderMap,
       "precedenceMatrix": exports.GreekLangModel,
       "mTypicalPositiveRatio": 0.982851,
       "keepEnglishLetter": false,
-      "charsetName": "windows-1253",
+      "charsetName": "windows-1253"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/langthaimodel.js
@@ -69439,7 +62348,7 @@ var require_langthaimodel = __commonJS({
       250,
       251,
       252,
-      253,
+      253
     ];
     exports.ThaiLangModel = [
       0,
@@ -73537,16 +66446,16 @@ var require_langthaimodel = __commonJS({
       0,
       0,
       0,
-      0,
+      0
     ];
     exports.TIS620ThaiModel = {
       "charToOrderMap": exports.TIS620CharToOrderMap,
       "precedenceMatrix": exports.ThaiLangModel,
       "mTypicalPositiveRatio": 0.926386,
       "keepEnglishLetter": false,
-      "charsetName": "TIS-620",
+      "charsetName": "TIS-620"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/langhungarianmodel.js
@@ -73808,7 +66717,7 @@ var require_langhungarianmodel = __commonJS({
       29,
       251,
       252,
-      253,
+      253
     ];
     exports.win1250HungarianCharToOrderMap = [
       255,
@@ -74066,7 +66975,7 @@ var require_langhungarianmodel = __commonJS({
       29,
       251,
       252,
-      253,
+      253
     ];
     exports.HungarianLangModel = [
       0,
@@ -78164,23 +71073,23 @@ var require_langhungarianmodel = __commonJS({
       0,
       0,
       0,
-      0,
+      0
     ];
     exports.Latin2HungarianModel = {
       "charToOrderMap": exports.Latin2_HungarianCharToOrderMap,
       "precedenceMatrix": exports.HungarianLangModel,
       "mTypicalPositiveRatio": 0.947368,
       "keepEnglishLetter": true,
-      "charsetName": "ISO-8859-2",
+      "charsetName": "ISO-8859-2"
     };
     exports.Win1250HungarianModel = {
       "charToOrderMap": exports.win1250HungarianCharToOrderMap,
       "precedenceMatrix": exports.HungarianLangModel,
       "mTypicalPositiveRatio": 0.947368,
       "keepEnglishLetter": true,
-      "charsetName": "windows-1250",
+      "charsetName": "windows-1250"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/langbulgarianmodel.js
@@ -78442,7 +71351,7 @@ var require_langbulgarianmodel = __commonJS({
       251,
       91,
       252,
-      253,
+      253
     ];
     exports.win1251BulgarianCharToOrderMap = [
       255,
@@ -78700,7 +71609,7 @@ var require_langbulgarianmodel = __commonJS({
       52,
       253,
       42,
-      16,
+      16
     ];
     exports.BulgarianLangModel = [
       0,
@@ -82798,23 +75707,23 @@ var require_langbulgarianmodel = __commonJS({
       0,
       0,
       0,
-      1,
+      1
     ];
     exports.Latin5BulgarianModel = {
       "charToOrderMap": exports.Latin5_BulgarianCharToOrderMap,
       "precedenceMatrix": exports.BulgarianLangModel,
       "mTypicalPositiveRatio": 0.969392,
       "keepEnglishLetter": false,
-      "charsetName": "ISO-8859-5",
+      "charsetName": "ISO-8859-5"
     };
     exports.Win1251BulgarianModel = {
       "charToOrderMap": exports.win1251BulgarianCharToOrderMap,
       "precedenceMatrix": exports.BulgarianLangModel,
       "mTypicalPositiveRatio": 0.969392,
       "keepEnglishLetter": false,
-      "charsetName": "windows-1251",
+      "charsetName": "windows-1251"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/sbcsgroupprober.js
@@ -82846,32 +75755,20 @@ var require_sbcsgroupprober = __commonJS({
           new SingleByteCharSetProber(bulgarianModels.Win1251BulgarianModel),
           new SingleByteCharSetProber(hungarianModels.Latin2HungarianModel),
           new SingleByteCharSetProber(hungarianModels.Win1250HungarianModel),
-          new SingleByteCharSetProber(TIS620ThaiModel),
+          new SingleByteCharSetProber(TIS620ThaiModel)
         ];
         var hebrewProber = new HebrewProber();
-        var logicalHebrewProber = new SingleByteCharSetProber(
-          Win1255HebrewModel,
-          false,
-          hebrewProber,
-        );
-        var visualHebrewProber = new SingleByteCharSetProber(
-          Win1255HebrewModel,
-          true,
-          hebrewProber,
-        );
+        var logicalHebrewProber = new SingleByteCharSetProber(Win1255HebrewModel, false, hebrewProber);
+        var visualHebrewProber = new SingleByteCharSetProber(Win1255HebrewModel, true, hebrewProber);
         hebrewProber.setModelProbers(logicalHebrewProber, visualHebrewProber);
-        self._mProbers.push(
-          hebrewProber,
-          logicalHebrewProber,
-          visualHebrewProber,
-        );
+        self._mProbers.push(hebrewProber, logicalHebrewProber, visualHebrewProber);
         self.reset();
       }
       init();
     }
     SBCSGroupProber.prototype = new CharSetGroupProber();
     module2.exports = SBCSGroupProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/latin1prober.js
@@ -83143,7 +76040,7 @@ var require_latin1prober = __commonJS({
       ASV,
       ASO,
       ASO,
-      ASO,
+      ASO
     ];
     var Latin1ClassModel = [
       0,
@@ -83209,7 +76106,7 @@ var require_latin1prober = __commonJS({
       1,
       1,
       3,
-      3,
+      3
     ];
     function Latin1Prober() {
       CharSetProber.apply(this);
@@ -83219,22 +76116,22 @@ var require_latin1prober = __commonJS({
       function init() {
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         this._mLastCharClass = OTH;
         this._mFreqCounter = [];
-        for (var i = 0; i < FREQ_CAT_NUM; this._mFreqCounter[i++] = 0);
+        for (var i = 0; i < FREQ_CAT_NUM; this._mFreqCounter[i++] = 0)
+          ;
         Latin1Prober.prototype.reset.apply(this);
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return "windows-1252";
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         aBuf = this.filterWithEnglishLetters(aBuf);
         for (var i = 0; i < aBuf.length; i++) {
           var c = aBuf.charCodeAt(i);
           var charClass = Latin1_CharToClass[c];
-          var freq =
-            Latin1ClassModel[this._mLastCharClass * CLASS_NUM + charClass];
+          var freq = Latin1ClassModel[this._mLastCharClass * CLASS_NUM + charClass];
           if (freq == 0) {
             this._mState = Constants.notMe;
             break;
@@ -83244,7 +76141,7 @@ var require_latin1prober = __commonJS({
         }
         return this.getState();
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         var confidence;
         var constants;
         if (this.getState() == Constants.notMe) {
@@ -83257,8 +76154,7 @@ var require_latin1prober = __commonJS({
         if (total < 0.01) {
           constants = 0;
         } else {
-          confidence = this._mFreqCounter[3] / total -
-            this._mFreqCounter[1] * 20 / total;
+          confidence = this._mFreqCounter[3] / total - this._mFreqCounter[1] * 20 / total;
         }
         if (confidence < 0) {
           confidence = 0;
@@ -83270,7 +76166,7 @@ var require_latin1prober = __commonJS({
     }
     Latin1Prober.prototype = new CharSetProber();
     module2.exports = Latin1Prober;
-  },
+  }
 });
 
 // node_modules/jschardet/src/escsm.js
@@ -83533,7 +76429,7 @@ var require_escsm = __commonJS({
       1,
       1,
       1,
-      1,
+      1
     ];
     var HZ_st = [
       consts.start,
@@ -83583,7 +76479,7 @@ var require_escsm = __commonJS({
       consts.start,
       consts.start,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var HZCharLenTable = [0, 0, 0, 0, 0, 0];
     exports.HZSMModel = {
@@ -83591,7 +76487,7 @@ var require_escsm = __commonJS({
       "classFactor": 6,
       "stateTable": HZ_st,
       "charLenTable": HZCharLenTable,
-      "name": "HZ-GB-2312",
+      "name": "HZ-GB-2312"
     };
     var ISO2022CN_cls = [
       2,
@@ -83849,7 +76745,7 @@ var require_escsm = __commonJS({
       2,
       2,
       2,
-      2,
+      2
     ];
     var ISO2022CN_st = [
       consts.start,
@@ -83915,7 +76811,7 @@ var require_escsm = __commonJS({
       consts.error,
       consts.itsMe,
       consts.error,
-      consts.start,
+      consts.start
     ];
     var ISO2022CNCharLenTable = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     exports.ISO2022CNSMModel = {
@@ -83923,7 +76819,7 @@ var require_escsm = __commonJS({
       "classFactor": 9,
       "stateTable": ISO2022CN_st,
       "charLenTable": ISO2022CNCharLenTable,
-      "name": "ISO-2022-CN",
+      "name": "ISO-2022-CN"
     };
     var ISO2022JP_cls = [
       2,
@@ -84181,7 +77077,7 @@ var require_escsm = __commonJS({
       2,
       2,
       2,
-      2,
+      2
     ];
     var ISO2022JP_st = [
       consts.start,
@@ -84255,7 +77151,7 @@ var require_escsm = __commonJS({
       consts.itsMe,
       consts.error,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var ISO2022JPCharLenTable = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     exports.ISO2022JPSMModel = {
@@ -84263,7 +77159,7 @@ var require_escsm = __commonJS({
       "classFactor": 10,
       "stateTable": ISO2022JP_st,
       "charLenTable": ISO2022JPCharLenTable,
-      "name": "ISO-2022-JP",
+      "name": "ISO-2022-JP"
     };
     var ISO2022KR_cls = [
       2,
@@ -84521,7 +77417,7 @@ var require_escsm = __commonJS({
       2,
       2,
       2,
-      2,
+      2
     ];
     var ISO2022KR_st = [
       consts.start,
@@ -84563,7 +77459,7 @@ var require_escsm = __commonJS({
       consts.start,
       consts.start,
       consts.start,
-      consts.start,
+      consts.start
     ];
     var ISO2022KRCharLenTable = [0, 0, 0, 0, 0, 0];
     exports.ISO2022KRSMModel = {
@@ -84571,9 +77467,9 @@ var require_escsm = __commonJS({
       "classFactor": 6,
       "stateTable": ISO2022KR_st,
       "charLenTable": ISO2022KRCharLenTable,
-      "name": "ISO-2022-KR",
+      "name": "ISO-2022-KR"
     };
-  },
+  }
 });
 
 // node_modules/jschardet/src/escprober.js
@@ -84591,39 +77487,37 @@ var require_escprober = __commonJS({
           new CodingStateMachine(escsm.HZSMModel),
           new CodingStateMachine(escsm.ISO2022CNSMModel),
           new CodingStateMachine(escsm.ISO2022JPSMModel),
-          new CodingStateMachine(escsm.ISO2022KRSMModel),
+          new CodingStateMachine(escsm.ISO2022KRSMModel)
         ];
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         EscCharSetProber.prototype.reset.apply(this);
         for (var i = 0, codingSM; codingSM = this._mCodingSM[i]; i++) {
-          if (!codingSM) {
+          if (!codingSM)
             continue;
-          }
           codingSM.active = true;
           codingSM.reset();
         }
         this._mActiveSM = self._mCodingSM.length;
         this._mDetectedCharset = null;
       };
-      this.getCharsetName = function () {
+      this.getCharsetName = function() {
         return this._mDetectedCharset;
       };
-      this.getConfidence = function () {
+      this.getConfidence = function() {
         if (this._mDetectedCharset) {
           return 0.99;
         } else {
           return 0;
         }
       };
-      this.feed = function (aBuf) {
+      this.feed = function(aBuf) {
         for (var i = 0, c; i < aBuf.length; i++) {
           c = aBuf[i];
           for (var j = 0, codingSM; codingSM = this._mCodingSM[j]; j++) {
-            if (!codingSM || !codingSM.active) {
+            if (!codingSM || !codingSM.active)
               continue;
-            }
             var codingState = codingSM.nextState(c);
             if (codingState == constants.error) {
               codingSM.active = false;
@@ -84645,7 +77539,7 @@ var require_escprober = __commonJS({
     }
     EscCharSetProber.prototype = new CharSetProber();
     module2.exports = EscCharSetProber;
-  },
+  }
 });
 
 // node_modules/jschardet/src/universaldetector.js
@@ -84658,16 +77552,14 @@ var require_universaldetector = __commonJS({
     var EscCharSetProber = require_escprober();
     var logger = require_logger();
     function UniversalDetector(options) {
-      if (!options) {
+      if (!options)
         options = {};
-      }
-      if (!options.minimumThreshold) {
+      if (!options.minimumThreshold)
         options.minimumThreshold = 0.2;
-      }
       var _state = {
         pureAscii: 0,
         escAscii: 1,
-        highbyte: 2,
+        highbyte: 2
       };
       var self = this;
       function init() {
@@ -84677,7 +77569,7 @@ var require_universaldetector = __commonJS({
         self._mCharsetProbers = [];
         self.reset();
       }
-      this.reset = function () {
+      this.reset = function() {
         this.result = { "encoding": null, "confidence": 0 };
         this.results = [];
         this.done = false;
@@ -84693,14 +77585,12 @@ var require_universaldetector = __commonJS({
           prober.reset();
         }
       };
-      this.feed = function (aBuf) {
-        if (this.done) {
+      this.feed = function(aBuf) {
+        if (this.done)
           return;
-        }
         var aLen = aBuf.length;
-        if (!aLen) {
+        if (!aLen)
           return;
-        }
         if (!this._mGotData) {
           this._mBOM += aBuf;
           if (this._mBOM.slice(0, 3) == "\xEF\xBB\xBF") {
@@ -84710,15 +77600,9 @@ var require_universaldetector = __commonJS({
           } else if (this._mBOM.slice(0, 4) == "\0\0\xFE\xFF") {
             this.result = { "encoding": "UTF-32BE", "confidence": 1 };
           } else if (this._mBOM.slice(0, 4) == "\xFE\xFF\0\0") {
-            this.result = {
-              "encoding": "X-ISO-10646-UCS-4-3412",
-              "confidence": 1,
-            };
+            this.result = { "encoding": "X-ISO-10646-UCS-4-3412", "confidence": 1 };
           } else if (this._mBOM.slice(0, 4) == "\0\0\xFF\xFE") {
-            this.result = {
-              "encoding": "X-ISO-10646-UCS-4-2143",
-              "confidence": 1,
-            };
+            this.result = { "encoding": "X-ISO-10646-UCS-4-2143", "confidence": 1 };
           } else if (this._mBOM.slice(0, 2) == "\xFF\xFE") {
             this.result = { "encoding": "UTF-16LE", "confidence": 1 };
           } else if (this._mBOM.slice(0, 2) == "\xFE\xFF") {
@@ -84750,7 +77634,7 @@ var require_universaldetector = __commonJS({
           if (this._mEscCharsetProber.feed(aBuf) == constants.foundIt) {
             this.result = {
               "encoding": this._mEscCharsetProber.getCharsetName(),
-              "confidence": this._mEscCharsetProber.getConfidence(),
+              "confidence": this._mEscCharsetProber.getConfidence()
             };
             this.results = [this.result];
             this.done = true;
@@ -84760,14 +77644,14 @@ var require_universaldetector = __commonJS({
             this._mCharsetProbers = [
               new MBCSGroupProber(),
               new SBCSGroupProber(),
-              new Latin1Prober(),
+              new Latin1Prober()
             ];
           }
           for (var i = 0, prober; prober = this._mCharsetProbers[i]; i++) {
             if (prober.feed(aBuf) == constants.foundIt) {
               this.result = {
                 "encoding": prober.getCharsetName(),
-                "confidence": prober.getConfidence(),
+                "confidence": prober.getConfidence()
               };
               this.results = [this.result];
               this.done = true;
@@ -84776,10 +77660,9 @@ var require_universaldetector = __commonJS({
           }
         }
       };
-      this.close = function () {
-        if (this.done) {
+      this.close = function() {
+        if (this.done)
           return;
-        }
         if (this._mBOM.length === 0) {
           logger.log("no data received!\n");
           return;
@@ -84793,18 +77676,15 @@ var require_universaldetector = __commonJS({
         }
         if (this._mInputState == _state.highbyte) {
           for (var i = 0, prober; prober = this._mCharsetProbers[i]; i++) {
-            if (!prober || !prober.getCharsetName()) {
+            if (!prober || !prober.getCharsetName())
               continue;
-            }
             this.results.push({
               "encoding": prober.getCharsetName(),
-              "confidence": prober.getConfidence(),
+              "confidence": prober.getConfidence()
             });
-            logger.log(
-              prober.getCharsetName() + " confidence " + prober.getConfidence(),
-            );
+            logger.log(prober.getCharsetName() + " confidence " + prober.getConfidence());
           }
-          this.results.sort(function (a, b) {
+          this.results.sort(function(a, b) {
             return b.confidence - a.confidence;
           });
           if (this.results.length > 0) {
@@ -84818,20 +77698,16 @@ var require_universaldetector = __commonJS({
         if (logger.enabled) {
           logger.log("no probers hit minimum threshhold\n");
           for (var i = 0, prober; prober = this._mCharsetProbers[i]; i++) {
-            if (!prober) {
+            if (!prober)
               continue;
-            }
-            logger.log(
-              prober.getCharsetName() + " confidence = " +
-                prober.getConfidence() + "\n",
-            );
+            logger.log(prober.getCharsetName() + " confidence = " + prober.getConfidence() + "\n");
           }
         }
       };
       init();
     }
     module2.exports = UniversalDetector;
-  },
+  }
 });
 
 // node_modules/jschardet/src/index.js
@@ -84839,16 +77715,16 @@ var require_src = __commonJS({
   "node_modules/jschardet/src/index.js"(exports) {
     var UniversalDetector = require_universaldetector();
     var setLogger = require_logger().setLogger;
-    exports.detect = function (buffer, options) {
+    exports.detect = function(buffer, options) {
       var u = runUniversalDetector(buffer, options);
       return u.result;
     };
-    exports.detectAll = function (buffer, options) {
+    exports.detectAll = function(buffer, options) {
       var u = runUniversalDetector(buffer, options);
       return u.results;
     };
     exports.UniversalDetector = UniversalDetector;
-    exports.enableDebug = function () {
+    exports.enableDebug = function() {
       setLogger(console.log.bind(console));
     };
     function runUniversalDetector(buffer, options) {
@@ -84862,20 +77738,20 @@ var require_src = __commonJS({
       u.close();
       return u;
     }
-  },
+  }
 });
 
 // node_modules/jschardet/index.js
 var require_jschardet = __commonJS({
   "node_modules/jschardet/index.js"(exports, module2) {
     module2.exports = require_src();
-  },
+  }
 });
 
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
-  default: () => CompletrPlugin,
+  default: () => CompletrPlugin
 });
 module.exports = __toCommonJS(main_exports);
 var import_obsidian6 = require("obsidian");
@@ -84902,19 +77778,11 @@ function editorToCodeMirrorView(editor) {
 function maybeLowerCase(str, lowerCase) {
   return lowerCase ? str.toLowerCase() : str;
 }
-function matchWordBackwards(
-  editor,
-  cursor,
-  charPredicate,
-  maxLookBackDistance = 50,
-) {
+function matchWordBackwards(editor, cursor, charPredicate, maxLookBackDistance = 50) {
   let query = "", separatorChar = null;
   let lookBackEnd = Math.max(0, cursor.ch - maxLookBackDistance);
   for (let i = cursor.ch - 1; i >= lookBackEnd; i--) {
-    const prevChar = editor.getRange({ ...cursor, ch: i }, {
-      ...cursor,
-      ch: i + 1,
-    });
+    const prevChar = editor.getRange({ ...cursor, ch: i }, { ...cursor, ch: i + 1 });
     if (!charPredicate(prevChar)) {
       separatorChar = prevChar;
       break;
@@ -84924,38 +77792,32 @@ function matchWordBackwards(
   return { query, separatorChar };
 }
 function isInFrontMatterBlock(editor, pos) {
-  if (pos.line === 0) {
+  if (pos.line === 0)
     return false;
-  }
   const bounds = getFrontMatterBounds(editor);
-  if (!bounds) {
+  if (!bounds)
     return false;
-  }
   return pos.line > bounds.startLine && pos.line < bounds.endLine;
 }
 function getFrontMatterBounds(editor) {
   let startLine = -1;
   for (let i = 0; i < Math.min(5, editor.lastLine()); i++) {
-    if (editor.getLine(i) !== "---") {
+    if (editor.getLine(i) !== "---")
       continue;
-    }
     startLine = i;
     break;
   }
-  if (startLine === -1) {
+  if (startLine === -1)
     return null;
-  }
   let endLine = -1;
   for (let i = startLine + 1; i <= Math.min(50, editor.lastLine()); i++) {
-    if (editor.getLine(i) !== "---") {
+    if (editor.getLine(i) !== "---")
       continue;
-    }
     endLine = i;
     break;
   }
-  if (endLine === -1) {
+  if (endLine === -1)
     return null;
-  }
   return { startLine, endLine };
 }
 var _BlockType = class {
@@ -84965,8 +77827,7 @@ var _BlockType = class {
     this.otherType0 = otherType0;
   }
   get isDollarBlock() {
-    return this === _BlockType.DOLLAR_SINGLE ||
-      this === _BlockType.DOLLAR_MULTI;
+    return this === _BlockType.DOLLAR_SINGLE || this === _BlockType.DOLLAR_MULTI;
   }
   get isCodeBlock() {
     return !this.isDollarBlock;
@@ -84987,41 +77848,19 @@ BlockType.CODE_SINGLE = new _BlockType("`", false, _BlockType.CODE_MULTI);
 BlockType.SINGLE_TYPES = [_BlockType.DOLLAR_SINGLE, _BlockType.CODE_SINGLE];
 function getLatexBlockType(editor, cursorPos, triggerInCodeBlocks) {
   var _a;
-  const frontMatterBounds = (_a = getFrontMatterBounds(editor)) != null
-    ? _a
-    : { startLine: -1, endLine: -1 };
+  const frontMatterBounds = (_a = getFrontMatterBounds(editor)) != null ? _a : { startLine: -1, endLine: -1 };
   const blockTypeStack = [];
-  for (
-    let lineIndex = Math.max(0, cursorPos.line - 5e3);
-    lineIndex <= cursorPos.line;
-    lineIndex++
-  ) {
-    if (
-      lineIndex >= frontMatterBounds.startLine &&
-      lineIndex <= frontMatterBounds.endLine
-    ) {
+  for (let lineIndex = Math.max(0, cursorPos.line - 5e3); lineIndex <= cursorPos.line; lineIndex++) {
+    if (lineIndex >= frontMatterBounds.startLine && lineIndex <= frontMatterBounds.endLine)
       continue;
-    }
     const line = editor.getLine(lineIndex);
-    for (
-      let j = cursorPos.line == lineIndex ? cursorPos.ch - 1 : line.length - 1;
-      j >= 0;
-      j--
-    ) {
+    for (let j = cursorPos.line == lineIndex ? cursorPos.ch - 1 : line.length - 1; j >= 0; j--) {
       const currentChar = line.charAt(j);
-      let matchingBlockType = BlockType.SINGLE_TYPES.find((b) =>
-        b.c.charAt(0) === currentChar
-      );
-      if (!matchingBlockType || line.charAt(Math.max(0, j - 1)) === "\\") {
+      let matchingBlockType = BlockType.SINGLE_TYPES.find((b) => b.c.charAt(0) === currentChar);
+      if (!matchingBlockType || line.charAt(Math.max(0, j - 1)) === "\\")
         continue;
-      }
       const multiTypeLength = matchingBlockType.otherType.c.length;
-      const isDouble = j + 1 >= multiTypeLength &&
-        substringMatches(
-          line,
-          matchingBlockType.otherType.c,
-          j - multiTypeLength + 1,
-        );
+      const isDouble = j + 1 >= multiTypeLength && substringMatches(line, matchingBlockType.otherType.c, j - multiTypeLength + 1);
       if (isDouble) {
         j -= multiTypeLength - 1;
         matchingBlockType = matchingBlockType.otherType;
@@ -85029,29 +77868,18 @@ function getLatexBlockType(editor, cursorPos, triggerInCodeBlocks) {
       blockTypeStack.push({ type: matchingBlockType, line: lineIndex });
     }
   }
-  if (blockTypeStack.length < 1) {
+  if (blockTypeStack.length < 1)
     return null;
-  }
   let currentIndex = 0;
   while (true) {
-    if (currentIndex >= blockTypeStack.length) {
+    if (currentIndex >= blockTypeStack.length)
       return null;
-    }
     const currentBlock = blockTypeStack[currentIndex];
-    const otherBlockIndex = indexOf(
-      blockTypeStack,
-      ({ type }) => type === currentBlock.type,
-      currentIndex + 1,
-    );
+    const otherBlockIndex = indexOf(blockTypeStack, ({ type }) => type === currentBlock.type, currentIndex + 1);
     if (otherBlockIndex === -1) {
-      if (!triggerInCodeBlocks && currentBlock.type.isCodeBlock) {
+      if (!triggerInCodeBlocks && currentBlock.type.isCodeBlock)
         return null;
-      }
-      if (
-        currentBlock.type.isCodeBlock ||
-        currentBlock.type === BlockType.DOLLAR_SINGLE &&
-          currentBlock.line !== cursorPos.line
-      ) {
+      if (currentBlock.type.isCodeBlock || currentBlock.type === BlockType.DOLLAR_SINGLE && currentBlock.line !== cursorPos.line) {
         currentIndex++;
         continue;
       }
@@ -85063,18 +77891,16 @@ function getLatexBlockType(editor, cursorPos, triggerInCodeBlocks) {
 }
 function indexOf(arr, predicate, fromIndex = 0) {
   for (let i = fromIndex; i < arr.length; i++) {
-    if (predicate(arr[i])) {
+    if (predicate(arr[i]))
       return i;
-    }
   }
   return -1;
 }
 function substringMatches(str, toMatch, from) {
   const bound = from + toMatch.length - 1;
   for (let i = from; i < bound; i++) {
-    if (str.charAt(i) !== toMatch.charAt(i - from)) {
+    if (str.charAt(i) !== toMatch.charAt(i - from))
       return false;
-    }
   }
   return true;
 }
@@ -85092,33 +77918,20 @@ var markerStateField = import_state.StateField.define({
   update(value, tr) {
     value = value.map(tr.changes);
     for (let effect of tr.effects) {
-      if (effect.is(addMark)) {
+      if (effect.is(addMark))
         value = value.update({ add: [effect.value] });
-      } else if (effect.is(clearMarks)) {
+      else if (effect.is(clearMarks))
         value = value.update({ filter: () => false });
-      } else if (effect.is(removeMarkBySpecAttribute)) {
-        value = value.update({
-          filter: (from, to, ref) =>
-            ref.spec[effect.value.attribute] !==
-              effect.value[effect.value.attribute],
-        });
-      }
+      else if (effect.is(removeMarkBySpecAttribute))
+        value = value.update({ filter: (from, to, ref) => ref.spec[effect.value.attribute] !== effect.value[effect.value.attribute] });
     }
     return value;
   },
-  provide: (f) => import_view.EditorView.decorations.from(f),
+  provide: (f) => import_view.EditorView.decorations.from(f)
 });
 
 // src/snippet_manager.ts
-var COLORS = [
-  "lightskyblue",
-  "orange",
-  "lime",
-  "pink",
-  "cornsilk",
-  "magenta",
-  "navajowhite",
-];
+var COLORS = ["lightskyblue", "orange", "lime", "pink", "cornsilk", "magenta", "navajowhite"];
 var PlaceholderReference = class {
   constructor(editor) {
     this.editor = editor;
@@ -85131,7 +77944,7 @@ var PlaceholderReference = class {
         return {
           from: iter.from,
           to: iter.to,
-          value: iter.value,
+          value: iter.value
         };
       }
       iter.next();
@@ -85140,10 +77953,7 @@ var PlaceholderReference = class {
   }
   removeFromEditor() {
     editorToCodeMirrorView(this.editor).dispatch({
-      effects: removeMarkBySpecAttribute.of({
-        attribute: "reference",
-        reference: this,
-      }),
+      effects: removeMarkBySpecAttribute.of({ attribute: "reference", reference: this })
     });
   }
 };
@@ -85154,13 +77964,8 @@ var SnippetManager = class {
   handleSnippet(value, start, editor) {
     let colorIndex = 0;
     for (; colorIndex < COLORS.length; colorIndex++) {
-      if (
-        !this.currentPlaceholderReferences.find((p) =>
-          p.marker.value.spec.attributes.class.endsWith(colorIndex + "")
-        )
-      ) {
+      if (!this.currentPlaceholderReferences.find((p) => p.marker.value.spec.attributes.class.endsWith(colorIndex + "")))
         break;
-      }
     }
     if (colorIndex === COLORS.length) {
       console.log("Completr: No colors left for snippet, using random color");
@@ -85172,20 +77977,13 @@ var SnippetManager = class {
       const line = lines[lineIndex];
       for (let i = line.length - 1; i >= 0; i--) {
         const c = line.charAt(i);
-        if (c !== "#" && c !== "~") {
+        if (c !== "#" && c !== "~")
           continue;
-        }
         const lineBaseOffset = lineIndex === 0 ? start.ch : 0;
         if (c === "~") {
-          const cursorPos = {
-            line: start.line + lineIndex,
-            ch: lineBaseOffset + i,
-          };
+          const cursorPos = { line: start.line + lineIndex, ch: lineBaseOffset + i };
           editor.setCursor(cursorPos);
-          editor.replaceRange("", cursorPos, {
-            ...cursorPos,
-            ch: cursorPos.ch + 1,
-          });
+          editor.replaceRange("", cursorPos, { ...cursorPos, ch: cursorPos.ch + 1 });
           continue;
         }
         const reference = new PlaceholderReference(editor);
@@ -85193,18 +77991,12 @@ var SnippetManager = class {
           inclusive: true,
           attributes: {
             style: "border-width: 1px 0 1px 0;border-style: solid;",
-            class: "completr-suggestion-placeholder" + colorIndex,
+            class: "completr-suggestion-placeholder" + colorIndex
           },
-          reference,
+          reference
         }).range(
-          indexFromPos(editorView.state.doc, {
-            line: start.line + lineIndex,
-            ch: lineBaseOffset + i,
-          }),
-          indexFromPos(editorView.state.doc, {
-            line: start.line + lineIndex,
-            ch: lineBaseOffset + i + 1,
-          }),
+          indexFromPos(editorView.state.doc, { line: start.line + lineIndex, ch: lineBaseOffset + i }),
+          indexFromPos(editorView.state.doc, { line: start.line + lineIndex, ch: lineBaseOffset + i + 1 })
         );
         editorView.dispatch({ effects: addMark.of(mark) });
         this.currentPlaceholderReferences.unshift(reference);
@@ -85216,17 +78008,13 @@ var SnippetManager = class {
     const oldPlaceholder = this.currentPlaceholderReferences.shift();
     const oldRange = SnippetManager.rangeFromPlaceholder(oldPlaceholder);
     oldPlaceholder.removeFromEditor();
-    if (this.currentPlaceholderReferences.length === 0) {
+    if (this.currentPlaceholderReferences.length === 0)
       return false;
-    }
     const placeholder = this.currentPlaceholderReferences[0];
     const newRange = SnippetManager.rangeFromPlaceholder(placeholder);
-    if (!newRange) {
+    if (!newRange)
       return false;
-    }
-    if (
-      newRange.from.ch <= oldRange.from.ch && newRange.to.ch >= oldRange.to.ch
-    ) {
+    if (newRange.from.ch <= oldRange.from.ch && newRange.to.ch >= oldRange.to.ch) {
       editor.setCursor({ ...newRange.to });
     } else {
       this.selectMarker(placeholder);
@@ -85241,47 +78029,34 @@ var SnippetManager = class {
         this.currentPlaceholderReferences.slice(i, 1);
         continue;
       }
-      if (range.from.ch <= pos.ch && range.to.ch >= pos.ch) {
+      if (range.from.ch <= pos.ch && range.to.ch >= pos.ch)
         return placeholder;
-      }
     }
     return null;
   }
   selectMarker(reference) {
-    if (!reference) {
+    if (!reference)
       return;
-    }
-    const from = posFromIndex(
-      editorToCodeMirrorState(reference.editor).doc,
-      reference.marker.from,
-    );
+    const from = posFromIndex(editorToCodeMirrorState(reference.editor).doc, reference.marker.from);
     reference.editor.setSelection(from, { ...from, ch: from.ch + 1 });
   }
   clearAllPlaceholders() {
-    if (this.currentPlaceholderReferences.length === 0) {
+    if (this.currentPlaceholderReferences.length === 0)
       return;
-    }
     const firstRef = this.currentPlaceholderReferences[0];
     const view = editorToCodeMirrorView(firstRef.editor);
     view.dispatch({
-      effects: clearMarks.of(null),
+      effects: clearMarks.of(null)
     });
     this.currentPlaceholderReferences = [];
   }
   static rangeFromPlaceholder(reference) {
     const marker = reference.marker;
-    if (!marker) {
+    if (!marker)
       return null;
-    }
     return {
-      from: posFromIndex(
-        editorToCodeMirrorState(reference.editor).doc,
-        marker.from,
-      ),
-      to: posFromIndex(
-        editorToCodeMirrorState(reference.editor).doc,
-        marker.to,
-      ),
+      from: posFromIndex(editorToCodeMirrorState(reference.editor).doc, marker.from),
+      to: posFromIndex(editorToCodeMirrorState(reference.editor).doc, marker.to)
     };
   }
   onunload() {
@@ -85314,8 +78089,8 @@ var Suggestion = class {
       (_d = options.overrideEnd) != null ? _d : this.overrideEnd,
       {
         icon: (_e = options.icon) != null ? _e : this.icon,
-        color: (_f = options.color) != null ? _f : this.color,
-      },
+        color: (_f = options.color) != null ? _f : this.color
+      }
     );
     return derived;
   }
@@ -85329,7 +78104,7 @@ var DEFAULT_SETTINGS = {
   autoTrigger: true,
   minWordLength: 2,
   minWordTriggerLength: 3,
-  wordInsertionMode: "Ignore-Case & Replace", /* IGNORE_CASE_REPLACE */
+  wordInsertionMode: "Ignore-Case & Replace" /* IGNORE_CASE_REPLACE */,
   ignoreDiacriticsWhenFiltering: false,
   latexProviderEnabled: true,
   latexTriggerInCodeBlocks: true,
@@ -85342,6 +78117,7 @@ var DEFAULT_SETTINGS = {
   frontMatterTagAppendSuffix: true,
   frontMatterIgnoreCase: true,
   calloutProviderEnabled: true,
+  calloutProviderSource: "Completr" /* COMPLETR */
 };
 function intoCompletrPath(vault, ...path) {
   return vault.configDir + "/plugins/obsidian-completr/" + path.join("/");
@@ -85370,33 +78146,26 @@ var SuggestionBlacklist = new class {
     return this.blacklist.has(text);
   }
   filter(suggestions) {
-    if (this.blacklist.size < 1) {
+    if (this.blacklist.size < 1)
       return suggestions;
-    }
     return suggestions.filter((s) => !this.blacklist.has(s.displayName));
   }
   filterText(suggestions) {
-    if (this.blacklist.size < 1) {
+    if (this.blacklist.size < 1)
       return suggestions;
-    }
     return suggestions.filter((s) => !this.blacklist.has(s));
   }
   async saveData(vault) {
-    await vault.adapter.write(
-      intoCompletrPath(vault, BLACKLIST_PATH),
-      [...this.blacklist].join("\n"),
-    );
+    await vault.adapter.write(intoCompletrPath(vault, BLACKLIST_PATH), [...this.blacklist].join("\n"));
   }
   async loadData(vault) {
     const path = intoCompletrPath(vault, BLACKLIST_PATH);
-    if (!await vault.adapter.exists(path)) {
+    if (!await vault.adapter.exists(path))
       return;
-    }
     const contents = (await vault.adapter.read(path)).split(NEW_LINE_REGEX);
     for (let word of contents) {
-      if (!word) {
+      if (!word)
         continue;
-      }
       this.addFromText(word);
     }
   }
@@ -85405,9 +78174,8 @@ var SuggestionBlacklist = new class {
 // src/provider/latex_provider.ts
 function substringUntil(str, delimiter) {
   let index = str.indexOf(delimiter);
-  if (index === -1) {
+  if (index === -1)
     return str;
-  }
   return str.substring(0, index);
 }
 var LATEX_COMMANDS_PATH = "latex_commands.json";
@@ -85416,47 +78184,28 @@ var LatexSuggestionProvider = class {
     this.loadedCommands = [];
   }
   getSuggestions(context, settings) {
-    if (
-      !settings.latexProviderEnabled || !context.query ||
-      context.query.length < settings.latexMinWordTriggerLength
-    ) {
+    if (!settings.latexProviderEnabled || !context.query || context.query.length < settings.latexMinWordTriggerLength)
       return [];
-    }
     let editor = context.editor;
-    const latexBlockType = getLatexBlockType(
-      editor,
-      context.start,
-      settings.latexTriggerInCodeBlocks,
-    );
+    const latexBlockType = getLatexBlockType(editor, context.start, settings.latexTriggerInCodeBlocks);
     const isSingleBlock = latexBlockType === BlockType.DOLLAR_SINGLE;
-    if (!latexBlockType) {
+    if (!latexBlockType)
       return [];
-    }
     const query = maybeLowerCase(context.query, settings.latexIgnoreCase);
     const isSeparatorBackslash = context.separatorChar === "\\";
-    return this.loadedCommands.filter((s) =>
-      s.getDisplayNameLowerCase(settings.latexIgnoreCase).contains(query)
-    ).map((s) => {
+    return this.loadedCommands.filter((s) => s.getDisplayNameLowerCase(settings.latexIgnoreCase).contains(query)).map((s) => {
       let replacement = s.replacement;
-      replacement = isSeparatorBackslash
-        ? replacement.substring(1)
-        : replacement;
-      replacement = isSingleBlock
-        ? replacement.replace(/\n/g, "")
-        : replacement;
+      replacement = isSeparatorBackslash ? replacement.substring(1) : replacement;
+      replacement = isSingleBlock ? replacement.replace(/\n/g, "") : replacement;
       return {
         displayName: s.displayName,
         replacement,
-        priority: s.getDisplayNameLowerCase(settings.latexIgnoreCase).indexOf(
-          query,
-        ),
+        priority: s.getDisplayNameLowerCase(settings.latexIgnoreCase).indexOf(query)
       };
     }).sort((a, b) => {
       let val = a.priority - b.priority;
-      if (val == 0) {
-        val = substringUntil(a.displayName, "{").length -
-          substringUntil(b.displayName, "{").length;
-      }
+      if (val == 0)
+        val = substringUntil(a.displayName, "{").length - substringUntil(b.displayName, "{").length;
       return val;
     }).map((obj) => new Suggestion(obj.displayName, obj.replacement));
   }
@@ -85470,28 +78219,15 @@ var LatexSuggestionProvider = class {
       const data = await vault.adapter.read(path);
       try {
         const commands = JSON.parse(data).map(
-          (obj) =>
-            typeof obj === "string"
-              ? Suggestion.fromString(obj)
-              : new Suggestion(obj.displayName, obj.replacement),
+          (obj) => typeof obj === "string" ? Suggestion.fromString(obj) : new Suggestion(obj.displayName, obj.replacement)
         );
-        const invalidCommand = commands.find((c) =>
-          c.displayName.includes("\n")
-        );
-        if (invalidCommand) {
-          throw new Error(
-            "Display name cannot contain a newline: " +
-              invalidCommand.displayName,
-          );
-        }
+        const invalidCommand = commands.find((c) => c.displayName.includes("\n"));
+        if (invalidCommand)
+          throw new Error("Display name cannot contain a newline: " + invalidCommand.displayName);
         this.loadedCommands = commands;
       } catch (e) {
         console.log("Completr latex commands parse error:", e.message);
-        new import_obsidian.Notice(
-          "Failed to parse latex commands file " + path +
-            ". Using default commands.",
-          3e3,
-        );
+        new import_obsidian.Notice("Failed to parse latex commands file " + path + ". Using default commands.", 3e3);
         this.loadedCommands = generateDefaultLatexCommands();
       }
     }
@@ -85504,19 +78240,13 @@ function generateEnvironments(environments) {
   for (let i = 0; i < environments.length; i++) {
     const environment = environments[i];
     if (environment.hasStarVersion) {
-      environments.push({
-        ...environment,
-        name: environment.name + "*",
-        hasStarVersion: false,
-      });
+      environments.push({ ...environment, name: environment.name + "*", hasStarVersion: false });
     }
-    result.push(
-      new Suggestion(
-        `\\begin{${environment.name}}...`,
-        `\\begin{${environment.name}}${"{#}".repeat(environment.paramCount)}
-${environment.paramCount < 1 ? "~\n" : ""}\\end{${environment.name}}`,
-      ),
-    );
+    result.push(new Suggestion(
+      `\\begin{${environment.name}}...`,
+      `\\begin{${environment.name}}${"{#}".repeat(environment.paramCount)}
+${environment.paramCount < 1 ? "~\n" : ""}\\end{${environment.name}}`
+    ));
   }
   return result;
 }
@@ -85562,7 +78292,7 @@ function generateDefaultLatexCommands() {
       { name: "vsmallmatrix", paramCount: 0, hasStarVersion: true },
       { name: "Vsmallmatrix", paramCount: 0, hasStarVersion: true },
       { name: "xalignat", paramCount: 1, hasStarVersion: true },
-      { name: "xxalignat", paramCount: 1, hasStarVersion: false },
+      { name: "xxalignat", paramCount: 1, hasStarVersion: false }
     ]),
     Suggestion.fromString("\\above{#}{#}"),
     Suggestion.fromString("\\verb|#|"),
@@ -86584,7 +79314,7 @@ function generateDefaultLatexCommands() {
     Suggestion.fromString("\\xtwoheadleftarrow{#}"),
     Suggestion.fromString("\\xtwoheadrightarrow{#}"),
     Suggestion.fromString("\\yen"),
-    Suggestion.fromString("\\zeta"),
+    Suggestion.fromString("\\zeta")
   ];
 }
 
@@ -86592,37 +79322,24 @@ function generateDefaultLatexCommands() {
 var DictionaryProvider = class {
   getSuggestions(context, settings) {
     var _a, _b, _c;
-    if (
-      !this.isEnabled(settings) || !context.query ||
-      context.query.length < settings.minWordTriggerLength
-    ) {
+    if (!this.isEnabled(settings) || !context.query || context.query.length < settings.minWordTriggerLength)
       return [];
-    }
-    const ignoreCase = settings.wordInsertionMode !=
-      "Match-Case & Replace" /* MATCH_CASE_REPLACE */;
+    const ignoreCase = settings.wordInsertionMode != "Match-Case & Replace" /* MATCH_CASE_REPLACE */;
     let query = maybeLowerCase(context.query, ignoreCase);
     const ignoreDiacritics = settings.ignoreDiacriticsWhenFiltering;
-    if (ignoreDiacritics) {
+    if (ignoreDiacritics)
       query = removeDiacritics(query);
-    }
     const firstChar = query.charAt(0);
-    const list = ignoreCase
-      ? [
-        (_a = this.wordMap.get(firstChar)) != null ? _a : [],
-        (_b = this.wordMap.get(firstChar.toUpperCase())) != null ? _b : [],
-      ]
-      : [(_c = this.wordMap.get(firstChar)) != null ? _c : []];
+    const list = ignoreCase ? [(_a = this.wordMap.get(firstChar)) != null ? _a : [], (_b = this.wordMap.get(firstChar.toUpperCase())) != null ? _b : []] : [(_c = this.wordMap.get(firstChar)) != null ? _c : []];
     if (ignoreDiacritics) {
       for (let [key, value] of this.wordMap.entries()) {
         let keyFirstChar = maybeLowerCase(key.charAt(0), ignoreCase);
-        if (removeDiacritics(keyFirstChar) === firstChar) {
+        if (removeDiacritics(keyFirstChar) === firstChar)
           list.push(value);
-        }
       }
     }
-    if (!list || list.length < 1) {
+    if (!list || list.length < 1)
       return [];
-    }
     const result = [];
     for (let el of list) {
       filterMapIntoArray(
@@ -86630,18 +79347,11 @@ var DictionaryProvider = class {
         el,
         (s) => {
           let match = maybeLowerCase(s, ignoreCase);
-          if (ignoreDiacritics) {
+          if (ignoreDiacritics)
             match = removeDiacritics(match);
-          }
           return match.startsWith(query);
         },
-        settings.wordInsertionMode ===
-            "Ignore-Case & Append" /* IGNORE_CASE_APPEND */
-          ? (s) =>
-            Suggestion.fromString(
-              context.query + s.substring(query.length, s.length),
-            )
-          : (s) => Suggestion.fromString(s),
+        settings.wordInsertionMode === "Ignore-Case & Append" /* IGNORE_CASE_APPEND */ ? (s) => Suggestion.fromString(context.query + s.substring(query.length, s.length)) : (s) => Suggestion.fromString(s)
       );
     }
     return result.sort((a, b) => a.displayName.length - b.displayName.length);
@@ -86653,9 +79363,8 @@ function removeDiacritics(str) {
 }
 function filterMapIntoArray(array, iterable, predicate, map) {
   for (let val of iterable) {
-    if (!predicate(val)) {
+    if (!predicate(val))
       continue;
-    }
     array.push(map(val));
   }
 }
@@ -86685,9 +79394,8 @@ var WordListSuggestionProvider = class extends DictionaryProvider {
       }
       const lines = data.split(NEW_LINE_REGEX2);
       for (let line of lines) {
-        if (line === "" || line.length < settings.minWordLength) {
+        if (line === "" || line.length < settings.minWordLength)
           continue;
-        }
         let list = this.wordMap.get(line.charAt(0));
         if (!list) {
           list = [];
@@ -86698,9 +79406,7 @@ var WordListSuggestionProvider = class extends DictionaryProvider {
     }
     let count = 0;
     for (let entry of this.wordMap.entries()) {
-      const newValue = SuggestionBlacklist.filterText(
-        entry[1].sort((a, b) => a.length - b.length),
-      );
+      const newValue = SuggestionBlacklist.filterText(entry[1].sort((a, b) => a.length - b.length));
       this.wordMap.set(entry[0], newValue);
       count += newValue.length;
     }
@@ -86711,17 +79417,15 @@ var WordListSuggestionProvider = class extends DictionaryProvider {
   }
   async importWordList(vault, name, text) {
     const path = intoCompletrPath(vault, WORD_LISTS_FOLDER_PATH, name);
-    if (await vault.adapter.exists(path)) {
+    if (await vault.adapter.exists(path))
       return false;
-    }
     await vault.adapter.write(path, text);
     return true;
   }
   async getRelativeFilePaths(vault) {
     const path = intoCompletrPath(vault, WORD_LISTS_FOLDER_PATH);
-    if (!await vault.adapter.exists(path)) {
+    if (!await vault.adapter.exists(path))
       await vault.adapter.mkdir(path);
-    }
     return (await vault.adapter.list(path)).files;
   }
 };
@@ -86746,37 +79450,27 @@ var ScannerSuggestionProvider = class extends DictionaryProvider {
   }
   async scanFile(settings, file, saveImmediately) {
     const contents = await file.vault.cachedRead(file);
-    const regex = new RegExp(
-      "\\$+.*?\\$+|`+.*?`+|\\[+.*?\\]+|https?:\\/\\/[^\\n\\s]+|([" +
-        settings.characterRegex + "]+)",
-      "gsu",
-    );
+    const regex = new RegExp("\\$+.*?\\$+|`+.*?`+|\\[+.*?\\]+|https?:\\/\\/[^\\n\\s]+|([" + settings.characterRegex + "]+)", "gsu");
     for (let match of contents.matchAll(regex)) {
       const groupValue = match[1];
-      if (!groupValue || groupValue.length < settings.minWordLength) {
+      if (!groupValue || groupValue.length < settings.minWordLength)
         continue;
-      }
       this.addWord(groupValue);
     }
-    if (saveImmediately) {
+    if (saveImmediately)
       await this.saveData(file.vault);
-    }
   }
   async saveData(vault) {
     let output = [];
     for (let entry of this.wordMap.entries()) {
       output = [...output, ...entry[1]];
     }
-    await vault.adapter.write(
-      intoCompletrPath(vault, SCANNED_WORDS_PATH),
-      output.join("\n"),
-    );
+    await vault.adapter.write(intoCompletrPath(vault, SCANNED_WORDS_PATH), output.join("\n"));
   }
   async loadData(vault) {
     const path = intoCompletrPath(vault, SCANNED_WORDS_PATH);
-    if (!await vault.adapter.exists(path)) {
+    if (!await vault.adapter.exists(path))
       return;
-    }
     const contents = (await vault.adapter.read(path)).split(NEW_LINE_REGEX3);
     for (let word of contents) {
       this.addWord(word);
@@ -86787,9 +79481,8 @@ var ScannerSuggestionProvider = class extends DictionaryProvider {
     await this.saveData(vault);
   }
   addWord(word) {
-    if (!word || SuggestionBlacklist.hasText(word)) {
+    if (!word || SuggestionBlacklist.hasText(word))
       return;
-    }
     let list = this.wordMap.get(word.charAt(0));
     if (!list) {
       list = /* @__PURE__ */ new Set();
@@ -86808,27 +79501,19 @@ var import_obsidian2 = require("obsidian");
 var BASE_SUGGESTION = new Suggestion(
   "front-matter",
   "---\n~\n---",
-  { line: 0, ch: 0 },
+  { line: 0, ch: 0 }
 );
 var PUBLISH_SUGGESTION = new Suggestion(
   "publish: #",
-  "publish: ~",
+  "publish: ~"
 );
-function findTagCompletionType(
-  keyInfo,
-  editor,
-  currentLineIndex,
-  currentLine,
-  ignoreCase,
-) {
+function findTagCompletionType(keyInfo, editor, currentLineIndex, currentLine, ignoreCase) {
   const key = maybeLowerCase(keyInfo.key, ignoreCase);
   const isList = keyInfo.isList;
-  if (currentLine.startsWith(key + ": ")) {
+  if (currentLine.startsWith(key + ": "))
     return "inline";
-  }
-  if (!currentLine.trimStart().startsWith("- ") || !isList) {
+  if (!currentLine.trimStart().startsWith("- ") || !isList)
     return "none";
-  }
   let foundListStart = false;
   for (let i = currentLineIndex - 1; i >= 1; i--) {
     let line = editor.getLine(i).trim();
@@ -86854,20 +79539,17 @@ var YAMLKeyCache = class {
   }
   addEntry(key, value) {
     let info = this.keyMap.get(key);
-    if (!info) {
+    if (!info)
       this.keyMap.set(key, info = new YAMLKeyInfo(key));
-    }
     info.addCompletion(value);
   }
   addEntries(key, values) {
     let info = this.keyMap.get(key);
-    if (!info) {
+    if (!info)
       this.keyMap.set(key, info = new YAMLKeyInfo(key));
-    }
     for (let value of values) {
-      if (!value) {
+      if (!value)
         continue;
-      }
       info.addCompletion(value);
     }
     info.isList = true;
@@ -86886,17 +79568,12 @@ var FrontMatterSuggestionProvider = class {
   }
   getSuggestions(context, settings) {
     var _a, _b, _c;
-    if (!settings.frontMatterProviderEnabled) {
+    if (!settings.frontMatterProviderEnabled)
       return [];
-    }
     const firstLine = context.editor.getLine(0);
     const isInFrontMatter = isInFrontMatterBlock(context.editor, context.start);
     const ignoreCase = settings.frontMatterIgnoreCase;
-    if (
-      !isInFrontMatter && context.start.line === 0 &&
-      (firstLine === "" ||
-        "front-matter".startsWith(maybeLowerCase(firstLine, ignoreCase)))
-    ) {
+    if (!isInFrontMatter && context.start.line === 0 && (firstLine === "" || "front-matter".startsWith(maybeLowerCase(firstLine, ignoreCase)))) {
       return [BASE_SUGGESTION];
     } else if (!isInFrontMatter) {
       return [];
@@ -86905,22 +79582,20 @@ var FrontMatterSuggestionProvider = class {
     if (context.start.ch === 0) {
       const suggestions = this.getPossibleCompletions().flatMap((i) => {
         if (!i.isList) {
-          return [
-            new Suggestion(
-              i.key + ": #",
-              i.key + ": ~",
-            ),
-          ];
+          return [new Suggestion(
+            i.key + ": #",
+            i.key + ": ~"
+          )];
         }
         return [
           new Suggestion(
             i.key + ": [#]",
-            i.key + ": [~]",
+            i.key + ": [~]"
           ),
           new Suggestion(
             i.key + ": \\...",
-            i.key + ":\n- ~",
-          ),
+            i.key + ":\n- ~"
+          )
         ];
       });
       suggestions.push(PUBLISH_SUGGESTION);
@@ -86930,61 +79605,37 @@ var FrontMatterSuggestionProvider = class {
         return key2.startsWith(query);
       });
     }
-    const currentLine = maybeLowerCase(
-      context.editor.getLine(context.start.line),
-      ignoreCase,
-    );
-    if (currentLine.startsWith("publish:")) {
+    const currentLine = maybeLowerCase(context.editor.getLine(context.start.line), ignoreCase);
+    if (currentLine.startsWith("publish:"))
       return FrontMatterSuggestionProvider.getPublishSuggestions(query);
-    }
-    const { key, type } =
-      (_a = this.getPossibleCompletions().map((possibleKey) => ({
-          key: possibleKey,
-          type: findTagCompletionType(
-            possibleKey,
-            context.editor,
-            context.start.line,
-            currentLine,
-            ignoreCase,
-          ),
-        })
-        ).filter(({ type: type2 }) => type2 !== "none").shift()) != null
-        ? _a
-        : {};
-    if (!key) {
+    const { key, type } = (_a = this.getPossibleCompletions().map((possibleKey) => ({
+      key: possibleKey,
+      type: findTagCompletionType(possibleKey, context.editor, context.start.line, currentLine, ignoreCase)
+    })).filter(({ type: type2 }) => type2 !== "none").shift()) != null ? _a : {};
+    if (!key)
       return [];
-    }
-    const customQuery = maybeLowerCase(
-      matchWordBackwards(
-        context.editor,
-        context.end,
-        (char) =>
-          new RegExp("[" + settings.characterRegex + "/\\-_]", "u").test(char),
-        settings.maxLookBackDistance,
-      ).query,
-      ignoreCase,
-    );
+    const customQuery = maybeLowerCase(matchWordBackwards(
+      context.editor,
+      context.end,
+      (char) => new RegExp("[" + settings.characterRegex + "/\\-_]", "u").test(char),
+      settings.maxLookBackDistance
+    ).query, ignoreCase);
     let replacementSuffix = "";
     if (settings.frontMatterTagAppendSuffix && key.isList) {
       if (type === "inline") {
         replacementSuffix = ", ";
       } else {
         const line = context.editor.getLine(context.start.line);
-        const indentation =
-          (_c = (_b = line.match(/^\s*/)) == null ? void 0 : _b[0]) != null
-            ? _c
-            : "";
+        const indentation = (_c = (_b = line.match(/^\s*/)) == null ? void 0 : _b[0]) != null ? _c : "";
         replacementSuffix = `
 ${indentation}- `;
       }
     }
-    return [...key.completions].filter((tag) =>
-      maybeLowerCase(tag, ignoreCase).startsWith(customQuery)
-    ).map((tag) => {
+    return [...key.completions].filter((tag) => maybeLowerCase(tag, ignoreCase).startsWith(customQuery)).map((tag) => {
       return new Suggestion(
         tag,
         tag + replacementSuffix,
-        { ...context.end, ch: context.end.ch - customQuery.length },
+        { ...context.end, ch: context.end.ch - customQuery.length }
       );
     }).sort((a, b) => a.displayName.length - b.displayName.length);
   }
@@ -87000,13 +79651,11 @@ ${indentation}- `;
     const keyCache = new YAMLKeyCache();
     this.fileSuggestionCache.set(file.path, keyCache);
     for (let key of Object.keys(cache.frontmatter)) {
-      if (key === "position" || key === "publish" || key === "tags") {
+      if (key === "position" || key === "publish" || key === "tags")
         continue;
-      }
       let prop = cache.frontmatter[key];
-      if (!prop) {
+      if (!prop)
         continue;
-      }
       if (Array.isArray(prop)) {
         keyCache.addEntries(key, prop);
       } else {
@@ -87014,21 +79663,16 @@ ${indentation}- `;
       }
     }
     const tags = (0, import_obsidian2.getAllTags)(cache);
-    if (tags && tags.length > 0) {
+    if (tags && tags.length > 0)
       keyCache.addEntries("tags", tags.map((t) => t.substring(1)));
-    }
   }
   getPossibleCompletions() {
     const allKeys = /* @__PURE__ */ new Map();
     for (let cache of this.fileSuggestionCache.values()) {
       for (let keyInfo of cache.getCompletions()) {
         let combinedKeyInfo = allKeys.get(keyInfo.key);
-        if (!combinedKeyInfo) {
-          allKeys.set(
-            keyInfo.key,
-            combinedKeyInfo = new YAMLKeyInfo(keyInfo.key),
-          );
-        }
+        if (!combinedKeyInfo)
+          allKeys.set(keyInfo.key, combinedKeyInfo = new YAMLKeyInfo(keyInfo.key));
         keyInfo.completions.forEach((c) => combinedKeyInfo.addCompletion(c));
         combinedKeyInfo.isList = combinedKeyInfo.isList || keyInfo.isList;
       }
@@ -87036,91 +79680,142 @@ ${indentation}- `;
     return [...allKeys.values()];
   }
   static getPublishSuggestions(query) {
-    const possibilities = [
-      Suggestion.fromString("true"),
-      Suggestion.fromString("false"),
-    ];
-    const partialMatches = possibilities.filter((val) =>
-      val.displayName.startsWith(query) && val.displayName !== query
-    );
-    if (partialMatches.length > 0) {
+    const possibilities = [Suggestion.fromString("true"), Suggestion.fromString("false")];
+    const partialMatches = possibilities.filter((val) => val.displayName.startsWith(query) && val.displayName !== query);
+    if (partialMatches.length > 0)
       return partialMatches;
-    } else if (query === "true" || query === "false") {
+    else if (query === "true" || query === "false")
       return query === "true" ? possibilities.reverse() : possibilities;
-    }
     return [];
   }
 };
 var FrontMatter = new FrontMatterSuggestionProvider();
 
+// node_modules/obsidian-callout-manager/dist/api-esm.mjs
+function __awaiter(thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function(resolve) {
+      resolve(value);
+    });
+  }
+  return new (P || (P = Promise))(function(resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+}
+var PLUGIN_ID = "callout-manager";
+var PLUGIN_API_VERSION = "v1";
+function getApi(plugin) {
+  var _a;
+  return __awaiter(this, void 0, void 0, function* () {
+    const app = (_a = plugin === null || plugin === void 0 ? void 0 : plugin.app) !== null && _a !== void 0 ? _a : globalThis.app;
+    const { plugins } = app;
+    if (!plugins.enabledPlugins.has(PLUGIN_ID)) {
+      return void 0;
+    }
+    const calloutManagerInstance = yield new Promise((resolve, reject) => {
+      const instance = plugins.plugins[PLUGIN_ID];
+      if (instance !== void 0) {
+        return resolve(instance);
+      }
+      const interval = setInterval(() => {
+        const instance2 = plugins.plugins[PLUGIN_ID];
+        if (instance2 !== void 0) {
+          clearInterval(interval);
+          resolve(instance2);
+        }
+      }, 10);
+    });
+    return calloutManagerInstance.newApiHandle(PLUGIN_API_VERSION, plugin, () => {
+      calloutManagerInstance.destroyApiHandle(PLUGIN_API_VERSION, plugin);
+    });
+  });
+}
+function isInstalled(app) {
+  const appWithPlugins = app !== null && app !== void 0 ? app : globalThis.app;
+  return appWithPlugins.plugins.enabledPlugins.has(PLUGIN_ID);
+}
+
 // src/provider/callout_provider.ts
 var import_obsidian3 = require("obsidian");
 var CALLOUT_SUGGESTIONS_FILE = "callout_suggestions.json";
 var BLOCKQUOTE_PREFIX_REGEX = /^(?:[ \t]*>[ \t]*)+/;
-var CALLOUT_HEADER_REGEX = new RegExp(
-  "^(\\[!?([^\\]]*)\\])([+-]?)([ \\t]*)(.*)$",
-  "d",
-);
+var CALLOUT_HEADER_REGEX = new RegExp("^(\\[!?([^\\]]*)\\])([+-]?)([ \\t]*)(.*)$", "d");
 var CALLOUT_HEADER_PARTIAL_REGEX = new RegExp("^(\\[!?([^\\]]*))$", "d");
 var CalloutSuggestionProvider = class {
   constructor() {
     this.blocksAllOtherProviders = true;
     this.loadedSuggestions = [];
+    this.boundLoadSuggestionsUsingCalloutManager = this.loadSuggestionsUsingCalloutManager.bind(this);
   }
   getSuggestions(context, settings) {
-    if (!settings.calloutProviderEnabled) {
+    if (!settings.calloutProviderEnabled)
       return [];
-    }
     const { editor } = context;
     const lineNumber = context.start.line;
     const line = editor.getLine(lineNumber);
     const quote = extractBlockQuotePrefix(line);
-    if (quote == null) {
+    if (quote == null)
       return [];
-    }
-    const quoteAbove = lineNumber === 0
-      ? null
-      : extractBlockQuotePrefix(editor.getLine(lineNumber - 1));
-    if (quoteAbove != null && quoteAbove.depth >= quote.depth) {
+    const quoteAbove = lineNumber === 0 ? null : extractBlockQuotePrefix(editor.getLine(lineNumber - 1));
+    if (quoteAbove != null && quoteAbove.depth >= quote.depth)
       return [];
-    }
     const trimmed = line.substring(quote.chOffset);
     const callout = extractCalloutHeader(trimmed);
-    if (callout === null) {
+    if (callout === null)
       return [];
-    }
     const cursor = editor.getCursor("from").ch - quote.chOffset;
     const calloutType = callout.type;
-    if (
-      cursor < calloutType.start + 1 ||
-      cursor > calloutType.end - (calloutType.rawText.endsWith("]") ? 1 : 0)
-    ) {
+    if (cursor < calloutType.start + 1 || cursor > calloutType.end - (calloutType.rawText.endsWith("]") ? 1 : 0))
       return [];
-    }
     const replaceTitle = callout.title.rawText;
     const replaceFoldable = untrimEnd(callout.foldable.rawText);
-    const cursorInType = cursor -
-      (calloutType.start + calloutType.rawText.indexOf(calloutType.text));
+    const cursorInType = cursor - (calloutType.start + calloutType.rawText.indexOf(calloutType.text));
     const search = calloutType.text.toLowerCase().substring(0, cursorInType);
-    return this.loadedSuggestions.filter((s) =>
-      s.displayName.toLowerCase().startsWith(search) ||
-      s.replacement.toLowerCase().startsWith(search)
-    ).map((suggestion) => {
+    return this.loadedSuggestions.filter((s) => s.displayName.toLowerCase().startsWith(search) || s.replacement.toLowerCase().startsWith(search)).map((suggestion) => {
       return suggestion.derive({
-        replacement:
-          `[!${suggestion.replacement}]${replaceFoldable}${replaceTitle}`,
+        replacement: `[!${suggestion.replacement}]${replaceFoldable}${replaceTitle}`,
         overrideEnd: {
           line: context.end.line,
-          ch: line.length,
+          ch: line.length
         },
         overrideStart: {
           line: context.start.line,
-          ch: quote.chOffset,
-        },
+          ch: quote.chOffset
+        }
       });
     });
   }
-  async loadSuggestions(vault) {
+  async loadSuggestions(vault, plugin) {
+    const source = plugin.settings.calloutProviderSource;
+    const calloutManagerApi = await getApi(plugin);
+    if (calloutManagerApi != null) {
+      calloutManagerApi.off("change", this.boundLoadSuggestionsUsingCalloutManager);
+      if (source === "Callout Manager" /* CALLOUT_MANAGER */) {
+        calloutManagerApi.on("change", this.boundLoadSuggestionsUsingCalloutManager);
+        await this.loadSuggestionsUsingCalloutManager();
+        return;
+      }
+    }
+    await this.loadSuggestionsUsingCompletr(vault);
+  }
+  async loadSuggestionsUsingCompletr(vault) {
     const path = intoCompletrPath(vault, CALLOUT_SUGGESTIONS_FILE);
     if (!await vault.adapter.exists(path)) {
       const defaultCommands = generateDefaulCalloutOptions();
@@ -87130,36 +79825,40 @@ var CalloutSuggestionProvider = class {
       try {
         this.loadedSuggestions = await loadSuggestionsFromFile(vault, path, {
           allowColors: true,
-          allowIcons: true,
+          allowIcons: true
         });
       } catch (e) {
-        new import_obsidian3.Notice(
-          `${e.message}. Using default callout types.`,
-          3e3,
-        );
+        new import_obsidian3.Notice(`${e.message}. Using default callout types.`, 3e3);
         this.loadedSuggestions = generateDefaulCalloutOptions();
       }
     }
     this.loadedSuggestions = SuggestionBlacklist.filter(this.loadedSuggestions);
   }
+  async loadSuggestionsUsingCalloutManager() {
+    const api = await getApi();
+    this.loadedSuggestions = Array.from(api.getCallouts()).sort(({ id: a }, { id: b }) => a.localeCompare(b)).map((callout) => newSuggestion(
+      api.getTitle(callout),
+      callout.id,
+      callout.icon,
+      `rgb(${callout.color})`
+    ));
+  }
 };
 var Callout = new CalloutSuggestionProvider();
 function untrimEnd(string) {
-  if (string.trimEnd() !== string) {
+  if (string.trimEnd() !== string)
     return string;
-  }
   return `${string} `;
 }
 function extractBlockQuotePrefix(line) {
   const matches = BLOCKQUOTE_PREFIX_REGEX.exec(line);
-  if (matches == null) {
+  if (matches == null)
     return null;
-  }
   const depth = matches[0].length - matches[0].replaceAll(">", "").length;
   return {
     chOffset: matches[0].length,
     text: matches[0],
-    depth,
+    depth
   };
 }
 function extractCalloutHeader(line) {
@@ -87168,20 +79867,20 @@ function extractCalloutHeader(line) {
       start: -1,
       end: -1,
       text: "",
-      rawText: "",
+      rawText: ""
     },
     foldable: {
       start: -1,
       end: -1,
       text: "",
-      rawText: "",
+      rawText: ""
     },
     title: {
       start: -1,
       end: -1,
       text: "",
-      rawText: "",
-    },
+      rawText: ""
+    }
   };
   let matches = CALLOUT_HEADER_REGEX.exec(line);
   if (matches !== null) {
@@ -87215,42 +79914,32 @@ async function loadSuggestionsFromFile(vault, file, opts) {
     throw new Error(`Failed to parse file ${file}.`);
   }
   if (!(data instanceof Array)) {
-    throw new Error(
-      `Invalid suggestions file ${file}: JSON root must be array.`,
-    );
+    throw new Error(`Invalid suggestions file ${file}: JSON root must be array.`);
   }
   const suggestions = data.map((obj) => {
-    if (typeof obj === "string") {
+    if (typeof obj === "string")
       return Suggestion.fromString(obj);
-    }
-    if (!(opts == null ? void 0 : opts.allowColors)) {
+    if (!(opts == null ? void 0 : opts.allowColors))
       delete obj["color"];
-    }
-    if (!(opts == null ? void 0 : opts.allowIcons)) {
+    if (!(opts == null ? void 0 : opts.allowIcons))
       delete obj["icon"];
-    }
     return new Suggestion(
       obj.displayName,
       obj.replacement,
       void 0,
       void 0,
-      obj,
+      obj
     );
   });
-  const invalidsuggestion = suggestions.find((c) =>
-    c.displayName.includes("\n")
-  );
-  if (invalidsuggestion) {
-    throw new Error(
-      "Display name cannot contain a newline: " + invalidsuggestion.displayName,
-    );
-  }
+  const invalidsuggestion = suggestions.find((c) => c.displayName.includes("\n"));
+  if (invalidsuggestion)
+    throw new Error("Display name cannot contain a newline: " + invalidsuggestion.displayName);
   return suggestions;
 }
 function newSuggestion(name, replacement, icon, color) {
   return new Suggestion(name, replacement, void 0, void 0, {
     icon,
-    color,
+    color
   });
 }
 function generateDefaulCalloutOptions() {
@@ -87294,7 +79983,7 @@ function generateDefaulCalloutOptions() {
     newSuggestion("Bug", "bug", ...BUG),
     newSuggestion("Example", "example", ...EXAMPLE),
     newSuggestion("Quote", "quote", ...QUOTE),
-    newSuggestion("Cite", "cite", ...QUOTE),
+    newSuggestion("Cite", "cite", ...QUOTE)
   ];
 }
 
@@ -87305,9 +79994,7 @@ var SuggestionPopup = class extends import_obsidian4.EditorSuggest {
     var _a;
     super(app);
     this.focused = false;
-    this.disableSnippets = (_a = app.vault.config) == null
-      ? void 0
-      : _a.legacyEditor;
+    this.disableSnippets = (_a = app.vault.config) == null ? void 0 : _a.legacyEditor;
     this.settings = settings;
     this.snippetManager = snippetManager;
     let self = this;
@@ -87317,9 +80004,8 @@ var SuggestionPopup = class extends import_obsidian4.EditorSuggest {
     super.open();
     this.focused = this.settings.autoFocus;
     if (!this.focused) {
-      for (const c of this.suggestions.containerEl.children) {
+      for (const c of this.suggestions.containerEl.children)
         c.removeClass("is-selected");
-      }
     }
   }
   close() {
@@ -87329,18 +80015,14 @@ var SuggestionPopup = class extends import_obsidian4.EditorSuggest {
   getSuggestions(context) {
     let suggestions = [];
     for (let provider of PROVIDERS) {
-      suggestions = [
-        ...suggestions,
-        ...provider.getSuggestions({
-          ...context,
-          separatorChar: this.separatorChar,
-        }, this.settings),
-      ];
+      suggestions = [...suggestions, ...provider.getSuggestions({
+        ...context,
+        separatorChar: this.separatorChar
+      }, this.settings)];
       if (provider.blocksAllOtherProviders && suggestions.length > 0) {
         suggestions.forEach((suggestion) => {
-          if (!suggestion.overrideStart) {
+          if (!suggestion.overrideStart)
             return;
-          }
           this.context.start = suggestion.overrideStart;
         });
         break;
@@ -87348,15 +80030,12 @@ var SuggestionPopup = class extends import_obsidian4.EditorSuggest {
     }
     const seen = /* @__PURE__ */ new Set();
     suggestions = suggestions.filter((suggestion) => {
-      if (seen.has(suggestion.displayName)) {
+      if (seen.has(suggestion.displayName))
         return false;
-      }
       seen.add(suggestion.displayName);
       return true;
     });
-    return suggestions.length === 0
-      ? null
-      : suggestions.filter((s) => !SuggestionBlacklist.has(s));
+    return suggestions.length === 0 ? null : suggestions.filter((s) => !SuggestionBlacklist.has(s));
   }
   onTrigger(cursor, editor, file) {
     return this.internalOnTrigger(editor, cursor, !file);
@@ -87372,21 +80051,16 @@ var SuggestionPopup = class extends import_obsidian4.EditorSuggest {
     }
     let {
       query,
-      separatorChar,
-    } = matchWordBackwards(
-      editor,
-      cursor,
-      (char) => this.getCharacterRegex().test(char),
-      this.settings.maxLookBackDistance,
-    );
+      separatorChar
+    } = matchWordBackwards(editor, cursor, (char) => this.getCharacterRegex().test(char), this.settings.maxLookBackDistance);
     this.separatorChar = separatorChar;
     return {
       start: {
         ...cursor,
-        ch: cursor.ch - query.length,
+        ch: cursor.ch - query.length
       },
       end: cursor,
-      query,
+      query
     };
   }
   renderSuggestion(value, el) {
@@ -87409,31 +80083,20 @@ var SuggestionPopup = class extends import_obsidian4.EditorSuggest {
   selectSuggestion(value, evt) {
     var _a;
     const replacement = value.replacement;
-    const start = typeof value !== "string" && value.overrideStart
-      ? value.overrideStart
-      : this.context.start;
+    const start = typeof value !== "string" && value.overrideStart ? value.overrideStart : this.context.start;
     const endPos = (_a = value.overrideEnd) != null ? _a : this.context.end;
     this.context.editor.replaceRange(replacement, start, {
       ...endPos,
-      ch: Math.min(endPos.ch, this.context.editor.getLine(endPos.line).length),
+      ch: Math.min(endPos.ch, this.context.editor.getLine(endPos.line).length)
     });
     if (replacement.contains("#") || replacement.contains("~")) {
       if (!this.disableSnippets) {
-        this.snippetManager.handleSnippet(
-          replacement,
-          start,
-          this.context.editor,
-        );
+        this.snippetManager.handleSnippet(replacement, start, this.context.editor);
       } else {
-        console.log(
-          "Completr: Please enable Live Preview mode to use snippets",
-        );
+        console.log("Completr: Please enable Live Preview mode to use snippets");
       }
     } else {
-      this.context.editor.setCursor({
-        ...start,
-        ch: start.ch + replacement.length,
-      });
+      this.context.editor.setCursor({ ...start, ch: start.ch + replacement.length });
     }
     this.close();
     this.justClosed = true;
@@ -87444,10 +80107,7 @@ var SuggestionPopup = class extends import_obsidian4.EditorSuggest {
       dir = dir === SelectionDirection.PREVIOUS ? dir : SelectionDirection.NONE;
     }
     const self = this;
-    self.suggestions.setSelectedItem(
-      self.suggestions.selectedItem + dir,
-      new KeyboardEvent("keydown"),
-    );
+    self.suggestions.setSelectedItem(self.suggestions.selectedItem + dir, new KeyboardEvent("keydown"));
   }
   getSelectedItem() {
     const self = this;
@@ -87467,12 +80127,8 @@ var SuggestionPopup = class extends import_obsidian4.EditorSuggest {
     this.justClosed = true;
   }
   getCharacterRegex() {
-    if (this.characterRegex !== this.settings.characterRegex) {
-      this.compiledCharacterRegex = new RegExp(
-        "[" + this.settings.characterRegex + "]",
-        "u",
-      );
-    }
+    if (this.characterRegex !== this.settings.characterRegex)
+      this.compiledCharacterRegex = new RegExp("[" + this.settings.characterRegex + "]", "u");
     return this.compiledCharacterRegex;
   }
 };
@@ -87495,342 +80151,194 @@ var CompletrSettingsTab = class extends import_obsidian5.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    new import_obsidian5.Setting(containerEl).setName("Word character regex")
-      .setDesc(
-        "A regular expression which matches a character of a word. Used by during completion to find the word to the left of the cursor and used by the file scanner to find valid words.",
-      ).addText((text) =>
-        text.setValue(this.plugin.settings.characterRegex).onChange(
-          async (val) => {
-            try {
-              new RegExp("[" + val + "]+").test("");
-              text.inputEl.removeClass("completr-settings-error");
-              this.plugin.settings.characterRegex = val;
-              await this.plugin.saveSettings();
-            } catch (e) {
-              text.inputEl.addClass("completr-settings-error");
-            }
-          },
-        )
-      );
-    new import_obsidian5.Setting(containerEl).setName("Auto focus").setDesc(
-      "Whether the popup is automatically focused once it opens.",
-    ).addToggle((toggle) =>
-      toggle.setValue(this.plugin.settings.autoFocus).onChange(async (val) => {
-        this.plugin.settings.autoFocus = val;
+    new import_obsidian5.Setting(containerEl).setName("Word character regex").setDesc("A regular expression which matches a character of a word. Used by during completion to find the word to the left of the cursor and used by the file scanner to find valid words.").addText((text) => text.setValue(this.plugin.settings.characterRegex).onChange(async (val) => {
+      try {
+        new RegExp("[" + val + "]+").test("");
+        text.inputEl.removeClass("completr-settings-error");
+        this.plugin.settings.characterRegex = val;
+        await this.plugin.saveSettings();
+      } catch (e) {
+        text.inputEl.addClass("completr-settings-error");
+      }
+    }));
+    new import_obsidian5.Setting(containerEl).setName("Auto focus").setDesc("Whether the popup is automatically focused once it opens.").addToggle((toggle) => toggle.setValue(this.plugin.settings.autoFocus).onChange(async (val) => {
+      this.plugin.settings.autoFocus = val;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian5.Setting(containerEl).setName("Auto trigger").setDesc("Whether the popup opens automatically when typing.").addToggle((toggle) => toggle.setValue(this.plugin.settings.autoTrigger).onChange(async (val) => {
+      this.plugin.settings.autoTrigger = val;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian5.Setting(containerEl).setName("Minimum word length").setDesc("The minimum length a word has to be, to count as a valid suggestion. This value is used by the file scanner and word list provider.").addText((text) => {
+      text.inputEl.type = "number";
+      text.setValue(this.plugin.settings.minWordLength + "").onChange(async (val) => {
+        if (!val || val.length < 1)
+          return;
+        this.plugin.settings.minWordLength = parseInt(val);
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian5.Setting(containerEl).setName("Minimum word trigger length").setDesc("The minimum length a word has to be, to trigger suggestions. The LaTeX provider has its own separate setting.").addText((text) => {
+      text.inputEl.type = "number";
+      text.setValue(this.plugin.settings.minWordTriggerLength + "").onChange(async (val) => {
+        if (!val || val.length < 1)
+          return;
+        this.plugin.settings.minWordTriggerLength = parseInt(val);
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian5.Setting(containerEl).setName("Word insertion mode").setDesc("The insertion mode that is used. Ignore-case would suggest 'Hello' if the typed text is 'hello', match-case would not. Append would complete 'Hell' with 'Hello' while replace would complete it with 'hello' instead (if only 'hello' was a known word). Only used by the file scanner and word list provider.").addDropdown(
+      (dropdown) => dropdown.addOption("Ignore-Case & Replace" /* IGNORE_CASE_REPLACE */, "Ignore-Case & Replace" /* IGNORE_CASE_REPLACE */).addOption("Ignore-Case & Append" /* IGNORE_CASE_APPEND */, "Ignore-Case & Append" /* IGNORE_CASE_APPEND */).addOption("Match-Case & Replace" /* MATCH_CASE_REPLACE */, "Match-Case & Replace" /* MATCH_CASE_REPLACE */).setValue(this.plugin.settings.wordInsertionMode).onChange(async (val) => {
+        this.plugin.settings.wordInsertionMode = val;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian5.Setting(containerEl).setName("Auto trigger").setDesc(
-      "Whether the popup opens automatically when typing.",
-    ).addToggle((toggle) =>
-      toggle.setValue(this.plugin.settings.autoTrigger).onChange(
-        async (val) => {
-          this.plugin.settings.autoTrigger = val;
-          await this.plugin.saveSettings();
-        },
-      )
-    );
-    new import_obsidian5.Setting(containerEl).setName("Minimum word length")
-      .setDesc(
-        "The minimum length a word has to be, to count as a valid suggestion. This value is used by the file scanner and word list provider.",
-      ).addText((text) => {
-        text.inputEl.type = "number";
-        text.setValue(this.plugin.settings.minWordLength + "").onChange(
-          async (val) => {
-            if (!val || val.length < 1) {
-              return;
-            }
-            this.plugin.settings.minWordLength = parseInt(val);
-            await this.plugin.saveSettings();
-          },
-        );
-      });
-    new import_obsidian5.Setting(containerEl).setName(
-      "Minimum word trigger length",
-    ).setDesc(
-      "The minimum length a word has to be, to trigger suggestions. The LaTeX provider has its own separate setting.",
-    ).addText((text) => {
+    new import_obsidian5.Setting(containerEl).setName("Ignore diacritics when filtering").setDesc("When enabled, the query 'Hello' can suggest 'H\xE8ll\xF2', meaning diacritics will be ignored when filtering the suggestions. Only used by the file scanner and word list provider.").addToggle((toggle) => toggle.setValue(this.plugin.settings.ignoreDiacriticsWhenFiltering).onChange(async (val) => {
+      this.plugin.settings.ignoreDiacriticsWhenFiltering = val;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian5.Setting(containerEl).setName("Latex provider").setHeading();
+    this.createEnabledSetting("latexProviderEnabled", "Whether or not the latex provider is enabled", containerEl);
+    new import_obsidian5.Setting(containerEl).setName("Trigger in code blocks").setDesc("Whether the LaTeX provider should trigger after dollar signs which are enclosed in code blocks (for example ```$\\fr```).").addToggle((toggle) => toggle.setValue(this.plugin.settings.latexTriggerInCodeBlocks).onChange(async (val) => {
+      this.plugin.settings.latexTriggerInCodeBlocks = val;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian5.Setting(containerEl).setName("Ignore case").setDesc("Whether the LaTeX provider should ignore the casing of the typed text. If so, the input 'MaThbb' could suggest 'mathbb'.").addToggle((toggle) => toggle.setValue(this.plugin.settings.latexIgnoreCase).onChange(async (val) => {
+      this.plugin.settings.latexIgnoreCase = val;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian5.Setting(containerEl).setName("Minimum word trigger length").setDesc("The minimum length a query has to be, to trigger suggestions.").addText((text) => {
       text.inputEl.type = "number";
-      text.setValue(this.plugin.settings.minWordTriggerLength + "").onChange(
-        async (val) => {
-          if (!val || val.length < 1) {
-            return;
-          }
-          this.plugin.settings.minWordTriggerLength = parseInt(val);
-          await this.plugin.saveSettings();
-        },
-      );
-    });
-    new import_obsidian5.Setting(containerEl).setName("Word insertion mode")
-      .setDesc(
-        "The insertion mode that is used. Ignore-case would suggest 'Hello' if the typed text is 'hello', match-case would not. Append would complete 'Hell' with 'Hello' while replace would complete it with 'hello' instead (if only 'hello' was a known word). Only used by the file scanner and word list provider.",
-      ).addDropdown(
-        (dropdown) =>
-          dropdown.addOption(
-            "Ignore-Case & Replace", /* IGNORE_CASE_REPLACE */
-            "Ignore-Case & Replace", /* IGNORE_CASE_REPLACE */
-          ).addOption(
-            "Ignore-Case & Append", /* IGNORE_CASE_APPEND */
-            "Ignore-Case & Append", /* IGNORE_CASE_APPEND */
-          ).addOption(
-            "Match-Case & Replace", /* MATCH_CASE_REPLACE */
-            "Match-Case & Replace", /* MATCH_CASE_REPLACE */
-          ).setValue(this.plugin.settings.wordInsertionMode).onChange(
-            async (val) => {
-              this.plugin.settings.wordInsertionMode = val;
-              await this.plugin.saveSettings();
-            },
-          ),
-      );
-    new import_obsidian5.Setting(containerEl).setName(
-      "Ignore diacritics when filtering",
-    ).setDesc(
-      "When enabled, the query 'Hello' can suggest 'H\xE8ll\xF2', meaning diacritics will be ignored when filtering the suggestions. Only used by the file scanner and word list provider.",
-    ).addToggle((toggle) =>
-      toggle.setValue(this.plugin.settings.ignoreDiacriticsWhenFiltering)
-        .onChange(async (val) => {
-          this.plugin.settings.ignoreDiacriticsWhenFiltering = val;
-          await this.plugin.saveSettings();
-        })
-    );
-    new import_obsidian5.Setting(containerEl).setName("Latex provider")
-      .setHeading();
-    this.createEnabledSetting(
-      "latexProviderEnabled",
-      "Whether or not the latex provider is enabled",
-      containerEl,
-    );
-    new import_obsidian5.Setting(containerEl).setName("Trigger in code blocks")
-      .setDesc(
-        "Whether the LaTeX provider should trigger after dollar signs which are enclosed in code blocks (for example ```$\\fr```).",
-      ).addToggle((toggle) =>
-        toggle.setValue(this.plugin.settings.latexTriggerInCodeBlocks).onChange(
-          async (val) => {
-            this.plugin.settings.latexTriggerInCodeBlocks = val;
-            await this.plugin.saveSettings();
-          },
-        )
-      );
-    new import_obsidian5.Setting(containerEl).setName("Ignore case").setDesc(
-      "Whether the LaTeX provider should ignore the casing of the typed text. If so, the input 'MaThbb' could suggest 'mathbb'.",
-    ).addToggle((toggle) =>
-      toggle.setValue(this.plugin.settings.latexIgnoreCase).onChange(
-        async (val) => {
-          this.plugin.settings.latexIgnoreCase = val;
-          await this.plugin.saveSettings();
-        },
-      )
-    );
-    new import_obsidian5.Setting(containerEl).setName(
-      "Minimum word trigger length",
-    ).setDesc("The minimum length a query has to be, to trigger suggestions.")
-      .addText((text) => {
-        text.inputEl.type = "number";
-        text.setValue(this.plugin.settings.latexMinWordTriggerLength + "")
-          .onChange(async (val) => {
-            if (!val || val.length < 1) {
-              return;
-            }
-            this.plugin.settings.latexMinWordTriggerLength = parseInt(val);
-            await this.plugin.saveSettings();
-          });
+      text.setValue(this.plugin.settings.latexMinWordTriggerLength + "").onChange(async (val) => {
+        if (!val || val.length < 1)
+          return;
+        this.plugin.settings.latexMinWordTriggerLength = parseInt(val);
+        await this.plugin.saveSettings();
       });
-    new import_obsidian5.Setting(containerEl).setName("Front matter provider")
-      .addExtraButton((button) =>
-        button.setIcon("link").setTooltip("Obsidian Front-Matter wiki").onClick(
-          () =>
-            window.open(
-              "https://help.obsidian.md/Advanced+topics/YAML+front+matter",
-            ),
-        )
-      ).setHeading();
-    this.createEnabledSetting(
-      "frontMatterProviderEnabled",
-      "Whether the front matter provider is enabled",
-      containerEl,
-    );
-    new import_obsidian5.Setting(containerEl).setName("Ignore case").setDesc(
-      "Whether the Front matter provider should ignore the casing of the typed text. If so, the input 'MaThbb' could suggest 'mathbb'.",
-    ).addToggle((toggle) =>
-      toggle.setValue(this.plugin.settings.frontMatterIgnoreCase).onChange(
-        async (val) => {
-          this.plugin.settings.frontMatterIgnoreCase = val;
-          await this.plugin.saveSettings();
-        },
-      )
-    );
-    new import_obsidian5.Setting(containerEl).setName(
-      "Add suffix to tag completion",
-    ).setDesc(
-      "Whether each completed tag should be suffixed with a comma or a newline (when typing in a multi-line list). Allows faster insertion of multiple tags.",
-    ).addToggle((toggle) =>
-      toggle.setValue(this.plugin.settings.frontMatterTagAppendSuffix).onChange(
-        async (val) => {
-          this.plugin.settings.frontMatterTagAppendSuffix = val;
-          await this.plugin.saveSettings();
-        },
-      )
-    );
-    new import_obsidian5.Setting(containerEl).setName("File scanner provider")
-      .setHeading().addExtraButton((button) =>
-        button.setIcon("search").setTooltip(
-          "Immediately scan all .md files currently in your vault.",
-        ).onClick(() => {
-          new ConfirmationModal(
-            this.plugin.app,
-            "Start scanning?",
-            "Depending on the size of your vault and computer, this may take a while.",
-            (button2) => button2.setButtonText("Scan").setCta(),
-            async () => {
-              await FileScanner.scanFiles(
-                this.plugin.settings,
-                this.plugin.app.vault.getMarkdownFiles(),
-              );
-            },
-          ).open();
-        })
-      ).addExtraButton((button) =>
-        button.setIcon("trash").setTooltip("Delete all known words.").onClick(
-          async () => {
-            new ConfirmationModal(
-              this.plugin.app,
-              "Delete all known words?",
-              "This will delete all words that have been scanned. No suggestions from this provider will show up anymore until new files are scanned.",
-              (button2) => button2.setButtonText("Delete").setWarning(),
-              async () => {
-                await FileScanner.deleteAllWords(this.plugin.app.vault);
-              },
-            ).open();
-          },
-        )
-      );
-    this.createEnabledSetting(
-      "fileScannerProviderEnabled",
-      "Whether or not the file scanner provider is enabled.",
-      containerEl,
-    );
-    new import_obsidian5.Setting(containerEl).setName("Scan active file")
-      .setDesc(
-        "If this setting is enabled, the currently opened file will be scanned to find new words.",
-      ).addToggle((toggle) =>
-        toggle.setValue(this.plugin.settings.fileScannerScanCurrent).onChange(
-          async (val) => {
-            this.plugin.settings.fileScannerScanCurrent = val;
-            await this.plugin.saveSettings();
-          },
-        )
-      );
-    new import_obsidian5.Setting(containerEl).setName("Word list provider")
-      .setHeading();
-    this.createEnabledSetting(
-      "wordListProviderEnabled",
-      "Whether or not the word list provider is enabled",
-      containerEl,
-    );
+    });
+    new import_obsidian5.Setting(containerEl).setName("Front matter provider").addExtraButton((button) => button.setIcon("link").setTooltip("Obsidian Front-Matter wiki").onClick(() => window.open("https://help.obsidian.md/Advanced+topics/YAML+front+matter"))).setHeading();
+    this.createEnabledSetting("frontMatterProviderEnabled", "Whether the front matter provider is enabled", containerEl);
+    new import_obsidian5.Setting(containerEl).setName("Ignore case").setDesc("Whether the Front matter provider should ignore the casing of the typed text. If so, the input 'MaThbb' could suggest 'mathbb'.").addToggle((toggle) => toggle.setValue(this.plugin.settings.frontMatterIgnoreCase).onChange(async (val) => {
+      this.plugin.settings.frontMatterIgnoreCase = val;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian5.Setting(containerEl).setName("Add suffix to tag completion").setDesc("Whether each completed tag should be suffixed with a comma or a newline (when typing in a multi-line list). Allows faster insertion of multiple tags.").addToggle((toggle) => toggle.setValue(this.plugin.settings.frontMatterTagAppendSuffix).onChange(async (val) => {
+      this.plugin.settings.frontMatterTagAppendSuffix = val;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian5.Setting(containerEl).setName("File scanner provider").setHeading().addExtraButton((button) => button.setIcon("search").setTooltip("Immediately scan all .md files currently in your vault.").onClick(() => {
+      new ConfirmationModal(
+        this.plugin.app,
+        "Start scanning?",
+        "Depending on the size of your vault and computer, this may take a while.",
+        (button2) => button2.setButtonText("Scan").setCta(),
+        async () => {
+          await FileScanner.scanFiles(this.plugin.settings, this.plugin.app.vault.getMarkdownFiles());
+        }
+      ).open();
+    })).addExtraButton((button) => button.setIcon("trash").setTooltip("Delete all known words.").onClick(async () => {
+      new ConfirmationModal(
+        this.plugin.app,
+        "Delete all known words?",
+        "This will delete all words that have been scanned. No suggestions from this provider will show up anymore until new files are scanned.",
+        (button2) => button2.setButtonText("Delete").setWarning(),
+        async () => {
+          await FileScanner.deleteAllWords(this.plugin.app.vault);
+        }
+      ).open();
+    }));
+    this.createEnabledSetting("fileScannerProviderEnabled", "Whether or not the file scanner provider is enabled.", containerEl);
+    new import_obsidian5.Setting(containerEl).setName("Scan active file").setDesc("If this setting is enabled, the currently opened file will be scanned to find new words.").addToggle((toggle) => toggle.setValue(this.plugin.settings.fileScannerScanCurrent).onChange(async (val) => {
+      this.plugin.settings.fileScannerScanCurrent = val;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian5.Setting(containerEl).setName("Word list provider").setHeading();
+    this.createEnabledSetting("wordListProviderEnabled", "Whether or not the word list provider is enabled", containerEl);
     const fileInput = createEl("input", {
       attr: {
-        type: "file",
-      },
+        type: "file"
+      }
     });
     fileInput.onchange = async () => {
       const files = fileInput.files;
-      if (files.length < 1) {
+      if (files.length < 1)
         return;
-      }
       let changed = false;
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         try {
           const buf = await file.arrayBuffer();
-          const encoding =
-            (0, import_jschardet.detect)(Buffer.from(buf.slice(0, 1024)))
-              .encoding;
+          const encoding = (0, import_jschardet.detect)(Buffer.from(buf.slice(0, 1024))).encoding;
           const text = new import_util.TextDecoder(encoding).decode(buf);
-          const success = await WordList.importWordList(
-            this.app.vault,
-            file.name,
-            text,
-          );
+          const success = await WordList.importWordList(this.app.vault, file.name, text);
           changed || (changed = success);
-          if (!success) {
-            new import_obsidian5.Notice(
-              "Unable to import " + file.name + " because it already exists!",
-            );
-          }
+          if (!success)
+            new import_obsidian5.Notice("Unable to import " + file.name + " because it already exists!");
         } catch (e) {
           console.error(e);
           new import_obsidian5.Notice("Error while importing " + file.name);
         }
       }
-      if (!changed) {
+      if (!changed)
         return;
-      }
       await this.reloadWords();
       this.display();
     };
-    new import_obsidian5.Setting(containerEl).setName("Word list files")
-      .setDesc(
-        "A list of files which contain words to be used as suggestions. Each word should be on its own line.",
-      ).addExtraButton((button) =>
-        button.setIcon("switch").setTooltip("Reload").onClick(async () => {
-          await this.reloadWords();
-          this.display();
-        })
-      ).addButton((button) => {
-        button.buttonEl.appendChild(fileInput);
-        button.setButtonText("+").setCta().onClick(() => fileInput.click());
-      });
+    new import_obsidian5.Setting(containerEl).setName("Word list files").setDesc("A list of files which contain words to be used as suggestions. Each word should be on its own line.").addExtraButton((button) => button.setIcon("switch").setTooltip("Reload").onClick(async () => {
+      await this.reloadWords();
+      this.display();
+    })).addButton((button) => {
+      button.buttonEl.appendChild(fileInput);
+      button.setButtonText("+").setCta().onClick(() => fileInput.click());
+    });
     const wordListDiv = containerEl.createDiv();
     WordList.getRelativeFilePaths(this.app.vault).then((names) => {
       for (const name of names) {
         new import_obsidian5.Setting(wordListDiv).setName(name).addExtraButton(
-          (button) =>
-            button.setIcon("trash").setTooltip("Remove").onClick(async () => {
-              new ConfirmationModal(
-                this.app,
-                "Delete " + name + "?",
-                "The file will be removed and the words inside of it won't show up as suggestions anymore.",
-                (button2) => button2.setButtonText("Delete").setWarning(),
-                async () => {
-                  await WordList.deleteWordList(this.app.vault, name);
-                  await this.reloadWords();
-                  this.display();
-                },
-              ).open();
-            }),
+          (button) => button.setIcon("trash").setTooltip("Remove").onClick(async () => {
+            new ConfirmationModal(
+              this.app,
+              "Delete " + name + "?",
+              "The file will be removed and the words inside of it won't show up as suggestions anymore.",
+              (button2) => button2.setButtonText("Delete").setWarning(),
+              async () => {
+                await WordList.deleteWordList(this.app.vault, name);
+                await this.reloadWords();
+                this.display();
+              }
+            ).open();
+          })
         ).settingEl.addClass("completr-settings-list-item");
       }
     });
-    new import_obsidian5.Setting(containerEl).setName("Callout provider")
-      .setHeading();
-    this.createEnabledSetting(
-      "calloutProviderEnabled",
-      "Whether or not the callout provider is enabled",
-      containerEl,
-    );
+    new import_obsidian5.Setting(containerEl).setName("Callout provider").setHeading();
+    this.createEnabledSetting("calloutProviderEnabled", "Whether or not the callout provider is enabled", containerEl);
+    new import_obsidian5.Setting(containerEl).setName("Source").setDesc("Where callout suggestions come from.").addDropdown((component) => {
+      component.addOption("Completr", "Completr" /* COMPLETR */).setValue("Completr" /* COMPLETR */).onChange(async (value) => {
+        this.plugin.settings.calloutProviderSource = value;
+        await this.plugin.saveSettings();
+      });
+      if (isInstalled()) {
+        component.addOption("Callout Manager", "Callout Manager" /* CALLOUT_MANAGER */);
+        if (this.plugin.settings.calloutProviderSource === "Callout Manager" /* CALLOUT_MANAGER */) {
+          component.setValue(this.plugin.settings.calloutProviderSource);
+        }
+      }
+    });
   }
   async reloadWords() {
-    if (this.isReloadingWords) {
+    if (this.isReloadingWords)
       return;
-    }
     this.isReloadingWords = true;
-    const count = await WordList.loadFromFiles(
-      this.app.vault,
-      this.plugin.settings,
-    );
+    const count = await WordList.loadFromFiles(this.app.vault, this.plugin.settings);
     this.isReloadingWords = false;
     new import_obsidian5.Notice(`Loaded ${count} words`);
   }
   createEnabledSetting(propertyName, desc, container) {
-    new import_obsidian5.Setting(container).setName("Enabled").setDesc(desc)
-      .addToggle((toggle) =>
-        toggle.setValue(this.plugin.settings[propertyName]).onChange(
-          async (val) => {
-            this.plugin.settings[propertyName] = val;
-            await this.plugin.saveSettings();
-          },
-        )
-      );
+    new import_obsidian5.Setting(container).setName("Enabled").setDesc(desc).addToggle((toggle) => toggle.setValue(this.plugin.settings[propertyName]).onChange(async (val) => {
+      this.plugin.settings[propertyName] = val;
+      await this.plugin.saveSettings();
+    }));
   }
 };
 var ConfirmationModal = class extends import_obsidian5.Modal {
@@ -87844,9 +80352,7 @@ var ConfirmationModal = class extends import_obsidian5.Modal {
         await clickCallback();
         this.close();
       });
-    }).addButton((button) =>
-      button.setButtonText("Cancel").onClick(() => this.close())
-    ).settingEl.addClass("completr-settings-no-border");
+    }).addButton((button) => button.setButtonText("Cancel").onClick(() => this.close())).settingEl.addClass("completr-settings-no-border");
   }
 };
 
@@ -87856,12 +80362,8 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
   constructor() {
     super(...arguments);
     this.onFileOpened = (file) => {
-      if (
-        !this.settings.fileScannerProviderEnabled ||
-        !this.settings.fileScannerScanCurrent || !file
-      ) {
+      if (!this.settings.fileScannerProviderEnabled || !this.settings.fileScannerScanCurrent || !file)
         return;
-      }
       FileScanner.scanFile(this.settings, file, true);
     };
   }
@@ -87869,41 +80371,17 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
     var _a;
     await this.loadSettings();
     this.snippetManager = new SnippetManager();
-    this._suggestionPopup = new SuggestionPopup(
-      this.app,
-      this.settings,
-      this.snippetManager,
-    );
+    this._suggestionPopup = new SuggestionPopup(this.app, this.settings, this.snippetManager);
     this.registerEditorSuggest(this._suggestionPopup);
-    this.registerEvent(
-      this.app.workspace.on("file-open", this.onFileOpened, this),
-    );
-    this.registerEvent(
-      this.app.metadataCache.on(
-        "changed",
-        FrontMatter.onCacheChange,
-        FrontMatter,
-      ),
-    );
-    this.app.workspace.onLayoutReady(() =>
-      FrontMatter.loadYAMLKeyCompletions(
-        this.app.metadataCache,
-        this.app.vault.getMarkdownFiles(),
-      )
-    );
+    this.registerEvent(this.app.workspace.on("file-open", this.onFileOpened, this));
+    this.registerEvent(this.app.metadataCache.on("changed", FrontMatter.onCacheChange, FrontMatter));
+    this.app.workspace.onLayoutReady(() => FrontMatter.loadYAMLKeyCompletions(this.app.metadataCache, this.app.vault.getMarkdownFiles()));
     this.registerEditorExtension(markerStateField);
-    this.registerEditorExtension(
-      import_view3.EditorView.updateListener.of(
-        new CursorActivityListener(this.snippetManager, this._suggestionPopup)
-          .listener,
-      ),
-    );
+    this.registerEditorExtension(import_view3.EditorView.updateListener.of(new CursorActivityListener(this.snippetManager, this._suggestionPopup).listener));
     this.addSettingTab(new CompletrSettingsTab(this.app, this));
     this.setupCommands();
     if ((_a = this.app.vault.config) == null ? void 0 : _a.legacyEditor) {
-      console.log(
-        "Completr: Without Live Preview enabled, most features of Completr will not work properly!",
-      );
+      console.log("Completr: Without Live Preview enabled, most features of Completr will not work properly!");
     }
   }
   setupCommands() {
@@ -87911,36 +80389,19 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
     app.scope.keys = [];
     const isHotkeyMatch = (hotkey, context, isBypassCommand) => {
       const modifiers = hotkey.modifiers, key = hotkey.key;
-      if (
-        modifiers !== null &&
-        (isBypassCommand
-          ? !context.modifiers.contains(modifiers)
-          : modifiers !== context.modifiers)
-      ) {
+      if (modifiers !== null && (isBypassCommand ? !context.modifiers.contains(modifiers) : modifiers !== context.modifiers))
         return false;
-      }
-      return !key ||
-        (key === context.vkey ||
-          !(!context.key || key.toLowerCase() !== context.key.toLowerCase()));
+      return !key || (key === context.vkey || !(!context.key || key.toLowerCase() !== context.key.toLowerCase()));
     };
     this.app.scope.register(null, null, (e, t) => {
       var _a;
       const hotkeyManager = app.hotkeyManager;
       hotkeyManager.bake();
-      for (
-        let bakedHotkeys = hotkeyManager.bakedHotkeys,
-          bakedIds = hotkeyManager.bakedIds,
-          r = 0;
-        r < bakedHotkeys.length;
-        r++
-      ) {
+      for (let bakedHotkeys = hotkeyManager.bakedHotkeys, bakedIds = hotkeyManager.bakedIds, r = 0; r < bakedHotkeys.length; r++) {
         const hotkey = bakedHotkeys[r];
         const id = bakedIds[r];
         const command = app.commands.findCommand(id);
-        const isBypassCommand =
-          (_a = command == null ? void 0 : command.isBypassCommand) == null
-            ? void 0
-            : _a.call(command);
+        const isBypassCommand = (_a = command == null ? void 0 : command.isBypassCommand) == null ? void 0 : _a.call(command);
         if (isHotkeyMatch(hotkey, t, isBypassCommand)) {
           if (!command || e.repeat && !command.repeatable) {
             continue;
@@ -87948,23 +80409,19 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
             continue;
           } else if (isBypassCommand) {
             this._suggestionPopup.close();
-            const validMods = t.modifiers.replace(
-              new RegExp(`${hotkey.modifiers},*`),
-              "",
-            ).split(",");
+            const validMods = t.modifiers.replace(new RegExp(`${hotkey.modifiers},*`), "").split(",");
             let event = new KeyboardEvent("keydown", {
               key: hotkeyManager.defaultKeys[id][0].key,
               ctrlKey: validMods.contains("Ctrl"),
               shiftKey: validMods.contains("Shift"),
               altKey: validMods.contains("Alt"),
-              metaKey: validMods.contains("Meta"),
+              metaKey: validMods.contains("Meta")
             });
             e.target.dispatchEvent(event);
             return false;
           }
-          if (app.commands.executeCommandById(id)) {
+          if (app.commands.executeCommandById(id))
             return false;
-          }
         }
       }
     });
@@ -87974,13 +80431,13 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: " ",
-          modifiers: ["Mod"],
-        },
+          modifiers: ["Mod"]
+        }
       ],
       editorCallback: (editor) => {
         this._suggestionPopup.trigger(editor, null, true);
       },
-      isVisible: () => !this._suggestionPopup.isVisible(),
+      isVisible: () => !this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-select-next-suggestion",
@@ -87988,14 +80445,14 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "ArrowDown",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       repeatable: true,
       editorCallback: (_) => {
         this.suggestionPopup.selectNextItem(1 /* NEXT */);
       },
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-select-previous-suggestion",
@@ -88003,14 +80460,14 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "ArrowUp",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       repeatable: true,
       editorCallback: (_) => {
         this.suggestionPopup.selectNextItem(-1 /* PREVIOUS */);
       },
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-insert-selected-suggestion",
@@ -88018,12 +80475,12 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "Enter",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       editorCallback: (_) => this.suggestionPopup.applySelectedItem(),
       isBypassCommand: () => !this._suggestionPopup.isFocused(),
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-bypass-enter-key",
@@ -88031,13 +80488,13 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "Enter",
-          modifiers: ["Ctrl"],
-        },
+          modifiers: ["Ctrl"]
+        }
       ],
       editorCallback: (_) => {
       },
       isBypassCommand: () => true,
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-bypass-tab-key",
@@ -88045,13 +80502,13 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "Tab",
-          modifiers: ["Ctrl"],
-        },
+          modifiers: ["Ctrl"]
+        }
       ],
       editorCallback: (_) => {
       },
       isBypassCommand: () => true,
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-blacklist-current-word",
@@ -88059,20 +80516,16 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "D",
-          modifiers: ["Shift"],
-        },
+          modifiers: ["Shift"]
+        }
       ],
       editorCallback: (editor) => {
         SuggestionBlacklist.add(this._suggestionPopup.getSelectedItem());
         SuggestionBlacklist.saveData(this.app.vault);
-        this._suggestionPopup.trigger(
-          editor,
-          this.app.workspace.getActiveFile(),
-          true,
-        );
+        this._suggestionPopup.trigger(editor, this.app.workspace.getActiveFile(), true);
       },
       isBypassCommand: () => !this._suggestionPopup.isFocused(),
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-close-suggestion-popup",
@@ -88080,11 +80533,11 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "Escape",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       editorCallback: (_) => this.suggestionPopup.close(),
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-jump-to-next-snippet-placeholder",
@@ -88092,44 +80545,30 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "Enter",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       editorCallback: (editor, _) => {
-        const placeholder = this.snippetManager.placeholderAtPos(
-          editor.getCursor(),
-        );
-        if (!placeholder) {
+        const placeholder = this.snippetManager.placeholderAtPos(editor.getCursor());
+        if (!placeholder)
           return;
-        }
-        const placeholderEnd = posFromIndex(
-          editorToCodeMirrorState(placeholder.editor).doc,
-          placeholder.marker.to,
-        );
+        const placeholderEnd = posFromIndex(editorToCodeMirrorState(placeholder.editor).doc, placeholder.marker.to);
         if (!this.snippetManager.consumeAndGotoNextMarker(editor)) {
           editor.setSelections([{
             anchor: {
               ...placeholderEnd,
-              ch: Math.min(
-                editor.getLine(placeholderEnd.line).length,
-                placeholderEnd.ch + 1,
-              ),
-            },
+              ch: Math.min(editor.getLine(placeholderEnd.line).length, placeholderEnd.ch + 1)
+            }
           }]);
         }
       },
       isVisible: () => {
-        const view = this.app.workspace.getActiveViewOfType(
-          import_obsidian6.MarkdownView,
-        );
-        if (!view) {
+        const view = this.app.workspace.getActiveViewOfType(import_obsidian6.MarkdownView);
+        if (!view)
           return false;
-        }
-        const placeholder = this.snippetManager.placeholderAtPos(
-          view.editor.getCursor(),
-        );
+        const placeholder = this.snippetManager.placeholderAtPos(view.editor.getCursor());
         return placeholder != null;
-      },
+      }
     });
     this.addCommand({
       id: "completr-fake-tab",
@@ -88137,13 +80576,13 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "Tab",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       editorCallback: (_) => {
       },
       isBypassCommand: () => true,
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-fake-enter",
@@ -88151,13 +80590,13 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "Enter",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       editorCallback: (_) => {
       },
       isBypassCommand: () => true,
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-fake-arrow-up",
@@ -88165,13 +80604,13 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "ArrowUp",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       editorCallback: (_) => {
       },
       isBypassCommand: () => true,
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
     this.addCommand({
       id: "completr-fake-arrow-down",
@@ -88179,13 +80618,13 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       hotkeys: [
         {
           key: "ArrowDown",
-          modifiers: [],
-        },
+          modifiers: []
+        }
       ],
       editorCallback: (_) => {
       },
       isBypassCommand: () => true,
-      isVisible: () => this._suggestionPopup.isVisible(),
+      isVisible: () => this._suggestionPopup.isVisible()
     });
   }
   async onunload() {
@@ -88198,7 +80637,7 @@ var CompletrPlugin = class extends import_obsidian6.Plugin {
       WordList.loadFromFiles(this.app.vault, this.settings);
       FileScanner.loadData(this.app.vault);
       Latex.loadCommands(this.app.vault);
-      Callout.loadSuggestions(this.app.vault);
+      Callout.loadSuggestions(this.app.vault, this);
     });
   }
   get suggestionPopup() {
@@ -88217,9 +80656,7 @@ var CursorActivityListener = class {
         this.handleDocChange();
       }
       if (update.selectionSet) {
-        this.handleCursorActivity(
-          posFromIndex(update.state.doc, update.state.selection.main.head),
-        );
+        this.handleCursorActivity(posFromIndex(update.state.doc, update.state.selection.main.head));
       }
     };
     this.handleDocChange = () => {
@@ -88227,18 +80664,16 @@ var CursorActivityListener = class {
     };
     this.handleCursorActivity = (cursor) => {
       const didChangeLine = this.lastCursorLine != cursor.line;
-      if (didChangeLine) {
+      if (didChangeLine)
         this.suggestionPopup.preventNextTrigger();
-      }
       this.lastCursorLine = cursor.line;
       if (!this.snippetManager.placeholderAtPos(cursor)) {
         this.snippetManager.clearAllPlaceholders();
       }
       if (this.cursorTriggeredByChange) {
         this.cursorTriggeredByChange = false;
-        if (!didChangeLine) {
+        if (!didChangeLine)
           return;
-        }
       }
       this.suggestionPopup.close();
     };

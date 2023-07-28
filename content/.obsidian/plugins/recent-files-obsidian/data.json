@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "2023-07-28",
+      "path": "content/일간 노트/2023-07-28.md"
+    },
+    {
+      "basename": "NAS 기기 변경 시 HDD Migration 방법",
+      "path": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md"
+    },
+    {
       "basename": "%2ENET Installer 생성 및 배포 과정 정리",
       "path": "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md"
     },
@@ -19,10 +27,6 @@
     {
       "basename": "2023-06-05",
       "path": "content/일간 노트/2023-06-05.md"
-    },
-    {
-      "basename": "NAS 기기 변경 시 HDD Migration 방법",
-      "path": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md"
     },
     {
       "basename": "2023-05-26",

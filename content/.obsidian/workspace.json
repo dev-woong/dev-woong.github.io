@@ -21,7 +21,7 @@
                     "state": {
                       "type": "markdown",
                       "state": {
-                        "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+                        "file": "content/일간 노트/2023-07-28.md",
                         "mode": "source",
                         "source": true
                       }
@@ -195,7 +195,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md",
+                "file": "content/일간 노트/2023-07-28.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -260,7 +260,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+                "file": "content/일간 노트/2023-07-28.md",
                 "mode": "preview",
                 "source": true
               }
@@ -280,7 +280,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md"
+                "file": "content/일간 노트/2023-07-28.md"
               }
             }
           },
@@ -301,7 +301,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md",
+                "file": "content/일간 노트/2023-07-28.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -318,7 +318,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md",
+                "file": "content/일간 노트/2023-07-28.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -348,8 +348,11 @@
       "workspaces:작업 공간 레이아웃 관리": false
     }
   },
-  "active": "3945461a8f29ea1c",
+  "active": "db47e52450d2827b",
   "lastOpenFiles": [
+    "content/_content.md",
+    "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
+    "content/일간 노트/2023-07-28.md",
     "_content.md",
     "post/GitHub/_GitHub.md",
     "post/Docker/_Docker.md",
@@ -367,15 +370,12 @@
     "post/_post.md",
     "post/GitHub/Actions/_Actions.md",
     "_index.md",
-    "content/_content.md",
     "templates/zoottel_template.md",
     "content/일간 노트/2023-06-20.md",
-    "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
     "content/일간 노트/2023-06-05.md",
     "categories/_categories.md",
     "content/일간 노트/2023-05-26.md",
     "page/_page.md",
-    "일간 노트/2023-05-26.md",
     "post/Synology NAS",
     "무제 파일.canvas",
     "content/일간 노트",

@@ -32,12 +32,8 @@
                     "id": "ba1d2e32b9f5d979",
                     "type": "leaf",
                     "state": {
-                      "type": "markdown",
-                      "state": {
-                        "file": "문서 관리/문서 발행 여부.md",
-                        "mode": "preview",
-                        "source": true
-                      }
+                      "type": "empty",
+                      "state": {}
                     }
                   }
                 ]
@@ -50,12 +46,8 @@
                     "id": "fb3fb3863764475c",
                     "type": "leaf",
                     "state": {
-                      "type": "markdown",
-                      "state": {
-                        "file": "_index.md",
-                        "mode": "source",
-                        "source": true
-                      }
+                      "type": "empty",
+                      "state": {}
                     }
                   }
                 ]
@@ -71,12 +63,8 @@
                 "id": "7896007f822fc0f8",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "content/일간 노트/2023-06-05.md",
-                    "mode": "source",
-                    "source": true
-                  }
+                  "type": "empty",
+                  "state": {}
                 },
                 "group": "7de1dbd4d91575a7"
               }
@@ -90,12 +78,8 @@
                 "id": "9ee1b85a1d6cee18",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "content/일간 노트/2023-06-05.md",
-                    "mode": "source",
-                    "source": true
-                  }
+                  "type": "empty",
+                  "state": {}
                 },
                 "group": "7de1dbd4d91575a7"
               },
@@ -103,12 +87,8 @@
                 "id": "ac5a11df4ef54d6b",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md",
-                    "mode": "source",
-                    "source": true
-                  }
+                  "type": "empty",
+                  "state": {}
                 }
               }
             ],
@@ -195,7 +175,6 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "content/일간 노트/2023-07-28.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -261,7 +240,7 @@
               "type": "markdown",
               "state": {
                 "file": "content/일간 노트/2023-07-28.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               }
             },
@@ -279,9 +258,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "content/일간 노트/2023-07-28.md"
-              }
+              "state": {}
             }
           },
           {
@@ -301,7 +278,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/일간 노트/2023-07-28.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -318,7 +294,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/일간 노트/2023-07-28.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -348,11 +323,14 @@
       "workspaces:작업 공간 레이아웃 관리": false
     }
   },
-  "active": "db47e52450d2827b",
+  "active": "ac5a11df4ef54d6b",
   "lastOpenFiles": [
+    "content/일간 노트/2023-07-28.md",
+    "content/일간 노트/2023-06-05.md",
+    "무제 파일.canvas",
+    "무제 파일 1.canvas",
     "content/_content.md",
     "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md",
-    "content/일간 노트/2023-07-28.md",
     "_content.md",
     "post/GitHub/_GitHub.md",
     "post/Docker/_Docker.md",
@@ -372,12 +350,9 @@
     "_index.md",
     "templates/zoottel_template.md",
     "content/일간 노트/2023-06-20.md",
-    "content/일간 노트/2023-06-05.md",
     "categories/_categories.md",
     "content/일간 노트/2023-05-26.md",
-    "page/_page.md",
     "post/Synology NAS",
-    "무제 파일.canvas",
     "content/일간 노트",
     "content",
     "일간 노트"

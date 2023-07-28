@@ -5,6 +5,18 @@
       "path": "content/일간 노트/2023-07-28.md"
     },
     {
+      "basename": "2023-06-05",
+      "path": "content/일간 노트/2023-06-05.md"
+    },
+    {
+      "basename": "무제 파일",
+      "path": "무제 파일.canvas"
+    },
+    {
+      "basename": "무제 파일 1",
+      "path": "무제 파일 1.canvas"
+    },
+    {
       "basename": "NAS 기기 변경 시 HDD Migration 방법",
       "path": "post/Synology NAS/NAS 기기 변경 시 HDD Migration 방법.md"
     },
@@ -23,10 +35,6 @@
     {
       "basename": "2023-06-20",
       "path": "content/일간 노트/2023-06-20.md"
-    },
-    {
-      "basename": "2023-06-05",
-      "path": "content/일간 노트/2023-06-05.md"
     },
     {
       "basename": "2023-05-26",

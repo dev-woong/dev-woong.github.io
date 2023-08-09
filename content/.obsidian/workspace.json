@@ -56,7 +56,7 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "post/GitLab/(GitLab-CI) Cache.md",
+                    "file": "post/GitLab/GitLab CI - Cache.md",
                     "mode": "source",
                     "source": true
                   }
@@ -113,7 +113,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "gitlab",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -138,7 +138,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "6e41883bda7f6f20",
@@ -164,7 +165,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/GitLab/(GitLab-CI) Cache.md",
+                "file": "post/GitLab/GitLab CI - Cache.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -249,7 +250,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/GitLab/(GitLab-CI) Cache.md"
+                "file": "post/GitLab/GitLab CI - Cache.md"
               }
             }
           },
@@ -270,7 +271,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/GitLab/(GitLab-CI) Cache.md",
+                "file": "post/GitLab/GitLab CI - Cache.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -287,7 +288,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/GitLab/(GitLab-CI) Cache.md",
+                "file": "post/GitLab/GitLab CI - Cache.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -319,10 +320,13 @@
   },
   "active": "b4f2838251f4f5d7",
   "lastOpenFiles": [
-    "post/GitLab/_GitLab.md",
-    "문서 관리/문서 발행 여부.md",
-    "post/GitLab/(GitLab-CI) Cache.md",
+    "일간 노트/2023-08-08.md",
+    "post/GitLab/GitLab CI - Cache.md",
     "일간 노트/2023-07-28.md",
+    "문서 관리/문서 발행 여부.md",
+    "무제 파일 2.canvas",
+    "일간 노트/2023-08-09.md",
+    "post/GitLab/_GitLab.md",
     "post/GitLab",
     "일간 노트/2023-05-26.md",
     "content/일간 노트/2023-07-28.md",
@@ -347,9 +351,6 @@
     "post/MacOS/_MacOS.md",
     "post/Unity/_Unity.md",
     "post/Windows/_Windows.md",
-    "post/MAUI/_MAUI.md",
-    "post/_post.md",
-    "post/GitHub/Actions/_Actions.md",
     "post/Synology NAS",
     "일간 노트"
   ]

@@ -1,8 +1,0 @@
-/* Sets all the text color to red! */
-.myalert {
-    background: red !important;
-}
-
-.myalert-light {
-    background: rgba(255, 122, 89, .3) !important;
-}

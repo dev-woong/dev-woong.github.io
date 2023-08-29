@@ -71,6 +71,7 @@ NAS의
 NAS에서의
 NAS에
 None
+NetSparkle
 Today
 Task
 TeamCity
@@ -275,6 +276,7 @@ CD로서
 Chrome이
 Cache를
 Cache란
+Cast
 이용한
 이슈
 이름에
@@ -1044,6 +1046,7 @@ UGUI
 Unlisted
 UnityPackage
 UPM
+Updater로
 기능
 기존
 기초
@@ -1634,6 +1637,7 @@ Local
 자동화를
 자세한
 자주
+자동
 역할
 맵의
 게임에

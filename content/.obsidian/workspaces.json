@@ -618,7 +618,289 @@
         }
       },
       "active": "7896007f822fc0f8"
+    },
+    "1 Monitor Side Split": {
+      "main": {
+        "id": "a1f16ce5f8a02de0",
+        "type": "split",
+        "children": [
+          {
+            "id": "d0a088cb6965f97d",
+            "type": "split",
+            "children": [
+              {
+                "id": "4953be46875d48cd",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "9ee1b85a1d6cee18",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "일간 노트/2023-08-22.md",
+                        "mode": "preview",
+                        "source": false
+                      }
+                    },
+                    "group": "12a546e765e6b675"
+                  }
+                ]
+              },
+              {
+                "id": "6ccb279d217bb396",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "c9e1fab1dee08baa",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "일간 노트/2023-08-22.md",
+                        "mode": "source",
+                        "source": true
+                      }
+                    },
+                    "group": "12a546e765e6b675"
+                  }
+                ]
+              }
+            ],
+            "direction": "horizontal"
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "c02b33d06efc6002",
+        "type": "split",
+        "children": [
+          {
+            "id": "05d776fd591d78ba",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "3945461a8f29ea1c",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "a17aa27a239100b9",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "gitlab",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "7b5f94c9df601420",
+                "type": "leaf",
+                "state": {
+                  "type": "starred",
+                  "state": {}
+                }
+              },
+              {
+                "id": "8930e5efb31f2b5c",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          },
+          {
+            "id": "6e41883bda7f6f20",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "d30c725583e55f74",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {}
+                }
+              }
+            ]
+          },
+          {
+            "id": "ff720150b803d13f",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "a7b91bf903cc9ea2",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "일간 노트/2023-08-22.md",
+                    "options": {
+                      "collapse-filter": false,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": true,
+                      "showTags": true,
+                      "showAttachments": true,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [],
+                      "collapse-display": false,
+                      "showArrow": false,
+                      "textFadeMultiplier": 0,
+                      "nodeSizeMultiplier": 1,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.518713248970312,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 250,
+                      "scale": 1.862115423205562,
+                      "close": true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 399.5024719238281
+      },
+      "right": {
+        "id": "9a90f98617572d22",
+        "type": "split",
+        "children": [
+          {
+            "id": "7c421542fdeb1efe",
+            "type": "tabs",
+            "dimension": 20.046838407494143,
+            "children": [
+              {
+                "id": "99ec016b4179cc7c",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {}
+                }
+              }
+            ]
+          },
+          {
+            "id": "ae99a87963427a1a",
+            "type": "tabs",
+            "dimension": 54.70725995316159,
+            "children": [
+              {
+                "id": "2293539e437c7b84",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "일간 노트/2023-08-22.md",
+                    "mode": "preview",
+                    "source": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "b38251131c271ec4",
+            "type": "tabs",
+            "dimension": 25.245901639344265,
+            "children": [
+              {
+                "id": "be827a448ae370db",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "일간 노트/2023-08-22.md"
+                  }
+                }
+              },
+              {
+                "id": "a8411420f624372e",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": false
+                  }
+                }
+              },
+              {
+                "id": "4ca2ee3c46e19fcd",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "일간 노트/2023-08-22.md",
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "770c994299e2eef9",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "일간 노트/2023-08-22.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 529
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "canvas:새 캔버스 만들기": false,
+          "switcher:퀵 스위처 열기": false,
+          "markdown-importer:마크다운 형식 가져오기 열기": false,
+          "zk-prefixer:새로운 유니크 노트 생성": false,
+          "templater-obsidian:Templater": false,
+          "oz-clear-unused-images:Clear Unused Images": false,
+          "obsidian-to-notion:Share to notion": false,
+          "graph:그래프 뷰 열기": false,
+          "daily-notes:오늘의 데일리 노트 열기": false,
+          "templates:템플릿 삽입": false,
+          "command-palette:명령어 팔레트 열기": false,
+          "audio-recorder:녹음 시작/중지": false,
+          "workspaces:작업 공간 레이아웃 관리": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false
+        }
+      },
+      "active": "c9e1fab1dee08baa"
     }
   },
-  "active": "Full 2022-12-14"
+  "active": "1 Monitor Side Split"
 }

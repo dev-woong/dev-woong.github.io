@@ -4,66 +4,9 @@
     "type": "split",
     "children": [
       {
-        "id": "d1853735e3433f59",
+        "id": "d0a088cb6965f97d",
         "type": "split",
         "children": [
-          {
-            "id": "5b7b458ecce9fd53",
-            "type": "split",
-            "children": [
-              {
-                "id": "b7bc480b6750ea95",
-                "type": "tabs",
-                "children": [
-                  {
-                    "id": "ba1d2e32b9f5d979",
-                    "type": "leaf",
-                    "state": {
-                      "type": "markdown",
-                      "state": {
-                        "file": "문서 관리/문서 발행 여부.md",
-                        "mode": "source",
-                        "source": true
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "id": "8da31f684a61efd7",
-                "type": "tabs",
-                "children": [
-                  {
-                    "id": "fb3fb3863764475c",
-                    "type": "leaf",
-                    "state": {
-                      "type": "graph",
-                      "state": {}
-                    }
-                  }
-                ]
-              }
-            ],
-            "direction": "horizontal"
-          },
-          {
-            "id": "9bcab52cf5c5c88f",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "b4f2838251f4f5d7",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "post/GitLab/GitLab CI - Cache.md",
-                    "mode": "source",
-                    "source": true
-                  }
-                }
-              }
-            ]
-          },
           {
             "id": "4953be46875d48cd",
             "type": "tabs",
@@ -74,17 +17,36 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "일간 노트/2023-07-28.md",
+                    "file": "post/Microsoft .Net/NetSparkle Updater로 자동 업데이트 앱 만들기.md",
+                    "mode": "preview",
+                    "source": false
+                  }
+                },
+                "group": "12a546e765e6b675"
+              }
+            ]
+          },
+          {
+            "id": "6ccb279d217bb396",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "c9e1fab1dee08baa",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "post/Microsoft .Net/NetSparkle Updater로 자동 업데이트 앱 만들기.md",
                     "mode": "source",
                     "source": true
                   }
                 },
-                "group": "86a2d3be99ebc3bc"
+                "group": "12a546e765e6b675"
               }
             ]
           }
         ],
-        "direction": "vertical"
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -138,8 +100,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "6e41883bda7f6f20",
@@ -165,7 +126,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "post/GitLab/GitLab CI - Cache.md",
+                "file": "일간 노트/2023-08-22.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -230,12 +191,11 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "일간 노트/2023-07-28.md",
+                "file": "일간 노트/2023-08-22.md",
                 "mode": "preview",
                 "source": true
               }
-            },
-            "group": "86a2d3be99ebc3bc"
+            }
           }
         ]
       },
@@ -250,7 +210,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "post/GitLab/GitLab CI - Cache.md"
+                "file": "일간 노트/2023-08-22.md"
               }
             }
           },
@@ -271,7 +231,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "post/GitLab/GitLab CI - Cache.md",
+                "file": "일간 노트/2023-08-22.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -288,7 +248,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "post/GitLab/GitLab CI - Cache.md",
+                "file": "일간 노트/2023-08-22.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -318,13 +278,19 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b4f2838251f4f5d7",
+  "active": "2293539e437c7b84",
   "lastOpenFiles": [
+    "post/Microsoft .Net/NetSparkle Updater로 자동 업데이트 앱 만들기.md",
     "일간 노트/2023-08-08.md",
-    "post/GitLab/GitLab CI - Cache.md",
-    "일간 노트/2023-07-28.md",
+    "일간 노트/2022-10-01.md",
+    "post/Microsoft .Net/%2ENET Installer 생성 및 배포 과정 정리.md",
+    "일간 노트/2023-08-22.md",
+    "post/Microsoft .Net/무제 파일.md",
+    "templates/daily_note.md",
     "문서 관리/문서 발행 여부.md",
+    "일간 노트/2023-07-28.md",
     "무제 파일 2.canvas",
+    "post/GitLab/GitLab CI - Cache.md",
     "일간 노트/2023-08-09.md",
     "post/GitLab/_GitLab.md",
     "post/GitLab",
@@ -346,11 +312,6 @@
     "post/Obsidian/_Obsidian.md",
     "post/Server/_Server.md",
     "post/Synology NAS/_Synology NAS.md",
-    "post/TeamCity/_TeamCity.md",
-    "post/Tekla Structures API/_Tekla Structures API.md",
-    "post/MacOS/_MacOS.md",
-    "post/Unity/_Unity.md",
-    "post/Windows/_Windows.md",
     "post/Synology NAS",
     "일간 노트"
   ]
